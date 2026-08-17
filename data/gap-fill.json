@@ -1,0 +1,766 @@
+{
+  "id": "gap-fill",
+  "title": "Complete the Sentences",
+  "subtitle": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+  "tasks": [
+    {
+      "id": "gaps-willis",
+      "nav": "Willis Tower",
+      "title": "Willis Tower",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "when appreciating the big city's skyline",
+        "that the true color of Willis Tower is green",
+        "as solar and wind power and \"green roofs\"",
+        "as a leader among American skyscrapers",
+        "using new lighting systems and controls",
+        "that was designed and built many years ago",
+        "not counting thousands of the building's visitors"
+      ],
+      "html": "Willis Tower is the heart of downtown Chicago and the future of work and play. The 110-story building is one of the tallest buildings in the world and the second tallest building in North America, making it impossible to miss <span data-gap=\"A\"></span>. The magnitude of this magnificent steel frame skyscraper can seem impossible to understand.<br><br>Willis Tower is now owned by Blackstone and managed by EQ Office. It is home to more than 100 businesses including law firms, insurance, transportation, financial companies and more. Radio and television stations are broadcast from Willis Tower's rooftop. 15,000 people work at the Tower each day, <span data-gap=\"B\"></span>. And 12 million people pass by and through the Tower each year.<br><br>It is not surprising <span data-gap=\"C\"></span>. The Tower is not only an innovator in promoting green practices among its tenants, but also stands <span data-gap=\"D\"></span> in increasing energy and water efficiency and reducing waste. Over the past 20 years, the Tower has reduced annual electricity consumption by 34% by <span data-gap=\"E\"></span> and adopting special conservation practices. The building saves 10 million gallons of water each year by relying on reduced water-flow fixtures.<br><br>These innovations are encouraging those in charge of the building to look into certification for energy efficiency and explore renewable energy resources, such <span data-gap=\"F\"></span> covered with vegetation.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "1",
+        "B": "7",
+        "C": "2",
+        "D": "4",
+        "E": "5",
+        "F": "3"
+      }
+    },
+    {
+      "id": "gaps-china",
+      "nav": "China",
+      "title": "Unique Country. China",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "after many decades of economic growth",
+        "more than 50 of which have populations",
+        "that dates back more than 5000 years",
+        "winding for 6,700 kilometres all the way",
+        "each recalling the days of China's emperors",
+        "or during the latest years of economic boom",
+        "or seek out the peace of an ancient temple"
+      ],
+      "html": "The world first discovered China through the writings of adventurer Marco Polo more than 700 years ago. Ever since, this large Asian country has come to be regarded as the embodiment of everything that is mysterious and exotic. Even now, <span data-gap=\"A\"></span>, this vast country has lost none of its attraction. Indeed, the contrast between China's ancient customs and the new ultra-modern state has only increased the fascination with its culture <span data-gap=\"B\"></span>.<br><br>It is a culture that is much celebrated by the Chinese themselves, as evidenced by the preservation of such important historic sites as the Forbidden City and the Summer Palace in Beijing, <span data-gap=\"C\"></span>. And then, there is the famous Great Wall of China, <span data-gap=\"D\"></span> from the Yellow Sea to Central Asia. Its countless shrines demonstrate the spirit of age-old Eastern religions. The cities of the Middle Kingdom, <span data-gap=\"E\"></span> of over a million, and the coastal provinces, are today enjoying a soaring economic boom.<br><br>Thanks to its size, China is a great tourist destination. It offers limitless scope for exploration. Whether people choose to travel aboard a luxury cruise ship, <span data-gap=\"F\"></span>, this country is full of incredible experiences and sightseeing opportunities. China has something for every taste and all the essential ingredients for an unforgettable holiday in a beautiful country.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "1",
+        "B": "3",
+        "C": "5",
+        "D": "4",
+        "E": "2",
+        "F": "7"
+      }
+    },
+    {
+      "id": "gaps-mir-dining",
+      "nav": "Mir Dining Table",
+      "title": "Mir Space Station Dining Table",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "located in the station's core module",
+        "in Moscow, where it can be seen today",
+        "a place where the crew gather for meals",
+        "the first experiment with long-term space",
+        "a vital feature when important equipment",
+        "appeared at the London Science Museum as",
+        "in service for 15 years, three times longer than"
+      ],
+      "html": "When living in a cramped space with two or more people for months, you'd think that there would be no need for a special shared zone. But on Russia's Mir space station, a high-tech dining table is <span data-gap=\"A\"></span> and discuss aeronautical projects. The Mir station orbited Earth from 1986 to 2001, straight through the end of the Soviet Union. The station was <span data-gap=\"B\"></span> habitation. Cosmonaut Valeri Polyakov still holds the record for the longest continuous space stay.<br><br>The multicoloured dining table was <span data-gap=\"C\"></span>. It came with slots where cosmonauts could heat up tins and tubes of food like liver stroganoff and chicken in white sauce. A built-in vacuum cleaner would suck up any stray crumbs, <span data-gap=\"D\"></span> could be damaged by dust. The table could also distribute hot and cold water for rehydrating food.<br><br>The Mir station was <span data-gap=\"E\"></span> expected. The table was important as a surface for food prep and work. However, it was also a place where international astronauts could connect and collaborate while breaking bread. The dining table was brought back to Earth to the Memorial Museum of Cosmonautics <span data-gap=\"F\"></span>.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "3",
+        "B": "4",
+        "C": "1",
+        "D": "5",
+        "E": "7",
+        "F": "2"
+      }
+    },
+    {
+      "id": "gaps-peterhof",
+      "nav": "Peterhof",
+      "title": "Peterhof (City of Fountains)",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "and from the sea has been firmly ensured",
+        "which is a former royal countryside residence",
+        "who designs many royal residences in Europe",
+        "who wanted to decorate the main entrance with waterfalls",
+        "and then rebuilt in the baroque style in the 18th century",
+        "that are located in the park on the coast of the Gulf of Finland",
+        "and on the other hand, to become a monument of Russia's struggle"
+      ],
+      "html": "Peterhof is a monument of world architecture and palace and park art. Peterhof includes a palace and park ensemble of the 18-19th centuries, <span data-gap=\"A\"></span>. Peterhof is a city of fountains as it contains 173 fountains and 4 cascades <span data-gap=\"B\"></span>. Each year up to 3 million people come here to enjoy the splendour of numerous fountains and the unique parks of Peterhof.<br><br>The name Peterhof was first mentioned in 1705. It was a coastal manor, close to which the construction of a grand country residence began. The original plan belonged to Peter the Great. After the brilliant victory of Russian troops over the Swedes, security of St. Petersburg both from the land <span data-gap=\"C\"></span>. Since that time, the construction of the Peterhof residence grew immensely in scope.<br><br>According to the plan of Peter the Great, on the one hand, Peterhof was meant to be equal in splendour with the most famous royal residences in Europe, <span data-gap=\"D\"></span> to access the Baltic Sea. Both were successfully done. The Great Palace was built on a natural hill here, <span data-gap=\"E\"></span>. Following the plan of Peter the Great, <span data-gap=\"F\"></span>, the Grand Cascade with the famous Samson fountain was constructed. This is still one of the most spectacular fountains in the world. In 1990 the palaces and parks of Peterhof were included in the list of the world heritage of UNESCO.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "2",
+        "B": "6",
+        "C": "1",
+        "D": "7",
+        "E": "4",
+        "F": "5"
+      }
+    },
+    {
+      "id": "gaps-state-history",
+      "nav": "State History Museum",
+      "title": "State History Museum",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "which is an attraction in its own right",
+        "that once inhabited the big territory of",
+        "and cave paintings of prehistoric times",
+        "and the consolidation of the Russian state",
+        "covering Russian history since the time of",
+        "that were collected by the Romanov dynasty",
+        "addressing the expansion of the Russian Empire"
+      ],
+      "html": "The State History Museum is the largest historical museum in Russia. It is situated at the northern end of Red Square in the heart of Moscow. What once was the Principal Medicine Store now houses a huge collection <span data-gap=\"A\"></span> the Stone Age. It was founded in 1872 and opened to the public in 1883. The museum is housed in a neo-Russian style building, <span data-gap=\"B\"></span>. It is one of the most prominent buildings in Red Square. Each room is in the style of a different period or region. The walls in some rooms are decorated in the style of Russian churches.<br><br>The impressive collection of the State History Museum includes relics of prehistoric tribes <span data-gap=\"C\"></span> present-day Russia. The exhibits about medieval Russia are excellent. Several rooms of this period cover the Mongol invasions <span data-gap=\"D\"></span>.<br><br>The 2nd floor is dedicated to the Imperial period. The exhibits include personal items of the royal family members, furniture and decoration from the palace interiors. There are also various pieces of artworks and documents from the era. Specific rooms are dedicated to the reigns of various tsars. An unexpected highlight is an exhibition <span data-gap=\"E\"></span> by examining the growing network of roads and how people travelled in the past. The State History Museum has also the country's largest coin collection, the 6th-century manuscripts and artworks <span data-gap=\"F\"></span> during their reign.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "5",
+        "B": "1",
+        "C": "2",
+        "D": "4",
+        "E": "7",
+        "F": "6"
+      }
+    },
+    {
+      "id": "gaps-aurora",
+      "nav": "Aurora",
+      "title": "Aurora",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "and many crew members joined",
+        "and became a cadet training ship",
+        "that survived the intense naval battle",
+        "that signaled the prepared attack on",
+        "protecting the territory of the harbour",
+        "falling into the hands of the Germans",
+        "though a visit to the engine room carries"
+      ],
+      "html": "The cruiser Aurora is a museum in St. Petersburg. It is a former Russian naval ship that has played an important part in the country's history. The Aurora was built between 1897 and 1900 at the Admiralty shipyard in St. Petersburg. The cruiser was one of the largest ships of its time. After its construction was complete, the Aurora took its place as part of the Russian 2nd Squadron in the Pacific Ocean. In May 1905, it took part in the Battle of Tsushima and was one of just a few Russian ships <span data-gap=\"A\"></span>. After the battle in the Baltic, it returned to St. Petersburg <span data-gap=\"B\"></span>.<br><br>The ship served during World War I. When it returned to St. Petersburg in 1916 for major repairs, the city was on the edge of revolution <span data-gap=\"C\"></span> the 1917 February Revolution. Soon the Aurora was to play a huge part in the October revolution. The ship is famous for firing the shot <span data-gap=\"D\"></span> the Winter Palace.<br><br>Once again in 1922, the Aurora served as a training ship. During World War II, the ship's guns were removed to use for land defense. Unfortunately, being left defenseless it was sunk in Leningrad harbour to keep it from <span data-gap=\"E\"></span>. The ship was brought back to the surface in 1944 and later, after extensive repairs, it was permanently anchored at the harbour and became a museum in 1957.<br><br>The Aurora is now maintained by cadets from the nearby Nakhimov Navy School. Admission is free to the public, <span data-gap=\"F\"></span> a small fee.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "3",
+        "B": "2",
+        "C": "1",
+        "D": "4",
+        "E": "6",
+        "F": "7"
+      }
+    },
+    {
+      "id": "gaps-gorky-park",
+      "nav": "Gorky Park",
+      "title": "Gorky Park",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "as a true centre of city life",
+        "and is attended by more than",
+        "though the park used to be one",
+        "who like fun and entertainment",
+        "as this park in the world at the time",
+        "as newly designed recreational zones",
+        "who enjoys cultural events and shows"
+      ],
+      "html": "Gorky Park in Moscow is one of the best recreational places. Moscow's main city escape is not a conventional expanse of nature preserved inside the urban jungle. It is not a fun fair either, <span data-gap=\"A\"></span>. Its official name says it all – Gorky's Central Park of Culture and Leisure. That is exactly what it provides: culture and leisure in all shapes and forms. It especially attracts those <span data-gap=\"B\"></span>. However, people who prefer peaceful places can sail boats or catamaran or take a walk to Neskuchny Garden, located nearby. Here one can always find a quiet place.<br><br>The first recreational park of Russia was opened on the 12th of August 1928. It was designed by avant-garde architect Konstantin Melnikov. There were exhibition pavilions, tennis courts, a decorative pool and attractions for kids. There was not such a place <span data-gap=\"C\"></span>. The park was given the name of famous Soviet writer Maxim Gorky in 1932. Since then it has been called Gorky Park.<br><br>Nowadays, Gorky Park is the central park of Moscow <span data-gap=\"D\"></span> 20 thousand people on weekdays and more than 100 thousand on weekends and holidays. Since 2011 Gorky Park has become the first world-class amusement park in Russia with space for rest, sport, dancing and games outside. The park offers free entrance, wi-fi coverage, as well <span data-gap=\"E\"></span>. It is a perfect place for an active holiday, with many things to do. Gorky Park now serves <span data-gap=\"F\"></span>, a point of attraction for youth and families.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "2",
+        "E": "6",
+        "F": "1"
+      }
+    },
+    {
+      "id": "gaps-wisteria",
+      "nav": "Wisteria Tree",
+      "title": "The Wisteria Tree",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "that is often referred to as",
+        "has information about other flowers",
+        "you travelled to the Ashikaga Flower Park",
+        "you'd like to visit the wisteria tree yourself",
+        "we move our eyes across a variety of colours",
+        "has been a muse for landscape photographers",
+        "which stretch across more than 600 metres and form"
+      ],
+      "html": "Would you like to visit the colourful jungle from The Avatar movie? Then it's high time <span data-gap=\"A\"></span> in Tochigi, Japan. Its fairytale-like scenery is so beautiful and enigmatic, it almost seems unreal. The park is home to an ancient wisteria tree <span data-gap=\"B\"></span> \"the most beautiful in the world.\" At around 160 years old, the massive tree is stunning when in full bloom. The vertical flowers hang so far down that they nearly touch the ground and create a purplish-pink cloud that floats above the grass.<br><br>Human care helps to give Ashikaga's wisteria tree its stunning appearance. Because of its age and the number of blooms, the tree branches are supported by metal beams <span data-gap=\"C\"></span> an amazing flower umbrella. When the night falls, thousands of lights illuminate the tree and make the spectacle all the more awe-inspiring. With its fairytale feel, it's no wonder that the tree <span data-gap=\"D\"></span> around the world.<br><br>In 2014, Ashikaga Flower Park was selected as the \"World's Dream Travel Destination\" by CNN. If <span data-gap=\"E\"></span>, the best time of year to do so is from the middle of April to the middle of May. Though a trip to Japan might be out of the question right now, the Ashikaga Flower Park website should give you a taste of what it's like to see the wisteria tree in all its glory. It also <span data-gap=\"F\"></span> currently in bloom, including what they look like now.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "3",
+        "B": "1",
+        "C": "7",
+        "D": "6",
+        "E": "4",
+        "F": "2"
+      }
+    },
+    {
+      "id": "gaps-london-shard",
+      "nav": "London Skyscraper",
+      "title": "London's Skyscraper",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "when seen from across the river Thames",
+        "who is concerned about the city's heritage",
+        "and the developers even renamed the tower",
+        "who considered the glass tower inappropriate",
+        "and residential apartments on the upper floors",
+        "that offers visitors spectacular 360 degree views",
+        "and in 1836 the first railway station opened there"
+      ],
+      "html": "The Shard is a modern glass skyscraper in London. The skyscraper is situated in the London Bridge Quarter in Southwark. It is right near the heart of London and only the river separates it from the City of London. The area is full of history: a bridge was built there by the Romans around 50 AD <span data-gap=\"A\"></span>.<br><br>The plans for the London Bridge Tower, as the building was initially called, caused a strong protest from people <span data-gap=\"B\"></span> for a historic neighbourhood with mostly low-rise brick buildings. They claimed the tower would cut through the neighbourhood like a shard of glass. The name \"shard\" stuck <span data-gap=\"C\"></span> – \"The Shard\".<br><br>When it was completed the Shard held the record as Europe's tallest skyscraper with a height of almost 310 metres. Only a couple of months later, it was surpassed in height by Moscow's Mercury City Tower. The Shard towers over the neighbourhood and is visible from afar. The iconic skyscraper looks particularly spectacular at night <span data-gap=\"D\"></span>.<br><br>The building is multifunctional, with offices and a hotel on the lower floors <span data-gap=\"E\"></span>. The top floors of the Shard are home to the \"View from the Shard\", an observation deck <span data-gap=\"F\"></span> of the city. On a clear day one can see as far as sixty kilometres. At a height of 245 metres, this is the highest public viewing gallery in London, almost twice as high as the London Eye.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "7",
+        "B": "4",
+        "C": "3",
+        "D": "1",
+        "E": "5",
+        "F": "6"
+      }
+    },
+    {
+      "id": "gaps-abramtsevo",
+      "nav": "Abramtsevo",
+      "title": "Abramtsevo",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "who made his debut in Abramtsevo",
+        "which was built between 1881 and 1882",
+        "including Nikolai Gogol, Leo Tolstoy and",
+        "which was invented by a famous Russian writer",
+        "featuring Ilya Repin's portraits of the patron and",
+        "who sought inspiration in the gardens and forests",
+        "who was a railway magnate and patron of the arts"
+      ],
+      "html": "Among the beautiful forests of Moscow Region, is the Abramtsevo Estate, which became a meeting point for the most outstanding members of the Russian cultural circle. At different times the estate was visited by Russian writers, <span data-gap=\"A\"></span> Ivan Turgenev. But the estate became most famous due to the painters who worked there: Vasily Polenov, Viktor Vasnetsov, Ilya Repin, Valentin Serov, and Mikhail Vrubel.<br><br>In 1870 Savva Mamontov, <span data-gap=\"B\"></span>, bought the lovely estate 45 km north of Moscow. There, he hosted a large number of artists, <span data-gap=\"C\"></span>. Many artists came there to try their hand at the woodwork and ceramics workshops. Famous musicians of that time performed in Mamontov's private opera, including Feodor Chaliapin, <span data-gap=\"D\"></span>.<br><br>Several rooms of the manor house have been preserved intact, complete with artwork by various former resident artists. The main attraction is Mamontov's cozy dining room, <span data-gap=\"E\"></span> his wife, as well as Valentin Serov's luminous picture The Girl with Peaches. A striking majolica bench by Mikhail Vrubel is in the garden.<br><br>One of the main symbols of the estate is the Saviour Church, <span data-gap=\"F\"></span>. It is the prettiest building on the grounds. The structure is a perfect realization of the owner's intentions to show his deep respect for the 14th-century Novgorod architecture.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "3",
+        "B": "7",
+        "C": "6",
+        "D": "1",
+        "E": "5",
+        "F": "2"
+      }
+    },
+    {
+      "id": "gaps-forbidden-city",
+      "nav": "Forbidden City",
+      "title": "Forbidden City in China",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "which dates back to the 15th century",
+        "when visiting the country on a guided tour",
+        "who are concerned about the site protection",
+        "as a private residence used by the emperor",
+        "as a protected UNESCO World Heritage site",
+        "whose presence forbade the entry of anyone",
+        "which is known as the Hall of Preserving Harmony"
+      ],
+      "html": "China's largest and most important building is the Forbidden City, also known as the Imperial Palace. It is situated in the very heart of Beijing and it is a must-see <span data-gap=\"A\"></span>. Started between 1271-1368, much of the complex seen today was built between 1406 and 1420. Really many splendid palaces in one, this sprawling complex was the residence of 24 Ming and Qing emperors, <span data-gap=\"B\"></span> other than the imperial family and their courtesans.<br><br>Covering some 720,000 square metres and protected by a 10-metre-high wall with watchtowers and a wide moat, this massive complex consists of different areas. They were set aside for ceremonial and administrative purposes, as well <span data-gap=\"C\"></span>. While it can take many hours to see everything, highlights include the five white marble Golden River Bridges and the Hall of Supreme Harmony, a 35-metre-tall building housing the imperial throne. One can enjoy the beautiful emperor's banquet hall, <span data-gap=\"D\"></span>. There is the Palace Museum with its large collection of art and artifacts from the Ming and Qing dynasties.<br><br>Other important attractions in the area around the Imperial Palace include famous Tiananmen Square and the Temple of Heaven, one of the country's most important religious sites, <span data-gap=\"E\"></span>, the period of the Ming dynasty. In 1987, the former imperial residence was listed <span data-gap=\"F\"></span>.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "2",
+        "B": "6",
+        "C": "4",
+        "D": "7",
+        "E": "1",
+        "F": "5"
+      }
+    },
+    {
+      "id": "gaps-christ-saviour",
+      "nav": "Christ the Saviour",
+      "title": "Cathedral of Christ the Saviour",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "as the world's largest swimming pool",
+        "as a grand landmark of Russia's capital",
+        "which was quite miraculously saved from",
+        "when the restoration work on the site began",
+        "which contains the smaller, but not less stunning",
+        "while marble plaques remember its participants",
+        "which was built in the 19th century to commemorate"
+      ],
+      "html": "This luxurious cathedral was completed in 1997 – just in time to celebrate Moscow's 850th birthday. The cathedral's sheer size and splendour guarantee its role <span data-gap=\"A\"></span>. Muscovites and the guests of Moscow can admire the beauty of this church in the city centre today. The shining gold domes are spectacular to look at from outside and even more impressive inside.<br><br>The Cathedral of Christ the Saviour is located on the bank of the river on the site of an earlier and similar church of the same name, <span data-gap=\"B\"></span> Russia's victory over Napoleon. The Cathedral replicates its predecessor in many ways. Frescoes around the main gallery depict scenes from the War of 1812, <span data-gap=\"C\"></span>.<br><br>The original church was destroyed in 1931, during Stalin's hard times of the religion's decay. His plan to replace the church with a 315-metre-high Palace of Soviets never got off the ground – literally. Instead, for 50 years the site had served another important purpose. It had been used <span data-gap=\"D\"></span>.<br><br>The original cathedral was built on a hill, which has been levelled since then. The contemporary cathedral has been constructed on a wide base, <span data-gap=\"E\"></span> Church of Transfiguration. This ground-level chapel contains the unique old icon Christ Not Painted by Hand by Yevgraf Sorokin, <span data-gap=\"F\"></span> the original cathedral.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "2",
+        "B": "7",
+        "C": "6",
+        "D": "1",
+        "E": "5",
+        "F": "3"
+      }
+    },
+    {
+      "id": "gaps-saint-petersburg",
+      "nav": "Saint Petersburg",
+      "title": "Saint Petersburg",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "that is built on hundreds of islands",
+        "or during the dazzling white nights in summer",
+        "it was only founded in 1703 by Tsar Peter the Great",
+        "or considering a variety of the trip accommodation offers",
+        "that reveal the mysterious and tragic genius of St. Petersburg",
+        "of the most intriguing and historically significant cities in Europe",
+        "including beautiful historic gardens and extensive leisure parks"
+      ],
+      "html": "A city of palaces and museums, broad avenues and narrow canals, St. Petersburg's short history is rich in architectural and artistic treasures. Alongside world-famous attractions such as the Hermitage and St. Isaac's Cathedral, the city has a lot of equally interesting buildings <span data-gap=\"A\"></span>. St. Petersburg is considered to be Russia's cultural capital. It reflects the country's extraordinary fate like no other city.<br><br>St. Petersburg is a relatively young city, by both Russian and European standards, as <span data-gap=\"B\"></span>. Despite its short life, the city has a rich history. From the early days of Peter the Great to modern times, the city has always bustled with life and intrigue. Lying across the delta of the Neva River, St. Petersburg, the Venice of the North, is a city <span data-gap=\"C\"></span>, some of which are well-known for their unique history. Bridges are an essential part of the city's architectural make-up. Among the city's over 500 bridges, there are numerous technological masterpieces. The centre of the city offers vast areas of green space, <span data-gap=\"D\"></span>.<br><br>St. Petersburg is a beautiful and fascinating holiday destination and one <span data-gap=\"E\"></span>. Whether to visit the city in a romantic and snowy Russian winter <span data-gap=\"F\"></span>, visitors will be spellbound by St. Petersburg's culture and beauty.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "5",
+        "B": "3",
+        "C": "1",
+        "D": "7",
+        "E": "6",
+        "F": "2"
+      }
+    },
+    {
+      "id": "gaps-tea-house",
+      "nav": "Chinese Tea House",
+      "title": "Chinese Tea House in Moscow",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "who was going to visit Moscow for",
+        "who left the family tea trade company",
+        "and the other two floors were used for",
+        "and began to build the new house on it",
+        "and the front side was decorated with",
+        "which was imported mainly from China",
+        "but the Ambassador did not in fact stay"
+      ],
+      "html": "The bright building on Myasnitskaya Street in Moscow stands out among others and attracts the attention of passers-by with its non-typical elements for Russian architecture. The tea house resembles a Chinese pagoda and it is considered to be the real office of a company that was involved in tea trade.<br><br>This house in the Chinese style was built for the tea merchant Sergei Vasilievich Perlov <span data-gap=\"A\"></span> in order to establish his own business. He bought the land on Myasnitskaya Street in the centre of Moscow in 1875, <span data-gap=\"B\"></span> in 1891. The construction was finished by 1893. The first floor was for Perlov's tea shop, <span data-gap=\"C\"></span> profitable apartments for rent and the host's own family.<br><br>The front side of the newly built house was redecorated in the Chinese style after several years. A little tower in the form of a pagoda appeared <span data-gap=\"D\"></span> molded dragons, snakes, Chinese umbrellas and lanterns. Some materials for decoration were even brought directly from China.<br><br>It was made before the visit of the Chinese Ambassador Li Hongzhang, <span data-gap=\"E\"></span> Nikolai II and Alexandra Fyodorovna coronation. The merchant Perlov thought that it might be useful for his tea business if the Ambassador stayed at this house. <span data-gap=\"F\"></span> He preferred the house of Perlov's brother and competitor. But thanks to this case now there is a beautiful exotic building right in the city centre, as if it came right from another part of the world.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "2",
+        "B": "4",
+        "C": "3",
+        "D": "5",
+        "E": "1",
+        "F": "7"
+      }
+    },
+    {
+      "id": "gaps-nevsky",
+      "nav": "Nevsky Prospect",
+      "title": "Nevsky Prospect",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "and hotels there or nearby the avenue",
+        "showing the original width of the avenue",
+        "which was not as straight as it was planned",
+        "which were built by famous architects and",
+        "connecting these two important structures with",
+        "and a few rows of trees were planted along the street",
+        "as the 40 largest banks of Russia, Europe and America"
+      ],
+      "html": "Nevsky Prospect is the main and most famous street of St. Petersburg. The unique architectural ensemble of Nevsky Prospect was formed during the 18th – early 20th centuries. It starts from the bank of the Neva River, runs through the centre of the city and ends at the Neva River. The whole history of St. Petersburg can be seen in the history of the avenue. The length of Nevsky Prospect is 4.5 km, the width is 25-60 m. The narrowest section is located from the Admiralty to the Moika River, <span data-gap=\"A\"></span>.<br><br>After the construction of the Admiralty in 1704 and the Alexander Nevsky Monastery in 1710, it was decided to build a road <span data-gap=\"B\"></span> each other and with the Novgorod Path, which was used by Russian merchants. The construction began on both sides at the same time, the roads were laid through the wood, and in 1760s they were connected into one road, <span data-gap=\"C\"></span>, but with a turn at the Vosstaniya Square. Nevsky Prospect got its name only in 1783. The road was paved with cobble stones, <span data-gap=\"D\"></span>. It was the first street in St. Petersburg with gas lighting. By the early 20th century Nevsky Prospect had become the financial centre of Russia <span data-gap=\"E\"></span> had their offices there.<br><br>Nowadays, Nevsky Prospect is the centre of cultural and social life of St. Petersburg. There are museums, theatres, exhibition halls, cinemas, restaurants, cafés, shops <span data-gap=\"F\"></span>.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "2",
+        "B": "5",
+        "C": "3",
+        "D": "6",
+        "E": "7",
+        "F": "1"
+      }
+    },
+    {
+      "id": "gaps-hermitage",
+      "nav": "Hermitage",
+      "title": "State Hermitage Museum",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "that they are particularly interested in",
+        "that they have time to catch all the collection's",
+        "and new-comers can only hope to get a brief taste",
+        "which brings pedestrians out on to Palace Square from",
+        "that one would need eleven years to view each exhibit",
+        "which was the official residence of the Russian emperors",
+        "and the exhibition was often visited by military historians"
+      ],
+      "html": "The Hermitage is St. Petersburg's most popular visitor attraction, and one of the world's largest and most prestigious museums. It is a must-see for all first-time travellers to the city. With over 3 million items in its collection, it also rewards repeat visits, <span data-gap=\"A\"></span> of the riches on offer here, from Impressionist masterpieces to fascinating Oriental treasures. It was estimated <span data-gap=\"B\"></span> on display for just one minute. So many visitors prefer a guided tour to ensure <span data-gap=\"C\"></span> highlights. Art-lovers, however, may find it more rewarding to seek out for themselves the works <span data-gap=\"D\"></span>.<br><br>The bulk of the Hermitage collection is housed in the Winter Palace, <span data-gap=\"E\"></span>. However, there are a number of other sites that constitute part of the Hermitage, including the recently opened Storage Facility in the north of St. Petersburg. It offers guided tours through some of the museum's vast stocks. The magnificent General Staff Building opposite the Winter Palace is most famous for its central triumphal arch, <span data-gap=\"F\"></span> Nevsky Prospekt. The General Staff Building contains a number of unique exhibitions. It includes the Modern European Art, probably the most visited section of the Hermitage with well-known collections of Picasso and Matisse, as well as a wealth of popular Impressionist paintings.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "3",
+        "B": "5",
+        "C": "2",
+        "D": "1",
+        "E": "6",
+        "F": "4"
+      }
+    },
+    {
+      "id": "gaps-polenovo",
+      "nav": "Polenovo",
+      "title": "Polenovo",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "and tourists can visit its unique interior and see",
+        "that was designed and owned by Vasily Polenov",
+        "and has been carefully restored to how it looked",
+        "even if one has no interest in Polenov or his work",
+        "that were regularly invited to his hospitable house",
+        "which must have provided inspiration for his painting",
+        "and therefore should not be missed when visiting the estate"
+      ],
+      "html": "Polenovo is located away from the main transport links to the south-west of Moscow in Tula Region, close to its border with Kaluga Region. It is a surprisingly beautiful estate <span data-gap=\"A\"></span>.<br><br>Vasily Polenov is one of Russia's most renowned landscape painters of the 19th century, and like many Russian artists he had his own country estate, <span data-gap=\"B\"></span>. Polenov's estate was originally known as Borok, and is located in beautiful surroundings close to the Oka River. It is worth visiting for this reason alone, <span data-gap=\"C\"></span>. At just two hours from Moscow, it is the perfect destination to escape the hustle and bustle of the capital and enjoy the Russian countryside.<br><br>On the grounds of the estate there are several museums to visit. The main one is the Large House itself, which was built in 1892 <span data-gap=\"D\"></span> when Vasily Polenov lived there. The smaller neighbouring building is known as the Abbey, which was used as a workshop, <span data-gap=\"E\"></span> where the painter worked. After looking around the grounds of the estate, one can walk along the Oka River to the Trinity Church, which is located 1.5km north of the estate just past the village of Byokhovo. On the way visitors can enjoy the beautiful views of the Oka. The church was built between 1904 and 1905 according to a plan by Vasily Polenov himself <span data-gap=\"F\"></span>.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "2",
+        "B": "6",
+        "C": "4",
+        "D": "3",
+        "E": "1",
+        "F": "7"
+      }
+    },
+    {
+      "id": "gaps-letniy-sad",
+      "nav": "Letniy Sad",
+      "title": "Letniy Sad",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "and restorers have done everything possible to keep",
+        "combining the features of urban and suburban estates",
+        "which are planned to be the centre of scientific research",
+        "which contains interesting objects found by archaeologists",
+        "but later many of them were either destroyed in the flood",
+        "and enjoy the exhibitions and performances of a brass band",
+        "and from the south and west – the Moika River and the Lebyazhiy Canal"
+      ],
+      "html": "Letniy Sad (The Summer Garden) is a park ensemble, a monument of landscape art of the 18th century. Letniy Sad is the oldest park in St. Petersburg. The park was founded by Peter I in 1704. The Tsar dreamed of his own Versailles and drew its original plan himself. He planned to create a regular, architectural park with accurate layout and straight paths. Prominent architects and gardeners took part in its creation. The park was supposed to become a place of relaxation, <span data-gap=\"A\"></span>.<br><br>Letniy Sad is surrounded by water. Natural boundary of the park from the north and east are the Neva and Fontanka Rivers, <span data-gap=\"B\"></span>.<br><br>Peter I brought sculptures from Italy for the park and was very proud of them. In the 18th century there were more than two hundred sculptures, <span data-gap=\"C\"></span>, or moved to suburban royal residences and the Hermitage. Now Letniy Sad is decorated with 90 sculptures – copies made of artificial marble.<br><br>In May, 2012 Letniy Sad was opened after reconstruction. The reconstruction work had been going on for about three years, <span data-gap=\"D\"></span> Letniy Sad as it was in the 18th century. Among the new items in Letniy Sad, there is the Archaeological Museum, <span data-gap=\"E\"></span> during the restoration of the park. Visitors can take a tour of the park <span data-gap=\"F\"></span> on Sundays.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "2",
+        "B": "7",
+        "C": "5",
+        "D": "1",
+        "E": "4",
+        "F": "6"
+      }
+    },
+    {
+      "id": "gaps-darwin",
+      "nav": "Darwin Museum",
+      "title": "State Darwin Museum",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "had evolved from common ancestors",
+        "built in Moscow in 1907, under pressure",
+        "showing most of the endangered species found in",
+        "the largest museum of natural science that occupies",
+        "established as an educational museum at the Moscow",
+        "presents a complete scientific picture of the evolution of",
+        "consists of many exotic species, including hummingbirds and"
+      ],
+      "html": "Charles Darwin was an English naturalist. He found that all species of life <span data-gap=\"A\"></span> and worked out the scientific theory. According to it, evolution happens because of a process that is called natural selection.<br><br>The museum, like every prominent social and cultural event, has an individual initiative as its basis. The State Darwin Museum was <span data-gap=\"B\"></span> and persuasion from A.F. Kots, a young Russian scientist who was very fond of Darwin. It was <span data-gap=\"C\"></span> Higher Women's Courses. It was the first museum of biological evolution and natural history in the world. Today the State Darwin Museum is <span data-gap=\"D\"></span> three buildings with the total area more than 20 000 sq.m.<br><br>There are more than 5,000 items occupying the three floors of the museum. One of the most impressive sections has dinosaur models, presented with a fabulous dinosaur soundtrack. The museum <span data-gap=\"E\"></span> the living world. It has a large display, which shows the variety of wildlife on earth, with animals from all climatic zones from the North Pole to the South.<br><br>One of the largest collections at the museum is the bird collection, which <span data-gap=\"F\"></span> birds of paradise.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "1",
+        "B": "2",
+        "C": "5",
+        "D": "4",
+        "E": "6",
+        "F": "7"
+      }
+    },
+    {
+      "id": "gaps-peter-paul",
+      "nav": "Peter and Paul Fortress",
+      "title": "Peter and Paul Fortress",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "that are located at the corners",
+        "which was designed by D. Trezzini",
+        "as the most protected part of the city",
+        "which was the burial place of Russian",
+        "as the day of the birth of St. Petersburg",
+        "and reminding of the rich history of the city",
+        "which is located on the spire of the cathedral"
+      ],
+      "html": "The Peter and Paul Fortress in St. Petersburg, located on small Hare Island, is the historic core of the city. The history of St. Petersburg begins with the history of the fortress.<br><br>Since 1700 Russia had been fighting the Northern War against Sweden. By 1703 the lands by the Neva River were conquered. To protect them from the attacks of the Swedes it was necessary to build a strong outpost here. The fortress was founded on Hare Island 16 (27) May, 1703 by joint plan of Peter I and French engineer Joseph-Gaspard Lambert de Guerin. This day is well known <span data-gap=\"A\"></span>.<br><br>The fortress stretches from west to east with six bastions <span data-gap=\"B\"></span>. The Peter's Gate on the east side, <span data-gap=\"C\"></span>, has remained since the time of Peter I. The Peter and Paul Cathedral, <span data-gap=\"D\"></span> emperors and the monument of Russian baroque, was completed after the death of the emperor, in 1733. The weathervane as a golden angel with a cross, <span data-gap=\"E\"></span>, is one of the main symbols of the city. On the opposite side of the cathedral, there is the Mint building, constructed in the time of Paul I by architect A. Porto. Coinage was moved to the fortress <span data-gap=\"F\"></span> in the time of Peter I. The Peter and Paul Fortress has never directly participated in any fighting. From the very beginning of its existence it was used as a political prison.<br><br>Since 1924 the Peter and Paul Fortress has been a part of the Museum of the History of St. Petersburg.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "5",
+        "B": "1",
+        "C": "2",
+        "D": "4",
+        "E": "7",
+        "F": "3"
+      }
+    },
+    {
+      "id": "gaps-sochi",
+      "nav": "Sights of Sochi",
+      "title": "Sights of Sochi",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "and the views that open from it",
+        "which is built on the top to give visitors",
+        "when the subtropical resort is almost empty",
+        "which is a UNESCO World Heritage Site",
+        "enjoying the sound of birds singing and waterfalls gurgling",
+        "when the city is home to the annual film festival \"Kinotavr\"",
+        "including high cliffs, exotic vegetation, breathtaking canyons"
+      ],
+      "html": "Sochi is unique among other Russian cities because it has many aspects of a subtropical resort. Apart from the scenic Caucasus Mountains, pebble and sand beaches, the city attracts tourists with its vegetation, numerous parks, monuments, and extravagant architecture. About two million people visit Greater Sochi each summer, <span data-gap=\"A\"></span>. The famous Caucasian Biosphere Reserve, <span data-gap=\"B\"></span>, lies just north from the city.<br><br>Popularity of Sochi among tourists is largely explained by the beauty of its surroundings. Walking along the river Agura, everyone will admire the nature around, <span data-gap=\"C\"></span>, and amazing waterfalls. From the bridge over the Agura opens a magnificent view to the lowest Agura waterfall. In the shady Agura gorge tourists will feel the gentle coolness, <span data-gap=\"D\"></span>.<br><br>Akhun Mountain, the biggest in the region, has a beautiful tower on the top. The height of the tower is more than 30 metres, <span data-gap=\"E\"></span> are stunning. The observation platform on the top of the tower gives a chance to take superb pictures of the city. Every year thousands of people visit this stone tower, <span data-gap=\"F\"></span> the perfect view of the Black Sea coast and the Caucasus Mountains. It is a truly unforgettable experience. Tourists will enjoy visiting all the sights and the resort itself, full of exotic green and the boundless blue of the Black Sea.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "6",
+        "B": "4",
+        "C": "7",
+        "D": "5",
+        "E": "1",
+        "F": "2"
+      }
+    },
+    {
+      "id": "gaps-unusual-moscow",
+      "nav": "Unusual Attractions",
+      "title": "Unusual Tourist Attractions",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "visiting the museums of the inner area",
+        "which is from the end of November",
+        "dating back to the 14th and 16th centuries",
+        "and winter activities range from ice-skating",
+        "and river transportation season never stops",
+        "which were designed for everyone to enjoy",
+        "where the Europe's biggest skating-rink is located"
+      ],
+      "html": "The Kremlin is always the first thing to see in Moscow. Earlier, there was only one route available for visitors to the Kremlin. It includes <span data-gap=\"A\"></span> with the entrance to Alexandrovsky Garden. Since the end of 2016, tourists have another option to access the Kremlin. The starting point is at Spasskaya Tower in Red Square. The new route features archaeological discoveries, displaying the basements of the demolished monasteries, <span data-gap=\"B\"></span>, as well as the Maly Nikolaevsky Royal Palace.<br><br>Boat cruises are very popular in Moscow, <span data-gap=\"C\"></span>. Many enclosed and heated boats with panoramic windows and ice-breaking equipment can be found on the Moscow River. On their way tourists will see the city sights such as Stalin's skyscrapers and the Kremlin.<br><br>For the last five years a lot of Moscow streets have become pedestrian zones. The city authorities ordered the construction of cosy European-style promenades with street lamps, benches and flower beds, <span data-gap=\"D\"></span>.<br><br>Russians are the greatest fans of winter, <span data-gap=\"E\"></span> to the beginning of March. One of the main Muscovites' leisure activities is skating at popular public places like Red Square, Gorky Park and VDNKh, <span data-gap=\"F\"></span>. At the end of 2016 the new skating-rink started operating on the roof of Moscow City's 85-floor OKO tower at a height of 354 metres. The view is breathtaking.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "1",
+        "B": "3",
+        "C": "5",
+        "D": "6",
+        "E": "2",
+        "F": "7"
+      }
+    },
+    {
+      "id": "gaps-borodino",
+      "nav": "Borodino",
+      "title": "Borodino Battlefield",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "as it provides a useful overview",
+        "when he was writing about the events",
+        "who was mortally wounded in the battle",
+        "including uniforms, weapons, documents",
+        "that is dedicated to the World War II battle",
+        "who has become a soldier and a great writer",
+        "marking the sites of the most violent fighting"
+      ],
+      "html": "Borodino battlefield was the site of the turning-point Battle of Borodino in 1812, during the Napoleonic Wars. Two hundred years later, the rural site presents a vivid history lesson. The entire battlefield is now part of the Borodino Field Museum-Reserve, with dozens of memorials to specific divisions and generals. The hilltop monument in front of the Borodino Museum is Bagration's tomb. It is the grave of Prince Bagration, a heroic general <span data-gap=\"A\"></span>.<br><br>The Borodino Museum is an excellent place to start with <span data-gap=\"B\"></span>. Visitors can study an interactive diorama of the Battle of Borodino before setting out to see the site in person. The main exhibitions feature original objects from the battle, <span data-gap=\"C\"></span> and personal items. The displays, created by soldiers and their contemporaries, demonstrate the perception of the battle and the Napoleonic Wars at the time. There is also an exhibition <span data-gap=\"D\"></span> at this site.<br><br>There are several other exhibitions related to the 1812 battle on the grounds of the Borodino Monastery. Leo Tolstoy stayed there <span data-gap=\"E\"></span> for his novel War and Peace.<br><br>If travelling by car, tourists can see monuments <span data-gap=\"F\"></span>, as well as the headquarters of both the French and Russian armies. If tourists come by train, they will see the monuments only along the road between the train station and the museum.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "3",
+        "B": "1",
+        "C": "4",
+        "D": "5",
+        "E": "2",
+        "F": "7"
+      }
+    }
+  ]
+}

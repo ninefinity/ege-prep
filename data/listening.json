@@ -1,0 +1,1789 @@
+{
+  "id": "listening",
+  "title": "Listening",
+  "subtitle": "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+  "tasks": [
+    {
+      "id": "ava-james",
+      "nav": "Ava James",
+      "title": "Five Minutes with a Star — Ava James",
+      "type": "listening",
+      "audio": "audio/AvaJames.mp3",
+      "prep": {
+        "gapFill": {
+          "instruction": "Complete the expressions. Use the words from the box. There is one extra word.",
+          "wordBank": [
+            "behind",
+            "ball",
+            "level",
+            "dime",
+            "chest",
+            "touch",
+            "held",
+            "rob",
+            "communicate",
+            "care"
+          ],
+          "extraWord": "care",
+          "items": [
+            {
+              "id": 1,
+              "sentence": "to get left ________",
+              "answer": "behind"
+            },
+            {
+              "id": 2,
+              "sentence": "to start the ________ rolling",
+              "answer": "ball"
+            },
+            {
+              "id": 3,
+              "sentence": "to go to the next ________",
+              "answer": "level"
+            },
+            {
+              "id": 4,
+              "sentence": "at the drop of a ________",
+              "answer": "dime"
+            },
+            {
+              "id": 5,
+              "sentence": "to get something off your ________",
+              "answer": "chest"
+            },
+            {
+              "id": 6,
+              "sentence": "to be in ________ with your emotions",
+              "answer": "touch"
+            },
+            {
+              "id": 7,
+              "sentence": "to feel very ________ back",
+              "answer": "held"
+            },
+            {
+              "id": 8,
+              "sentence": "to ________ yourself of something",
+              "answer": "rob"
+            },
+            {
+              "id": 9,
+              "sentence": "to ________ one-to-one",
+              "answer": "communicate"
+            }
+          ]
+        },
+        "matching": {
+          "instruction": "Match the expressions (1–9) with their meanings (A–I).",
+          "expressions": [
+            {
+              "id": 1,
+              "text": "get left behind"
+            },
+            {
+              "id": 2,
+              "text": "start the ball rolling"
+            },
+            {
+              "id": 3,
+              "text": "go to the next level"
+            },
+            {
+              "id": 4,
+              "text": "at the drop of a dime"
+            },
+            {
+              "id": 5,
+              "text": "get something off your chest"
+            },
+            {
+              "id": 6,
+              "text": "in touch with your emotions"
+            },
+            {
+              "id": 7,
+              "text": "held back"
+            },
+            {
+              "id": 8,
+              "text": "rob yourself of something"
+            },
+            {
+              "id": 9,
+              "text": "communicate one-to-one"
+            }
+          ],
+          "meanings": [
+            {
+              "id": "A",
+              "text": "immediately, very quickly, without hesitation"
+            },
+            {
+              "id": "B",
+              "text": "aware of and connected to your feelings"
+            },
+            {
+              "id": "C",
+              "text": "speak with someone privately, face to face"
+            },
+            {
+              "id": "D",
+              "text": "fall behind, fail to keep up"
+            },
+            {
+              "id": "E",
+              "text": "advance, improve"
+            },
+            {
+              "id": "F",
+              "text": "deprive yourself of something"
+            },
+            {
+              "id": "G",
+              "text": "restricted"
+            },
+            {
+              "id": "H",
+              "text": "cause something to begin"
+            },
+            {
+              "id": "I",
+              "text": "talk about something that has been worrying you"
+            }
+          ],
+          "answers": {
+            "1": "D",
+            "2": "H",
+            "3": "E",
+            "4": "A",
+            "5": "I",
+            "6": "B",
+            "7": "G",
+            "8": "F",
+            "9": "C"
+          }
+        }
+      },
+      "transcript": "@narrator|Today in our studio, we have Ava James, a world-famous singer, [1] and [2]. A classically trained pianist, Ava started composing songs when she was 12 and signed her first contract when she was only 15 years old.\n@host|Good afternoon, Ava.\n@guest|Good afternoon. Thank you for inviting me. It's a [3] being here.\n@host|When you entered the music industry, you were only a teen. Was it hard for you?\n@guest|When I first started in the world of music, it was such a shock for me. It was a totally different world.\n@guest|In a lot of ways, I started to think that I had to be perfect, look perfect, sound perfect and say perfect phrases. The [4] industry is [5] [6].\n@host|How did you cope with that?\n@guest|Well, at some point, I just realized that there is a lot of judgment in the world.\n@guest|We judge each other at school, we judge each other at work, we [7]. Now we've got social media and we have to look at everybody judging us, telling us what they think about us and what they don't like about us. You just grow up and realize that everybody's opinion doesn't matter.\n@guest|You just start to care less.\n@host|You've just released your new album. What is it about?\n@guest|In fact, my new album is partly about what we've just [8].\n@guest|It's about breaking out of people's opinions of you and [9] whoever you are and who you want to be. It's about life as it truly is, not as how we're made to think that it should be. It's about [10], the reality of who we are as people and [11] that truth.\n@host|How did you start writing songs?\n@guest|When I was young, I wrote things down just to get them out of my head, almost to make space, because I haven't always been so good at communicating [12]-[13]-[14]. So I'd always have to write it down first and kind of understand it and then be able to talk about it. I needed to get it out of myself, out of my mind, out of my heart, out of my way to understand it.\n@guest|I guess that started the ball rolling.\n@host|Does it mean that most of your songs are very personal?\n@guest|Of course. A lot of my songs are about the things that I personally have wanted to talk about and get off my own [15].\n@guest|I'm not afraid to be emotional. In fact, I believe that strong people are the ones who are in touch with their emotions and their feelings. Such people can just cry at the drop of a [16] because they relate so much to someone else's pain.\n@guest|I think you rob yourself of life and rob yourself of your own [17] when you don't let yourself feel whatever it is that you feel.\n@host|How does it feel to be a woman in the entertainment industry today?\n@guest|I speak to a lot of [18] and I find that they do feel very held back. It seems to me that there's some fear about [19] us as women to rise, to go to the next level.\n@guest|And [20], there are still so many issues with equal pay [21] and [22]. And I find that pretty crazy. Because obviously, the more [23] there is, the stronger the business.\n@guest|But unfortunately, a lot of people are very [24] in their thinking. So I think that there is still that challenge. You still have to work extra hard, harder than a man would.\n@guest|You still have to [25] yourself more. It's very [26], but I also do know that this is the time of the woman. And if you don't know it, you'd better start to get it.\n@guest|Because [27], you're going to get left behind. So, I do [28] see an [29] in the world in that sense.\n@host|Thank you very much, Ava.",
+      "gaps": [
+        {
+          "num": 1,
+          "answer": "songwriter"
+        },
+        {
+          "num": 2,
+          "answer": "pianist"
+        },
+        {
+          "num": 3,
+          "answer": "pleasure"
+        },
+        {
+          "num": 4,
+          "answer": "entertainment"
+        },
+        {
+          "num": 5,
+          "answer": "particularly"
+        },
+        {
+          "num": 6,
+          "answer": "judgmental"
+        },
+        {
+          "num": 7,
+          "answer": "compete"
+        },
+        {
+          "num": 8,
+          "answer": "discussed"
+        },
+        {
+          "num": 9,
+          "answer": "redefining"
+        },
+        {
+          "num": 10,
+          "answer": "imperfection"
+        },
+        {
+          "num": 11,
+          "answer": "celebrating"
+        },
+        {
+          "num": 12,
+          "answer": "one"
+        },
+        {
+          "num": 13,
+          "answer": "to"
+        },
+        {
+          "num": 14,
+          "answer": "one"
+        },
+        {
+          "num": 15,
+          "answer": "chest"
+        },
+        {
+          "num": 16,
+          "answer": "dime"
+        },
+        {
+          "num": 17,
+          "answer": "experience"
+        },
+        {
+          "num": 18,
+          "answer": "businesswomen",
+          "alt": [
+            "business women"
+          ]
+        },
+        {
+          "num": 19,
+          "answer": "allowing"
+        },
+        {
+          "num": 20,
+          "answer": "obviously"
+        },
+        {
+          "num": 21,
+          "answer": "scales"
+        },
+        {
+          "num": 22,
+          "answer": "equality"
+        },
+        {
+          "num": 23,
+          "answer": "diversity"
+        },
+        {
+          "num": 24,
+          "answer": "archaic"
+        },
+        {
+          "num": 25,
+          "answer": "prove"
+        },
+        {
+          "num": 26,
+          "answer": "frustrating"
+        },
+        {
+          "num": 27,
+          "answer": "otherwise"
+        },
+        {
+          "num": 28,
+          "answer": "definitely"
+        },
+        {
+          "num": 29,
+          "answer": "improvement"
+        }
+      ],
+      "questions": [
+        {
+          "q": "1. What do we learn about Ava James at the beginning of the interview?",
+          "opts": [
+            "She is internationally famous.",
+            "She's been a singer for 15 years.",
+            "She never got a formal musical education."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "2. For Ava, starting a career as a teenager was …",
+          "opts": [
+            "quite easy.",
+            "challenging.",
+            "pleasant."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "3. Ava thinks other people's critical remarks are …",
+          "opts": [
+            "helpful.",
+            "destructive.",
+            "natural."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "4. Ava's new album is NOT about …",
+          "opts": [
+            "shaping adequate self-esteem.",
+            "finding your place in the world.",
+            "difficulties of the modern world."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "5. Ava started to write songs because it was …",
+          "opts": [
+            "a form of self-therapy.",
+            "her homework at school.",
+            "a topic to discuss with her friends."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "6. Ava thinks strong people NEVER …",
+          "opts": [
+            "cry in the presence of others.",
+            "hide their real feelings.",
+            "talk about their problems."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "7. Speaking about the entertainment industry today, Ava says that …",
+          "opts": [
+            "there's more gender inequality there than ever before.",
+            "women occupy most powerful positions there.",
+            "it is still not very easy for a woman to work in."
+          ],
+          "correct": 2
+        }
+      ],
+      "playthroughStarts": [
+        "1:18",
+        "5:44"
+      ],
+      "instructions": "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."
+    },
+    {
+      "id": "isla-russell",
+      "nav": "Isla Russell",
+      "title": "Five Minutes with a Star — Isla Russell",
+      "type": "listening",
+      "audio": "audio/IslaRussel.mp3",
+      "prep": {
+        "gapFill": {
+          "instruction": "Complete the expressions. Use the words from the box. There is one extra word.",
+          "wordBank": [
+            "towards",
+            "rummage",
+            "spilling",
+            "force",
+            "stream",
+            "voice",
+            "yourself",
+            "spark",
+            "chord"
+          ],
+          "extraWord": "force",
+          "items": [
+            {
+              "id": 1,
+              "sentence": "to gravitate ________ something",
+              "answer": "towards"
+            },
+            {
+              "id": 2,
+              "sentence": "to ________ through your notes",
+              "answer": "rummage"
+            },
+            {
+              "id": 3,
+              "sentence": "to come ________ out",
+              "answer": "spilling"
+            },
+            {
+              "id": 4,
+              "sentence": "to strike a ________ in you",
+              "answer": "chord"
+            },
+            {
+              "id": 5,
+              "sentence": "a ________ of consciousness",
+              "answer": "stream"
+            },
+            {
+              "id": 6,
+              "sentence": "the ________ of a generation",
+              "answer": "voice"
+            },
+            {
+              "id": 7,
+              "sentence": "to see ________ in someone else",
+              "answer": "yourself"
+            },
+            {
+              "id": 8,
+              "sentence": "to ________ joy in you",
+              "answer": "spark"
+            }
+          ]
+        },
+        "matching": {
+          "instruction": "Match the expressions (1–8) with their meanings (A–H).",
+          "expressions": [
+            {
+              "id": 1,
+              "text": "To gravitate towards"
+            },
+            {
+              "id": 2,
+              "text": "To rummage through"
+            },
+            {
+              "id": 3,
+              "text": "To come spilling out"
+            },
+            {
+              "id": 4,
+              "text": "To strike a chord"
+            },
+            {
+              "id": 5,
+              "text": "A stream of consciousness"
+            },
+            {
+              "id": 6,
+              "text": "The voice of a generation"
+            },
+            {
+              "id": 7,
+              "text": "To see yourself in someone else"
+            },
+            {
+              "id": 8,
+              "text": "To spark joy in you"
+            }
+          ],
+          "meanings": [
+            {
+              "id": "A",
+              "text": "feel a strong connection or attraction to something"
+            },
+            {
+              "id": "B",
+              "text": "search quickly and untidily through something"
+            },
+            {
+              "id": "C",
+              "text": "to flow out freely and naturally"
+            },
+            {
+              "id": "D",
+              "text": "creates a similar emotional reaction or feeling in you"
+            },
+            {
+              "id": "E",
+              "text": "a continuous flow of thoughts written without strict structure"
+            },
+            {
+              "id": "F",
+              "text": "someone who expresses the feelings and ideas of many people"
+            },
+            {
+              "id": "G",
+              "text": "identify with another person"
+            },
+            {
+              "id": "H",
+              "text": "suddenly creates a feeling of happiness or delight in you"
+            }
+          ],
+          "answers": {
+            "1": "A",
+            "2": "B",
+            "3": "C",
+            "4": "D",
+            "5": "E",
+            "6": "F",
+            "7": "G",
+            "8": "H"
+          }
+        }
+      },
+      "gaps": [
+        {
+          "num": 1,
+          "answer": "numerous"
+        },
+        {
+          "num": 2,
+          "answer": "generation"
+        },
+        {
+          "num": 3,
+          "answer": "artificial"
+        },
+        {
+          "num": 4,
+          "answer": "represented"
+        },
+        {
+          "num": 5,
+          "answer": "energized",
+          "alt": [
+            "energised"
+          ]
+        },
+        {
+          "num": 6,
+          "answer": "aim"
+        },
+        {
+          "num": 7,
+          "answer": "target"
+        },
+        {
+          "num": 8,
+          "answer": "gravitate"
+        },
+        {
+          "num": 9,
+          "answer": "lyrics"
+        },
+        {
+          "num": 10,
+          "answer": "kick"
+        },
+        {
+          "num": 11,
+          "answer": "autotunes",
+          "alt": [
+            "autotune"
+          ]
+        },
+        {
+          "num": 12,
+          "answer": "kaleidoscope"
+        },
+        {
+          "num": 13,
+          "answer": "consciousness"
+        },
+        {
+          "num": 14,
+          "answer": "verse"
+        },
+        {
+          "num": 15,
+          "answer": "spark"
+        },
+        {
+          "num": 16,
+          "answer": "melody"
+        },
+        {
+          "num": 17,
+          "answer": "chord"
+        },
+        {
+          "num": 18,
+          "answer": "rummage"
+        },
+        {
+          "num": 19,
+          "answer": "similar"
+        },
+        {
+          "num": 20,
+          "answer": "poetry"
+        },
+        {
+          "num": 21,
+          "answer": "preconceived"
+        },
+        {
+          "num": 22,
+          "answer": "elite"
+        },
+        {
+          "num": 23,
+          "answer": "erudite"
+        },
+        {
+          "num": 24,
+          "answer": "boundaries"
+        },
+        {
+          "num": 25,
+          "answer": "instinctive"
+        },
+        {
+          "num": 26,
+          "answer": "necessity"
+        },
+        {
+          "num": 27,
+          "answer": "urgency"
+        },
+        {
+          "num": 28,
+          "answer": "fascinated"
+        }
+      ],
+      "transcript": "@narrator|Hello everybody, and here we are with our weekly program, 5 Minutes with a Star. Today in our studio, we have Isla Russell, a world-famous singer and songwriter. Her albums have won [1] awards, and her songs can be heard on the radio all the time.\n@host|Good afternoon, Isla.\n@guest|Good afternoon. Thank you for inviting me. It's a pleasure being here.\n@host|You've been called the voice of a [2]. Are you?\n@guest|It's great that you've asked me that question. I guess I want to be a voice for the kids. I mean, it sounds quite [3], but I want to make music that I would have wanted to hear when I was 14.\n@guest|When I was that age, I would listen to artists and think, wow, I feel [4] by that. I feel inspired by that. I want to be that person that kids can listen to and feel [5] by because they've never felt like they had someone that they could listen to and see themselves in before.\n@host|Do you [6] your music at teenagers then?\n@guest|It can be dangerous to kind of try and [7] your art to a certain type of people. You don't know who's going to [8] towards your work. You never know what people are going to get out of the work. So I just try and create music that feels true to my taste and then see what happens. I collect words and [9] and [10] drum sounds and filters and [11]. And this becomes a [12] of truly everything that I like.\n@guest|All I can do is put that together and put it out. And at least I know that it's me.\n@host|Could you please tell our listeners about your songwriting process?\n@guest|I'll start with a kind of stream of [13].\n@guest|A lot of my writing is actually freeform. Sometimes I'll have like a [14] that maybe I've already written down somewhere and I'll listen to an instrumental and that will kind of [15] something in me. Or sometimes it starts with a [16]. So I have a [17] progression and drums and then I'll voice a melody over the top of that. And then I'll kind of [18] through my notes and find something that strikes a [19] chord in me as the music goes.\n@host|Is there a difference for you between words, [20], and song lyrics?\n@guest|I don't think there is. Anything can be a poem, and when I write, it's just putting the words down on paper. I don't really have any kind of [21] idea of what its final form will be. It just all kind of comes spilling out with me from the same place.\n@guest|Poetry doesn't necessarily need to be some [22] [23] thing. I think that those [24] should be broken down. Everything I write comes from the same [25] place anyway.\n@host|Do you write every day?\n@guest|I do, but I never force it out of myself. I'm kind of trying to explore writing as a practice. So, you know, I journal every day.\n@guest|I try and do kind of something for the art every day, whether that's reading or practicing the guitar. But when it comes to writing poetry or songs, I really have to have an idea or have that desire to get something down. I feel like the best art comes from a sense of [26] and [27]. Like I can't help but talk about this.\n@host|Has it always been easier for you to express yourself through art and music?\n@guest|Poetry was always something that [28] me. I started writing it when I was around six, and then it felt like that way of expression was always the one that I was most familiar with. Then I discovered the guitar, and I think I've unlocked a different part of myself because I don't even have to speak or think. It's just all in the feeling of it. So, I guess the answer is yes.\n@host|Thank you very much, Isla. It has been very interesting talking to you.\n@guest|Thank you.",
+      "questions": [
+        {
+          "q": "1. What do we learn about Isla Russell at the beginning of the interview?",
+          "opts": [
+            "She writes songs for other singers.",
+            "She's internationally famous.",
+            "She hasn't won any national awards."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "2. Isla wants to be the voice for …",
+          "opts": [
+            "artists.",
+            "young people.",
+            "all people."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "3. Isla characterizes her music as being …",
+          "opts": [
+            "calm.",
+            "revolutionary.",
+            "sincere."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "4. Isla describes the songwriting process as …",
+          "opts": [
+            "hard to understand.",
+            "very disciplined.",
+            "not very organized."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "5. According to Isla, poetry is something …",
+          "opts": [
+            "meant for highly intellectual people.",
+            "that can be flexible and unpredictable.",
+            "that has strict rules and boundaries."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "6. Isla prefers writing when she …",
+          "opts": [
+            "feels she just can't but do it.",
+            "faces an important deadline.",
+            "listens to good guitar music."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "7. In her childhood, Isla expressed herself by …",
+          "opts": [
+            "reading books.",
+            "writing poems.",
+            "playing music."
+          ],
+          "correct": 1
+        }
+      ],
+      "playthroughStarts": [
+        "1:19",
+        "5:36"
+      ],
+      "instructions": "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."
+    },
+    {
+      "id": "brie-martin",
+      "nav": "Brie Martin",
+      "title": "Five Minutes with a Star — Brie Martin",
+      "type": "listening",
+      "audio": "audio/BrieMartin.mp3",
+      "prep": {
+        "gapFill": {
+          "instruction": "Complete the expressions. Use the words from the box. There is one extra word.",
+          "wordBank": [
+            "identify",
+            "feature",
+            "rush",
+            "refuse",
+            "towards",
+            "eyes",
+            "actress",
+            "write",
+            "anonymity"
+          ],
+          "extraWord": "anonymity",
+          "items": [
+            {
+              "id": 1,
+              "sentence": "to ________ with something",
+              "answer": "identify"
+            },
+            {
+              "id": 2,
+              "sentence": "to release a ________ film",
+              "answer": "feature"
+            },
+            {
+              "id": 3,
+              "sentence": "to feel a ________",
+              "answer": "rush"
+            },
+            {
+              "id": 4,
+              "sentence": "to ________ to be one thing",
+              "answer": "refuse"
+            },
+            {
+              "id": 5,
+              "sentence": "to move ________ your goal",
+              "answer": "towards"
+            },
+            {
+              "id": 6,
+              "sentence": "to feel a lot of ________ on you",
+              "answer": "eyes"
+            },
+            {
+              "id": 7,
+              "sentence": "to be a prize-winning ________",
+              "answer": "actress"
+            },
+            {
+              "id": 8,
+              "sentence": "to ________ something down",
+              "answer": "write"
+            }
+          ]
+        },
+        "matching": {
+          "instruction": "Match the expressions (1–8) with their meanings (A–H).",
+          "expressions": [
+            {
+              "id": 1,
+              "text": "identify with"
+            },
+            {
+              "id": 2,
+              "text": "release a feature film"
+            },
+            {
+              "id": 3,
+              "text": "feel a rush"
+            },
+            {
+              "id": 4,
+              "text": "refuse to be one thing"
+            },
+            {
+              "id": 5,
+              "text": "move towards your goal"
+            },
+            {
+              "id": 6,
+              "text": "feel a lot of eyes on you"
+            },
+            {
+              "id": 7,
+              "text": "prize-winning actress"
+            },
+            {
+              "id": 8,
+              "text": "write something down"
+            }
+          ],
+          "meanings": [
+            {
+              "id": "A",
+              "text": "relate to / feel a connection with"
+            },
+            {
+              "id": "B",
+              "text": "put out a full-length cinema film"
+            },
+            {
+              "id": "C",
+              "text": "experience a sudden exciting or thrilling feeling"
+            },
+            {
+              "id": "D",
+              "text": "do not want to be limited to only one role or style"
+            },
+            {
+              "id": "E",
+              "text": "make progress in the direction of what you want to achieve"
+            },
+            {
+              "id": "F",
+              "text": "feel that many people are watching and judging you"
+            },
+            {
+              "id": "G",
+              "text": "an actress who has won major awards"
+            },
+            {
+              "id": "H",
+              "text": "put thoughts or information on paper"
+            }
+          ],
+          "answers": {
+            "1": "A",
+            "2": "B",
+            "3": "C",
+            "4": "D",
+            "5": "E",
+            "6": "F",
+            "7": "G",
+            "8": "H"
+          }
+        }
+      },
+      "transcript": "@narrator|Today in our studio, we are lucky to have Brie Martin. She [1] as an actress when she was 19 years old, and now she's a world-famous film [2], producer, and [3] of sci-fi [4].\n@host|Good afternoon, Brie.\n@guest|Good afternoon. Thank you for inviting me. It's a pleasure being here.\n@host|How do you manage to invent the [5] creative universes which we find in your films?\n@guest|I use my dreams a lot for [6]. I've always had intense and [7] dreams that I could perfectly remember and write down afterwards. And I always left the open door for that, for dreams to show me things.\n@guest|At the same time, I've had [8] my entire life. So, I would have all these [9] hours in the night where everyone else sleeps, sitting in the dark, looking at the [10], thinking and inventing things. I think that between the insomnia and the [11] dreams, it [12] shifted the way that I am.\n@guest|Even though now I'm way more [13] than I was before, I still can identify with that.\n@host|What made you start doing this?\n@guest|I've been in love with creating worlds since forever. For me, it was always a rush to make something exist that didn't exist before.\n@guest|I've always felt [14] was more exciting than real life. That's also why I've always loved [15]. They make me feel alive.\n@guest|With my own work, I am [16] to change the movies that I make and to explore different [17]. I have the goal of doing a comedy, a classical thriller, maybe even a musical, and not an experimental sci-fi, as I've done before.\n@host|Are you [18]?\n@guest|I think I am.\n@guest|I refuse to be one thing. In general, I want to make movies in different [19]. I've already started moving towards this goal by watching movies from all around the world.\n@guest|By doing this, I can [20] with all these different stories of these different people that live in completely different parts of the world and still feel this human experience. I'm really interested in exploring this.\n@host|How much of yourself is present in your films?\n@guest|It's actually very funny because anyone that sees my movies probably imagines that I must be very nostalgic, silent, maybe [21] individual because that's the energy that my past movies have.\n@guest|However, I'm completely the [22]. I'm normally happy, telling jokes all the time. It's very interesting for me to see the movies that I make because I sometimes watch them and I am like, Yes, this is a huge part of me, but this is not me.\n@host|What does it feel like to be a film director?\n@guest|It's fascinating and [23] at the same time. I think it's easier with short films because you understand that viewers are going to watch [24] of them in a row. Making a film that people are going to sit down and watch for at least an hour and a half and then talk about, well, that's different.\n@host|What did it take for you to make your first [25] film?\n@guest|I did feel a lot of [26] eyes on me when I was doing my first film. Can you believe I wrote the script for it when I was 21? But I only released it close to my 30th birthday. It took years to get [27].\n@guest|Then I finally found a great team and a producer and we shot it. But I was a [28]-[29] actress already. I thought that I was going to release my first feature film in complete [30].\n@guest|But in the end, people started looking at it.\n@host|Thank you very much, Brie. It has been very interesting talking to you.",
+      "gaps": [
+        {
+          "num": 1,
+          "answer": "debuted"
+        },
+        {
+          "num": 2,
+          "answer": "director"
+        },
+        {
+          "num": 3,
+          "answer": "scriptwriter"
+        },
+        {
+          "num": 4,
+          "answer": "blockbusters"
+        },
+        {
+          "num": 5,
+          "answer": "unique"
+        },
+        {
+          "num": 6,
+          "answer": "inspiration"
+        },
+        {
+          "num": 7,
+          "answer": "memorable"
+        },
+        {
+          "num": 8,
+          "answer": "insomnia"
+        },
+        {
+          "num": 9,
+          "answer": "endless"
+        },
+        {
+          "num": 10,
+          "answer": "ceiling"
+        },
+        {
+          "num": 11,
+          "answer": "intense"
+        },
+        {
+          "num": 12,
+          "answer": "profoundly"
+        },
+        {
+          "num": 13,
+          "answer": "rational"
+        },
+        {
+          "num": 14,
+          "answer": "fiction"
+        },
+        {
+          "num": 15,
+          "answer": "thrillers"
+        },
+        {
+          "num": 16,
+          "answer": "aiming"
+        },
+        {
+          "num": 17,
+          "answer": "genres"
+        },
+        {
+          "num": 18,
+          "answer": "ambitious"
+        },
+        {
+          "num": 19,
+          "answer": "languages"
+        },
+        {
+          "num": 20,
+          "answer": "empathize"
+        },
+        {
+          "num": 21,
+          "answer": "tormented"
+        },
+        {
+          "num": 22,
+          "answer": "opposite"
+        },
+        {
+          "num": 23,
+          "answer": "horrifying"
+        },
+        {
+          "num": 24,
+          "answer": "several"
+        },
+        {
+          "num": 25,
+          "answer": "feature"
+        },
+        {
+          "num": 26,
+          "answer": "external"
+        },
+        {
+          "num": 27,
+          "answer": "financing"
+        },
+        {
+          "num": 28,
+          "answer": "prize"
+        },
+        {
+          "num": 29,
+          "answer": "winning"
+        },
+        {
+          "num": 30,
+          "answer": "anonymity"
+        }
+      ],
+      "questions": [
+        {
+          "q": "1. What do we learn about Brie Martin at the beginning of the interview?",
+          "opts": [
+            "She's worked in different spheres.",
+            "All of her films are blockbusters.",
+            "She enjoys watching sci-fi films."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "2. Brie describes her dreams as …",
+          "opts": [
+            "stimulating.",
+            "horrifying.",
+            "easy to forget."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "3. It's often hard for Brie to …",
+          "opts": [
+            "remember her dreams.",
+            "fall asleep at night.",
+            "invent plots for her films."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "4. For Brie, real life is less … than fiction.",
+          "opts": [
+            "interesting",
+            "memorable",
+            "difficult"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "5. Brie wants to …",
+          "opts": [
+            "change the world of cinema.",
+            "experiment with new genres.",
+            "travel to different countries."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "6. Brie characterizes herself as …",
+          "opts": [
+            "sentimental.",
+            "interesting.",
+            "cheerful."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "7. Speaking about being a film director, Brie points out that …",
+          "opts": [
+            "it takes some time to become famous.",
+            "it's not a huge responsibility to make feature films.",
+            "it takes a long time and a lot of money to make films."
+          ],
+          "correct": 2
+        }
+      ],
+      "playthroughStarts": [
+        "1:19",
+        "5:35"
+      ],
+      "instructions": "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."
+    },
+    {
+      "id": "alice-white",
+      "nav": "Alice White",
+      "title": "Five Minutes with a Star — Alice White",
+      "type": "listening",
+      "audio": "audio/AliceWhite.mp3",
+      "prep": {
+        "gapFill": {
+          "instruction": "Complete the expressions. Use the words from the box. There is one extra word.",
+          "wordBank": [
+            "resonate",
+            "nightmare",
+            "give",
+            "fashioned",
+            "top",
+            "core",
+            "normal",
+            "up",
+            "stamina",
+            "audition",
+            "smile"
+          ],
+          "extraWord": "smile",
+          "items": [
+            {
+              "id": 1,
+              "sentence": "to ________ with the viewer",
+              "answer": "resonate"
+            },
+            {
+              "id": 2,
+              "sentence": "to go through a ________",
+              "answer": "nightmare"
+            },
+            {
+              "id": 3,
+              "sentence": "to ________ something a go",
+              "answer": "give"
+            },
+            {
+              "id": 4,
+              "sentence": "to be old-________",
+              "answer": "fashioned"
+            },
+            {
+              "id": 5,
+              "sentence": "to be over-the-________",
+              "answer": "top"
+            },
+            {
+              "id": 6,
+              "sentence": "to feel something in your ________",
+              "answer": "core"
+            },
+            {
+              "id": 7,
+              "sentence": "to go back to ________",
+              "answer": "normal"
+            },
+            {
+              "id": 8,
+              "sentence": "to take ________ ballet",
+              "answer": "up"
+            },
+            {
+              "id": 9,
+              "sentence": "to need ________ to survive",
+              "answer": "stamina"
+            },
+            {
+              "id": 10,
+              "sentence": "to be rejected after an ________",
+              "answer": "audition"
+            }
+          ]
+        },
+        "matching": {
+          "instruction": "Match the expressions (1–10) with their meanings (A–J).",
+          "expressions": [
+            {
+              "id": 1,
+              "text": "resonate with the viewer"
+            },
+            {
+              "id": 2,
+              "text": "go through a nightmare"
+            },
+            {
+              "id": 3,
+              "text": "give something a go"
+            },
+            {
+              "id": 4,
+              "text": "old-fashioned"
+            },
+            {
+              "id": 5,
+              "text": "over-the-top"
+            },
+            {
+              "id": 6,
+              "text": "feel something in your core"
+            },
+            {
+              "id": 7,
+              "text": "go back to normal"
+            },
+            {
+              "id": 8,
+              "text": "take up ballet"
+            },
+            {
+              "id": 9,
+              "text": "need stamina to survive"
+            },
+            {
+              "id": 10,
+              "text": "rejected after an audition"
+            }
+          ],
+          "meanings": [
+            {
+              "id": "A",
+              "text": "create a strong emotional connection with the audience"
+            },
+            {
+              "id": "B",
+              "text": "experience something very unpleasant or difficult"
+            },
+            {
+              "id": "C",
+              "text": "try something / attempt to do something"
+            },
+            {
+              "id": "D",
+              "text": "traditional / preferring classic styles or ideas"
+            },
+            {
+              "id": "E",
+              "text": "exaggerated or extreme (often in a negative way)"
+            },
+            {
+              "id": "F",
+              "text": "experience something deeply / feel it strongly inside"
+            },
+            {
+              "id": "G",
+              "text": "return to the usual / previous condition"
+            },
+            {
+              "id": "H",
+              "text": "start doing ballet regularly"
+            },
+            {
+              "id": "I",
+              "text": "need lasting physical or mental strength to continue"
+            },
+            {
+              "id": "J",
+              "text": "not get the part after a casting tryout"
+            }
+          ],
+          "answers": {
+            "1": "A",
+            "2": "B",
+            "3": "C",
+            "4": "D",
+            "5": "E",
+            "6": "F",
+            "7": "G",
+            "8": "H",
+            "9": "I",
+            "10": "J"
+          }
+        }
+      },
+      "transcript": "@narrator|Hello everybody, and here we are with our weekly program, Five Minutes with a Star. Today in our studio, we are lucky to have Alice White, a world-famous actress, dancer and film producer.\n@narrator|Alice rarely gives interviews, so feel very [1] today.\n@host|Good afternoon, Alice.\n@guest|Good afternoon.\n@guest|Thank you for inviting me. It's a pleasure being here. In your [2] interviews, you've mentioned the fact that you're a very [3] woman.\n@host|How often do you cry while watching a movie?\n@guest|I don't cry because I'm watching a sad film. I cry anytime anyone does something [4], or someone says or does something nice to another person. When I grew up, my mom cried all the time because she was [5], or it was so beautiful when I sang at school.\n@guest|She stood there in the [6] crying. And now, ever since I turned 20, I've realized I cry less and less from pain or sadness, and more for the beautiful things.\n@host|Do you enjoy watching [7]?\n@guest|Some people think that melodramas are [8] films, but in fact it's not an easy task to make a melodrama that will [9] with the viewer.\n@guest|Modern melodramas can often be so [10]-[11]-[12]. I mean, when the emotional aspects of a film don't [13], when it feels emotional without making you actually feel it in your core. I guess that's also why emotional dramas are one of the most difficult film genres to make, to be honest.\n@host|Why do you often play in melodramas? What [14] you to that genre?\n@guest|Well, I just grew up with some [15] stories of this genre. This year, I've worked on a beautiful new melodrama, too. I guess I like being [16]-[17].\n@guest|I usually feel really engaged by melodramatic [18] because when it comes to wanting love, wanting family, losing people, [19], pain, those are things that everyone relates to.\n@host|Apart from being an actress, you're a dancer. What made you take up [20]?\n@guest|Ballet is good training for the film [21] because you're in serious pain, but you always have to have a [22] on your face.\n@guest|I think as soon as you stop training, though, your body goes back to normal, so the amount of pain you can take is not the same. I actually just put on a pair of [23] shoes for the first time in a long time the other day, and it was a [24]. In the school I trained at, they didn't let you [25] your [26] for the first two years, and it's so painful.\n@guest|I went home crying, and my parents almost wanted me to quit, but then I just did it. It requires a lot of [27] to not give up.\n@host|Do you use that stamina now on film sets?\n@guest|Yeah, quite often, I would say.\n@guest|It's normally quite uncomfortable to make films. Actually, I did a film this summer where it was [28] to be summer, and we were in Germany. It was quite cold outside, but we had to [29] it was summer.\n@guest|On a shoot, normally it was like 5 [30], and I had a little tank top on, and I was running around for like 10 hours a day, pretending to be really warm when I was about to [31]. I hate being cold, so I needed all of my stamina to survive.\n@host|When you're [32] after an audition, how do you cope with it?\n@guest|It's a [33] industry.\n@guest|When you decide that you want to give it a go, you're also accepting that you might get one job, and then it'll be a long time before the next one, if ever. I never thought that I was going to be given even one [34], and now I've been invited to work with so many [35] [36] and actors.\n@guest|It's been amazing to be part of those projects.\n@host|Thank you very much, Alice. It has been very interesting talking to you.",
+      "gaps": [
+        {
+          "num": 1,
+          "answer": "privileged"
+        },
+        {
+          "num": 2,
+          "answer": "previous"
+        },
+        {
+          "num": 3,
+          "answer": "emotional"
+        },
+        {
+          "num": 4,
+          "answer": "sweet"
+        },
+        {
+          "num": 5,
+          "answer": "touched"
+        },
+        {
+          "num": 6,
+          "answer": "corner"
+        },
+        {
+          "num": 7,
+          "answer": "melodramas"
+        },
+        {
+          "num": 8,
+          "answer": "shallow"
+        },
+        {
+          "num": 9,
+          "answer": "resonate"
+        },
+        {
+          "num": 10,
+          "answer": "over"
+        },
+        {
+          "num": 11,
+          "answer": "the"
+        },
+        {
+          "num": 12,
+          "answer": "top"
+        },
+        {
+          "num": 13,
+          "answer": "resonate"
+        },
+        {
+          "num": 14,
+          "answer": "attracts"
+        },
+        {
+          "num": 15,
+          "answer": "classical"
+        },
+        {
+          "num": 16,
+          "answer": "old"
+        },
+        {
+          "num": 17,
+          "answer": "fashioned"
+        },
+        {
+          "num": 18,
+          "answer": "scripts"
+        },
+        {
+          "num": 19,
+          "answer": "heartbreak"
+        },
+        {
+          "num": 20,
+          "answer": "ballet"
+        },
+        {
+          "num": 21,
+          "answer": "industry"
+        },
+        {
+          "num": 22,
+          "answer": "smile"
+        },
+        {
+          "num": 23,
+          "answer": "pointe"
+        },
+        {
+          "num": 24,
+          "answer": "nightmare"
+        },
+        {
+          "num": 25,
+          "answer": "tape"
+        },
+        {
+          "num": 26,
+          "answer": "toes"
+        },
+        {
+          "num": 27,
+          "answer": "stamina"
+        },
+        {
+          "num": 28,
+          "answer": "supposed"
+        },
+        {
+          "num": 29,
+          "answer": "pretend"
+        },
+        {
+          "num": 30,
+          "answer": "degrees"
+        },
+        {
+          "num": 31,
+          "answer": "freeze"
+        },
+        {
+          "num": 32,
+          "answer": "rejected"
+        },
+        {
+          "num": 33,
+          "answer": "tough"
+        },
+        {
+          "num": 34,
+          "answer": "opportunity"
+        },
+        {
+          "num": 35,
+          "answer": "incredible"
+        },
+        {
+          "num": 36,
+          "answer": "filmmakers"
+        }
+      ],
+      "questions": [
+        {
+          "q": "1. What do we learn about Alice White at the beginning of the interview?",
+          "opts": [
+            "She's won several international awards.",
+            "She's internationally famous.",
+            "She often gives interviews."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "2. What is most likely to make Alice cry?",
+          "opts": [
+            "Something ugly.",
+            "Something lovely.",
+            "Something tragic."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "3. Alice thinks melodramas are …",
+          "opts": [
+            "very primitive.",
+            "hard to make.",
+            "usually over the top."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "4. Alice enjoys acting in melodramas because most viewers …",
+          "opts": [
+            "are quite old-fashioned.",
+            "love their scripts.",
+            "understand the characters."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "5. Alice's dancing background was useful for her because she …",
+          "opts": [
+            "could develop her endurance.",
+            "can now play in films about ballet.",
+            "became elegant thanks to it."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "6. Alice describes the conditions on most of her film sets as …",
+          "opts": [
+            "physically challenging.",
+            "very comfortable.",
+            "warm and welcoming."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "7. Talking about her career, Alice sounds …",
+          "opts": [
+            "modest.",
+            "arrogant.",
+            "indifferent."
+          ],
+          "correct": 0
+        }
+      ],
+      "playthroughStarts": [
+        "1:19",
+        "5:42"
+      ],
+      "instructions": "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."
+    },
+    {
+      "id": "brenda-black",
+      "nav": "Brenda Black",
+      "title": "Five Minutes with a Star — Brenda Black",
+      "type": "listening",
+      "audio": "audio/BrendaBlack.mp3",
+      "prep": {
+        "gapFill": {
+          "instruction": "Complete the expressions. Use the words from the box. There is one extra word.",
+          "wordBank": [
+            "eyes",
+            "break",
+            "anew",
+            "mercy",
+            "role",
+            "brought",
+            "vulnerable",
+            "doubt",
+            "shackles"
+          ],
+          "extraWord": "shackles",
+          "items": [
+            {
+              "id": 1,
+              "sentence": "to see the world through different ________",
+              "answer": "eyes"
+            },
+            {
+              "id": 2,
+              "sentence": "to ________ away from the shackles",
+              "answer": "break"
+            },
+            {
+              "id": 3,
+              "sentence": "to discover yourself ________ every day",
+              "answer": "anew"
+            },
+            {
+              "id": 4,
+              "sentence": "to be at someone's ________",
+              "answer": "mercy"
+            },
+            {
+              "id": 5,
+              "sentence": "to play a supporting ________",
+              "answer": "role"
+            },
+            {
+              "id": 6,
+              "sentence": "to be ________ up a certain way",
+              "answer": "brought"
+            },
+            {
+              "id": 7,
+              "sentence": "to make yourself ________",
+              "answer": "vulnerable"
+            },
+            {
+              "id": 8,
+              "sentence": "to have a moment of ________",
+              "answer": "doubt"
+            }
+          ]
+        },
+        "matching": {
+          "instruction": "Match the expressions (1–8) with their meanings (A–H).",
+          "expressions": [
+            {
+              "id": 1,
+              "text": "see the world through different eyes"
+            },
+            {
+              "id": 2,
+              "text": "break away from the shackles"
+            },
+            {
+              "id": 3,
+              "text": "discover yourself anew"
+            },
+            {
+              "id": 4,
+              "text": "at someone's mercy"
+            },
+            {
+              "id": 5,
+              "text": "supporting role"
+            },
+            {
+              "id": 6,
+              "text": "brought up a certain way"
+            },
+            {
+              "id": 7,
+              "text": "make yourself vulnerable"
+            },
+            {
+              "id": 8,
+              "text": "moment of doubt"
+            }
+          ],
+          "meanings": [
+            {
+              "id": "A",
+              "text": "understand life from new perspectives"
+            },
+            {
+              "id": "B",
+              "text": "free yourself from limiting circumstances and habits"
+            },
+            {
+              "id": "C",
+              "text": "learn new things about your own personality again and again"
+            },
+            {
+              "id": "D",
+              "text": "completely dependent on another person or their decisions"
+            },
+            {
+              "id": "E",
+              "text": "a secondary / non-leading part in a film or play"
+            },
+            {
+              "id": "F",
+              "text": "raised / educated in a particular manner"
+            },
+            {
+              "id": "G",
+              "text": "allow yourself to be open to emotional risk or hurt"
+            },
+            {
+              "id": "H",
+              "text": "a short period of uncertainty or lack of confidence"
+            }
+          ],
+          "answers": {
+            "1": "A",
+            "2": "B",
+            "3": "C",
+            "4": "D",
+            "5": "E",
+            "6": "F",
+            "7": "G",
+            "8": "H"
+          }
+        }
+      },
+      "gaps": [
+        {
+          "num": 1,
+          "answer": "influential"
+        },
+        {
+          "num": 2,
+          "answer": "according"
+        },
+        {
+          "num": 3,
+          "answer": "magazine"
+        },
+        {
+          "num": 4,
+          "answer": "artistic"
+        },
+        {
+          "num": 5,
+          "answer": "coming"
+        },
+        {
+          "num": 6,
+          "answer": "of"
+        },
+        {
+          "num": 7,
+          "answer": "age"
+        },
+        {
+          "num": 8,
+          "answer": "lifelong"
+        },
+        {
+          "num": 9,
+          "answer": "shackles"
+        },
+        {
+          "num": 10,
+          "answer": "bind"
+        },
+        {
+          "num": 11,
+          "answer": "curiosity"
+        },
+        {
+          "num": 12,
+          "answer": "inner"
+        },
+        {
+          "num": 13,
+          "answer": "require"
+        },
+        {
+          "num": 14,
+          "answer": "vulnerable"
+        },
+        {
+          "num": 15,
+          "answer": "forgiveness"
+        },
+        {
+          "num": 16,
+          "answer": "lines"
+        },
+        {
+          "num": 17,
+          "answer": "throughout"
+        },
+        {
+          "num": 18,
+          "answer": "weather"
+        },
+        {
+          "num": 19,
+          "answer": "issues"
+        },
+        {
+          "num": 20,
+          "answer": "technical"
+        },
+        {
+          "num": 21,
+          "answer": "mercy"
+        },
+        {
+          "num": 22,
+          "answer": "puller"
+        },
+        {
+          "num": 23,
+          "answer": "attitude"
+        },
+        {
+          "num": 24,
+          "answer": "regret"
+        },
+        {
+          "num": 25,
+          "answer": "doubts"
+        },
+        {
+          "num": 26,
+          "answer": "simpler"
+        },
+        {
+          "num": 27,
+          "answer": "adulthood"
+        },
+        {
+          "num": 28,
+          "answer": "deeper"
+        },
+        {
+          "num": 29,
+          "answer": "participants"
+        },
+        {
+          "num": 30,
+          "answer": "creatures"
+        },
+        {
+          "num": 31,
+          "answer": "burden"
+        },
+        {
+          "num": 32,
+          "answer": "entire"
+        },
+        {
+          "num": 33,
+          "answer": "angles"
+        },
+        {
+          "num": 34,
+          "answer": "anew"
+        }
+      ],
+      "transcript": "@narrator|Hello everybody, and here we are with our weekly program, 5 Minutes with a Star. Today in our studio, we are lucky to have Brenda Black, a world-famous actress. Having started with supporting roles in comedies, Brenda is now one of the most [1] people in the world, [2] to Time [3].\n@host|Good afternoon, Brenda.\n@guest|Good afternoon. Thank you for inviting me. It's a pleasure being here.\n@host|As I have already mentioned, you started your [4] career with comedies about teenagers. Are these roles still important to you?\n@guest|Oh yes, they are, because they reflect my personal [5]-[6]-[7] story. Such stories are always important. It's an ever-changing, [8] process to continue to break away from the [9] that [10] us.\n@guest|We are born with a connection to our family, being brought up in a certain way, a certain community that we live in, and a certain part of the world that we live in. It takes our sense of [11] to continue to push forward and break away from those things. I wouldn't be on the path that I am with the career that I've had if I didn't have a deep understanding of the sense of my [12] freedom.\n@host|Does acting [13] making yourself [14]?\n@guest|Yes, it does. Plus, you have to allow yourself to be that vulnerable in front of so many people. You gain a sense of freedom and understanding and [15] for being human. You realize how difficult being an adult can be. Instead of trying to control things and make it the way you want them, you have to be more open to what it is.\n@host|Does it mean that actors don't need to be in control?\n@guest|In fact, it's very rare when actors are in control of everything. Sure, I can learn my [16]. I can know my character really well. But there are so many factors going on [17] the day. There are [18] [19]. There are [20] issues. Any number of things can happen during the day. And the actor's job is at the [21] of everybody else. Of the focus [22]. That the lighting is right, that the camera is turned on, that everybody is having a good [23] and moving quickly.\n@host|Do you ever [24] becoming an actress?\n@guest|I still have moments of [25], and I still get scared, and I still wish sometimes that I was back at home with my parents, and they were making lunch, and I would go to school, and life was [26], but there is no going back to that reality. Still, I'm happy to be what I am. There's so much to be gained from [27]. Feelings just become so much [28].\n@host|What do you think is the most important thing people should remember?\n@guest|I think that people must not forget that it's both hard and exciting to be a human being. We have to choose every day to be active [29]. To wake up in the morning and choose this life and make something of it is an incredible thing. Not many living [30] have that option. We have so many opportunities and options. It's a huge [31], but it's also the most freeing part of our lives.\n@host|Did acting help you find your way?\n@guest|Most people have just been themselves their [32] lives. I've had to be so many different types of people and learn to see the world from many different [33]. I've had the rare experience of living life as many different people. I get in touch with many different things that are so surprising that I didn't know about until I started seeing the world through different eyes. Acting changes me every day. I discover myself [34] every day.\n@host|Thank you very much, Brenda. It has been very interesting talking to you.\n@guest|Thank you.",
+      "questions": [
+        {
+          "q": "1. What do we learn about Brenda Black at the beginning of the interview?",
+          "opts": [
+            "She's won several awards.",
+            "She plays in comedies only.",
+            "She has a successful career."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "2. Brenda thinks her early roles are …",
+          "opts": [
+            "significant.",
+            "curious.",
+            "shallow."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "3. According to Brenda, actors have to …",
+          "opts": [
+            "be bossy and pushy.",
+            "learn to accept things.",
+            "forgive other people."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "4. Brenda thinks her job depends on …",
+          "opts": [
+            "only herself.",
+            "a variety of factors.",
+            "being in control."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "5. Sometimes Brenda wishes she could …",
+          "opts": [
+            "be an actress forever.",
+            "go back in time.",
+            "have a supporting family."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "6. Brenda thinks it's important NOT to …",
+          "opts": [
+            "take an active approach to life.",
+            "forget that life is really hard.",
+            "take your life for granted."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "7. According to Brenda, which of the following is TRUE for actors?",
+          "opts": [
+            "They can see things from different perspectives.",
+            "Their lives are always full of pleasant surprises.",
+            "They get in touch with many interesting people."
+          ],
+          "correct": 0
+        }
+      ],
+      "playthroughStarts": [
+        "1:19",
+        "5:35"
+      ],
+      "instructions": "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."
+    }
+  ]
+}

@@ -1,0 +1,647 @@
+{
+  "id": "reading-comprehension",
+  "title": "Reading Comprehension",
+  "subtitle": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "tasks": [
+    {
+      "id": "reading-highlands",
+      "nav": "Highlands Express",
+      "title": "Highlands Express",
+      "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "The journey began on a September evening in London as a black cab rushed me to Euston station. I had a weekend to myself, and I meant to make the most of it by hitting the famous Highlands of Scotland on a Caledonian Sleeper, a working train also affectionately known as the Deerstalker Express. I saw it as an escape from hectic city life.<br><br>A train is a very public place, but a berth on the sleeper is one of the most private. I was shown to my little first-class cabin – a little bed, little basin, window, night light and an extra blanket, trim as a toy house. I took a nibble in the comfortable, modern dining car, and retired to bed. London had slipped away, and it was black out there. I pulled the blind, put out the lamp, and arranged myself for sleep.<br><br>The train pulled into the station at 9:43 a.m. The centre of Fort William, I quickly learned, is but a street of fishing and hiking shops, with a spiky Victorian church, a handsome stone hotel, and a lake running alongside it. Before I took a cab to the hotel, I wandered up High Street to find the local paper and a cup of tea. A few hours later, I found myself standing up to my knees in the River Lochy, fishing with the expert assistance of a local guide, Martin Brown. The hotel staff was quite helpful and had arranged the outing with Martin. My aim was to learn the basics of fly-fishing. While Martin effortlessly handled yards and yards of fishing line so that his fly touched a small pool across the river, I splashed my fly into the river a few yards off. My first few casts were a mess, but I gradually improved. Soon, I hooked something. The rod grew heavy and lively. Eventually, I got very cold feet and aching arms and some sense of the pleasures of fishing, just as I had hoped.<br><br>That evening, after Martin dropped me off at the hotel, I found a place to sit among the armchair atolls in the oceanic great hall. Later, I was summoned to my table in one of the dining rooms, walls hung with prints. My meal was unassuming but tasty. I had a bit of meat pie, and a bit of cheese.<br><br>The following morning, I struck out on the well-marked walk that takes just a few hours but plunges you immediately into the grandeur of the Highlands. In the distance I saw an odd sight: a group of hikers dancing madly about the stream, waving their arms and shaking their heads.<br><br>I spread my coat on the grass and settled down to my picnic – superior crab sandwiches provided by the hotel. In a moment, I was on my feet, slapping my face and rubbing my hair while grabbing up my sandwiches with a free hand. I had forgotten the bane of the Highlands: flies, which are particularly active in late summer.<br><br>At Fort William's excellent West Highland Museum, housed in a late Georgian building on Cameron Square, you can learn how people left a mark on this ancient landscape. They worked its trees and stones, leaving beautiful ax heads from the Stone Age, Celtic jewellery, the blade of a bronze sword. There are suggestions of myth and magic, the cement that connected people to their surroundings and the darker world beyond: amulets, cures, and trophies. And there are objects so rare and weird that they seemed to have dropped from the world beyond: so-called drift-seeds, which floated ashore from the West Indies and were turned into charms, odd-shaped or queerly colored pebbles that drew fevers, or brought a loved one home.<br><br>It was not yet dark when the London sleeper slid out of Fort William Station. I did not brood for long on the triumphs and tragedies of Highland history. When I next opened my eyes, I saw the huddled rooftops of suburban London, and a cheerful attendant, passing me a cup of tea.",
+      "questions": [
+        {
+          "q": "12. The author decided to spend a holiday in the Highlands to …",
+          "opts": [
+            "ride an exclusive train.",
+            "spend some time on his own.",
+            "get away from the busy capital.",
+            "see what the Highlands are known for."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "13. \"It\" in Paragraph 3 (and a lake running alongside it) refers to the …",
+          "opts": [
+            "lakeshore.",
+            "street.",
+            "shop.",
+            "church."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "14. Which statement about the author's fishing experience is FALSE?",
+          "opts": [
+            "His fishing skills slowly improved.",
+            "His attempts to catch something were useless.",
+            "The experience was quite satisfying.",
+            "The guide showed him how to throw the line."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "15. \"Unassuming\" in Paragraph 4 most probably means …",
+          "opts": [
+            "heavy.",
+            "healthy.",
+            "modest.",
+            "inexpensive."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "16. Hikers behaved strangely because they were …",
+          "opts": [
+            "attacked by insects.",
+            "performing a ritual.",
+            "impressed by the Highlands.",
+            "having an argument."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "17. What did the author NOT see at the museum?",
+          "opts": [
+            "Old textiles.",
+            "Magic stones.",
+            "Parts of weapons.",
+            "Ancient charms."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "18. How can the author's weekend experience be described?",
+          "opts": [
+            "Thought-provoking.",
+            "Eye-opening.",
+            "Time-consuming.",
+            "Pressure-free."
+          ],
+          "correct": 3
+        }
+      ]
+    },
+    {
+      "id": "reading-harry-potter",
+      "nav": "Harry Potter",
+      "title": "How Harry Potter Saved One Small Town",
+      "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Mallaig is far from the prettiest of Highland settlements, even when the weather is fine. Several rows of what could be prewar council houses stretch across the hill beyond the harbour. A mishmash of car parks, jetties and workaday buildings squats close to the railway terminus. When I last stayed in Mallaig, it was known as the biggest herring port in Europe. Today, the herring have vanished, and yet Mallaig remains a busy place. Ferries come and go and fishing boats land shellfish, which is driven away in lorries to the markets of France and Spain. None of this activity, however, explains the hundreds of people who can be seen roaming Mallaig's few streets every afternoon between the beginning of May and the end of October, or the presence of so many restaurants. What do explain them are two enthusiasms, one for low fact and the other for high fiction, which are kindled in childhood and among many adults never entirely disappear.<br><br>The railway reached Mallaig from Fort William and the south in 1901. It was among the last big lines to be built in Britain, late enough to have its viaducts built of concrete. It traversed one of Europe's most spectacular and emptiest landscapes, with hardly anything large enough to be called a village along its 40-mile length.<br><br>The construction needed a large government subsidy, but the traffic never grew much beyond the two or three trains a day that carried fish boxes and a few dozen travellers to and from the Hebrides. It made little economic sense. Only 60 years after the line opened, it began to be threatened with closure. Few people would have guessed then that its commercial salvation would be owed to a novel and a film, and first of all, to a hobby.<br><br>Railways became an amateur pastime as well as a means of transport during the last decades of the 19th century. Then professional men such as vicars and lawyers began to see the large variety of trains and their technical progress as a hobby offering a similar kind of pleasure to philately and butterfly-hunting. By the end of the century they had their own magazine and their own club, the Railway Club, the world's first society for railway enthusiasts. It was founded in London in 1899 and had its own premises with a library and leather armchairs. It was from these elite beginnings that the 20th century's great cult of trainspotting spread, reinforcing a more general fondness for steam locomotives that many people had without knowing quite why. So a sense of loss ran through Britain when, in the 1960s, it became clear that their day was nearly done.<br><br>Hundreds of them were saved from the scrapyards and restored to working order; dozens of branch lines repaired and reopened so that in the holidays Britain could be charmed by how it once was. It's hard to think that anywhere in the world has seen a more popular or successful preservation movement, or at least one run and largely funded by volunteers. Out of this business grew the West Coast Railway Company, which hires out engines, coaches and crew for steam excursions.<br><br>A film producer looking to shoot a fantastical train in a dramatic location would naturally turn to such a company, and so in three Harry Potter films the train to Hogwarts is seen crossing Glenfinnan's viaduct.<br><br>Today, the Jacobite Express fills with Potter fans from all parts of the globe and always stops for a photo opportunity at Glenfinnan, which is where the real Bonnie Prince Charlie really raised his standard in '45 and marked as such by a real memorial. All of which reality is cast into shadow by the film of a modern fairytale.",
+      "questions": [
+        {
+          "q": "12. Which adjective could best describe Mallaig as presented by the author?",
+          "opts": [
+            "Derelict",
+            "Beautiful",
+            "Abandoned",
+            "Unsightly"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "13. The word 'mishmash' in 'A mishmash of car parks…' (paragraph 1) means…",
+          "opts": [
+            "a ruin",
+            "a mixture",
+            "a sight",
+            "a queue"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "14. Which of the following statements is TRUE about the railway line?",
+          "opts": [
+            "It was the last big line constructed in Britain",
+            "The traffic on it was busy at the beginning",
+            "It finally became profitable",
+            "It was closed shortly after its opening"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "15. The author compares the enthusiasm for trains to philately and butterfly-hunting because…",
+          "opts": [
+            "it turned into a pastime",
+            "they all require patience",
+            "they all became unpopular",
+            "they all are fashionable"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "16. The author mentions a library and leather armchairs in order to illustrate…",
+          "opts": [
+            "how important trains were for the country",
+            "how successful the Railway Club became",
+            "the amount of corruption at the club",
+            "the number of members it had"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "17. The word 'them' in 'hundreds of them…' (paragraph 6) refers to…",
+          "opts": [
+            "people",
+            "locomotives",
+            "train spotters",
+            "lines"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "18. How does the author feel about Glenfinnan being remembered through Harry Potter rather than Bonnie Prince Charlie?",
+          "opts": [
+            "Enthusiastic",
+            "Indifferent",
+            "Sad",
+            "Outraged"
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "reading-paris-abbey",
+      "nav": "Paris Abbey",
+      "title": "How a Paris Abbey Became a Science Museum",
+      "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "A trip to Europe without visiting museums would be like a trip to Fiji without visiting a beach. It just seems wrong to ignore such an embarrassment of riches. So when I was in France last year, I dutifully walked through museums, but I soon noticed a strange phenomenon. Every time I think about going to a museum, it seems like a fascinating way to spend an afternoon, but once I get there, I almost always find myself getting very sleepy by the time I get to the second gallery. I try to be enthusiastic … but usually I'm no match for the long halls of display cases.<br><br>There is an exception to this rule, though: science museums. I love inventions and gadgets, getting to know how things work and how people went about solving very difficult problems. I can stay awake in a good science museum indefinitely. So while in Paris, I visited the Conservatory of Arts and Trades. Part of this centuries-old institution is a museum that's open to the public, and it contains a fascinating variety of objects and exhibits including the original Foucault's Pendulum.<br><br>The Conservatory is off the beaten path; most English guidebooks don't even mention it. It does, however, attract a certain number of pilgrims who were fascinated by Umberto Eco's novel Foucault's Pendulum, part of which takes place there. In the novel, a secret passage under the floor of the nave connects with the Paris sewers. That isn't the case in reality, but truth is perhaps more interesting than fiction. There is something under the floor of the nave, a curious part of the building's long and strange history.<br><br>The foundation for the abbey church of St. Martin of the Fields was laid around 1059, about the time of the Norman conquest. Over the next centuries, numerous additions and renovations were undertaken. All that changed in the French Revolution when under the name of Conservatory of Arts and Trades, it became a depository for machines, models, tools, drawings, descriptions and books in all the areas of the arts and trades. It officially opened in 1802.<br><br>The museum closed for a renovation in 1993, and as part of the process, archaeological excavations were undertaken beneath the floor of the nave. For the entire history of the church, there had been stories that the site on which it stood was once a Merovingian funerary basilica, but this had never been proven. What archaeologists discovered was a large necropolis dating from the 6th or 7th century with about 100 plaster coffins inside. The tales were indeed true.<br><br>When the museum reopened a few years later, it was a typical shiny and up-to-date science museum. But it was decided that their thousands of additional articles should be made available to scholars even when they're not on exhibit. So they opened a satellite facility in the nearby town of Saint-Denis, where by appointment only qualified researchers can go to examine the rest of the museum's collection.<br><br>I've been to the Conservatory in 2000 and in 2003. As a science museum I found it a sheer delight. The former abbey is only a portion of the museum, and the museum is only a portion of the Conservatory. But all the history of the building and the institution seems to be concentrated in the large nave with its bones beneath and gadgets above. The odd contrast of centuries of monastic simplicity with centuries of technological progress tickles me in a way I can't easily describe. Perhaps the Pendulum says it best: as a scientific wonder that's also meditatively simple, it symbolically bridges the illusory divide between technology and spirituality.",
+      "questions": [
+        {
+          "q": "12. According to the author, visiting museums in Europe is considered to …",
+          "opts": [
+            "become more and more popular.",
+            "be an integral part of any journey.",
+            "show the level of one's education.",
+            "be the evidence of general curiosity."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "13. What does the author think about museums?",
+          "opts": [
+            "The European museums are the best.",
+            "He finds most of them to be boring.",
+            "There should be only science museums.",
+            "He thinks they are a waste of money."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "14. Which of the following does NOT explain the author's love for science museums?",
+          "opts": [
+            "He loves history of gadgets.",
+            "There is a chance to see how mechanisms work.",
+            "It's possible to touch the things that he likes.",
+            "The author likes stories of inventions."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "15. According to the author, the Conservatory is popular with the …",
+          "opts": [
+            "local people.",
+            "fans of a famous book.",
+            "English guides.",
+            "scholars."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "16. The reason the archaeological excavations started was the need to …",
+          "opts": [
+            "find Merovingian treasures.",
+            "solve some construction problems.",
+            "strengthen the basement.",
+            "prove the story of the site."
+          ],
+          "correct": 3
+        },
+        {
+          "q": "17. \"A satellite facility\" in phrase \"… they opened a satellite facility\" (paragraph 6) refers to …",
+          "opts": [
+            "a minor educational site.",
+            "a research area.",
+            "a place for additional exhibits.",
+            "the museum's laboratory."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "18. Visiting the museum the author is impressed by …",
+          "opts": [
+            "its size, history and facilities.",
+            "the number of technological exhibits.",
+            "the mixture of material and immaterial in its environment.",
+            "the symbols he finds there."
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "reading-stop-buying",
+      "nav": "Stop Buying Stuff",
+      "title": "Stop Buying Stuff",
+      "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Did you know that spending 1,000 rubles a day adds up to spending more than 365,000 a year? And I don't know about you, but hardly anything costs under 1,000 where we live. So thoughtless spending can add up very quickly. As I try to live more simply, I have been trying to mend what we have and make what we need. I recently made linen napkins with some fabric we had. This way of living has required me to slow down and question whether what I want to buy is truly essential. If you also want to live more simply and stop buying stuff you don't need, here are some tips that I've found useful.<br><br>First, you need to identify your motivation. Take a few minutes to think about why you want to buy less stuff. Your goal is to buy less, but why are you chasing that goal. Some reasons might be to save money, to reduce clutter, to live more sustainably, to get out of debt, or to live a more handmade and simple life. Once you have your motivation identified, you can refer back to it when you are tempted to buy something frivolous.<br><br>Next, it's very useful to record your expenses. Don't worry about setting up a fancy budget right now. Just write down everything you buy and how much you spend for one week. This is to make you more conscious of your spending habits and help you to stop buying stuff you don't need. Also for one week, write down what prompted you to buy something. For example, imagine you bought a new T-shirt. Write it down and think about what made you want to buy it. Did you see someone you follow on social media wearing it? Did you buy it late at night after a date went badly? The goal is to make your invisible purchasing habits more visible. As you write down what prompted you to buy something, think about whether the spending was emotional or not. Did you get a rush when you pushed 'buy now'? That's probably an emotional purchase. Try to identify which emotion you're avoiding. Do you feel self-conscious? Or depressed? Once we can name what we're trying to avoid, then we can take steps to meaningfully address it.<br><br>Have you heard about the One-Year Test? Look around your space. Do you see anything you haven't used in a year? Strongly consider selling or donating it. Once you have an understanding of how much you spend and what your spending triggers are, it's time to clean the slate. Unsubscribe from brands on social media and from email newsletters from companies or influencers. You want to set yourself up for success and protect yourself from being bombarded with emails promising 'irresistible' sales. Once you know when you are triggered to buy things, you can pre-empt the urge by filling the time with something else. For example, if you browse and buy late at night on your phone, you can do yoga or meditate or read a good book before bed. You don't need to do this forever – just try to do it once to begin with, and see how you feel.<br><br>Another very good tip can be summed up as 'cost versus work.' Before you buy something, calculate how much you will need to work to cover the cost. If you get paid 300 rubles/hour and something costs 2,500, that's more than 8 hours of work. Is it worth it to you?<br><br>Before buying something, wait 24 hours. This is a good way to weed out impulse buying. Instead of buying things every day, choose one day a week. Bookmark everything you want to buy and on the buying day, review all of your bookmarks. This is a good way to remove emotional or impulse buying, too.<br><br>So, buying stuff you don't need is a major problem for a lot of people. The material possessions that you've desired and eventually purchased will lose their sparkle, and you'll return to your happiness set point. Things can't make you happy, but people can.",
+      "questions": [
+        {
+          "q": "12. The author started making hand-made things because she …",
+          "opts": [
+            "spends too much annually.",
+            "lives in an expensive district.",
+            "slowed down her pace of life.",
+            "wishes to reduce her purchases."
+          ],
+          "correct": 3
+        },
+        {
+          "q": "13. The word frivolous in \"buy something frivolous\" is closest in meaning to …",
+          "opts": [
+            "unplanned.",
+            "unusual.",
+            "unlimited.",
+            "unnecessary."
+          ],
+          "correct": 3
+        },
+        {
+          "q": "14. According to the author, writing down what you buy helps to …",
+          "opts": [
+            "analyse your real motivation.",
+            "stop social media influence.",
+            "cope with depressive state.",
+            "protect you from criminals."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "15. It in \"we can make steps to meaningfully address it\" most probably refers to …",
+          "opts": [
+            "buying.",
+            "rushing.",
+            "emotion.",
+            "action."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "16. It is implied in the text that one of the ways to avoid buying is to …",
+          "opts": [
+            "spend more time cleaning up your home.",
+            "replace online shopping with traditional.",
+            "find out shopping motives and replace them.",
+            "be busy all the time."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "17. What advice does the author give to prevent impulse buying?",
+          "opts": [
+            "Never buy expensive items.",
+            "Introduce a purchase day once a week.",
+            "Delete your bookmarks in online shops.",
+            "Discuss what you want to buy at work."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "18. Which is the best summary of the article?",
+          "opts": [
+            "There are many ways to reduce purchases.",
+            "Buy only what makes you happy.",
+            "Buying less stuff is a way to happiness.",
+            "People tend to spend more than they can afford."
+          ],
+          "correct": 0
+        }
+      ]
+    },
+    {
+      "id": "reading-shoppers",
+      "nav": "Shoppers",
+      "title": "Shoppers",
+      "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Can you spend hours and hours at the mall just looking, while hardly making a purchase? Or when you go to the mall, do you try to park, get in, and get out as quickly as possible? Whether we like it or not, we all have to shop at some point. It's good to be aware of your money mindset so you can rein in your natural budget busters. Which kind of shopper do you most identify with?<br><br>The bargain shopper loves coupons, discount books and online codes, as well as store sales. The bargain shopper hunts down deals with the intensity of a rabid raccoon ransacking an unguarded trash can. And that's a good thing. If there's one thing you can count on with this kind of a shopper, it's the fact that they'll absolutely find the lowest price in town – or, if they can find it on the internet, in the entire world.<br><br>The next type is the researcher. Imagine you want to buy a new 42-inch LCD TV. So what do you do? You buy a few consumer magazines. You visit 14 different websites that offer television reviews. You spend five months researching every brand and every model of 42-inch LCD televisions. Based on that information, you might make a decision. Or you might wait until next year's models come out because, after all, once you make the purchase, you can't research TVs anymore. And what kind of life is that?<br><br>Probably, the worst type for your budget is the impulse buyer. Ooh, that sure is a pretty lamp over there. You know where that lamp would look nice? On the end table next to your bed. Such a pretty lamp. So cute. Sure, it's $200, but you never spend that much money on lamps, and when will you ever see another lamp that cute again? So you know what to do – buy it! Right now! Buy it! This will be the best, most sensible purchase you've ever made – until tomorrow, when you wake up and realize you have $15,000 in debt and just spent $200 on a lamp. These are the kind of people who might actually have several credit cards and need professional help to stop them going on a shopping spree.<br><br>For another type, the negotiator, no price is set in stone. Everything is up for negotiation. \"That's not good enough!\" is the negotiator's mantra. Their sole purpose in life is to win the battle with every single salesperson they encounter. Or at least it seems that way, because they approach every negotiation like fighting. That's a type of a person you really need to take with you to an Asian market where prices are cut twice or even more after bargaining.<br><br>The loyalist buys everything, and we mean everything, from the same store. They've got 14 different discount and membership cards of varying sizes for that one store. There's the one for their wallet, their key chain, their smartphone, their purse, their back pocket – and don't forget the one they customized into an earring for emergencies. When they enter that store, they're greeted like a king or queen. Everyone there knows their name.<br><br>Last, but not least, is 'the man on a mission.' They have one objective: to go to the store and buy a new computer monitor. Their record for driving to the mall, buying one item, and returning home is 27 minutes and 42 seconds. Each time they go to the mall, their goal is to break that record. When the man on a mission shops, he or she's like a laser-guided missile seeking out a target to destroy.<br><br>Many of us are addicted to shopping. And some of us can't seem to get off the hedonic treadmill. Being conscious of your shopping habits is the first step to stop buying things you don't actually need. Well, the next time you're tempted to buy something, get out your smartphone to determine whether the purchase fits in your budget. If it doesn't, all bets are off; don't make the purchase!",
+      "questions": [
+        {
+          "q": "12. The author thinks that knowing your shopper type will help you …",
+          "opts": [
+            "shop more quickly.",
+            "control your spending.",
+            "choose things carefully.",
+            "avoid going shopping."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "13. The author compares a bargain shopper with a raccoon to illustrate this type's …",
+          "opts": [
+            "passion for sales.",
+            "good intuition.",
+            "rare carelessness.",
+            "intense curiosity."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "14. According to the article, the researcher type finds most pleasure in …",
+          "opts": [
+            "taking final decisions.",
+            "comparing products.",
+            "reading magazines.",
+            "making a purchase."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "15. The author defines the impulse buyer as a person who …",
+          "opts": [
+            "loves buying beautiful things.",
+            "gives good advice on shopping.",
+            "is eager to spend a lot of money.",
+            "often shops uncontrollably."
+          ],
+          "correct": 3
+        },
+        {
+          "q": "16. The expression set in stone in \"no price is set in stone\" is closest in meaning to …",
+          "opts": [
+            "fixed.",
+            "changeable.",
+            "affordable.",
+            "right."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "17. Which shopper type is focused on buying one particular thing?",
+          "opts": [
+            "The negotiator.",
+            "The loyalist.",
+            "The man on a mission.",
+            "The impulse buyer."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "18. In the last paragraph the author is trying to …",
+          "opts": [
+            "explain how you can change your shopper type.",
+            "show how some shopper types are better than others.",
+            "persuade the readers to stop unconscious buying.",
+            "summarise the differences between different shopper types."
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "reading-coffee-decaf",
+      "nav": "Coffee Decaf",
+      "title": "Coffee Decaffeination Processes",
+      "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Every day it seems that medical researchers come out with a new study about coffee, how it is extremely unhealthy for you and/or full of amazing benefits. The focus of most of these studies is more particularly about the effects of caffeine on human health. As caffeine, coffee's most potent element, is a stimulant, it can produce both positive and negative effects. It can wake you up in the morning, but it can also lead to sleeplessness, a racing heartbeat, and anxiety.<br><br>It is therefore no surprise that many people have decided to cut caffeine out of their diets. As for me, I have grown to like the taste of coffee, but to me the main purpose of drinking it is to get an extra jolt of energy. That is why I will admit to a certain prejudice against decaf, perhaps prompted by bad experiences with weak and tasteless brew, because it is true that the actual process of removing caffeine from coffee can degrade the taste beyond repair.<br><br>Early decaffeination attempts involved soaking the green beans in water and then using various solvents to separate the caffeine in the resulting water solution. The beans were then re-introduced to the caffeine-free solution in order to absorb some of the flavor they had lost. Solvents used included benzene, chloroform, and trichloroethylene, all of which were later found to have toxic effects. In the 1970s, dichloromethane came into use to replace the earlier solvents before it too was deemed possibly carcinogenic.<br><br>In response to these concerns about solvents, some coffee companies began to run the water solution through charcoal filters as a means of removing the caffeine. The so-called Swiss Water Process, developed in Switzerland in the 1930s, goes one step further. After a batch of coffee beans has been steeped in hot water, that water is filtered, and then is used to soak the next batch of beans to be processed. In this way, the beans lose caffeine as they soak, but lose less of their flavor.<br><br>Yet another method that aims to safely remove caffeine from coffee beans involves a fascinating compound procedure. The solvent used in this method is neither water nor one of the earlier toxic solvents. Instead, caffeine in the coffee beans is dissolved by means of carbon dioxide. In order to accomplish this, the carbon dioxide must become a supercritical fluid, created when it is compressed and heated to the point that it has the same density in liquid and gaseous forms.<br><br>As this supercritical CO2 is passed through the beans, it can penetrate them because of its gaseous properties, and yet is able to dissolve the caffeine they contain because of its liquid properties.<br><br>In 2004, Brazilian scientists identified a new strain of coffee beans with a naturally low level of caffeine. They found three coffee plants from Ethiopia that contain almost no caffeine as they seem lack an enzyme necessary to caffeine production. If these plants can be crossed with commercial strains of coffee plants, we may one day see more coffee on the market that is naturally low in caffeine.<br><br>With these advances, and the current methods of decaffeination, decaf junkies are sure to be able to get their fix of coffee that not only tastes great, but won't keep them up half the night.<br><br>As for me, I do want to stay up half the night, so I'll stick to my full-strength brew.",
+      "questions": [
+        {
+          "q": "12. According to the text (paragraph 1), the effects of caffeine …",
+          "opts": [
+            "have not been studied well enough.",
+            "can be of opposite character.",
+            "are very dangerous.",
+            "are not strong."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "13. The author believes that caffeine in coffee …",
+          "opts": [
+            "is part of a healthy diet.",
+            "is quite low.",
+            "can't be removed completely.",
+            "may determine its taste."
+          ],
+          "correct": 3
+        },
+        {
+          "q": "14. We learn that the early decaffeination processes …",
+          "opts": [
+            "were too complicated.",
+            "improved the taste of coffee.",
+            "were not effective.",
+            "could be dangerous for health."
+          ],
+          "correct": 3
+        },
+        {
+          "q": "15. The Swiss Water Process is described as …",
+          "opts": [
+            "a cheaper method of decaffeination.",
+            "a way to avoid using charcoal.",
+            "a method to save coffee's flavour.",
+            "the easiest method of decaffeination."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "16. The pronoun \"its\" in \"… its liquid properties\" (paragraph 6) refers to …",
+          "opts": [
+            "caffeine.",
+            "carbon dioxide.",
+            "coffee.",
+            "coffee bean."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "17. It can be implied that at present the beans from low-caffeine plants …",
+          "opts": [
+            "cannot be used for big-scale sales.",
+            "taste poorly.",
+            "are very vulnerable.",
+            "lack necessary properties."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "18. Even though decaffeinated coffee has been improved, the author …",
+          "opts": [
+            "is for the ban of decaffeination.",
+            "believes that it's bad for health.",
+            "still prefers the regular one.",
+            "doesn't like its taste."
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "reading-chinese-journey",
+      "nav": "How I Learnt Chinese",
+      "title": "How I Learnt Chinese",
+      "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "I believe that random chance plays a more significant role in our lives than many people realise. The reason I started learning Chinese was a long string of fairly unlikely coincidences. Looking back, they all combine neatly to form who I am today and what I do, but that certainly wasn't a strategic goal at the time.<br><br>For me, the journey probably started in junior high school, when I started practising martial arts. I found Japanese martial arts to be too rigid with set uniforms, a strict grading system and a training environment with numerous rituals, and switched to a different system.<br><br>My interest for the language came from a deeper interest in the system of thought behind the Eastern philosophy. In 2006, two good friends of mine told me that there was a new course at the university where you could study the Chinese language and culture intensively for one year. I felt that this was a good opportunity to take a break from that and learn some Chinese.<br><br>So I did. I took a study break from the teacher's program and enrolled in a one-year intensive program. Some lessons focused on general proficiency, including textbook reading, translation and drilling. Most vocabulary learning was done at home. Since we were around 20 students, there was little one-on-one time with anyone who could actually speak Chinese.<br><br>My decision to continue studying Chinese in Taiwan was mostly a coincidence. My teacher in Sweden forwarded a note about a scholarship, and I applied for it without really expecting either to get it or to continue studying Chinese. When I actually received the scholarship, I had to go.<br><br>Learning in a classroom is not enough, even if the classroom is located in a Chinese-speaking environment. I limited my use of English to about once per week. The rest of the time I spent with native friends, language exchange partners and foreign classmates whose Chinese was a lot better than mine.<br><br>After that year, I had reached some kind of conversational fluency, but I didn't think my Chinese was good enough to make a living from. The decision, then, was to stay for another year.",
+      "questions": [
+        {
+          "q": "The author is sure that his learning experience …",
+          "opts": [
+            "played a critical role in his life.",
+            "consisted of random events.",
+            "went according to his plan.",
+            "taught him how to set goals."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "Rigid in Paragraph 2 most probably means …",
+          "opts": [
+            "complicated.",
+            "agreed.",
+            "fixed.",
+            "planned."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "That in Paragraph 3 most probably refers to …",
+          "opts": [
+            "his main university course.",
+            "the new language course.",
+            "the study of culture.",
+            "practising Eastern philosophy."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "Which statement about the author's Chinese classes on the intensive programme is TRUE?",
+          "opts": [
+            "These classes lacked speaking practice.",
+            "The author did not like those classes.",
+            "The course mainly focused on grammar.",
+            "The students learned vocabulary in class."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "The author decided to accept the scholarship mainly because …",
+          "opts": [
+            "it had always been his dream to visit Taiwan.",
+            "his teacher insisted on it.",
+            "he wanted to continue studying Chinese.",
+            "he did not have to pay for anything."
+          ],
+          "correct": 3
+        },
+        {
+          "q": "What did the author NOT do in the course of his Chinese studies?",
+          "opts": [
+            "Take a university course.",
+            "Study the language abroad.",
+            "Have a lot of language input.",
+            "Communicate with native speakers."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "The author of the article aims to …",
+          "opts": [
+            "describe his experience.",
+            "entertain the reader.",
+            "persuade us to study Chinese.",
+            "advise us how to learn best."
+          ],
+          "correct": 0
+        }
+      ]
+    },
+    {
+      "id": "reading-french-teaching",
+      "nav": "Teaching English Abroad",
+      "title": "How Teaching English on My Year Abroad Improved My French",
+      "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "I began my year abroad in Paris as an intern at a publishing house, earning €2.70 an hour for menial work. I'd hoped to be able to soak up French in a real-life setting, but was constantly writing emails and making calls in English. Luckily, I'd taken an intensive English-teaching course in London the previous summer, which helped me find a new job with a language school.<br><br>Students planning their years abroad might worry about teaching English. But in my experience, it can be a rewarding job and is perhaps even the best way to immerse yourself in another culture and learn the language. Ellen Rothnie, a student at the University of Glasgow, agrees. She says: \"The feeling of integrating is so special. I wanted to improve my Spanish and was astounded by how much I did. I noticed a difference within a month.\"<br><br>So, what struck me most about teaching English, was the potential for improving my French. Teaching your own language gives you a broader insight into language-learning. I noticed what held my weakest students back. Too much focus on writing down notes, crippling shyness and fear of making mistakes, and overconfidence. I saw how my best students learned, by being chatty and enthusiastic, and by watching hours of Anglo-American TV and films.<br><br>Rothnie also found that teaching English helped with her Spanish. \"My students often didn't know what I considered to be basic expressions involving prepositions,\" she says. This knowledge allows you to become more fluent in a language.<br><br>Teaching English can also give you the chance to socialise with native speakers, as Amy Stewart found on her year abroad in Tenerife. Despite her concerns about living in a hotspot for Anglophone tourists, Stewart improved her Spanish by taking part in language exchanges with locals.<br><br>Ultimately, the success of your year abroad is down to your own efforts, but maybe there's something about teaching that gives you a certain motivation.",
+      "questions": [
+        {
+          "q": "What kind of work had the author been doing before she started teaching?",
+          "opts": [
+            "Exciting.",
+            "Skilled.",
+            "Routine.",
+            "Unusual."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "Counterintuitive in Paragraph 2 most probably means …",
+          "opts": [
+            "illogical.",
+            "worrying.",
+            "unproductive.",
+            "easy."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Ellen Rothnie was surprised by how …",
+          "opts": [
+            "fast she became part of Spanish culture.",
+            "deep her experience was.",
+            "many classes she had to teach.",
+            "far she progressed in learning Spanish."
+          ],
+          "correct": 3
+        },
+        {
+          "q": "Which habit of less successful students is NOT mentioned in the text?",
+          "opts": [
+            "They do not monitor their speech.",
+            "They are too dependent on what they write down.",
+            "They refuse to speak out of fear of errors.",
+            "They do not practise outside the classroom."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "'This knowledge' in Paragraph 4 refers to the knowledge of …",
+          "opts": [
+            "Spanish equivalents of English verbs.",
+            "translation techniques and strategies.",
+            "words and phrases used in everyday speech.",
+            "communicative strategies native speakers use."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "Which proverb summarises the main idea of Paragraph 5?",
+          "opts": [
+            "Where there is a will, there is a way.",
+            "Actions speak louder than words.",
+            "Better late than never.",
+            "Don't put off until tomorrow what you can do today."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Which idea is expressed in Paragraph 6?",
+          "opts": [
+            "Teaching is not effective without motivation.",
+            "The teacher should have a learning experience similar to their students'.",
+            "One understands a language better when they teach it.",
+            "Vocabulary exercises are central to language teaching."
+          ],
+          "correct": 2
+        }
+      ]
+    }
+  ]
+}

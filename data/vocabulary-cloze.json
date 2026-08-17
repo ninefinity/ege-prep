@@ -1,0 +1,568 @@
+{
+  "id": "vocabulary-cloze",
+  "title": "Vocabulary in Context",
+  "subtitle": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "tasks": [
+    {
+      "id": "vocab-eiffel",
+      "nav": "Eiffel Tower",
+      "title": "A Night in the Eiffel Tower",
+      "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Seven million people visit the Eiffel Tower every year. But have you ever dreamed [30] sleeping in this iconic structure?<br><br>Holiday rental company Viva constructed a temporary VIP apartment on the first level of the tower, open only for the duration of the Euro football tournament from 10 June to 10 July 2016. The two-bedroom apartment, with the best Paris views was furnished with a big screen television for [31] the game. The space also included a seating area filled with hanging plants.<br><br>A lot of people were attracted by the [32] to sleep in the apartment. To determine who got this chance, Viva [33] a contest asking entrants to describe how they would spend their night in the tower.<br><br>\"My two young sons are autistic and are both obsessed with lights and the tower itself so I'd spend the night [34] their excitement!\" was the winning response from Michelle, in the UK.<br><br>Scott, from the United States, [35] to win a night's stay with his response about reuniting five generations in Paris: his mother who first visited the city in 1953, his daughter and granddaughter who visited at 13 and 14 respectively, and a brand new granddaughter who joined the trip.<br><br>The four winners began their one-night stays from the 23rd of June. [36] there were no other nights to win, all the visitors to the Eiffel Tower had the chance to tour the apartment and join a match viewing party.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "at",
+            "over",
+            "of",
+            "for"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "staring",
+            "watching",
+            "seeing",
+            "looking"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "probability",
+            "ability",
+            "availability",
+            "opportunity"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "held",
+            "kept",
+            "took",
+            "gave"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "amusing",
+            "preferring",
+            "enjoying",
+            "pleasing"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "handled",
+            "achieved",
+            "maintained",
+            "managed"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "Although",
+            "Moreover",
+            "Therefore",
+            "However"
+          ],
+          "correct": 0
+        }
+      ]
+    },
+    {
+      "id": "vocab-two-years-hut",
+      "nav": "Two Years in a Hut",
+      "title": "Two Years in a Hut",
+      "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Henry Thompson, a writer, built a hut on the shore of the pond and lived there all alone for two years. He did this for two reasons: because he wanted to [30] that people spend too much time and money on food and clothes and because he wanted a perfectly quiet chance to write more books. [31] to the writer, he spent only one hundred dollars a year while he lived in this hut. He raised beans on his land, ate wild berries, caught fish and \"went visiting\" his friends and neighbours now and then. To buy his woodsman's clothes and a few necessities, he planted gardens, painted houses, and cut wood for his friends.<br><br>This period influenced Henry's creative work a lot. He wrote a book called \"The Wood\" which [32] all about these seven or eight hundred days he lived in his hut. Several other books also describe the time when he [33] to live all by himself. These sold very well. In all of them Henry was boasting that he had found the only sensible way to live. \"I am for simple living, and I [34] being alone!\" he would declare in his books. He [35] you feel, when you read his books, that it is fine to walk around the fields, sniffing the wild grape and the green grass, and that no one can find pleasure like the man who rows, and skates, and swims. [36], people passing by the pond used to hear him whistling old ballads, or playing very softly and beautifully on a flute, and they thought he sounded lonely and sad.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "agree",
+            "secure",
+            "ensure",
+            "prove"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "According",
+            "Including",
+            "Regarding",
+            "Concerning"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "says",
+            "talks",
+            "tells",
+            "speaks"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "kept",
+            "made",
+            "held",
+            "used"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "amuse",
+            "please",
+            "enjoy",
+            "satisfy"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "turns",
+            "makes",
+            "gives",
+            "takes"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "Although",
+            "Otherwise",
+            "However",
+            "Moreover"
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "vocab-new-coat",
+      "nav": "A New Coat",
+      "title": "A New Coat",
+      "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "At the weekend Dotty went to Anna for tea and Anna's mother Miranda gasped when she saw Dotty. She had changed a lot. Anna had [30] Dotty to the hairdresser's and now she had a very beautiful hairstyle with a fringe. [31], Miranda knew that the girls had bought a new suit for Dotty.<br><br>\"You look completely different with your hair like that,\" Miranda said approvingly, then, \"Did you bring your suit with you? Anna told me how nice it was.\" Dotty waved a bag at her. \"Yes, I did. Anna is going to let me borrow one of her coats which would match my suit. She says I'm not [32] to wear this one now.\"<br><br>\"Well, I certainly agree with her on that point but I think you may take my woollen coat [33] of Anna's. I never wear it any more so if you like it you're more than welcome to keep it.\" Miranda disappeared to return minutes later with a very smart swing coat in navy blue folded across her arm. \"Here, try this on,\" she encouraged and Dotty slipped it on. \"It's just perfect,\" Miranda told her. \"And I have to say it looks so much better on you than it ever did on me. Take it and wear it in good health.\"<br><br>\"But I couldn't,\" Dotty spluttered. \"It must have cost a [34] and I really can't take it.\"<br><br>\"Of course you can,\" Miranda said. What good is it to me, hanging in the wardrobe and never [35] the light of day? You'll be [36] me a favour taking it out of the way.\" Dotty was really pleased with Miranda's present.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "proceeded",
+            "accompanied",
+            "followed",
+            "addressed"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "Therefore",
+            "Otherwise",
+            "Moreover",
+            "Although"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "agreed",
+            "accepted",
+            "afforded",
+            "allowed"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "instead",
+            "besides",
+            "against",
+            "outside"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "price",
+            "thing",
+            "fortune",
+            "wealth"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "looking",
+            "seeing",
+            "watching",
+            "glancing"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "making",
+            "getting",
+            "doing",
+            "giving"
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "vocab-busy-day",
+      "nav": "A Busy Day",
+      "title": "A Busy Day",
+      "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "The January sales started and when the girls arrived at Browns department store, where they worked, there were a lot of people queuing along the street. [30] the time before Christmas had been very busy for shop assistants, they were shocked by such a big crowd outside the shop.<br><br>\"I've never [31] such a queue! Do they think we're going to be giving the stuff away or something?\" Anna asked her friend Lucy.<br><br>\"Well, you know what they say – the early bird catches the worm, and [32] to the radio, some people have been queuing all night in London to get the best bargains,\" Lucy said. \"Let's think positively – if we are busy, the time will go quicker.\"<br><br>On her [33] to the cosmetics department Anna was wondering if they would even have time for their breaks or lunch-hours. And she was quite right as there was no chance of a morning break but at last the girls were given [34] to go for a shortened lunch break and they met up in the staff dining room.<br><br>\"My God,\" Lucy said as they stood at the counter. \"I've actually had two ladies almost come to fight over a dress. I could [35] calm them down.\"<br><br>\"It hasn't been much better in the perfume and cosmetics department,\" Anna remarked. \"I ran out of Chanel perfume within an hour and the customers got angry with me, as if it was my [36]! I'll tell you, at one point I was ready to walk out!\" That was really busy time for them. After all, the worst of the sales rush should be over soon.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "Therefore",
+            "Although",
+            "However",
+            "Moreover"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "glanced",
+            "watched",
+            "seen",
+            "looked"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "concerning",
+            "regarding",
+            "including",
+            "according"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "way",
+            "track",
+            "path",
+            "road"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "promise",
+            "proposal",
+            "permission",
+            "possibility"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "sharply",
+            "hardly",
+            "roughly",
+            "nearly"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "harm",
+            "shame",
+            "blame",
+            "fault"
+          ],
+          "correct": 3
+        }
+      ]
+    },
+    {
+      "id": "vocab-stephen-kibaki",
+      "nav": "Stephen Kibaki",
+      "title": "Stephen Kibaki",
+      "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Stephen Kibaki walks through his family's farm just outside Nairobi National Park in Kenya. Goats, cows, and sheep graze peacefully in the pasture. In the park nearby, lions roam, living in peaceful coexistence with the farm. It's [30] to be an extraordinary picture for many places in Africa.<br><br>\"I love lions,\" Stephen [31] the journalist. \"If my cows are protected and they're safe, we can live with the lions without any problem.\"<br><br>How do cattle [32] to live safely near these huge predators? It's all due to this young man's brilliant invention. When he was 11, he created Lion Lights, a clever way of keeping his family's livestock safe.<br><br>First, there seemed to be no good [33] to the problem, but Stephen started experimenting with ways to scare off the predators. He tried to use fire and a scarecrow. His first two [34] were unsuccessful: the lions were too clever to be fooled by either. But one night he was walking around the pasture with a flashlight and noticed that lions stayed away. That's when he [35]: these big cats were afraid of moving lights!<br><br>Then Stephen [36] a system of flashing LED light bulbs on poles around the perimeter of the pasture. The blinking lights tricked the lions into thinking the grounds were patrolled. That finally kept the lions away.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "confessed",
+            "convinced",
+            "considered",
+            "concerned"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "said",
+            "told",
+            "spoke",
+            "talked"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "manage",
+            "complete",
+            "succeed",
+            "achieve"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "decision",
+            "permission",
+            "exception",
+            "solution"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "complaints",
+            "impacts",
+            "requests",
+            "attempts"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "released",
+            "recovered",
+            "realised",
+            "recognised"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "deceived",
+            "developed",
+            "defended",
+            "demanded"
+          ],
+          "correct": 1
+        }
+      ]
+    },
+    {
+      "id": "vocab-chicago-day",
+      "nav": "A Day in Chicago",
+      "title": "A Day in Chicago",
+      "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Lily and her best friend Zoe were driving home from their vacation in California. That was a great adventure which they were enjoying a lot. They [30] to visit so many interesting places. As they were driving closer to Chicago, the ladies were [31] facts from the guidebook about this city, which was their little road ritual.<br><br>They had planned to stop first at Millennium Park, one of the city's public parks made famous by its unique art displays. Lily had seen pictures of her friends posing with \"The Bean,\" a three-storey steel sculpture shaped like a giant legume, and she was [32] to have one of her own. The piece was completely reflective, so those standing around it could look at their reflections as if they were looking into a mirror. Everybody [33] it made spectacular photographs.<br><br>The two travellers spent the day walking around Chicago. They listened to music in Millennium Park, lying on their backs in the grass, peering up at the modern sculptures across the lawn. They took an overwhelming [34] of photographs at The Bean, much to Lily's satisfaction. Finally, her dream to post this photo [35] true. They met some friends with whom they had gone to university to eat deep-dish pizza for dinner – a Chicago staple. Even before the sun set, Zoe and Lily were exhausted. [36], they still had one more thing to do.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "achieved",
+            "managed",
+            "succeeded",
+            "completed"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "reflecting",
+            "reciting",
+            "recovering",
+            "restoring"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "amused",
+            "confused",
+            "attractive",
+            "enthusiastic"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "spoke",
+            "told",
+            "said",
+            "talked"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "quantity",
+            "capacity",
+            "volume",
+            "number"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "came",
+            "got",
+            "went",
+            "held"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "Although",
+            "Therefore",
+            "Nevertheless",
+            "Moreover"
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "vocab-willis-in-tower",
+      "nav": "In Willis Tower",
+      "title": "In Willis Tower",
+      "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Victoria and Mary were going up one of the tallest towers in America, called Willis Tower. First, they had to stand in a long line to enter the building. When the ladies came up to the lift, it was full of people who had to adjust themselves to [30] the two extra passengers in. As they rode up, Mary [31] the change in air pressure as they were getting higher. She looked at the screen flashing interesting facts about the height of the building – she found [32] that at 455 feet, they were at the height of the Great Pyramid of Giza; at 1,250 feet, they were at the height of the Empire State Building. Then, they finally [33] the top.<br><br>The elevator doors opened to a large room with walls made entirely of glass. Mary and Victoria looked at each other with jaws dropped. They could see the entire city, lit up with tiny lights. [34], it was one of the best views of Chicago! Then a man in uniform guided them toward another line that wound around the room. \"If you'd like to go out on the Ledge, please join the line here,\" he [35] the group. Mary and Victoria had heard about the Ledge when they first bought their tickets to visit the tower – a glass box suspended 1,353 feet in the air, 4.3 feet out from the building. Visitors could step into the box and feel as though they were walking on air. \"Oh man, another line?\" Victoria whispered to Mary. [36] they could hardly wait, they joined the back of the line.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "afford",
+            "allow",
+            "access",
+            "attend"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "remarked",
+            "mentioned",
+            "noticed",
+            "reflected"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "about",
+            "over",
+            "down",
+            "out"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "reached",
+            "arrived",
+            "achieved",
+            "emerged"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "Hopefully",
+            "Obviously",
+            "Essentially",
+            "Absolutely"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "spoke",
+            "said",
+            "told",
+            "talked"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "Nevertheless",
+            "Moreover",
+            "However",
+            "Although"
+          ],
+          "correct": 3
+        }
+      ]
+    }
+  ],
+  "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа."
+}

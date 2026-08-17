@@ -1,0 +1,101 @@
+.ege-catalog {
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .ege-catalog {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ege-topic-card {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding: 18px 20px;
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  background: var(--ege-card);
+  box-shadow: var(--ege-shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+
+.ege-topic-card:hover,
+.ege-topic-card:focus-visible {
+  border-color: var(--ege-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(11, 7, 46, 0.12);
+}
+
+.ege-topic-card:focus-visible {
+  outline: 2px solid rgba(249, 2, 64, 0.45);
+  outline-offset: 2px;
+}
+
+.ege-topic-card__title {
+  margin: 0;
+  font-family: var(--ege-font-ui);
+  font-size: 1.1rem;
+  color: var(--ege-primary);
+}
+
+.ege-topic-card__subtitle {
+  margin: 0;
+  color: var(--ege-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.ege-topic-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ege-topic-card__badge {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--ege-accent-soft);
+  color: var(--ege-accent-deep);
+  font-family: var(--ege-font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.ege-topic-card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: start;
+  margin-top: 4px;
+  padding: 0.42rem 0.9rem;
+  border: 1.5px solid rgba(249, 2, 64, 0.45);
+  border-radius: 999px;
+  background: var(--ege-accent-soft);
+  font-family: var(--ege-font-ui);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ege-accent-deep);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.ege-topic-card:hover .ege-topic-card__cta,
+.ege-topic-card:focus-visible .ege-topic-card__cta {
+  border-color: var(--ege-accent);
+  background: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-empty {
+  padding: 28px;
+  text-align: center;
+  color: var(--ege-muted);
+  border: 1px dashed var(--ege-line);
+  border-radius: var(--ege-radius);
+  background: var(--ege-card);
+}

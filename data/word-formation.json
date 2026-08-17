@@ -1,0 +1,957 @@
+{
+  "id": "word-formation",
+  "title": "Grammar & Word Formation",
+  "subtitle": "Задания 19–24 (грамматика) и 25–29 (словообразование).",
+  "tasks": [
+    {
+      "id": "wordform-drivers",
+      "nav": "Drivers / Meteora",
+      "title": "A Solution for Drivers / Meteora",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "It's a problem for any driver to drive in sunny weather. Wearing sunglasses",
+          "word": "NOT HELP",
+          "post": "much – it's still very hard to see anything in front of you.",
+          "answer": "does not help",
+          "alt": [
+            "doesn't help"
+          ]
+        },
+        {
+          "pre": "Now there is a solution to this problem. In 2011 LCD sunglasses",
+          "word": "INVENT",
+          "post": ".",
+          "answer": "were invented"
+        },
+        {
+          "pre": "They dynamically block direct sunlight. There's no doubt that in the future more drivers",
+          "word": "USE",
+          "post": "them.",
+          "answer": "will use"
+        },
+        {
+          "pre": "Meteora is an area that attracts thousands of tourists from all over the world. Meteora",
+          "word": "SITUATE",
+          "post": "in Greece.",
+          "answer": "is situated"
+        },
+        {
+          "pre": "It is famous for the ancient monasteries",
+          "word": "BUILD",
+          "post": "right on the eroded rocks.",
+          "answer": "built"
+        },
+        {
+          "pre": "Now tourists enjoy",
+          "word": "VISIT",
+          "post": "them and they take numerous pictures.",
+          "answer": "visiting"
+        },
+        {
+          "pre": "The",
+          "word": "GOOD",
+          "post": "way to reach this amazing place is to take a bus from Athens.",
+          "answer": "best"
+        }
+      ]
+    },
+    {
+      "id": "wordform-stanley",
+      "nav": "Stanley Park",
+      "title": "Stanley Park",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Stanley Park is a 1,001-acre public park that borders downtown Vancouver, Canada. This",
+          "word": "AMAZE",
+          "post": "place is almost entirely surrounded by the waters of the Pacific Ocean.",
+          "answer": "amazing"
+        },
+        {
+          "pre": "It is one of the main sights of Vancouver to be explored by",
+          "word": "TOUR",
+          "post": ".",
+          "answer": "tourists"
+        },
+        {
+          "pre": "The park has a long history. The land was",
+          "word": "ORIGINAL",
+          "post": "used by indigenous peoples for thousands of years.",
+          "answer": "originally"
+        },
+        {
+          "pre": "Then the British decided to",
+          "word": "COLONY",
+          "post": "this place during the 1858 Fraser Canyon Gold Rush.",
+          "answer": "colonise",
+          "alt": [
+            "colonize"
+          ]
+        },
+        {
+          "pre": "The land was later turned into Vancouver's first park. It was named after Lord Stanley, a British politician who had recently been appointed",
+          "word": "GOVERN",
+          "post": "general.",
+          "answer": "governor"
+        },
+        {
+          "pre": "Unlike other large urban parks, Stanley Park is not the",
+          "word": "CREATE",
+          "post": "of a landscape architect, but rather the evolution of a forest and urban space over many years.",
+          "answer": "creation"
+        }
+      ]
+    },
+    {
+      "id": "wordform-household-wallpaper",
+      "nav": "Wallpaper & Dreams",
+      "title": "Wallpaper / I Saw It in a Dream",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Many people prefer to decorate their rooms with wallpaper. It",
+          "word": "SELL",
+          "post": "in rolls and is relatively inexpensive.",
+          "answer": "is sold",
+          "alt": [
+            "issold"
+          ]
+        },
+        {
+          "pre": "Wallpaper is",
+          "word": "GOOD",
+          "post": "than paint because it comes in all sorts of patterns and colours.",
+          "answer": "better"
+        },
+        {
+          "pre": "You can even buy wallpaper with a photo of a landscape and enjoy",
+          "word": "LOOK",
+          "post": "at beautiful views every day.",
+          "answer": "looking"
+        },
+        {
+          "pre": "I saw it in a dream! When scientists think about something very hard, their minds work all the time. Many scientists didn't expect that they",
+          "word": "FIND",
+          "post": "a solution to their problem in their sleep.",
+          "answer": "would find",
+          "alt": [
+            "wouldfind"
+          ]
+        },
+        {
+          "pre": "For instance, Niels Bohr",
+          "word": "HAVE",
+          "post": "an idea about the atomic structure while sleeping.",
+          "answer": "had"
+        },
+        {
+          "pre": "Some great musical pieces of Richard Wagner",
+          "word": "HEAR",
+          "post": "by him in his dreams.",
+          "answer": "were heard",
+          "alt": [
+            "wereheard"
+          ]
+        },
+        {
+          "pre": "There are",
+          "word": "MANY",
+          "post": "examples of it than you can imagine, so next time you have a hard problem to solve, just have a good night's sleep!",
+          "answer": "more"
+        }
+      ]
+    },
+    {
+      "id": "wordform-household-cleaning",
+      "nav": "Cleaning Wand",
+      "title": "A Cleaning Wand / Robert Heinlein",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "A cleaning wand is a totally new invention. It features the advanced UV-C technology that helps to kill bacteria and germs. It's the",
+          "word": "ONE",
+          "post": "ever cleaning device you can literally take anywhere.",
+          "answer": "first"
+        },
+        {
+          "pre": "The",
+          "word": "GOOD",
+          "post": "thing about it is that it can clean anything.",
+          "answer": "best"
+        },
+        {
+          "pre": "There's no doubt that",
+          "word": "WOMAN",
+          "post": "are going to like this invention very much.",
+          "answer": "women"
+        },
+        {
+          "pre": "Robert A. Heinlein was a US science fiction author. He was among those writers who emphasized scientific accuracy in their fiction. He also",
+          "word": "THINK",
+          "post": "it was necessary to challenge the readers.",
+          "answer": "thought"
+        },
+        {
+          "pre": "He pointed out it was necessary to develop",
+          "word": "THEY",
+          "post": "critical thinking.",
+          "answer": "their"
+        },
+        {
+          "pre": "He pointed out that any science fiction book",
+          "word": "BE",
+          "post": "a success if the author followed these two important principles.",
+          "answer": "would be",
+          "alt": [
+            "wouldbe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wordform-household-candles",
+      "nav": "Candles",
+      "title": "Candles",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "If you have an active profile in any social media, you may have noticed how often candles feature in people's posts and stories. In fact, there are",
+          "word": "VARY",
+          "post": "reasons why people use candles at home.",
+          "answer": "various"
+        },
+        {
+          "pre": "To begin with, candles create a cozy atmosphere. It is so nice to burn a candle when it is raining",
+          "word": "HEAVY",
+          "post": "outdoors.",
+          "answer": "heavily"
+        },
+        {
+          "pre": "It gives soft and pleasant light which is especially good for people after a",
+          "word": "STRESS",
+          "post": "day at school or at work.",
+          "answer": "stressful"
+        },
+        {
+          "pre": "You may light a candle at your evening mealtime and have a quiet conversation with your nearest and dearest. Moreover, we burn candles when we have an important",
+          "word": "CELEBRATE",
+          "post": "like a birthday or on seasonal holidays.",
+          "answer": "celebration"
+        },
+        {
+          "pre": "Finally, candles simply look",
+          "word": "AMAZE",
+          "post": "and are a great decoration.",
+          "answer": "amazing"
+        }
+      ]
+    },
+    {
+      "id": "wordform-shopping-skirts",
+      "nav": "Skirts & English",
+      "title": "Skirts / The English Language",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Skirts are a popular item of clothing. They",
+          "word": "INVENT",
+          "post": "around 3900 BC.",
+          "answer": "were invented"
+        },
+        {
+          "pre": "Now mostly",
+          "word": "WOMAN",
+          "post": "wear skirts of different colours, styles and length.",
+          "answer": "women"
+        },
+        {
+          "pre": "However, you may be surprised to learn that in ancient Greece only men",
+          "word": "WEAR",
+          "post": "skirts. In some cultures, skirts are still a part of male outfits.",
+          "answer": "wore"
+        },
+        {
+          "pre": "You are lucky to know English! It",
+          "word": "BE",
+          "post": "one of the most popular languages in the world for many years.",
+          "answer": "has been"
+        },
+        {
+          "pre": "However, learning English can be hard because some linguists say it has the",
+          "word": "BAD",
+          "post": "grammar of all European languages.",
+          "answer": "worst"
+        },
+        {
+          "pre": "There are many grammar rules and even more exceptions to",
+          "word": "THEY",
+          "post": ".",
+          "answer": "them"
+        },
+        {
+          "pre": "Spelling",
+          "word": "NOT BE",
+          "post": "easy either. So, if you have mastered English, you are a highly intelligent person!",
+          "answer": "is not",
+          "alt": [
+            "isn't"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wordform-shopping-yaroslavl",
+      "nav": "Yaroslavl & Sweaters",
+      "title": "Yaroslavl / Sweaters",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Yaroslavl is one of the most beautiful and ancient cities of Russia, the capital of the Russian Golden Ring. It",
+          "word": "LOCATE",
+          "post": "on the Volga River and has a lot of old churches, cathedrals and monasteries as well as museums and historical monuments.",
+          "answer": "is located",
+          "alt": [
+            "is situated"
+          ]
+        },
+        {
+          "pre": "Tourists also enjoy",
+          "word": "WALK",
+          "post": "along its wonderful embankment which offers its visitors picturesque views of the Volga.",
+          "answer": "walking"
+        },
+        {
+          "pre": "Millions of tourists",
+          "word": "VISIT",
+          "post": "Yaroslavl so far, and a lot of them want to come to this city again.",
+          "answer": "have visited"
+        },
+        {
+          "pre": "Probably every person in the world has at least one sweater. It is a very popular item of clothing now, especially for",
+          "word": "CHILD",
+          "post": ", who don't like buttons and zips.",
+          "answer": "children"
+        },
+        {
+          "pre": "It is interesting to know why a sweater is called so. In fact, a knitted woolen sweater as we know it today",
+          "word": "CREATE",
+          "post": "in Europe in the 19th century.",
+          "answer": "was created"
+        },
+        {
+          "pre": "Overweight people",
+          "word": "WEAR",
+          "post": "sweaters in order to lose some weight. They sweated profusely in warm sweaters, that is why this item of clothing got such a name.",
+          "answer": "wore"
+        }
+      ]
+    },
+    {
+      "id": "wordform-cities-literature",
+      "nav": "Literature & Houses",
+      "title": "Kenneth Grahame / Walking House / New Year",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Kenneth Grahame (1859–1932) was a Scottish writer. Life was very hard on",
+          "word": "HE",
+          "post": "but he remained an optimistic person.",
+          "answer": "him"
+        },
+        {
+          "pre": "His books are classics of literature for",
+          "word": "CHILD",
+          "post": ".",
+          "answer": "children"
+        },
+        {
+          "pre": "Recently the Disney studio",
+          "word": "MAKE",
+          "post": "some films based on his books.",
+          "answer": "has made",
+          "alt": [
+            "hasmade"
+          ]
+        },
+        {
+          "pre": "An innovative prototype of a walking house",
+          "word": "INTRODUCE",
+          "post": "last year in England.",
+          "answer": "was introduced",
+          "alt": [
+            "wasintroduced"
+          ]
+        },
+        {
+          "pre": "The",
+          "word": "GOOD",
+          "post": "thing about it is that this eco-friendly house has everything necessary.",
+          "answer": "best"
+        },
+        {
+          "pre": "Without a doubt, such houses",
+          "word": "ATTRACT",
+          "post": "enthusiastic travellers in the near future.",
+          "answer": "will attract",
+          "alt": [
+            "willattract"
+          ]
+        },
+        {
+          "pre": "The",
+          "word": "ONE",
+          "post": "samples are already on sale.",
+          "answer": "first"
+        }
+      ]
+    },
+    {
+      "id": "wordform-cities-newyear",
+      "nav": "New Year & Chair",
+      "title": "New Year / Mr Brown's Chair",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Everybody loves New Year. It is a holiday which",
+          "word": "CELEBRATE",
+          "post": "all over the world.",
+          "answer": "is celebrated",
+          "alt": [
+            "iscelebrated"
+          ]
+        },
+        {
+          "pre": "In Scandinavia",
+          "word": "WOMAN",
+          "post": "cook rice with nuts and not turkey for New Year.",
+          "answer": "women"
+        },
+        {
+          "pre": "Italian people enjoy",
+          "word": "THROW",
+          "post": "old things out of the windows on New Year's Day.",
+          "answer": "throwing"
+        },
+        {
+          "pre": "Mr Brown",
+          "word": "BUY",
+          "post": "a chair on sale.",
+          "answer": "bought"
+        },
+        {
+          "pre": "However, Mrs Brown",
+          "word": "NOT LIKE",
+          "post": "it.",
+          "answer": "did not like",
+          "alt": [
+            "didn't like",
+            "didnotlike"
+          ]
+        },
+        {
+          "pre": "Mr Brown took it to the attic thinking he",
+          "word": "SELL",
+          "post": "it later.",
+          "answer": "would sell",
+          "alt": [
+            "wouldsell"
+          ]
+        },
+        {
+          "pre": "Mrs Brown says it's the",
+          "word": "GOOD",
+          "post": "surprise in her life!",
+          "answer": "best"
+        }
+      ]
+    },
+    {
+      "id": "wordform-cities-canberra",
+      "nav": "Canberra & Wolf",
+      "title": "Canberra / The Wolf and the Goat",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Canberra",
+          "word": "CHOOSE",
+          "post": "as the capital because Sydney and Melbourne could not stop arguing.",
+          "answer": "was chosen",
+          "alt": [
+            "waschosen"
+          ]
+        },
+        {
+          "pre": "The sports capital of the world has 70% of",
+          "word": "IT",
+          "post": "total population active in sport.",
+          "answer": "its"
+        },
+        {
+          "pre": "80% believe this based on research",
+          "word": "ORGANISE",
+          "post": "by the Australia Day Council in 2008.",
+          "answer": "organised",
+          "alt": [
+            "organized"
+          ]
+        },
+        {
+          "pre": "A hungry wolf was out searching for a meal. He",
+          "word": "SEE",
+          "post": "a goat feeding on a cliff.",
+          "answer": "saw"
+        },
+        {
+          "pre": "'Besides, the grass is much",
+          "word": "GREEN",
+          "post": "down here,' said the wolf.",
+          "answer": "greener"
+        },
+        {
+          "pre": "'You",
+          "word": "NOT CARE",
+          "post": "if I eat good grass or bad,' said the goat.",
+          "answer": "do not care",
+          "alt": [
+            "don't care",
+            "donotcare"
+          ]
+        },
+        {
+          "pre": "'What you care about is",
+          "word": "EAT",
+          "post": "me.'",
+          "answer": "eating"
+        }
+      ]
+    },
+    {
+      "id": "wordform-space-yakutia",
+      "nav": "Yakutia & Print Brush",
+      "title": "Yakutia / The Print Brush",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Yakutia is right in the middle of Russia's far eastern region. Probably Yakutia is one of the",
+          "word": "COLD",
+          "post": "parts of Russia. Still, it's a beautiful place.",
+          "answer": "coldest"
+        },
+        {
+          "pre": "Tourists love",
+          "word": "VISIT",
+          "post": "Yakutia because it is a perfect place for photography tours and spending quality time outdoors.",
+          "answer": "visiting"
+        },
+        {
+          "pre": "You only have to remember that winter",
+          "word": "NOT BE",
+          "post": "a good time to visit the area as winters here are very cold there.",
+          "answer": "is not",
+          "alt": [
+            "isn't"
+          ]
+        },
+        {
+          "pre": "As its name suggests, the print brush is a printer that acts like a paint brush. The print brush",
+          "word": "DEMONSTRATE",
+          "post": "to public in 2011.",
+          "answer": "was demonstrated"
+        },
+        {
+          "pre": "It immediately",
+          "word": "CATCH",
+          "post": "the attention of designers.",
+          "answer": "caught"
+        },
+        {
+          "pre": "If you want to use it, you just swipe it over any flat surface and in less than 10 seconds it prints over it. It is very small and has a digital camera",
+          "word": "INSTALL",
+          "post": ".",
+          "answer": "installed"
+        },
+        {
+          "pre": "You can connect it to your laptop and literally print any image from it. Isn't it amazing? Since 2011 a lot of people",
+          "word": "BUY",
+          "post": "the print brush and are happy with it.",
+          "answer": "have bought",
+          "alt": [
+            "have bought"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wordform-space-wolf-bulb",
+      "nav": "Wolf & Light Bulb",
+      "title": "A Hungry Wolf / The Invention of the Light Bulb",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "An old nurse was putting a baby to bed. She",
+          "word": "TELL",
+          "post": "the boy to be quiet otherwise she would give him to a wolf.",
+          "answer": "told"
+        },
+        {
+          "pre": "But the child",
+          "word": "SCREAM",
+          "post": "even more and more loudly.",
+          "answer": "was screaming"
+        },
+        {
+          "pre": "The wolf heard the screams and thought to himself, \"I",
+          "word": "NOT HAVE",
+          "post": "any lunch yet. This boy is just what I need.\" But the old nurse shut the door and all the windows, and the wolf had to go away.",
+          "answer": "haven't had",
+          "alt": [
+            "have not had"
+          ]
+        },
+        {
+          "pre": "Every person in the world knows about Thomas Edison. The electric light bulb",
+          "word": "INVENT",
+          "post": "by this famous scientist.",
+          "answer": "was invented"
+        },
+        {
+          "pre": "The electrification of the modern world profoundly changed human life,",
+          "word": "ILLUMINATE",
+          "post": "the night.",
+          "answer": "illuminating"
+        },
+        {
+          "pre": "The",
+          "word": "ONE",
+          "post": "electric bulb made it possible for people to continue their usual day activities after dark.",
+          "answer": "first"
+        },
+        {
+          "pre": "Edison started with a 40-hour life light bulb and finally made a bulb that lasted for 1500 hours. This certainly revolutionized human",
+          "word": "LIFE",
+          "post": "at that time.",
+          "answer": "lives"
+        }
+      ]
+    },
+    {
+      "id": "wordform-space-livegreen",
+      "nav": "Live Green & Teacher",
+      "title": "Live Green! / Where's Our Teacher?",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "The Oriental Development Company is an enterprise in Japan. It specializes in green inventions. One of their newest inventions is connected with",
+          "word": "RECYCLE",
+          "post": "paper.",
+          "answer": "recycling"
+        },
+        {
+          "pre": "The machine can recycle waste paper. It",
+          "word": "INTRODUCE",
+          "post": "to the public several months ago.",
+          "answer": "was introduced"
+        },
+        {
+          "pre": "A big advantage is that this machine",
+          "word": "NOT PRODUCE",
+          "post": "any harmful emissions.",
+          "answer": "does not produce",
+          "alt": [
+            "doesn't produce"
+          ]
+        },
+        {
+          "pre": "One school had a very strict head teacher. Once he",
+          "word": "WALK",
+          "post": "around the school when he heard a terrible noise coming from one of the classrooms.",
+          "answer": "was walking"
+        },
+        {
+          "pre": "Opening the door, the teacher",
+          "word": "SEE",
+          "post": "a noisy young man in the centre of the classroom.",
+          "answer": "saw"
+        },
+        {
+          "pre": "He was",
+          "word": "TALL",
+          "post": "than the others and he was making the most noise. The head teacher ordered him to leave the classroom immediately.",
+          "answer": "taller"
+        },
+        {
+          "pre": "\"Any more questions?\" he asked the students. \"Yes, sir,\" the",
+          "word": "CHILD",
+          "post": "replied. \"Can we have our teacher back?\"",
+          "answer": "children"
+        }
+      ]
+    },
+    {
+      "id": "wordform-space-smartcat",
+      "nav": "Smart Cat & Microwaves",
+      "title": "A Smart Cat / Creative Thinking",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "My Snowball is a wonderful cat. I don't know of any other cat that loves to watch Sesame Street. He will also come running up to the TV if he",
+          "word": "HEAR",
+          "post": "a baby crying or little kids playing.",
+          "answer": "hears"
+        },
+        {
+          "pre": "Anytime a commercial comes on he turns his head to the side and so he",
+          "word": "NOT HAVE",
+          "post": "to watch the commercial. When the show is back on the air, he will start watching the show again.",
+          "answer": "does not have",
+          "alt": [
+            "doesn't have"
+          ]
+        },
+        {
+          "pre": "It was then that I",
+          "word": "FIND",
+          "post": "out that when a commercial is on, the volume goes up a bit, and this is his signal to turn away.",
+          "answer": "found"
+        },
+        {
+          "pre": "Percy Spencer was an American physicist and inventor. Once he noticed that microwaves from the radar set he",
+          "word": "WORK",
+          "post": "on had melted the candy bar in his pocket.",
+          "answer": "worked"
+        },
+        {
+          "pre": "It had been known that microwaves generate heat. But he was the",
+          "word": "ONE",
+          "post": "one to think of using this heat to cook food.",
+          "answer": "first"
+        },
+        {
+          "pre": "He received a patent in 1950, and Raytheon developed the idea",
+          "word": "FAR",
+          "post": "for commercial and industrial use.",
+          "answer": "further"
+        },
+        {
+          "pre": "In a sign of things to come, popcorn was what Spencer and",
+          "word": "HE",
+          "post": "colleagues cooked with microwaves.",
+          "answer": "his"
+        }
+      ]
+    },
+    {
+      "id": "wordform-space-railways-norway",
+      "nav": "Railways & Norway",
+      "title": "Beginnings of Russian Railways / White Nights in Norway",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "In the middle of the 19th century, the Russian Empire was so big that the necessity of creating a railway system became obvious. The",
+          "word": "ONE",
+          "post": "public railway in Russia connected Saint Petersburg with the Emperor's residence in Tsarskoe Selo.",
+          "answer": "first"
+        },
+        {
+          "pre": "It was 27 kilometers long and it",
+          "word": "TAKE",
+          "post": "about two years to build it.",
+          "answer": "took"
+        },
+        {
+          "pre": "At that time nobody knew that in the future Russia",
+          "word": "HAVE",
+          "post": "one of the longest and best railway systems in the world.",
+          "answer": "would have"
+        },
+        {
+          "pre": "Though winters are quite dark and gloomy, summers make up for it by the season of white nights. From May to July the sun",
+          "word": "NOT SET",
+          "post": "below the horizon.",
+          "answer": "does not set",
+          "alt": [
+            "doesn't set"
+          ]
+        },
+        {
+          "pre": "This phenomenon",
+          "word": "CALL",
+          "post": "white nights.",
+          "answer": "is called"
+        },
+        {
+          "pre": "In summers many Norwegians enjoy",
+          "word": "HAVE",
+          "post": "a four-week holiday which gives them plenty of time to hunt, fish or simply walk.",
+          "answer": "having"
+        }
+      ]
+    },
+    {
+      "id": "wordform-space-discovery-flam",
+      "nav": "Crimea & Flam Railway",
+      "title": "An Important Discovery / The Flam Railway",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Crimea is not only a popular holiday destination for tourists, it is also a place where history comes alive. Scientists used to think that the",
+          "word": "ONE",
+          "post": "men came to the Crimean lands about 100,000 years ago.",
+          "answer": "first"
+        },
+        {
+          "pre": "However, some months ago they",
+          "word": "MAKE",
+          "post": "a surprising discovery which baffled many archeologists worldwide.",
+          "answer": "made"
+        },
+        {
+          "pre": "There",
+          "word": "FIND",
+          "post": "some tools that were approximately 800,000 years old and could belong to Neanderthals.",
+          "answer": "were found"
+        },
+        {
+          "pre": "One of such scenic routes can be found in Norway. It's the Flam railway. It is thought to be one of the",
+          "word": "GOOD",
+          "post": "in the world.",
+          "answer": "best"
+        },
+        {
+          "pre": "The journey lasts 1 hour. The train passes through 20 tunnels and enables the passengers to enjoy",
+          "word": "LOOK",
+          "post": "at the idyllic mountain scenery.",
+          "answer": "looking"
+        },
+        {
+          "pre": "Thousands of tourists",
+          "word": "TRY",
+          "post": "this exciting route so far.",
+          "answer": "have tried"
+        }
+      ]
+    },
+    {
+      "id": "wordform-foreign-usa-brownings",
+      "nav": "USA & Brownings",
+      "title": "Languages in the USA / The Brownings",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "The most commonly used language in the United States is English, which is the de facto national language. Nonetheless, many other languages",
+          "word": "SPEAK",
+          "post": "in the United States.",
+          "answer": "are spoken"
+        },
+        {
+          "pre": "",
+          "word": "THIS",
+          "post": "include indigenous languages, languages brought to the country by colonists, enslaved people and immigrants from Europe, Africa and Asia.",
+          "answer": "These"
+        },
+        {
+          "pre": "Spanish, of course, is the",
+          "word": "TWO",
+          "post": "most commonly spoken language in the United States.",
+          "answer": "second"
+        },
+        {
+          "pre": "On January 10, 1845, Robert Browning sent a letter to Elizabeth Barrett. Over the course of the next 20 months, they",
+          "word": "WRITE",
+          "post": "each other close to 600 letters.",
+          "answer": "wrote"
+        },
+        {
+          "pre": "It is one of the",
+          "word": "GREAT",
+          "post": "literary correspondences of all time.",
+          "answer": "greatest"
+        },
+        {
+          "pre": "The couple's last letter was exchanged on September 18, 1846, the night before the two",
+          "word": "LEAVE",
+          "post": "for a trip to Italy and two weeks after their secret marriage.",
+          "answer": "left"
+        },
+        {
+          "pre": "",
+          "word": "THEY",
+          "post": "romance, which Elizabeth credited with saving her life, lasted for 15 years and spawned some of the world's most beautiful poetry.",
+          "answer": "Their"
+        }
+      ]
+    },
+    {
+      "id": "wordform-foreign-basque-slavery",
+      "nav": "Basque & Slavery",
+      "title": "Languages of the World / Slavery in North America",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "What do you think is the most difficult language to learn? Chinese? Japanese? No, it is Basque, the language which",
+          "word": "SPEAK",
+          "post": "in northwestern Spain and southwestern France.",
+          "answer": "is spoken"
+        },
+        {
+          "pre": "It",
+          "word": "NOT RELATE",
+          "post": "to any other language in the world.",
+          "answer": "is not related",
+          "alt": [
+            "isn't related"
+          ]
+        },
+        {
+          "pre": "Spanish has a",
+          "word": "GREAT",
+          "post": "variety of names for the language than French.",
+          "answer": "greater"
+        },
+        {
+          "pre": "August 13, 1619 is the date when the first Africans kidnapped by the Portuguese arrived in the British colony of Virginia and",
+          "word": "BUY",
+          "post": "by English colonists.",
+          "answer": "were bought"
+        },
+        {
+          "pre": "",
+          "word": "FOUND",
+          "post": "at Jamestown in 1607, the Virginia Colony was home to about 700 people by 1619.",
+          "answer": "Founded"
+        },
+        {
+          "pre": "The first enslaved Africans to arrive there disembarked at Point Comfort, in what",
+          "word": "KNOW",
+          "post": "today as Hampton Roads.",
+          "answer": "is known"
+        },
+        {
+          "pre": "Most of",
+          "word": "THEY",
+          "post": "names, as well as the exact number of those who remained at Point Comfort, have been lost to history.",
+          "answer": "their"
+        }
+      ]
+    }
+  ]
+}

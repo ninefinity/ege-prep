@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ЕГЭ Prep – Yap O'Clock</title>
+  <link rel="icon" href="assets/clocklogo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shell.css" />
+</head>
+<body class="yap-brand">
+  <main class="ege-page" id="egePage">
+    <div class="ege-topics">
+      <div class="ege-mobile-switch" id="egeMobileSwitch">
+        <hr class="ege-mobile-switch__line" />
+        <div class="ege-mobile-switch__controls">
+          <button type="button" class="ege-mobile-switch__btn" id="egePrevTask" aria-label="Previous task">‹</button>
+          <button type="button" class="ege-mobile-switch__current" id="egeMobileCurrent" aria-expanded="false" aria-controls="egeNav">Tasks</button>
+          <button type="button" class="ege-mobile-switch__btn" id="egeNextTask" aria-label="Next task">›</button>
+        </div>
+      </div>
+
+      <aside class="ege-rail">
+        <div class="ege-rail__head">
+          <img class="ege-rail__mark" src="timetoege.png" alt="" width="64" aria-hidden="true" />
+          <h1 class="ege-rail__title" id="egeRailTitle">Loading…</h1>
+        </div>
+        <a href="index.html" class="ege-back ege-rail__back">← Sections</a>
+        <nav class="ege-nav" id="egeNav" aria-label="Tasks"></nav>
+      </aside>
+
+      <hr class="ege-mobile-switch__line ege-mobile-switch__line--end" />
+    </div>
+
+    <div class="ege-workspace">
+      <header class="ege-topbar ege-topbar--compact">
+        <div class="ege-topbar__main">
+          <h1 class="ege-topbar__title" id="egeTopicTitle">Loading…</h1>
+        </div>
+      </header>
+      <div id="egeListeningChrome" hidden></div>
+      <p class="ege-instructions" id="egeInstructions" hidden></p>
+      <div id="egePanels"></div>
+    </div>
+  </main>
+
+  <script src="highlight.js"></script>
+  <script src="engine.js"></script>
+  <script>
+    EgePrep.initTopicPage();
+  </script>
+  <script src="shared/site-footer.js"></script>
+</body>
+</html>

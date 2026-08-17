@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading Comprehension – ЕГЭ Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  /* Yap O'Clock brand */
+  --yap-hot: #f90240;
+  --yap-royal: #01089e;
+  --yap-paper: #eef0fa;
+  --yap-ink: #0b072e;
+  --yap-mist: #a4a5c1;
+  --yap-wine: #981b40;
+  --yap-dust: #6a69a5;
+  --yap-navy: #00003b;
+
+  --ege-ink: var(--yap-ink);
+  --ege-muted: var(--yap-dust);
+  --ege-line: #c4c5d8;
+  --ege-bg: #e6e7f4;
+  --ege-card: rgba(238, 240, 250, 0.96);
+  --ege-primary: var(--yap-ink);
+  --ege-accent: var(--yap-hot);
+  --ege-accent-deep: var(--yap-wine);
+  --ege-accent-soft: #fde8ef;
+  --ege-accent-glow: rgba(249, 2, 64, 0.22);
+  --ege-ok: #27ae60;
+  --ege-ok-bg: #d5f5e3;
+  --ege-bad: #c0392b;
+  --ege-bad-bg: #fadbd8;
+  --ege-wrong-pick: var(--yap-royal);
+  --ege-wrong-pick-bg: #e6e8fc;
+  --ege-mixed-bg: #fff0f4;
+  --ege-radius: 12px;
+  --ege-shadow: 0 4px 16px rgba(11, 7, 46, 0.1), 0 1px 3px rgba(11, 7, 46, 0.07);
+  --ege-font-ui: "Fredoka", system-ui, sans-serif;
+  --ege-font-text: "Montserrat", system-ui, sans-serif;
+  --ege-font-cyrillic: "Montserrat", system-ui, sans-serif;
+  --ege-workspace-min: 480px;
+  --ege-workspace-max: calc(100vh - 120px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--ege-bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ege-font-text);
+  color: var(--ege-ink);
+  background-color: var(--ege-bg);
+  background-image:
+    radial-gradient(ellipse 90% 55% at 12% -10%, rgba(1, 8, 158, 0.22), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 92% 8%, rgba(249, 2, 64, 0.16), transparent 50%),
+    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(106, 105, 165, 0.18), transparent 55%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--ege-accent-deep);
+}
+
+.ege-page {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 18px 32px;
+}
+
+/* ── Topbar ── */
+.ege-topbar {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ege-topbar--compact .ege-topbar__main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ege-topbar__title {
+  margin: 0;
+  font-family: var(--ege-font-cyrillic);
+  font-size: clamp(1.1rem, 3vw, 1.45rem);
+  font-weight: 700;
+  color: var(--ege-primary);
+  line-height: 1.2;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ege-back {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--yap-royal);
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.ege-back:hover {
+  color: var(--yap-hot);
+}
+
+.ege-header h1,
+.ege-header__title {
+  margin: 0;
+  font-family: var(--ege-font-cyrillic);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--ege-primary);
+  line-height: 1.15;
+}
+
+.ege-header__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.ege-brand-mark {
+  display: block;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ege-brand-mark--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.ege-kicker {
+  margin: 0;
+  font-family: var(--ege-font-cyrillic);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ege-accent);
+}
+
+.ege-lede {
+  margin: 0;
+  color: var(--ege-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 56ch;
+}
+
+/* ── Task nav ── */
+.ege-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ege-nav__btn {
+  border: 1px solid var(--ege-line);
+  background: var(--ege-card);
+  color: var(--ege-primary);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.ege-nav__btn:hover {
+  border-color: var(--ege-accent);
+}
+
+.ege-nav__btn.is-active {
+  background: var(--ege-accent);
+  border-color: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-nav__btn.is-perfect {
+  box-shadow: inset 0 0 0 1px var(--ege-ok);
+}
+
+.ege-nav__btn.is-partial {
+  box-shadow: inset 0 0 0 1px #ca8a04;
+}
+
+/* ── Task panel ── */
+.ege-task-panel {
+  animation: ege-fade 0.25s ease;
+}
+
+@keyframes ege-fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ege-instructions {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  color: var(--ege-muted);
+  line-height: 1.55;
+}
+
+.ege-instructions .ege-badge {
+  display: block;
+  width: fit-content;
+  margin: 0 0 6px;
+}
+
+.ege-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--ege-accent-soft);
+  color: var(--ege-accent-deep);
+  font-family: var(--ege-font-ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.ege-task {
+  background: var(--ege-card);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--ege-radius);
+  padding: 14px;
+  box-shadow: var(--ege-shadow);
+}
+
+.ege-task--panels {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.ege-panel {
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  background: var(--ege-card);
+  padding: 16px;
+  min-height: 0;
+}
+
+.ege-panel__label {
+  margin: 0 0 12px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ege-muted);
+}
+
+.ege-ref-strip {
+  margin: 0;
+}
+
+.ege-panel--read .ege-passage,
+.ege-panel--read .ege-text-block,
+.ege-panel--read .ege-gapfill-passage {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.ege-panel--work .ege-mc-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.ege-sidebar-work {
+  display: grid;
+  gap: 12px;
+}
+
+.ege-panel--solo {
+  min-height: min(var(--ege-workspace-min), 60vh);
+  max-height: var(--ege-workspace-max);
+  overflow-y: auto;
+}
+
+/* ── Side-by-side panels ── */
+.ege-split {
+  display: grid;
+  gap: 12px;
+}
+
+.ege-split--panels {
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .ege-split--panels {
+    grid-template-columns: minmax(0, 1.75fr) minmax(220px, 0.82fr);
+    gap: 12px;
+    align-items: start;
+  }
+
+  .ege-split--panels .ege-split__read,
+  .ege-split--panels .ege-split__work {
+    border: none;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .ege-split--panels .ege-split__read {
+    position: static;
+  }
+
+  .ege-split--panels .ege-split__work {
+    position: sticky;
+    top: 8px;
+    max-height: var(--ege-workspace-max);
+    overflow: visible;
+  }
+
+  .ege-split--panels .ege-panel--read {
+    min-height: var(--ege-workspace-min);
+    max-height: none;
+    overflow: visible;
+  }
+
+  .ege-split--panels .ege-panel--work {
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+    padding: 12px;
+  }
+
+  .ege-work-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: var(--ege-workspace-max);
+    max-height: var(--ege-workspace-max);
+    min-height: 0;
+  }
+
+  .ege-work-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-anchor: none;
+  }
+
+  .ege-work-scroll .ege-panel--work {
+    min-height: 100%;
+    box-sizing: border-box;
+  }
+
+  .ege-split--panels .ege-panel--solo {
+    min-height: var(--ege-workspace-min);
+    max-height: var(--ege-workspace-max);
+    overflow-y: auto;
+  }
+
+  .ege-split--panels .ege-split__read .ege-passage,
+  .ege-split--panels .ege-split__read .ege-text-block,
+  .ege-split--panels .ege-split__read .ege-gapfill-passage {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .ege-panel--work .ege-panel__label {
+    margin-bottom: 8px;
+  }
+
+  .ege-panel--work .ege-ref__list {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .ege-panel--work .ege-ref__list li {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .ege-panel--work .ege-match-read {
+    gap: 10px;
+  }
+
+  .ege-split--panels .ege-gap-picks,
+  .ege-split--panels .ege-match-picks {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .ege-split--panels .ege-vocab-picks .ege-match-words {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ege-split--panels .ege-vocab-picks .ege-match-pill--word {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  .ege-split--panels .ege-panel--read,
+  .ege-split--panels .ege-panel--work,
+  .ege-panel--solo {
+    min-height: min(360px, 55vh);
+  }
+}
+
+.ege-ref__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ege-ref;
+}
+
+.ege-ref__list li {
+  display: grid;
+  grid-template-columns: 1.6em 1fr;
+  gap: 0 6px;
+  font-size: 1rem;
+  line-height: 1.65;
+  counter-increment: ege-ref;
+  opacity: 0.72;
+  transition: opacity 0.12s, color 0.12s;
+}
+
+.ege-ref__list li.is-used {
+  opacity: 1;
+  color: var(--ege-accent-deep);
+  font-weight: 600;
+}
+
+.ege-ref__list li::before {
+  content: counter(ege-ref) ".";
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  color: var(--ege-accent);
+  text-align: right;
+}
+
+@media (min-width: 560px) {
+  .ege-ref__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ege-panel--work .ege-ref__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Matching: one shared number row ── */
+.ege-match-read {
+  display: grid;
+  gap: 14px;
+}
+
+.ege-match-picks {
+  display: grid;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ege-line);
+}
+
+.ege-match-letters,
+.ege-match-numbers {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+
+.ege-match-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ege-match-letters .ege-match-pill,
+.ege-match-numbers .ege-match-pill {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 6px 4px;
+}
+
+.ege-match-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ege-primary);
+  cursor: pointer;
+  opacity: 0.72;
+  transition: background 0.12s, border-color 0.12s, color 0.12s, opacity 0.12s;
+}
+
+.ege-match-pill--num {
+  padding: 6px 4px;
+}
+
+.ege-match-pill--clear {
+  justify-self: start;
+  min-width: auto;
+  padding: 6px 12px;
+  font-weight: 600;
+  color: var(--ege-muted);
+  opacity: 0.85;
+}
+
+.ege-match-pill--word {
+  min-width: auto;
+  padding: 8px 14px;
+  min-height: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.ege-match-pill.is-active .ege-gap-pick {
+  color: #fff;
+}
+
+.ege-match-letter__pick {
+  min-width: 1ch;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ege-match-pill:hover {
+  border-color: var(--ege-accent);
+  background: var(--ege-accent-soft);
+  opacity: 0.9;
+}
+
+.ege-match-pill.is-used {
+  opacity: 1;
+  background: var(--ege-accent-soft);
+  border-color: color-mix(in srgb, var(--ege-accent) 35%, var(--ege-line));
+  color: var(--ege-accent-deep);
+}
+
+.ege-match-pill.is-active {
+  opacity: 1;
+  background: var(--ege-accent);
+  border-color: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-match-pill.is-active .ege-match-letter__pick {
+  color: #fff;
+}
+
+.ege-match-pill.is-selected {
+  opacity: 1;
+  background: var(--ege-accent);
+  border-color: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-match-pill.is-correct {
+  opacity: 1;
+  background: var(--ege-ok-bg);
+  border-color: var(--ege-ok);
+  color: var(--ege-ok);
+}
+
+.ege-match-pill.is-wrong {
+  opacity: 1;
+  background: var(--ege-bad-bg);
+  border-color: var(--ege-bad);
+  color: var(--ege-bad);
+}
+
+.ege-match-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ── Text blocks ── */
+.ege-text-block {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.ege-text-block:last-child {
+  margin-bottom: 0;
+}
+
+.ege-text-block strong {
+  color: var(--ege-accent-deep);
+}
+
+.ege-passage {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ── Text highlighter (outside task box) ── */
+.ege-highlight-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ege-highlight-tools__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: var(--ege-card);
+  box-shadow: var(--ege-shadow);
+  font-family: var(--ege-font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ege-primary);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s, box-shadow 0.12s;
+}
+
+.ege-highlight-tools__icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.ege-highlight-tools__btn:hover {
+  border-color: var(--ege-accent);
+  background: var(--ege-accent-soft);
+}
+
+.ege-highlight-tools__btn.is-active {
+  background: var(--ege-accent);
+  border-color: var(--ege-accent);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--ege-accent-glow);
+}
+
+.ege-highlight-tools__btn--ghost {
+  color: var(--ege-muted);
+  min-width: auto;
+  padding: 0 14px;
+}
+
+.ege-highlightable {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.ege-highlightable.ege-erase-mode {
+  cursor: default;
+}
+
+.ege-highlightable .ege-highlight {
+  background: rgba(249, 2, 64, 0.18);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.ege-highlightable.ege-erase-mode .ege-highlight {
+  cursor: pointer;
+  outline: 1px dashed rgba(249, 2, 64, 0.5);
+  outline-offset: 1px;
+}
+
+.ege-mc-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.ege-mc-card {
+  padding: 12px 14px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.ege-mc-card:last-child {
+  margin-bottom: 0;
+}
+
+.ege-mc__prompt {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 0 10px;
+  padding: 0;
+  line-height: 1.55;
+}
+
+.ege-answered-count {
+  margin: 8px 0 0;
+  padding: 0;
+  min-height: 1.35em;
+  font-family: var(--ege-font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ege-muted);
+}
+
+.ege-read-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.ege-mc-reset {
+  flex: 0 0 auto;
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ege-choice-group--mc {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-top: 0;
+}
+
+.ege-pill--option {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+/* ── Pill choice groups ── */
+.ege-choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ege-choice-group--inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.ege-choice-group--grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+@media (min-width: 640px) {
+  .ege-choice-group--grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ege-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ege-primary);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  user-select: none;
+}
+
+.ege-pill--text {
+  min-width: 0;
+  justify-content: flex-start;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: var(--ege-font-text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.ege-pill input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.ege-pill:hover {
+  border-color: var(--ege-wrong-pick);
+  background: var(--ege-wrong-pick-bg);
+}
+
+.ege-pill:has(input:checked) {
+  background: var(--ege-wrong-pick-bg);
+  border-color: var(--ege-wrong-pick);
+  color: var(--ege-wrong-pick);
+}
+
+.ege-pill.is-correct,
+.ege-pill.is-correct:has(input:checked) {
+  background: var(--ege-ok-bg);
+  border-color: var(--ege-ok);
+  color: var(--ege-ok);
+}
+
+.ege-pill.is-wrong,
+.ege-pill.is-wrong:has(input:checked) {
+  background: var(--ege-wrong-pick-bg);
+  border-color: var(--ege-wrong-pick);
+  color: var(--ege-wrong-pick);
+}
+
+.ege-gapfill-passage {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.ege-gap-insert {
+  display: inline;
+  white-space: normal;
+}
+
+.ege-gap-insert:not(.is-filled) {
+  display: inline-block;
+  padding: 1px 8px;
+  margin: 0 1px;
+  border: 1px dashed color-mix(in srgb, var(--ege-accent) 45%, transparent);
+  border-radius: 6px;
+  background: var(--ege-accent-soft);
+  font-family: var(--ege-font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ege-accent-deep);
+  vertical-align: baseline;
+}
+
+.ege-gap-insert:not(.is-filled)::before {
+  content: attr(data-gap);
+}
+
+.ege-gap-insert:not(.is-filled)::after {
+  content: " ···";
+  font-weight: 600;
+  color: var(--ege-muted);
+}
+
+.ege-gap-insert__text {
+  font-weight: 500;
+}
+
+.ege-gap-insert.is-filled .ege-gap-insert__text {
+  background: rgba(249, 2, 64, 0.14);
+  color: var(--ege-ink);
+  padding: 1px 4px;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.ege-gap-insert.is-filled .ege-gap-insert__text:empty {
+  display: none;
+}
+
+.ege-gap-insert.is-correct.is-filled .ege-gap-insert__text {
+  background: var(--ege-ok-bg);
+}
+
+.ege-gap-insert.is-wrong.is-filled .ege-gap-insert__text {
+  background: var(--ege-bad-bg);
+}
+
+.ege-gap-picks {
+  display: grid;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ege-line);
+}
+
+.ege-gap-picks .ege-match-pill {
+  font-size: 0.95rem;
+  min-height: 40px;
+}
+
+.ege-gap-pick {
+  min-width: 1ch;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* ── Word formation ── */
+.ege-wordform {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+.ege-wordform__hint {
+  margin: 0 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ege-accent);
+  letter-spacing: 0.03em;
+}
+
+.ege-input {
+  font-family: var(--ege-font-text);
+  font-size: 0.95rem;
+  border: 1px solid var(--ege-line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: #fff;
+  color: var(--ege-ink);
+  min-height: 36px;
+  width: 120px;
+}
+
+.ege-input.is-correct {
+  border-color: var(--ege-ok);
+  background: var(--ege-ok-bg);
+}
+
+.ege-input.is-wrong {
+  border-color: var(--ege-bad);
+  background: var(--ege-bad-bg);
+}
+
+/* ── Task footer ── */
+.ege-task__footer {
+  margin-top: 16px;
+}
+
+.ege-task--panels .ege-task__footer {
+  margin-top: 12px;
+}
+
+.ege-task--panels .ege-panel {
+  border-bottom: 1px solid var(--ege-line);
+}
+
+.ege-task__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ege-btn {
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.ege-btn:hover {
+  transform: translateY(-1px);
+}
+
+.ege-btn--primary {
+  background: var(--ege-accent);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--ege-accent-glow);
+}
+
+.ege-btn--primary:hover {
+  background: #d60138;
+}
+
+.ege-btn:disabled,
+.ege-btn:disabled:hover {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.ege-btn--ghost {
+  background: #fff;
+  border-color: var(--ege-line);
+  color: var(--ege-muted);
+}
+
+.ege-btn--ghost:hover {
+  border-color: var(--ege-accent);
+  color: var(--ege-ink);
+}
+
+.ege-task__score {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.ege-task__score.is-good {
+  background: var(--ege-ok-bg);
+  color: var(--ege-ok);
+}
+
+.ege-task__score.is-bad {
+  background: var(--ege-bad-bg);
+  color: var(--ege-bad);
+}
+
+.ege-task__score.is-mixed {
+  background: var(--ege-mixed-bg);
+  color: var(--ege-accent-deep);
+}
+
+.ege-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 40;
+  max-width: min(90vw, 320px);
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--ege-ink);
+  color: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: var(--ege-shadow);
+  transform: translate(-50%, 12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ege-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.ege-error {
+  padding: 24px;
+  text-align: center;
+  color: var(--ege-bad);
+}
+
+
+  </style>
+</head>
+<body class="yap-brand">
+  <main class="ege-page">
+    <header class="ege-topbar ege-topbar--compact">
+      <div class="ege-topbar__main">
+        <h1 class="ege-topbar__title" id="egeTopicTitle">Reading Comprehension</h1>
+      </div>
+      <nav class="ege-nav" id="egeNav" aria-label="Tasks"></nav>
+    </header>
+    <p class="ege-instructions" id="egeInstructions"></p>
+    <div id="egePanels"></div>
+  </main>
+  <script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "ege-prep.reading-comprehension.scores.v1";
+  var TOPIC = {"id": "reading-comprehension", "title": "Reading Comprehension", "subtitle": "Прочитайте текст и выполните задания 12–18.", "tasks": [{"id": "reading-highlands", "nav": "Highlands Express", "badge": "Reading", "title": "Highlands Express", "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.", "type": "mc", "passage": "The journey began on a September evening in London as a black cab rushed me to Euston station. I had a weekend to myself, and I meant to make the most of it by hitting the famous Highlands of Scotland on a Caledonian Sleeper, a working train also affectionately known as the Deerstalker Express. I saw it as an escape from hectic city life.<br><br>A train is a very public place, but a berth on the sleeper is one of the most private. I was shown to my little first-class cabin – a little bed, little basin, window, night light and an extra blanket, trim as a toy house. I took a nibble in the comfortable, modern dining car, and retired to bed. London had slipped away, and it was black out there. I pulled the blind, put out the lamp, and arranged myself for sleep.<br><br>The train pulled into the station at 9:43 a.m. The centre of Fort William, I quickly learned, is but a street of fishing and hiking shops, with a spiky Victorian church, a handsome stone hotel, and a lake running alongside it. Before I took a cab to the hotel, I wandered up High Street to find the local paper and a cup of tea. A few hours later, I found myself standing up to my knees in the River Lochy, fishing with the expert assistance of a local guide, Martin Brown. The hotel staff was quite helpful and had arranged the outing with Martin. My aim was to learn the basics of fly-fishing. While Martin effortlessly handled yards and yards of fishing line so that his fly touched a small pool across the river, I splashed my fly into the river a few yards off. My first few casts were a mess, but I gradually improved. Soon, I hooked something. The rod grew heavy and lively. Eventually, I got very cold feet and aching arms and some sense of the pleasures of fishing, just as I had hoped.<br><br>That evening, after Martin dropped me off at the hotel, I found a place to sit among the armchair atolls in the oceanic great hall. Later, I was summoned to my table in one of the dining rooms, walls hung with prints. My meal was unassuming but tasty. I had a bit of meat pie, and a bit of cheese.<br><br>The following morning, I struck out on the well-marked walk that takes just a few hours but plunges you immediately into the grandeur of the Highlands. In the distance I saw an odd sight: a group of hikers dancing madly about the stream, waving their arms and shaking their heads.<br><br>I spread my coat on the grass and settled down to my picnic – superior crab sandwiches provided by the hotel. In a moment, I was on my feet, slapping my face and rubbing my hair while grabbing up my sandwiches with a free hand. I had forgotten the bane of the Highlands: flies, which are particularly active in late summer.<br><br>At Fort William's excellent West Highland Museum, housed in a late Georgian building on Cameron Square, you can learn how people left a mark on this ancient landscape. They worked its trees and stones, leaving beautiful ax heads from the Stone Age, Celtic jewellery, the blade of a bronze sword. There are suggestions of myth and magic, the cement that connected people to their surroundings and the darker world beyond: amulets, cures, and trophies. And there are objects so rare and weird that they seemed to have dropped from the world beyond: so-called drift-seeds, which floated ashore from the West Indies and were turned into charms, odd-shaped or queerly colored pebbles that drew fevers, or brought a loved one home.<br><br>It was not yet dark when the London sleeper slid out of Fort William Station. I did not brood for long on the triumphs and tragedies of Highland history. When I next opened my eyes, I saw the huddled rooftops of suburban London, and a cheerful attendant, passing me a cup of tea.", "questions": [{"q": "12. The author decided to spend a holiday in the Highlands to …", "opts": ["ride an exclusive train.", "spend some time on his own.", "get away from the busy capital.", "see what the Highlands are known for."], "correct": 2}, {"q": "13. \"It\" in Paragraph 3 (and a lake running alongside it) refers to the …", "opts": ["lakeshore.", "street.", "shop.", "church."], "correct": 1}, {"q": "14. Which statement about the author's fishing experience is FALSE?", "opts": ["His fishing skills slowly improved.", "His attempts to catch something were useless.", "The experience was quite satisfying.", "The guide showed him how to throw the line."], "correct": 1}, {"q": "15. \"Unassuming\" in Paragraph 4 most probably means …", "opts": ["heavy.", "healthy.", "modest.", "inexpensive."], "correct": 2}, {"q": "16. Hikers behaved strangely because they were …", "opts": ["attacked by insects.", "performing a ritual.", "impressed by the Highlands.", "having an argument."], "correct": 0}, {"q": "17. What did the author NOT see at the museum?", "opts": ["Old textiles.", "Magic stones.", "Parts of weapons.", "Ancient charms."], "correct": 0}, {"q": "18. How can the author's weekend experience be described?", "opts": ["Thought-provoking.", "Eye-opening.", "Time-consuming.", "Pressure-free."], "correct": 3}]}, {"id": "reading-harry-potter", "nav": "Harry Potter", "badge": "Reading", "title": "How Harry Potter Saved One Small Town", "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.", "type": "mc", "passage": "Mallaig is far from the prettiest of Highland settlements, even when the weather is fine. Several rows of what could be prewar council houses stretch across the hill beyond the harbour. A mishmash of car parks, jetties and workaday buildings squats close to the railway terminus. When I last stayed in Mallaig, it was known as the biggest herring port in Europe. Today, the herring have vanished, and yet Mallaig remains a busy place. Ferries come and go and fishing boats land shellfish, which is driven away in lorries to the markets of France and Spain. None of this activity, however, explains the hundreds of people who can be seen roaming Mallaig's few streets every afternoon between the beginning of May and the end of October, or the presence of so many restaurants. What do explain them are two enthusiasms, one for low fact and the other for high fiction, which are kindled in childhood and among many adults never entirely disappear.<br><br>The railway reached Mallaig from Fort William and the south in 1901. It was among the last big lines to be built in Britain, late enough to have its viaducts built of concrete. It traversed one of Europe's most spectacular and emptiest landscapes, with hardly anything large enough to be called a village along its 40-mile length.<br><br>The construction needed a large government subsidy, but the traffic never grew much beyond the two or three trains a day that carried fish boxes and a few dozen travellers to and from the Hebrides. It made little economic sense. Only 60 years after the line opened, it began to be threatened with closure. Few people would have guessed then that its commercial salvation would be owed to a novel and a film, and first of all, to a hobby.<br><br>Railways became an amateur pastime as well as a means of transport during the last decades of the 19th century. Then professional men such as vicars and lawyers began to see the large variety of trains and their technical progress as a hobby offering a similar kind of pleasure to philately and butterfly-hunting. By the end of the century they had their own magazine and their own club, the Railway Club, the world's first society for railway enthusiasts. It was founded in London in 1899 and had its own premises with a library and leather armchairs. It was from these elite beginnings that the 20th century's great cult of trainspotting spread, reinforcing a more general fondness for steam locomotives that many people had without knowing quite why. So a sense of loss ran through Britain when, in the 1960s, it became clear that their day was nearly done.<br><br>Hundreds of them were saved from the scrapyards and restored to working order; dozens of branch lines repaired and reopened so that in the holidays Britain could be charmed by how it once was. It's hard to think that anywhere in the world has seen a more popular or successful preservation movement, or at least one run and largely funded by volunteers. Out of this business grew the West Coast Railway Company, which hires out engines, coaches and crew for steam excursions.<br><br>A film producer looking to shoot a fantastical train in a dramatic location would naturally turn to such a company, and so in three Harry Potter films the train to Hogwarts is seen crossing Glenfinnan's viaduct.<br><br>Today, the Jacobite Express fills with Potter fans from all parts of the globe and always stops for a photo opportunity at Glenfinnan, which is where the real Bonnie Prince Charlie really raised his standard in '45 and marked as such by a real memorial. All of which reality is cast into shadow by the film of a modern fairytale.", "questions": [{"q": "12. Which adjective could best describe Mallaig as presented by the author?", "opts": ["Derelict", "Beautiful", "Abandoned", "Unsightly"], "correct": 3}, {"q": "13. The word 'mishmash' in 'A mishmash of car parks…' (paragraph 1) means…", "opts": ["a ruin", "a mixture", "a sight", "a queue"], "correct": 1}, {"q": "14. Which of the following statements is TRUE about the railway line?", "opts": ["It was the last big line constructed in Britain", "The traffic on it was busy at the beginning", "It finally became profitable", "It was closed shortly after its opening"], "correct": 2}, {"q": "15. The author compares the enthusiasm for trains to philately and butterfly-hunting because…", "opts": ["it turned into a pastime", "they all require patience", "they all became unpopular", "they all are fashionable"], "correct": 0}, {"q": "16. The author mentions a library and leather armchairs in order to illustrate…", "opts": ["how important trains were for the country", "how successful the Railway Club became", "the amount of corruption at the club", "the number of members it had"], "correct": 1}, {"q": "17. The word 'them' in 'hundreds of them…' (paragraph 6) refers to…", "opts": ["people", "locomotives", "train spotters", "lines"], "correct": 1}, {"q": "18. How does the author feel about Glenfinnan being remembered through Harry Potter rather than Bonnie Prince Charlie?", "opts": ["Enthusiastic", "Indifferent", "Sad", "Outraged"], "correct": 2}]}, {"id": "reading-paris-abbey", "nav": "Paris Abbey", "badge": "Reading", "title": "How a Paris Abbey Became a Science Museum", "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.", "type": "mc", "passage": "A trip to Europe without visiting museums would be like a trip to Fiji without visiting a beach. It just seems wrong to ignore such an embarrassment of riches. So when I was in France last year, I dutifully walked through museums, but I soon noticed a strange phenomenon. Every time I think about going to a museum, it seems like a fascinating way to spend an afternoon, but once I get there, I almost always find myself getting very sleepy by the time I get to the second gallery. I try to be enthusiastic … but usually I'm no match for the long halls of display cases.<br><br>There is an exception to this rule, though: science museums. I love inventions and gadgets, getting to know how things work and how people went about solving very difficult problems. I can stay awake in a good science museum indefinitely. So while in Paris, I visited the Conservatory of Arts and Trades. Part of this centuries-old institution is a museum that's open to the public, and it contains a fascinating variety of objects and exhibits including the original Foucault's Pendulum.<br><br>The Conservatory is off the beaten path; most English guidebooks don't even mention it. It does, however, attract a certain number of pilgrims who were fascinated by Umberto Eco's novel Foucault's Pendulum, part of which takes place there. In the novel, a secret passage under the floor of the nave connects with the Paris sewers. That isn't the case in reality, but truth is perhaps more interesting than fiction. There is something under the floor of the nave, a curious part of the building's long and strange history.<br><br>The foundation for the abbey church of St. Martin of the Fields was laid around 1059, about the time of the Norman conquest. Over the next centuries, numerous additions and renovations were undertaken. All that changed in the French Revolution when under the name of Conservatory of Arts and Trades, it became a depository for machines, models, tools, drawings, descriptions and books in all the areas of the arts and trades. It officially opened in 1802.<br><br>The museum closed for a renovation in 1993, and as part of the process, archaeological excavations were undertaken beneath the floor of the nave. For the entire history of the church, there had been stories that the site on which it stood was once a Merovingian funerary basilica, but this had never been proven. What archaeologists discovered was a large necropolis dating from the 6th or 7th century with about 100 plaster coffins inside. The tales were indeed true.<br><br>When the museum reopened a few years later, it was a typical shiny and up-to-date science museum. But it was decided that their thousands of additional articles should be made available to scholars even when they're not on exhibit. So they opened a satellite facility in the nearby town of Saint-Denis, where by appointment only qualified researchers can go to examine the rest of the museum's collection.<br><br>I've been to the Conservatory in 2000 and in 2003. As a science museum I found it a sheer delight. The former abbey is only a portion of the museum, and the museum is only a portion of the Conservatory. But all the history of the building and the institution seems to be concentrated in the large nave with its bones beneath and gadgets above. The odd contrast of centuries of monastic simplicity with centuries of technological progress tickles me in a way I can't easily describe. Perhaps the Pendulum says it best: as a scientific wonder that's also meditatively simple, it symbolically bridges the illusory divide between technology and spirituality.", "questions": [{"q": "12. According to the author, visiting museums in Europe is considered to …", "opts": ["become more and more popular.", "be an integral part of any journey.", "show the level of one's education.", "be the evidence of general curiosity."], "correct": 1}, {"q": "13. What does the author think about museums?", "opts": ["The European museums are the best.", "He finds most of them to be boring.", "There should be only science museums.", "He thinks they are a waste of money."], "correct": 1}, {"q": "14. Which of the following does NOT explain the author's love for science museums?", "opts": ["He loves history of gadgets.", "There is a chance to see how mechanisms work.", "It's possible to touch the things that he likes.", "The author likes stories of inventions."], "correct": 2}, {"q": "15. According to the author, the Conservatory is popular with the …", "opts": ["local people.", "fans of a famous book.", "English guides.", "scholars."], "correct": 1}, {"q": "16. The reason the archaeological excavations started was the need to …", "opts": ["find Merovingian treasures.", "solve some construction problems.", "strengthen the basement.", "prove the story of the site."], "correct": 3}, {"q": "17. \"A satellite facility\" in phrase \"… they opened a satellite facility\" (paragraph 6) refers to …", "opts": ["a minor educational site.", "a research area.", "a place for additional exhibits.", "the museum's laboratory."], "correct": 2}, {"q": "18. Visiting the museum the author is impressed by …", "opts": ["its size, history and facilities.", "the number of technological exhibits.", "the mixture of material and immaterial in its environment.", "the symbols he finds there."], "correct": 2}]}, {"id": "reading-stop-buying", "nav": "Stop Buying Stuff", "badge": "Reading", "title": "Stop Buying Stuff", "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.", "type": "mc", "passage": "Did you know that spending 1,000 rubles a day adds up to spending more than 365,000 a year? And I don't know about you, but hardly anything costs under 1,000 where we live. So thoughtless spending can add up very quickly. As I try to live more simply, I have been trying to mend what we have and make what we need. I recently made linen napkins with some fabric we had. This way of living has required me to slow down and question whether what I want to buy is truly essential. If you also want to live more simply and stop buying stuff you don't need, here are some tips that I've found useful.<br><br>First, you need to identify your motivation. Take a few minutes to think about why you want to buy less stuff. Your goal is to buy less, but why are you chasing that goal. Some reasons might be to save money, to reduce clutter, to live more sustainably, to get out of debt, or to live a more handmade and simple life. Once you have your motivation identified, you can refer back to it when you are tempted to buy something frivolous.<br><br>Next, it's very useful to record your expenses. Don't worry about setting up a fancy budget right now. Just write down everything you buy and how much you spend for one week. This is to make you more conscious of your spending habits and help you to stop buying stuff you don't need. Also for one week, write down what prompted you to buy something. For example, imagine you bought a new T-shirt. Write it down and think about what made you want to buy it. Did you see someone you follow on social media wearing it? Did you buy it late at night after a date went badly? The goal is to make your invisible purchasing habits more visible. As you write down what prompted you to buy something, think about whether the spending was emotional or not. Did you get a rush when you pushed 'buy now'? That's probably an emotional purchase. Try to identify which emotion you're avoiding. Do you feel self-conscious? Or depressed? Once we can name what we're trying to avoid, then we can take steps to meaningfully address it.<br><br>Have you heard about the One-Year Test? Look around your space. Do you see anything you haven't used in a year? Strongly consider selling or donating it. Once you have an understanding of how much you spend and what your spending triggers are, it's time to clean the slate. Unsubscribe from brands on social media and from email newsletters from companies or influencers. You want to set yourself up for success and protect yourself from being bombarded with emails promising 'irresistible' sales. Once you know when you are triggered to buy things, you can pre-empt the urge by filling the time with something else. For example, if you browse and buy late at night on your phone, you can do yoga or meditate or read a good book before bed. You don't need to do this forever – just try to do it once to begin with, and see how you feel.<br><br>Another very good tip can be summed up as 'cost versus work.' Before you buy something, calculate how much you will need to work to cover the cost. If you get paid 300 rubles/hour and something costs 2,500, that's more than 8 hours of work. Is it worth it to you?<br><br>Before buying something, wait 24 hours. This is a good way to weed out impulse buying. Instead of buying things every day, choose one day a week. Bookmark everything you want to buy and on the buying day, review all of your bookmarks. This is a good way to remove emotional or impulse buying, too.<br><br>So, buying stuff you don't need is a major problem for a lot of people. The material possessions that you've desired and eventually purchased will lose their sparkle, and you'll return to your happiness set point. Things can't make you happy, but people can.", "questions": [{"q": "12. The author started making hand-made things because she …", "opts": ["spends too much annually.", "lives in an expensive district.", "slowed down her pace of life.", "wishes to reduce her purchases."], "correct": 3}, {"q": "13. The word frivolous in \"buy something frivolous\" is closest in meaning to …", "opts": ["unplanned.", "unusual.", "unlimited.", "unnecessary."], "correct": 3}, {"q": "14. According to the author, writing down what you buy helps to …", "opts": ["analyse your real motivation.", "stop social media influence.", "cope with depressive state.", "protect you from criminals."], "correct": 0}, {"q": "15. It in \"we can make steps to meaningfully address it\" most probably refers to …", "opts": ["buying.", "rushing.", "emotion.", "action."], "correct": 2}, {"q": "16. It is implied in the text that one of the ways to avoid buying is to …", "opts": ["spend more time cleaning up your home.", "replace online shopping with traditional.", "find out shopping motives and replace them.", "be busy all the time."], "correct": 2}, {"q": "17. What advice does the author give to prevent impulse buying?", "opts": ["Never buy expensive items.", "Introduce a purchase day once a week.", "Delete your bookmarks in online shops.", "Discuss what you want to buy at work."], "correct": 1}, {"q": "18. Which is the best summary of the article?", "opts": ["There are many ways to reduce purchases.", "Buy only what makes you happy.", "Buying less stuff is a way to happiness.", "People tend to spend more than they can afford."], "correct": 0}]}, {"id": "reading-shoppers", "nav": "Shoppers", "badge": "Reading", "title": "Shoppers", "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.", "type": "mc", "passage": "Can you spend hours and hours at the mall just looking, while hardly making a purchase? Or when you go to the mall, do you try to park, get in, and get out as quickly as possible? Whether we like it or not, we all have to shop at some point. It's good to be aware of your money mindset so you can rein in your natural budget busters. Which kind of shopper do you most identify with?<br><br>The bargain shopper loves coupons, discount books and online codes, as well as store sales. The bargain shopper hunts down deals with the intensity of a rabid raccoon ransacking an unguarded trash can. And that's a good thing. If there's one thing you can count on with this kind of a shopper, it's the fact that they'll absolutely find the lowest price in town – or, if they can find it on the internet, in the entire world.<br><br>The next type is the researcher. Imagine you want to buy a new 42-inch LCD TV. So what do you do? You buy a few consumer magazines. You visit 14 different websites that offer television reviews. You spend five months researching every brand and every model of 42-inch LCD televisions. Based on that information, you might make a decision. Or you might wait until next year's models come out because, after all, once you make the purchase, you can't research TVs anymore. And what kind of life is that?<br><br>Probably, the worst type for your budget is the impulse buyer. Ooh, that sure is a pretty lamp over there. You know where that lamp would look nice? On the end table next to your bed. Such a pretty lamp. So cute. Sure, it's $200, but you never spend that much money on lamps, and when will you ever see another lamp that cute again? So you know what to do – buy it! Right now! Buy it! This will be the best, most sensible purchase you've ever made – until tomorrow, when you wake up and realize you have $15,000 in debt and just spent $200 on a lamp. These are the kind of people who might actually have several credit cards and need professional help to stop them going on a shopping spree.<br><br>For another type, the negotiator, no price is set in stone. Everything is up for negotiation. \"That's not good enough!\" is the negotiator's mantra. Their sole purpose in life is to win the battle with every single salesperson they encounter. Or at least it seems that way, because they approach every negotiation like fighting. That's a type of a person you really need to take with you to an Asian market where prices are cut twice or even more after bargaining.<br><br>The loyalist buys everything, and we mean everything, from the same store. They've got 14 different discount and membership cards of varying sizes for that one store. There's the one for their wallet, their key chain, their smartphone, their purse, their back pocket – and don't forget the one they customized into an earring for emergencies. When they enter that store, they're greeted like a king or queen. Everyone there knows their name.<br><br>Last, but not least, is 'the man on a mission.' They have one objective: to go to the store and buy a new computer monitor. Their record for driving to the mall, buying one item, and returning home is 27 minutes and 42 seconds. Each time they go to the mall, their goal is to break that record. When the man on a mission shops, he or she's like a laser-guided missile seeking out a target to destroy.<br><br>Many of us are addicted to shopping. And some of us can't seem to get off the hedonic treadmill. Being conscious of your shopping habits is the first step to stop buying things you don't actually need. Well, the next time you're tempted to buy something, get out your smartphone to determine whether the purchase fits in your budget. If it doesn't, all bets are off; don't make the purchase!", "questions": [{"q": "12. The author thinks that knowing your shopper type will help you …", "opts": ["shop more quickly.", "control your spending.", "choose things carefully.", "avoid going shopping."], "correct": 1}, {"q": "13. The author compares a bargain shopper with a raccoon to illustrate this type's …", "opts": ["passion for sales.", "good intuition.", "rare carelessness.", "intense curiosity."], "correct": 0}, {"q": "14. According to the article, the researcher type finds most pleasure in …", "opts": ["taking final decisions.", "comparing products.", "reading magazines.", "making a purchase."], "correct": 1}, {"q": "15. The author defines the impulse buyer as a person who …", "opts": ["loves buying beautiful things.", "gives good advice on shopping.", "is eager to spend a lot of money.", "often shops uncontrollably."], "correct": 3}, {"q": "16. The expression set in stone in \"no price is set in stone\" is closest in meaning to …", "opts": ["fixed.", "changeable.", "affordable.", "right."], "correct": 0}, {"q": "17. Which shopper type is focused on buying one particular thing?", "opts": ["The negotiator.", "The loyalist.", "The man on a mission.", "The impulse buyer."], "correct": 2}, {"q": "18. In the last paragraph the author is trying to …", "opts": ["explain how you can change your shopper type.", "show how some shopper types are better than others.", "persuade the readers to stop unconscious buying.", "summarise the differences between different shopper types."], "correct": 2}]}, {"id": "reading-coffee-decaf", "nav": "Coffee Decaf", "badge": "Reading", "title": "Coffee Decaffeination Processes", "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.", "type": "mc", "passage": "Every day it seems that medical researchers come out with a new study about coffee, how it is extremely unhealthy for you and/or full of amazing benefits. The focus of most of these studies is more particularly about the effects of caffeine on human health. As caffeine, coffee's most potent element, is a stimulant, it can produce both positive and negative effects. It can wake you up in the morning, but it can also lead to sleeplessness, a racing heartbeat, and anxiety.<br><br>It is therefore no surprise that many people have decided to cut caffeine out of their diets. As for me, I have grown to like the taste of coffee, but to me the main purpose of drinking it is to get an extra jolt of energy. That is why I will admit to a certain prejudice against decaf, perhaps prompted by bad experiences with weak and tasteless brew, because it is true that the actual process of removing caffeine from coffee can degrade the taste beyond repair.<br><br>Early decaffeination attempts involved soaking the green beans in water and then using various solvents to separate the caffeine in the resulting water solution. The beans were then re-introduced to the caffeine-free solution in order to absorb some of the flavor they had lost. Solvents used included benzene, chloroform, and trichloroethylene, all of which were later found to have toxic effects. In the 1970s, dichloromethane came into use to replace the earlier solvents before it too was deemed possibly carcinogenic.<br><br>In response to these concerns about solvents, some coffee companies began to run the water solution through charcoal filters as a means of removing the caffeine. The so-called Swiss Water Process, developed in Switzerland in the 1930s, goes one step further. After a batch of coffee beans has been steeped in hot water, that water is filtered, and then is used to soak the next batch of beans to be processed. In this way, the beans lose caffeine as they soak, but lose less of their flavor.<br><br>Yet another method that aims to safely remove caffeine from coffee beans involves a fascinating compound procedure. The solvent used in this method is neither water nor one of the earlier toxic solvents. Instead, caffeine in the coffee beans is dissolved by means of carbon dioxide. In order to accomplish this, the carbon dioxide must become a supercritical fluid, created when it is compressed and heated to the point that it has the same density in liquid and gaseous forms.<br><br>As this supercritical CO2 is passed through the beans, it can penetrate them because of its gaseous properties, and yet is able to dissolve the caffeine they contain because of its liquid properties.<br><br>In 2004, Brazilian scientists identified a new strain of coffee beans with a naturally low level of caffeine. They found three coffee plants from Ethiopia that contain almost no caffeine as they seem lack an enzyme necessary to caffeine production. If these plants can be crossed with commercial strains of coffee plants, we may one day see more coffee on the market that is naturally low in caffeine.<br><br>With these advances, and the current methods of decaffeination, decaf junkies are sure to be able to get their fix of coffee that not only tastes great, but won't keep them up half the night.<br><br>As for me, I do want to stay up half the night, so I'll stick to my full-strength brew.", "questions": [{"q": "12. According to the text (paragraph 1), the effects of caffeine …", "opts": ["have not been studied well enough.", "can be of opposite character.", "are very dangerous.", "are not strong."], "correct": 1}, {"q": "13. The author believes that caffeine in coffee …", "opts": ["is part of a healthy diet.", "is quite low.", "can't be removed completely.", "may determine its taste."], "correct": 3}, {"q": "14. We learn that the early decaffeination processes …", "opts": ["were too complicated.", "improved the taste of coffee.", "were not effective.", "could be dangerous for health."], "correct": 3}, {"q": "15. The Swiss Water Process is described as …", "opts": ["a cheaper method of decaffeination.", "a way to avoid using charcoal.", "a method to save coffee's flavour.", "the easiest method of decaffeination."], "correct": 2}, {"q": "16. The pronoun \"its\" in \"… its liquid properties\" (paragraph 6) refers to …", "opts": ["caffeine.", "carbon dioxide.", "coffee.", "coffee bean."], "correct": 1}, {"q": "17. It can be implied that at present the beans from low-caffeine plants …", "opts": ["cannot be used for big-scale sales.", "taste poorly.", "are very vulnerable.", "lack necessary properties."], "correct": 0}, {"q": "18. Even though decaffeinated coffee has been improved, the author …", "opts": ["is for the ban of decaffeination.", "believes that it's bad for health.", "still prefers the regular one.", "doesn't like its taste."], "correct": 2}]}, {"id": "reading-chinese-journey", "nav": "How I Learnt Chinese", "badge": "Reading", "title": "How I Learnt Chinese", "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.", "type": "mc", "passage": "I believe that random chance plays a more significant role in our lives than many people realise. The reason I started learning Chinese was a long string of fairly unlikely coincidences. Looking back, they all combine neatly to form who I am today and what I do, but that certainly wasn't a strategic goal at the time.<br><br>For me, the journey probably started in junior high school, when I started practising martial arts. I found Japanese martial arts to be too rigid with set uniforms, a strict grading system and a training environment with numerous rituals, and switched to a different system.<br><br>My interest for the language came from a deeper interest in the system of thought behind the Eastern philosophy. In 2006, two good friends of mine told me that there was a new course at the university where you could study the Chinese language and culture intensively for one year. I felt that this was a good opportunity to take a break from that and learn some Chinese.<br><br>So I did. I took a study break from the teacher's program and enrolled in a one-year intensive program. Some lessons focused on general proficiency, including textbook reading, translation and drilling. Most vocabulary learning was done at home. Since we were around 20 students, there was little one-on-one time with anyone who could actually speak Chinese.<br><br>My decision to continue studying Chinese in Taiwan was mostly a coincidence. My teacher in Sweden forwarded a note about a scholarship, and I applied for it without really expecting either to get it or to continue studying Chinese. When I actually received the scholarship, I had to go.<br><br>Learning in a classroom is not enough, even if the classroom is located in a Chinese-speaking environment. I limited my use of English to about once per week. The rest of the time I spent with native friends, language exchange partners and foreign classmates whose Chinese was a lot better than mine.<br><br>After that year, I had reached some kind of conversational fluency, but I didn't think my Chinese was good enough to make a living from. The decision, then, was to stay for another year.", "questions": [{"q": "The author is sure that his learning experience …", "opts": ["played a critical role in his life.", "consisted of random events.", "went according to his plan.", "taught him how to set goals."], "correct": 1}, {"q": "Rigid in Paragraph 2 most probably means …", "opts": ["complicated.", "agreed.", "fixed.", "planned."], "correct": 2}, {"q": "That in Paragraph 3 most probably refers to …", "opts": ["his main university course.", "the new language course.", "the study of culture.", "practising Eastern philosophy."], "correct": 1}, {"q": "Which statement about the author's Chinese classes on the intensive programme is TRUE?", "opts": ["These classes lacked speaking practice.", "The author did not like those classes.", "The course mainly focused on grammar.", "The students learned vocabulary in class."], "correct": 0}, {"q": "The author decided to accept the scholarship mainly because …", "opts": ["it had always been his dream to visit Taiwan.", "his teacher insisted on it.", "he wanted to continue studying Chinese.", "he did not have to pay for anything."], "correct": 3}, {"q": "What did the author NOT do in the course of his Chinese studies?", "opts": ["Take a university course.", "Study the language abroad.", "Have a lot of language input.", "Communicate with native speakers."], "correct": 2}, {"q": "The author of the article aims to …", "opts": ["describe his experience.", "entertain the reader.", "persuade us to study Chinese.", "advise us how to learn best."], "correct": 0}]}, {"id": "reading-french-teaching", "nav": "Teaching English Abroad", "badge": "Reading", "title": "How Teaching English on My Year Abroad Improved My French", "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.", "type": "mc", "passage": "I began my year abroad in Paris as an intern at a publishing house, earning €2.70 an hour for menial work. I'd hoped to be able to soak up French in a real-life setting, but was constantly writing emails and making calls in English. Luckily, I'd taken an intensive English-teaching course in London the previous summer, which helped me find a new job with a language school.<br><br>Students planning their years abroad might worry about teaching English. But in my experience, it can be a rewarding job and is perhaps even the best way to immerse yourself in another culture and learn the language. Ellen Rothnie, a student at the University of Glasgow, agrees. She says: \"The feeling of integrating is so special. I wanted to improve my Spanish and was astounded by how much I did. I noticed a difference within a month.\"<br><br>So, what struck me most about teaching English, was the potential for improving my French. Teaching your own language gives you a broader insight into language-learning. I noticed what held my weakest students back. Too much focus on writing down notes, crippling shyness and fear of making mistakes, and overconfidence. I saw how my best students learned, by being chatty and enthusiastic, and by watching hours of Anglo-American TV and films.<br><br>Rothnie also found that teaching English helped with her Spanish. \"My students often didn't know what I considered to be basic expressions involving prepositions,\" she says. This knowledge allows you to become more fluent in a language.<br><br>Teaching English can also give you the chance to socialise with native speakers, as Amy Stewart found on her year abroad in Tenerife. Despite her concerns about living in a hotspot for Anglophone tourists, Stewart improved her Spanish by taking part in language exchanges with locals.<br><br>Ultimately, the success of your year abroad is down to your own efforts, but maybe there's something about teaching that gives you a certain motivation.", "questions": [{"q": "What kind of work had the author been doing before she started teaching?", "opts": ["Exciting.", "Skilled.", "Routine.", "Unusual."], "correct": 2}, {"q": "Counterintuitive in Paragraph 2 most probably means …", "opts": ["illogical.", "worrying.", "unproductive.", "easy."], "correct": 0}, {"q": "Ellen Rothnie was surprised by how …", "opts": ["fast she became part of Spanish culture.", "deep her experience was.", "many classes she had to teach.", "far she progressed in learning Spanish."], "correct": 3}, {"q": "Which habit of less successful students is NOT mentioned in the text?", "opts": ["They do not monitor their speech.", "They are too dependent on what they write down.", "They refuse to speak out of fear of errors.", "They do not practise outside the classroom."], "correct": 0}, {"q": "'This knowledge' in Paragraph 4 refers to the knowledge of …", "opts": ["Spanish equivalents of English verbs.", "translation techniques and strategies.", "words and phrases used in everyday speech.", "communicative strategies native speakers use."], "correct": 2}, {"q": "Which proverb summarises the main idea of Paragraph 5?", "opts": ["Where there is a will, there is a way.", "Actions speak louder than words.", "Better late than never.", "Don't put off until tomorrow what you can do today."], "correct": 0}, {"q": "Which idea is expressed in Paragraph 6?", "opts": ["Teaching is not effective without motivation.", "The teacher should have a learning experience similar to their students'.", "One understands a language better when they teach it.", "Vocabulary exercises are central to language teaching."], "correct": 2}]}]};
+  var TOPIC_ID = TOPIC.id;
+
+  function taskMaxScore(task) {
+    return task.questions.length;
+  }
+
+  function findTask(taskId) {
+    return TOPIC.tasks.find(function (item) { return item.id === taskId; });
+  }
+
+  function taskPrefix(taskId) {
+    return TOPIC_ID + "_" + taskId;
+  }
+
+  function buildTaskArticle(task) {
+    var wrap = document.createElement("article");
+    wrap.className = "ege-task ege-task--panels";
+    wrap.id = "task-" + task.id;
+    wrap.dataset.taskId = task.id;
+    return wrap;
+  }
+
+  function setRadioValue(name, value) {
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      radio.checked = radio.value === String(value);
+      radio.dataset.wasChecked = radio.checked ? "1" : "0";
+    });
+  }
+
+  function gradeMcQuestion(name, correctVal) {
+    var checked = document.querySelector('input[name="' + name + '"]:checked');
+    var value = checked ? checked.value : "";
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      var pill = radio.closest(".ege-pill");
+      if (pill) pill.classList.remove("is-correct", "is-wrong");
+    });
+    if (!checked) return false;
+    if (value === correctVal) {
+      checked.closest(".ege-pill").classList.add("is-correct");
+      return true;
+    }
+    checked.closest(".ege-pill").classList.add("is-wrong");
+    return false;
+  }
+
+  function showScoreFeedback(taskId, correct, max) {
+    var scoreEl = document.getElementById("score-" + taskId);
+    if (!scoreEl) return;
+    scoreEl.hidden = false;
+    scoreEl.textContent = "Score: " + correct + " / " + max + (correct === max ? ". All correct." : "");
+    scoreEl.className = "ege-task__score " + (correct === max ? "is-good" : correct === 0 ? "is-bad" : "is-mixed");
+  }
+
+  function hideScoreFeedback(taskId) {
+    var scoreEl = document.getElementById("score-" + taskId);
+    if (!scoreEl) return;
+    scoreEl.hidden = true;
+    scoreEl.textContent = "";
+  }
+
+  var toastTimer = null;
+
+  function showToast(message) {
+    var existing = document.querySelector(".ege-toast");
+    if (existing) existing.remove();
+    if (toastTimer) {
+      window.clearTimeout(toastTimer);
+      toastTimer = null;
+    }
+    var toast = document.createElement("div");
+    toast.className = "ege-toast";
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    window.requestAnimationFrame(function () {
+      toast.classList.add("is-visible");
+    });
+    toastTimer = window.setTimeout(function () {
+      toast.classList.remove("is-visible");
+      window.setTimeout(function () {
+        if (toast.parentNode) toast.parentNode.removeChild(toast);
+      }, 220);
+      toastTimer = null;
+    }, 2400);
+  }
+
+  function loadScores() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (_err) {
+      return {};
+    }
+  }
+
+  function saveScore(taskId, score, max) {
+    try {
+      var all = loadScores();
+      all[taskId] = { score: score, max: max, at: Date.now() };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+    } catch (_err) {}
+  }
+
+  function clearScore(taskId) {
+    try {
+      var all = loadScores();
+      delete all[taskId];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+    } catch (_err) {}
+  }
+
+  function getCheckedValue(name) {
+    var checked = document.querySelector('input[name="' + name + '"]:checked');
+    return checked ? checked.value : "";
+  }
+
+  function markChoiceGroup(name, value, correctValue) {
+    var pills = [];
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      var pill = radio.closest(".ege-pill");
+      if (pill) {
+        pill.classList.remove("is-correct", "is-wrong");
+        pills.push({ pill: pill, value: radio.value, checked: radio.checked });
+      }
+    });
+    var ok = value === correctValue;
+    pills.forEach(function (item) {
+      if (item.checked) {
+        item.pill.classList.add(ok ? "is-correct" : "is-wrong");
+      } else if (!ok && item.value === correctValue) {
+        item.pill.classList.add("is-correct");
+      }
+    });
+    return ok;
+  }
+
+  function updateAnsweredCount(taskId) {
+    var countEl = document.getElementById("answered-" + taskId);
+    var checkBtn = document.getElementById("check-" + taskId);
+    var task = findTask(taskId);
+    if (!task) return;
+    var prefix = taskPrefix(taskId);
+    var total = task.questions.length;
+    var answered = 0;
+    task.questions.forEach(function (_question, index) {
+      if (getCheckedValue(prefix + "_q_" + index)) answered += 1;
+    });
+    var taskEl = document.getElementById("task-" + taskId);
+    var revealed = taskEl && taskEl.dataset.answersRevealed === "1";
+    var allAnswered = answered === total;
+    var ready = allAnswered && !revealed;
+    if (checkBtn) {
+      checkBtn.hidden = !ready;
+      checkBtn.disabled = !ready;
+      checkBtn.title = ready ? "" : "Answer all questions first";
+    }
+    if (!countEl) return;
+    countEl.textContent = "Answered " + answered + " / " + total;
+    var scoreEl = document.getElementById("score-" + taskId);
+    var hide = allAnswered || revealed || (scoreEl && !scoreEl.hidden);
+    countEl.hidden = false;
+    countEl.style.visibility = hide ? "hidden" : "visible";
+  }
+
+  function syncMcChoiceGroup(group) {
+    var work =
+      group.closest(".ege-work-scroll") ||
+      group.closest(".ege-split__work") ||
+      group.closest(".ege-panel--work");
+    var scrollTop = work ? work.scrollTop : 0;
+    group.querySelectorAll(".ege-pill").forEach(function (pill) {
+      pill.classList.remove("is-correct", "is-wrong");
+    });
+    var taskEl = group.closest("[data-task-id]");
+    if (taskEl) updateAnsweredCount(taskEl.dataset.taskId);
+    if (work) work.scrollTop = scrollTop;
+  }
+
+  function buildMcChoiceGroup(name, options, label) {
+    var group = document.createElement("div");
+    group.className = "ege-choice-group ege-choice-group--mc";
+    group.setAttribute("role", "radiogroup");
+    if (label) group.setAttribute("aria-label", label);
+    options.forEach(function (opt, optIndex) {
+      var pill = document.createElement("label");
+      pill.className = "ege-pill ege-pill--text ege-pill--option";
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = name;
+      input.value = String(optIndex);
+      input.dataset.wasChecked = "0";
+      input.addEventListener("click", function () {
+        if (input.dataset.wasChecked === "1") {
+          input.checked = false;
+          input.dataset.wasChecked = "0";
+          syncMcChoiceGroup(group);
+          return;
+        }
+      });
+      pill.appendChild(input);
+      pill.appendChild(document.createTextNode((optIndex + 1) + ") " + opt));
+      group.appendChild(pill);
+    });
+    group.addEventListener("change", function () {
+      group.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+        radio.dataset.wasChecked = radio.checked ? "1" : "0";
+      });
+      syncMcChoiceGroup(group);
+    });
+    return group;
+  }
+
+  function buildPanel(label, content, extraClass) {
+    var panel = document.createElement("div");
+    panel.className = "ege-panel" + (extraClass ? " " + extraClass : "");
+    var labelEl = document.createElement("p");
+    labelEl.className = "ege-panel__label";
+    labelEl.textContent = label;
+    panel.appendChild(labelEl);
+    panel.appendChild(content);
+    return panel;
+  }
+
+  function buildSplit(readEl, workEl, modifier) {
+    var split = document.createElement("div");
+    split.className = "ege-split" + (modifier ? " " + modifier : "");
+    var read = document.createElement("div");
+    read.className = "ege-split__read";
+    read.appendChild(readEl);
+    var work = document.createElement("div");
+    work.className = "ege-split__work";
+    work.appendChild(workEl);
+    split.appendChild(read);
+    split.appendChild(work);
+    return split;
+  }
+
+  function clearChoiceGroup(name) {
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      radio.checked = false;
+      radio.dataset.wasChecked = "0";
+      var pill = radio.closest(".ege-pill");
+      if (pill) pill.classList.remove("is-correct", "is-wrong");
+    });
+  }
+
+  function buildTaskFooter(taskId, max) {
+    var footer = document.createElement("div");
+    footer.className = "ege-task__footer";
+    var actions = document.createElement("div");
+    actions.className = "ege-task__actions";
+    var checkBtn = document.createElement("button");
+    checkBtn.type = "button";
+    checkBtn.className = "ege-btn ege-btn--primary";
+    checkBtn.id = "check-" + taskId;
+    checkBtn.textContent = "Check answers";
+    checkBtn.hidden = true;
+    checkBtn.disabled = true;
+    checkBtn.title = "Answer all questions first";
+    checkBtn.addEventListener("click", function () { checkTask(taskId); });
+    actions.appendChild(checkBtn);
+    var showBtn = document.createElement("button");
+    showBtn.type = "button";
+    showBtn.className = "ege-btn ege-btn--ghost";
+    showBtn.id = "show-" + taskId;
+    showBtn.textContent = "Show answers";
+    showBtn.hidden = true;
+    showBtn.addEventListener("click", function () { revealTask(taskId); });
+    actions.appendChild(showBtn);
+    footer.appendChild(actions);
+    var countEl = document.createElement("p");
+    countEl.className = "ege-answered-count";
+    countEl.id = "answered-" + taskId;
+    countEl.textContent = "Answered 0 / " + max;
+    countEl.hidden = false;
+    countEl.style.visibility = "visible";
+    countEl.setAttribute("aria-live", "polite");
+    footer.appendChild(countEl);
+    var score = document.createElement("p");
+    score.className = "ege-task__score";
+    score.id = "score-" + taskId;
+    score.hidden = true;
+    score.setAttribute("aria-live", "polite");
+    footer.appendChild(score);
+    footer.dataset.max = String(max);
+    return footer;
+  }
+
+  function renderMc(task) {
+    var max = taskMaxScore(task);
+    var wrap = buildTaskArticle(task);
+    var work = document.createElement("div");
+    work.className = "ege-mc-stack";
+    task.questions.forEach(function (question, index) {
+      var block = document.createElement("div");
+      block.className = "ege-mc-card";
+      block.id = TOPIC_ID + "_" + task.id + "_q_" + index;
+      var prompt = document.createElement("p");
+      prompt.className = "ege-mc__prompt";
+      prompt.textContent = question.q;
+      block.appendChild(prompt);
+      block.appendChild(buildMcChoiceGroup(TOPIC_ID + "_" + task.id + "_q_" + index, question.opts, question.q));
+      work.appendChild(block);
+    });
+    var passage = document.createElement("div");
+    passage.className = "ege-passage";
+    passage.innerHTML = task.passage;
+    var readCol = document.createElement("div");
+    readCol.className = "ege-read-col";
+    readCol.appendChild(buildPanel("Text", passage, "ege-panel--read"));
+    var resetRow = document.createElement("div");
+    resetRow.className = "ege-mc-reset";
+    var resetBtn = document.createElement("button");
+    resetBtn.type = "button";
+    resetBtn.className = "ege-btn ege-btn--ghost";
+    resetBtn.textContent = "Reset";
+    resetBtn.addEventListener("click", function () { resetTask(task.id); });
+    resetRow.appendChild(resetBtn);
+    readCol.appendChild(resetRow);
+    var workPanel = buildPanel("Questions", work, "ege-panel--work");
+    var workCol = document.createElement("div");
+    workCol.className = "ege-work-col";
+    var scrollWrap = document.createElement("div");
+    scrollWrap.className = "ege-work-scroll";
+    scrollWrap.appendChild(workPanel);
+    workCol.appendChild(scrollWrap);
+    wrap.appendChild(buildSplit(readCol, workCol, "ege-split--panels"));
+    wrap.appendChild(buildTaskFooter(task.id, max));
+    return wrap;
+  }
+
+  var state = { scores: {}, activeTaskId: null };
+
+  function setNavStatus(taskId, score, max) {
+    var btn = document.getElementById("nav-" + taskId);
+    if (!btn) return;
+    btn.classList.remove("is-perfect", "is-partial", "is-empty");
+    if (score === max && max > 0) btn.classList.add("is-perfect");
+    else if (score > 0) btn.classList.add("is-partial");
+    else btn.classList.add("is-empty");
+    btn.setAttribute("aria-label", btn.textContent + ": " + score + " of " + max);
+  }
+
+  function showTask(taskId) {
+    state.activeTaskId = taskId;
+    document.querySelectorAll(".ege-task-panel").forEach(function (panel) {
+      panel.hidden = panel.dataset.taskId !== taskId;
+    });
+    document.querySelectorAll(".ege-nav__btn").forEach(function (btn) {
+      btn.classList.toggle("is-active", btn.dataset.taskId === taskId);
+    });
+    var instructions = document.getElementById("egeInstructions");
+    var task = findTask(taskId);
+    if (instructions && task) {
+      var badge = task.badge ? '<span class="ege-badge">' + task.badge + "</span>" : "";
+      instructions.innerHTML = badge + task.instructions;
+    }
+  }
+
+  function checkTask(taskId) {
+    var task = findTask(taskId);
+    if (!task) return;
+    var prefix = taskPrefix(taskId);
+    var incomplete = task.questions.some(function (_question, index) {
+      return !getCheckedValue(prefix + "_q_" + index);
+    });
+    if (incomplete) {
+      updateAnsweredCount(taskId);
+      return;
+    }
+    var correct = 0;
+    var max = taskMaxScore(task);
+    task.questions.forEach(function (question, index) {
+      if (gradeMcQuestion(prefix + "_q_" + index, String(question.correct))) correct += 1;
+    });
+    state.scores[taskId] = correct;
+    saveScore(taskId, correct, max);
+    setNavStatus(taskId, correct, max);
+    showScoreFeedback(taskId, correct, max);
+    var attemptEl = document.getElementById("task-" + taskId);
+    if (attemptEl) attemptEl.dataset.hasAttempt = "1";
+    var showBtn = document.getElementById("show-" + taskId);
+    if (showBtn) showBtn.hidden = false;
+    updateAnsweredCount(taskId);
+  }
+
+  function revealTask(taskId) {
+    var task = findTask(taskId);
+    if (!task) return;
+    var prefix = taskPrefix(taskId);
+    task.questions.forEach(function (question, index) {
+      var name = prefix + "_q_" + index;
+      var correctVal = String(question.correct);
+      setRadioValue(name, correctVal);
+      markChoiceGroup(name, correctVal, correctVal);
+    });
+    var taskEl = document.getElementById("task-" + taskId);
+    if (taskEl) taskEl.dataset.answersRevealed = "1";
+    hideScoreFeedback(taskId);
+    updateAnsweredCount(taskId);
+    showToast("Answers shown.");
+  }
+
+  function resetTask(taskId) {
+    var task = findTask(taskId);
+    if (!task) return;
+    var prefix = taskPrefix(taskId);
+    var taskEl = document.getElementById("task-" + taskId);
+    if (taskEl) {
+      delete taskEl.dataset.answersRevealed;
+      delete taskEl.dataset.hasAttempt;
+    }
+    var showBtn = document.getElementById("show-" + taskId);
+    if (showBtn) showBtn.hidden = true;
+    task.questions.forEach(function (_question, index) {
+      clearChoiceGroup(prefix + "_q_" + index);
+    });
+    state.scores[taskId] = 0;
+    clearScore(taskId);
+    setNavStatus(taskId, 0, taskMaxScore(task));
+    hideScoreFeedback(taskId);
+    updateAnsweredCount(taskId);
+  }
+
+  function mountTopic() {
+    var saved = loadScores();
+    TOPIC.tasks.forEach(function (task) {
+      state.scores[task.id] = saved[task.id] ? saved[task.id].score : 0;
+    });
+    document.title = TOPIC.title + " – ЕГЭ Prep";
+    var titleEl = document.getElementById("egeTopicTitle");
+    if (titleEl) titleEl.textContent = TOPIC.title;
+    var nav = document.getElementById("egeNav");
+    var panels = document.getElementById("egePanels");
+    nav.textContent = "";
+    panels.textContent = "";
+    TOPIC.tasks.forEach(function (task, index) {
+      var max = taskMaxScore(task);
+      var savedScore = state.scores[task.id] || 0;
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ege-nav__btn";
+      btn.id = "nav-" + task.id;
+      btn.dataset.taskId = task.id;
+      btn.textContent = task.nav;
+      btn.addEventListener("click", function () { showTask(task.id); });
+      nav.appendChild(btn);
+      setNavStatus(task.id, savedScore, max);
+      var shell = document.createElement("section");
+      shell.className = "ege-task-panel";
+      shell.id = "panel-" + task.id;
+      shell.dataset.taskId = task.id;
+      shell.hidden = index !== 0;
+      shell.appendChild(renderMc(task));
+      panels.appendChild(shell);
+    });
+    showTask(TOPIC.tasks[0].id);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountTopic);
+  } else {
+    mountTopic();
+  }
+})();
+  </script>
+</body>
+</html>

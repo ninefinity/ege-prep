@@ -1,0 +1,53 @@
+/* Site-wide authorship footer: injected by shared/site-footer.js */
+
+.site-author {
+  width: 100%;
+  margin-top: auto;
+  padding:
+    20px 16px
+    max(20px, env(safe-area-inset-bottom));
+  text-align: center;
+  border-top: 1px solid rgba(180, 170, 155, 0.35);
+  background: rgba(255, 252, 248, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.site-author p {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #7a6a5a;
+  line-height: 1.4;
+}
+
+.site-author__name {
+  font-weight: 600;
+  color: #5a4a3a;
+}
+
+.site-author__promo {
+  margin-top: 6px;
+  font-size: 0.68rem;
+}
+
+.site-author__promo a {
+  color: #e07b39;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-author__promo a:hover {
+  text-decoration: underline;
+}
+
+.site-author--landed .site-author__name {
+  color: #3a2a1a;
+  font-weight: 700;
+}
+
+.site-author--landed .site-author__promo {
+  display: block;
+}

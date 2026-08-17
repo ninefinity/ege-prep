@@ -1,0 +1,1942 @@
+{
+  "source": "FIPI Open Bank – English",
+  "total": 119,
+  "types_count": {
+    "reading_matching_headings": 27,
+    "listening_matching_speakers": 39,
+    "speaking_ask_questions": 53
+  },
+  "tasks": [
+    {
+      "id": "RM001",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Always in a hurry",
+        "2": "The city of skyscrapers",
+        "3": "Winning and losing",
+        "4": "Unknown side of the city",
+        "5": "Saving the variety",
+        "6": "Getting around the city",
+        "7": "For the holiday and more",
+        "8": "Nickname for a building"
+      },
+      "texts": {
+        "A": "New York is really the melting pot of the world. Over 30 percent of its residents have come from abroad. It is believed that the city has the greatest linguistic diversity on the planet. There are over 800 different languages divided among its people. As some of these languages are nearly extinct, the City University of New York has begun a project called the Endangered Language Alliance. Its aim is to preserve rare languages like Bukhari, Vhlaski, and Ormuri.",
+        "B": "New Yorkers love to think they know everything about their city: where to find the best fruit, how to avoid paying full price at museums, what route to take to avoid traffic. But New York City can reveal new treasures even to its veterans. Beyond the city where New-Yorkers work, eat, play and commute every day lies a hidden New York: mysterious, forgotten, abandoned or just overlooked. There are places about which you’re not likely to read in any guidebook.",
+        "C": "The Chrysler Building was in a race with the Bank of Manhattan for getting the title of the tallest skyscraper in the world. The Bank was likely to triumph, with its height of 282 meters. But the spire of the Chrysler Building was constructed in secret inside the tower. Just one week after the Bank of Manhattan was finished, it was put in place, making it 318 meters tall and beating the Bank. It wouldn’t keep this title for long: one year later the Empire State Building was erected.",
+        "D": "The Flatiron Building was constructed between 1901 and 1903 at the intersection of Broadway and Fifth Avenue . It was designed by Chicago ’s Daniel Burnham as a steel-frame skyscraper covered with white terra-cotta. Built as the headquarters of the Fuller Construction company, the skyscraper was meant to be named Fuller Building . But locals soon started calling it “Flatiron” because of its unusual shape. The name stuck and soon became official.",
+        "E": "How does Rockefeller Center manage to find the perfect fur-tree each Christmas season? They do aerial searches by helicopter, of course, and bring it to the city during the night when there isn’t much traffic on the streets. After the tree is taken down for the year, it continues to be useful. For example, in 2005 Habitat for Humanity used the wood to make doorframes for houses for the poor and in 2012 the paper was used to publish a book.",
+        "F": "In New York life never stands still. People have to call cabs, ride subway cars, do business of all kinds, eat pizzas and sandwiches for lunch. When you multiply that by more than eight million people in less than 500 square miles, you get the idea: everyone goes everywhere as fast as it is humanly possible. Whatever you do, don't stop in the middle of the sidewalk or you’ll make everyone around you incredibly angry.",
+        "G": "New York is extremely easy to navigate. Manhattan is divided into numbered streets from north to south and avenues from east to west. It’s almost impossible to get lost there. Buses are useful to travel around Manhattan , and the subway is the best means of transport to the other parts of the city. At some stage you’ll definitely use a yellow taxi. Try to get one on an avenue that’s going in the same direction you are – you’ll save time and money. And don’t forget to leave a tip for the driver."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM002",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Show it matters to you",
+        "2": "Institutions take action",
+        "3": "Share the cost",
+        "4": "An effect of what you put on your plate",
+        "5": "Eco-friendly travel",
+        "6": "Give them a new life",
+        "7": "Part of daily routine",
+        "8": "Proper food management"
+      },
+      "texts": {
+        "A": "What you eat matters: nearly a quarter of all greenhouse gases come from agriculture, and most of those are from meat and dairy. Cutting out meat is an easy way to reduce your carbon footprint, and you’ll save money too. A meat-free diet has been recommended as the “single-biggest way” an individual can reduce their impact on the planet. Meat and dairy consumption result in excessive land use, industrial emissions, water use and deforestation. However, make sure you get all the necessary nutrients with other food.",
+        "B": "Whatever you choose to eat, try to shop locally and seasonally. You will most likely avoid the plastic packaging you find in supermarkets, and these products will have a lower carbon footprint. If you have the space – even just a windowsill will do – try growing some of your own herbs or vegetables; it’s amazing what you can get from just a window box planter. You can also reduce food waste by planning meals in advance, eating leftovers and sharing meals with friends. Reusing food waste as compost is also an eco-friendly action.",
+        "C": "This year scientists devised a planetary health diet, presenting a way to address the environmental impact of our food choices. It recommends that the global average consumption of red meat should be cut by half, while vegetables, fruit, pulses and nuts should double. The growing global call for organisations to take seriously their responsibilities for halting climate change is impossible to ignore. Universities are now reacting to this: Goldsmiths has scrapped the sale of all beef products from its campus as it seeks to become carbon neutral by 2025.",
+        "D": "Forget fast fashion: keeping your clothes for as long as possible has much more than just monetary value. In the UK, clothing has the fourth-largest environmental impact after housing, transport and food. We throw away more than half of our fast-fashion items within less than a year. So recycle your clothes or mend them. If you don’t have those skills, see if there’s a sewing society you could join, or head to a repair shop. Try clothes swaps with friends, and instead of buying new items, head to a charity or second-hand shop.",
+        "E": "When you start living alone, you do your own decorating, washing, cooking and cleaning. There are simple ways you can change your habits to live more sustainably. Wash your clothes at a lower temperature, and opt for a bamboo toothbrush or more eco-friendly sanitary products. When shopping, see if there’s a zero-waste shop nearby – Sheffield students’ union has opened a store selling dried food, household products, toiletries and kitchenware all free from plastic packaging. Just turn up with your own container.",
+        "F": "Of course, the easiest way to make a difference is to cut out flying. A return trip from Manchester to Berlin produces about 214 kg of CO 2 ; there are countries where the average person produces less carbon dioxide in a year. If you are planning a weekend away with new friends, try and travel by train or bus instead, and it’s even funnier when you have a company! Cut out just one five-hour flight and your carbon footprint will be a ton lighter. Opt for a hiking trip to a nearby lake or valley. You will get more exercise and fresh air, too!",
+        "G": "Individual actions matter, as they demonstrate commitment and provide an alternative way to live. But campaigning and activism are important too. University campuses can be the perfect place for this: 91% of students are now concerned about climate change, according to a survey from the NUS. If you don’t know where or how to start, see if there are any societies at your university. Students of the fossil free campaign, for example, have brought on huge changes by calling on their institutions to use less fossil fuel."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM003",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Preparing for danger",
+        "2": "Technology and medicine",
+        "3": "Interesting sightseeing",
+        "4": "Unusual and extremely difficult",
+        "5": "Nice to look at and good for you",
+        "6": "Central structure",
+        "8": "Cold variety"
+      },
+      "texts": {
+        "A": "All Souls College is one of the most mysterious institutions at Oxford University . It was founded in the 1400s and stopped accepting undergraduates in the 19 th century. Instead, the college accepts applications only from those who have already achieved the best undergraduate degrees in the country, and asks its applicants to take an entrance exam, which is thought to be the hardest in the world. For example, before 2010 one of the tasks was to write an essay on a single word. Previous words have included “water”, “style”, “innocence”, and “conversion”.",
+        "B": "In the 1900s, scientists began using electronic devices to treat living things. They developed special instruments to help people with disabilities. Some devices, such as hearing aids and kidney dialysis machines, operate outside the body. Doctors place other electrical devices inside the body. For example, pacemakers help keep hearts beating steadily. In addition, scientists learned how to cut and rejoin genes which is called genetic engineering. This may help cure human diseases.",
+        "C": "Water from hot springs very often contains minerals dissolved from the rocks. Such springs are called mineral springs. Salts, sulfur compounds, and gases are among the substances that can be dissolved in the spring water. The minerals and organisms that grow in the water give beautiful colors to the pools and wet rocks around hot springs. Since ancient times people have thought that such springs were good for their health. They have traveled there to drink and bathe in the waters. Many spas and resorts grew up around these picturesque springs.",
+        "D": "As it is well known, snow consists of tiny crystals of ice. Snowfall is made up of both single ice crystals and clumps of ice crystals, which are called snowflakes. The way that ice crystals join together gives every snowflake a unique design. Even so, most snowflakes have six points or six sides. They form seven basic shapes: stars, needles, dendrites (having branches), plates, columns, columns capped with plates, and irregular (damaged). What shape a snowflake takes depends on the temperature and the amount of moisture in the cloud.",
+        "E": "Natural disasters, such as earthquakes, landslides, or volcanic eruptions, may cause deadly ocean waves called tsunamis. By the time a tsunami reaches shore, it has gained tremendous size and power which is enough to destroy entire coastal villages or towns. Tsunamis cannot be stopped, but there are ways to defend against them. Scientists around the world watch for early signs of earthquakes. They also note unusual changes in ocean levels. With this information, scientists can warn people to leave areas that a tsunami might hit.",
+        "F": "In order to study things under controlled conditions, some ecologists work in laboratories. For example, they can experiment to see how plants react to different amounts of light or water. Such studies are harder in a natural setting because weather and other natural conditions cannot be controlled. However, many ecologists do work in natural settings. They look at all the different factors that affectecosystems, or communities of living things. Studies in the outdoors are useful because they show what is actually happening in the environment.",
+        "G": "Several cities in Russia were built around fortresses called kremlins. A kremlin was often located along a river. A wall, a moat, and towers usually separated it from the surrounding parts of the city. Kremlins contained cathedrals and palaces for princes and bishops as well as government offices and weapons of war. The most famous kremlin is in central Moscow , which is often called just the Kremlin. It has long been a symbol of Russia’s power. UNESCO declared the Kremlin and Red Square a World Heritage site in 1990."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM004",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "How did they do it?",
+        "2": "Comfortable living",
+        "3": "Designing a building",
+        "4": "The longest on Earth",
+        "5": "Building materials",
+        "6": "Invented by accident",
+        "7": "Safe travel",
+        "8": "Why seasons change"
+      },
+      "texts": {
+        "A": "Most of Africa’s rural peoples use natural resources that are locally available for their homes. In grasslands, people typically use grass to cover the walls and roofs. In forested areas, they use hardwoods as well as bamboo and raffia palm. Earth and clay are also major resources used in construction. In areas with few natural resources, people often live as nomads, moving from place to place. Instead of making permanent homes, they usually use simple shelters or tents made of animal skins and woven hair.",
+        "B": "An architect must consider how a structure will be used and by whom. An apartment building, a palace, a hospital, a museum, an airport, and a sports arena all have different construction requirements. Another factor is the ideas the structure should communicate. For example, some buildings are made to impress people with a display of power and wealth; others – to make everyone feel welcome. Other things to consider are the location and surrounding environment, including weather, and the cost of materials.",
+        "C": "Did you know that an eleven-year-old child first created the Popsicle? The boy’s name was Frank Epperson. In 1905, Frank left a mixture of water and powdered soda out on his porch by mistake. It also contained a stir stick. That night, fortunately for Frank, the temperatures fell to a record low. As a result, he discovered the substance had frozen to the stick, and a frozen fruit flavoured ice treat was created. He decided to call it the epsicle, which was later patented by him and named as Popsicle.",
+        "D": "As Earth goes around the sun, the North Pole points to the same direction in space. For about six months every year, the North Pole is tilted towards the sun. During this time, the Northern Hemisphere gets more direct sunlight than the Southern Hemisphere and more hours of daylight. During the other six months, the North Pole is tilted away from the sun. When the Northern Hemisphere gets the most sunlight, it experiences spring and summer. At the same time, the Southern Hemisphere gets autumn and winter.",
+        "E": "In southern Peru , there is an isolated plateau where the wind almost never blows. Here, around the year 400 to 650 AD, the people of the Nazca culture created the famous Nazca lines, by removing the red stones covering the ground so that the white earth beneath was visible. These Nazca lines are actually portraits of animals such as monkeys, birds or fish. It is a mystery how such a primitive civilization could create such artwork with precision when they had no means of viewing their work from the air.",
+        "F": "Antarctica, which is the southernmost and fifth largest continent, does not have twenty-four-hour periods divided into days and nights. In the South Pole, the sun rises on about September 21 and moves in a circular path until it sets on about March 22. This “day” , or summer, is six months long. During this period, if the weather conditions are good, the sun can be seen twenty-four hours a day. From March 22 until September 21, the South Pole is dark, and Antarctica has its “night”, or winter.",
+        "G": "Any ship that hits an iceberg can be damaged. The most famous iceberg in history sank the “Titanic”, a ship travelling in the northern Atlantic Ocean , on April 15, 1912. The ship’s side scraped the iceberg, which tore holes in the hull. Within three hours, the ship was at the bottom of the ocean. After the loss of the “Titanic”, several nations worked together to establish the International Ice Patrol. Today the U.S. Coast Guard runs the patrol, which warns ships about icebergs floating in Atlantic shipping routes."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM005",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "A job for anybody",
+        "2": "Start your business",
+        "3": "A job with a high salary",
+        "4": "Choosing a job",
+        "5": "Zoopsychologist",
+        "6": "Night work",
+        "7": "Working with your hands",
+        "8": "Working for royals"
+      },
+      "texts": {
+        "A": "Some people can’t get out of the house easily to shop, don’t have the time to do it or just don’t enjoy shopping. If shopping is something you enjoy, turn it into a self-employed career. Personal shoppers give advice to customers and suggest products that may suit their needs. This can be anything from gifts to household goods to clothing. Advertise your services at locations such as senior citizens’ centres, community centres, shopping malls and grocery stores. Meet with the clients and find out what items (groceries, clothing, etc.) they need and how often.",
+        "B": "The market is changing very fast. In fact, there may be careers that exist when a student gets out of college that simply didn’t exist when they started. So rather than asking, “What do I want to be?,” pose these questions: “What skills do I have? What kinds of people do I like to work with? In what kind of environment?” This is a way to think about a career without necessarily naming it. You describe yourself in a functional way and then figure out what that’s called and if people get paid to do it.",
+        "C": "The regulations define this as the period between 11 pm and 6 am although this agreement can be slightly varied between employers and workers. Generally, people who work for at least three hours within the period must be offered a free health assessment before they begin their work duties and on a regular basis. Workers, however, do not have to accept this check. In general, workers must be over 18, although there are some exceptions to this rule. Teenagers aged 16 and 17, for example, can work according to this schedule, but only for 40 hours per week.",
+        "D": "When your dog won’t roll over or your cat is making a mess, you might have to call someone who specialises in pet behaviour to solve your problems. This person analyses the pet’s confidence and security inside and outside the home to find the source of the problem. By studying their instincts and social rituals in their natural habitat as well as around humans, they modify the unwanted behaviour. It is all about helping dogs, cats and horses feel safe and confident and secure inside and outside our homes.",
+        "E": "Being a queen’s piper involves playing the bagpipes for 15 minutes at 9 am under the Queen’s window when she is in residence at Buckingham Palace , Windsor Castle , the Palace of Holyroodhouse or Balmoral Castle . The piper is also responsible for the co-ordination of the 12 Army pipers who play around the table after State Banquets. It’s important to be presentable and patient enough when escorting the Queen to the various audiences that she has throughout the day.",
+        "F": "A surgeon starts with a Bachelor’s degree, specializes in medicine and finally, surgery and then spends up to seven years as an intern or a resident. If you want to cut people open, they want to be really sure you know what you are doing. The field will be growing, as people now live longer. This is one of the highest demand and best paid jobs in the US because it takes so much skill and precision. Wages vary depending on the type of surgery, but on average this was the highest paid medical job in 2015.",
+        "G": "Imagine you’re an electrician, you’re installing a pipe and have to bend around the corners to make everything line up. This kind of work requires improvisation and creativity. Besides, the wages of manual workers are greater than in many office jobs. For instance, a skilled mechanic usually earns more than a sociology graduate working in publishing. Besides, the job offers small moments of joy, like when the bike you’re mending starts up and runs. But not everything about manual work is rosy. Furniture making, for example, is not a good career move."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM006",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Penguins’ diet",
+        "2": "No longer a secret",
+        "3": "Sound identification",
+        "4": "Are penguins birds?",
+        "5": "Different homes",
+        "6": "Enemies everywhere",
+        "7": "Living in Antarctica",
+        "8": "How big are penguins?"
+      },
+      "texts": {
+        "A": "Penguin sizes range from the largest penguin species, which can be as tall as 45 inches and weigh as much as 60 to 90 pounds, to the smallest penguin, which only reaches 12 inches in height and weighs 2 to 3 pounds. The largest species of penguin, the Emperor penguin, averages 66 pounds and a height of 3.8 feet and lives in Antarctica. The second-largest penguin, the King penguin, looks similar to the Emperor penguin but is found in the sub-Antarctic belt, rather than in Antarctica.",
+        "B": "Penguins are flightless birds. The main types of predators that eat penguins are marine animals, such as leopard seals, whales and sharks. Many land animals are also a threat to penguins in Antarctica and include birds like petrels, skuas and seagulls. These birds either steal penguin eggs or kill their chicks. Penguins, which live in other areas of the world like the Galapagos Islands, Australia and South Africa, can have different land predators that include snakes, ferrets, lizards and foxes.",
+        "C": "All known species of penguins live naturally in the southern hemisphere of the world. They actually occupy habitats that are located on each of the five continents within the southern hemisphere. Antarctica, which is known for its low temperatures, is a habitat for only five breeds of penguins. The majority of penguins prefer colder climates, but there are some species that prefer a slightly warmer climate. The Galapagos penguin, for example, resides far north near the Galapagos Islands.",
+        "D": "Penguins primarily communicate vocally, but they also communicate through body language and posturing. Penguins all look virtually identical, which makes individual recognition very difficult. To overcome this, penguins have evolved different sounding voices and the ability to recognize the individual voices of their mates or chicks. This allows the birds to recognize and find their mates or chicks among the masses, which all look the same. Besides, penguins produce different types of calls.",
+        "E": "While penguins do not fly, they are incredible swimmers. In 2012, scientists managed to discover at last that the reason why Emperor penguins are able to swim so quickly through the ocean is not only because of the feathers on their flippers but also because of bubbles. It is surprising to learn about the bubbles penguins use to coat their bodies as they swim through the water. This coating of bubbles makes them more slippery and they are able to slide through the water at top speeds of 12 to 77 feet per second.",
+        "F": "Penguins catch their food while swimming in the ocean. Penguins primarily eat fish, squid and krill that they catch with their sharp beaks. Over their evolutionary history, the ancestors of modern penguins lost their ability to fly in exchange for becoming extraordinary swimmers. Penguins are among the most skilled fish-eating animals in the world, which is necessary to fuel their high caloric needs. In contrast to cold-blooded fish, penguins must eat a lot to heat their bodies internally in cold weather.",
+        "G": "Penguins are not mammals, even though they are warm-blooded animals. Penguins are one of only a few species of flightless birds left in the world. Many people mistakenly believe penguins have fur instead of feathers because of the tight packing of feathers on their bodies. Most birds could not survive the frigid temperatures, but penguins store ample fat reserves that protect them in the water. They have the tightly-woven feathers that protect them on land, and they stand in huddles to share body warmth."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM007",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Female bobsleighing",
+        "2": "What you need for bobsleighing",
+        "3": "Safety rules",
+        "4": "Bobsleighing techniques",
+        "5": "Participating countries",
+        "6": "The dangers of bobsleighing",
+        "7": "The newest rules",
+        "8": "From the history of bobsleighing"
+      },
+      "texts": {
+        "A": "Bobsleighing was originated in Switzerland . In the late 19th century, the Swiss first started doing it by attaching two skeleton sleighs together with a steering mechanism added to the front sleigh in order to control the direction. The first bobsleigh races took place in normal snow covered roads whereas the first bobsleighing club was founded in St. Moritz, Switzerland in 1897 and the first specially designed race track was developed outside of St. Moritz in 1902.",
+        "B": "Bobsleighing is mostly played in Europe along with North America and Russia because of the proper climate for the icy track. The United States of America , Germany and Switzerland have long been the most successful bobsleighing nations based on their incredibly successful track record in all formats of competitive sports including World Cups and Olympic Championship. Presently, more than fifty countries take part in various international bobsleighing events all over the world.",
+        "C": "Bobsleighing is considered the most expensive winter sport as the equipment used in it, including the safety equipment as well as bobsleigh parts, are quite costly. The most important equipment in bobsleighing is the sleigh. Besides this other protective guards are also used. The length of the sleigh must be a maximum of 3.80 metres ( 12.5 feet ) for four-man sports and 2.70 metres ( 8.9 feet ) in case of two-man sports. Bobsleigh crews are supposed to weigh heavy to ensure high speed.",
+        "D": "In fact, two-man and four-man types of bobsleigh are very much similar. As weight plays a vital role for the speed of the sleigh, four-man sleighs are much faster than two-man types. However, even a simple mistake at the initial push-off or, say, during the steering, on decisions of the driver during the turns may largely affect the final race. The thing is, air passing through the sleigh slows the sleigh down. In order to avoid these drags, wind tunnels are usually added to the sleigh.",
+        "E": "One may think bobsleighing is a risky sport but actually not only men are fond of it. Women do it too. In case of women bobsleighing, the sleighs for women were originally very much similar to those of men. But with time so many problems came out as women are shorter than men and many players injured their hips as well as back. These traumas prompted the organizers to change the interior sleigh designs for women bobsleighing. Now women can do it safely and successfully enough.",
+        "F": "Bobsleighing competitions gather crowds of people who want to watch their favourite sportsmen compete with one another. However, even though bobsleighing is quite an interesting sport, the risks attached to it certainly cannot be avoided. Till now more than ninety three players have died in crashes or accidents during the game. In order to reduce the chances of accidents and to prevent the risks, officials have made certain rules and regulations about the uses of sleighs and the structure of the track.",
+        "G": "There are a lot of risks connected with bobsleighing. Bobsleighers need to wear high tech plastic made helmets in order to prevent head injuries as well as goggles for eyes. Racers wear tight uniforms to increase aero-dynamicity and spiked shoes to gain traction on the ice. The brakeman wears a Kevlar vest in order to avoid third degree burns during the sleigh’s friction with ice. The next bobsleigh doesn’t start until the previous team has left the track because of security reasons."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM008",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Named after a politician",
+        "2": "Too lengthy to stay",
+        "3": "In hope for a good future",
+        "4": "Named after a tsar",
+        "5": "Modern pronunciation",
+        "6": "Named after the river",
+        "7": "Named after a wrong person",
+        "8": "Bringing back the first name"
+      },
+      "texts": {
+        "A": "One local legend claims that the city of Orlando is named after the character in Shakespeare’s “As You Like It”, but the more commonly accepted version is that a man named Orlando Reeves owned a plantation and a sugar mill a bit north of what later became the city. Early settlers found where Reeves had carved his name in a tree and thought that it was a grave marker to a soldier, a hero who died in the Seminole War and mistakenly named their settlement after him.",
+        "B": "When Arizona city began expanding in the late 1860s, settlers realized that their little town needed a name. The founder of the city Jack Swilling, a Confederate veteran, wanted to name the town Stonewall in honour of Stonewall Jackson, but Darrell Duppa found out that their site had been a Native American settlement centuries earlier. He offered the name Phoenix . He believed that their new city would rise from the ruins of the former civilization like the legendary bird.",
+        "C": "In 1788, Captain Arthur Phillip discovered a supply of fresh water for his thirsty armada in a cave near Port Jackson, today’s Sydney Harbor . Later he started a settlement there. The place needed a name. Though originally he had planned to name his new freshwater-filled settlement Albion – a poetic name for England – instead he decided to call the bay Sydney Cove after the Secretary of State, Lord Sydney. The fact that the guy had never even set foot in Australia didn’t stop him .",
+        "D": "The Russian capital sits on the Moscva River , which is obviously where the city’s name comes from. However, there are a couple of theories as to where the name Moscva comes from. The first states that it is a derivative of a Finno-Ugric name meaning river of either cows, or bears, or darkness. Nobody is really sure which of the three exactly, but all of them seem quite possible. The other, more popular theory, says that the name comes from a Slavic word meaning dank, swampy river.",
+        "E": "It’s widely known that the City of Angels got its name from Spanish settlers. The beauty of the place impressed them so much that they considered it heaven on Earth. The original name, however, was a lot longer: El Pueblo de Nuestra Senora la Reina de los Angeles de Porcincula , or “The Town of Our Lady the Queen of Angels of the Little Portion”. They realized there would be a lot of letters to fit on a hat they wore, so they just shortened it to Los Angeles.",
+        "F": "Have you ever wondered why in a restaurant we never order Beijing duck, but instead call it Peking like our grandmas did? Well, since Chinese characters don’t much lend themselves to transliteration, English interpretations of how the name is pronounced have changed over the years. The name was given to the city during the Ming Dynasty by Zhu Di, who moved his capital there. “Beijing” is about as close as we can get now to saying it like the Chinese.",
+        "G": "St. Petersburg was founded on May 16, 1703, when the foundation of the Peter and Paul Fortress was laid. Since its foundation, the city’s name has changed several times. Originally, it was named after the Apostle Peter as tsar Peter, the Apostle’s namesake, relied on this saint’s patronage. For a decade in the 1900’s it was called Petrograd . This was from 1914 – 1924. After Lenin died, Petrograd was renamed Leningrad . St. Petersburg resumed its original name in 1992."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM009",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "What is a desert?",
+        "2": "Smart desert plants",
+        "3": "The land of treasure",
+        "4": "How do deserts form?",
+        "5": "The desert statistics",
+        "6": "The symbol of deserts",
+        "7": "A unique white habitat",
+        "8": "Deserts are dangerous"
+      },
+      "texts": {
+        "A": "Although the typical idea of a desert is a vast sandy place with little water, a desert is more than that. It is actually classified as any area of land that has not received any rain for a minimum of 12 straight months or a very dry area that receives less than 10 inches of rain every year. The reason for dryness in a desert is also connected with high evaporation and transpiration rates. The ground loses much water through a high evaporation rate. Plants lose their water through a high transpiration rate.",
+        "B": "The plants that grow in the desert include various forms of cacti, low-lying plants like yucca and agave, and trees like palms and Joshua trees. While classified differently, these plants share characteristics that help them survive in the rough desert climate. They have a reduction of leaves and alternate water storage options. Many of the plants use extremely long “tap” roots as a mode of adaptation, while others stay close to the surface so they have a better chance to absorb the water before it evaporates.",
+        "C": "Cactus is one of the plants most associated with deserts. Recognizable by their protective spikes, some species grow flowers and edible fruits. The cactus has adapted exceptionally well to desert conditions. To conserve water, most cacti have a fine root structure in which the roots grow near the surface. Over time they have changed their shape so that their external surface is reduced in relation to their volume. In many types of cacti, the stems have become round or flat and are used instead of green leaves.",
+        "D": "Deserts are the primary source of table salt, borates, potassium and sodium nitrates and gypsum. Soda, nitrates and boron are the most common minerals that appear only in deserts. Approximately half of the world’s stores of fossil fuels come from desert lands, including oil and natural gas, and about half of the world’s diamonds, copper, gold, iron ore and uranium ore come from the desert as well. Besides, deserts are important because they provide corridors for migration for a number of bird species.",
+        "E": "Several causes can be attributed to deserts, including the Earth’s air circulation, the rain shadow effect, the distance from the ocean and the proximity of cold ocean currents. The air circulation pattern is one cause that can be explained by the fact that warm air holds more moisture than cold air. This results in the evaporation of water and the formation of deserts. The rain shadow effect occurs to land between two mountain ranges. The rain falls on the other side of the mountains, leaving the land in-between dry.",
+        "F": "There are 33 major deserts in the world, or 71 when subdivided into smaller deserts. Of those 71, 12 are in Africa, one is Antarctica, three are in the Arctic basin, 26 are in Asia, including the Middle East, 10 are in Australia and New Zealand, 10 are in Europe, four are in North America, and five are in South America. Having less than 10 inches of rain annually, Antarctica is not only classified as a desert, but it is the largest desert. The Sahara in Africa is the largest hot desert.",
+        "G": "Cold deserts are deserts that experience low temperatures and long winters. They occur in the Arctic, the Antarctic and Greenland, as well as above the tree lines of mountain ranges. Cold deserts tend to have higher precipitation levels than hot deserts, and snowfall is common during winter. Average annual rainfall ranges from 6 to 10 inches. Vegetation is scattered due to poor soil quality, and plants tend to have needle-like leaves that reduce water loss. Native animals include rabbits, pocket mice and foxes."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM010",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Fun in theory, boring in reality",
+        "2": "Deficit of activity problems",
+        "3": "Saving rare animals",
+        "4": "Contrary to popular belief",
+        "5": "Benefits of being outdoors",
+        "6": "Ready to help",
+        "7": "Original style",
+        "8": "Similar sounds – different emotions"
+      },
+      "texts": {
+        "A": "In addition to being highly intelligent, elephants are capable of a remarkable amount of empathy. During a natural disaster, elephants are able to understand that something dangerous is happening. They can understand that a person is in trouble and that the situation is unsafe. Elephants have good sense of smell and there have been cases when they alerted rescuers to people trapped in a building. Elephants have been observed saving their young from drowning and also been filmed trying to save people they see at risk of drowning.",
+        "B": "A lot of studies suggest that green spaces enhance mental health and learning capacity, both immediately and over time, by lowering stress levels and restoring attention. Greenery restores attention by drawing the eye and at the same time calms the nervous system, creating an ideal state for learning. Similarly, studies show that spending time in the sunlight can reduce attention deficit symptoms, while bright light first thing in the morning can improve mood and the quality of sleep.",
+        "C": "Why are hyenas known for laughing? There is even a phrase we use: “to laugh like a hyena”. Zoologists will tell you that the unique sounds they make are actually no laughing matter. Hyenas indeed make loud barking noises that sound like laughter, but it’s not because they’re amused by anything. Instead, a hyena’s “laughter” is actually a form of communication used to convey frustration, excitement, or fear. Most often, you’ll hear this unique vocalization during a hunt or when the animals are feeding on prey as a group.",
+        "D": "Zoologists believe that boredom isn’t a uniquely human emotion – animals can be bored, too. Animals which live in captivity (in zoos, for example) and don’t have to take care of their survival may experience boredom and try to find ways to overcome it. They may come up with some “creative” activities which they wouldn’t normally do in their natural environment. As for the pets at home, they may also suffer from the lack of stimulation. That’s why we need to make sure we give them enough time, attention and toys regularly.",
+        "E": "While most dogs jump eagerly into the water to swim, cats don’t usually do that, and many believe that cats have a phobia of water. But some pet groomers insist that it’s not true and getting a cat to trust you enough to bathe is quite possible, with some patience and skill. Most cats are not afraid of water like so many people may think. They are actually afraid of loud noises and of drowning, rather than water itself. Cats drink water every day, lots of cats even play with water or follow people into the shower.",
+        "F": "Videogame testers spend most of their time testing the game long before it’s finished and long before it starts to become a fun experience. Even after the game is developed enough to start being fun, the testing tasks often aren’t entertaining at all. Testers may have to walk their character around a forest, for example, to look for trees that aren’t drawn well. They then record the coordinates so an artist can fix them later. It’s monotonous work and can take days to finish. So if testing video games seems like a fun, easy job to you, think again.",
+        "G": "Claude Monet’s impressionist paintings were all about nature. In his works he tried to capture nature as it appeared to him at the moment. He also experimented with light and shadow and how they changed during different times of the day. Some artists of the time criticized Monet because his works lacked detail and didn’t resemble finished paintings. Monet used strong colours, which he did not mix. He painted them onto the canvas in short brush strokes. He was also criticized for not using classical painting techniques."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM011",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Life cycle",
+        "2": "Fascinating facts",
+        "3": "Distribution and habitat",
+        "4": "Masters of camouflage",
+        "5": "Chatty animals",
+        "6": "Physical features",
+        "7": "The main threats",
+        "8": "An economic importance"
+      },
+      "texts": {
+        "A": "An octopus is a sea animal with eight arms. Octop live in seas throughout the world. An octopus can change colour quickly depending on its surroundings or its mood. It can be grey, brown, pink, blue, green, or even red if it is suddenly frightened. It can change the colour of its entire body in just three-tenths of a second. But the creature doesn’t simply take on the general pattern of its surroundings. Instead, it often mimics specific undersea objects, like plants or rocks, to disappear into the underwater scenery.",
+        "B": "Although dolphins look like fish and live in water, they are actually mammals. There are more than 35 species, or types, of dolphins. They are divided into two groups: true dolphins and river dolphins. True dolphins live all over the world in either salt or fresh water. The most widespread species are the common dolphin and the bottlenose dolphin. River dolphins live only in South America and Asia. They prefer freshwater. The Amazon river dolphin is found in the Orinoco and Amazon rivers.",
+        "C": "Dolphins are known for being intelligent and playful. They use sounds for communication among themselves as members of a school (also called a herd or a pod). Schools may consist of five to several thousand individuals. Often an entire school will function as a unit to accomplish some objective, such as trapping fish. Dolphins have some of the most elaborate acoustic abilities in the animal kingdom. They make a variety of sounds including whistles, clicks, squawks, squeaks, moans, barks, groans and yelps.",
+        "D": "Unlike most other fish, sharks have skeletons composed of cartilage rather than bone. With a few exceptions, sharks have torpedo-shaped bodies — an efficient, streamlined design for fast-swimming predators. Bottom dwellers tend to be stout and heavy bodied. Sharks normally have tough, grey skin with toothlike scales. Sharks vary in colour from grey to cream, brown, yellow, slate, or blue and are often patterned with spots, bands, or marbling. The whale shark is the largest living fish. It can weigh up to 20 tons.",
+        "E": "Corals live in all oceans of the world. Reefs are composed of numerous different species of coral. Coral reefs cover less than one percent of the earth’s surface. Certain species of fish spend their life among the corals. Because of the income coming directly from fishing in their waters, reefs provide resources and services worth billions of dollars every year. Millions of people around the world depend on coral reefs for food, protection and employment. These figures are impressive.",
+        "F": "Corals have barely changed over the last hundred million years. They are the same as they were during dinosaur times. Corals actually comprise an ancient and unique partnership, called symbiosis. Several different types of corals together can form enormous colonies that are called coral reefs. Coral reefs are intriguing things. Coral reefs can grow so large that they can be seen from outer space. Although they only take up a tiny proportion of the world’s ocean, coral reefs contain more than a quarter of all ocean-dwelling creatures.",
+        "G": "A coral reef is a hard natural structure under the sea that is formed from coral. Coral reefs are some of the most diverse ecosystems in the world. Coral reefs only occupy 0.1% of the area of the ocean but they support 25% of all marine species on the planet. People have long used coral skeletons to make jewelry. But this and other human activities have put many corals at risk. Rising ocean temperatures, oil spills, and chemical pollution harm corals. Boats that sail over reefs may also damage corals."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM012",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Figuratively speaking",
+        "2": "Silver versus gold",
+        "3": "Key facts",
+        "4": "Precious doctor",
+        "5": "Useful in many ways",
+        "7": "Silver symbols",
+        "8": "Potentially dangerous"
+      },
+      "texts": {
+        "A": "Silver is a chemical element with the symbol Ag (from the Latin ‘argentum’, meaning ‘shiny’). Its atomic number is 47. Silver is a soft, white metal which exhibits the highest electrical conductivity, thermal conductivity and reflectivity of any metal. Silver is found in the Earth’s crust in a pure, free elemental form (the so-called ‘native silver’) together with gold and other metals, and in some minerals. Most silver is produced as a byproduct of copper, gold, or zinc refining.",
+        "B": "Other than in currency and as an investment medium, silver is used in solar panels, water filtration, jewelry and silverware making, in electrical contacts and conductors, mirrors and so on. You may not know this, but silver is also necessary for window coatings, in the catalysis of chemical reactions, and even as a colorant in stained glass and in specialized confectionery. Its compounds are also used in photographic and X-ray film and making bandages and wound dressings.",
+        "C": "In medicine, silver is incorporated into wound dressings and used as an antibiotic coating in medical devices. Wound dressings containing silver are used to treat external infections. Silver is also used in some medical applications, such as catheters and breathing tubes. This is because the silver ion is bioactive and in sufficient concentrations it successfully kills harmful bacteria. Silver compounds are easily taken into the body like mercury, but lack the toxicity of the latter.",
+        "D": "Silver compounds have low toxicity compared to those of most other heavy metals as they are poorly absorbed by the human body. However, some silver compounds are caustic and can cause stomach and breathing disorders. Animals repeatedly dosed with silver salts have been observed to experience slowed growth and liver and kidney problems. Colloidal silver causes poisoning. Some waterborne species are particularly sensitive to silver salts and those of other precious metals.",
+        "E": "Silver plays a certain role in mythology and has been used in folklore. Greek poets often used silver to denote somebody or something which is second best. In folklore, silver was commonly thought to have mystical powers. For example, a silver bullet in folk tales is supposed to be the only effective weapon against monsters. In many books, however, silver also represents greed and degradation of consciousness; this is the negative aspect, the unfair treatment of its value.",
+        "F": "Silver was one of the seven metals that were known to prehistoric humans and whose discovery is thus lost to history. In particular, three metals – copper, silver, and gold – occur in elemental form in nature and were probably used as the first primitive forms of money, as opposed to simple bartering. Since silver is more reactive than gold, supplies of native silver were much more limited than those of gold. For example, silver was more expensive than gold in Egypt.",
+        "G": "The English language has a lot of phrases and idioms with the word ‘silver’. If a person is very lucky, they say that this person was born with ‘a silver spoon in their mouth’. If you want to encourage somebody who has problems, you may say that ‘every cloud has a silver lining’ and eventually things will turn out fine. You say that ‘speech is silver, but silence is golden’ when you are not happy with somebody’s words. It is certainly interesting to learn about such expressions."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM013",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Mad about ponies",
+        "2": "A great imitation",
+        "3": "Fairy-tale horses",
+        "4": "The origin of horses",
+        "5": "From a job to a sport",
+        "6": "Figuratively speaking",
+        "7": "Horses treating kids",
+        "8": "The importance of horses"
+      },
+      "texts": {
+        "A": "The horse is a large animal which was domesticated about 5,000 years ago. Now it’s impossible to imagine our life without horses. There are more than 300 different breeds and 60 million horses in the world today that are used as working animals (to pull the ploughs in the field and transport heavy loads), for racing, competitions and shows, for recreation and so on. In the USA alone, 4.6 million Americans work in the horse industry which earns 39 billion dollars per year.",
+        "B": "Rodeo is a very popular competitive sport which developed from horse farming in Mexico and later continued in many other countries. It came out of the daily practices and tasks performed by ranch workers who spent long hours with horses. Actually, a rodeo is based on the skills required of the working cowboys. Now it is a professional sport that consists of several events organized to show the skill and speed of the participants, cowboys and even cowgirls.",
+        "C": "With The American Rodeo computer game you’ll find yourself right in the middle of the rodeo arena. Finally here is a chance for you to try this sport with this incredibly realistic new software. The horse will start jumping when you press the \"GO\" button. Your task in this game is to keep the rider on the horse all the time until the end of the game, otherwise you lose. Of course, you can replay as many times as you want, just fix the mouse cursor on the rider’s body as long as you can.",
+        "D": "Children with certain health or behavioral problems often have a low self-esteem and difficulties connecting with other people. Sometimes they are also unable to express their feelings. Working with a horse is an effective way for such children to work through some of their problems because it’s easy for kids to project their own needs onto an animal, to tell their own stories from an animal’s point of view, and then to be able to find healthier solutions to their personal problems.",
+        "E": "My Little Pony: Friendship Is Magic is a children’s animated fantasy TV series based on Hasbro’s line of toys and animated works. Its creative director Lauren Faust managed to create attractive characters and adventurous settings that are now loved by girls all over the world. The main character is the unicorn pony named Twilight Sparkle and she learns about friendship in the town of Ponyville with five other ponies. The series has become a major commercial success with kids.",
+        "F": "As My Little Pony series became the most highly rated original production in the Hub Network’s broadcast history, it opened new merchandising opportunities for Hasbro. Now girls go crazy about anything with an image of the cartoon characters on it – books, clothing, collectible trading cards, puzzles, and comics. Mind you, anything with a picture of Pinkie Pie or Applejack on it will be much more expensive than the regular thing, but this doesn’t stop either kids or their parents.",
+        "G": "People domesticated horses so long ago that it’s no wonder we have so many idiomatic expressions with the word horse in many languages of the world. English is certainly not an exception here. For instance, if you are flogging a dead horse , it means you are wasting your time trying to do something when it is impossible. A dark horse is a candidate that is unknown to the public or a person who surprises people by doing something that they do not expect. It’s fun to learn such phrases."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM014",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Getting bigger",
+        "3": "Why live in Paris?",
+        "4": "Key facts",
+        "5": "Becoming stronger",
+        "6": "Location",
+        "7": "A rich place",
+        "8": "The jewel of Paris"
+      },
+      "texts": {
+        "A": "Paris is the capital city of France. It is situated in the north-central part of the country. People were living on the site of the present-day city, located along the Seine River by about 7600 BC . The modern city has spread far beyond both banks of the Seine. Paris is by far the country’s most important centre of commerce and culture. The area of the city is 41 square miles (105 square km); the population of Paris and its suburbs is approximately 10 million people.",
+        "B": "For centuries Paris has been one of the world’s most important and attractive cities. It is appreciated for the opportunities it offers for business and commerce, for study, culture, and entertainment; its gastronomy, haute couture, painting, literature, and intellectual community especially enjoy an enviable reputation. It is called the City of Light and it lives up to its reputation being an important centre for education and intellectual pursuits.",
+        "C": "Paris is situated at a crossroads of both water and land routes significant not only to France but also to Europe . It has had a continuing influence on its growth. Under Roman administration, in the 1st century BC, the original site on the Île de la Cité was designated the capital of the territory. Under King Hugh Capet (ruled 987 – 996), the preeminence of Paris was firmly established, and Paris became a political and cultural hub as modern France took shape.",
+        "D": "Paris is located on the western side of Europe and in a plain relatively close to the sea. Thanks to the Gulf Stream , it has a fairly temperate climate. The weather can be very changeable, however, especially in the winter and spring, when the wind can be sharp and cold. The annual average temperature is roughly 12 °C; the July average is about 19 °C, and the January average is about 3 °C. The temperature drops below freezing for about a month each year, and snow falls on such days.",
+        "E": "At the eastern end of the Île de la Cité we can see the cathedral of Notre-Dame de Paris. It is situated on a spot that Parisians have always reserved for the practice of religious rites. Like all cathedrals in France , Notre-Dame is the property of the state, although its operation as a religious institution is left entirely to the Roman Catholic Church. The cathedral looks stunning. It is certainly the most famous landmark in Paris , attracting millions of tourists each year.",
+        "F": "In 1850, Paris had approximately 600,000 inhabitants. It then grew rapidly as industrial expansion attracted a constant stream of people from the provinces. By 1870, the population had surpassed 1,000,000, and by 1931 the conurbation contained some 5,000,000 people, more than half of them living in the city of Paris , the administrative city within the old gates. After World War II, this growth continued, and in the early 21st century Greater Paris had over 10 million people.",
+        "G": "Paris is not only the political and cultural capital of France but also its major financial and commercial centre. It is a very wealthy city, home to many vast private fortunes, both of French and foreign origin. It serves as the base for numerous international business concerns, and even if large French firms have their manufacturing plants in the provinces, nearly all keep their headquarters in Paris, conveniently close to major banks and key ministries."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM015",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Different terms",
+        "2": "Emotions and sleep",
+        "3": "Lack of sleep",
+        "4": "Sleep and obesity",
+        "5": "The importance of sleep",
+        "6": "Reasons to be active",
+        "7": "How long to sleep",
+        "8": "What is obesity"
+      },
+      "texts": {
+        "A": "When a person has excess weight or body fat, this might affect their health. It is usually caused by the consumption of more calories than the body can use. The excess calories are stored as fat. Obesity is a medical condition. It was first recognized as a disease in 1948 by the World Health Organisation (WHO). Obese people suffer from a large number of diseases. In most people, obesity is caused by eating too much and moving too little. There are different types of obesity.",
+        "B": "It’s never too late to become more physically active. Physical activity refers to any movement of the body that uses energy. It can include housework, walking and gardening. Exercise is a kind of physical activity. It is planned and repetitive. Examples of exercise are going to the gym and running on a treadmill. If you are interested in maintaining good health, physical activity can be a great place to start. If you want to achieve fitness goals, you will need to incorporate structured exercise into your routine.",
+        "C": "Exercising regularly is one of the most important things you can do for your health. In the short term, exercise helps to control appetite, boost mood and improve sleep. In the long term, it reduces the risk of heart disease, stroke, diabetes, dementia and depression. Exercise plays a vital role in building and maintaining strong muscles and bones. Regular exercise also increases your chances of living longer. There are many types of physical activity, including swimming, running, jogging, walking and dancing.",
+        "D": "Sleep plays an essential role in your health and well-being. Getting enough good quality sleep has many benefits. It protects your physical and mental health, quality of life and personal safety. When we sleep, our brain lays down memory, restores daytime mental functioning and carries out processes that lead to physical growth. Poor sleep is strongly linked to weight gain. People with short sleep duration tend to weigh significantly more than those who get adequate sleep. Mental health issues are strongly linked to poor sleep quality.",
+        "E": "Sleep is a vital indicator of overall health and well-being. On average, adults should optimally receive between seven and nine hours of sleep each night, but those needs vary individually. For example, some people feel best with eight consecutive hours of sleep, while others do well with six to seven hours at night and daytime napping. Some people feel okay when their sleep schedule changes, while others feel strongly affected by a new schedule or even one night of insufficient sleep.",
+        "F": "Obesity develops when energy intake is greater than expenditure. Diet and physical activity play an important part in this. However, an additional factor may be inadequate sleep. A growing body of research suggests that there’s a link between how much people sleep and how much they weigh. In general, children and adults who get too little sleep tend to weigh more than those who get enough sleep. People who don’t get enough sleep may take in more calories than those who do, simply because they are awake longer and have more opportunities to eat.",
+        "G": "People find it harder to fall asleep when they are anxious and sad. The relationship between mood disorders and quality sleep is a complex, two-way street. Just as negative mood states can make getting a good night’s sleep a virtual impossibility, insufficient sleep can lead to depression. Regardless of which comes first, the end result is that a blue mood and poor sleep go hand-in-hand. The amount and quality of our sleep can play a huge role in our mental health including how we feel and how we act toward other people."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM016",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "From the history of the game",
+        "2": "The first tennis competitions",
+        "3": "The rules of table tennis",
+        "4": "Similar yet different",
+        "5": "Countries good at table tennis",
+        "6": "Table tennis equipment",
+        "7": "Why watch tennis",
+        "8": "Both for men and women"
+      },
+      "texts": {
+        "A": "Table tennis is a ball game similar in principle to lawn tennis. It’s played on a flat table divided into two equal courts by a net fixed across its width at the middle. The task is to hit the ball so that it goes over the net and bounces on the opponent’s half of the table in such a way that the opponent cannot reach it or return it correctly. The lightweight hollow ball is propelled back and forth across the net by small rackets. The game is popular all over the world, among people of different age.",
+        "B": "Table tennis is a relatively young sport. In fact, it was invented in England in the early days of the 20th century and was originally called Ping-Pong. The name “table tennis” was adopted in 1921 or 1922 when the old Ping-Pong Association formed in 1902 was revived. Led by representatives of Germany , Hungary , and England , the International Table Tennis Federation was founded in 1926. By the mid-1990s more than 165 national associations were the members of this association.",
+        "C": "Table tennis is really a sport for everyone. You don’t need to spend much money or buy many things to play table tennis. The table is rectangular, 9 feet by 5 feet , its upper surface a level plane 30 inches above the floor. The net is 6 feet long, and its upper edge along the whole length is 6 inches above the playing surface. The ball, which is spherical and hollow, was once made of white celluloid. Since 1969 a plastic similar to celluloid has been used. The racket may be any size, weight, or shape.",
+        "D": "It’s easy to understand how tennis is played. A tennis match consists of the best of any odd numbers of games, each game being won by the player who first reaches 11 points or who, after 10 points each, wins two clear points ahead. A point is scored when the server fails to make a good service, when either player fails to make a good return, or when either player commits a specified infraction. Service changes hands after every two points until 10-all is reached, when it changes after every subsequent point.",
+        "E": "Table tennis may be played with one player at each end of the table or with two players at each end who may be both men or both women or one of each. Worldwide, the women’s game is comparable in organization to the men’s, and women take part in world championships and all other organized events. The first female tournament took place in 1909, but women are known to have been playing tennis since 1874, which is obvious from old pictures and photos which survived the test of time.",
+        "F": "The first world championships were held in London in 1927, and from then until 1939 the game was dominated by players from central Europe, the men’s team event being won nine times by Hungary and twice by Czechoslovakia. In the mid-1950s Asia emerged as a breeding ground of champions, and from that time the men’s team event has been won by either Japan or China, as has the women’s event, though to a lesser extent; North Korea also became an international force.",
+        "G": "People eagerly come to the stadiums to see a game of tennis live or switch on their TVs when an exciting match is on. The interest to the spectator lies in observing the ability of one player to defeat another by some well-thought-out strategy. Increasing the speed of the game, slowing it down, varying the direction of or imparting different spin or pace to the ball are just some of the tactics that may be used to support the strategy planned by a sportsman. Thus, a game of tennis can be a real show."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM017",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Danger for space missions",
+        "2": "Costly problem of space junk",
+        "3": "How it all started",
+        "6": "Rapid transportation",
+        "7": "Looking for easier ways",
+        "8": "Tiny but informative"
+      },
+      "texts": {
+        "A": "Launched in December 1961, OSCAR 1 was the world’s first non-governmental satellite. It was built for only 63 dollars by a group of amateur radio operators and operated for nearly 20 days, testing radio reception from space. OSCAR 1 marked the beginning of a program that continues to this day. The program has led to innovations in spacecraft design and enabled radio enthusiasts to participate in satellite communications.",
+        "B": "Having a small satellite launched into orbit might sound strange, but over the past few decades a unique class of satellites has been created that seems ideal for space operations: CubeSats. The most common CubeSat is a 10 cm cube. Within their compact bodies these miniature satellites are able to place sensors and communications receivers/transmitters that enable operators to study the Earth from space, as well as space around the Earth.",
+        "C": "A CubeSat is a small satellite that weighs just 1 kilogram. The design of these satellites has been so simplified that almost anyone can build them. More than that, the instructions are available for free online. They are quite easy to understand. After you build one, you can also test and launch it. CubeSats can be combined to make larger satellites if you need to carry heavier weights. Is it expensive to build one? Typically less than $5,000.",
+        "D": "Australian scientists have successfully tested a new kind of jet aircraft that can move seven times faster than the speed of sound. It can bring hypersonic or ultra-fast travel a step closer to reality. Hypersonic jet engine that could be used to fly people from Sydney to London in just two hours is planned to make its first flight in 2018, according to the Australian scientists and engineers working on the project.",
+        "E": "A robot-cook, which is created by the programmers of the company-resident of the business incubator of Tomsk State University of Control Systems and Radioelectronics, will be able to replace workers of fast food restaurants in making hot dogs, candy floss and other foods. The authors of the idea believe that the robot will be popular with restaurant-keepers, especially as a marketing tool to attract customers.",
+        "F": "Since the birth of space flight in 1957, the number of man-made objects orbiting the Earth has grown every year. There are now more than 15,000 such objects larger than 10cm, at least those that we know of. Even very small particles can pose a risk to spacecraft, because of the high relative speeds at which they travel. Space trash can affect not only critical equipment such as communications satellites, but it can also be problematic for space flights.",
+        "G": "National space agencies and private satellite and communications companies have an interest in reducing the amount of space trash or so-called debris in orbit. If one organisation removes debris, it will help everyone in space. But because doing so will be complex and very expensive, the best option for anyone of these players is to wait for somebody else to have a go first. That would give them a cleaner space without paying for clearing it up."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM018",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Perm’s industry",
+        "2": "Beneficial location",
+        "3": "City’s cultural life",
+        "4": "Too important to be left alone",
+        "5": "Traditionally liberal",
+        "6": "The greatest achievement",
+        "7": "Natural resource as attraction",
+        "8": "Where the name comes from"
+      },
+      "texts": {
+        "A": "The word “ Perm ” first appeared in the 12th century in the Primary Chronicle, the main source describing the early history of the Russian people. The Perm were listed among the people who paid tribute to the Rus. The origin of the word “ Perm ” remains unclear. Most likely, the word came from the Finno-Ugric languages and meant “far land” or “flat, forested place”. But some local residents say it may have come from Per, a hero and the main character of many local legends.",
+        "B": "Novgorodian traders were the first to show an interest in Perm. Starting from the 15th century, the Muscovite princes included the area in their plans to create a unified Russian state. During this time the first Russian villages appeared in the northern part of the region. The first industry to appear in the area was a salt factory, which developed on the Usolka river in the city of Solikamsk . Rich salt reserves generated great interest on the part of Russia ’s wealthiest merchants, some of whom bought land there.",
+        "C": "The history of the modern city of Perm starts with the development of the Ural region by Tsar Peter the Great. Perm became the capital of the region in 1781 when the territorial structure of the country was reformed. A special commission determined that the best place would be at the crossroads of the Trans-Siberian Railroad, which runs east-west and the Kazan line, which runs north-south. This choice resulted in Perm becoming a major trade and industrial centre. The city quickly grew to become one of the biggest in the region.",
+        "D": "Perm is generally stable and peaceful, so the shocks of 1917 did not reach it right away. Neither did they have the same bloody results as in Petrograd. Perm tried to distance itself from the excesses and did not share the enthusiasm for change of its neighbours. Residents supported more moderate parties. They voted for the establishment of a west European style democracy in Russia. Unfortunately, the city could not stay completely unaffected, as both the White and the Red armies wanted its factories.",
+        "E": "Perm’s desire for stability and self-control made the region seem like a “swamp” during the democratic reforms of the 1990s. Unlike other regions, there were no intense social conflicts or strikes. Nevertheless, Perm was always among the regions that supported the democratic movement. In the 1999 elections, the party that wanted to continue the reforms won a majority in the region. So the city got an unofficial status of “the capital of civil society” or even “the capital of Russian liberalism”.",
+        "F": "During the Second World War many factories were moved to Perm Oblast and continued to work there after it ended. Chemicals, non-ferrous metallurgy, and oil refining were the key industries after the war. Other factories produced aircraft engines, equipment for telephones, ships, bicycles, and cable. Perm press produces about 70 percent of Russia ’s currency and stamped envelopes. Nowadays several major business companies are located in Perm. The biggest players of Russian aircraft industry are among them.",
+        "G": "Perm has at least a dozen theatres featuring productions that are attracting audiences from faraway cities, and even from abroad. The broad esplanade running from the city’s main square has become the site of almost continuous international art, theatre and music fairs during the summer. Even the former prison camp with grim walls outside town was converted into a theater last July for a production of “Fidelio”, Beethoven’s opera about political repression. The performance was well-reviewed."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM019",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Time to spend with your family",
+        "2": "Types of holidays",
+        "3": "Different ways of celebrating",
+        "4": "The origin of the holiday",
+        "5": "The origin of the words",
+        "6": "A well-known holiday",
+        "7": "The importance of traditions",
+        "8": "A merry farewell to cold weather"
+      },
+      "texts": {
+        "A": "Easter is the most important day of the year for Christians. In America, Easter means church services, Easter egg hunts, and baskets full of candy. French children don’t get treats from the Easter bunny; they get them from the Easter bells. Easter in Portugal is celebrated with sweet bread called Floor da Pascoa. The bread is usually served at breakfast on Easter morning. The island of Corfu gets pretty messy on the morning of Holy Saturday. Those who live there take part in the annual “Pot Throwing”.",
+        "B": "Maslenitsa, or Pancake Week, is one of the most cheerful holidays in Russia. It’s a gathering of Russian people to celebrate the end of winter and the beginning of spring. Pancakes are eaten all week during the festival to symbolise the sun in shape and colour. People eat pancakes with a variety of jams, butter and even caviar. According to the tradition, Sunday is the day to convince sins, say sorry, forgive and start anew. One of the most fun and anticipated parts on this day is the burning of Lady Maslenitsa.",
+        "C": "Traditions represent a crucial piece of our culture. They help form the structure and foundation of our families and our society. They remind us that we are part of a history that defines our past, shapes who we are today and who we are likely to become. They serve as a venue for creating lasting memories for our families and friends. Once we ignore the meaning of our traditions, we’re in danger of damaging the underpinning of our identity. It is a pity but some people can’t even remember the true meaning of the holidays.",
+        "D": "There are a lot of different holidays around the world. Christmas is a national holiday worldwide and one of the most beautiful and inspiring events in the world. It marks the birth of Jesus Christ as he was considered to be a present from God to humanity. Decorated Christmas trees and children waiting for Santa to bring gifts in winter make it a perfect sight for everyone. It is generally celebrated on December 25 by billions of people around the world. It is one of the most festive times of the year.",
+        "E": "People all over the world celebrate special days known as festivals or holidays. Some of these days are connected to specific dates, but others are not. The word “holiday” originally meant “holy day”. Many holidays are still religious, but others are not. The word “festival” comes from the word “feast”. The earliest festivals seem to have been connected with offerings to the dead. Food plays a major role in many of today’s festivals and holidays. The Thanksgiving turkey is an example of a traditional food linked to a holiday.",
+        "F": "The Pilgrims of the Plymouth Colony landed in America on their ship in December 1620. Only half of them survived that first winter. The next year, the harvest in the fall was good. To celebrate their harvest, the colonists and their guests enjoyed a three-day feast. In December 1941 Congress named the fourth Thursday in November as Thanksgiving Day. Many people use this holiday as a day to reflect on the positive things in life and spend time with the people they love. Nearly everyone gets one or two days off school or work.",
+        "G": "A holiday is a day for celebration when a lot of people are allowed to have days off work or school. Most countries have a designated national day. This holiday usually celebrates something notable in the creation of that country, such as its independence or signing of the constitution. There is no uniform definition of a public holiday around the world. It can occur on the same date every year. In some countries, the date varies from year to year. Bank holidays can mean two different things depending on which country you are in."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM020",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Beautiful water",
+        "2": "The jewel of Rome",
+        "3": "Rome layout",
+        "4": "Built on seven hills",
+        "5": "From the history of Rome",
+        "6": "Highs and lows",
+        "7": "Climate in Rome",
+        "8": "Key facts"
+      },
+      "texts": {
+        "A": "Rome is an important historic city of Italy. Rome is located in the central part of the Italian peninsula, on the Tiber River about 15 miles (24 km) inland from the Tyrrhenian Sea. Once the capital of an ancient republic and empire whose armies were so powerful, now it is the spiritual and physical seat of the Roman Catholic Church and the site of major pinnacles of artistic and intellectual achievement. The city area is 496 square miles; the population is more than 3 million people.",
+        "B": "For well over a millennium, Rome controlled the life of all civilizations known to Europe, but then it fell into dissolution and disrepair. Physically, economically, politically and militarily helpless by the late Middle Ages, Rome nevertheless remained a world power as an idea. The force of Rome as a lawgiver, teacher, and builder continued to radiate throughout Europe. Rome found glory as the head of Christianity and the capital for arts and eventually won back its power and wealth.",
+        "C": "The ancient centre of Rome is divided into 22 districts, the names of most dating back to Classical times, while surrounding it are 35 urban sectors that began to be officially absorbed into the municipality after 1911. Within the city limits on the western and northwestern fringes are six large suburbs. About 6 miles (10 km) out from the centre of the city, a belt highway makes a huge circle around the capital, tying together the antiquated roads that led to ancient Rome.",
+        "D": "Rome’s hot, dry summer days, with high temperatures often above 24 °C, are frequently cooled in the afternoons by a west wind that rises from the Tyrrhenian Sea. The city receives roughly 30 inches (750 mm) of precipitation annually; spring and autumn are the rainiest seasons. Frosts and occasional light snowfalls punctuate the otherwise mild winters, when high temperatures average just above 10 °C. A cold, dry wind from the north frequents the city in the winter.",
+        "E": "The main street in central Rome is Via del Corso, an important thoroughfare since Classical times, when it was the Via Flaminia, the road to the Adriatic. Its present name comes from the horse races that were part of the Roman carnival celebrations. From the foot of the Capitoline Hill, the Corso runs to the Piazza del Popolo and through a gate in the city wall, the Porta del Popolo, there to resume its ancient name. It’s a must to see for any visitor to Rome.",
+        "F": "Rome is as much a city of fountains as it is of churches or palaces, antiquities or urban problems. The more than 300 monumental fountains are an essential part of Rome’s seductive powers. They are points of personal, often sentimental attachment to the city and have been a source of inspiration for many people of art throughout the history of mankind. They also provide a sense of luxury. One cannot turn them off as they flow all the time.",
+        "G": "The Roman countryside, also known as the Campagna, was one of the last areas of central Italy to be settled in antiquity. It is important to mention that Rome was built on a defensible hill that dominated the last downstream, high-banked river crossing. This hill, Palatine Hill, was one of a group of hills, traditionally counted as seven, around which the ancient city grew. The other hills are the Capitoline, the Quirinal, the Viminal, the Esquiline, the Caelian, and the Aventine."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM021",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Eco-friendly",
+        "2": "Teen inventor",
+        "3": "Positive thinking",
+        "4": "Natural resources",
+        "5": "More useful information",
+        "6": "Invented by accident",
+        "7": "Different task",
+        "8": "Dangerous behaviour"
+      },
+      "texts": {
+        "A": "After a major fire swept through London in 1666, destroying two thirds of the city, architects began planning to rebuild the city. Sir Christopher Wren, who by this time had proven himself as a building designer, was responsible for drawing up plans for reconstructing London , but they were not used. Instead, he was asked to build the new St. Paul ’s Cathedral. The building had been destroyed in the fire, and while it might have been possible to reconstruct it, a decision was made to build a new cathedral in a modern style.",
+        "B": "In the past mapmakers used drawings to show where things such as castles and mountains were located. The drawings were large so they could be clearly seen. Such artwork was nice to look at and easy to understand. However, it produced maps that were disorderly and not very detailed. Over time, maps became simpler. Mapmakers replaced pictures with symbols, each symbol representing one particular thing. A map may have different symbols for cities, rivers, lakes, roads, railroad tracks, and so on.",
+        "C": "The Ural Mountains of Russia form the traditional boundary between Europe and Asia . The Urals are about 2,500 kilometres long. They extend from the Kara Sea in the north to the Ural River in the south. The highest peak is Mount Narodnaya, at 1,895 metres . The economy of the Urals depends on mineral supplies. Mountain mines produce iron ore, copper, chromite, gold, silver, and platinum. Factories make metal goods, chemicals, and machinery. The huge forests of the Urals provide valuable wood.",
+        "D": "Easton LaChappelle built his first robotic hand using Lego parts, tubing, and electrical tape at age 14. Easton used the Internet to learn programming, electronics, mechanics, and design, and then he created a robotic hand, which won third place at the 2011 Colorado State science fair. At age 17, he built an arm controlled by a wireless headset that communicates brainwaves to the hand. These days, Easton is so well known that he gives talks before adult audiences and is recognized in the 3D and robotics worlds.",
+        "E": "Which is more important, texting or safety? If you are looking at your phone while walking, you might not see a car approach or traffic light turn red. Texting while walking is unsafe, not only on the road but also in other places. For example, in China , one person drowned in a canal and another got her leg stuck in a drain, because both had their mind on their phone. Some people suggest that we should make texting while crossing the street illegal so we see fewer “smartphone zombies” on the street and keep them alive as humans.",
+        "F": "For most people, plastic bags are a necessary part of any shopping trip. However, there is an opinion that communities should limit the use of plastic bags. Every year, 485 billion plastic bags are not recycled. Some end up in the ocean and can cause harm to sea life. Placing a small tax on plastic bags might encourage shoppers to bring their own reusable bags to stores. Reusable bags would cut down waste and save the environment. Businesses would also save money by not having to provide as many plastic bags to customers.",
+        "G": "In a new study, researchers gave a math test to 240 children ages 7 to 10. They found out that when children believed they were good at math, they did better on the test. Previously, scientists thought it was important to enjoy math in order to be good at it. However, the new study shows that it is also important to believe you can become good at something. That is what improves your ability to learn. A good attitude opens the door to higher achievement, which means you then have a better attitude, getting you into a good cycle of learning."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM022",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Famous cats",
+        "2": "Books about cats",
+        "3": "Figuratively speaking",
+        "4": "Cats through history",
+        "5": "Cats in cinematography",
+        "6": "Why keep a cat?",
+        "7": "A cat in your mobile",
+        "8": "A cat or a dog?"
+      },
+      "texts": {
+        "A": "Cats are among the most popular pets in the world. People love them because they are very smart, agile, sly and independent. The most common reasons why people choose cats as pets are because they are beautiful, clean, low maintenance and mostly self sufficient. Cats may not demonstrate their love and affection for their master openly but they do it in very subtle ways. Cats can sense your mood, especially your depression, and try to help you to get out of this bad emotional state.",
+        "B": "Cats have been around humans for centuries and their perception by humans has varied over time. In ancient Egypt , for example, cats were almost considered gods. We know of Bastet, a domestic feline goddess of motherhood. Killing a cat, even by accident, was a serious crime. Still, there were times when cats were considered to bring bad luck, like in Europe in the Middle Ages. So, from country to country and from epoch to epoch, the attitude of people to cats has changed greatly.",
+        "C": "Among the most enjoyable of reads are adult fiction cat stories. There is a certain something about cat characters. They demonstrate resourcefulness like no human can. Their inventiveness and creativity are magical and they can do incredible things. One of top book cats is Oliver from the story The Cat Who Saved Christmas by Sheila Norton. Another author who loves writing fictional stories about cats is Rita Mae Brown. Share these ones with kids – they’ll love them!",
+        "D": "Cats rule the Internet, but not all cats were created equal. Some of the cats are A-listers whether they are famous for their good looks or their remarkable stories. One of such cats is The Grumpy Cat as it always looks annoyed. There is also the Business Cat Emilio that lives in one of the offices of a big corporation and wears a collar and a tie. It’s supposed to bring luck to the firm. The Queen of the Internet is Venus, a cat whose face is half black half red plus its eyes are blue and green.",
+        "E": "Not every parent is eager to get a cat as a pet for their kids. However, children, especially girls, want to get a cat so much that they buy fluffy cat toys and everything with cats on it – dresses, handbags, notebooks and so on. Now a cat lover can download a special App in their mobile and enjoy washing, feeding and stroking a virtual cat. The cat may even talk to you and play games with you. That seems to be a good solution for those who are not inclined to get a real cat.",
+        "F": "Everybody likes cats, so these fluffy creatures are often featured in films, sometimes even as one of the main characters. In fact, cats are as much loved as dogs, so it’s a safe bet to make a film about cats. Still, cats are much more difficult to train than dogs so there also tend to be fewer cat movies compared to dog movies. Cat lovers also enjoy fictional cats and cats in cartoons. Actually, in some people’s opinion, cartoons about cats are even better than feature films.",
+        "G": "Learning English you come across a lot of idioms with the word cat. The meaning of many such expressions can be easily guessed by a non-native speaker of English. For example, you hear the phrase to let the cat out of the bag , you immediately understand it means a secret has been revealed. Some of these expressions, though, are difficult to understand. For example, if a person is a cool cat , he or she is fashionable, and a fat cat means a person who is quite rich."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM023",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "The transport system",
+        "2": "From the history of Madrid",
+        "3": "A rich place",
+        "4": "Key facts",
+        "5": "Late to bed, late to rise",
+        "6": "The city and its geography",
+        "7": "Something for anyone"
+      },
+      "texts": {
+        "A": "Madrid is the capital of Spain. It is also Spain’s arts and financial centre. Madrid was officially made the national capital by Philip III, an entire generation after Philip II took the court to Madrid in 1561. Under the patronage of Philip II and his successors, Madrid developed into a city of curious contrasts, preserving its old, overcrowded centre, around which developed palaces, convents, churches, and public buildings. The population of the city now is more than 3 million people.",
+        "B": "Madrid lies almost exactly at the geographical heart of the Iberian Peninsula. It is situated on a plateau of sand and clay at an elevation of some 2,120 feet (646 metres) above sea level, making it one of the highest-located capitals in Europe. This location is partly responsible for the weather pattern of cold, crisp winters accompanied by sharp winds. Sudden variations of temperature are possible, but summers are consistently dry and hot. Autumn is the best season for visitors.",
+        "C": "Madrid is a city of contrasting styles, reflecting clearly the different periods in which change and development took place. The old centre, a maze of small streets around a few squares in the vicinity of the imposing Plaza Mayor, contrasts with the Neoclassical buildings and grand boulevards created by the best architects of their day. Modern office buildings in the centre and apartment blocks around the outskirts reflect the styles and economic realities of present-day development.",
+        "D": "The local population of Madrid is often referred to as ‘cats’, partly due to the local lifestyle and the late hours kept by the city’s inhabitants, although keeping late hours is also common in other parts of Spain, especially in the heat of summer. People eat late, theatres and cinemas begin performances late, and the siesta is by no means dead, although the introduction of modern business methods and the influx of foreign interests have tended to alter the traditional workday.",
+        "E": "Being the centre of government, finance, and insurance has long contributed to the prosperity of the capital, as have tourism and the city’s position as Spain’s transportation hub. Following the Spanish Civil War (1936 – 39), the city became an important manufacturing centre for the automotive and aircraft industries and for electric and electronic equipment, metallurgical manufactures, and optics, as well as for the production of plastics, rubber, and consumer goods.",
+        "F": "The road and rail systems both come to the capital from all corners of the country. A subway system, the Metro, serves Madrid with various lines that extend throughout the city. Barajas Airport – Madrid’s international airport – lies about 8 miles (13 km) east of the city. A motorway (expressway) system encircles Madrid in a roughly pentagonal shape, coming to a point in the south. Other major motorways radiate from the encircling artery in all directions.",
+        "G": "Modern Madrid has attractions for all people. Las Ventas, which is the largest bullring in Spain with a capacity of some 25,000 people, is where you can watch famous Spanish bullfights. For football fans there is always a game of football to watch at any of the stadiums located in Madrid. The verbenas , special fiestas held in each quarter in honour of its patron saint, are popular events, especially during warm weather. There are more than 40 parks and public gardens, churches and museums."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM024",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "The beginning of animation",
+        "2": "Language differences",
+        "3": "Fewer than in real life",
+        "4": "Important rules",
+        "5": "Keep it simple",
+        "6": "Different parts in one",
+        "7": "Drawn secretly",
+        "8": "The best drawn character"
+      },
+      "texts": {
+        "A": "While all of the characters and places in Disney’s animation film “Hercules” have Greek names, there’s one character that doesn’t: Hercules! Like “Mars” is for “Ares” and “ Neptune ” is for “Poseidon”, “Hercules” is actually the Roman name for the Greek figure “Heracles”. If the movie was consistent, the movie’s main character and title would be “Heracles”. However, Disney executives chose the Roman “Hercules” because they said it was more familiar to the general public.",
+        "B": "In 1888, French scientist Charles-Emile Reynaud invented a device called the Theatre Optique. It could project a strip of pictures onto a screen. Reynaud painted individual images onto flexible strips of gel to run through the projection system. He made three animated short films to demonstrate his invention. The first was a 12-15 minute film called “Poor Pierrot”, which was shown in 1892. Some consider this to be the first animated movie.",
+        "C": "The most common mistake which beginner animators make when they think of a story idea is that their plot is too detailed and long. It’s great to have an imagination and visualization of an epic storyline that involves lots of characters and several plot lines. But it’s important to keep in mind that the time frame and the available resources are usually limited. For a beginner, it’s more sensible to work on a story that is not too complicated and easy to follow.",
+        "D": "One of the most difficult tasks in making “Beauty and the Beast” film was the animation of the beast. In the end, the character’s face and body represented a combination of several animals. Glen Keane, an experienced Disney animator, included the mane of a lion, the beard and head shape of a buffalo, the tusks and nose bridge of a wild boar, the strongly-muscled brows of a gorilla, the legs and tail of a wolf, and the big and bulky body of a bear.",
+        "E": "A lot of cartoon characters have four fingers on their hands instead of five. The reason is simple – hands with four fingers are easier to draw and animate. Cartoon characters are always simplified versions of their real life equivalents. Four-fingered hand saves a lot of time in animating and it really does not make any difference to us while watching. It all started with the very first Mickey Mouse cartoon. Walt Disney said that this was both an artistic and financial decision.",
+        "F": "Animators have hidden representations of Mickey Mouse in most of the Disney films and all of the parks. It started as a joke between Walt Disney and other animators and became a tradition carried out for decades. “Hidden Mickeys” usually consist of three circles drawn to represent Mickey’s head and ears, but sometimes they draw Mickey in a crowd scene. Nowadays people have made a game out of searching for Hidden Mickeys in Disney movies.",
+        "G": "Disney’s Twelve Basic Principles of Animation is a set of principles of animation introduced by the Disney animators Ollie Johnston and Frank Thomas in their 1981 book “The Illusion of Life: Disney Animation”. Johnston and Thomas based their book on the work of the leading Disney animators, and their effort to produce more realistic animations. The book and some of its principles have been adopted by some traditional studios. Many people call it the “ Bible of animation”."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM025",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Don't forget to rest",
+        "2": "Write down and revise",
+        "3": "Information and technology",
+        "4": "Never put off till tomorrow",
+        "5": "Set realistic targets",
+        "6": "Study plans per week",
+        "7": "Find a place to your liking",
+        "8": "More important at college"
+      },
+      "texts": {
+        "A": "Today’s young generation will also need to master a new skill – digital literacy. Digital literacy can be defined as “the ability to find, evaluate, utilize, share, and create content using information technologies and the Internet”. Digital literacy, by this definition, encompasses a wide range of skills, all of which are necessary to succeed in an increasingly digital world. Students who lack digital literacy skills may soon find themselves at a disadvantage. As technology changes, students also need to keep updated.",
+        "B": "The key to becoming an effective student is learning how to study smarter, not harder. This becomes more and more true as you advance in your education. An hour or two of studying a day is usually sufficient to make it through high school with satisfactory grades, but when college arrives, there aren’t enough hours in the day to squeeze all your studying in if you don’t know how to make your study efficient without skipping sleep or meals. The vast majority of successful college students achieve their success by developing and applying effective study habits.",
+        "C": "Ever find yourself up late at night expending more energy trying to keep your eyelids open than you are studying? If so, it’s time for a change. Successful students typically space their work out over shorter periods of time and rarely try to cram all of their studying into just one or two sessions. If you want to become a successful student, then you need to learn to be consistent in your studies and to have regular, yet shorter, study sessions, with periods of rest in between. That will give your brain time to process the new information.",
+        "D": "Successful students schedule specific times throughout the week when they are going to study – and then they stick with their schedule. Students who study sporadically and whimsically typically do not perform as well as students who have a set study schedule. Сreating a weekly routine, where you set aside a period of time a few days a week, to review your courses will ensure you develop habits that will enable you to succeed in your education long term. You won’t get stressed or overwhelmed by portioning your workload.",
+        "E": "It is very easy, and common, to put off your study session because of lack of interest in the subject, because you have other things you need to get done, or just because the assignment is hard and needs effort and perseverance. Successful students do not procrastinate studying. If you procrastinate your study session, your studying will become less effective and you may not get everything accomplished that you need to. Procrastination also leads to rushing, and rushing is the number one cause of errors.",
+        "F": "Always make sure to take good notes in class. Before you start each study session, and before you start a particular assignment, review your notes thoroughly to make sure you know how to complete the assignment correctly. Reviewing before each study session will help you remember important subject matter learned during the day, and make sure your studying is targeted and effective. Successful students also look through what they have written down at their lectures and seminars during the week over the weekend.",
+        "G": "Everyone gets distracted by something: TV, or maybe family. Some people actually study better with a little background noise. When you’re distracted while studying you lose your train of thought and are unable to focus – both of which will lead to very ineffective studying. Before you start, find a place where you won’t be disturbed. For some people this is a quiet cubical in the recesses of the library. For others it is in a common area where there is little background noise. For some it may be a park or a garden – there are so many options to choose from!"
+      },
+      "answer": null
+    },
+    {
+      "id": "RM026",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Born to be wild",
+        "2": "Comparing the two species",
+        "3": "The evolution of bison",
+        "4": "The history of taming",
+        "5": "A beautiful place to be saved",
+        "6": "Reasons to domesticate cows",
+        "7": "Failed attempts to protect",
+        "8": "Safer than before, but not enough"
+      },
+      "texts": {
+        "A": "It is likely that the modern European bison arose from the steppe bison. Recent research says it appeared as a result of an interbreeding event between the steppe bison and the ancestor of modern cows around 120,000 years ago. At one point, some steppe bison crossbred with the ancestors of the modern yak. After that, a population of steppe bison crossed the Bering Land Bridge to North America. Then the steppe bison spread through the northern parts of North America, where it lived until around 8,000 years ago.",
+        "B": "The Prioksko-Terrasny Nature Reserve is one of the smallest in Russia . It covers an area of 4,960 hectares on the terraces of the Oka River valley. This is a unique area with its natural diversity of pine and mixed forests, small rivers, streams and marshes. Here you can observe the life of animals and birds in their natural habitat. The symbol of the reserve is a bison. This is a wild forest bull, which was recently on the verge of extinction. Bison youngsters grown up to two years in the reserve are sent to replenish free-living populations.",
+        "C": "Though the American and European bisons are close relatives, it is easy to spot clear differences in their behaviour and build. Adult European bisons are slimmer in build and have longer legs. European bisons tend to graze less and walk around more than their American relatives. This difference in behaviour is reflected in their build. The American bison’s head hangs lower than the European’s does. American bisons are more easily tamed than their European cousins are. They also breed with domestic cattle more readily.",
+        "D": "American bisons are known for living on the Great Plains . Bisons were hunted close to extinction during the 19th and 20th centuries, but have since rebounded. The European bison owes its survival, in part, to the Chernobyl disaster. Ironically, the Chernobyl Zone has become a kind of wildlife preserve, though poaching has become a threat in recent years. The American Plains bison is no longer listed as endangered, but this does not mean the species is safe. Their fragmented herds call for active conservation measures.",
+        "E": "In the middle of the 19 th century people started realising how important the buffalo was. Reasons for that included not only animal cruelty, but also ecological and future resources. Someone needed to speak out, and over the years they did, but never enough at one time to count. The real extermination of the buffalo was caused by the demands of trade, aided by hunters and Indians. However, the blame really lies with the government, which in all those years permitted a few ignorant Congressmen to block the laws protecting these animals.",
+        "F": "There have been several attempts to tame the buffalo, but there are a few things that stand in the way. The buffalo is very aggressive by nature; it can run up to 40 mph and can jump vertically in the air almost their entire height. Imagine trying to teach an angry, prancing sedan to stay still and respect you. All that said, there have been instances of domestic buffalo. This is possible if they are raised from calves to be only with humans. Even then, they seem to be loyal and friendly with a small set of humans, not all humans.",
+        "G": "At about the same time they domesticated plants, people in Mesopotamia began to domesticate animals for meat, milk, and hides. Hides were used for clothing, storing things and for building tent shelters. Goats were probably the first animals to be domesticated, followed closely by sheep. Later, people began domesticating larger animals, such as oxen or horses, for ploughing and transportation. These are known as beasts of burden. The easiest animals to domesticate are herbivores that graze on grass, because they are the easiest to feed."
+      },
+      "answer": null
+    },
+    {
+      "id": "RM027",
+      "type": "reading_matching_headings",
+      "headings": {
+        "1": "Strange but true",
+        "2": "Figuratively speaking",
+        "3": "Iron and gold",
+        "4": "A visitor from the space",
+        "5": "Useful in many ways",
+        "6": "Key facts",
+        "7": "From the history of iron",
+        "8": "Famous on screen"
+      },
+      "texts": {
+        "A": "Iron is a chemical element. Its symbol is Fe and its atomic number is 26. It is a metal that belongs to the first transition series and group 8 of the periodic table. It is by mass the most common element on our planet, forming much of the Earth’s outer and inner core. It is the fourth most common element in the Earth’s crust. Pure iron is rare on the Earth’s crust, basically being limited to meteorites. However, there are a lot of iron ores, but you need temperatures of 1500 °C or higher to get them.",
+        "B": "Iron has been known to the mankind since ancient times. The first iron used by humans is likely to have come from meteorites. Most objects that fall to earth from space are stony, but a small proportion are ‘iron meteorites’ with iron contents of over 90%. Iron corrodes easily, so iron artifacts from ancient times are much rarer than objects made of silver or gold. Artifacts made from meteorite iron have been found dating back to about 5000 BC and so are about 7000 years old.",
+        "C": "It might be interesting to know that Earth has enough iron to make three new planets, each with the same mass as Mars. Iron is ferromagnetic. Ferromagnetism is the strongest type of magnetism. Moreover, iron was the first magnetic metal discovered. It is even more interesting that some animals have a sixth sense – the magnetic sense. Among them are honey bees, homing pigeons and dolphins. The Earth’s magnetic field helps them to navigate and return home successfully.",
+        "D": "Iron is the cheapest and most important of all metals, important in the sense that iron is overwhelmingly the most commonly used metal, accounting for 95% of worldwide metal production. Iron is used to manufacture steel and other alloys important in construction and manufacturing. Iron is also vital in the functioning of living organisms, transporting oxygen in blood via the hemoglobin molecule. Iron is essential for human brain development.",
+        "E": "In ancient times, people did not know how very abundant iron was on Earth. Their only source of metallic iron was meteorites. From Assyrian writings we have learnt that iron was eight times more valuable than gold. In addition to its rarity, iron may also have been very desirable because of it coming from the sky. It was thought to be a gift from the gods: the ancient Egyptians called it ‘the metal of heaven’. The connection with heaven is proved by the Pyramid Texts .",
+        "F": "Iron Man is a fictional superhero appearing in American comic books published by Marvel Comics and then films. The character made his first appearance in March 1963. In the story, a wealthy American business magnate and a talented scientist Tony Stark suffers a chest injury. He creates a powered suit of iron armour to save his life. Later, Stark develops this suit, adding weapons and other technological devices. Both kids and adults love the story of Iron Man.",
+        "G": "There are many expressions with the word ‘iron’ in the English language. The British sometimes use the expression ‘the iron horse’ to speak about a train or a locomotive. When a native English speaker says that they ‘have many irons in the fire’, it means that they have several things to do. The proverb ‘Strike while the iron is hot’ means that you should take advantage of the time and the situation as quickly as possible. It is quite interesting to learn such phrases."
+      },
+      "answer": null
+    },
+    {
+      "id": "LM028",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Celebrating New Year has a long history.",
+        "2": "There are extravagant ways to celebrate New Year.",
+        "3": "Good food is the most important thing for New Year.",
+        "4": "New Year is the best time for new beginnings.",
+        "5": "Properly preparing before New Year is important.",
+        "6": "New Year is a great time to be with your relatives.",
+        "7": "You don’t need a special time to start something."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM029",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Your health may stop you from taking baths.",
+        "2": "Taking baths is not environmentally friendly.",
+        "3": "Technical innovations make a shower a great experience.",
+        "4": "Taking a bath isn’t as wasteful as you may think.",
+        "5": "Taking showers helps me to stay healthy.",
+        "6": "Taking a bath is a perfect way to relax.",
+        "7": "There are both pluses and minuses about baths and showers."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM030",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "The benefits of recycling are questionable.",
+        "2": "Recycling is an inconvenience.",
+        "3": "Recycling should be profitable for people.",
+        "4": "We possess more things than we need.",
+        "5": "Recycling is about reusing what we have.",
+        "6": "Recycling is the government’s issue.",
+        "7": "Wealth allows people not to recycle."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM031",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "There are ways to preserve the flowers you get.",
+        "2": "A bouquet of flowers is suitable on any occasion.",
+        "3": "There are better alternatives to bouquets of flowers.",
+        "4": "Giving flowers has both pluses and minuses.",
+        "5": "Giving flowers as a present is a waste of money.",
+        "6": "Getting flowers as a gift is best when it’s unexpected.",
+        "7": "There are a lot of stereotypes about presenting flowers."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM032",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Guinea pigs need a lot of space to feel good.",
+        "2": "Guinea pigs are a great choice for children.",
+        "3": "Guinea pigs can communicate quite well.",
+        "4": "There are a lot of pluses of guinea pigs as pets.",
+        "5": "It’s quite expensive to have a guinea pig.",
+        "6": "Guinea pigs can have different characters.",
+        "7": "Guinea pigs cause a lot of unpleasant accidents."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM033",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Students should be able to have mobiles at school.",
+        "2": "People shouldn’t talk on their phones too much.",
+        "4": "Talking on a mobile can be dangerous sometimes.",
+        "5": "It’s better when students turn off their phones at school.",
+        "6": "Mobiles should be used primarily for personal conversations.",
+        "7": "Using a phone while on public transport is a bad idea."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM034",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "You can play tennis your entire life.",
+        "2": "Tennis is a pleasure to watch.",
+        "3": "Tennis is all about competition.",
+        "4": "Tennis isn’t a violent sport.",
+        "5": "Tennis is an inexpensive kind of sport.",
+        "6": "Tennis is an aggressive male sport.",
+        "7": "Many nations have good tennis players."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM035",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Scotland is a land full of legends.",
+        "2": "There are no reasons to go to Scotland.",
+        "3": "Scotland attracts visitors with its culture.",
+        "4": "One can love Scotland for its beautiful nature.",
+        "5": "Kilts are the best souvenirs from Scotland.",
+        "6": "Scotland is a great place to learn history."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM036",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "You should spend only what you have.",
+        "2": "Think carefully before buying something.",
+        "4": "Saving money is a useless thing.",
+        "5": "You can save money by shopping online.",
+        "7": "There are many reasons to save money."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM037",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Gifts from young children bring joy.",
+        "2": "Christmas day is nothing special.",
+        "3": "Exotic location makes Christmas memorable.",
+        "4": "Christmas is mainly about gift giving.",
+        "5": "Adults could still enjoy some magic getting presents.",
+        "6": "Christmas away from family can be enjoyable.",
+        "7": "The bigger family, the bigger fun."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM038",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "With a uniform it is easier to get ready for school in the morning.",
+        "2": "The discussion about school uniforms has a long history.",
+        "3": "There are too many disadvantages about a school uniform.",
+        "5": "The importance of the uniform may be realized after leaving school.",
+        "6": "You can always find a way to look innovative.",
+        "7": "University students never get worried about uniforms."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM039",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Russian nature really attracts foreign tourists.",
+        "2": "Practicing Russian is a reason to visit the country.",
+        "3": "Russia can offer green style holidays for tourists.",
+        "4": "Small towns in Russia are as good as big cities.",
+        "5": "Visiting Russia can help me with my future career.",
+        "6": "You can do many sports while on holiday in Russia.",
+        "7": "Tourists visit Russia because of its cultural heritage."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM040",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Cold weather can be very comforting and cozy.",
+        "2": "It’s hard to control your appetite on cold days.",
+        "3": "There are a lot of advantages to cold days.",
+        "4": "It’s more difficult to tolerate heat than cold.",
+        "5": "Cold weather can give a person much energy.",
+        "6": "There are more pros than cons about cold days.",
+        "7": "There’s nothing I like about cold weather."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM041",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Money is the worst present ever.",
+        "2": "It’s very convenient to shop for gifts online.",
+        "3": "Homemade gifts demonstrate your care.",
+        "4": "It’s not worth buying presents for special occasions.",
+        "5": "A good present doesn’t have to be useful.",
+        "6": "A good present can be shared with friends.",
+        "7": "A chance to get new impressions is a great present."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM042",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Yoga should be done with a certain purpose.",
+        "2": "One should create a special atmosphere for doing yoga.",
+        "3": "One needs high quality equipment for doing yoga.",
+        "4": "There is a big variety of yoga styles available.",
+        "5": "When you do yoga, you shouldn’t have any ambitions.",
+        "6": "Online yoga lessons have many advantages.",
+        "7": "Yoga is the best way to lose a lot of weight."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM043",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Getting used to uniforms is good for a future career.",
+        "2": "A uniform makes the school a better organized place.",
+        "3": "Uniforms make students focus more on their learning.",
+        "4": "Uniforms help improve the discipline at schools.",
+        "5": "Uniforms will not make life at school better.",
+        "6": "Uniforms can teach students how to behave professionally.",
+        "7": "Uniforms can help prevent crimes at school."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM044",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Nature is my best hotel.",
+        "2": "Sleeping among strangers is not a problem.",
+        "3": "A quiet place to stay becomes a favourite.",
+        "4": "The best hotel is at the seaside.",
+        "5": "Roadside hotels can disappoint.",
+        "6": "Comfortable holiday costs money.",
+        "7": "We have to think about our meals."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM045",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Housecleaning is useless if there are young kids in the family.",
+        "2": "Housecleaning may positively influence your mental health.",
+        "3": "Your house doesn’t have to be in perfect order all the time.",
+        "4": "There are more pluses than minuses about housecleaning.",
+        "5": "Organizing yourself is a good way to keep your place clean.",
+        "6": "Housecleaning is good for many reasons.",
+        "7": "Keeping your house clean means not having too many things."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM046",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "You can prepare better for your exams if you change schools.",
+        "2": "There are more minuses than pluses about changing schools.",
+        "3": "Your marks can become worse if you change schools.",
+        "4": "Your experience of changing schools will depend on your personality.",
+        "5": "Changing schools can be a chance to improve your life.",
+        "6": "There are a lot of advantages about changing schools.",
+        "7": "When changing schools it’s hard to leave your past behind."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM047",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "I usually ignore what glossy magazines advise.",
+        "2": "My friends and I are for sports style in clothes.",
+        "3": "Clothes aren’t a top priority in people’s life.",
+        "4": "Fashionable clothes can improve your self-esteem.",
+        "5": "You can judge a person’s character by clothes.",
+        "6": "It’s important to know how to mix clothes.",
+        "7": "Some clothes are suitable for any occasion."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM048",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Chocolate is a necessary part of a human diet.",
+        "2": "Healthy habits can help to cut down on sweets.",
+        "3": "You shouldn’t include sweets in your shopping list.",
+        "4": "Eating chocolate isn’t the only way to calm down.",
+        "5": "The desire to eat sweets depends on the season.",
+        "6": "A happy person never eats too much chocolate.",
+        "7": "It’s easy to substitute chocolate with healthy options."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM049",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "I tell people that yoga is not only about fitness.",
+        "2": "My initial goals changed while doing yoga.",
+        "3": "Doctors recognise mental benefits of yoga.",
+        "4": "Yoga has improved my physical health.",
+        "5": "Yoga helped me to become a better person.",
+        "6": "Yoga is a great way to relax and enjoy the present moment.",
+        "7": "Yoga has no significant benefits for physical health."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM050",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "We need to wait to be able to travel through time.",
+        "2": "Time travel is probably impossible.",
+        "3": "Time travel might be very risky.",
+        "4": "Time travel may be a chance to live in another epoch.",
+        "5": "Time travel has more pros than cons.",
+        "6": "A time machine is a chance to see the future.",
+        "7": "A time machine can help us learn about our past."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM051",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "You can’t learn the German language quickly.",
+        "2": "Knowing German offers you more career opportunities.",
+        "3": "I learn German because I’m attracted by the culture.",
+        "4": "German isn’t as difficult as you may think.",
+        "5": "Writers, philosophers and scientists need to learn German.",
+        "6": "Some unique academic books exist only in German.",
+        "7": "German is almost an impossible language to learn."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM052",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Learning Chinese is simpler than many people think.",
+        "2": "I agreed to learn Chinese for a better career.",
+        "3": "Chinese is the most romantic language in the world.",
+        "4": "I don’t see good reasons for learning Chinese.",
+        "6": "I need a good teacher to learn Chinese.",
+        "7": "Modern technologies make learning Chinese easier."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM053",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Worthless things may still be needed by someone.",
+        "2": "A possible way out is to put your clutter out of sight.",
+        "3": "You don’t have to devote much time to house cleaning.",
+        "4": "One should devote a certain place to certain things.",
+        "5": "Making a shopping list helps to have fewer things.",
+        "6": "You should sort out your clothes first.",
+        "7": "Your relatives and friends may solve your litter problem."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM054",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Being outdoors helps to fight stress.",
+        "2": "You may wish to give up social networks.",
+        "3": "It’s hard for teenagers to fight stress.",
+        "4": "Socializing is a way to fight stress.",
+        "5": "Busy lifestyle is a major reason for stress.",
+        "6": "It’s necessary to become more self-confident.",
+        "7": "Taking care of yourself helps fight stress."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM055",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "There are many disadvantages to having a pet.",
+        "2": "It’s not easy to select a suitable pet.",
+        "3": "Your pet can become your best friend.",
+        "4": "You can get a pet only if you have a big house.",
+        "5": "Small creatures make the best pets.",
+        "6": "Pets can help you to relax.",
+        "7": "It’s great to boast of having an exotic pet."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM056",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Learning languages improves your memory.",
+        "2": "There are good methods to memorize things.",
+        "3": "Having a good memory helps you study better.",
+        "4": "Modern schools don’t develop students’ memory.",
+        "5": "Nowadays there’s no reason to train your memory.",
+        "6": "You shouldn’t rely on electronic memory too much.",
+        "7": "You need to lead a healthy life to have a good memory."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM057",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "A mobile phone can make you feel safer.",
+        "2": "Texting is a useful function of mobiles.",
+        "3": "Mobiles are good but they have minuses as well.",
+        "4": "One should find a balance using mobiles.",
+        "5": "The best function of mobile phones is games.",
+        "7": "A mobile phone is another thing to show off."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM058",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Lego is great because it doesn’t harm the environment.",
+        "2": "Lego can give you a feeling of accomplishment.",
+        "3": "With Lego you will never fail to build something.",
+        "4": "Lego has sets to suit everybody’s tastes.",
+        "5": "Lego blocks can be interesting only for kids.",
+        "6": "Lego sets are more complicated than you may think.",
+        "7": "Lego gives endless possibilities for creativity."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM059",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Learning to cook doesn’t make any sense.",
+        "2": "You should preserve family cooking traditions.",
+        "3": "You should cook only if you are sure about the result.",
+        "4": "To cook well, one needs good-quality equipment.",
+        "5": "Online cooking classes can be a good option.",
+        "6": "Experimenting with food is a great part of cooking.",
+        "7": "The more you practice, the better you can cook."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM060",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "You should never watch a film with unknown actors.",
+        "2": "This actor can play various parts successfully.",
+        "3": "Watching films is just a waste of time.",
+        "4": "An actor or an actress can become an icon to a person.",
+        "5": "Films without people may be better than with them.",
+        "6": "You may like an actor because of their personality.",
+        "7": "It’s unfair that beginning actors are often ignored."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM061",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Sleeping problems are connected with ageing.",
+        "2": "The quality of your sleep depends on where you are.",
+        "3": "Everybody must improve their sleeping habits.",
+        "4": "Sleeping well is important to be healthy.",
+        "5": "Sports can help people to sleep better.",
+        "6": "Thinking too much before bedtime is a bad idea.",
+        "7": "Modern gadgets can negatively affect your sleep."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM062",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "There are many advantages of having a dog.",
+        "2": "People love dogs because they look pretty.",
+        "3": "Dogs may turn out to be better friends than people.",
+        "4": "It’s not a good idea to have a dog as a pet.",
+        "5": "People love dogs because dogs are faithful.",
+        "6": "Dogs are good pets because they are clever.",
+        "7": "Dogs don’t love people as much as you may think."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM063",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Pot plants can be dangerous for people.",
+        "2": "Pot plants can be a kind of hobby.",
+        "3": "Pot plants are interesting to watch.",
+        "4": "Pot plants make your home beautiful.",
+        "5": "Pot plants can be useful for health.",
+        "6": "Pot plants have many disadvantages.",
+        "7": "Pot plants have more minuses than pluses."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM064",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "All domestic duties are quite unpleasant.",
+        "2": "Doing this duty is a way to live green.",
+        "3": "This domestic duty is a never ending routine.",
+        "4": "For me this duty is a way to keep fit.",
+        "5": "You may save money doing this chore.",
+        "6": "Domestic duties are easier with modern gadgets.",
+        "7": "This domestic duty can be physically hard."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM065",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "There are more cons than pros about bikes.",
+        "2": "Riding a bike definitely helps to get healthier.",
+        "3": "Riding a bike is a chance to enjoy nature.",
+        "4": "Riding a bike can be bad for your health.",
+        "5": "Riding a bike can help become slim.",
+        "6": "Riding a bike can be a good way to relax.",
+        "7": "You can ride a bike at home instead of outdoors."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "LM066",
+      "type": "listening_matching_speakers",
+      "statements": {
+        "1": "Fresh fruit can put you in a good mood.",
+        "2": "Eating fresh fruit is the best way to improve health.",
+        "3": "Eating fresh fruit keeps your energy levels high.",
+        "4": "Fresh fruit is too expensive for many people.",
+        "5": "Eating fresh fruit helps you study better.",
+        "6": "Fresh fruit may make your eating habits better.",
+        "7": "Fresh fruit can make you look good."
+      },
+      "answer": null,
+      "note": "audio required"
+    },
+    {
+      "id": "ST2067",
+      "type": "speaking_ask_questions",
+      "advertisement": "Family weekend on the lake!",
+      "points_to_ask_about": [
+        "location",
+        "accommodation",
+        "price for the weekend for a family of three",
+        "fishing equipment rental."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2068",
+      "type": "speaking_ask_questions",
+      "advertisement": "Special order cakes for any occasion!",
+      "points_to_ask_about": [
+        "maximum size",
+        "cake fillings",
+        "delivery",
+        "discounts."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2069",
+      "type": "speaking_ask_questions",
+      "advertisement": "Join our botany club!",
+      "points_to_ask_about": [
+        "activities",
+        "timetable",
+        "minimum age",
+        "number of members in the club."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2070",
+      "type": "speaking_ask_questions",
+      "advertisement": "A professional photographer for you!",
+      "points_to_ask_about": [
+        "location of the studio",
+        "historical costumes",
+        "professional make-up",
+        "the cost of an hour’s work."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2071",
+      "type": "speaking_ask_questions",
+      "advertisement": "Join our fitness club!",
+      "points_to_ask_about": [
+        "location",
+        "programmes for beginners",
+        "special equipment needed",
+        "qualified coaches."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2072",
+      "type": "speaking_ask_questions",
+      "advertisement": "A new low-cost airline is opening!",
+      "points_to_ask_about": [
+        "flights to",
+        "flight time",
+        "price for one",
+        "paying by credit card",
+        "food to buy on board"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2073",
+      "type": "speaking_ask_questions",
+      "advertisement": "A new book store now in your area!",
+      "points_to_ask_about": [
+        "location",
+        "opening hours",
+        "kinds of books sold",
+        "electronic books",
+        "meeting with writers"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2074",
+      "type": "speaking_ask_questions",
+      "advertisement": "Part-time jobs for students!",
+      "points_to_ask_about": [
+        "variety of jobs",
+        "minimum age",
+        "required number of hours per week",
+        "pay per hour."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2075",
+      "type": "speaking_ask_questions",
+      "advertisement": "The best painting classes now in your area!",
+      "points_to_ask_about": [
+        "location",
+        "number of classes a week",
+        "styles of painting taught",
+        "timetable",
+        "tuition fee."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2076",
+      "type": "speaking_ask_questions",
+      "advertisement": "",
+      "points_to_ask_about": [
+        "location",
+        "public transport",
+        "types of doctors",
+        "family discounts."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2077",
+      "type": "speaking_ask_questions",
+      "advertisement": "Join our riding club!",
+      "points_to_ask_about": [
+        "location",
+        "necessary equipment",
+        "membership fee",
+        "number of members in the club",
+        "programmes for beginners."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2078",
+      "type": "speaking_ask_questions",
+      "advertisement": "Part-time jobs for students!",
+      "points_to_ask_about": [
+        "variety of jobs",
+        "minimum age",
+        "required number of hours per week",
+        "salary."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2079",
+      "type": "speaking_ask_questions",
+      "advertisement": "Join our volleyball club!",
+      "points_to_ask_about": [
+        "location",
+        "special clothes",
+        "opportunity to play inside",
+        "coach for beginners."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2080",
+      "type": "speaking_ask_questions",
+      "advertisement": "Join our mini-golf club!",
+      "points_to_ask_about": [
+        "location",
+        "equipment rental",
+        "number of members in the club",
+        "minimum age."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2081",
+      "type": "speaking_ask_questions",
+      "advertisement": "A new fast food restaurant",
+      "points_to_ask_about": [
+        "location",
+        "opening hours",
+        "price of a standard lunch",
+        "vegetarian dishes",
+        "free Wi-Fi"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2082",
+      "type": "speaking_ask_questions",
+      "advertisement": "Join our journey to the mountains!",
+      "points_to_ask_about": [
+        "duration of the tour",
+        "price for one",
+        "student discounts",
+        "special equipment needed."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2083",
+      "type": "speaking_ask_questions",
+      "advertisement": "",
+      "points_to_ask_about": [
+        "kinds of jobs",
+        "skills needed",
+        "minimum age",
+        "payment",
+        "working early in the morning."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2084",
+      "type": "speaking_ask_questions",
+      "advertisement": "Join our roller skating club!",
+      "points_to_ask_about": [
+        "minimum age",
+        "special clothes",
+        "roller skates rental",
+        "competitions."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2085",
+      "type": "speaking_ask_questions",
+      "advertisement": "Individual language classes with native speakers!",
+      "points_to_ask_about": [
+        "location",
+        "price for one lesson",
+        "duration of the lesson",
+        "languages available",
+        "evening classes"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2086",
+      "type": "speaking_ask_questions",
+      "advertisement": "Join our hockey club!",
+      "points_to_ask_about": [
+        "location",
+        "minimum age",
+        "type of ice rink",
+        "special equipment needed."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2087",
+      "type": "speaking_ask_questions",
+      "advertisement": "Birthday parties for all ages!",
+      "points_to_ask_about": [
+        "location",
+        "types of food served",
+        "vegetarian dishes",
+        "dancing floor",
+        "group discounts"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2088",
+      "type": "speaking_ask_questions",
+      "advertisement": "Enjoy our hop-on-hop-off sightseeing tour!",
+      "points_to_ask_about": [
+        "operation hours",
+        "starting point",
+        "tourist attractions to see",
+        "price for one",
+        "group discounts"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2089",
+      "type": "speaking_ask_questions",
+      "advertisement": "Lots of fun in the sun!",
+      "points_to_ask_about": [
+        "location",
+        "departure dates",
+        "single rooms",
+        "sports facilities",
+        "price for two weeks for one"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2090",
+      "type": "speaking_ask_questions",
+      "advertisement": "A new dance school now in your area!",
+      "points_to_ask_about": [
+        "location",
+        "dances taught",
+        "special cloth",
+        "evening classes."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2091",
+      "type": "speaking_ask_questions",
+      "advertisement": "Enjoy an exciting sea trip!",
+      "points_to_ask_about": [
+        "duration of the trip",
+        "type of sailboat",
+        "price for one",
+        "special equipment needed."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2092",
+      "type": "speaking_ask_questions",
+      "advertisement": "Welcome to our motorcycle club!",
+      "points_to_ask_about": [
+        "location",
+        "special clothes",
+        "coach",
+        "competitions."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2093",
+      "type": "speaking_ask_questions",
+      "advertisement": "Holiday",
+      "points_to_ask_about": [
+        "location",
+        "transportation",
+        "sports facilities",
+        "price for a week for one person",
+        "family discounts"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2094",
+      "type": "speaking_ask_questions",
+      "advertisement": "Enjoy a quiet holiday by the lake!",
+      "points_to_ask_about": [
+        "location",
+        "accommodation",
+        "fishing",
+        "price for a week for one",
+        "group discounts"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2095",
+      "type": "speaking_ask_questions",
+      "advertisement": "Gadgets for all ages!",
+      "points_to_ask_about": [
+        "available brands",
+        "the largest screen size",
+        "price range",
+        "discounts."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2096",
+      "type": "speaking_ask_questions",
+      "advertisement": "Visit our new ice rink!",
+      "points_to_ask_about": [
+        "location",
+        "opening hours",
+        "discounts for students",
+        "coach for beginners."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2097",
+      "type": "speaking_ask_questions",
+      "advertisement": "Join our bike club!",
+      "points_to_ask_about": [
+        "minimum age",
+        "special clothes",
+        "bicycle rental",
+        "competitions."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2098",
+      "type": "speaking_ask_questions",
+      "advertisement": "Freshness you can taste!",
+      "points_to_ask_about": [
+        "location",
+        "opening hours",
+        "kind of fruits sold",
+        "delivery service."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2099",
+      "type": "speaking_ask_questions",
+      "advertisement": "We’ll help you find a part-time job!",
+      "points_to_ask_about": [
+        "kinds of jobs",
+        "salary",
+        "skills needed",
+        "minimum age",
+        "whom to contact."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2100",
+      "type": "speaking_ask_questions",
+      "advertisement": "We’ll find an individual approach to everyone in our clinic!",
+      "points_to_ask_about": [
+        "location",
+        "public transport",
+        "kinds of specialists",
+        "number of dentists",
+        "family discounts."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2101",
+      "type": "speaking_ask_questions",
+      "advertisement": "A new theatre now in your area!",
+      "points_to_ask_about": [
+        "location",
+        "ticket price",
+        "morning shows",
+        "group discounts."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2102",
+      "type": "speaking_ask_questions",
+      "advertisement": "Our vet clinic will take care of your pet!",
+      "points_to_ask_about": [
+        "location",
+        "opening hours",
+        "transportation",
+        "kinds of animals treated",
+        "if home visits are possible"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2103",
+      "type": "speaking_ask_questions",
+      "advertisement": "A new aqua park now in your area!",
+      "points_to_ask_about": [
+        "public transport",
+        "opening hours",
+        "types of water slides",
+        "minimum age."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2104",
+      "type": "speaking_ask_questions",
+      "advertisement": "",
+      "points_to_ask_about": [
+        "location",
+        "types of gadgets repaired",
+        "price for diagnostics",
+        "discounts for students."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2105",
+      "type": "speaking_ask_questions",
+      "advertisement": "We’ll help your pet!",
+      "points_to_ask_about": [
+        "working hours",
+        "home visits",
+        "exotic pets",
+        "discounts for regular clients."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2106",
+      "type": "speaking_ask_questions",
+      "advertisement": "The best bicycle trip!",
+      "points_to_ask_about": [
+        "minimum age",
+        "preparation",
+        "number of people in the group",
+        "accommodation for the night",
+        "duration of the trip"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2107",
+      "type": "speaking_ask_questions",
+      "advertisement": "Enjoy a wonderful hike in the mountains with our tour agency",
+      "points_to_ask_about": [
+        "duration of the tour",
+        "dates of the tour",
+        "minimum age",
+        "special equipment",
+        "price for one."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2108",
+      "type": "speaking_ask_questions",
+      "advertisement": "All the flowers of the world!",
+      "points_to_ask_about": [
+        "location",
+        "cost of delivery",
+        "special occasion decorations",
+        "potted flowers."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2109",
+      "type": "speaking_ask_questions",
+      "advertisement": "Welcome to the Christmas market!",
+      "points_to_ask_about": [
+        "location",
+        "opening hours",
+        "goods offered",
+        "available snacks."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2110",
+      "type": "speaking_ask_questions",
+      "advertisement": "Anything you want!",
+      "points_to_ask_about": [
+        "location",
+        "opening hours",
+        "kinds of shirts sold",
+        "discounts."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2111",
+      "type": "speaking_ask_questions",
+      "advertisement": "1) location;",
+      "points_to_ask_about": [
+        "location",
+        "operation hours",
+        "kinds of animals treated",
+        "if home visits are possible",
+        "discounts."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2112",
+      "type": "speaking_ask_questions",
+      "advertisement": "The best driving school in the city!",
+      "points_to_ask_about": [
+        "location",
+        "morning classes",
+        "minimum age for students",
+        "tuition fee",
+        "types of cars used."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2113",
+      "type": "speaking_ask_questions",
+      "advertisement": "1) type of guitar used;",
+      "points_to_ask_about": [
+        "type of guitar used",
+        "number of lessons a week",
+        "tuition fee",
+        "evening classes."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2114",
+      "type": "speaking_ask_questions",
+      "advertisement": "A new ice rink in your area!",
+      "points_to_ask_about": [
+        "location",
+        "equipment rental",
+        "entrance fee",
+        "classes for beginners."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2115",
+      "type": "speaking_ask_questions",
+      "advertisement": "The best clinic in town!",
+      "points_to_ask_about": [
+        "location",
+        "public transport",
+        "dentist",
+        "family discounts."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2116",
+      "type": "speaking_ask_questions",
+      "advertisement": "Enjoy shopping in our new clothing store!",
+      "points_to_ask_about": [
+        "opening hours",
+        "available sizes",
+        "discounts",
+        "free parking",
+        "how to get to the shop by public transport"
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2117",
+      "type": "speaking_ask_questions",
+      "advertisement": "We will transport anything",
+      "points_to_ask_about": [
+        "transportation of plants",
+        "types of cars and trucks used",
+        "working hours",
+        "discounts."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2118",
+      "type": "speaking_ask_questions",
+      "advertisement": "A new basketball club in your area!",
+      "points_to_ask_about": [
+        "location",
+        "number of members",
+        "minimum age",
+        "membership fee",
+        "qualified coaches."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    },
+    {
+      "id": "ST2119",
+      "type": "speaking_ask_questions",
+      "advertisement": "The best ballet school now in your area!",
+      "points_to_ask_about": [
+        "tuition fee",
+        "discounts",
+        "location",
+        "timetable",
+        "maximum age."
+      ],
+      "answer": null,
+      "note": "produce 4 direct questions"
+    }
+  ]
+}

@@ -1,0 +1,2515 @@
+{
+  "description": "EGE English reading tasks (gap filling A–F with 7 options, one extra). 57 tasks extracted from the source file.",
+  "task_type": "matching / sentence completion",
+  "count": 57,
+  "tasks": [
+    {
+      "id": "AAF849",
+      "title": "Being eco-friendly",
+      "text": "These days, pollution, global warming, and limited resources are a big concern. Many people feel hopeless, as though nothing they do will have any effect on a problem that has grown so large. However, there are lots of things A __________ on their negative impact on the environment. Although some of these things are big things involving home construction or the choice of a motor vehicle, most of them are small things. They can make a huge difference B __________.\nThe best way to appreciate the environment is to be more aware of it. Instead of sitting indoors, it is always better to get up and get outside, whether that means walking, biking, kayaking, or some other fun outdoor activity.\nToday, there is no reason not to use energy-efficient lights at home. New energy-efficient bulb technology means C __________ and with many functions in order to save electricity and money. New energy-efficient appliances are also everywhere. There are dishwashers and washing machines that use less water, D __________. These appliances save energy without sacrificing function.\nPaper and plastic bags are often free of charge when people shop, E __________ the environment. Scientists have found that sea turtles often encounter plastic bags in ocean waters and eat them, mistaking them for jellyfish. So, it is wise to refuse paper or plastic F __________ instead.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and make an investment in reusable bags"
+        },
+        {
+          "num": 2,
+          "text": "that people can do every day to cut down"
+        },
+        {
+          "num": 3,
+          "text": "if one remembers to do them every day"
+        },
+        {
+          "num": 4,
+          "text": "but they are killing animals and destroying"
+        },
+        {
+          "num": 5,
+          "text": "but eco-friendly bulbs are very popular"
+        },
+        {
+          "num": 6,
+          "text": "that one can find bulbs of different colours"
+        },
+        {
+          "num": 7,
+          "text": "and there are fridges that use less electricity"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B3 C6 D7 E4 F1"
+    },
+    {
+      "id": "Ac89FF",
+      "title": "Time to help our planet",
+      "text": "The Earth is a huge and fascinating place. There are many interesting things to learn about all the strangest, most intriguing and remote places on the globe. Amongst some of the most important things to learn about the world is how we, as a species, are affecting other animals and plants all over the globe.\nWe throw away tons of rubbish every year, A __________. By using less energy, less water and being more careful about the way B __________ like batteries and motor oil, we could start to save the planet. Here are just a few of the most striking facts and figures about the Earth and how we are slowly destroying it, C __________ by doing our best for the environment.\nEvery year we lose 50 million acres of rainforest - D __________, Wales and Scotland all together. This means the deaths of many different animals and plants, and even the extinction of hundreds if not thousands of species, E __________ yet. Household waste is another serious problem. For example, just one supermarket can throw away over 60 million paper bags each year. Many of these will end up in the world’s oceans.\nHowever, we can change the situation. If we were F __________, we could save an average of 250 million trees every year. Recycling just one aluminium can saves enough energy to run a television for three hours. And if we recycle just one glass bottle, we save enough energy to light a normal light bulb for around four hours.",
+      "options": [
+        {
+          "num": 1,
+          "text": "to start recycling all newspapers"
+        },
+        {
+          "num": 2,
+          "text": "which could be easily recycled"
+        },
+        {
+          "num": 3,
+          "text": "that we dispose of certain things"
+        },
+        {
+          "num": 4,
+          "text": "to save the environment of England"
+        },
+        {
+          "num": 5,
+          "text": "that is an area the size of England"
+        },
+        {
+          "num": 6,
+          "text": "and how we can make a difference"
+        },
+        {
+          "num": 7,
+          "text": "some of which we haven’t discovered"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B3 C6 D5 E7 F1"
+    },
+    {
+      "id": "AD2CF0",
+      "title": "Obento: Art in a Lunch Box",
+      "text": "Japanese kids eat a good-looking lunch. It is called obento (oh-BEN-toe) A __________. Bento boxes are small containers made out of plastic, wood, or metal and decorated with cartoon characters, animals, or flowers. They have matching chopsticks or silverware containers, bags, cups, and lunch mats.\nInside the bento box, the obento is just as colourful. Many Japanese people believe B __________. There is a Japanese saying: Food should be made C __________. Japanese parents often choose foods with different colours, textures, shapes, and tastes. Then they arrange the food in the bento boxes. They make the obento look nice but also make sure it’s healthy.\nWhat do kids eat as their obento? Rice and side dishes D __________, omelettes made with salt and sugar, small sausages, fish, or meat.\nObento time is special. First, children wash their hands with soap E __________. Then they get their obento from their bags. In the winter, the sensei (teacher) may take their obento out of a warmer for them. Kids put their obento, chopsticks, and cups on their lunch mats F __________. Before eating, they sing a fun song about obento: “We are so happy because it’s obento time. Our hands are washed and clean. Everybody is here now. So, let’s say, “Thank you for the food, Mommy and Daddy.”",
+      "options": [
+        {
+          "num": 1,
+          "text": "so that you could eat it with your eyes"
+        },
+        {
+          "num": 2,
+          "text": "as they carry it to school in a bento box"
+        },
+        {
+          "num": 3,
+          "text": "and their mouth and throat with mouthwash"
+        },
+        {
+          "num": 4,
+          "text": "that all food should taste good and look pretty"
+        },
+        {
+          "num": 5,
+          "text": "which are arranged over their classroom tables"
+        },
+        {
+          "num": 6,
+          "text": "which includes food that is red, yellow, and brown"
+        },
+        {
+          "num": 7,
+          "text": "which include pickled, boiled, or steamed vegetables"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B4 C1 D7 E3 F5"
+    },
+    {
+      "id": "DBB60e",
+      "title": "Babies can lip-read languages",
+      "text": "Can you distinguish between spoken English and French? Most people can. But can you tell the difference between an English and a French speaker just A __________? It seems like a difficult task for an adult, but it’s a very easy one for a baby at just a few months of age.\nScientists proved that B __________. In these clips, speakers were reading out the same sentence in one of the two languages. The babies were shown different videos C __________. The same speakers were reading out new sentences, some in English and some in French.\nWhen the languages of the new sentences matched those of the old ones, the infants didn’t react unusually. But they spent more time looking at the monitors D __________. This is a classic test for child psychologists, and it means that the infants saw something that drew their attention. They noticed the language change.\nScientists found that the babies have this ability at 4 and 6 months of age, E __________. Other studies show that around the same time, babies stop hearing differences in sounds from other languages.\nAt first, babies are good at noticing details in many languages, F __________, they focus only on the one they hear most - usually their native language. To check this, the researchers tested babies who knew two languages. Sure enough, bilingual 8-month-olds could still tell English and French apart by watching lips.",
+      "options": [
+        {
+          "num": 1,
+          "text": "but lose it when they are eight months old"
+        },
+        {
+          "num": 2,
+          "text": "when the language was switched to another"
+        },
+        {
+          "num": 3,
+          "text": "by looking at the movements of their lips"
+        },
+        {
+          "num": 4,
+          "text": "when they finally got used to those speakers"
+        },
+        {
+          "num": 5,
+          "text": "but if they don’t keep hearing other languages"
+        },
+        {
+          "num": 6,
+          "text": "by showing 36 English babies silent video clips"
+        },
+        {
+          "num": 7,
+          "text": "but the study shows that everyone uses lip-reading"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B6 C4 D2 E1 F5"
+    },
+    {
+      "id": "6c0102",
+      "title": "Plastic pollution",
+      "text": "Almost every day, people litter the earth with plastic without knowing the harm it can cause to humans and other creatures. Moreover, people do not know A __________ into the world’s oceans.\nThe amount of waste and plastic junk in the oceans has been increasing at an alarming rate for the last ten years. Studies show B __________ of plastic waste. At this rate, it is expected that by 2050, plastic will outweigh the number of fish in the sea.\nCharles J. Moore was the first person to accidentally discover the “Garbage Patch” in the northern part of the Pacific Ocean. More than 90% of the junk in this ocean area is plastic. Plastic takes a long time to break down, C __________ of flora and fauna of the oceans. Unfortunately, this pollution is mostly caused by human activities. Plastic does not completely disappear. Most of ocean pollution starts on land D __________ into the sea. Once it is in the sea, plastic waste continuously piles up.\nWhen plastic objects end up in the oceans, they are a great hazard to marine life. They do not only affect the small fish, E __________. Most marine species, like zooplankton and whales, all eat microplastics. Sea turtles, for example, consume plastic, since they mistake garbage for food. The statistics are alarming, more so when they imply F __________ caused by this type of ocean pollution.",
+      "options": [
+        {
+          "num": 1,
+          "text": "making a huge contribution to the destruction"
+        },
+        {
+          "num": 2,
+          "text": "that a lot of plastic waste somehow finds its way"
+        },
+        {
+          "num": 3,
+          "text": "but also harm huge mammals in many ways"
+        },
+        {
+          "num": 4,
+          "text": "that over 40% of global oceanic surfaces are full"
+        },
+        {
+          "num": 5,
+          "text": "and is easily transported by either wind or rain"
+        },
+        {
+          "num": 6,
+          "text": "but also increases water pollution in the world"
+        },
+        {
+          "num": 7,
+          "text": "that a number of marine species face extinction"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B4 C1 D5 E3 F7"
+    },
+    {
+      "id": "D8D31A",
+      "title": "Global warming",
+      "text": "Global warming is a hot topic these days. The debate over global warming has been going on all around the world. While few people consider it as the biggest challenge of all times, others think of it as a climate shift A __________ has continued since then. Understanding global warming and its impact is important to meet the challenges posed by it.\nThe actual warming of temperature is something scientists say they can document, B __________ the change and effect of atmospheric gases on the Earth’s environment. The sea level is rising in a lot of areas of the world. This is partially attributed to the melting of ice caps and glaciers, C __________ contained within the sea. In the past decade, the global sea level rise has doubled compared to the 20th-century one.\nThe rise in the number of vehicles D __________ getting trapped in the atmosphere. The increased heat in the atmosphere from greenhouse gas emissions has been absorbed by the oceans. There are over 50 years of documented temperature records for the oceans E __________ since 1969.\nGlaciers are so sensitive to temperature changes F __________ global warming. The glaciers on several mountain ranges, particularly in Greenland and Antarctica, are decreasing in size due to the lack of gases to maintain the region’s climate. This is the case almost everywhere around the world.",
+      "options": [
+        {
+          "num": 1,
+          "text": "but more to the great changes in the gases"
+        },
+        {
+          "num": 2,
+          "text": "that started around the early 1990s and"
+        },
+        {
+          "num": 3,
+          "text": "and cars polluting the Earth’s atmosphere"
+        },
+        {
+          "num": 4,
+          "text": "but the primary evidence is connected with"
+        },
+        {
+          "num": 5,
+          "text": "that they provide clues about the effects of"
+        },
+        {
+          "num": 6,
+          "text": "that have proved a steady rise in temperature"
+        },
+        {
+          "num": 7,
+          "text": "and industries has resulted in greenhouse gases"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B4 C1 D7 E6 F5"
+    },
+    {
+      "id": "C7FF2E",
+      "title": "The roof of the world",
+      "text": "Did you know that Tibet is called the “roof of the world?” Tibet is a small country surrounded on all sides by gigantic snowy mountain peaks. For thousands of years, these towering mountains acted like a fence, A __________. That’s one reason why explorers and writers have called Tibet the roof of the world. It’s hard to get to. The other reason is Tibet’s high elevation. When people climb mountain passes over 17,000 feet above sea level, they gasp for air B __________!\nYears ago, the people of Tibet were nomads, C __________. The ground in Tibet is much too rocky and thin to grow crops, so Tibetans centred their daily life and survival on the large ox, the yak. The yaks provided the nomads with nearly everything they needed - D __________. Even yak dung was used for fires.\nTibetan nomads would lead their herds of yaks and sheep across pastures, valleys, and mountainsides in search of the best grazing lands. They did not live in permanent homes made of wood, brick, or stone. When nomads arrived at their destination, they were so skilled at setting up their large yak-hair tents that they had them up in minutes. They could even compete to see E __________, a fire going, and hot tea poured.\nTimes are changing in Tibet, and more and more people live and work in villages and cities. But there are still nomads F __________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "which means people without permanent homes"
+        },
+        {
+          "num": 2,
+          "text": "who would be the first one to have their tent up"
+        },
+        {
+          "num": 3,
+          "text": "as they may need 30 yaks to carry their supplies"
+        },
+        {
+          "num": 4,
+          "text": "milk, butter, meat, and wool for clothes and ropes"
+        },
+        {
+          "num": 5,
+          "text": "as they are more than three miles high above the sea"
+        },
+        {
+          "num": 6,
+          "text": "keeping people from entering or leaving the country"
+        },
+        {
+          "num": 7,
+          "text": "that survive in the mountains just as their ancestors did"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A6 B5 C1 D4 E2 F7"
+    },
+    {
+      "id": "3BE72A",
+      "title": "The Super Soaker story",
+      "text": "Super Soakers are a familiar part of summer fun, but did you know the toy was inspired by a part meant for a refrigerator? It’s true! An accident sparked its creation, but its success took years of hard work.\nLonnie Johnson, A __________, has always been interested in how things work. As a kid, he took his toys apart and put them back together, B __________.\nIn 1982, Johnson’s day job was working on spacecraft in California. In the evening, he worked on his own inventions. One of his projects was a refrigerator that cooled with water C __________. One evening, he hooked a part he’d made to a bathroom sink so he could test it. It sprayed a strong stream of water across the sink! It made Johnson think D __________.\nHe made the plastic parts for his water blaster in his basement, put it together, and asked his seven-year-old daughter to test it. As he watched her water fight with the other kids, he realised she was able to drench them E __________.\nJohnson wanted to make and sell the water blaster himself, F __________. He didn’t have that much extra money, so he decided to find a toy company as a partner. He tried and failed for the next 7 years. Since then, the Super Soaker became one of the best-selling toys of all time and has brought a lot of fun to kids everywhere.",
+      "options": [
+        {
+          "num": 1,
+          "text": "but it would cost $200,000 to make 1,000 of them"
+        },
+        {
+          "num": 2,
+          "text": "the man behind the invention of the Super Soaker"
+        },
+        {
+          "num": 3,
+          "text": "before her friends even got close with their squirt guns"
+        },
+        {
+          "num": 4,
+          "text": "that a high-powered water blaster might be a lot of fun"
+        },
+        {
+          "num": 5,
+          "text": "which led his friends to nickname Lonnie “The Professor”"
+        },
+        {
+          "num": 6,
+          "text": "called the Power Blaster, came out in 1990 and ever since"
+        },
+        {
+          "num": 7,
+          "text": "instead of the environmentally harmful chemical used then"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B5 C7 D4 E3 F1"
+    },
+    {
+      "id": "5B4eD1",
+      "title": "Reusable bags",
+      "text": "Using fewer resources and producing less waste are issues not only for big corporations and factories to worry about. Each of us can make a big difference in how we impact the environment. People can continue to consume excessively and create billions of pounds of waste each year, A __________\na more environmentally-friendly lifestyle.\nPlastic bags do not easily decompose, and they contribute to the pollution of nature. A plastic bag can take from 15 to 1,000 years to break down, depending on the environment. Moreover, the cost of recycling plastic bags outweighs their value. This is another reason B __________ to landfill sites. This results in huge piles of garbage C __________, releasing bad smells throughout the day and serving as a distraction for tourists.\nIt is high time for us to use alternative sources, so as to reduce the impact of plastic bags on the environment. One such change is to get rid of plastic bags and use reusable bags.\nThere are many reasons D __________, and it is necessary to switch to reusable bags. A lot of oil and natural gas go into the production of plastic bags, which are not recyclable. Choosing reusable bags saves on these natural resources and protects the environment. Besides, the nature around us is polluted by plastic bags E __________ or get into animals’ homes. Sometimes animals try to eat these bags, thinking they are part of nature, F __________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "because they often fly away into trees"
+        },
+        {
+          "num": 2,
+          "text": "because they want to protect nature"
+        },
+        {
+          "num": 3,
+          "text": "that can be easily seen across the city"
+        },
+        {
+          "num": 4,
+          "text": "or they can make changes to adopt"
+        },
+        {
+          "num": 5,
+          "text": "why plastic bags are not ideal at all"
+        },
+        {
+          "num": 6,
+          "text": "why most plastic bags find their way"
+        },
+        {
+          "num": 7,
+          "text": "which may simply lead to their death"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A4 B6 C3 D5 E1 F7"
+    },
+    {
+      "id": "task_10",
+      "title": "Antarctica tourism",
+      "text": "Antarctica does not have any permanent residents, just short-term visitors. There are two groups who can have an impact: tourists and those A __________.\nWhile tourists may only spend a relatively short time on landings, usually just a few hours, it is a high-impact time compared to scientists or support workers B __________ base. Tourists also by their nature will want to visit the most picturesque and wildlife-rich areas of Antarctica.\nAreas that are easily accessible by small boats C __________ are relatively rare in Antarctica. So despite its enormous size, tourists become concentrated in a few areas D __________. Even a smaller tour ship carries far more people than the entire staff of most Antarctic bases.\nOne aspect of Antarctic tourism that restricts visitor numbers is the limited tourist season. This limitation is placed by the weather, E __________. The limited tourist season, however, coincides with the breeding season for most Antarctic wildlife, with the potential for disturbance.\nTourism in Antarctica is at present self-regulated by the International Association of Antarctic Tour Operators. It was founded in 1991. Now it has over 100 members. This is an organization F __________ operators. Such guidelines limit the size of the ships that can cruise the Antarctic waters, and also how many people can be landed at sites.",
+      "options": [
+        {
+          "num": 1,
+          "text": "where most of the landings take place"
+        },
+        {
+          "num": 2,
+          "text": "who go as part of scientific programmes"
+        },
+        {
+          "num": 3,
+          "text": "who spend most of their time on a polar"
+        },
+        {
+          "num": 4,
+          "text": "where short periods of quite warm weather"
+        },
+        {
+          "num": 5,
+          "text": "that take tourists from their ship to shore"
+        },
+        {
+          "num": 6,
+          "text": "that sets strict guidelines for its member tour"
+        },
+        {
+          "num": 7,
+          "text": "and in particular by the movements of sea ice"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B3 C5 D1 E7 F6"
+    },
+    {
+      "id": "4BAAC1",
+      "title": "Hemingway in Cuba",
+      "text": "History and Cuba go hand in hand. About 16 kilometres east of Havana, Cuba’s capital, lies the small town of San Francisco de Paula, A __________ located. It was the part-time residence of Ernest Hemingway for 20 years. He lived there between 1939 and 1959, B __________ during that period.\nUpon Hemingway’s death, Finca La Vigia was turned into a museum - the museum of Ernest Hemingway. The house remains as Hemingway left it, with more than 8,000 books on display, as well as artwork, hunting trophies, the author’s typewriter, and other personal belongings.  Visitors are not allowed inside, but it is possible to peek in through the windows, C __________ during rainy weather. One can also wander through the garden to see Hemingway’s fishing boat, Pilar, D __________. The garden is also home to a pet cemetery, the final resting place for some of his beloved cats.\nHemingway fans should also visit the small fishing village of Cojimar, about 20 minutes east of Havana by taxi. During the 1950s, Hemingway visited Cojimar often E __________, The Old Man and the Sea. He also kept his fishing boat, Pilar, there, and could often be seen socialising with locals in the streets of the village.\nThese days, tourists come to the village to visit the square named in his honour F __________. Perhaps inspired by Hemingway’s legacy, many artists from Havana and other parts of Cuba are drawn there.",
+      "options": [
+        {
+          "num": 1,
+          "text": "unless the house is closed up"
+        },
+        {
+          "num": 2,
+          "text": "despite all the troubles in Cuba"
+        },
+        {
+          "num": 3,
+          "text": "and made it the setting for his novel"
+        },
+        {
+          "num": 4,
+          "text": "which he had kept in the local village"
+        },
+        {
+          "num": 5,
+          "text": "where Hemingway was brought up"
+        },
+        {
+          "num": 6,
+          "text": "where the estate of Finca La Vigia is"
+        },
+        {
+          "num": 7,
+          "text": "and see the statue of the famous writer"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A6 B2 C1 D4 E3 F7"
+    },
+    {
+      "id": "6191c2",
+      "title": "The Russian taiga",
+      "text": "The Russian taiga is a unique ecoregion between the frozen tundra in the north, and the more temperate mixed forests in the south. It is also known as the needle-leaf forest or the boreal forest. It is essentially a type of forest A __________, and larches grow.\nParts of Alaska and Canada are covered in the taiga too, B __________ that one can’t find anywhere else. Temperatures can reach as low as -20°C, C __________ of -50°C during the coldest months. In the north of the country, the taiga experiences the midnight sun in summer and the polar night in winter.\nThe heart of the taiga is north of Irkutsk city, D __________ await tourists.\nVodlozersky National Park falls within the Russian taiga as well. It covers over 4,000 square kilometres. The national park is situated in the Republic of Karelia and the Archangelsk Region. It was first established in 1991 to protect the taiga areas of northern Russia, E __________ of a UNESCO Biosphere Reserve. The park became the first protected object of such level in the European North of Russia. Today, it is a popular destination for whitewater rafting and birdwatching. The park can only be reached via a countryside road from the town of Pudozh. Once at the park, one’s only connection with civilisation is the village of Kuganavolok, F __________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "which has only 500 permanent residents"
+        },
+        {
+          "num": 2,
+          "text": "and since 2001, the park has had the status"
+        },
+        {
+          "num": 3,
+          "text": "but the Russian taiga brings a level of beauty"
+        },
+        {
+          "num": 4,
+          "text": "where only coniferous trees like pines, spruces"
+        },
+        {
+          "num": 5,
+          "text": "which attract hundreds of tourists every year"
+        },
+        {
+          "num": 6,
+          "text": "though the Siberian taiga can easily see nights"
+        },
+        {
+          "num": 7,
+          "text": "where dogsledding, snowshoeing, the northern lights"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A4 B3 C6 D7 E2 F1"
+    },
+    {
+      "id": "43768E",
+      "title": "Magical transformation of bread",
+      "text": "You may eat your sandwich without even thinking about what’s holding it together. But without bread, you won’t have a sandwich. To people from all around the world, bread is an important, familiar food, but it is also an amazing transformer. To turn A __________, your loaf had to go through an extraordinary series of changes.\nYou only need four ingredients to make bread: water, flour, salt, and yeast. Yeast is a type of microbe, B __________. Flour, C __________, is dry and powdery. When you add water, the flour absorbs the liquid. If you continue mixing, you’ll get a big lumpy blob. As you knead it - D __________ - the blob soon becomes smooth and turns into dough.\nAfter kneading your dough, you must let it rest. It’s time for the yeast to do its job. These tiny creatures eat the sugar in the flour. As they eat, they produce carbon dioxide which forms air bubbles E __________. Bread also needs salt to strengthen dough and make your bread taste good. Now, it’s time to bake.\nEven after it comes out of the oven, a loaf of bread keeps changing. As soon as it starts to cool, it starts getting stale. To make hard bread more appealing, it’s best to put it in the oven. The bread becomes softer again. Over time, though, the bread loses flavour and aromas. So, F __________ not be as tasty as it once was. Still, it’s probably good enough for another sandwich.",
+      "options": [
+        {
+          "num": 1,
+          "text": "even if you can soften it again, it may"
+        },
+        {
+          "num": 2,
+          "text": "press it, stretch it, roll it, and flatten it"
+        },
+        {
+          "num": 3,
+          "text": "into those soft, delicious slices of bread"
+        },
+        {
+          "num": 4,
+          "text": "inside bread and makes it light and fluffy"
+        },
+        {
+          "num": 5,
+          "text": "a living organism which is too small to see"
+        },
+        {
+          "num": 6,
+          "text": "you put in an oven and a loaf of bread comes"
+        },
+        {
+          "num": 7,
+          "text": "which comes from ground-up grains of wheat"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B5 C7 D2 E4 F1"
+    },
+    {
+      "id": "18F68C",
+      "title": "Beauty of the Cayman Islands",
+      "text": "The Cayman Islands are some of the most naturally beautiful locations in the Caribbean. The Cayman Islands are three islands made up of Grand Cayman, Little Cayman, and Cayman Brac.\nThe ocean at sunrise and sunset is the most popular scene with photographers on the Cayman Islands. But these islands are committed to conservation A __________, both above and below the water’s surface. There are many protected coral reefs around these tropical islands to explore and enjoy. Some reefs have small holes and cave-like structures B __________, like silverside fish that hide in the shadows. In addition to the coral reefs around the islands, the shipwrecks in the nearby waters deserve special attention. The Kittiwake shipwreck is the most unusual one C __________, about 76 m long and attracts many tropical fish.\nThe colourful and colonial architecture of George Town on Grand Cayman is interesting as well. The small duty-free shops and waterfront restaurants along the harbour showcase the life in the village, D __________ on the other side of the island.\nThe Cayman Crystal Caves provide a glimpse into the amazing life on the islands millions of years ago. Water erosion E __________ of the islands resulted in spectacular crystal formations. There are three wonderful caves to visit, each with delicate stalactite and stalagmite formations, F __________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "because it covers a very large area"
+        },
+        {
+          "num": 2,
+          "text": "because there is rare beauty to keep"
+        },
+        {
+          "num": 3,
+          "text": "which were created one drop at a time"
+        },
+        {
+          "num": 4,
+          "text": "that serve as protection for sea life"
+        },
+        {
+          "num": 5,
+          "text": "and other attractions of the Cayman Islands"
+        },
+        {
+          "num": 6,
+          "text": "which is a contrast to the natural scenery"
+        },
+        {
+          "num": 7,
+          "text": "and environmental changes to the landscape"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B4 C1 D6 E7 F3"
+    },
+    {
+      "id": "F7A549",
+      "title": "Unique country",
+      "text": "The world first discovered China through the writings of adventurer Marco Polo more than 700 years ago. Ever since, this large Asian country has come to be regarded as the embodiment of everything that is mysterious and exotic. Even now, A__________, this vast country has lost none of its attraction. Indeed, the contrast between China’s ancient customs and the new ultra-modern state has only increased the fascination with its culture B__________.\nIt is a culture that is much celebrated by the Chinese themselves, as evidenced by the preservation of such important historic sites as the Forbidden City and the Summer Palace in Beijing, C__________. And then, there is the famous Great Wall of China, D__________ from the Yellow Sea to Central Asia. Its countless shrines demonstrate the spirit of age-old Eastern religions. The cities of the Middle Kingdom, E__________ of over a million, and the coastal provinces, are today enjoying a soaring economic boom.\nThanks to its size, China is a great tourist destination. It offers limitless scope for exploration. Whether people choose to travel aboard a luxury cruise ship, F__________, this country is full of incredible experiences and sightseeing opportunities. China has something for every taste and all the essential ingredients for an unforgettable holiday in a beautiful country.",
+      "options": [
+        {
+          "num": 1,
+          "text": "after many decades of economic growth"
+        },
+        {
+          "num": 2,
+          "text": "more than 50 of which have populations"
+        },
+        {
+          "num": 3,
+          "text": "that dates back more than 5000 years"
+        },
+        {
+          "num": 4,
+          "text": "winding for 6,700 kilometres all the way"
+        },
+        {
+          "num": 5,
+          "text": "each recalling the days of China’s emperors"
+        },
+        {
+          "num": 6,
+          "text": "or during the latest years of economic boom"
+        },
+        {
+          "num": 7,
+          "text": "or seek out the peace of an ancient temple"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A1 B3 C5 D4 E2 F7"
+    },
+    {
+      "id": "DAAC4F",
+      "title": "Tourism in Kamchatka",
+      "text": "The range of tourist activities in Kamchatka is really wide. The most wide-spread type of tourism is ecotourism, A__________ and resources of Kamchatka. Fishing, medicinal, cultural and ethnographical tourism are popular as well. Kamchatka offers almost unlimited possibilities for those B__________, and gives the chance to climb not only mountains, but volcanoes as well.\nMoreover, many rivers in Kamchatka are good for rafting. In winter one should be prepared for heli-skiing and skiing. In summer trekking, diving, photo safari and bird watching are at one’s service. Besides, this region has a good recreational potential, C__________ take some rest and improve health, thanks to the presence of almost every kind of mineral curative water. Visitors should not forget to try famous Kamchatka dishes, D__________ and other seafood, for example of salmon, which Kamchatka is really famous for.\nMany tourist camps were built in Kamchatka in the past few years. Tourist infrastructure is getting better and better nowadays. As for natural wonders, tourists should not miss the famous rock “three brothers” protecting the city of Petropavlovsk-Kamchatsky. The city is located on the bank of the bay, E__________ bays in the world. There is only one way to get there by plane from the European part of Russia - from Moscow. The ticket price is quite high, F__________ as possible.",
+      "options": [
+        {
+          "num": 1,
+          "text": "who are fond of extreme tourism"
+        },
+        {
+          "num": 2,
+          "text": "and tourists may just go there to"
+        },
+        {
+          "num": 3,
+          "text": "which are often made of local fish"
+        },
+        {
+          "num": 4,
+          "text": "who wants to enjoy the nature as long"
+        },
+        {
+          "num": 5,
+          "text": "so one should plan for the journey as early"
+        },
+        {
+          "num": 6,
+          "text": "and it is clearly explained by the unique nature"
+        },
+        {
+          "num": 7,
+          "text": "which is considered to be one of the most beautiful"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A6 B1 C2 D3 E7 F5"
+    },
+    {
+      "id": "D19B4C",
+      "title": "Mir Space Station Dining Table",
+      "text": "When living in a cramped space with two or more people for months, you’d think that there would be no need for a special shared zone. But on Russia’s Mir space station, a high-tech dining table is A__________ and discuss aeronautical projects.\nThe Mir station orbited Earth from 1986 to 2001, straight through the end of the Soviet Union. The station was B__________ habitation. Cosmonaut Valeri Polyakov still holds the record for the longest continuous space stay.\nThe multicoloured dining table was C__________. It came with slots where cosmonauts could heat up tins and tubes of food like liver stroganoff and chicken in white sauce. A built-in vacuum cleaner would suck up any stray crumbs, D__________ could be damaged by dust. The table could also distribute hot and cold water for rehydrating food.\nThe Mir station was E__________ expected. The table was important as a surface for food prep and work. However, it was also a place where international astronauts could connect and collaborate while breaking bread. The dining table was brought back to Earth to the Memorial Museum of Cosmonautics F__________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "located in the station’s core module"
+        },
+        {
+          "num": 2,
+          "text": "in Moscow, where it can be seen today"
+        },
+        {
+          "num": 3,
+          "text": "a place where the crew gather for meals"
+        },
+        {
+          "num": 4,
+          "text": "the first experiment with long-term space"
+        },
+        {
+          "num": 5,
+          "text": "a vital feature when important equipment"
+        },
+        {
+          "num": 6,
+          "text": "appeared at the London Science Museum as"
+        },
+        {
+          "num": 7,
+          "text": "in service for 15 years, three times longer than"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B4 C1 D5 E7 F2"
+    },
+    {
+      "id": "C31848",
+      "title": "Santa Claus",
+      "text": "The man we know as Santa Claus has a history all to his own. Today, he is thought of mainly as the jolly man in red, but his story A____________________ the 3rd century to a monk named St. Nicholas. It is believed that Nicholas was born sometime around 280 AD in modern-day Turkey. Much admired for his kindness, St. Nicholas B____________________. It is said that he gave away all of his inherited wealth and traveled the countryside helping the poor and sick. Over the course of many years, Nicholas’s popularity spread and he became known as the protector of children and sailors. His feast day C____________________ his death, December 6. This was traditionally considered a lucky day to make large purchases or to get married. By the Renaissance, St. Nicholas was the most popular saint in Europe.\nSt. Nicholas first D____________________ at the end of the 18th century. The name Santa Claus evolved from a Dutch shortened form of Sint Nikolaas. As his popularity grew, Sinter Klaas was described as everything from a jockey with a blue three-cornered hat, red waistcoat, and yellow stockings to a man wearing a broad-brimmed hat and a huge pair of Flemish trousers.\nIn the 19th century big stores E____________________ using images of the newly-popular Santa Claus. In 1841, thousands of children visited a Philadelphia shop to see a life-size Santa Claus model. It F____________________ before stores began to attract children, and their parents, with the lure of a peek at the “real-life” Santa Claus with his famous white beard and red gown.",
+      "options": [
+        {
+          "num": 1,
+          "text": "was only a matter of time"
+        },
+        {
+          "num": 2,
+          "text": "stretches all the way back to"
+        },
+        {
+          "num": 3,
+          "text": "is celebrated on the anniversary of"
+        },
+        {
+          "num": 4,
+          "text": "became the subject of many legends"
+        },
+        {
+          "num": 5,
+          "text": "appeared in American popular culture"
+        },
+        {
+          "num": 6,
+          "text": "began dressing up unemployed men in"
+        },
+        {
+          "num": 7,
+          "text": "began to advertise Christmas shopping"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B4 C3 D5 E7 F1"
+    },
+    {
+      "id": "AF09F3",
+      "title": "City of fountains",
+      "text": "Peterhof is a monument of world architecture and palace and park art. Peterhof includes a palace and park ensemble of the 18-19th centuries, A__________. Peterhof is a city of fountains as it contains 173 fountains and 4 cascades B__________. Each year up to 3 million people come here to enjoy the splendour of numerous fountains and the unique parks of Peterhof.\nThe name Peterhof was first mentioned in 1705. It was a coastal manor, close to which the construction of a grand country residence began. The original plan belonged to Peter the Great. After the brilliant victory of Russian troops over the Swedes, security of St. Petersburg both from the land C__________. Since that time, the construction of the Peterhof residence grew immensely in scope.\nAccording to the plan of Peter the Great, on the one hand, Peterhof was meant to be equal in splendour with the most famous royal residences in Europe, D__________ to access the Baltic Sea. Both were successfully done. The Great Palace was built on a natural hill here, E__________. Following the plan of Peter the Great, F__________, the Grand Cascade with the famous Samson fountain was constructed. This is still one of the most spectacular fountains in the world. In 1990 the palaces and parks of Peterhof were included in the list of the world heritage of UNESCO.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and from the sea has been firmly ensured"
+        },
+        {
+          "num": 2,
+          "text": "which is a former royal countryside residence"
+        },
+        {
+          "num": 3,
+          "text": "who designs many royal residences in Europe"
+        },
+        {
+          "num": 4,
+          "text": "and then rebuilt in the baroque style in the 18th century"
+        },
+        {
+          "num": 5,
+          "text": "who wanted to decorate the main entrance with waterfalls"
+        },
+        {
+          "num": 6,
+          "text": "that are located in the park on the coast of the Gulf of Finland"
+        },
+        {
+          "num": 7,
+          "text": "and on the other hand, to become a monument of Russia’s struggle"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B6 C1 D7 E4 F5"
+    },
+    {
+      "id": "task_20",
+      "title": "Do jellyfish sleep?",
+      "text": "Worms and fish do it. Birds and bees do it. But do jellyfish fall asleep?\nIt was after midnight A__________ where the jellyfish were kept. They left the lights off and walked through the room by the glow of their cellphones. The students did not tell anyone that they were doing this. The secret they were keeping was a “totally crazy” experiment aimed at finding out whether jellyfish sleep.\nA few weeks before, B__________ whether jellyfish needed to sleep. “Of course not,” said one of them. “Sleep helps C__________. Jellyfish are so simple they don’t even have brains. How could they possibly share the need to sleep?” The others weren’t so sure, but they wanted to find out.\nThe three students designed an experiment to test different behaviors and see if the jellyfish were asleep. They watched the animals to see how they moved, and D__________ when they were resting. It turned out that the jellyfish moved about 30 percent less at night. It was also harder to get their attention.\nMonths of late-night studying led to amazing results. Young scientists reported E__________ sleeplike behavior. This made it the first animal without a brain known to do so. The results suggest F__________ life, as the jellyfish group of animals first arose about 700 million years ago, and has stuck with us ever since.",
+      "options": [
+        {
+          "num": 1,
+          "text": "if they could get the jellies’ attention"
+        },
+        {
+          "num": 2,
+          "text": "how talkative they were in a situation close to"
+        },
+        {
+          "num": 3,
+          "text": "when three science students crept into the lab"
+        },
+        {
+          "num": 4,
+          "text": "that sleep evolved early in the history of animal"
+        },
+        {
+          "num": 5,
+          "text": "strengthen memory and keep the brain healthy"
+        },
+        {
+          "num": 6,
+          "text": "that the upside-down jellyfish Cassiopea showed"
+        },
+        {
+          "num": 7,
+          "text": "the students were having coffee and started debating"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B7 C5 D1 E6 F4"
+    },
+    {
+      "id": "8D53FC",
+      "title": "Willis Tower today",
+      "text": "Willis Tower is the heart of downtown Chicago and the future of work and play. The 110-story building is one of the tallest buildings in the world and\nthe second tallest building in North America, making it impossible to miss A__________. The magnitude of this magnificent steel frame skyscraper can seem impossible to understand.\nWillis Tower is now owned by Blackstone and managed by EQ Office. It is home to more than 100 businesses including law firms, insurance, transportation, financial companies and more. Radio and television stations are broadcast from Willis Tower’s rooftop. 15,000 people work at the Tower each day, B__________. And 12 million people pass by and through\nthe Tower each year.\nIt is not surprising C__________. The Tower is not only\nan innovator in promoting green practices among its tenants, but also stands D__________ in increasing energy and water efficiency and reducing waste. Over the past 20 years, the Tower has reduced annual electricity consumption by 34% by E__________ and adopting special conservation practices. The building saves 10 million gallons of water each year by relying on reduced water-flow fixtures. These innovations are encouraging those in charge of the building to look into certification for energy efficiency and explore renewable energy resources, such F__________ covered with vegetation.",
+      "options": [
+        {
+          "num": 1,
+          "text": "when appreciating the big city’s skyline"
+        },
+        {
+          "num": 2,
+          "text": "that the true color of Willis Tower is green"
+        },
+        {
+          "num": 3,
+          "text": "as solar and wind power and “green roofs”"
+        },
+        {
+          "num": 4,
+          "text": "as a leader among American skyscrapers"
+        },
+        {
+          "num": 5,
+          "text": "using new lighting systems and controls"
+        },
+        {
+          "num": 6,
+          "text": "that was designed and built many years ago"
+        },
+        {
+          "num": 7,
+          "text": "not counting thousands of the building’s visitors"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A1 B7 C2 D4 E5 F3"
+    },
+    {
+      "id": "B6BB0D",
+      "title": "State History Museum",
+      "text": "The State History Museum is the largest historical museum in Russia. It is situated at the northern end of Red Square in the heart of Moscow. What once was the Principal Medicine Store now houses a huge collection A__________ the Stone Age. It was founded in 1872 and opened to the public in 1883. The museum is housed in a neo-Russian style building, B__________. It is one of the most prominent buildings in Red Square. Each room is in the style of a different period or region. The walls in some rooms are decorated in the style of Russian churches.\nThe impressive collection of the State History Museum includes relics of prehistoric tribes C__________ present-day Russia. The exhibits about medieval Russia are excellent. Several rooms of this period cover the Mongol invasions D__________.\nThe 2nd floor is dedicated to the Imperial period. The exhibits include personal items of the royal family members, furniture and decoration from the palace interiors. There are also various pieces of artworks and documents from the era. Specific rooms are dedicated to the reigns of various tsars. An unexpected highlight is an exhibition E__________ by examining the growing network of roads and how people travelled in the past. The State History Museum has also the country’s largest coin collection, the 6th-century manuscripts and artworks F__________ during their reign.",
+      "options": [
+        {
+          "num": 1,
+          "text": "which is an attraction in its own right"
+        },
+        {
+          "num": 2,
+          "text": "that once inhabited the big territory of"
+        },
+        {
+          "num": 3,
+          "text": "and cave paintings of prehistoric times"
+        },
+        {
+          "num": 4,
+          "text": "and the consolidation of the Russian state"
+        },
+        {
+          "num": 5,
+          "text": "covering Russian history since the time of"
+        },
+        {
+          "num": 6,
+          "text": "that were collected by the Romanov dynasty"
+        },
+        {
+          "num": 7,
+          "text": "addressing the expansion of the Russian Empire"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A5 B1 C2 D4 E7 F6"
+    },
+    {
+      "id": "285D02",
+      "title": "Improving punctuality",
+      "text": "Some people fall into the trap of thinking that it's really no big deal to be consistently late. There’s a saying that goes, “90% of life is just showing up”.\nIf that's the case, then showing up on time is 100% of life!\nThere are A__________ others wait for you. If you keep your friends waiting too often, they’ll start to think that you don’t care about your friendship enough to be there on time.\nBeing consistently late for your job is grounds for contract termination at most workplaces, while being late B__________ on important information. Whatever the situation, there are always benefits of being on time, while there are rarely ever benefits of being late.\nFirst, you’re only using more energy by being late. Having to come up with an excuse for C__________ to do it too often.\nYou could concentrate D__________ time, freeing up your mental resources. Being late also causes stress, so you’ll save yourself from\na stressful situation just by arriving at the correct time.\nThink about it this way: if you come to work on time every day while another co-worker has a less-than-stellar record when it comes to tardiness, who will the bosses be more willing to promote? All other things being equal, being punctual will display good time management skills, E__________.\nHowever you look at it, it’s always going to be more advantageous to arrive at your destination on time. The negative F__________ any positive aspects. Make punctuality a part of your personality.",
+      "options": [
+        {
+          "num": 1,
+          "text": "for class could cause you to miss out"
+        },
+        {
+          "num": 2,
+          "text": "your lateness is mentally draining if you have"
+        },
+        {
+          "num": 3,
+          "text": "very few situations where it’s not rude to make"
+        },
+        {
+          "num": 4,
+          "text": "consequences of being late always far outweigh"
+        },
+        {
+          "num": 5,
+          "text": "on more important things instead by simply being on"
+        },
+        {
+          "num": 6,
+          "text": "aspect of being on time is that you may find yourself"
+        },
+        {
+          "num": 7,
+          "text": "and that could mean the difference in getting you the next promotion"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B1 C2 D5 E7 F4"
+    },
+    {
+      "id": "DD0A09",
+      "title": "Gorky Park",
+      "text": "Gorky Park in Moscow is one of the best recreational places. Moscow’s main city escape is not a conventional expanse of nature preserved inside the urban jungle. It is not a fun fair either, A__________. Its official name says it all - Gorky’s Central Park of Culture and Leisure. That is exactly what it provides: culture and leisure in all shapes and forms. It especially attracts those B__________. However, people who prefer peaceful places can sail boats or catamaran or take a walk to Neskuchny Garden, located nearby. Here one can always find a quiet place.\nThe first recreational park of Russia was opened on the 12th of August 1928. It was designed by avant-garde architect Konstantin Melnikov. There were exhibition pavilions, tennis courts, a decorative pool and attractions for kids. There was not such a place C__________. The park was given the name of famous Soviet writer Maxim Gorky in 1932. Since then it has been called Gorky Park.\nNowadays, Gorky Park is the central park of Moscow D__________ 20 thousand people on weekdays and more than 100 thousand on weekends and holidays. Since 2011 Gorky Park has become the first world-class amusement park in Russia with space for rest, sport, dancing and games outside. The park offers free entrance, wi-fi coverage, as well E__________. It is a perfect place for an active holiday, with many things to do. Gorky Park now serves F__________, a point of attraction for youth and families.",
+      "options": [
+        {
+          "num": 1,
+          "text": "as a true centre of city life"
+        },
+        {
+          "num": 2,
+          "text": "and is attended by more than"
+        },
+        {
+          "num": 3,
+          "text": "though the park used to be one"
+        },
+        {
+          "num": 4,
+          "text": "who like fun and entertainment"
+        },
+        {
+          "num": 5,
+          "text": "as this park in the world at the time"
+        },
+        {
+          "num": 6,
+          "text": "as newly designed recreational zones"
+        },
+        {
+          "num": 7,
+          "text": "who enjoys cultural events and shows"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B4 C5 D2 E6 F1"
+    },
+    {
+      "id": "92220C",
+      "title": "Borodino battlefield",
+      "text": "Borodino battlefield was the site of the turning-point Battle of Borodino in 1812, during the Napoleonic Wars. Two hundred years later, the rural site presents a vivid history lesson. The entire battlefield is now part of the Borodino Field Museum-Reserve, with dozens of memorials to specific divisions and generals. The hilltop monument in front of the Borodino Museum is Bagration’s tomb. It is the grave of Prince Bagration, a heroic general A__________.\nThe Borodino Museum is an excellent place to start with B__________. Visitors can study an interactive diorama of the Battle of Borodino before setting out to see the site in person. The main exhibitions feature original objects from the battle, C__________ and personal items. The displays, created by soldiers and their contemporaries, demonstrate the perception of the battle and the Napoleonic Wars at the time. There is also an exhibition D__________ at this site.\nThere are several other exhibitions related to the 1812 battle on the grounds of the Borodino Monastery. Leo Tolstoy stayed there E__________ for his novel War and Peace.\nIf travelling by car, tourists can see monuments F__________, as well as the headquarters of both the French and Russian armies. If tourists come by train, they will see the monuments only along the road between the train station and the museum.",
+      "options": [
+        {
+          "num": 1,
+          "text": "as it provides a useful overview"
+        },
+        {
+          "num": 2,
+          "text": "when he was writing about the events"
+        },
+        {
+          "num": 3,
+          "text": "who was mortally wounded in the battle"
+        },
+        {
+          "num": 4,
+          "text": "including uniforms, weapons, documents"
+        },
+        {
+          "num": 5,
+          "text": "that is dedicated to the World War II battle"
+        },
+        {
+          "num": 6,
+          "text": "who has become a soldier and a great writer"
+        },
+        {
+          "num": 7,
+          "text": "marking the sites of the most violent fighting"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B1 C4 D5 E2 F7"
+    },
+    {
+      "id": "9B8F0C",
+      "title": "London’s skyscraper",
+      "text": "The Shard is a modern glass skyscraper in London. The skyscraper is situated in the London Bridge Quarter in Southwark. It is right near the heart of London and only the river separates it from the City of London. The area is full of history: a bridge was built there by the Romans around 50 AD A__________.\nThe plans for the London Bridge Tower, as the building was initially called, caused a strong protest from people B__________ for a historic neighbourhood with mostly low-rise brick buildings. They claimed the tower would cut through the neighbourhood like a shard of glass. The name “shard” stuck C__________ - “The Shard”.\nWhen it was completed the Shard held the record as Europe’s tallest skyscraper with a height of almost 310 metres. Only a couple of months later, it was surpassed in height by Moscow’s Mercury City Tower. The Shard towers over the neighbourhood and is visible from afar. The iconic skyscraper looks particularly spectacular at night D__________.\nThe building is multifunctional, with offices and a hotel on the lower floors E__________. The top floors of the Shard are home to the “View from the Shard”, an observation deck F__________ of the city. On a clear day one can see as far as sixty kilometres. At a height of 245 metres, this is the highest public viewing gallery in London, almost twice as high as the London Eye.",
+      "options": [
+        {
+          "num": 1,
+          "text": "when seen from across the river Thames"
+        },
+        {
+          "num": 2,
+          "text": "who is concerned about the city’s heritage"
+        },
+        {
+          "num": 3,
+          "text": "and the developers even renamed the tower"
+        },
+        {
+          "num": 4,
+          "text": "who considered the glass tower inappropriate"
+        },
+        {
+          "num": 5,
+          "text": "and residential apartments on the upper floors"
+        },
+        {
+          "num": 6,
+          "text": "that offers visitors spectacular 360 degree views"
+        },
+        {
+          "num": 7,
+          "text": "and in 1836 the first railway station opened there"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A7 B4 C3 D1 E5 F6"
+    },
+    {
+      "id": "5E5974",
+      "title": "Red Pandas",
+      "text": "Have you ever seen a red panda? With their cute fluffy faces and funny games, they’ve become internet superstars. Red pandas look nothing like giant pandas; yet just like them, red pandas live in the mountainous forests of Asia. But while giant pandas belong to the bear family, red pandas A__________, raccoons and weasels.\nRed pandas were carnivores, B__________. They had teeth designed for ripping and shredding. However, more than 2 million years ago, they decided bamboo was a better choice and switched to a bamboo-based diet. Bamboo doesn’t run away, C__________. They might also occasionally eat fruits, insects and bird eggs, too.\nRed pandas are skilled tree-top navigators. They have sharp claws like a cat, D__________. They also use their bushy tails to help keep their balance. The funny fact about red pandas is that they can climb down a tree headfirst. They are E__________.\nThough it might not seem like it, a red panda’s rusty coat helps them to hide in the forest. The trees F__________ and Myanmar are covered with reddish-brown moss. Red pandas blend right in.\nRed pandas also have black fur on their belly and legs. This helps them camouflage with the forest's dark leaves. This also helps them hide from their predators.",
+      "options": [
+        {
+          "num": 1,
+          "text": "which are animals that eat meat"
+        },
+        {
+          "num": 2,
+          "text": "one of the few animals that can do this"
+        },
+        {
+          "num": 3,
+          "text": "are probably more closely related to skunks"
+        },
+        {
+          "num": 4,
+          "text": "it’s always green, and you can always find it"
+        },
+        {
+          "num": 5,
+          "text": "which they use to hold on to slippery tree branches"
+        },
+        {
+          "num": 6,
+          "text": "in the mountainous forests of China, India, Nepal"
+        },
+        {
+          "num": 7,
+          "text": "who have everything for eating and digesting plants"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B1 C4 D5 E2 F6"
+    },
+    {
+      "id": "A6B07B",
+      "title": "Bandy",
+      "text": "Have you ever heard of such a sport as bandy? It is the “elder brother”\nof hockey, and Russia A__________. Folk amusements resembling bandy were known in Russia already before the Middle Ages. Some historians even say that Emperor Peter I, B__________, was a fan of this sport. Yet, bandy became popular only at the end of the XIX century.\nBy that time, certain rules had already been settled. In 1888 a sports club appeared in Saint Petersburg, which was founded by one of the students. And in 1897 Petr Moskvin, C__________, developed single bandy rules for Russia. Next year, on March 8, 1898 the first match was played. This date is called\nthe “birthday” of Russian bandy.\nAt the beginning of the XX century, bandy D__________. As a result, it was often called “Russian hockey”. And hockey with a puck really came into being largely because of the great popularity of bandy. Therefore, many rules of the games are similar. Yet, the differences between these two sports are quite significant. The most important ones are about inventory and a team. Bandy uses a rubber ball, E__________, instead of a puck. As for the team, F__________, there can be no more than six hockey players from one team on the field. While in bandy, eleven players including a goalkeeper make the same team on the field.",
+      "options": [
+        {
+          "num": 1,
+          "text": "was very popular all over Russia"
+        },
+        {
+          "num": 2,
+          "text": "while Russia kept bandy traditions"
+        },
+        {
+          "num": 3,
+          "text": "played a big role in its development"
+        },
+        {
+          "num": 4,
+          "text": "when it comes to hockey with a puck"
+        },
+        {
+          "num": 5,
+          "text": "who brought skates from the Netherlands"
+        },
+        {
+          "num": 6,
+          "text": "an enthusiastic sportsman and the founder of the circle"
+        },
+        {
+          "num": 7,
+          "text": "which weighs 60 grams and is 6.3 centimetres in diameter"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B5 C6 D1 E7 F4"
+    },
+    {
+      "id": "133FB1",
+      "title": "Kenya",
+      "text": "Kenya - the name is almost synonymous with the word “safari”. Few other places on the planet evoke such a spirit of adventure and romance. The diversity of things to do in Kenya dazzles all who visit it, A__________. In those sunny lands, ancient tribes, such as the Maasai, Kikuyu, and Samburu, retain their traditional customs, B__________.\nCrowned by Mount Kilimanjaro, Africa’s highest peak, Amboseli National Reserve is one of Kenya’s most popular tourist parks. The reserve is one of the best places in Africa C__________. Other wildlife commonly spotted in the park includes big cats, such as lion and cheetah, as well as giraffes, impalas, gazelles, D__________. Nature lovers can explore five different habitats there, ranging from the dried-up bed of Lake Amboseli to wetlands, savannah, and woodlands.\nKenya is stunning. Beyond the world-famous safari parks lies a collection of coastal treasures. Tourists can snorkel and dive fish-rich coral reefs, relax on pearly beaches, experience the melting pot of cultures and cuisines, E__________. Tourists can also climb the snow-covered peaks of Mount Kenya and fish for trout in crystal-clear streams. To experience the romance of Kenya’s colourful colonial history, it is advised to head to Nairobi. That bustling capital is the gateway F__________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "to view large herds of elephants up close"
+        },
+        {
+          "num": 2,
+          "text": "and viewing the country’s wildlife tops the list"
+        },
+        {
+          "num": 3,
+          "text": "and more than 600 species of different birds"
+        },
+        {
+          "num": 4,
+          "text": "and explore tropical islands frozen in history"
+        },
+        {
+          "num": 5,
+          "text": "resting on trees or hunting their prey in the wild"
+        },
+        {
+          "num": 6,
+          "text": "to one of the world’s exciting travel destinations"
+        },
+        {
+          "num": 7,
+          "text": "living in relative harmony with the natural world"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B7 C1 D3 E4 F6"
+    },
+    {
+      "id": "task_30",
+      "title": "Russian souvenirs",
+      "text": "When you travel to Russia, you will undoubtedly want to bring back a memento from your trip, not to mention small souvenirs for important people back home. It’s very easy in Russia to fall A__________ Matryoshka dolls from one of the massive souvenir markets. If you’re travelling on a budget, you don’t have to hunt B__________ magnet. Choose one of these interesting, unique, and truly Russian gifts instead.\nRussia makes some incredible candy and chocolate, and you can find these for sale in almost any Russian shop. Sometimes you can even C__________ the shop there. You can’t go wrong with Russian candy, but be careful, don’t go for the cheapest kind of chocolate, and obviously don’t buy anything that is clearly not Russian.\nAnother option is “Valenki”: traditional Russian winter boots, made out of sheep’s wool felt. They usually don’t D__________ grey felt, and are thus often worn with “galoshes”, or rubber boots. These days you can find valenki combined with rubber soles to make a real shoe. One way or E__________ Russia. They’re warm and they make great slippers and presents for babies and children.\nRussia is also famous F__________ authentic and inexpensive gift would be a Russian classic. You can find Russian books in translation in many bookstores.",
+      "options": [
+        {
+          "num": 1,
+          "text": "others bring cheap souvenirs from"
+        },
+        {
+          "num": 2,
+          "text": "visit the factory and buy chocolate in"
+        },
+        {
+          "num": 3,
+          "text": "have a hard sole, just one thick piece of"
+        },
+        {
+          "num": 4,
+          "text": "into the tourist trap of buying overpriced"
+        },
+        {
+          "num": 5,
+          "text": "around for the cheapest nesting doll set or"
+        },
+        {
+          "num": 6,
+          "text": "another, they are a gift straight out of historical"
+        },
+        {
+          "num": 7,
+          "text": "for its authors, poets, and playwrights, so a great"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A4 B5 C2 D3 E6 F7"
+    },
+    {
+      "id": "F36F14",
+      "title": "Abramtsevo",
+      "text": "Among the beautiful forests of Moscow Region, is the Abramtsevo Estate, which became a meeting point for the most outstanding members of the Russian cultural circle. At different times the estate was visited by Russian writers, A__________ Ivan Turgenev. But the estate became most famous due to the painters who worked there: Vasily Polenov, Viktor Vasnetsov, Ilya Repin, Valentin Serov, and Mikhail Vrubel.\nIn 1870 Savva Mamontov, B__________, bought the lovely estate 45 km north of Moscow. There, he hosted a large number of artists, C__________. Many artists came there to try their hand at the woodwork and ceramics workshops. Famous musicians of that time performed in Mamontov’s private opera, including Feodor Chaliapin, D__________.\nSeveral rooms of the manor house have been preserved intact, complete with artwork by various former resident artists. The main attraction is Mamontov’s cozy dining room, E__________ his wife, as well as Valentin Serov’s luminous picture The Girl with Peaches. A striking majolica bench by Mikhail Vrubel is in the garden.\nOne of the main symbols of the estate is the Saviour Church, F__________. It is the prettiest building on the grounds. The structure is a perfect realization of the owner’s intentions to show his deep respect for the 14th-century Novgorod architecture.",
+      "options": [
+        {
+          "num": 1,
+          "text": "who made his debut in Abramtsevo"
+        },
+        {
+          "num": 2,
+          "text": "which was built between 1881 and 1882"
+        },
+        {
+          "num": 3,
+          "text": "including Nikolai Gogol, Leo Tolstoy and"
+        },
+        {
+          "num": 4,
+          "text": "which was invented by a famous Russian writer"
+        },
+        {
+          "num": 5,
+          "text": "featuring Ilya Repin’s portraits of the patron and"
+        },
+        {
+          "num": 6,
+          "text": "who sought inspiration in the gardens and forests"
+        },
+        {
+          "num": 7,
+          "text": "who was a railway magnate and patron of the arts"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B7 C6 D1 E5 F2"
+    },
+    {
+      "id": "153F1C",
+      "title": "Aurora",
+      "text": "The cruiser Aurora is a museum in St. Petersburg. It is a former Russian naval ship that has played an important part in the country’s history.\nThe Aurora was built between 1897 and 1900 at the Admiralty shipyard in St. Petersburg. The cruiser was one of the largest ships of its time. After its construction was complete, the Aurora took its place as part of the Russian 2nd Squadron in the Pacific Ocean. In May 1905, it took part in the Battle of Tsushima and was one of just a few Russian ships A__________. After the battle in the Baltic, it returned to St. Petersburg B__________.\nThe ship served during World War I. When it returned to St. Petersburg in 1916 for major repairs, the city was on the edge of revolution C__________ the 1917 February Revolution. Soon the Aurora was to play a huge part in the October revolution. The ship is famous for firing the shot D__________ the Winter Palace.\nOnce again in 1922, the Aurora served as a training ship. During World War II, the ship’s guns were removed to use for land defense. Unfortunately, being left defenseless it was sunk in Leningrad harbour to keep it from E__________. The ship was brought back to the surface in 1944 and later, after extensive repairs, it was permanently anchored at the harbour and became a museum in 1957.\nThe Aurora is now maintained by cadets from the nearby Nakhimov Navy School. Admission is free to the public, F__________ a small fee.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and many crew members joined"
+        },
+        {
+          "num": 2,
+          "text": "and became a cadet training ship"
+        },
+        {
+          "num": 3,
+          "text": "that survived the intense naval battle"
+        },
+        {
+          "num": 4,
+          "text": "that signaled the prepared attack on"
+        },
+        {
+          "num": 5,
+          "text": "protecting the territory of the harbour"
+        },
+        {
+          "num": 6,
+          "text": "falling into the hands of the Germans"
+        },
+        {
+          "num": 7,
+          "text": "though a visit to the engine room carries"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B2 C1 D4 E6 F7"
+    },
+    {
+      "id": "D69B12",
+      "title": "Veliky Novgorod",
+      "text": "Veliky Novgorod, one of the most ancient cities of Russia, was founded in the 9-10th centuries. Veliky Novgorod was a political centre of vast territories stretching up from Baltic lands to the Urals. For a long time the city had been the largest centre of culture in Russia, A__________. Many outstanding monuments of medieval architecture and painting have been preserved in the city.\nThe Kremlin is one of the most popular sights. It was built in 1044 by order of Prince Jaroslav the Wise. It is surrounded by a wall 1487 metres long. It once had 12 towers, B__________. The particular characteristic of the Kremlin is a large number of churches on the area. The architecture represents the style of the 15th century. The area around the Kremlin is very well-kept C__________. From the bastions one will have a wonderful view over the whole city.\nThe outdoor Vitoslavlitsy Museum of Folk Wooden Architecture is a haven to the people D__________ with massive skyscrapers, business centres and shopping malls. The museum presents some excellent examples of wooden structures from different parts and suburbs of Veliky Novgorod. The scenery here is so quiet E__________ and will just enjoy the stunning view of the Russian village.\nThe visit to the city helps to get acquainted with the history and the way of life of common country folk F__________ in different times.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and has a lot of green places"
+        },
+        {
+          "num": 2,
+          "text": "but now only 9 of them still exist"
+        },
+        {
+          "num": 3,
+          "text": "that they are protected by the state"
+        },
+        {
+          "num": 4,
+          "text": "where chronicles and books were created"
+        },
+        {
+          "num": 5,
+          "text": "who are tired of modern urban architecture"
+        },
+        {
+          "num": 6,
+          "text": "that one will easily forget about all the troubles"
+        },
+        {
+          "num": 7,
+          "text": "who lived on the territory of Novgorod principality"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A4 B2 C1 D5 E6 F7"
+    },
+    {
+      "id": "9F4E11",
+      "title": "Unique nature of Kamchatka",
+      "text": "Kamchatka is a peninsula located in the north-eastern part of Russia. It is surrounded with the Okhotskoye Sea, the Beringovo Sea and the Pacific Ocean. This region has a very unique environment A__________ one is looking for picturesque views, unforgettable travels and unity with nature.\nKamchatka is famous for its volcanoes, B__________. Volcanoes are represented on Petropavlovsk-Kamchatsky, the most eastern city in the northern hemisphere, coat of arms as well. There are more than 300 volcanoes in Kamchatka, from 28 up to 36 of them are active, or potentially active. Kamchatka volcanoes are included in the list of the UNESCO World Heritage Sites.\nThe region is also known C__________ - rivers and lakes. Many Kamchatka rivers spring from mountain tops and glaciers, that is why they are very clean, and it is wonderful for those D__________. In general, there are up to 14 thousand rivers and streams, 100 thousand lakes and 414 glaciers in Kamchatka.\nKamchatka is a home to the Valley of Geysers, E__________ geysers in the world, after Icelandic geyser fields. It is not easily accessible, as long as it is too unique to be opened for tourists all the time. The Valley of Geysers’ ecosystem is very vulnerable, F__________ and regulate the visiting. In fact, the larger part of Kamchatka is preserved. There are many nature reserves and nature parks in Kamchatka.",
+      "options": [
+        {
+          "num": 1,
+          "text": "that makes it a place to visit when"
+        },
+        {
+          "num": 2,
+          "text": "to be a place of many water sources"
+        },
+        {
+          "num": 3,
+          "text": "so it is necessary to monitor it all the time"
+        },
+        {
+          "num": 4,
+          "text": "which are depicted on most souvenirs there"
+        },
+        {
+          "num": 5,
+          "text": "who love fishing, including Kamchatka bears"
+        },
+        {
+          "num": 6,
+          "text": "which has the second largest concentration of"
+        },
+        {
+          "num": 7,
+          "text": "to be a popular nature reserve and health resort"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A1 B4 C2 D5 E6 F3"
+    },
+    {
+      "id": "6A4218",
+      "title": "Forbidden City",
+      "text": "China’s largest and most important building is the Forbidden City, also known as the Imperial Palace. It is situated in the very heart of Beijing and it is a must-see A__________. Started between 1271-1368, much of the complex seen today was built between 1406 and 1420. Really many splendid palaces in one, this sprawling complex was the residence of 24 Ming and Qing emperors, B__________ other than the imperial family and their courtesans.\nCovering some 720,000 square metres and protected by a 10-metre-high wall with watchtowers and a wide moat, this massive complex consists of different areas. They were set aside for ceremonial and administrative purposes, as well C__________. While it can take many hours to see everything, highlights include the five white marble Golden River Bridges and the Hall of Supreme Harmony, a 35-metre-tall building housing the imperial throne. One can enjoy the beautiful emperor’s banquet hall, D__________. There is the Palace Museum with its large collection of art and artifacts from the Ming and Qing dynasties.\nOther important attractions in the area around the Imperial Palace include famous Tiananmen Square and the Temple of Heaven, one of the country’s most important religious sites, E__________, the period of the Ming dynasty. In 1987, the former imperial residence was listed F__________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "which dates back to the 15th century"
+        },
+        {
+          "num": 2,
+          "text": "when visiting the country on a guided tour"
+        },
+        {
+          "num": 3,
+          "text": "who are concerned about the site protection"
+        },
+        {
+          "num": 4,
+          "text": "as a private residence used by the emperor"
+        },
+        {
+          "num": 5,
+          "text": "as a protected UNESCO World Heritage site"
+        },
+        {
+          "num": 6,
+          "text": "whose presence forbade the entry of anyone"
+        },
+        {
+          "num": 7,
+          "text": "which is known as the Hall of Preserving Harmony"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B6 C4 D7 E1 F5"
+    },
+    {
+      "id": "B4AC22",
+      "title": "State Darwin Museum",
+      "text": "Charles Darwin was an English naturalist. He found that all species of life A__________ and worded out the scientific theory. According to it, evolution happens because of a process that is called natural selection.\nThe museum, like every prominent social and cultural event, has an individual initiative as its basis. The State Darwin Museum was B__________ and persuasion from A.F. Kots, a young Russian scientist who was very fond of Darwin. It was C__________ Higher Women’s Courses. It was the first museum of biological evolution and natural history in the world. Today the State Darwin Museum is D__________ three buildings with the total area more than\n20 000 sq.m.\nThere are more than 5,000 items occupying the three floors of the museum. One of the most impressive sections has dinosaur models, presented with a fabulous dinosaur soundtrack. The museum E__________ the living world. It has a large display, which shows the variety of wildlife on earth, with animals from all climatic zones from the North Pole to the South.\nOne of the largest collections at the museum is the bird collection, which F__________ birds of paradise.",
+      "options": [
+        {
+          "num": 1,
+          "text": "had evolved from common ancestors"
+        },
+        {
+          "num": 2,
+          "text": "built in Moscow in 1907, under pressure"
+        },
+        {
+          "num": 3,
+          "text": "showing most of the endangered species found in"
+        },
+        {
+          "num": 4,
+          "text": "the largest museum of natural science that occupies"
+        },
+        {
+          "num": 5,
+          "text": "established as an educational museum at the Moscow"
+        },
+        {
+          "num": 6,
+          "text": "presentsa complete scientific picture of the evolution of"
+        },
+        {
+          "num": 7,
+          "text": "consists of many exotic species, including hummingbirds and"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A1 B2 C5 D4 E6 F7"
+    },
+    {
+      "id": "F5F7DA",
+      "title": "Wembley Stadium",
+      "text": "Wembley Stadium connected by EE is the national stadium of England and the home of English football. With 90,000 seats, it is the largest sports venue in the UK A__________. Pelé named this magnificent venue “The Cathedral of Football”. Wembley Stadium (branded as “Wembley Stadium connected by EE for sponsorship reasons”) is internationally recognized B__________ the biggest events including UEFA Champions League Finals in 2011 and 2013, Gold medal matches at the 2012 Olympic Games, England internationals, Emirates FA Cup Finals, concerts and much more!\nThe stadium continues to develop C__________ attract world class events and most recently include investment in a new pitch, LED floodlights, PA system and changing rooms. Wembley reopened its doors in 2007. The stadium was designed with rows of seats D__________ than in the original stadium and with better uninterrupted views.\nThe stadium’s most striking feature is the 133-metre-tall arch that sits above the north side. With the diameter of 7,4 metres, the arch is wide enough for a Channel Tunnel train to run through. With the span of 315 metres, the arch is the longest single span roof structure in the world, E__________.\nA representative from every county in England was involved in the construction of the arch. The stadium bowl protects fans from bad weather with a sliding roof F__________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and is visible right across London"
+        },
+        {
+          "num": 2,
+          "text": "that can be closed and reopened"
+        },
+        {
+          "num": 3,
+          "text": "that are higher and closer to the pitch"
+        },
+        {
+          "num": 4,
+          "text": "that are built in the best possible way"
+        },
+        {
+          "num": 5,
+          "text": "to maintain industry-leading facilities that"
+        },
+        {
+          "num": 6,
+          "text": "and the second-largest stadium in Europe"
+        },
+        {
+          "num": 7,
+          "text": "as an iconic, world-class venue that hosts"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A6 B7 C5 D3 E1 F2"
+    },
+    {
+      "id": "2837D0",
+      "title": "Peter and Paul Fortress",
+      "text": "The Peter and Paul Fortress in St. Petersburg, located on small Hare Island, is the historic core of the city. The history of St. Petersburg begins with the history of the fortress.\nSince 1700 Russia had been fighting the Northern War against Sweden. By 1703 the lands by the Neva River were conquered. To protect them from the attacks of the Swedes it was necessary to build a strong outpost here. The fortress was founded on Hare Island 16 (27) May, 1703 by joint plan of Peter I and French engineer Joseph-Gaspard Lambert de Guerin. This day is well known A__________.\nThe fortress stretches from west to east with six bastions B__________. The Peter’s Gate on the east side, C__________, has remained since the time of Peter I. The Peter and Paul Cathedral, D__________ emperors and the monument of Russian baroque, was completed after the death of the emperor, in 1733. The weathervane as a golden angel with a cross, E__________, is one of the main symbols of the city. On the opposite side of the cathedral, there is the Mint building, constructed in the time of Paul I by architect A. Porto. Coinage was moved to the fortress F__________ in the time of Peter I. The Peter and Paul Fortress has never directly participated in any fighting. From the very beginning of its existence it was used as a political prison. Since 1924 the Peter and Paul Fortress has been a part of the Museum of the History of St. Petersburg.",
+      "options": [
+        {
+          "num": 1,
+          "text": "that are located at the corners"
+        },
+        {
+          "num": 2,
+          "text": "which was designed by D. Trezzini"
+        },
+        {
+          "num": 3,
+          "text": "as the most protected part of the city"
+        },
+        {
+          "num": 4,
+          "text": "which was the burial place of Russian"
+        },
+        {
+          "num": 5,
+          "text": "as the day of the birth of St. Petersburg"
+        },
+        {
+          "num": 6,
+          "text": "and reminding of the rich history of the city"
+        },
+        {
+          "num": 7,
+          "text": "which is located on the spire of the cathedral"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A5 B1 C2 D4 E7 F3"
+    },
+    {
+      "id": "task_39",
+      "title": "Cathedral of Christ the Saviour",
+      "text": "This luxurious cathedral was completed in 1997 - just in time to celebrate Moscow’s 850th birthday. The cathedral’s sheer size and splendour guarantee its role A__________. Muscovites and the guests of Moscow can admire the beauty of this church in the city centre today. The shining gold domes are spectacular to look at from outside and even more impressive inside.\nThe Cathedral of Christ the Saviour is located on the bank of the river on the site of an earlier and similar church of the same name, B__________ Russia’s victory over Napoleon. The Cathedral replicates its predecessor in many ways. Frescoes around the main gallery depict scenes from the War of 1812, C__________.\nThe original church was destroyed in 1931, during Stalin’s hard times of the religion’s decay. His plan to replace the church with a 315-metre-high Palace of Soviets never got off the ground - literally. Instead, for 50 years the site had served another important purpose. It had been used D__________.\nThe original cathedral was built on a hill, which has been levelled since then. The contemporary cathedral has been constructed on a wide base, E__________ Church of Transfiguration. This ground-level chapel contains the unique old icon Christ Not Painted by Hand by Yevgraf Sorokin, F__________ the original cathedral.",
+      "options": [
+        {
+          "num": 1,
+          "text": "as the world’s largest swimming pool"
+        },
+        {
+          "num": 2,
+          "text": "as a grand landmark of Russia’s capital"
+        },
+        {
+          "num": 3,
+          "text": "which was quite miraculously saved from"
+        },
+        {
+          "num": 4,
+          "text": "when the restoration work on the site began"
+        },
+        {
+          "num": 5,
+          "text": "which contains the smaller, but not less stunning"
+        },
+        {
+          "num": 6,
+          "text": "while marble plaques remember its participants"
+        },
+        {
+          "num": 7,
+          "text": "which was built in the 19th century to commemorate"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B7 C6 D1 E5 F3"
+    },
+    {
+      "id": "90575E",
+      "title": "Burns Night",
+      "text": "Each year Scottish people across the world celebrate a unique dinner known as “Burns Night”. This is A__________ called Robert Burns. Traditionally it happens on his birthday, the 25th January. Scotland can be very dark and cold at this time of year, so it’s B__________ with friends and family. Burns is still an important figure in Scotland and even though he died in 1796 at the age of 37, he was recently voted “The Greatest Scot”. His birthday has become as important as Scotland’s national day, St Andrew’s Day.\nThe idea for C__________ soon after his death, and these days is actually quite a complicated affair. To start people are sat down at the table and the host reads a poem called “The Selkirk Grace”. It’s normally done in a Scottish dialect which even English people find difficult to understand. Although Burns probably didn't actually write this, he is known D__________. Next, soup is served. The highlight though is listening to a bagpiper playing as the main course of haggis arrives.\nHaggis is a special dish made from a mixture of sheep heart, lung and liver and oats, which is a bit like a giant sausage and surprisingly tasty. So tasty in fact that Robert Burns wrote E__________. After dinner there’s a speaker, who may recite more poetry and a toast is made to the memory of Robert Burns. Next F__________ about ladies and a female guest replies with a funny speech about men. Throughout the rest of the night there is even more of Burns’ poetry.",
+      "options": [
+        {
+          "num": 1,
+          "text": "to have read it at a dinner"
+        },
+        {
+          "num": 2,
+          "text": "the next course is served which is"
+        },
+        {
+          "num": 3,
+          "text": "a male guest makes a funny speech"
+        },
+        {
+          "num": 4,
+          "text": "to remember a famous Scottish poet"
+        },
+        {
+          "num": 5,
+          "text": "an excellent reason to enjoy a large dinner"
+        },
+        {
+          "num": 6,
+          "text": "a poem about it called ‘Address to a Haggis’"
+        },
+        {
+          "num": 7,
+          "text": "a dinner started over two hundred years ago"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A4 B5 C7 D1 E6 F3"
+    },
+    {
+      "id": "4AEEAA",
+      "title": "Going green",
+      "text": "Green buildings. Green energy. Green cleaning. Once upon a time, green was just another colour in your crayon box. It was also a word A__________. In recent years, “green” has become the universal word for all environmentally friendly things.\nThe happy hum of a washing machine, B__________ are some of the soothing sounds of home. And there are times when these appliances are running all at once at your place. But as C__________ pollution. The more energy your home consumes, the harder power plants have to work, and the more pollution enters the environment.\nAs a resident of a fragile planet, you do want to do your part to help the environment. So you recycle, you use D__________ and you never let the water run while you’re brushing your teeth. But as you do your part to protect the environment, it’s important E__________ can also improve your health. For example, reducing carbon dioxide emissions can be achieved in many ways, and can benefit your health. By deciding to use your bike or walk to work, you benefit both F__________. You reduce your fossil fuel consumption and increase leisure-time physical activity and connect with others. So, don’t hesitate and go green whenever you can.",
+      "options": [
+        {
+          "num": 1,
+          "text": "to keep in mind that living green"
+        },
+        {
+          "num": 2,
+          "text": "your health and the local environment"
+        },
+        {
+          "num": 3,
+          "text": "biking, walking or working from home"
+        },
+        {
+          "num": 4,
+          "text": "public transportation whenever you can"
+        },
+        {
+          "num": 5,
+          "text": "clothes dryer, dishwasher and refrigerator"
+        },
+        {
+          "num": 6,
+          "text": "the neighbour used to describe your garden"
+        },
+        {
+          "num": 7,
+          "text": "your electricity usage goes up, so does the air"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A6 B5 C7 D4 E1 F2"
+    },
+    {
+      "id": "3DC8C7",
+      "title": "Saint Petersburg",
+      "text": "A city of palaces and museums, broad avenues and narrow canals,\nSt. Petersburg’s short history is rich in architectural and artistic treasures. Alongside world-famous attractions such as the Hermitage and St. Isaac’s Cathedral, the city has a lot of equally interesting buildings A__________. St. Petersburg is considered to be Russia’s cultural capital. It reflects the country’s extraordinary fate like no other city.\nSt. Petersburg is a relatively young city, by both Russian and European standards, as B__________. Despite its short life, the city has a rich history. From the early days of Peter the Great to modern times, the city has always bustled with life and intrigue.\nLying across the delta of the Neva River, St. Petersburg, the Venice of the North, is a city C__________, some of which are well-known for their unique history. Bridges are an essential part of the city’s architectural make-up. Among the city’s over 500 bridges, there are numerous technological masterpieces. The centre of the city offers vast areas of green space, D__________.\nSt. Petersburg is a beautiful and fascinating holiday destination and one E__________. Whether to visit the city in a romantic and snowy Russian winter F__________, visitors will be spellbound by\nSt. Petersburg’s culture and beauty.",
+      "options": [
+        {
+          "num": 1,
+          "text": "that is built on hundreds of islands"
+        },
+        {
+          "num": 2,
+          "text": "or during the dazzling white nights in summer"
+        },
+        {
+          "num": 3,
+          "text": "it was only founded in 1703 by Tsar Peter the Great"
+        },
+        {
+          "num": 4,
+          "text": "or considering a variety of the trip accommodation offers"
+        },
+        {
+          "num": 5,
+          "text": "that reveal the mysterious and tragic genius of St. Petersburg"
+        },
+        {
+          "num": 6,
+          "text": "of the most intriguing and historically significant cities in Europe"
+        },
+        {
+          "num": 7,
+          "text": "including beautiful historic gardens and extensive leisure parks"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A5 B3 C1 D7 E6 F2"
+    },
+    {
+      "id": "1C8C97",
+      "title": "The wisteria tree",
+      "text": "Would you like to visit the colourful jungle from The Avatar movie? Then it’s high time A__________ in Tochigi, Japan. Its fairytale-like scenery is so beautiful and enigmatic, it almost seems unreal. The park is home\nto an ancient wisteria tree B__________ “the most beautiful in\nthe world.” At around 160 years old, the massive tree is stunning when in full bloom. The vertical flowers hang so far down that they nearly touch the ground and create a purplish-pink cloud that floats above the grass.\nHuman care helps to give Ashikaga’s wisteria tree its stunning appearance. Because of its age and the number of blooms, the tree branches are supported\nby metal beams C__________ an amazing flower umbrella. When the night falls, thousands of lights illuminate the tree and make the spectacle all\nthe more awe-inspiring. With its fairytale feel, it’s no wonder that the tree D__________ around the world.\nIn 2014, Ashikaga Flower Park was selected as the “World’s Dream Travel Destination” by CNN. If E__________, the best time of year to do so is from the middle of April to the middle of May. Though a trip to Japan might be out of the question right now, the Ashikaga Flower Park website should give you a taste of what it’s like to see the wisteria tree in all its glory. It also F__________ currently in bloom - including what they look like now.",
+      "options": [
+        {
+          "num": 1,
+          "text": "that is often referred to as"
+        },
+        {
+          "num": 2,
+          "text": "has information about other flowers"
+        },
+        {
+          "num": 3,
+          "text": "you travelled to the Ashikaga Flower Park"
+        },
+        {
+          "num": 4,
+          "text": "you’d like to visit the wisteria tree yourself"
+        },
+        {
+          "num": 5,
+          "text": "we move our eyes across a variety of colours"
+        },
+        {
+          "num": 6,
+          "text": "has been a muse for landscape photographers"
+        },
+        {
+          "num": 7,
+          "text": "which stretch across more than 600 metres and form"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B1 C7 D6 E4 F2"
+    },
+    {
+      "id": "E7B291",
+      "title": "Tourism in Altai",
+      "text": "Hundreds of tourists come to Altai every year. The most popular kinds of activities are climbing, snowboarding and hiking around the legendary routes. Cycling, diving, rafting, kayaking, sailing, swimming and fishing are widely enjoyed as well. Many people come there for more passive relaxation, such as spa, and feasting their eyes upon the flower of maralnik, A__________, blossoming in spring. Eco tourists are often attracted by collecting healing herbs, horse riding and participating in cultural events, such as the famous “Votetno” in summer, B__________.\nTourist season is in the full swing there usually in the summer. And there is no doubt that it is the perfect time for people C__________ different activities. In summer, one may do the full scope of season activities, from collecting herbs D__________ - all those kinds of hot season entertainment for tourists.\nWinter season begins in the region of Altai in December and ends in March. It is the perfect option E__________. Winter activities are skating and mountain skiing, riding Russian three horses (“troika”), driving snowmobiles and winter fishing. Everybody will find an entertainment to one’s taste. The most popular city for skiing is Belokurikha.\nAnother original way of staying in Altai is housekeeping and taking care of one’s own house and animals. It is the best option for those F__________ of busy cities.",
+      "options": [
+        {
+          "num": 1,
+          "text": "which is a kind of rhododendron"
+        },
+        {
+          "num": 2,
+          "text": "for celebrating winter holidays there"
+        },
+        {
+          "num": 3,
+          "text": "who prefer peaceful life to the noise"
+        },
+        {
+          "num": 4,
+          "text": "who would like to be involved in many"
+        },
+        {
+          "num": 5,
+          "text": "to climbing, sailing, rafting and fishing"
+        },
+        {
+          "num": 6,
+          "text": "and enjoy many traditional winter sports"
+        },
+        {
+          "num": 7,
+          "text": "which is a local festival at the end of July"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A1 B7 C4 D5 E2 F3"
+    },
+    {
+      "id": "345F9E",
+      "title": "The life of Pi",
+      "text": "“The Life of Pi” published in 2001 is the third book by the Canadian author Yann Martel. It has A__________, won several prizes and been translated into forty-one languages.\nAt the start of the book, we B__________ in India. His father owns the city zoo and the family home is in the zoo. When they aren’t at school, Pi and his brother help their father at the zoo and he learns a lot about animals.\nWhen Pi is sixteen, his parents decide to close the zoo and move to Canada. They travel by ship taking the animals with them. On the way, there is C__________. Sadly, Pi’s family and the sailors all die in the storm, but Pi lives and finds himself in a lifeboat with a hyena, zebra, orangutan and an enormous tiger. At first, Pi is scared of the animals and jumps into the ocean. Then he remembers there are sharks in the water and decides to climb back into the lifeboat. One by one, the animals in the lifeboat kill and eat each other, till only Pi and the tiger are left alive. Luckily for Pi, there is D__________, but he soon needs to start catching fish. He feeds the tiger to stop it killing and eating him. He also uses a whistle and E__________ and show it that he’s the boss.\nPi and the tiger spend 227 days in the lifeboat. They live through terrible storms and the burning heat of the Pacific sun. They are often hungry and ill. Finally, they arrive at the coast of Mexico, but you will have to F__________ in the end!",
+      "options": [
+        {
+          "num": 1,
+          "text": "a terrible storm and the ship sinks"
+        },
+        {
+          "num": 2,
+          "text": "received an award for being strong"
+        },
+        {
+          "num": 3,
+          "text": "some food and water on the lifeboat"
+        },
+        {
+          "num": 4,
+          "text": "sold seven million copies worldwide"
+        },
+        {
+          "num": 5,
+          "text": "read the book to find out what happens"
+        },
+        {
+          "num": 6,
+          "text": "learn about Pi’s childhood in Pondicherry"
+        },
+        {
+          "num": 7,
+          "text": "his knowledge of animals to control the tiger"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A4 B6 C1 D3 E7 F5"
+    },
+    {
+      "id": "7BFCE8",
+      "title": "Russian souvenirs",
+      "text": "Russia is famous for its diversity, as well as its hospitality. The best way to show Russia to someone is to bring home something special. Matryoshka and balalaika are quite stereotypical presents. There are many other goods A__________.\nWoolen shawls have always been popular in Russia because of cold winters. The shawls made in Pavlovsky Posad, B__________, are considered to be a traditional Russian gift. Woolen shawls and scarves have been made there since 1795. A wide shawl with a beautiful original pattern on it may be used like a blanket. It is nice to cover oneself up with it sitting in the armchair, watching a movie, C__________. The Pavlovsky Posad manufacture produces scarves for men as well. They can be bought through the Internet, or in brand stores, D__________.\nBelyovskaya pastila is a souvenir E__________. It has been made since the 19th century in the town of Belyov near Tula. This is a very special kind of Russian confection. Though it is called “pastila”, it is not a marshmallow style delicacy. Belyovskaya pastila is made of dried apples. After they have been dried, they are mixed with egg whites and sugar and whipped. Belyovskaya pastila is similar to a cake, F__________ of apples. It is considered to be a natural product, and it is not of average price. Tourists can buy this kind of sweet at some confectioner’s shops throughout Moscow.",
+      "options": [
+        {
+          "num": 1,
+          "text": "although it has a slightly sour taste"
+        },
+        {
+          "num": 2,
+          "text": "reading a book, or drinking coffee or tea"
+        },
+        {
+          "num": 3,
+          "text": "riding a bike around the villages in Russia"
+        },
+        {
+          "num": 4,
+          "text": "that pleases the people with a sweet tooth"
+        },
+        {
+          "num": 5,
+          "text": "that one may buy in Moscow as a souvenir"
+        },
+        {
+          "num": 6,
+          "text": "which is a town not very far from Moscow"
+        },
+        {
+          "num": 7,
+          "text": "which are situated in the centre of Moscow"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A5 B6 C2 D7 E4 F1"
+    },
+    {
+      "id": "C5F1E8",
+      "title": "Chinese tea house in Moscow",
+      "text": "The bright building on Myasnitskaya Street in Moscow stands out among others and attracts the attention of passers-by with its non-typical elements for Russian architecture. The tea house resembles a Chinese pagoda and it is considered to be the real office of a company that was involved in tea trade.\nThis house in the Chinese style was built for the tea merchant Sergei Vasilievich Perlov A__________ in order to establish his own business. He bought the land on Myasnitskaya Street in the centre of Moscow in 1875, B__________ in 1891. The construction was finished by 1893. The first floor was for Perlov’s tea shop, C__________ profitable apartments for rent and the host’s own family.\nThe front side of the newly built house was redecorated in the Chinese style after several years. A little tower in the form of a pagoda appeared D__________ molded dragons, snakes, Chinese umbrellas and lanterns. Some materials for decoration were even brought directly from China. It was made before the visit of the Chinese Ambassador Li Hongzhang, E__________ Nikolai II and Alexandra Fyodorovna coronation. The merchant Perlov thought that it might be useful for his tea business F__________ at this house. He preferred the house of Perlov’s brother and competitor. But thanks to this case now there is a beautiful exotic building right in the city centre, as if it came right from another part of the world.",
+      "options": [
+        {
+          "num": 1,
+          "text": "who was going to visit Moscow for"
+        },
+        {
+          "num": 2,
+          "text": "who left the family tea trade company"
+        },
+        {
+          "num": 3,
+          "text": "and the other two floors were used for"
+        },
+        {
+          "num": 4,
+          "text": "and began to build the new house on it"
+        },
+        {
+          "num": 5,
+          "text": "and the front side was decorated with"
+        },
+        {
+          "num": 6,
+          "text": "which was imported mainly from China"
+        },
+        {
+          "num": 7,
+          "text": "but the Ambassador did not in fact stay"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B4 C3 D5 E1 F7"
+    },
+    {
+      "id": "250468",
+      "title": "Russian food",
+      "text": "Russian food is full of flavour and Russian cuisine is as diverse as the regions in the huge country. It may not be the first to come to mind A__________, but the country has plenty of delicious traditional dishes to try. Visitors to Russia are often surprised at the variety and flavors of Russian cuisine, which is influenced by Russia’s connection to Europe, Asia, and the Middle East. The most classic Russian recipes B__________, porridges, and stuffed dough. Sour cream accompanies many dishes.\nRussian food is famously heavy, filled with potatoes, mayonnaise, meat, and other delicious but not-too-healthy things. Yet, not all Russian food is a calorie bomb! There are C__________ also very healthy. If you’re watching your diet but D__________ food, the best one is borscht.\nBorscht is a beet soup that originated in Ukraine and was quickly adopted as a Russian specialty as well. This soup may taste strange, but E__________ you, as it is filled with cheap and healthy root vegetables like beets and carrots. It can be served with sour cream or yogurt and a sprinkle of fresh parsley on top. It takes quite a long time to make, but I do recommend making the stock from scratch instead of using store-bought. If you find that the stock is still lacking in flavour for whatever reason, F__________ the water.",
+      "options": [
+        {
+          "num": 1,
+          "text": "when you think of a food destination"
+        },
+        {
+          "num": 2,
+          "text": "don’t hesitate to add a bouillon cube to"
+        },
+        {
+          "num": 3,
+          "text": "especially vegetable soups, pasta and stews"
+        },
+        {
+          "num": 4,
+          "text": "it is actually incredibly healthy and good for"
+        },
+        {
+          "num": 5,
+          "text": "are made of veggies and wheat, such as soups"
+        },
+        {
+          "num": 6,
+          "text": "still want to try some traditional Russian dinner"
+        },
+        {
+          "num": 7,
+          "text": "some dinner dishes which are not only delicious but"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A1 B5 C7 D6 E4 F2"
+    },
+    {
+      "id": "task_49",
+      "title": "Nevsky Prospect",
+      "text": "Nevsky Prospect is the main and most famous street of St. Petersburg. The unique architectural ensemble of Nevsky Prospect was formed during the 18th - early 20th centuries. It starts from the bank of the Neva River, runs through the centre of the city and ends at the Neva River. The whole history of St. Petersburg can be seen in the history of the avenue. The length of Nevsky Prospect is 4.5 km, the width is 25-60 m. The narrowest section is located from the Admiralty to the Moika River, A__________.\nAfter the construction of the Admiralty in 1704 and the Alexander Nevsky Monastery in 1710, it was decided to build a road B__________ each other and with the Novgorod Path, which was used by Russian merchants. The construction began on both sides at the same time, the roads were laid through the wood, and in 1760s they were connected into one road, C__________, but with a turn at the Vosstaniya Square. Nevsky Prospect got its name only in 1783. The road was paved with cobble stones, D__________. It was the first street in St. Petersburg with gas lighting. By the early 20th century Nevsky Prospect had become the financial centre of Russia E__________ had their offices there.\nNowadays, Nevsky Prospect is the centre of cultural and social life of\nSt. Petersburg. There are museums, theatres, exhibition halls, cinemas, restaurants, cafés, shops F__________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and hotels there or nearby the avenue"
+        },
+        {
+          "num": 2,
+          "text": "showing the original width of the avenue"
+        },
+        {
+          "num": 3,
+          "text": "which was not as straight as it was planned"
+        },
+        {
+          "num": 4,
+          "text": "which were built by famous architects and"
+        },
+        {
+          "num": 5,
+          "text": "connecting these two important structures with"
+        },
+        {
+          "num": 6,
+          "text": "and a few rows of trees were planted along the street"
+        },
+        {
+          "num": 7,
+          "text": "as the 40 largest banks of Russia, Europe and America"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B5 C3 D6 E7 F1"
+    },
+    {
+      "id": "6E1269",
+      "title": "Around Moscow",
+      "text": "As one leaves Moscow, the fast-paced modern capital fades from view and the slower-paced, old-fashioned countryside unfolds around. The subtly changing landscape of the Moscow region is crossed by winding rivers and dotted with peasant villages. This is the classic provincial Russia, A__________ writers over the centuries.\nAncient Russian towns and cities situated not far from Moscow are united in the Golden Ring. The towns are arranged in a circular pattern around the capital, forming a ring. These towns, B__________ Russian Orthodoxy, Pereslavl Zalessky, Rostov, Yaroslavl, Kostroma, Ivanovo, Suzdal and Vladimir, were built between the 11th and 17th centuries. The Golden Ring area provides an excellent opportunity to view a typical old Russian town C__________ monasteries. Today, these towns are often known as open-air museums. The unique monuments of Russian architecture are kept and compiled there, reminding visitors of the dramatic events and different personalities of the past D__________. In Suzdal and Kostroma there are two interesting outdoor architectural museums - entire wooden villages E__________. All the towns of the Golden Ring have been well restored. Many of the buildings are now museums F__________ the country during their Golden Age, an age that lasted over four centuries.",
+      "options": [
+        {
+          "num": 1,
+          "text": "that made up glorious Russian history"
+        },
+        {
+          "num": 2,
+          "text": "which was immortalized by artists and"
+        },
+        {
+          "num": 3,
+          "text": "that still keeps its Kremlin, churches and"
+        },
+        {
+          "num": 4,
+          "text": "that were built to represent old Russian life"
+        },
+        {
+          "num": 5,
+          "text": "whose contribution is internationally accepted"
+        },
+        {
+          "num": 6,
+          "text": "including Sergiev Posad, which is the centre of the"
+        },
+        {
+          "num": 7,
+          "text": "tracing the history of the area that was the centre of"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B6 C3 D1 E4 F7"
+    },
+    {
+      "id": "2C5F33",
+      "title": "State Hermitage Museum",
+      "text": "The Hermitage is St. Petersburg’s most popular visitor attraction, and one of the world’s largest and most prestigious museums. It is a must-see for all first-time travellers to the city. With over 3 million items in its collection, it also rewards repeat visits, A__________ of the riches on offer here, from Impressionist masterpieces to fascinating Oriental treasures. It was estimated B__________ on display for just one minute. So many visitors prefer a guided tour to ensure C__________ highlights. Art-lovers, however, may find it more rewarding to seek out for themselves the works D__________.\nThe bulk of the Hermitage collection is housed in the Winter Palace, E__________. However, there are a number of other sites that constitute part of the Hermitage, including the recently opened Storage Facility in the north of St. Petersburg. It offers guided tours through some of the museum’s vast stocks. The magnificent General Staff Building opposite the Winter Palace is most famous for its central triumphal arch, F__________ Nevsky Prospekt. The General Staff Building contains a number of unique exhibitions. It includes the Modern European Art, probably the most visited section of the Hermitage with well-known collections of Picasso and Matisse, as well as a wealth of popular Impressionist paintings.",
+      "options": [
+        {
+          "num": 1,
+          "text": "that they are particularly interested in"
+        },
+        {
+          "num": 2,
+          "text": "that they have time to catch all the collection’s"
+        },
+        {
+          "num": 3,
+          "text": "and new-comers can only hope to get a brief taste"
+        },
+        {
+          "num": 4,
+          "text": "which brings pedestrians out on to Palace Square from"
+        },
+        {
+          "num": 5,
+          "text": "that one would need eleven years to view each exhibit"
+        },
+        {
+          "num": 6,
+          "text": "which was the official residence of the Russian emperors"
+        },
+        {
+          "num": 7,
+          "text": "and the exhibition was often visited by military historians"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B5 C2 D1 E6 F4"
+    },
+    {
+      "id": "DF8333",
+      "title": "Kazan",
+      "text": "The exact date of Kazan foundation is unknown. According to the opinions of some historians, it was founded in the second half of the 13th century, but other specialists believe A__________. It is located on the banks of the Volga River. Since 1438 the city was the capital of Kazan Khanate, B__________ Russian tsar Ivan the Terrible.\nNowadays, Kazan is the capital of the Tatarstan republic. Kazan is a large industrial centre of the region. It witnessed many important historical events. Kazan is a very interesting city from the architectural point of view. Here one can see old buildings, C__________ to the present day, for example, the Kremlin with different constructions, the Peter and Paul Cathedral, the Marjani Mosque.\nThe Kazan Kremlin is definitely one of the most attractive places in the city. It is a unique mixture of historical and architectural monuments. The real fortress, with a history lasting through the ages, and its buildings absorbed pieces of Slavic and Turkic cultures, D__________ Muslim and Christian civilizations. On the territory of the Kazan Kremlin tourists will find a complex of old buildings, E__________, sandstone constructions of the\n16-18th centuries, as well as some modern museums. Tourists will have a chance to visit a real fortress and feel a breath of ages while walking inside a unique historical monument, F__________ World Heritage Sites in 2000.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and in 1552 it was conquered by"
+        },
+        {
+          "num": 2,
+          "text": "that the city was founded in 1177"
+        },
+        {
+          "num": 3,
+          "text": "which have been carefully preserved"
+        },
+        {
+          "num": 4,
+          "text": "that the city has many tourist attractions"
+        },
+        {
+          "num": 5,
+          "text": "which were created in the 10-15th centuries"
+        },
+        {
+          "num": 6,
+          "text": "taking the best parts of urban planning from"
+        },
+        {
+          "num": 7,
+          "text": "which was included in the list of the UNESCO"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B1 C3 D6 E5 F7"
+    },
+    {
+      "id": "A51F3B",
+      "title": "Polenovo",
+      "text": "Polenovo is located away from the main transport links to the south-west of Moscow in Tula Region, close to its border with Kaluga Region. It is a surprisingly beautiful estate A__________.\nVasily Polenov is one of Russia’s most renowned landscape painters of the 19th century, and like many Russian artists he had his own country estate, B__________. Polenov’s estate was originally known as Borok, and is located in beautiful surroundings close to the Oka River. It is worth visiting for this reason alone, C__________. At just two hours from Moscow, it is the perfect destination to escape the hustle and bustle of the capital and enjoy the Russian countryside.\nOn the grounds of the estate there are several museums to visit. The main one is the Large House itself, which was built in 1892 D__________ when Vasily Polenov lived there. The smaller neighbouring building is known as the Abbey, which was used as a workshop, E__________ where the painter worked. After looking around the grounds of the estate, one can walk along the Oka River to the Trinity Church, which is located 1.5km north of the estate just past the village of Byokhovo. On the way visitors can enjoy the beautiful views of the Oka. The church was built between 1904 and 1905 according to a plan by Vasily Polenov himself F__________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and tourists can visit its unique interior and see"
+        },
+        {
+          "num": 2,
+          "text": "that was designed and owned by Vasily Polenov"
+        },
+        {
+          "num": 3,
+          "text": "and has been carefully restored to how it looked"
+        },
+        {
+          "num": 4,
+          "text": "even if one has no interest in Polenov or his work"
+        },
+        {
+          "num": 5,
+          "text": "that were regularly invited to his hospitable house"
+        },
+        {
+          "num": 6,
+          "text": "which must have provided inspiration for his painting"
+        },
+        {
+          "num": 7,
+          "text": "and therefore should not be missed when visiting the estate"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B6 C4 D3 E1 F7"
+    },
+    {
+      "id": "C15A3D",
+      "title": "Wonderful underwater life",
+      "text": "The ocean graces more than 70 % of our planet, and millions of marine species call these waters home. Whether a person is a novice or an experienced snorkeller, there are plenty of places to witness enchanting underwater life. All one needs is a mask, snorkel and fins A__________.\nFrom sharing the sea with manta rays in the Maldives B__________ and being surrounded by colourful fish in the Caribbean, these are the best places to go snorkelling in the world.\nFor brilliant marine life and eye-popping coral, there is nowhere better than the Great Barrier Reef. As the planet’s largest reef system, the Great Barrier Reef is made up of 2,900 individual reefs C__________. More than a thousand fish species, along with six species of sea turtles, inhabit the reef. Warming waters are causing the coral to bleach, and scientists predict D__________.\nKomodo National Park is another place to go to enjoy underwater beauty. It is centrally located in Indonesia. Established in 1980 to preserve the Komodo Dragon, the park became a UNESCO World Heritage site six years later. As one of five islands E__________, the park gets a lot of attention, but the surrounding waters can’t be overlooked. Having enjoyed protected status for more than 30 years, the reefs are thriving with a variety of exotic underwater life, F__________.",
+      "options": [
+        {
+          "num": 1,
+          "text": "stretching nearly 1,400 miles off the shoreline"
+        },
+        {
+          "num": 2,
+          "text": "including over 1000 species of tropical fish"
+        },
+        {
+          "num": 3,
+          "text": "to experience the beauty of unique coral reefs"
+        },
+        {
+          "num": 4,
+          "text": "where one can see the unique lizard in the wild"
+        },
+        {
+          "num": 5,
+          "text": "to seeing humpback whales in the Dominican Republic"
+        },
+        {
+          "num": 6,
+          "text": "that the reef has become a popular tourist sight"
+        },
+        {
+          "num": 7,
+          "text": "that the reef may become extinct as soon as 2050"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A3 B5 C1 D7 E4 F2"
+    },
+    {
+      "id": "8A783E",
+      "title": "Unusual tourist attractions",
+      "text": "The Kremlin is always the first thing to see in Moscow. Earlier, there was only one route available for visitors to the Kremlin. It includes A____________ with the entrance to Alexandrovsky Garden. Since the end of 2016, tourists have another option to access the Kremlin. The starting point is at Spasskaya Tower in Red Square. The new route features archaeological discoveries, displaying the basements of the demolished monasteries, B____________, as well as the Maly Nikolaevsky Royal Palace.\nBoat cruises are very popular in Moscow, C____________. Many enclosed and heated boats with panoramic windows and ice-breaking equipment can be found on the Moscow River. On their way tourists will see the city sights such as Stalin’s skyscrapers and the Kremlin.\nFor the last five years a lot of Moscow streets have become pedestrian zones. The city authorities ordered the construction of cosy European-style promenades with street lamps, benches and flower beds, D____________.\nRussians are the greatest fans of winter, E____________ to the beginning of March. One of the main Muscovites’ leisure activities is skating at popular public places like Red Square, Gorky Park and VDNKh, F____________. At the end of 2016 the new skating-rink started operating on the roof of Moscow City’s 85-floor OKO tower at a height of 354 metres. The view is breathtaking.",
+      "options": [
+        {
+          "num": 1,
+          "text": "visiting the museums of the inner area"
+        },
+        {
+          "num": 2,
+          "text": "which is from the end of November"
+        },
+        {
+          "num": 3,
+          "text": "dating back to the 14th and 16th centuries"
+        },
+        {
+          "num": 4,
+          "text": "and winter activities range from ice-skating"
+        },
+        {
+          "num": 5,
+          "text": "and river transportation season never stops"
+        },
+        {
+          "num": 6,
+          "text": "which were designed for everyone to enjoy"
+        },
+        {
+          "num": 7,
+          "text": "where the Europe’s biggest skating-rink is located"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A1 B3 C5 D6 E2 F7"
+    },
+    {
+      "id": "task_56",
+      "title": "Letniy Sad",
+      "text": "Letniy Sad (The Summer Garden) is a park ensemble, a monument of landscape art of the 18th century. Letniy Sad is the oldest park in St. Petersburg. The park was founded by Peter I in 1704. The Tsar dreamed of his own Versailles and drew its original plan himself. He planned to create a regular, architectural park with accurate layout and straight paths. Prominent architects and gardeners took part in its creation. The park was supposed to become a place of relaxation, A__________.\nLetniy Sad is surrounded by water. Natural boundary of the park from the north and east are the Neva and Fontanka Rivers, B__________.\nPeter I brought sculptures from Italy for the park and was very proud of them. In the 18th century there were more than two hundred sculptures, C__________, or moved to suburban royal residences and the Hermitage. Now Letniy Sad is decorated with 90 sculptures - copies made of artificial marble.\nIn May, 2012 Letniy Sad was opened after reconstruction. The reconstruction work had been going on for about three years, D__________ Letniy Sad as it was in the 18th century. Among the new items in Letniy Sad, there is the Archaeological Museum, E__________ during the restoration of the park. Visitors can take a tour of the park F__________ on Sundays.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and restorers have done everything possible to keep"
+        },
+        {
+          "num": 2,
+          "text": "combining the features of urban and suburban estates"
+        },
+        {
+          "num": 3,
+          "text": "which are planned to be the centre of scientific research"
+        },
+        {
+          "num": 4,
+          "text": "which contains interesting objects found by archaeologists"
+        },
+        {
+          "num": 5,
+          "text": "but later many of them were either destroyed in the flood"
+        },
+        {
+          "num": 6,
+          "text": "and enjoy the exhibitions and performances of a brass band"
+        },
+        {
+          "num": 7,
+          "text": "and from the south and west - the Moika River and the Lebyazhiy Canal"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A2 B7 C5 D1 E4 F6"
+    },
+    {
+      "id": "01CE56",
+      "title": "Sights of Sochi",
+      "text": "Sochi is unique among other Russian cities because it has many aspects of a subtropical resort. Apart from the scenic Caucasus Mountains, pebble and sand beaches, the city attracts tourists with its vegetation, numerous parks, monuments, and extravagant architecture. About two million people visit Greater Sochi each summer, A__________. The famous Caucasian Biosphere Reserve, B__________, lies just north from the city.\n\nPopularity of Sochi among tourists is largely explained by the beauty of its surroundings. Walking along the river Agura, everyone will admire the nature around, C__________, and amazing waterfalls. From the bridge over the Agura opens a magnificent view to the lowest Agura waterfall. In the shady Agura gorge tourists will feel the gentle coolness, D__________.\n\nAkhun Mountain – the biggest in the region – has a beautiful tower on the top. The height of the tower is more than 30 metres, E__________ are stunning. The observation platform on the top of the tower gives a chance to take superb pictures of the city. Every year thousands of people visit this stone tower, F__________ the perfect view of the Black Sea coast and the Caucasus Mountains. It is a truly unforgettable experience. Tourists will enjoy visiting all the sights and the resort itself, full of exotic green and the boundless blue of the Black Sea.",
+      "options": [
+        {
+          "num": 1,
+          "text": "and the views that open from it"
+        },
+        {
+          "num": 2,
+          "text": "which is built on the top to give visitors"
+        },
+        {
+          "num": 3,
+          "text": "when the subtropical resort is almost empty"
+        },
+        {
+          "num": 4,
+          "text": "which is a UNESCO World Heritage Site"
+        },
+        {
+          "num": 5,
+          "text": "enjoying the sound of birds singing and waterfalls gurgling"
+        },
+        {
+          "num": 6,
+          "text": "when the city is home to the annual film festival “Kinotavr”"
+        },
+        {
+          "num": 7,
+          "text": "including high cliffs, exotic vegetation, breathtaking canyons"
+        }
+      ],
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answer": "A6 B4 C7 D5 E1 F2"
+    }
+  ]
+}

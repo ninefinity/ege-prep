@@ -1,0 +1,4086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Задание 11 – Yap O'clock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --ege-ink: #101735;
+  --ege-muted: #65708a;
+  --ege-line: #d8deec;
+  --ege-bg: #f6f7fb;
+  --ege-card: #ffffff;
+  --ege-primary: #101735;
+  --ege-accent: #071a8c;
+  --ege-accent-deep: #071a8c;
+  --ege-accent-soft: #eef1f8;
+  --ege-accent-glow: rgba(7, 26, 140, 0.12);
+  --ege-ok: #197a48;
+  --ege-ok-bg: #eaf8ef;
+  --ege-bad: #be294a;
+  --ege-bad-bg: #fff0f3;
+  --ege-mixed-bg: #eef1f8;
+  --ege-radius: 12px;
+  --ege-shadow: 0 1px 2px rgba(16, 23, 53, 0.04), 0 4px 14px rgba(16, 23, 53, 0.05);
+  --ege-font-ui: "DM Sans", system-ui, sans-serif;
+  --ege-font-text: "DM Sans", system-ui, sans-serif;
+  --ege-font-cyrillic: "DM Sans", system-ui, sans-serif;
+  --ege-workspace-min: 480px;
+  --ege-workspace-max: calc(100vh - 120px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--ege-bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ege-font-text);
+  color: var(--ege-ink);
+  background-color: var(--ege-bg);
+  line-height: 1.65;
+}
+
+a {
+  color: var(--ege-accent);
+}
+
+.ege-page {
+  flex: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 16px 18px 32px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 20px 24px;
+  align-items: start;
+}
+
+.ege-topics {
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  padding-right: 4px;
+  grid-row: 1 / span 3;
+}
+
+.ege-rail {
+  min-width: 0;
+}
+
+.ege-workspace {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+}
+
+/* ── Topbar ── */
+.ege-topbar {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.ege-topbar--compact .ege-topbar__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ege-topbar__title {
+  margin: 0;
+  font-family: var(--ege-font-cyrillic);
+  font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+  font-weight: 600;
+  color: var(--ege-primary);
+  line-height: 1.45;
+  min-width: 0;
+  flex: 1;
+  white-space: normal;
+  max-width: 72ch;
+}
+
+.ege-tips-toggle {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  margin-left: auto;
+  border: 2px solid #e11d48;
+  background: #fff;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 3px rgba(225, 29, 72, 0.18),
+    0 0 10px rgba(225, 29, 72, 0.26),
+    0 0 18px rgba(225, 29, 72, 0.16);
+  animation: ege-tips-glow 2.2s ease-in-out infinite;
+}
+
+.ege-tips-toggle:hover,
+.ege-tips-toggle:focus-visible {
+  outline: none;
+  border-color: #be123c;
+  box-shadow:
+    0 0 0 3px rgba(225, 29, 72, 0.28),
+    0 0 14px rgba(225, 29, 72, 0.36),
+    0 0 22px rgba(225, 29, 72, 0.2);
+}
+
+.ege-tips-toggle__icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin: 2px auto;
+  object-fit: contain;
+  animation: ege-tips-flash 2.2s ease-in-out infinite;
+}
+
+.ege-tips-toggle.is-seen {
+  animation: none;
+  border-color: var(--ege-line);
+  box-shadow: none;
+}
+
+.ege-tips-toggle.is-seen:hover,
+.ege-tips-toggle.is-seen:focus-visible {
+  border-color: var(--ege-accent);
+  box-shadow: none;
+}
+
+.ege-tips-toggle.is-seen .ege-tips-toggle__icon {
+  animation: none;
+}
+
+@keyframes ege-tips-flash {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.78;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes ege-tips-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba(225, 29, 72, 0.18),
+      0 0 8px rgba(225, 29, 72, 0.22),
+      0 0 14px rgba(225, 29, 72, 0.14);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px rgba(225, 29, 72, 0.24),
+      0 0 12px rgba(225, 29, 72, 0.34),
+      0 0 20px rgba(225, 29, 72, 0.2);
+  }
+}
+
+.ege-tips {
+  margin-top: 4px;
+  padding: 22px 20px;
+  border: 1px solid var(--ege-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--ege-shadow);
+  max-width: none;
+  width: 100%;
+  color: var(--ege-ink);
+  line-height: 1.6;
+}
+
+.ege-tips[hidden] {
+  display: none;
+}
+
+.ege-tips__heading {
+  margin: 0 0 14px;
+  font-family: var(--ege-font-ui);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ege-ink);
+}
+
+.ege-tips__section {
+  margin: 28px 0 12px;
+  font-family: var(--ege-font-ui);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ege-accent);
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+.ege-tips__starters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 640px) {
+  .ege-tips__starters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ege-tips__starters li {
+  background: #f8fafc;
+  border: 1px solid var(--ege-line);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: #334155;
+}
+
+.ege-tips__starters code {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-family: var(--ege-font-ui);
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.ege-tips__starters span {
+  color: #64748b;
+  font-size: 0.84em;
+}
+
+.ege-tips__note {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-left: 4px solid #f59e0b;
+  padding: 10px 14px;
+  border-radius: 0 10px 10px 0;
+  margin: 0 0 8px;
+  font-size: 0.93rem;
+  color: #92400e;
+}
+
+.ege-tips__key {
+  background: #f1f5f9;
+  border: 1px solid var(--ege-line);
+  padding: 11px 14px;
+  border-radius: 10px;
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+}
+
+.ege-tips__map {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(170px, 0.75fr) minmax(0, 1.75fr);
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 0 16px;
+}
+
+.ege-tips__map-head {
+  background: #eef4ff;
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #1e3a8a;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--ege-line);
+}
+
+.ege-tips__map-cell {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--ege-line);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ege-ink);
+}
+
+.ege-tips__map-cell:nth-last-child(-n + 3) {
+  border-bottom: none;
+}
+
+.ege-tips__map-cell code {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-family: var(--ege-font-ui);
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.ege-tips__connector {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0 3px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .ege-tips__map {
+    grid-template-columns: 1fr;
+  }
+
+  .ege-tips__map-head {
+    border-bottom: 1px solid var(--ege-line);
+  }
+}
+
+.ege-tips__card {
+  background: #fff;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+.ege-tips__card:hover {
+  border-color: #bfdbfe;
+}
+
+.ege-tips__card p {
+  margin: 0 0 6px;
+  font-size: 0.92rem;
+  color: var(--ege-ink);
+}
+
+.ege-tips__card p:last-child {
+  margin-bottom: 0;
+}
+
+.ege-tips__card ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 0.92rem;
+}
+
+.ege-tips__card li + li {
+  margin-top: 3px;
+}
+
+.ege-tips__title {
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ege-ink);
+}
+
+.ege-tips__title::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ege-tips__title--that::before {
+  background: #3b82f6;
+}
+
+.ege-tips__title--which::before {
+  background: #6366f1;
+}
+
+.ege-tips__title--who::before {
+  background: #ec4899;
+}
+
+.ege-tips__title--ving::before {
+  background: #10b981;
+}
+
+.ege-tips__title--but::before {
+  background: #f97316;
+}
+
+.ege-tips__title--aswell::before {
+  background: #0ea5e9;
+}
+
+.ege-tips__title--than::before {
+  background: #64748b;
+}
+
+.ege-tips__tip {
+  margin-top: 10px;
+  padding: 9px 12px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #1e40af;
+}
+
+.ege-tips__tip--subtle {
+  background: #f8fafc;
+  border-color: var(--ege-line);
+  color: #64748b;
+}
+
+.ege-tips__hide {
+  margin-top: 8px;
+}
+
+.ege-back {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--ege-accent);
+  font-family: var(--ege-font-ui);
+  font-weight: 600;
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.ege-back:hover {
+  color: var(--ege-ink);
+}
+
+.ege-header h1,
+.ege-header__title {
+  margin: 0;
+  font-family: var(--ege-font-cyrillic);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--ege-primary);
+  line-height: 1.15;
+}
+
+.ege-header__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.ege-brand-mark {
+  display: block;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ege-brand-mark--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.ege-kicker {
+  margin: 0;
+  font-family: var(--ege-font-cyrillic);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ege-accent);
+}
+
+.ege-lede {
+  margin: 0;
+  color: var(--ege-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 56ch;
+}
+
+/* ── Task nav ── */
+.ege-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ege-nav__btn {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ege-primary);
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.ege-nav__btn:hover {
+  background: var(--ege-accent-soft);
+  border-color: var(--ege-line);
+}
+
+.ege-nav__btn.is-active {
+  background: var(--ege-accent);
+  border-color: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-nav__btn.is-perfect:not(.is-active) {
+  box-shadow: inset 3px 0 0 var(--ege-ok);
+}
+
+.ege-nav__btn.is-partial:not(.is-active) {
+  box-shadow: inset 3px 0 0 #ca8a04;
+}
+
+.ege-nav__btn.is-locked {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-color: transparent;
+  background: var(--ege-accent-soft);
+  color: var(--ege-muted);
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+.ege-nav__btn.is-locked .ege-nav__label {
+  flex: 1;
+  min-width: 0;
+  filter: blur(4.5px);
+  opacity: 0.75;
+  user-select: none;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ege-nav__btn.is-locked.is-active {
+  background: var(--ege-accent-soft);
+  border-color: var(--ege-line);
+  color: var(--ege-muted);
+}
+
+.ege-nav__lock {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  display: block;
+  object-fit: contain;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.ege-paywall {
+  margin-top: 8px;
+  padding: 28px 22px;
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  background: var(--ege-card);
+  box-shadow: var(--ege-shadow);
+  text-align: center;
+  max-width: 420px;
+}
+
+.ege-paywall__title {
+  margin: 0 0 8px;
+  font-family: var(--ege-font-ui);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ege-ink);
+}
+
+.ege-paywall__text {
+  margin: 0 0 18px;
+  color: var(--ege-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.ege-paywall .ege-btn {
+  display: inline-flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile task switcher — two horizontal lines */
+.ege-mobile-switch {
+  display: none;
+}
+
+.ege-mobile-switch__line--end {
+  display: none;
+}
+
+/* ── Task panel ── */
+.ege-task-panel {
+  animation: ege-fade 0.25s ease;
+}
+
+@keyframes ege-fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ege-instructions {
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  color: var(--ege-ink);
+  line-height: 1.55;
+  max-width: 72ch;
+}
+
+.ege-instructions .ege-badge {
+  margin-right: 6px;
+}
+
+.ege-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--ege-accent-soft);
+  color: var(--ege-accent);
+  font-family: var(--ege-font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.ege-task {
+  background: var(--ege-card);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--ege-radius);
+  padding: 14px;
+  box-shadow: var(--ege-shadow);
+}
+
+.ege-task--panels {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: grid;
+  gap: 12px;
+}
+
+.ege-answer-box {
+  display: grid;
+  gap: 14px;
+}
+
+.ege-answer-box .ege-ref__list {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .ege-answer-box .ege-ref__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ege-panel--answers .ege-gap-picks {
+  border-top: none;
+  padding-top: 0;
+  max-width: none;
+  width: fit-content;
+}
+
+.ege-panel--answers .ege-panel__label {
+  margin-bottom: 8px;
+}
+
+.ege-panel--answers .ege-gap-picks {
+  display: block;
+}
+
+.ege-answer-table {
+  display: grid;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 12px;
+  background: var(--ege-card);
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+}
+
+.ege-panel--answers .ege-match-pill--clear {
+  justify-self: start;
+  width: 38px;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #b91c1c;
+  background: #fee2e2;
+  border-color: #fecaca;
+  opacity: 1;
+}
+
+.ege-panel--answers .ege-match-pill--clear:hover {
+  color: #991b1b;
+  background: #fecaca;
+  border-color: #fca5a5;
+}
+
+.ege-answer-box .ege-match-letters,
+.ege-answer-box .ege-match-numbers,
+.ege-sidebar-work .ege-match-letters,
+.ege-sidebar-work .ege-match-numbers,
+.ege-panel--answers .ege-match-letters,
+.ege-panel--answers .ege-match-numbers {
+  display: grid;
+  grid-template-columns: repeat(7, 38px);
+  gap: 6px;
+  justify-content: start;
+}
+
+.ege-answer-box .ege-match-letters,
+.ege-sidebar-work .ege-match-letters,
+.ege-panel--answers .ege-match-letters {
+  grid-template-columns: repeat(7, 38px);
+}
+
+.ege-answer-box .ege-match-letters .ege-match-pill,
+.ege-answer-box .ege-match-numbers .ege-match-pill,
+.ege-sidebar-work .ege-match-letters .ege-match-pill,
+.ege-sidebar-work .ege-match-numbers .ege-match-pill,
+.ege-panel--answers .ege-match-letters .ege-match-pill,
+.ege-panel--answers .ege-match-numbers .ege-match-pill {
+  flex: none;
+  width: 38px;
+  min-width: 0;
+  padding: 6px 0;
+}
+
+.ege-answer-box .ege-match-pill--clear,
+.ege-sidebar-work .ege-match-pill--clear {
+  justify-self: start;
+  width: auto;
+  padding: 6px 12px;
+}
+
+.ege-panel--parts .ege-ref__list {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .ege-panel--parts .ege-ref__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ege-panel {
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  background: var(--ege-card);
+  padding: 16px;
+  min-height: 0;
+}
+
+.ege-panel.ege-panel--answers {
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.ege-panel__label {
+  margin: 0 0 12px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ege-muted);
+}
+
+.ege-ref-strip {
+  margin: 0;
+}
+
+.ege-panel--read .ege-passage,
+.ege-panel--read .ege-text-block,
+.ege-panel--read .ege-gapfill-passage {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.ege-panel--work .ege-mc-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.ege-sidebar-work {
+  display: grid;
+  gap: 12px;
+}
+
+.ege-panel--solo {
+  min-height: min(var(--ege-workspace-min), 60vh);
+  max-height: var(--ege-workspace-max);
+  overflow-y: auto;
+}
+
+/* ── Side-by-side panels ── */
+.ege-split {
+  display: grid;
+  gap: 12px;
+}
+
+.ege-split--panels {
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .ege-split--panels {
+    grid-template-columns: minmax(0, 1.75fr) minmax(220px, 0.82fr);
+    gap: 12px;
+    align-items: start;
+  }
+
+  .ege-split--panels .ege-split__read,
+  .ege-split--panels .ege-split__work {
+    border: none;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .ege-split--panels .ege-split__read {
+    position: static;
+  }
+
+  .ege-split--panels .ege-split__work {
+    position: sticky;
+    top: 72px;
+    max-height: var(--ege-workspace-max);
+    overflow-y: auto;
+  }
+
+  .ege-split--panels .ege-panel--read {
+    min-height: var(--ege-workspace-min);
+    max-height: none;
+    overflow: visible;
+  }
+
+  .ege-split--panels .ege-panel--work {
+    min-height: 0;
+    max-height: var(--ege-workspace-max);
+    overflow-y: auto;
+    padding: 12px;
+  }
+
+  .ege-split--panels .ege-panel--solo {
+    min-height: var(--ege-workspace-min);
+    max-height: var(--ege-workspace-max);
+    overflow-y: auto;
+  }
+
+  .ege-split--panels .ege-split__read .ege-passage,
+  .ege-split--panels .ege-split__read .ege-text-block,
+  .ege-split--panels .ege-split__read .ege-gapfill-passage {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .ege-panel--work .ege-panel__label {
+    margin-bottom: 8px;
+  }
+
+  .ege-panel--work .ege-ref__list {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .ege-panel--work .ege-ref__list li {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .ege-panel--work .ege-match-read {
+    gap: 10px;
+  }
+
+  .ege-split--panels .ege-gap-picks,
+  .ege-split--panels .ege-match-picks {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .ege-split--panels .ege-vocab-picks .ege-match-words {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ege-split--panels .ege-vocab-picks .ege-match-pill--word {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  .ege-split--panels .ege-panel--read,
+  .ege-split--panels .ege-panel--work,
+  .ege-panel--solo {
+    min-height: min(360px, 55vh);
+  }
+}
+
+.ege-ref__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ege-ref;
+}
+
+.ege-ref__list li {
+  display: grid;
+  grid-template-columns: 1.6em 1fr;
+  gap: 0 6px;
+  font-size: 1rem;
+  line-height: 1.65;
+  counter-increment: ege-ref;
+  opacity: 0.72;
+  transition: opacity 0.12s, color 0.12s;
+}
+
+.ege-ref__list li.is-used {
+  opacity: 1;
+  color: var(--ege-accent-deep);
+  font-weight: 600;
+}
+
+.ege-ref__list li::before {
+  content: counter(ege-ref) ".";
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  color: var(--ege-accent);
+  text-align: right;
+}
+
+@media (min-width: 560px) {
+  .ege-ref__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ege-panel--work .ege-ref__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Matching: one shared number row ── */
+.ege-match-read {
+  display: grid;
+  gap: 14px;
+}
+
+.ege-match-picks {
+  display: grid;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ege-line);
+}
+
+.ege-match-letters,
+.ege-match-numbers {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+
+.ege-match-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ege-match-letters .ege-match-pill,
+.ege-match-numbers .ege-match-pill {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 6px 4px;
+}
+
+.ege-match-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 8px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ege-primary);
+  cursor: pointer;
+  opacity: 0.72;
+  transition: background 0.12s, border-color 0.12s, color 0.12s, opacity 0.12s;
+}
+
+.ege-match-pill--num {
+  padding: 6px 4px;
+}
+
+.ege-match-pill--clear {
+  justify-self: start;
+  min-width: auto;
+  padding: 6px 12px;
+  font-weight: 600;
+  color: var(--ege-muted);
+  opacity: 0.85;
+}
+
+.ege-match-pill--word {
+  min-width: auto;
+  padding: 8px 14px;
+  min-height: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.ege-match-pill.is-active .ege-gap-pick {
+  color: #fff;
+}
+
+.ege-match-letter__pick {
+  min-width: 1ch;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ege-match-pill:hover {
+  border-color: var(--ege-accent);
+  background: var(--ege-accent-soft);
+  opacity: 0.9;
+}
+
+.ege-match-pill--gap.is-used:not(.is-active) {
+  opacity: 1;
+  background: var(--ege-accent-soft);
+  border-color: color-mix(in srgb, var(--ege-accent) 35%, var(--ege-line));
+  color: var(--ege-accent-deep);
+}
+
+.ege-match-pill--gap.is-active {
+  opacity: 1;
+  background: var(--ege-accent);
+  border: 2px solid var(--ege-accent);
+  color: #fff;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ege-accent) 40%, transparent);
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.ege-match-pill--gap.is-active .ege-match-letter__pick,
+.ege-match-pill--gap.is-active .ege-gap-pick {
+  color: #fff;
+}
+
+.ege-match-pill--num.is-used:not(.is-selected):not(.is-locked) {
+  opacity: 0.28;
+  background: color-mix(in srgb, var(--ege-line) 55%, var(--ege-card));
+  border-color: var(--ege-line);
+  color: var(--ege-muted);
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.ege-match-pill--num.is-used:not(.is-selected):not(.is-locked):hover {
+  opacity: 0.28;
+  background: color-mix(in srgb, var(--ege-line) 55%, var(--ege-card));
+  border-color: var(--ege-line);
+  color: var(--ege-muted);
+}
+
+.ege-match-pill.is-selected {
+  opacity: 1;
+  background: var(--ege-accent);
+  border-color: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-match-pill.is-correct {
+  opacity: 1;
+  background: var(--ege-ok-bg);
+  border-color: var(--ege-ok);
+  color: var(--ege-ok);
+}
+
+.ege-match-pill.is-locked {
+  cursor: default;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.ege-match-pill.is-locked.is-correct {
+  opacity: 1;
+  background: var(--ege-ok-bg) !important;
+  border-color: var(--ege-ok) !important;
+  color: var(--ege-ok) !important;
+}
+
+.ege-match-pill.is-wrong {
+  opacity: 1;
+  background: var(--ege-bad-bg);
+  border-color: var(--ege-bad);
+  color: var(--ege-bad);
+}
+
+.ege-match-pill--gap.is-empty:not(.is-active):not(.is-locked) {
+  background: var(--ege-bad-bg);
+  border-color: var(--ege-bad);
+  color: var(--ege-bad);
+}
+
+@keyframes ege-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-4px);
+  }
+  40%,
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+.ege-answer-table.is-shake,
+.ege-gap-picks.is-shake {
+  animation: ege-shake 0.35s ease;
+}
+
+.ege-match-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ── Text blocks ── */
+.ege-text-block {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.ege-text-block:last-child {
+  margin-bottom: 0;
+}
+
+.ege-text-block strong {
+  color: var(--ege-accent-deep);
+}
+
+.ege-passage {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ── Text highlighter (outside task box) ── */
+.ege-highlight-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ege-highlight-tools__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: var(--ege-card);
+  box-shadow: var(--ege-shadow);
+  font-family: var(--ege-font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ege-primary);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s, box-shadow 0.12s;
+}
+
+.ege-highlight-tools__icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.ege-highlight-tools__btn:hover {
+  border-color: var(--ege-line);
+  background: #f8fafc;
+}
+
+.ege-highlight-tools__btn.is-active {
+  background: #e2e8f0;
+  border-color: var(--ege-line);
+  color: var(--ege-primary);
+  box-shadow: none;
+}
+
+.ege-highlight-tools__btn[data-mode="highlight"]:hover {
+  border-color: #facc15;
+  background: #fef9c3;
+}
+
+.ege-highlight-tools__btn[data-mode="highlight"].is-active {
+  background: #fde68a;
+  border-color: #facc15;
+  color: #854d0e;
+  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.25);
+}
+
+.ege-highlight-tools__btn--ghost {
+  color: var(--ege-muted);
+  min-width: auto;
+  padding: 0 14px;
+}
+
+.ege-highlightable {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.ege-highlightable.ege-erase-mode {
+  cursor: default;
+}
+
+.ege-highlightable .ege-highlight {
+  background: rgba(250, 204, 21, 0.35);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.ege-highlightable.ege-erase-mode .ege-highlight {
+  cursor: pointer;
+  outline: 1px dashed rgba(202, 138, 4, 0.6);
+  outline-offset: 1px;
+}
+
+.ege-mc-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.ege-mc-card {
+  padding: 12px 14px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.ege-mc-card:last-child {
+  margin-bottom: 0;
+}
+
+.ege-mc__prompt {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 0 10px;
+  padding: 0;
+  line-height: 1.55;
+}
+
+.ege-choice-group--mc {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-top: 0;
+}
+
+.ege-pill--option {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+/* ── Pill choice groups ── */
+.ege-choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ege-choice-group--inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.ege-choice-group--grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+@media (min-width: 640px) {
+  .ege-choice-group--grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ege-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid var(--ege-line);
+  border-radius: 8px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ege-primary);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  user-select: none;
+}
+
+.ege-pill--text {
+  min-width: 0;
+  justify-content: flex-start;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: var(--ege-font-text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.ege-pill input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.ege-pill:hover {
+  border-color: var(--ege-accent);
+  background: var(--ege-accent-soft);
+}
+
+.ege-pill:has(input:checked) {
+  background: var(--ege-accent);
+  border-color: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-pill.is-correct {
+  background: var(--ege-ok-bg);
+  border-color: var(--ege-ok);
+  color: var(--ege-ok);
+}
+
+.ege-pill.is-wrong {
+  background: var(--ege-bad-bg);
+  border-color: var(--ege-bad);
+  color: var(--ege-bad);
+}
+
+.ege-gapfill-passage {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.ege-gap-insert {
+  display: inline;
+  white-space: normal;
+  cursor: pointer;
+}
+
+.ege-gap-insert:focus-visible {
+  outline: 2px solid var(--ege-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.ege-gap-insert.is-active-gap:not(.is-filled) {
+  border-color: var(--ege-accent);
+  box-shadow: 0 0 0 2px rgba(7, 26, 140, 0.18);
+}
+
+.ege-gap-insert.is-active-gap.is-filled .ege-gap-insert__text {
+  box-shadow: 0 0 0 2px rgba(7, 26, 140, 0.25);
+}
+
+.ege-gap-insert.is-locked {
+  cursor: default;
+  pointer-events: none;
+}
+
+.ege-gap-insert:not(.is-filled) {
+  display: inline-block;
+  padding: 1px 8px;
+  margin: 0 1px;
+  border: 1px dashed color-mix(in srgb, var(--ege-accent) 45%, transparent);
+  border-radius: 6px;
+  background: var(--ege-accent-soft);
+  font-family: var(--ege-font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ege-accent-deep);
+  vertical-align: baseline;
+}
+
+.ege-gap-insert:not(.is-filled)::before {
+  content: attr(data-gap);
+}
+
+.ege-gap-insert:not(.is-filled)::after {
+  content: " ···";
+  font-weight: 600;
+  color: var(--ege-muted);
+}
+
+.ege-gap-insert.is-empty:not(.is-filled) {
+  background: var(--ege-bad-bg);
+  border-color: var(--ege-bad);
+  color: var(--ege-bad);
+}
+
+.ege-gap-insert.is-empty:not(.is-filled)::after {
+  color: color-mix(in srgb, var(--ege-bad) 70%, var(--ege-muted));
+}
+
+.ege-gap-insert__text {
+  font-weight: 500;
+}
+
+.ege-gap-insert.is-filled .ege-gap-insert__text {
+  background: var(--ege-accent-soft);
+  color: var(--ege-ink);
+  padding: 1px 4px;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.ege-gap-insert.is-filled .ege-gap-insert__text:empty {
+  display: none;
+}
+
+.ege-gap-insert.is-correct.is-filled .ege-gap-insert__text {
+  background: var(--ege-ok-bg);
+}
+
+.ege-gap-insert.is-wrong.is-filled .ege-gap-insert__text {
+  background: var(--ege-bad-bg);
+}
+
+.ege-gap-picks {
+  display: grid;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ege-line);
+}
+
+.ege-gap-picks .ege-match-pill {
+  font-size: 0.95rem;
+  min-height: 40px;
+}
+
+.ege-gap-pick {
+  min-width: 1ch;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.ege-gap-pick:empty {
+  display: none;
+}
+
+/* ── Word formation ── */
+.ege-wordform {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+.ege-wordform__hint {
+  margin: 0 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ege-accent);
+  letter-spacing: 0.03em;
+}
+
+.ege-input {
+  font-family: var(--ege-font-text);
+  font-size: 0.95rem;
+  border: 1px solid var(--ege-line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: #fff;
+  color: var(--ege-ink);
+  min-height: 36px;
+  width: 120px;
+}
+
+.ege-input.is-correct {
+  border-color: var(--ege-ok);
+  background: var(--ege-ok-bg);
+}
+
+.ege-input.is-wrong {
+  border-color: var(--ege-bad);
+  background: var(--ege-bad-bg);
+}
+
+/* ── Task footer ── */
+.ege-task__footer {
+  margin-top: 16px;
+}
+
+.ege-task--panels .ege-task__footer {
+  margin-top: 12px;
+}
+
+.ege-task--panels .ege-panel {
+  border-bottom: none;
+}
+
+.ege-task__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ege-btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ege-btn--primary {
+  background: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-btn--primary:hover {
+  background: #0a2280;
+}
+
+.ege-btn--ghost {
+  background: #fff;
+  border-color: var(--ege-line);
+  color: var(--ege-muted);
+}
+
+.ege-btn--ghost:hover {
+  border-color: var(--ege-accent);
+  color: var(--ege-ink);
+}
+
+.ege-task__score {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  min-height: 2.6em;
+  border-radius: 8px;
+  font-family: var(--ege-font-ui);
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: pre-line;
+}
+
+.ege-task__score[hidden] {
+  display: block;
+  visibility: hidden;
+}
+
+.ege-task__score.is-good {
+  background: var(--ege-ok-bg);
+  color: var(--ege-ok);
+}
+
+.ege-task__score.is-bad {
+  background: var(--ege-bad-bg);
+  color: var(--ege-bad);
+}
+
+.ege-task__score.is-mixed {
+  background: var(--ege-mixed-bg);
+  color: var(--ege-accent);
+}
+
+.ege-explain {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.ege-explain[hidden] {
+  display: none;
+}
+
+.ege-explain__item {
+  background: #fff;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+.ege-explain__item:hover {
+  border-color: #bfdbfe;
+}
+
+.ege-explain__gap {
+  margin: 0 0 8px;
+  font-family: var(--ege-font-ui);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ege-ink);
+  line-height: 1.45;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ege-explain__gap::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #3b82f6;
+  flex-shrink: 0;
+}
+
+.ege-explain__jump {
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #93c5fd;
+  text-underline-offset: 3px;
+}
+
+.ege-explain__jump:hover,
+.ege-explain__jump:focus-visible {
+  color: var(--ege-accent);
+  text-decoration-color: var(--ege-accent);
+}
+
+.ege-gap-insert.is-jump-target {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  border-radius: 6px;
+  transition: box-shadow 0.25s ease;
+}
+
+.ege-explain__why {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ege-ink);
+  line-height: 1.6;
+  background: #eff6ff;
+  border: 1px solid var(--ege-line);
+  border-color: #dbeafe;
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+
+.ege-error {
+  padding: 24px;
+  text-align: center;
+  color: var(--ege-bad);
+}
+
+.site-brand {
+  background: #fff;
+  border-bottom: 1px solid var(--ege-line);
+  padding: 0 max(18px, calc((100vw - 1100px) / 2));
+  height: 64px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.site-brand__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ege-ink);
+  font-family: var(--ege-font-ui);
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.site-brand__link b {
+  font-weight: 700;
+}
+
+.site-brand__logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.site-foot {
+  background: #fff;
+  border-top: 1px solid var(--ege-line);
+  padding: 36px 24px 44px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.site-foot__credit {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ege-muted);
+  line-height: 1.55;
+}
+
+.site-foot__credit a {
+  color: var(--ege-accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-foot__credit a:hover {
+  text-decoration: underline;
+}
+
+.site-foot__logo {
+  display: block;
+  width: min(140px, 42vw);
+  height: auto;
+  margin: 18px auto 0;
+}
+
+@media (max-width: 860px) {
+  .ege-page {
+    grid-template-columns: 1fr;
+    padding: 12px 12px 24px;
+    gap: 12px;
+  }
+
+  .ege-topics {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    grid-row: auto;
+  }
+
+  .ege-rail {
+    display: none;
+    padding: 4px 0 10px;
+  }
+
+  .ege-page.is-nav-open .ege-rail {
+    display: block;
+  }
+
+  .ege-mobile-switch {
+    display: block;
+  }
+
+  .ege-mobile-switch__line,
+  .ege-mobile-switch__line--end {
+    display: block;
+    height: 0;
+    border: 0;
+    border-top: 1.5px solid var(--ege-ink);
+    margin: 0;
+    width: 100%;
+  }
+
+  .ege-mobile-switch__controls {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .ege-mobile-switch__btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--ege-line);
+    border-radius: 8px;
+    background: var(--ege-card);
+    color: var(--ege-ink);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .ege-mobile-switch__btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .ege-mobile-switch__current {
+    border: none;
+    background: transparent;
+    color: var(--ege-ink);
+    font-family: var(--ege-font-ui);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px 4px;
+    cursor: pointer;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ege-mobile-switch__current::after {
+    content: "";
+    display: inline-block;
+    width: 0.45em;
+    height: 0.45em;
+    margin-left: 0.45em;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-0.15em) rotate(45deg);
+    vertical-align: middle;
+    opacity: 0.55;
+  }
+
+  .ege-page.is-nav-open .ege-mobile-switch__current::after {
+    transform: translateY(0.1em) rotate(-135deg);
+  }
+
+  .ege-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .ege-nav__btn {
+    font-size: 0.78rem;
+    padding: 8px 10px;
+    border: 1px solid var(--ege-line);
+    background: var(--ege-card);
+  }
+
+  .ege-nav__btn.is-perfect:not(.is-active),
+  .ege-nav__btn.is-partial:not(.is-active) {
+    box-shadow: inset 0 0 0 1px var(--ege-ok);
+  }
+
+  .ege-nav__btn.is-partial:not(.is-active) {
+    box-shadow: inset 0 0 0 1px #ca8a04;
+  }
+
+  .ege-topbar--compact .ege-topbar__title {
+    white-space: normal;
+  }
+
+  .ege-input {
+    width: 100%;
+    max-width: 160px;
+  }
+}
+
+@media (min-width: 861px) {
+  .ege-mobile-switch,
+  .ege-mobile-switch__line--end {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ege-task-panel {
+    animation: none;
+  }
+
+  .ege-btn {
+    transition: none;
+  }
+
+  .ege-tips-toggle,
+  .ege-tips-toggle__icon {
+    animation: none;
+  }
+
+  .ege-answer-table.is-shake,
+  .ege-gap-picks.is-shake {
+    animation: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header class="site-brand">
+    <a class="site-brand__link" href="https://t.me/mossyaps" target="_blank" rel="noopener noreferrer">
+      <img class="site-brand__logo" src="assets/logo.PNG" alt="" />
+      Yap <b>O'clock</b>
+    </a>
+  </header>
+
+  <main class="ege-page" id="egePage">
+    <div class="ege-topics">
+      <div class="ege-mobile-switch" id="egeMobileSwitch">
+        <hr class="ege-mobile-switch__line" />
+        <div class="ege-mobile-switch__controls">
+          <button type="button" class="ege-mobile-switch__btn" id="egePrevTask" aria-label="Previous text">‹</button>
+          <button type="button" class="ege-mobile-switch__current" id="egeMobileCurrent" aria-expanded="false" aria-controls="egeNav">Texts</button>
+          <button type="button" class="ege-mobile-switch__btn" id="egeNextTask" aria-label="Next text">›</button>
+        </div>
+      </div>
+
+      <aside class="ege-rail">
+        <nav class="ege-nav" id="egeNav" aria-label="Texts"></nav>
+      </aside>
+
+      <hr class="ege-mobile-switch__line ege-mobile-switch__line--end" />
+    </div>
+
+    <div class="ege-workspace">
+      <header class="ege-topbar ege-topbar--compact">
+        <div class="ege-topbar__main">
+          <h1 class="ege-topbar__title" id="egeTopicTitle">Задание 11. Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.</h1>
+          <button type="button" class="ege-tips-toggle" id="egeTipsToggle" aria-expanded="false" aria-controls="egeTips" title="Подсказки">
+            <img class="ege-tips-toggle__icon" src="assets/exclamationmark.svg" alt="" />
+          </button>
+        </div>
+        <aside class="ege-tips" id="egeTips" hidden>
+          <h2 class="ege-tips__heading">Части предложений чаще всего начинаются с:</h2>
+          <ul class="ege-tips__starters">
+            <li><code>that</code> <span>(«который»)</span></li>
+            <li><code>that</code> <span>(«что»)</span></li>
+            <li><code>which</code></li>
+            <li><code>who</code></li>
+            <li><code>V-ing</code> <span>(причастие I)</span></li>
+            <li><code>but</code></li>
+            <li><code>as well as</code></li>
+            <li><code>than</code></li>
+          </ul>
+          <div class="ege-tips__map" role="table" aria-label="Сигналы, варианты и примеры">
+            <div class="ege-tips__map-head">Сигнал в тексте</div>
+            <div class="ege-tips__map-head">Что искать</div>
+            <div class="ege-tips__map-head">Пример в контексте</div>
+
+            <div class="ege-tips__map-cell">Нет запятых, речь о предмете/явлении</div>
+            <div class="ege-tips__map-cell"><code>that</code> (= который)</div>
+            <div class="ege-tips__map-cell">The bridge <mark class="ege-tips__connector">that</mark> connects the two islands was built in 1998. (без запятых — уточняем, какой именно мост)</div>
+
+            <div class="ege-tips__map-cell">Нет запятых, перед пропуском глагол типа say, think, prove, believe, show, know</div>
+            <div class="ege-tips__map-cell"><code>that</code> (= что)</div>
+            <div class="ege-tips__map-cell">Studies show <mark class="ege-tips__connector">that</mark> plastic pollution is getting worse. (that здесь не заменяет существительное, а вводит содержание мысли — как русское "что")</div>
+
+            <div class="ege-tips__map-cell">Есть запятые, главное слово — имя собственное (предмет)</div>
+            <div class="ege-tips__map-cell"><code>which</code></div>
+            <div class="ege-tips__map-cell">The Shard, <mark class="ege-tips__connector">which</mark> is almost 310 metres tall, was once Europe's tallest skyscraper. (The Shard — уникальное название, уточнять какой из не нужно, поэтому запятые + which)</div>
+
+            <div class="ege-tips__map-cell">Есть запятые, главное слово — имя собственное (человек)</div>
+            <div class="ege-tips__map-cell"><code>who</code></div>
+            <div class="ege-tips__map-cell">Robert Burns, <mark class="ege-tips__connector">who</mark> died in 1796 at the age of 37, is still celebrated every January. (имя человека уже уникально, доп. факт о нём выделяется запятыми)</div>
+
+            <div class="ege-tips__map-cell">Запятая до/после пропуска, дальше — глагол с -ing</div>
+            <div class="ege-tips__map-cell"><code>V-ing</code> (причастие)</div>
+            <div class="ege-tips__map-cell">The cosmonauts, <mark class="ege-tips__connector">eating</mark> tinned food from the dining table, discussed their next mission. (причастный оборот описывает действие, происходящее одновременно, и обособлен запятыми)</div>
+
+            <div class="ege-tips__map-cell">Противопоставление (было одно — стало другое)</div>
+            <div class="ege-tips__map-cell"><code>but</code></div>
+            <div class="ege-tips__map-cell">The area offers free entrance and wi-fi, <mark class="ege-tips__connector">but</mark> parking remains limited on weekends. (плюс "free entrance" сменяется минусом "limited parking" — явный контраст)</div>
+
+            <div class="ege-tips__map-cell">Дополнение того же типа ("также... как", "равно как и")</div>
+            <div class="ege-tips__map-cell"><code>as well as</code></div>
+            <div class="ege-tips__map-cell">The museum displays original weapons <mark class="ege-tips__connector">as well as</mark> personal letters from soldiers. (оружие, а также письма — просто два элемента одной коллекции, без противопоставления)</div>
+
+            <div class="ege-tips__map-cell">Перед пропуском сравнительная степень</div>
+            <div class="ege-tips__map-cell"><code>than</code></div>
+            <div class="ege-tips__map-cell">The sea level rise in the last decade has been faster <mark class="ege-tips__connector">than</mark> the rise recorded throughout the entire 20th century. (faster — сравнительная степень, обязательно требует than)</div>
+          </div>
+          <button type="button" class="ege-btn ege-btn--ghost ege-tips__hide" id="egeTipsHide">Hide</button>
+        </aside>
+      </header>
+
+      <div id="egePanels"></div>
+      <div class="ege-paywall" id="egePaywall" hidden>
+        <p class="ege-paywall__title">This text is locked</p>
+        <p class="ege-paywall__text">Try <strong>Around Moscow</strong> for free. If you enjoy it, unlock all 57 tasks.</p>
+        <a class="ege-btn ege-btn--primary" id="egePaywallCta" href="https://t.me/mossyaps" target="_blank" rel="noopener noreferrer">Get full access</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <p class="site-foot__credit">Created by Julia Moss<br /><a href="https://t.me/mossyaps">t.me/mossyaps</a></p>
+    <img class="site-foot__logo" src="timetoege.png" alt="Time to EGE" />
+  </footer>
+
+  <script>
+window.GAP_FILL_DATA = {
+  "id": "gap-fill-trial",
+  "title": "Задание 11. Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+  "subtitle": "Задание 11. Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+  "tasks": [
+    {
+      "id": "gaps-abramtsevo",
+      "nav": "Abramtsevo",
+      "title": "Abramtsevo",
+      "locked": true
+    },
+    {
+      "id": "gaps-antarctica-tourism",
+      "nav": "Antarctica tourism",
+      "title": "Antarctica tourism",
+      "locked": true
+    },
+    {
+      "id": "gaps-around-moscow",
+      "nav": "Around Moscow",
+      "badge": "Grammar",
+      "title": "Around Moscow",
+      "instructions": "Задание 11. Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+      "type": "gapfill",
+      "options": [
+        "that made up glorious Russian history",
+        "which was immortalized by artists and",
+        "that still keeps its Kremlin, churches and",
+        "that were built to represent old Russian life",
+        "whose contribution is internationally accepted",
+        "including Sergiev Posad, which is the centre of the",
+        "tracing the history of the area that was the centre of"
+      ],
+      "html": "As one leaves Moscow, the fast-paced modern capital fades from view and the slower-paced, old-fashioned countryside unfolds around. The subtly changing landscape of the Moscow region is crossed by winding rivers and dotted with peasant villages. This is the classic provincial Russia, <span data-gap=\"A\"></span> writers over the centuries.<br><br>Ancient Russian towns and cities situated not far from Moscow are united in the Golden Ring. The towns are arranged in a circular pattern around the capital, forming a ring. These towns, <span data-gap=\"B\"></span> Russian Orthodoxy, Pereslavl Zalessky, Rostov, Yaroslavl, Kostroma, Ivanovo, Suzdal and Vladimir, were built between the 11th and 17th centuries. The Golden Ring area provides an excellent opportunity to view a typical old Russian town <span data-gap=\"C\"></span> monasteries. Today, these towns are often known as open-air museums. The unique monuments of Russian architecture are kept and compiled there, reminding visitors of the dramatic events and different personalities of the past <span data-gap=\"D\"></span>. In Suzdal and Kostroma there are two interesting outdoor architectural museums - entire wooden villages <span data-gap=\"E\"></span>. All the towns of the Golden Ring have been well restored. Many of the buildings are now museums <span data-gap=\"F\"></span> the country during their Golden Age, an age that lasted over four centuries.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "2",
+        "B": "6",
+        "C": "3",
+        "D": "1",
+        "E": "4",
+        "F": "7"
+      },
+      "locked": false,
+      "explanations": {
+        "A": {
+          "answer": "2",
+          "quote": "which was immortalized by artists and writers…",
+          "why": "The relative clause naturally continues “classic provincial Russia” and links it to the writers mentioned right after."
+        },
+        "B": {
+          "answer": "6",
+          "quote": "including Sergiev Posad, which is the centre of the Russian Orthodoxy…",
+          "why": "It correctly lists the towns and adds the important religious centre that belongs in the Golden Ring."
+        },
+        "C": {
+          "answer": "3",
+          "quote": "that still keeps its Kremlin, churches and monasteries.",
+          "why": "The relative clause describes a typical old Russian town and fits the following word “monasteries.”"
+        },
+        "D": {
+          "answer": "1",
+          "quote": "that made up glorious Russian history.",
+          "why": "It refers to the dramatic events and personalities of the past and completes the idea of what visitors are reminded of."
+        },
+        "E": {
+          "answer": "4",
+          "quote": "that were built to represent old Russian life.",
+          "why": "It modifies “entire wooden villages” and explains the purpose of the outdoor museums."
+        },
+        "F": {
+          "answer": "7",
+          "quote": "tracing the history of the area that was the centre of the country…",
+          "why": "It describes what the museums do and logically finishes the sentence about the Golden Age."
+        }
+      }
+    },
+    {
+      "id": "gaps-aurora",
+      "nav": "Aurora",
+      "title": "Aurora",
+      "locked": true
+    },
+    {
+      "id": "gaps-babies-can-lip-read-languages",
+      "nav": "Babies lip-read",
+      "title": "Babies can lip-read languages",
+      "locked": true
+    },
+    {
+      "id": "gaps-bandy",
+      "nav": "Bandy",
+      "title": "Bandy",
+      "locked": true
+    },
+    {
+      "id": "gaps-being-eco-friendly",
+      "nav": "Being eco-friendly",
+      "title": "Being eco-friendly",
+      "locked": true
+    },
+    {
+      "id": "gaps-borodino",
+      "nav": "Borodino",
+      "title": "Borodino Battlefield",
+      "locked": true
+    },
+    {
+      "id": "gaps-magical-transformation-of-bread",
+      "nav": "Bread transformation",
+      "title": "Magical transformation of bread",
+      "locked": true
+    },
+    {
+      "id": "gaps-burns-night",
+      "nav": "Burns Night",
+      "title": "Burns Night",
+      "locked": true
+    },
+    {
+      "id": "gaps-beauty-of-the-cayman-islands",
+      "nav": "Cayman Islands",
+      "title": "Beauty of the Cayman Islands",
+      "locked": true
+    },
+    {
+      "id": "gaps-china",
+      "nav": "China",
+      "title": "Unique Country. China",
+      "locked": true
+    },
+    {
+      "id": "gaps-tea-house",
+      "nav": "Chinese Tea House",
+      "title": "Chinese Tea House in Moscow",
+      "locked": true
+    },
+    {
+      "id": "gaps-christ-saviour",
+      "nav": "Christ the Saviour",
+      "title": "Cathedral of Christ the Saviour",
+      "locked": true
+    },
+    {
+      "id": "gaps-darwin",
+      "nav": "Darwin Museum",
+      "title": "State Darwin Museum",
+      "locked": true
+    },
+    {
+      "id": "gaps-do-jellyfish-sleep",
+      "nav": "Do jellyfish sleep?",
+      "title": "Do jellyfish sleep?",
+      "locked": true
+    },
+    {
+      "id": "gaps-forbidden-city",
+      "nav": "Forbidden City",
+      "title": "Forbidden City in China",
+      "locked": true
+    },
+    {
+      "id": "gaps-global-warming",
+      "nav": "Global warming",
+      "title": "Global warming",
+      "locked": true
+    },
+    {
+      "id": "gaps-going-green",
+      "nav": "Going green",
+      "title": "Going green",
+      "locked": true
+    },
+    {
+      "id": "gaps-gorky-park",
+      "nav": "Gorky Park",
+      "title": "Gorky Park",
+      "locked": true
+    },
+    {
+      "id": "gaps-time-to-help-our-planet",
+      "nav": "Help our planet",
+      "title": "Time to help our planet",
+      "locked": true
+    },
+    {
+      "id": "gaps-hemingway-in-cuba",
+      "nav": "Hemingway in Cuba",
+      "title": "Hemingway in Cuba",
+      "locked": true
+    },
+    {
+      "id": "gaps-hermitage",
+      "nav": "Hermitage",
+      "title": "State Hermitage Museum",
+      "locked": true
+    },
+    {
+      "id": "gaps-improving-punctuality",
+      "nav": "Improving punctuality",
+      "title": "Improving punctuality",
+      "locked": true
+    },
+    {
+      "id": "gaps-unique-nature-of-kamchatka",
+      "nav": "Kamchatka nature",
+      "title": "Unique nature of Kamchatka",
+      "locked": true
+    },
+    {
+      "id": "gaps-kazan",
+      "nav": "Kazan",
+      "title": "Kazan",
+      "locked": true
+    },
+    {
+      "id": "gaps-kenya",
+      "nav": "Kenya",
+      "title": "Kenya",
+      "locked": true
+    },
+    {
+      "id": "gaps-letniy-sad",
+      "nav": "Letniy Sad",
+      "title": "Letniy Sad",
+      "locked": true
+    },
+    {
+      "id": "gaps-london-shard",
+      "nav": "London Skyscraper",
+      "title": "London's Skyscraper",
+      "locked": true
+    },
+    {
+      "id": "gaps-mir-dining",
+      "nav": "Mir Dining Table",
+      "title": "Mir Space Station Dining Table",
+      "locked": true
+    },
+    {
+      "id": "gaps-nevsky",
+      "nav": "Nevsky Prospect",
+      "title": "Nevsky Prospect",
+      "locked": true
+    },
+    {
+      "id": "gaps-obento-art-in-a-lunch-box",
+      "nav": "Obento",
+      "title": "Obento: Art in a Lunch Box",
+      "locked": true
+    },
+    {
+      "id": "gaps-peter-paul",
+      "nav": "Peter and Paul Fortress",
+      "title": "Peter and Paul Fortress",
+      "locked": true
+    },
+    {
+      "id": "gaps-peterhof",
+      "nav": "Peterhof",
+      "title": "Peterhof (City of Fountains)",
+      "locked": true
+    },
+    {
+      "id": "gaps-plastic-pollution",
+      "nav": "Plastic pollution",
+      "title": "Plastic pollution",
+      "locked": true
+    },
+    {
+      "id": "gaps-polenovo",
+      "nav": "Polenovo",
+      "title": "Polenovo",
+      "locked": true
+    },
+    {
+      "id": "gaps-red-pandas",
+      "nav": "Red Pandas",
+      "title": "Red Pandas",
+      "locked": true
+    },
+    {
+      "id": "gaps-reusable-bags",
+      "nav": "Reusable bags",
+      "title": "Reusable bags",
+      "locked": true
+    },
+    {
+      "id": "gaps-russian-food",
+      "nav": "Russian food",
+      "title": "Russian food",
+      "locked": true
+    },
+    {
+      "id": "gaps-russian-souvenirs",
+      "nav": "Russian souvenirs",
+      "title": "Russian souvenirs",
+      "locked": true
+    },
+    {
+      "id": "gaps-russian-souvenirs-2",
+      "nav": "Russian souvenirs 2",
+      "title": "Russian souvenirs",
+      "locked": true
+    },
+    {
+      "id": "gaps-saint-petersburg",
+      "nav": "Saint Petersburg",
+      "title": "Saint Petersburg",
+      "locked": true
+    },
+    {
+      "id": "gaps-santa-claus",
+      "nav": "Santa Claus",
+      "title": "Santa Claus",
+      "locked": true
+    },
+    {
+      "id": "gaps-sochi",
+      "nav": "Sights of Sochi",
+      "title": "Sights of Sochi",
+      "locked": true
+    },
+    {
+      "id": "gaps-state-history",
+      "nav": "State History Museum",
+      "title": "State History Museum",
+      "locked": true
+    },
+    {
+      "id": "gaps-the-super-soaker-story",
+      "nav": "Super Soaker",
+      "title": "The Super Soaker story",
+      "locked": true
+    },
+    {
+      "id": "gaps-the-life-of-pi",
+      "nav": "The life of Pi",
+      "title": "The life of Pi",
+      "locked": true
+    },
+    {
+      "id": "gaps-the-roof-of-the-world",
+      "nav": "The roof of the world",
+      "title": "The roof of the world",
+      "locked": true
+    },
+    {
+      "id": "gaps-the-russian-taiga",
+      "nav": "The Russian taiga",
+      "title": "The Russian taiga",
+      "locked": true
+    },
+    {
+      "id": "gaps-tourism-in-altai",
+      "nav": "Tourism in Altai",
+      "title": "Tourism in Altai",
+      "locked": true
+    },
+    {
+      "id": "gaps-tourism-in-kamchatka",
+      "nav": "Tourism in Kamchatka",
+      "title": "Tourism in Kamchatka",
+      "locked": true
+    },
+    {
+      "id": "gaps-wonderful-underwater-life",
+      "nav": "Underwater life",
+      "title": "Wonderful underwater life",
+      "locked": true
+    },
+    {
+      "id": "gaps-unusual-moscow",
+      "nav": "Unusual Attractions",
+      "title": "Unusual Tourist Attractions",
+      "locked": true
+    },
+    {
+      "id": "gaps-veliky-novgorod",
+      "nav": "Veliky Novgorod",
+      "title": "Veliky Novgorod",
+      "locked": true
+    },
+    {
+      "id": "gaps-wembley-stadium",
+      "nav": "Wembley Stadium",
+      "title": "Wembley Stadium",
+      "locked": true
+    },
+    {
+      "id": "gaps-willis",
+      "nav": "Willis Tower",
+      "title": "Willis Tower",
+      "locked": true
+    },
+    {
+      "id": "gaps-wisteria",
+      "nav": "Wisteria Tree",
+      "title": "The Wisteria Tree",
+      "locked": true
+    }
+  ],
+  "instructions": "Задание 11. Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+  "trial": {
+    "freeTaskId": "gaps-around-moscow",
+    "unlockUrl": "https://t.me/mossyaps",
+    "total": 57
+  }
+}
+;
+  </script>
+  <script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "ege-prep.highlights.v1";
+
+  var ICON_PEN =
+    '<svg class="ege-highlight-tools__icon" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path d="M15.5 2.5l6 6-12 12H3.5v-6l12-12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>' +
+    '<path d="M14 4l6 6" fill="none" stroke="currentColor" stroke-width="2"/>' +
+    "</svg>";
+
+  var ICON_ERASER =
+    '<svg class="ege-highlight-tools__icon" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path d="M7 21h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+    '<path d="M6.8 12.3L14 5.1l5.9 5.9-7.2 7.2H4.6V12.3h2.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>' +
+    "</svg>";
+
+  function loadAll() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (_err) {
+      return {};
+    }
+  }
+
+  function saveEntry(id, html) {
+    try {
+      var all = loadAll();
+      if (html && html.indexOf("ege-highlight") !== -1) {
+        all[id] = html;
+      } else {
+        delete all[id];
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+    } catch (_err) {
+      /* ignore quota errors */
+    }
+  }
+
+  function unwrapHighlight(mark) {
+    var parent = mark.parentNode;
+    if (!parent) return;
+    while (mark.firstChild) {
+      parent.insertBefore(mark.firstChild, mark);
+    }
+    parent.removeChild(mark);
+    parent.normalize();
+  }
+
+  function selectionInside(container, range) {
+    return container.contains(range.commonAncestorContainer);
+  }
+
+  function selectionBlocked(range) {
+    var node = range.commonAncestorContainer;
+    if (node.nodeType === Node.TEXT_NODE) node = node.parentElement;
+    if (!node || !node.closest) return false;
+    return !!node.closest(
+      ".ege-gap-picks, .ege-gap-insert:not(.is-filled), .ege-choice-group, button, .ege-highlight-tools, .ege-match-picks, .ege-input"
+    );
+  }
+
+  function applyHighlight(container) {
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.isCollapsed) return false;
+
+    var range = sel.getRangeAt(0);
+    if (!selectionInside(container, range) || selectionBlocked(range)) {
+      sel.removeAllRanges();
+      return false;
+    }
+
+    var mark = document.createElement("mark");
+    mark.className = "ege-highlight";
+
+    try {
+      var contents = range.extractContents();
+      if (!contents.textContent.trim()) {
+        sel.removeAllRanges();
+        return false;
+      }
+      mark.appendChild(contents);
+      range.insertNode(mark);
+      sel.removeAllRanges();
+      return true;
+    } catch (_err) {
+      sel.removeAllRanges();
+      return false;
+    }
+  }
+
+  function sanitizePassageHtml(container) {
+    var clone = container.cloneNode(true);
+    clone.querySelectorAll(".ege-gap-insert").forEach(function (insert) {
+      insert.classList.remove("is-filled", "is-correct", "is-wrong");
+      var text = insert.querySelector(".ege-gap-insert__text");
+      if (text) text.textContent = "";
+      else {
+        var span = document.createElement("span");
+        span.className = "ege-gap-insert__text";
+        insert.appendChild(span);
+      }
+    });
+    return clone.innerHTML;
+  }
+
+  function persistContainer(container) {
+    var id = container.dataset.highlightId;
+    if (id) saveEntry(id, sanitizePassageHtml(container));
+  }
+
+  function buildTaskToolbar(containers) {
+    var tools = document.createElement("div");
+    tools.className = "ege-highlight-tools";
+    tools.setAttribute("role", "toolbar");
+    tools.setAttribute("aria-label", "Reading tools");
+
+    var highlightBtn = document.createElement("button");
+    highlightBtn.type = "button";
+    highlightBtn.className = "ege-highlight-tools__btn";
+    highlightBtn.dataset.mode = "highlight";
+    highlightBtn.innerHTML = ICON_PEN;
+    highlightBtn.setAttribute("aria-label", "Highlight");
+    highlightBtn.setAttribute("title", "Highlight");
+    highlightBtn.setAttribute("aria-pressed", "false");
+
+    var eraseBtn = document.createElement("button");
+    eraseBtn.type = "button";
+    eraseBtn.className = "ege-highlight-tools__btn";
+    eraseBtn.dataset.mode = "erase";
+    eraseBtn.innerHTML = ICON_ERASER;
+    eraseBtn.setAttribute("aria-label", "Erase");
+    eraseBtn.setAttribute("title", "Erase");
+    eraseBtn.setAttribute("aria-pressed", "false");
+
+    var clearBtn = document.createElement("button");
+    clearBtn.type = "button";
+    clearBtn.className = "ege-highlight-tools__btn ege-highlight-tools__btn--ghost";
+    clearBtn.dataset.mode = "clear";
+    clearBtn.textContent = "Clear all";
+    clearBtn.setAttribute("aria-label", "Clear all highlights");
+    clearBtn.setAttribute("title", "Clear all");
+
+    var mode = "none";
+
+    function setMode(next) {
+      mode = next;
+      highlightBtn.classList.toggle("is-active", mode === "highlight");
+      eraseBtn.classList.toggle("is-active", mode === "erase");
+      highlightBtn.setAttribute("aria-pressed", mode === "highlight" ? "true" : "false");
+      eraseBtn.setAttribute("aria-pressed", mode === "erase" ? "true" : "false");
+      containers.forEach(function (container) {
+        container.classList.toggle("ege-erase-mode", mode === "erase");
+      });
+    }
+
+    function clearAll() {
+      containers.forEach(function (container) {
+        container.querySelectorAll(".ege-highlight").forEach(function (mark) {
+          unwrapHighlight(mark);
+        });
+        persistContainer(container);
+      });
+    }
+
+    highlightBtn.addEventListener("click", function () {
+      setMode(mode === "highlight" ? "none" : "highlight");
+    });
+
+    eraseBtn.addEventListener("click", function () {
+      setMode(mode === "erase" ? "none" : "erase");
+    });
+
+    clearBtn.addEventListener("click", function () {
+      clearAll();
+      setMode("none");
+    });
+
+    containers.forEach(function (container) {
+      function tryHighlight() {
+        if (mode !== "highlight") return;
+        window.setTimeout(function () {
+          if (applyHighlight(container)) persistContainer(container);
+        }, 0);
+      }
+
+      container.addEventListener("mouseup", tryHighlight);
+      container.addEventListener("touchend", tryHighlight);
+
+      container.addEventListener("click", function (event) {
+        if (mode !== "erase") return;
+        var mark = event.target.closest(".ege-highlight");
+        if (!mark || !container.contains(mark)) return;
+        event.preventDefault();
+        unwrapHighlight(mark);
+        persistContainer(container);
+      });
+    });
+
+    tools.appendChild(highlightBtn);
+    tools.appendChild(eraseBtn);
+    tools.appendChild(clearBtn);
+
+    return tools;
+  }
+
+  function attachAll(panel, topicId, taskId) {
+    if (!panel) return;
+
+    var existing = panel.querySelector(".ege-highlight-tools");
+    if (existing) existing.remove();
+
+    var task = panel.querySelector(".ege-task");
+    if (!task) return;
+
+    var base = topicId + "_" + taskId;
+    var savedAll = loadAll();
+    var containers = [];
+
+    task.querySelectorAll(".ege-passage, .ege-text-block").forEach(function (el, index) {
+      var id = base + "_h" + index;
+      var hasInteractiveGaps = !!el.querySelector(".ege-gap-insert");
+      var saved = savedAll[id];
+      var savedHasGaps = !!(saved && saved.indexOf("ege-gap-insert") !== -1);
+
+      /* Skip incompatible highlight saves that would wipe gap-insert shells */
+      if (saved && (!hasInteractiveGaps || savedHasGaps)) {
+        el.innerHTML = saved;
+        el.querySelectorAll(".ege-gap-insert").forEach(function (insert) {
+          insert.classList.remove("is-filled", "is-correct", "is-wrong");
+          var text = insert.querySelector(".ege-gap-insert__text");
+          if (text) text.textContent = "";
+          else {
+            var span = document.createElement("span");
+            span.className = "ege-gap-insert__text";
+            insert.appendChild(span);
+          }
+        });
+      }
+
+      el.classList.add("ege-highlightable");
+      el.dataset.highlightId = id;
+      containers.push(el);
+    });
+
+    if (!containers.length) return;
+
+    var tools = buildTaskToolbar(containers);
+    panel.insertBefore(tools, task);
+  }
+
+  window.EgeHighlight = {
+    attachAll: attachAll,
+  };
+})();
+
+  </script>
+  <script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "ege-prep.scores.v1";
+  var TOPIC_ID = "gap-fill-trial";
+
+  function isTaskLocked(task) {
+    return !!(task && task.locked);
+  }
+
+  function freeTaskId() {
+    return (state.topic && state.topic.trial && state.topic.trial.freeTaskId) || "gaps-around-moscow";
+  }
+
+  function unlockUrl() {
+    return (state.topic && state.topic.trial && state.topic.trial.unlockUrl) || "https://t.me/mossyaps";
+  }
+
+  function taskMaxScore(task) {
+    if (!task || !task.gaps) return 0;
+    return task.gaps.length;
+  }
+
+  function findTask(taskId) {
+    if (!state.topic) return null;
+    return state.topic.tasks.find(function (item) {
+      return item.id === taskId;
+    });
+  }
+
+  function taskPrefix(taskId) {
+    return state.topicId + "_" + taskId;
+  }
+
+  function buildTaskArticle(task) {
+    var wrap = document.createElement("article");
+    wrap.className = "ege-task ege-task--panels";
+    wrap.id = "task-" + task.id;
+    wrap.dataset.taskId = task.id;
+    return wrap;
+  }
+
+  function replaceGapPlaceholders(root, entries) {
+    var inserts = {};
+    entries.forEach(function (entry) {
+      var placeholder = root.querySelector(entry.selector);
+      if (!placeholder) return;
+
+      var insert = document.createElement("span");
+      insert.className = "ege-gap-insert";
+      insert.dataset.gap = entry.gapId;
+
+      var textSpan = document.createElement("span");
+      textSpan.className = "ege-gap-insert__text";
+      insert.appendChild(textSpan);
+      placeholder.replaceWith(insert);
+      inserts[entry.gapId] = insert;
+    });
+    return inserts;
+  }
+
+  function setRadioValue(name, value) {
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      radio.checked = radio.value === String(value);
+    });
+  }
+
+  function getGapInsert(taskId, gapId) {
+    return document.querySelector(
+      "#task-" + taskId + ' .ege-gap-insert[data-gap="' + String(gapId) + '"]'
+    );
+  }
+
+  function markGapInsert(taskId, gapId, ok, hasValue) {
+    var insert = getGapInsert(taskId, gapId);
+    if (!insert) return;
+    insert.classList.toggle("is-correct", ok);
+    insert.classList.toggle("is-wrong", hasValue && !ok);
+  }
+
+  function buildAnswerStrings(taskId, task) {
+    var yourAnswers = "";
+    var correctAnswers = "";
+    if (!task || !task.gaps) return { yourAnswers: yourAnswers, correctAnswers: correctAnswers };
+
+    var prefix = taskPrefix(taskId);
+    task.gaps.forEach(function (gap) {
+      var value = getCheckedValue(prefix + "_gap_" + gap);
+      yourAnswers += value || "–";
+      correctAnswers += String(task.answers[gap] || "");
+    });
+    return { yourAnswers: yourAnswers, correctAnswers: correctAnswers };
+  }
+
+  function showScoreFeedback(taskId, correct, max, options) {
+    var scoreEl = document.getElementById("score-" + taskId);
+    if (!scoreEl) return;
+    var task = findTask(taskId);
+    var answers = buildAnswerStrings(taskId, task);
+    var revealKey = options && options.revealKey;
+    var yourAnswers =
+      options && options.yourAnswers != null ? options.yourAnswers : answers.yourAnswers;
+    var correctAnswers =
+      options && options.correctAnswers != null
+        ? options.correctAnswers
+        : answers.correctAnswers;
+    var lines = [
+      "Score: " + correct + " / " + max + (correct === max ? ". All correct." : ""),
+      "Your answers: " + yourAnswers,
+    ];
+    if (revealKey || correct === max) {
+      lines.push("Correct answers: " + correctAnswers);
+    }
+    scoreEl.hidden = false;
+    scoreEl.textContent = lines.join("\n");
+    scoreEl.className =
+      "ege-task__score " + (correct === max ? "is-good" : correct === 0 ? "is-bad" : "is-mixed");
+  }
+
+  function hideScoreFeedback(taskId) {
+    var scoreEl = document.getElementById("score-" + taskId);
+    if (!scoreEl) return;
+    scoreEl.hidden = true;
+    scoreEl.textContent = "";
+  }
+
+  function hideExplanations(taskId) {
+    var box = document.getElementById("explain-" + taskId);
+    if (!box) return;
+    box.hidden = true;
+    box.textContent = "";
+  }
+
+  function jumpToGap(taskId, gap) {
+    var insert = getGapInsert(taskId, gap);
+    if (!insert) return;
+    insert.scrollIntoView({ behavior: "smooth", block: "center" });
+    insert.classList.add("is-jump-target");
+    window.setTimeout(function () {
+      insert.classList.remove("is-jump-target");
+    }, 1300);
+  }
+
+  function showExplanations(taskId, gaps) {
+    var task = findTask(taskId);
+    var box = document.getElementById("explain-" + taskId);
+    if (!box) return;
+
+    if (!task || !task.explanations || !gaps || !gaps.length) {
+      hideExplanations(taskId);
+      return;
+    }
+
+    box.textContent = "";
+    gaps.forEach(function (gap) {
+      var info = task.explanations[gap];
+      if (!info) return;
+
+      var item = document.createElement("div");
+      item.className = "ege-explain__item";
+
+      var head = document.createElement("p");
+      head.className = "ege-explain__gap";
+
+      var jump = document.createElement("button");
+      jump.type = "button";
+      jump.className = "ege-explain__jump";
+      jump.textContent =
+        gap +
+        " – " +
+        info.answer +
+        "  “" +
+        info.quote +
+        "”";
+      jump.setAttribute("aria-label", "Jump to gap " + gap + " in text");
+      jump.addEventListener("click", function () {
+        jumpToGap(taskId, gap);
+      });
+      head.appendChild(jump);
+
+      var why = document.createElement("p");
+      why.className = "ege-explain__why";
+      why.textContent = info.why;
+
+      item.appendChild(head);
+      item.appendChild(why);
+      box.appendChild(item);
+    });
+
+    box.hidden = box.childNodes.length === 0;
+  }
+
+  function loadScores(topicId) {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return {};
+      var all = JSON.parse(raw);
+      return all[topicId] || {};
+    } catch (_err) {
+      return {};
+    }
+  }
+
+  function saveScore(topicId, taskId, score, max) {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      var all = raw ? JSON.parse(raw) : {};
+      if (!all[topicId]) all[topicId] = {};
+      all[topicId][taskId] = { score: score, max: max, at: Date.now() };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+    } catch (_err) {
+      /* ignore quota errors */
+    }
+  }
+
+  function clearScore(topicId, taskId) {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var all = JSON.parse(raw);
+      if (all[topicId]) {
+        delete all[topicId][taskId];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+      }
+    } catch (_err) {
+      /* ignore */
+    }
+  }
+
+  function optionRange(count) {
+    var items = [];
+    for (var i = 1; i <= count; i += 1) items.push(i);
+    return items;
+  }
+
+  function buildChoiceGroup(name, count, opts) {
+    opts = opts || {};
+    var group = document.createElement("div");
+    group.className = "ege-choice-group";
+    group.setAttribute("role", "radiogroup");
+    if (opts.label) group.setAttribute("aria-label", opts.label);
+
+    optionRange(count).forEach(function (num) {
+      var label = document.createElement("label");
+      label.className = "ege-pill" + (opts.text ? " ege-pill--text" : "");
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = name;
+      input.value = String(num);
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(String(num)));
+      group.appendChild(label);
+    });
+
+    return group;
+  }
+
+  function buildRefStrip(label, items) {
+    var wrap = document.createElement("div");
+    wrap.className = "ege-ref-strip";
+    if (label) wrap.setAttribute("aria-label", label);
+
+    var list = document.createElement("ol");
+    list.className = "ege-ref__list";
+    items.forEach(function (item) {
+      var li = document.createElement("li");
+      li.textContent = item;
+      list.appendChild(li);
+    });
+    wrap.appendChild(list);
+    return wrap;
+  }
+
+  function buildPanel(label, content, extraClass) {
+    var panel = document.createElement("div");
+    panel.className = "ege-panel" + (extraClass ? " " + extraClass : "");
+
+    var labelEl = document.createElement("p");
+    labelEl.className = "ege-panel__label";
+    labelEl.textContent = label;
+    panel.appendChild(labelEl);
+    panel.appendChild(content);
+    return panel;
+  }
+
+  function buildGapfillPicker(task, topicId, inserts) {
+    var prefix = topicId + "_" + task.id;
+    var picks = document.createElement("div");
+    picks.className = "ege-gap-picks";
+    picks.setAttribute("aria-label", "Fill each gap with a sentence part. A to F select gap, 1 to 7 assign, R reset");
+
+    var hidden = document.createElement("div");
+    hidden.className = "ege-match-hidden";
+
+    var lettersRow = document.createElement("div");
+    lettersRow.className = "ege-match-letters";
+
+    var numbersRow = document.createElement("div");
+    numbersRow.className = "ege-match-numbers";
+
+    var activeGap = null;
+
+    function radioName(gap) {
+      return prefix + "_gap_" + gap;
+    }
+
+    function updateInsert(gap, num) {
+      var insert = getGapInsert(task.id, gap) || inserts[gap];
+      if (!insert || !insert.isConnected) return;
+      inserts[gap] = insert;
+      var textSpan = insert.querySelector(".ege-gap-insert__text");
+      if (!textSpan) {
+        textSpan = document.createElement("span");
+        textSpan.className = "ege-gap-insert__text";
+        insert.appendChild(textSpan);
+      }
+      if (num) {
+        textSpan.textContent = task.options[parseInt(num, 10) - 1] || "";
+        insert.classList.add("is-filled");
+        insert.classList.remove("is-empty");
+        var gapBtnFilled = lettersRow.querySelector('[data-gap="' + gap + '"]');
+        if (gapBtnFilled) gapBtnFilled.classList.remove("is-empty");
+      } else {
+        textSpan.textContent = "";
+        insert.classList.remove("is-filled", "is-empty");
+        var gapBtnCleared = lettersRow.querySelector('[data-gap="' + gap + '"]');
+        if (gapBtnCleared) gapBtnCleared.classList.remove("is-empty");
+      }
+    }
+
+    function syncNumberRow() {
+      var value = activeGap ? getCheckedValue(radioName(activeGap)) : "";
+      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
+        btn.classList.toggle("is-selected", !!activeGap && btn.dataset.value === value);
+        btn.classList.remove("is-correct", "is-wrong");
+      });
+    }
+
+    function syncUsedState() {
+      var usedNumbers = {};
+      lettersRow.querySelectorAll(".ege-match-pill--gap").forEach(function (btn) {
+        var gap = btn.dataset.gap;
+        var val = getCheckedValue(radioName(gap));
+        btn.classList.toggle("is-used", !!val);
+        var pickEl = btn.querySelector(".ege-gap-pick");
+        if (pickEl) pickEl.textContent = val || "";
+        if (val) usedNumbers[val] = true;
+      });
+
+      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
+        btn.classList.toggle("is-used", !!usedNumbers[btn.dataset.value]);
+      });
+
+      var taskEl = picks.closest(".ege-task");
+      var list = taskEl && taskEl.querySelector(".ege-ref__list");
+      if (list) {
+        list.querySelectorAll("li").forEach(function (li, index) {
+          li.classList.toggle("is-used", !!usedNumbers[String(index + 1)]);
+        });
+      }
+    }
+
+    function clearGapMarks(gap) {
+      var insert = getGapInsert(task.id, gap) || inserts[gap];
+      if (insert) insert.classList.remove("is-correct", "is-wrong");
+      var gapBtn = lettersRow.querySelector('[data-gap="' + gap + '"]');
+      if (gapBtn) gapBtn.classList.remove("is-correct", "is-wrong");
+      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
+        btn.classList.remove("is-correct", "is-wrong");
+      });
+    }
+
+    function unlockPill(btn) {
+      if (!btn) return;
+      btn.classList.remove("is-locked");
+      btn.disabled = false;
+    }
+
+    function lockCorrectGaps() {
+      task.gaps.forEach(function (gap) {
+        var val = getCheckedValue(radioName(gap));
+        if (!val || val !== String(task.answers[gap])) return;
+
+        var gapBtn = lettersRow.querySelector('[data-gap="' + gap + '"]');
+        if (gapBtn) {
+          gapBtn.classList.add("is-locked", "is-correct");
+          gapBtn.classList.remove("is-wrong", "is-active");
+          gapBtn.disabled = true;
+        }
+
+        var numBtn = numbersRow.querySelector('.ege-match-pill--num[data-value="' + val + '"]');
+        if (numBtn) {
+          numBtn.classList.add("is-locked", "is-correct");
+          numBtn.classList.remove("is-wrong", "is-selected");
+          numBtn.disabled = true;
+        }
+
+        var insert = getGapInsert(task.id, gap) || inserts[gap];
+        if (insert) {
+          insert.classList.add("is-locked");
+          insert.classList.remove("is-active-gap");
+          insert.setAttribute("aria-disabled", "true");
+          insert.tabIndex = -1;
+        }
+      });
+
+      if (activeGap) {
+        var activeBtn = lettersRow.querySelector('[data-gap="' + activeGap + '"]');
+        if (activeBtn && activeBtn.classList.contains("is-locked")) {
+          activeGap = null;
+          syncNumberRow();
+        }
+      }
+    }
+
+    function unlockAllGaps() {
+      lettersRow.querySelectorAll(".ege-match-pill--gap").forEach(unlockPill);
+      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(unlockPill);
+      task.gaps.forEach(function (gap) {
+        var insert = getGapInsert(task.id, gap) || inserts[gap];
+        if (!insert) return;
+        insert.classList.remove("is-locked", "is-active-gap");
+        insert.removeAttribute("aria-disabled");
+        insert.tabIndex = 0;
+      });
+    }
+
+    function clearGap(gap) {
+      if (!gap) return;
+      var gapBtn = lettersRow.querySelector('[data-gap="' + gap + '"]');
+      if (gapBtn && gapBtn.classList.contains("is-locked")) return;
+
+      var prev = getCheckedValue(radioName(gap));
+      clearChoiceGroup(radioName(gap));
+      updateInsert(gap, null);
+      clearGapMarks(gap);
+      unlockPill(gapBtn);
+      if (prev) {
+        unlockPill(numbersRow.querySelector('.ege-match-pill--num[data-value="' + prev + '"]'));
+      }
+      if (gap === activeGap) syncNumberRow();
+      syncUsedState();
+    }
+
+    function clearAllGaps() {
+      unlockAllGaps();
+      task.gaps.forEach(function (gap) {
+        clearChoiceGroup(radioName(gap));
+        updateInsert(gap, null);
+        clearGapMarks(gap);
+        var insert = getGapInsert(task.id, gap) || inserts[gap];
+        if (insert) insert.classList.remove("is-correct", "is-wrong", "is-filled", "is-active-gap", "is-empty");
+      });
+      lettersRow.querySelectorAll(".ege-match-pill--gap").forEach(function (btn) {
+        btn.classList.remove("is-active", "is-correct", "is-wrong", "is-used", "is-locked", "is-empty");
+        btn.disabled = false;
+        var pickEl = btn.querySelector(".ege-gap-pick");
+        if (pickEl) pickEl.textContent = "";
+      });
+      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
+        btn.classList.remove("is-selected", "is-correct", "is-wrong", "is-used", "is-locked");
+        btn.disabled = false;
+      });
+      activeGap = null;
+      syncNumberRow();
+      syncUsedState();
+      hideScoreFeedback(task.id);
+      hideExplanations(task.id);
+      state.scores[task.id] = 0;
+      clearScore(state.topicId, task.id);
+      setNavStatus(task.id, 0, taskMaxScore(task));
+    }
+
+    function clearActiveGap() {
+      activeGap = null;
+      lettersRow.querySelectorAll(".ege-match-pill--gap").forEach(function (btn) {
+        btn.classList.remove("is-active");
+      });
+      task.gaps.forEach(function (itemGap) {
+        var insert = getGapInsert(task.id, itemGap) || inserts[itemGap];
+        if (insert) insert.classList.remove("is-active-gap");
+      });
+      syncNumberRow();
+    }
+
+    function assignNumber(num) {
+      if (!activeGap) return;
+      var gapBtn = lettersRow.querySelector('[data-gap="' + activeGap + '"]');
+      if (gapBtn && gapBtn.classList.contains("is-locked")) return;
+      var numBtn = numbersRow.querySelector('.ege-match-pill--num[data-value="' + num + '"]');
+      if (numBtn && numBtn.classList.contains("is-locked")) return;
+
+      var current = getCheckedValue(radioName(activeGap));
+      if (current === String(num)) {
+        clearGap(activeGap);
+        return;
+      }
+      if (numBtn && numBtn.classList.contains("is-used")) return;
+      setRadioValue(radioName(activeGap), num);
+      updateInsert(activeGap, String(num));
+      clearGapMarks(activeGap);
+      clearActiveGap();
+      syncUsedState();
+    }
+
+    function setActiveGap(gap) {
+      var gapBtn = lettersRow.querySelector('[data-gap="' + gap + '"]');
+      if (gapBtn && gapBtn.classList.contains("is-locked")) return;
+      activeGap = gap;
+      lettersRow.querySelectorAll(".ege-match-pill--gap").forEach(function (btn) {
+        btn.classList.toggle("is-active", btn.dataset.gap === gap);
+      });
+      task.gaps.forEach(function (itemGap) {
+        var insert = getGapInsert(task.id, itemGap) || inserts[itemGap];
+        if (insert) insert.classList.toggle("is-active-gap", itemGap === gap);
+      });
+      syncNumberRow();
+    }
+
+    function bindGapInsert(gap) {
+      var insert = getGapInsert(task.id, gap) || inserts[gap];
+      if (!insert || insert.dataset.boundSelect === "1") return;
+      insert.dataset.boundSelect = "1";
+      insert.setAttribute("role", "button");
+      insert.setAttribute("aria-label", "Select gap " + gap);
+      insert.tabIndex = 0;
+      insert.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        setActiveGap(gap);
+      });
+      insert.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        setActiveGap(gap);
+      });
+    }
+
+    task.gaps.forEach(function (gap) {
+      hidden.appendChild(
+        buildChoiceGroup(radioName(gap), task.options.length, {
+          label: "Sentence part for gap " + gap,
+        })
+      );
+
+      var gapBtn = document.createElement("button");
+      gapBtn.type = "button";
+      gapBtn.className = "ege-match-pill ege-match-pill--gap";
+      gapBtn.dataset.gap = gap;
+      gapBtn.innerHTML = gap + '<span class="ege-gap-pick"></span>';
+      gapBtn.addEventListener("click", function () {
+        setActiveGap(gap);
+      });
+      lettersRow.appendChild(gapBtn);
+      bindGapInsert(gap);
+    });
+
+    var clearBtn = document.createElement("button");
+    clearBtn.type = "button";
+    clearBtn.className = "ege-match-pill ege-match-pill--clear";
+    clearBtn.textContent = "×";
+    clearBtn.setAttribute("aria-label", "Reset answers");
+    clearBtn.setAttribute("title", "Reset");
+    clearBtn.addEventListener("click", function () {
+      resetTask(task.id);
+    });
+    lettersRow.appendChild(clearBtn);
+
+    optionRange(task.options.length).forEach(function (num) {
+      var numBtn = document.createElement("button");
+      numBtn.type = "button";
+      numBtn.className = "ege-match-pill ege-match-pill--num";
+      numBtn.dataset.value = String(num);
+      numBtn.textContent = String(num);
+      numBtn.addEventListener("click", function () {
+        assignNumber(num);
+      });
+      numbersRow.appendChild(numBtn);
+    });
+
+    var table = document.createElement("div");
+    table.className = "ege-answer-table";
+    table.appendChild(lettersRow);
+    table.appendChild(numbersRow);
+
+    picks.appendChild(table);
+    picks.appendChild(hidden);
+    picks.syncUsedState = syncUsedState;
+    picks.syncNumberRow = syncNumberRow;
+    picks.updateInsert = updateInsert;
+    picks.clearGap = clearGap;
+    picks.clearAllGaps = clearAllGaps;
+    picks.lockCorrectGaps = lockCorrectGaps;
+    picks.unlockAllGaps = unlockAllGaps;
+    picks.setActiveGap = setActiveGap;
+    picks.assignNumber = assignNumber;
+    picks.inserts = inserts;
+    syncUsedState();
+
+    return picks;
+  }
+
+  function buildSplit(readEl, workEl, modifier) {
+    var split = document.createElement("div");
+    split.className = "ege-split" + (modifier ? " " + modifier : "");
+
+    var read = document.createElement("div");
+    read.className = "ege-split__read";
+    read.appendChild(readEl);
+
+    var work = document.createElement("div");
+    work.className = "ege-split__work";
+    work.appendChild(workEl);
+
+    split.appendChild(read);
+    split.appendChild(work);
+    return split;
+  }
+
+  function getCheckedValue(name) {
+    var checked = document.querySelector('input[name="' + name + '"]:checked');
+    return checked ? checked.value : "";
+  }
+
+  function clearChoiceGroup(name) {
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      radio.checked = false;
+      var pill = radio.closest(".ege-pill");
+      if (pill) pill.classList.remove("is-correct", "is-wrong");
+    });
+  }
+
+  function markChoiceGroup(name, value, correctValue, revealCorrect) {
+    var pills = [];
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      var pill = radio.closest(".ege-pill");
+      if (pill) {
+        pill.classList.remove("is-correct", "is-wrong");
+        pills.push({ pill: pill, value: radio.value, checked: radio.checked });
+      }
+    });
+
+    var ok = value === String(correctValue);
+    pills.forEach(function (item) {
+      if (item.checked) {
+        item.pill.classList.add(ok ? "is-correct" : "is-wrong");
+      } else if (revealCorrect && !ok && item.value === String(correctValue)) {
+        item.pill.classList.add("is-correct");
+      }
+    });
+    return ok;
+  }
+
+  function renderGapfill(task, topicId) {
+    var max = taskMaxScore(task);
+    var wrap = buildTaskArticle(task);
+
+    var text = document.createElement("div");
+    text.className = "ege-passage ege-gapfill-passage";
+    text.innerHTML = task.html;
+
+    var inserts = replaceGapPlaceholders(
+      text,
+      task.gaps.map(function (gap) {
+        return { selector: '[data-gap="' + gap + '"]', gapId: gap };
+      })
+    );
+
+    var side = document.createElement("div");
+    side.className = "ege-sidebar-work";
+    side.appendChild(buildRefStrip("Sentence parts", task.options));
+
+    wrap.appendChild(
+      buildSplit(
+        buildPanel("Text", text, "ege-panel--read"),
+        buildPanel("Sentence parts", side, "ege-panel--work"),
+        "ege-split--panels"
+      )
+    );
+    wrap.appendChild(buildPanel("Answers", buildGapfillPicker(task, topicId, inserts), "ege-panel--answers"));
+    wrap.appendChild(buildTaskFooter(task.id, max, { showAnswers: true }));
+    return wrap;
+  }
+
+  function buildTaskFooter(taskId, max, options) {
+    var footer = document.createElement("div");
+    footer.className = "ege-task__footer";
+
+    var actions = document.createElement("div");
+    actions.className = "ege-task__actions";
+
+    var checkBtn = document.createElement("button");
+    checkBtn.type = "button";
+    checkBtn.className = "ege-btn ege-btn--primary";
+    checkBtn.id = "check-" + taskId;
+    checkBtn.textContent = "Check answers";
+    checkBtn.addEventListener("click", function () {
+      checkTask(taskId);
+    });
+
+    actions.appendChild(checkBtn);
+
+    if (options && options.showAnswers) {
+      var tryBtn = document.createElement("button");
+      tryBtn.type = "button";
+      tryBtn.className = "ege-btn ege-btn--primary";
+      tryBtn.id = "try-" + taskId;
+      tryBtn.textContent = "Try again";
+      tryBtn.hidden = true;
+      tryBtn.addEventListener("click", function () {
+        tryAgainTask(taskId);
+      });
+      actions.appendChild(tryBtn);
+
+      var showBtn = document.createElement("button");
+      showBtn.type = "button";
+      showBtn.className = "ege-btn ege-btn--ghost";
+      showBtn.id = "show-" + taskId;
+      showBtn.textContent = "Reveal answers";
+      showBtn.hidden = true;
+      showBtn.addEventListener("click", function () {
+        revealTask(taskId);
+      });
+      actions.appendChild(showBtn);
+    }
+
+    var score = document.createElement("p");
+    score.className = "ege-task__score";
+    score.id = "score-" + taskId;
+    score.hidden = true;
+    score.setAttribute("aria-live", "polite");
+
+    var explain = document.createElement("div");
+    explain.className = "ege-explain";
+    explain.id = "explain-" + taskId;
+    explain.hidden = true;
+    explain.setAttribute("aria-live", "polite");
+
+    footer.appendChild(actions);
+    footer.appendChild(score);
+    footer.appendChild(explain);
+    footer.dataset.max = String(max);
+    return footer;
+  }
+
+  var state = {
+    topic: null,
+    topicId: "",
+    scores: {},
+    activeTaskId: null,
+  };
+
+  function setShowAnswersVisible(taskId, visible) {
+    var showBtn = document.getElementById("show-" + taskId);
+    if (showBtn) showBtn.hidden = !visible;
+  }
+
+  function setTryAgainVisible(taskId, visible) {
+    var tryBtn = document.getElementById("try-" + taskId);
+    if (tryBtn) tryBtn.hidden = !visible;
+  }
+
+  function setRetryChoices(taskId, visible) {
+    setTryAgainVisible(taskId, visible);
+    setShowAnswersVisible(taskId, visible);
+  }
+
+  function setActionButtonsEnabled(taskId, enabled) {
+    var checkBtn = document.getElementById("check-" + taskId);
+    if (checkBtn) {
+      checkBtn.disabled = !enabled;
+      if (enabled) checkBtn.hidden = false;
+      else checkBtn.hidden = true;
+    }
+  }
+
+  function setNavStatus(taskId, score, max) {
+    var btn = document.getElementById("nav-" + taskId);
+    if (!btn) return;
+    var task = findTask(taskId);
+    btn.classList.remove("is-perfect", "is-partial", "is-empty");
+    if (isTaskLocked(task)) {
+      btn.setAttribute("aria-label", (task.nav || task.title) + " (locked)");
+      return;
+    }
+    if (score === max && max > 0) btn.classList.add("is-perfect");
+    else if (score > 0) btn.classList.add("is-partial");
+    else btn.classList.add("is-empty");
+    btn.setAttribute("aria-label", btn.textContent + ": " + score + " of " + max);
+  }
+
+  function setNavOpen(open) {
+    var page = document.getElementById("egePage");
+    var currentBtn = document.getElementById("egeMobileCurrent");
+    if (page) page.classList.toggle("is-nav-open", !!open);
+    if (currentBtn) currentBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function taskIndex(taskId) {
+    if (!state.topic) return -1;
+    return state.topic.tasks.findIndex(function (task) {
+      return task.id === taskId;
+    });
+  }
+
+  function syncMobileSwitch(taskId) {
+    var task = findTask(taskId);
+    var currentBtn = document.getElementById("egeMobileCurrent");
+    var prevBtn = document.getElementById("egePrevTask");
+    var nextBtn = document.getElementById("egeNextTask");
+    var index = taskIndex(taskId);
+    var total = state.topic ? state.topic.tasks.length : 0;
+
+    if (currentBtn && task) {
+      currentBtn.textContent = task.nav || task.title;
+    }
+    if (prevBtn) prevBtn.disabled = index <= 0;
+    if (nextBtn) nextBtn.disabled = index < 0 || index >= total - 1;
+  }
+
+  function showAdjacentTask(delta) {
+    var index = taskIndex(state.activeTaskId);
+    if (index < 0 || !state.topic) return;
+    var next = state.topic.tasks[index + delta];
+    if (next) {
+      setNavOpen(false);
+      showTask(next.id);
+    }
+  }
+
+  function showPaywall(task) {
+    var paywall = document.getElementById("egePaywall");
+    var panels = document.getElementById("egePanels");
+    var instructions = document.getElementById("egeInstructions");
+    var cta = document.getElementById("egePaywallCta");
+
+    if (panels) panels.hidden = true;
+    if (instructions) instructions.hidden = true;
+    if (paywall) {
+      paywall.hidden = false;
+      var title = paywall.querySelector(".ege-paywall__title");
+      if (title && task) {
+        title.textContent = (task.nav || task.title) + " is locked";
+      }
+    }
+    if (cta) cta.href = unlockUrl();
+  }
+
+  function hidePaywall() {
+    var paywall = document.getElementById("egePaywall");
+    var panels = document.getElementById("egePanels");
+    var instructions = document.getElementById("egeInstructions");
+    if (paywall) paywall.hidden = true;
+    if (panels) panels.hidden = false;
+    if (instructions) instructions.hidden = false;
+  }
+
+  function showTask(taskId) {
+    state.activeTaskId = taskId;
+    var task = findTask(taskId);
+
+    document.querySelectorAll(".ege-nav__btn").forEach(function (btn) {
+      btn.classList.toggle("is-active", btn.dataset.taskId === taskId);
+    });
+
+    if (isTaskLocked(task)) {
+      document.querySelectorAll(".ege-task-panel").forEach(function (panel) {
+        panel.hidden = true;
+      });
+      showPaywall(task);
+      syncMobileSwitch(taskId);
+      return;
+    }
+
+    hidePaywall();
+    document.querySelectorAll(".ege-task-panel").forEach(function (panel) {
+      panel.hidden = panel.dataset.taskId !== taskId;
+    });
+
+    var instructions = document.getElementById("egeInstructions");
+    if (instructions && task) {
+      instructions.textContent =
+        task.instructions ||
+        (state.topic && state.topic.instructions) ||
+        "";
+    }
+
+    syncMobileSwitch(taskId);
+  }
+
+  function clearEmptyHighlights(taskId, task) {
+    if (!task || !task.gaps) return;
+    var board = document.querySelector("#task-" + taskId + " .ege-gap-picks");
+    task.gaps.forEach(function (gap) {
+      var insert = getGapInsert(taskId, gap);
+      if (insert) insert.classList.remove("is-empty");
+      if (board) {
+        var gapBtn = board.querySelector('[data-gap="' + gap + '"]');
+        if (gapBtn) gapBtn.classList.remove("is-empty");
+      }
+    });
+  }
+
+  function highlightEmptyGaps(taskId, task) {
+    if (!task || !task.gaps) return;
+    var prefix = taskPrefix(taskId);
+    var board = document.querySelector("#task-" + taskId + " .ege-gap-picks");
+    task.gaps.forEach(function (gap) {
+      var empty = !getCheckedValue(prefix + "_gap_" + gap);
+      var insert = getGapInsert(taskId, gap);
+      if (insert) insert.classList.toggle("is-empty", empty);
+      if (board) {
+        var gapBtn = board.querySelector('[data-gap="' + gap + '"]');
+        if (gapBtn) gapBtn.classList.toggle("is-empty", empty);
+      }
+    });
+  }
+
+  function shakeAnswerBoard(taskId) {
+    var board = document.querySelector("#task-" + taskId + " .ege-gap-picks");
+    if (!board) return;
+    var target = board.querySelector(".ege-answer-table") || board;
+    target.classList.remove("is-shake");
+    void target.offsetWidth;
+    target.classList.add("is-shake");
+    function onEnd() {
+      target.classList.remove("is-shake");
+      target.removeEventListener("animationend", onEnd);
+    }
+    target.addEventListener("animationend", onEnd);
+  }
+
+  function checkTask(taskId) {
+    var task = findTask(taskId);
+    if (!task || isTaskLocked(task) || !task.gaps) return;
+    setActionButtonsEnabled(taskId, true);
+
+    var prefix = taskPrefix(taskId);
+    var hasMissing = task.gaps.some(function (gap) {
+      return !getCheckedValue(prefix + "_gap_" + gap);
+    });
+    if (hasMissing) {
+      var scoreEl = document.getElementById("score-" + taskId);
+      if (scoreEl) {
+        scoreEl.hidden = false;
+        scoreEl.textContent = "Please fill all gaps before checking.";
+        scoreEl.className = "ege-task__score is-bad";
+      }
+      highlightEmptyGaps(taskId, task);
+      shakeAnswerBoard(taskId);
+      return;
+    }
+
+    clearEmptyHighlights(taskId, task);
+
+    var correct = 0;
+    var max = taskMaxScore(task);
+    var board = document.querySelector("#task-" + taskId + " .ege-gap-picks");
+    var wrongGaps = [];
+
+    task.gaps.forEach(function (gap) {
+      var name = prefix + "_gap_" + gap;
+      var value = getCheckedValue(name);
+      var ok = markChoiceGroup(name, value, task.answers[gap], false);
+      if (ok) correct += 1;
+      else wrongGaps.push(gap);
+
+      markGapInsert(taskId, gap, ok, !!value);
+
+      if (board) {
+        var gapBtn = board.querySelector('[data-gap="' + gap + '"]');
+        if (gapBtn) {
+          gapBtn.classList.toggle("is-correct", !!ok);
+          gapBtn.classList.toggle("is-wrong", !ok);
+        }
+      }
+    });
+    if (board && board.syncUsedState) board.syncUsedState();
+    if (board && board.lockCorrectGaps) board.lockCorrectGaps();
+
+    state.scores[taskId] = correct;
+    saveScore(state.topicId, taskId, correct, max);
+    setNavStatus(taskId, correct, max);
+    showScoreFeedback(taskId, correct, max, { revealKey: false });
+
+    if (wrongGaps.length > 0) {
+      hideExplanations(taskId);
+      setActionButtonsEnabled(taskId, true);
+      setRetryChoices(taskId, true);
+    } else {
+      showExplanations(taskId, task.gaps);
+      setActionButtonsEnabled(taskId, true);
+      setRetryChoices(taskId, false);
+    }
+  }
+
+  function tryAgainTask(taskId) {
+    var task = findTask(taskId);
+    if (!task || isTaskLocked(task) || !task.gaps) return;
+
+    var prefix = taskPrefix(taskId);
+    var board = document.querySelector("#task-" + taskId + " .ege-gap-picks");
+
+    task.gaps.forEach(function (gap) {
+      var name = prefix + "_gap_" + gap;
+      var value = getCheckedValue(name);
+      if (value && value === String(task.answers[gap])) return;
+
+      if (board && board.clearGap) {
+        board.clearGap(gap);
+      } else {
+        clearChoiceGroup(name);
+        var insert = getGapInsert(taskId, gap);
+        if (insert) {
+          insert.classList.remove("is-correct", "is-wrong", "is-filled");
+          var textSpan = insert.querySelector(".ege-gap-insert__text");
+          if (textSpan) textSpan.textContent = "";
+        }
+        if (board) {
+          var gapBtn = board.querySelector('[data-gap="' + gap + '"]');
+          if (gapBtn) {
+            gapBtn.classList.remove("is-correct", "is-wrong", "is-used");
+            var pickEl = gapBtn.querySelector(".ege-gap-pick");
+            if (pickEl) pickEl.textContent = "";
+          }
+        }
+      }
+    });
+
+    if (board && board.syncUsedState) board.syncUsedState();
+    hideScoreFeedback(taskId);
+    hideExplanations(taskId);
+    setRetryChoices(taskId, true);
+    setActionButtonsEnabled(taskId, true);
+  }
+
+  function revealTask(taskId) {
+    var task = findTask(taskId);
+    if (!task || isTaskLocked(task) || !task.gaps) return;
+
+    var prefix = taskPrefix(taskId);
+    var board = document.querySelector("#task-" + taskId + " .ege-gap-picks");
+    var snapshot = buildAnswerStrings(taskId, task);
+    var max = taskMaxScore(task);
+    var earned = 0;
+    task.gaps.forEach(function (gap) {
+      var value = getCheckedValue(prefix + "_gap_" + gap);
+      if (value && value === String(task.answers[gap])) earned += 1;
+    });
+
+    task.gaps.forEach(function (gap) {
+      var answer = String(task.answers[gap]);
+      setRadioValue(prefix + "_gap_" + gap, answer);
+      if (board && board.updateInsert) board.updateInsert(gap, answer);
+      markGapInsert(taskId, gap, true, true);
+      markChoiceGroup(prefix + "_gap_" + gap, answer, answer, true);
+
+      if (board) {
+        var gapBtn = board.querySelector('[data-gap="' + gap + '"]');
+        if (gapBtn) {
+          gapBtn.classList.add("is-correct");
+          gapBtn.classList.remove("is-wrong");
+        }
+      }
+    });
+
+    if (board) {
+      if (board.syncUsedState) board.syncUsedState();
+      if (board.syncNumberRow) board.syncNumberRow();
+      if (board.lockCorrectGaps) board.lockCorrectGaps();
+    }
+
+    state.scores[taskId] = earned;
+    saveScore(state.topicId, taskId, earned, max);
+    setNavStatus(taskId, earned, max);
+    showScoreFeedback(taskId, earned, max, {
+      revealKey: true,
+      yourAnswers: snapshot.yourAnswers,
+      correctAnswers: snapshot.correctAnswers,
+    });
+    showExplanations(taskId, task.gaps);
+    setRetryChoices(taskId, false);
+    setActionButtonsEnabled(taskId, false);
+  }
+
+  function resetTask(taskId) {
+    var task = findTask(taskId);
+    if (!task || isTaskLocked(task) || !task.gaps) return;
+
+    var board = document.querySelector("#task-" + taskId + " .ege-gap-picks");
+    if (board && board.clearAllGaps) {
+      board.clearAllGaps();
+    } else {
+      var prefix = taskPrefix(taskId);
+      task.gaps.forEach(function (gap) {
+        clearChoiceGroup(prefix + "_gap_" + gap);
+        var insert = document.querySelector(
+          "#task-" + taskId + ' .ege-gap-insert[data-gap="' + gap + '"]'
+        );
+        if (insert) {
+          insert.classList.remove("is-correct", "is-wrong", "is-filled");
+          var textSpan = insert.querySelector(".ege-gap-insert__text");
+          if (textSpan) textSpan.textContent = "";
+        }
+        if (board) {
+          var gapBtn = board.querySelector('[data-gap="' + gap + '"]');
+          if (gapBtn) {
+            gapBtn.classList.remove("is-correct", "is-wrong", "is-used");
+            var pickEl = gapBtn.querySelector(".ege-gap-pick");
+            if (pickEl) pickEl.textContent = "";
+          }
+        }
+      });
+      if (board) {
+        board.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
+          btn.classList.remove("is-selected", "is-correct", "is-wrong", "is-used");
+        });
+        if (board.syncUsedState) board.syncUsedState();
+      }
+      hideScoreFeedback(taskId);
+      hideExplanations(taskId);
+    }
+
+    state.scores[taskId] = 0;
+    clearScore(state.topicId, taskId);
+    setNavStatus(taskId, 0, taskMaxScore(task));
+    setRetryChoices(taskId, false);
+    setActionButtonsEnabled(taskId, true);
+  }
+
+  function mountTopic(topic, topicId) {
+    state.topic = topic;
+    state.topicId = topicId;
+    state.scores = {};
+
+    var saved = loadScores(topicId);
+    topic.tasks.forEach(function (task) {
+      state.scores[task.id] = saved[task.id] ? saved[task.id].score : 0;
+    });
+
+    document.title = "Задание 11 – Yap O'clock";
+    var titleEl = document.getElementById("egeTopicTitle");
+    if (titleEl) titleEl.textContent = topic.title;
+
+    var cta = document.getElementById("egePaywallCta");
+    if (cta) cta.href = unlockUrl();
+
+    var nav = document.getElementById("egeNav");
+    var panels = document.getElementById("egePanels");
+    nav.textContent = "";
+    panels.textContent = "";
+
+    topic.tasks.forEach(function (task) {
+      var max = taskMaxScore(task);
+      var savedScore = state.scores[task.id] || 0;
+      var locked = isTaskLocked(task);
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ege-nav__btn" + (locked ? " is-locked" : "");
+      btn.id = "nav-" + task.id;
+      btn.dataset.taskId = task.id;
+      if (locked) {
+        var label = document.createElement("span");
+        label.className = "ege-nav__label";
+        label.textContent = task.nav;
+        btn.appendChild(label);
+        var lock = document.createElement("img");
+        lock.className = "ege-nav__lock";
+        lock.src = "lock.svg";
+        lock.alt = "";
+        lock.setAttribute("aria-hidden", "true");
+        btn.appendChild(lock);
+      } else {
+        btn.textContent = task.nav;
+      }
+      btn.addEventListener("click", function () {
+        setNavOpen(false);
+        showTask(task.id);
+      });
+      nav.appendChild(btn);
+      setNavStatus(task.id, savedScore, max);
+
+      if (locked) return;
+
+      var shell = document.createElement("section");
+      shell.className = "ege-task-panel";
+      shell.id = "panel-" + task.id;
+      shell.dataset.taskId = task.id;
+      shell.hidden = true;
+
+      shell.appendChild(renderGapfill(task, topicId));
+      if (window.EgeHighlight) {
+        EgeHighlight.attachAll(shell, topicId, task.id);
+      }
+      panels.appendChild(shell);
+    });
+
+    showTask(freeTaskId());
+    bindMobileSwitch();
+  }
+
+  function bindMobileSwitch() {
+    var currentBtn = document.getElementById("egeMobileCurrent");
+    var prevBtn = document.getElementById("egePrevTask");
+    var nextBtn = document.getElementById("egeNextTask");
+    if (currentBtn && !currentBtn.dataset.bound) {
+      currentBtn.dataset.bound = "1";
+      currentBtn.addEventListener("click", function () {
+        var page = document.getElementById("egePage");
+        setNavOpen(!(page && page.classList.contains("is-nav-open")));
+      });
+    }
+    if (prevBtn && !prevBtn.dataset.bound) {
+      prevBtn.dataset.bound = "1";
+      prevBtn.addEventListener("click", function () {
+        showAdjacentTask(-1);
+      });
+    }
+    if (nextBtn && !nextBtn.dataset.bound) {
+      nextBtn.dataset.bound = "1";
+      nextBtn.addEventListener("click", function () {
+        showAdjacentTask(1);
+      });
+    }
+  }
+
+  function bindTipsToggle() {
+    var toggle = document.getElementById("egeTipsToggle");
+    var tips = document.getElementById("egeTips");
+    var hideBtn = document.getElementById("egeTipsHide");
+    if (!toggle || !tips || toggle.dataset.bound) return;
+    toggle.dataset.bound = "1";
+
+    function setTipsOpen(open) {
+      tips.hidden = !open;
+      toggle.classList.toggle("is-open", open);
+      toggle.classList.add("is-seen");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    toggle.addEventListener("click", function () {
+      setTipsOpen(tips.hidden);
+    });
+
+    if (hideBtn) {
+      hideBtn.addEventListener("click", function () {
+        setTipsOpen(false);
+      });
+    }
+  }
+
+  function isTypingTarget(el) {
+    if (!el || el === document.body) return false;
+    var tag = el.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return true;
+    if (el.isContentEditable) return true;
+    return false;
+  }
+
+  function handleTaskShortcuts(event) {
+    if (event.defaultPrevented) return;
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.repeat) return;
+    if (isTypingTarget(event.target)) return;
+
+    var taskId = state.activeTaskId;
+    if (!taskId) return;
+    var task = findTask(taskId);
+    if (!task) return;
+    var board = document.querySelector("#task-" + taskId + " .ege-gap-picks");
+    if (!board) return;
+
+    var key = event.key;
+    var code = event.code;
+
+    if (key === "r" || key === "R" || code === "KeyR") {
+      event.preventDefault();
+      resetTask(taskId);
+      return;
+    }
+
+    var letter = null;
+    if (/^[a-fA-F]$/.test(key)) letter = key.toUpperCase();
+    else if (/^Key[A-F]$/.test(code)) letter = code.charAt(3);
+    if (letter && task.gaps.indexOf(letter) !== -1 && board.setActiveGap) {
+      event.preventDefault();
+      board.setActiveGap(letter);
+      return;
+    }
+
+    var num = null;
+    if (/^[1-7]$/.test(key)) num = parseInt(key, 10);
+    else if (/^Digit[1-7]$/.test(code) || /^Numpad[1-7]$/.test(code)) {
+      num = parseInt(code.replace(/\D/g, ""), 10);
+    }
+    if (num != null && num >= 1 && num <= task.options.length && board.assignNumber) {
+      event.preventDefault();
+      board.assignNumber(num);
+    }
+  }
+
+  function init() {
+    var topic = window.GAP_FILL_DATA;
+    if (!topic || !topic.tasks || !topic.tasks.length) {
+      var panels = document.getElementById("egePanels");
+      if (panels) {
+        panels.innerHTML = '<p class="ege-error">No gap-fill data embedded.</p>';
+      }
+      return;
+    }
+    mountTopic(topic, topic.id || TOPIC_ID);
+    bindTipsToggle();
+    document.addEventListener("keydown", handleTaskShortcuts);
+  }
+
+  window.GapFillStandalone = { init: init };
+})();
+
+  </script>
+  <script>
+    GapFillStandalone.init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,4049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocabulary in Context – ЕГЭ Prep – Yap O'Clock</title>
+  <link rel="icon" href="assets/clocklogo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared/site-footer.css" />
+  <style>
+:root {
+  /* Yap O'Clock brand */
+  --yap-hot: #f90240;
+  --yap-royal: #01089e;
+  --yap-paper: #eef0fa;
+  --yap-ink: #0b072e;
+  --yap-mist: #a4a5c1;
+  --yap-wine: #981b40;
+  --yap-dust: #6a69a5;
+  --yap-navy: #00003b;
+
+  --ege-ink: var(--yap-ink);
+  --ege-muted: var(--yap-dust);
+  --ege-line: #c4c5d8;
+  --ege-bg: #e6e7f4;
+  --ege-card: rgba(238, 240, 250, 0.96);
+  --ege-primary: var(--yap-ink);
+  --ege-accent: var(--yap-hot);
+  --ege-accent-deep: var(--yap-wine);
+  --ege-accent-soft: #fde8ef;
+  --ege-accent-glow: rgba(249, 2, 64, 0.22);
+  --ege-ok: #27ae60;
+  --ege-ok-bg: #d5f5e3;
+  --ege-bad: #c0392b;
+  --ege-bad-bg: #fadbd8;
+  --ege-text-ok-bg: var(--ege-ok-bg);
+  --ege-text-ok-fg: var(--ege-ink);
+  --ege-text-bad-bg: var(--ege-bad-bg);
+  --ege-text-mark-pad: 1px 4px;
+  --ege-text-mark-radius: 3px;
+  --ege-wrong-pick: var(--yap-royal);
+  --ege-wrong-pick-bg: #e6e8fc;
+  --ege-mixed-bg: #fff0f4;
+  --ege-radius: 12px;
+  --ege-shadow: 0 4px 16px rgba(11, 7, 46, 0.1), 0 1px 3px rgba(11, 7, 46, 0.07);
+  --ege-font-ui: "Fredoka", system-ui, sans-serif;
+  --ege-font-text: "Montserrat", system-ui, sans-serif;
+  --ege-font-cyrillic: "Montserrat", system-ui, sans-serif;
+  --ege-workspace-min: 480px;
+  --ege-workspace-max: calc(100vh - 120px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--ege-bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ege-font-text);
+  color: var(--ege-ink);
+  background-color: var(--ege-bg);
+  background-image:
+    radial-gradient(ellipse 90% 55% at 12% -10%, rgba(1, 8, 158, 0.22), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 92% 8%, rgba(249, 2, 64, 0.16), transparent 50%),
+    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(106, 105, 165, 0.18), transparent 55%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  line-height: 1.65;
+}
+
+a {
+  color: var(--ege-accent-deep);
+}
+
+.ege-page {
+  flex: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 16px 18px 32px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 20px 24px;
+  align-items: start;
+}
+
+.ege-topics {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding-right: 4px;
+  grid-row: 1;
+  align-self: start;
+}
+
+.ege-rail {
+  min-width: 0;
+}
+
+.ege-rail__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ege-rail__mark {
+  display: block;
+  width: 64px;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.ege-rail__title {
+  margin: 0;
+  font-family: var(--ege-font-cyrillic);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ege-primary);
+  line-height: 1.15;
+  min-width: 0;
+}
+
+.ege-back {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ege-muted);
+  text-decoration: none;
+}
+
+.ege-back:hover {
+  color: var(--ege-accent-deep);
+}
+
+.ege-workspace {
+  min-width: 0;
+  display: grid;
+  gap: 10px;
+}
+
+/* ── Topbar ── */
+.ege-topbar {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 0;
+}
+
+.ege-topbar--compact .ege-topbar__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ege-topbar__title {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--ege-font-cyrillic);
+  font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+  font-weight: 600;
+  color: var(--ege-primary);
+  line-height: 1.45;
+  min-width: 0;
+  flex: 1;
+  white-space: normal;
+  max-width: 72ch;
+}
+
+.ege-tips-toggle {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  margin-left: auto;
+  border: 2px solid #e11d48;
+  background: #fff;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 3px rgba(225, 29, 72, 0.18),
+    0 0 10px rgba(225, 29, 72, 0.26),
+    0 0 18px rgba(225, 29, 72, 0.16);
+  animation: ege-tips-glow 2.2s ease-in-out infinite;
+}
+
+.ege-tips-toggle:hover,
+.ege-tips-toggle:focus-visible {
+  outline: none;
+  border-color: #be123c;
+  box-shadow:
+    0 0 0 3px rgba(225, 29, 72, 0.28),
+    0 0 14px rgba(225, 29, 72, 0.36),
+    0 0 22px rgba(225, 29, 72, 0.2);
+}
+
+.ege-tips-toggle__icon {
+  display: block;
+  width: 36px;
+  height: 36px;
+  margin: 2px auto;
+  object-fit: contain;
+  animation: ege-tips-flash 2.2s ease-in-out infinite;
+}
+
+.ege-tips-toggle.is-seen {
+  animation: none;
+  border-color: var(--ege-line);
+  box-shadow: none;
+}
+
+.ege-tips-toggle.is-seen:hover,
+.ege-tips-toggle.is-seen:focus-visible {
+  border-color: var(--ege-accent);
+  box-shadow: none;
+}
+
+.ege-tips-toggle.is-seen .ege-tips-toggle__icon {
+  animation: none;
+}
+
+@keyframes ege-tips-flash {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.78;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes ege-tips-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba(225, 29, 72, 0.18),
+      0 0 8px rgba(225, 29, 72, 0.22),
+      0 0 14px rgba(225, 29, 72, 0.14);
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px rgba(225, 29, 72, 0.24),
+      0 0 12px rgba(225, 29, 72, 0.34),
+      0 0 20px rgba(225, 29, 72, 0.2);
+  }
+}
+
+.ege-tips {
+  margin-top: 4px;
+  padding: 22px 20px;
+  border: 1px solid var(--ege-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--ege-shadow);
+  max-width: none;
+  width: 100%;
+  color: var(--ege-ink);
+  line-height: 1.6;
+}
+
+.ege-tips[hidden] {
+  display: none;
+}
+
+.ege-tips__heading {
+  margin: 0 0 14px;
+  font-family: var(--ege-font-ui);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ege-ink);
+}
+
+.ege-tips__section {
+  margin: 28px 0 12px;
+  font-family: var(--ege-font-ui);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ege-accent);
+  padding-bottom: 6px;
+  border-bottom: 2px solid #e0e7ff;
+}
+
+.ege-tips__starters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+@media (max-width: 640px) {
+  .ege-tips__starters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ege-tips__starters li {
+  background: #f8fafc;
+  border: 1px solid var(--ege-line);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: #334155;
+}
+
+.ege-tips__starters code {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-family: var(--ege-font-ui);
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.ege-tips__starters span {
+  color: #64748b;
+  font-size: 0.84em;
+}
+
+.ege-tips__note {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-left: 4px solid #f59e0b;
+  padding: 10px 14px;
+  border-radius: 0 10px 10px 0;
+  margin: 0 0 8px;
+  font-size: 0.93rem;
+  color: #92400e;
+}
+
+.ege-tips__key {
+  background: #f1f5f9;
+  border: 1px solid var(--ege-line);
+  padding: 11px 14px;
+  border-radius: 10px;
+  margin: 0 0 16px;
+  font-size: 0.95rem;
+}
+
+.ege-tips__map {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(170px, 0.75fr) minmax(0, 1.75fr);
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 0 16px;
+}
+
+.ege-tips__map-head {
+  background: #eef4ff;
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #1e3a8a;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--ege-line);
+}
+
+.ege-tips__map-cell {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--ege-line);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ege-ink);
+}
+
+.ege-tips__map-cell:nth-last-child(-n + 3) {
+  border-bottom: none;
+}
+
+.ege-tips__map-cell code {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-family: var(--ege-font-ui);
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.ege-tips__connector {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0 3px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .ege-tips__map {
+    grid-template-columns: 1fr;
+  }
+
+  .ege-tips__map-head {
+    border-bottom: 1px solid var(--ege-line);
+  }
+}
+
+.ege-tips__card {
+  background: #fff;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+.ege-tips__card:hover {
+  border-color: #bfdbfe;
+}
+
+.ege-tips__card p {
+  margin: 0 0 6px;
+  font-size: 0.92rem;
+  color: var(--ege-ink);
+}
+
+.ege-tips__card p:last-child {
+  margin-bottom: 0;
+}
+
+.ege-tips__card ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 0.92rem;
+}
+
+.ege-tips__card li + li {
+  margin-top: 3px;
+}
+
+.ege-tips__title {
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ege-ink);
+}
+
+.ege-tips__title::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ege-tips__title--that::before {
+  background: #3b82f6;
+}
+
+.ege-tips__title--which::before {
+  background: #6366f1;
+}
+
+.ege-tips__title--who::before {
+  background: #ec4899;
+}
+
+.ege-tips__title--ving::before {
+  background: #10b981;
+}
+
+.ege-tips__title--but::before {
+  background: #f97316;
+}
+
+.ege-tips__title--aswell::before {
+  background: #0ea5e9;
+}
+
+.ege-tips__title--than::before {
+  background: #64748b;
+}
+
+.ege-tips__tip {
+  margin-top: 10px;
+  padding: 9px 12px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #1e40af;
+}
+
+.ege-tips__tip--subtle {
+  background: #f8fafc;
+  border-color: var(--ege-line);
+  color: #64748b;
+}
+
+.ege-tips__hide {
+  margin-top: 8px;
+}
+
+.ege-back {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--ege-accent);
+  font-family: var(--ege-font-ui);
+  font-weight: 600;
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+.ege-back:hover {
+  color: var(--ege-ink);
+}
+
+.ege-header h1,
+.ege-header__title {
+  margin: 0;
+  font-family: var(--ege-font-cyrillic);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--ege-primary);
+  line-height: 1.15;
+}
+
+.ege-header__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.ege-brand-mark {
+  display: block;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ege-brand-mark--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.ege-kicker {
+  margin: 0;
+  font-family: var(--ege-font-cyrillic);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ege-accent);
+}
+
+.ege-lede {
+  margin: 0;
+  color: var(--ege-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 56ch;
+}
+
+/* ── Task nav ── */
+.ege-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ege-nav__btn {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ege-primary);
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.ege-nav__btn:hover {
+  background: var(--ege-accent-soft);
+  border-color: var(--ege-line);
+}
+
+.ege-nav__btn.is-active {
+  background: var(--ege-accent);
+  border-color: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-nav__btn.is-perfect:not(.is-active) {
+  box-shadow: inset 3px 0 0 var(--ege-ok);
+}
+
+.ege-nav__btn.is-partial:not(.is-active) {
+  box-shadow: inset 3px 0 0 #ca8a04;
+}
+
+/* Mobile task switcher — two horizontal lines */
+.ege-mobile-switch {
+  display: none;
+}
+
+.ege-mobile-switch__line--end {
+  display: none;
+}
+
+/* ── Task panel ── */
+.ege-task-panel {
+  animation: ege-fade 0.25s ease;
+}
+
+@keyframes ege-fade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ege-instructions {
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  color: var(--ege-ink);
+  line-height: 1.55;
+  max-width: 72ch;
+}
+
+.ege-instructions .ege-badge {
+  margin-right: 6px;
+}
+
+.ege-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--ege-accent-soft);
+  color: var(--ege-accent);
+  font-family: var(--ege-font-ui);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.ege-task {
+  background: var(--ege-card);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--ege-radius);
+  padding: 14px;
+  box-shadow: var(--ege-shadow);
+}
+
+.ege-task--panels {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  display: grid;
+  gap: 12px;
+}
+
+.ege-answer-box {
+  display: grid;
+  gap: 14px;
+}
+
+.ege-answer-box .ege-ref__list {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .ege-answer-box .ege-ref__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ege-panel--answers .ege-gap-picks {
+  border-top: none;
+  padding-top: 0;
+  max-width: none;
+  width: fit-content;
+}
+
+.ege-panel--answers .ege-panel__label {
+  margin-bottom: 8px;
+}
+
+.ege-panel--answers .ege-gap-picks {
+  display: block;
+}
+
+.ege-answer-table {
+  display: grid;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 10px 12px;
+  background: var(--ege-card);
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+}
+
+.ege-panel--answers .ege-match-pill--clear {
+  justify-self: start;
+  width: 38px;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #b91c1c;
+  background: #fee2e2;
+  border-color: #fecaca;
+  opacity: 1;
+}
+
+.ege-panel--answers .ege-match-pill--clear:hover {
+  color: #991b1b;
+  background: #fecaca;
+  border-color: #fca5a5;
+}
+
+.ege-answer-box .ege-match-letters,
+.ege-answer-box .ege-match-numbers,
+.ege-sidebar-work .ege-match-letters,
+.ege-sidebar-work .ege-match-numbers,
+.ege-panel--answers .ege-match-letters,
+.ege-panel--answers .ege-match-numbers {
+  display: grid;
+  grid-template-columns: repeat(7, 38px);
+  gap: 6px;
+  justify-content: start;
+}
+
+.ege-answer-box .ege-match-letters,
+.ege-sidebar-work .ege-match-letters,
+.ege-panel--answers .ege-match-letters {
+  grid-template-columns: repeat(7, 38px);
+}
+
+.ege-answer-box .ege-match-letters .ege-match-pill,
+.ege-answer-box .ege-match-numbers .ege-match-pill,
+.ege-sidebar-work .ege-match-letters .ege-match-pill,
+.ege-sidebar-work .ege-match-numbers .ege-match-pill,
+.ege-panel--answers .ege-match-letters .ege-match-pill,
+.ege-panel--answers .ege-match-numbers .ege-match-pill {
+  flex: none;
+  width: 38px;
+  min-width: 0;
+  padding: 6px 0;
+}
+
+.ege-answer-box .ege-match-pill--clear,
+.ege-sidebar-work .ege-match-pill--clear {
+  justify-self: start;
+  width: auto;
+  padding: 6px 12px;
+}
+
+.ege-panel--parts .ege-ref__list {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .ege-panel--parts .ege-ref__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ege-panel {
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  background: var(--ege-card);
+  padding: 16px;
+  min-height: 0;
+}
+
+.ege-panel.ege-panel--answers {
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.ege-panel__label {
+  margin: 0 0 12px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ege-muted);
+}
+
+.ege-ref-strip {
+  margin: 0;
+}
+
+.ege-panel--read .ege-passage,
+.ege-panel--read .ege-text-block,
+.ege-panel--read .ege-gapfill-passage {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.ege-panel--work .ege-mc-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.ege-sidebar-work {
+  display: grid;
+  gap: 12px;
+}
+
+.ege-panel--solo {
+  min-height: min(var(--ege-workspace-min), 60vh);
+  max-height: var(--ege-workspace-max);
+  overflow-y: auto;
+}
+
+/* ── Side-by-side panels ── */
+.ege-split {
+  display: grid;
+  gap: 12px;
+}
+
+.ege-split--panels {
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .ege-split--panels {
+    grid-template-columns: minmax(0, 1.75fr) minmax(220px, 0.82fr);
+    gap: 12px;
+    align-items: start;
+  }
+
+  .ege-split--panels .ege-split__read,
+  .ege-split--panels .ege-split__work {
+    border: none;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .ege-split--panels .ege-split__read {
+    position: static;
+  }
+
+  .ege-split--panels .ege-split__work {
+    position: sticky;
+    top: 72px;
+    max-height: var(--ege-workspace-max);
+    overflow-y: auto;
+  }
+
+  .ege-split--panels .ege-panel--read {
+    min-height: var(--ege-workspace-min);
+    max-height: none;
+    overflow: visible;
+  }
+
+  .ege-split--panels .ege-panel--work {
+    min-height: 0;
+    max-height: var(--ege-workspace-max);
+    overflow-y: auto;
+    padding: 12px;
+  }
+
+  .ege-split--panels .ege-panel--solo {
+    min-height: var(--ege-workspace-min);
+    max-height: var(--ege-workspace-max);
+    overflow-y: auto;
+  }
+
+  .ege-split--panels .ege-split__read .ege-passage,
+  .ege-split--panels .ege-split__read .ege-text-block,
+  .ege-split--panels .ege-split__read .ege-gapfill-passage {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .ege-panel--work .ege-panel__label {
+    margin-bottom: 8px;
+  }
+
+  .ege-panel--work .ege-ref__list {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .ege-panel--work .ege-ref__list li {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .ege-panel--work .ege-match-read {
+    gap: 10px;
+  }
+
+  .ege-split--panels .ege-gap-picks,
+  .ege-split--panels .ege-match-picks {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .ege-split--panels .ege-vocab-picks .ege-match-words {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ege-split--panels .ege-vocab-picks .ege-match-pill--word {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  .ege-split--panels .ege-panel--read,
+  .ege-split--panels .ege-panel--work,
+  .ege-panel--solo {
+    min-height: min(360px, 55vh);
+  }
+}
+
+.ege-ref__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ege-ref;
+}
+
+.ege-ref__list li {
+  display: grid;
+  grid-template-columns: 1.6em 1fr;
+  gap: 0 6px;
+  font-size: 1rem;
+  line-height: 1.65;
+  counter-increment: ege-ref;
+  opacity: 0.72;
+  transition: opacity 0.12s, color 0.12s;
+}
+
+.ege-ref__list li.is-used {
+  opacity: 1;
+  color: var(--ege-accent-deep);
+  font-weight: 600;
+}
+
+.ege-ref__list li::before {
+  content: counter(ege-ref) ".";
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  color: var(--ege-accent);
+  text-align: right;
+}
+
+@media (min-width: 560px) {
+  .ege-ref__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ege-panel--work .ege-ref__list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Matching: one shared number row ── */
+.ege-match-read {
+  display: grid;
+  gap: 14px;
+}
+
+.ege-match-picks {
+  display: grid;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ege-line);
+}
+
+.ege-match-letters,
+.ege-match-numbers {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+
+.ege-match-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ege-match-letters .ege-match-pill,
+.ege-match-numbers .ege-match-pill {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 6px 4px;
+}
+
+.ege-match-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 6px 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 8px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--ege-primary);
+  cursor: pointer;
+  opacity: 0.72;
+  transition: background 0.12s, border-color 0.12s, color 0.12s, opacity 0.12s;
+}
+
+.ege-match-pill--num {
+  padding: 6px 4px;
+}
+
+.ege-match-pill--clear {
+  justify-self: start;
+  min-width: auto;
+  padding: 6px 12px;
+  font-weight: 600;
+  color: var(--ege-muted);
+  opacity: 0.85;
+}
+
+.ege-match-pill--word {
+  min-width: auto;
+  padding: 8px 14px;
+  min-height: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.ege-match-pill.is-active .ege-gap-pick {
+  color: #fff;
+}
+
+.ege-match-letter__pick {
+  min-width: 1ch;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.ege-match-pill:hover {
+  border-color: var(--yap-royal);
+  background: var(--ege-wrong-pick-bg);
+  opacity: 0.9;
+}
+
+.ege-match-pill--gap.is-used:not(.is-active) {
+  opacity: 1;
+  background: var(--ege-wrong-pick-bg);
+  border-color: color-mix(in srgb, var(--yap-royal) 35%, var(--ege-line));
+  color: var(--yap-royal);
+}
+
+.ege-match-pill--gap.is-active {
+  opacity: 1;
+  background: var(--yap-royal);
+  border-color: var(--yap-royal);
+  color: #fff;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--yap-royal) 32%, transparent);
+  z-index: 1;
+}
+
+.ege-match-pill--gap.is-active .ege-match-letter__pick,
+.ege-match-pill--gap.is-active .ege-gap-pick {
+  color: #fff;
+}
+
+.ege-match-pill--num.is-used:not(.is-selected):not(.is-locked) {
+  opacity: 0.38;
+  background: #eef0f4;
+  border-color: var(--ege-line);
+  color: var(--ege-muted);
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.ege-match-pill--num.is-used:not(.is-selected):not(.is-locked):hover {
+  opacity: 0.38;
+  background: #eef0f4;
+  border-color: var(--ege-line);
+  color: var(--ege-muted);
+}
+
+.ege-match-pill.is-selected {
+  opacity: 1;
+  background: var(--yap-royal);
+  border-color: var(--yap-royal);
+  color: #fff;
+  text-decoration: none;
+}
+
+.ege-vocab-picks.is-suppress-hover .ege-match-pill--word:hover {
+  border-color: var(--ege-line);
+  background: #fff;
+  opacity: 0.72;
+  color: var(--ege-primary);
+}
+
+.ege-match-pill.is-correct {
+  opacity: 1;
+  background: var(--ege-ok-bg);
+  border-color: var(--ege-ok);
+  color: var(--ege-ok);
+}
+
+.ege-match-pill.is-locked {
+  cursor: default;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.ege-match-pill.is-locked.is-correct {
+  opacity: 1;
+  background: var(--ege-ok-bg) !important;
+  border-color: var(--ege-ok) !important;
+  color: var(--ege-ok) !important;
+}
+
+.ege-match-pill.is-wrong {
+  opacity: 1;
+  background: var(--ege-bad-bg);
+  border-color: var(--ege-bad);
+  color: var(--ege-bad);
+}
+
+.ege-match-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ── Text blocks ── */
+.ege-text-block {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.ege-text-block:last-child {
+  margin-bottom: 0;
+}
+
+.ege-text-block strong {
+  color: var(--ege-accent-deep);
+}
+
+.ege-passage {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ── Text highlighter (outside task box) ── */
+.ege-highlight-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ege-highlight-tools__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: var(--ege-card);
+  box-shadow: var(--ege-shadow);
+  font-family: var(--ege-font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ege-primary);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s, box-shadow 0.12s;
+}
+
+.ege-highlight-tools__icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.ege-highlight-tools__btn:hover {
+  border-color: var(--ege-line);
+  background: #f8fafc;
+}
+
+.ege-highlight-tools__btn.is-active {
+  background: #e2e8f0;
+  border-color: var(--ege-line);
+  color: var(--ege-primary);
+  box-shadow: none;
+}
+
+.ege-highlight-tools__btn[data-mode="highlight"]:hover {
+  border-color: #facc15;
+  background: #fef9c3;
+}
+
+.ege-highlight-tools__btn[data-mode="highlight"].is-active {
+  background: #fde68a;
+  border-color: #facc15;
+  color: #854d0e;
+  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.25);
+}
+
+.ege-highlight-tools__btn--ghost {
+  color: var(--ege-muted);
+  min-width: auto;
+  padding: 0 14px;
+}
+
+.ege-highlightable {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+.ege-highlightable.ege-erase-mode {
+  cursor: default;
+}
+
+.ege-highlightable .ege-highlight {
+  background: rgba(250, 204, 21, 0.35);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.ege-highlightable.ege-erase-mode .ege-highlight {
+  cursor: pointer;
+  outline: 1px dashed rgba(202, 138, 4, 0.6);
+  outline-offset: 1px;
+}
+
+.ege-mc-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.ege-mc-card {
+  padding: 12px 14px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.ege-mc-card:last-child {
+  margin-bottom: 0;
+}
+
+.ege-mc__prompt {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 0 10px;
+  padding: 0;
+  line-height: 1.55;
+}
+
+.ege-choice-group--mc {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-top: 0;
+}
+
+.ege-pill--option {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+/* ── Pill choice groups ── */
+.ege-choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ege-choice-group--inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.ege-choice-group--grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+@media (min-width: 640px) {
+  .ege-choice-group--grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ege-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid var(--ege-line);
+  border-radius: 8px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ege-primary);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  user-select: none;
+}
+
+.ege-pill--text {
+  min-width: 0;
+  justify-content: flex-start;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-family: var(--ege-font-text);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.ege-pill input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.ege-pill:hover {
+  border-color: var(--yap-royal);
+  background: var(--ege-wrong-pick-bg);
+}
+
+.ege-pill:has(input:checked) {
+  background: var(--ege-wrong-pick-bg);
+  border-color: var(--yap-royal);
+  color: var(--yap-royal);
+}
+
+.ege-pill.is-correct {
+  background: var(--ege-ok-bg);
+  border-color: var(--ege-ok);
+  color: var(--ege-ok);
+}
+
+.ege-pill.is-wrong {
+  background: var(--ege-bad-bg);
+  border-color: var(--ege-bad);
+  color: var(--ege-bad);
+}
+
+.ege-gapfill-passage {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.ege-gap-insert {
+  display: inline;
+  white-space: normal;
+  cursor: pointer;
+}
+
+.ege-gap-insert:focus-visible {
+  outline: 2px solid var(--yap-royal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.ege-gap-insert.is-active-gap:not(.is-filled) {
+  border: 2px solid var(--yap-royal);
+  background: color-mix(in srgb, var(--ege-wrong-pick-bg) 70%, #fff);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--yap-royal) 28%, transparent);
+}
+
+.ege-gap-insert.is-active-gap.is-filled .ege-gap-insert__text {
+  background: color-mix(in srgb, var(--ege-wrong-pick-bg) 55%, #fff);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--yap-royal) 32%, transparent);
+  outline: 2px solid var(--yap-royal);
+  outline-offset: 1px;
+}
+
+.ege-gap-insert.is-hover-match:not(.is-filled) {
+  border-color: var(--yap-royal);
+  background: color-mix(in srgb, var(--ege-wrong-pick-bg) 85%, #fff);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--yap-royal) 18%, transparent);
+}
+
+.ege-gap-insert.is-hover-match.is-filled .ege-gap-insert__text {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--yap-royal) 22%, transparent);
+}
+
+.ege-gap-insert.is-just-filled .ege-gap-insert__text,
+.ege-gap-insert.is-just-filled:not(.is-filled) {
+  animation: ege-gap-flash 0.55s ease;
+}
+
+@keyframes ege-gap-flash {
+  0% {
+    background: color-mix(in srgb, var(--yap-royal) 28%, var(--ege-wrong-pick-bg));
+  }
+  100% {
+    background: var(--ege-wrong-pick-bg);
+  }
+}
+
+.ege-gap-insert.is-empty:not(.is-filled) {
+  background: var(--ege-bad-bg);
+  border-color: var(--ege-bad);
+  color: var(--ege-bad);
+}
+
+.ege-gap-insert.is-empty:not(.is-filled)::after {
+  color: color-mix(in srgb, var(--ege-bad) 70%, var(--ege-muted));
+}
+
+.ege-gap-insert.is-locked {
+  cursor: default;
+  pointer-events: none;
+}
+
+.ege-gap-insert:not(.is-filled) {
+  display: inline-block;
+  padding: 1px 8px;
+  margin: 0 1px;
+  border: 1px dashed color-mix(in srgb, var(--yap-royal) 45%, transparent);
+  border-radius: 6px;
+  background: var(--ege-wrong-pick-bg);
+  font-family: var(--ege-font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--yap-royal);
+  vertical-align: baseline;
+}
+
+.ege-gap-insert:not(.is-filled)::before {
+  content: attr(data-gap);
+}
+
+.ege-gap-insert:not(.is-filled)::after {
+  content: " ···";
+  font-weight: 600;
+  color: var(--ege-muted);
+}
+
+.ege-gap-insert__text {
+  font-weight: 500;
+}
+
+.ege-gap-insert.is-filled .ege-gap-insert__text {
+  background: var(--ege-wrong-pick-bg);
+  color: var(--yap-royal);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-weight: 700;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.ege-gap-insert.is-filled .ege-gap-insert__text:empty {
+  display: none;
+}
+
+.ege-gap-insert.is-correct.is-filled .ege-gap-insert__text {
+  background: var(--ege-ok-bg);
+}
+
+.ege-gap-insert.is-wrong.is-filled .ege-gap-insert__text {
+  background: var(--ege-bad-bg);
+}
+
+.ege-gap-picks {
+  display: grid;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ege-line);
+}
+
+.ege-gap-picks .ege-match-pill {
+  font-size: 0.95rem;
+  min-height: 40px;
+}
+
+.ege-gap-pick {
+  min-width: 1ch;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.ege-gap-pick:empty {
+  display: none;
+}
+
+/* ── Word formation ── */
+.ege-wordform {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+.ege-wordform__hint {
+  margin: 0 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ege-accent);
+  letter-spacing: 0.03em;
+}
+
+.ege-input {
+  font-family: var(--ege-font-text);
+  font-size: 0.95rem;
+  border: 1px solid var(--ege-line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: #fff;
+  color: var(--ege-ink);
+  min-height: 36px;
+  width: 120px;
+}
+
+.ege-input.is-correct {
+  border-color: var(--ege-ok);
+  background: var(--ege-ok-bg);
+}
+
+.ege-input.is-wrong {
+  border-color: var(--ege-bad);
+  background: var(--ege-bad-bg);
+}
+
+/* ── Task footer ── */
+.ege-task__footer {
+  margin-top: 16px;
+}
+
+.ege-task--panels .ege-task__footer {
+  margin-top: 12px;
+}
+
+.ege-task--panels .ege-panel {
+  border-bottom: none;
+}
+
+.ege-task__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ege-btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.ege-btn--primary {
+  background: var(--ege-accent);
+  color: #fff;
+}
+
+.ege-btn--primary:hover {
+  background: var(--yap-wine);
+}
+
+.ege-btn:disabled,
+.ege-btn--primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.ege-btn--primary:disabled:hover {
+  background: var(--yap-hot);
+}
+
+.ege-btn--ghost {
+  background: #fff;
+  border-color: var(--ege-line);
+  color: var(--ege-muted);
+}
+
+.ege-btn--ghost:hover {
+  border-color: var(--ege-accent);
+  color: var(--ege-ink);
+}
+
+.ege-task__score {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  min-height: 2.6em;
+  border-radius: 8px;
+  font-family: var(--ege-font-ui);
+  font-weight: 600;
+  font-size: 0.88rem;
+  white-space: pre-line;
+}
+
+.ege-task__score[hidden] {
+  display: block;
+  visibility: hidden;
+}
+
+.ege-task__score.is-good {
+  background: var(--ege-ok-bg);
+  color: var(--ege-ok);
+}
+
+.ege-task__score.is-bad {
+  background: var(--ege-bad-bg);
+  color: var(--ege-bad);
+}
+
+.ege-task__score.is-mixed {
+  background: var(--ege-mixed-bg);
+  color: var(--ege-accent);
+}
+
+.ege-explain {
+  margin-top: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.ege-explain[hidden] {
+  display: none;
+}
+
+.ege-explain__item {
+  background: #fff;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+
+.ege-explain__item:hover {
+  border-color: #bfdbfe;
+}
+
+.ege-explain__gap {
+  margin: 0 0 8px;
+  font-family: var(--ege-font-ui);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ege-ink);
+  line-height: 1.45;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ege-explain__gap::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #3b82f6;
+  flex-shrink: 0;
+}
+
+.ege-explain__jump {
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #93c5fd;
+  text-underline-offset: 3px;
+}
+
+.ege-explain__jump:hover,
+.ege-explain__jump:focus-visible {
+  color: var(--ege-accent);
+  text-decoration-color: var(--ege-accent);
+}
+
+.ege-gap-insert.is-jump-target {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  border-radius: 6px;
+  transition: box-shadow 0.25s ease;
+}
+
+.ege-explain__why {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ege-ink);
+  line-height: 1.6;
+  background: #eff6ff;
+  border: 1px solid var(--ege-line);
+  border-color: #dbeafe;
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+
+.ege-error {
+  padding: 24px;
+  text-align: center;
+  color: var(--ege-bad);
+}
+
+body.yap-brand .site-author {
+  border-top-color: rgba(106, 105, 165, 0.28);
+  background: rgba(238, 240, 250, 0.82);
+}
+
+body.yap-brand .site-author p {
+  color: var(--yap-dust);
+}
+
+body.yap-brand .site-author__name {
+  color: var(--yap-ink);
+}
+
+body.yap-brand .site-author__promo a {
+  color: var(--yap-hot);
+}
+
+@media (max-width: 860px) {
+  .ege-page {
+    grid-template-columns: 1fr;
+    padding: 12px 12px 24px;
+    gap: 12px;
+  }
+
+  .ege-topics {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    grid-row: auto;
+  }
+
+  .ege-rail {
+    display: none;
+    padding: 4px 0 10px;
+  }
+
+  .ege-page.is-nav-open .ege-rail {
+    display: block;
+  }
+
+  .ege-mobile-switch {
+    display: block;
+  }
+
+  .ege-mobile-switch__line,
+  .ege-mobile-switch__line--end {
+    display: block;
+    height: 0;
+    border: 0;
+    border-top: 1.5px solid var(--ege-ink);
+    margin: 0;
+    width: 100%;
+  }
+
+  .ege-mobile-switch__controls {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .ege-mobile-switch__btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--ege-line);
+    border-radius: 8px;
+    background: var(--ege-card);
+    color: var(--ege-ink);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .ege-mobile-switch__btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .ege-mobile-switch__current {
+    border: none;
+    background: transparent;
+    color: var(--ege-ink);
+    font-family: var(--ege-font-ui);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px 4px;
+    cursor: pointer;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ege-mobile-switch__current::after {
+    content: "";
+    display: inline-block;
+    width: 0.45em;
+    height: 0.45em;
+    margin-left: 0.45em;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-0.15em) rotate(45deg);
+    vertical-align: middle;
+    opacity: 0.55;
+  }
+
+  .ege-page.is-nav-open .ege-mobile-switch__current::after {
+    transform: translateY(0.1em) rotate(-135deg);
+  }
+
+  .ege-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .ege-nav__btn {
+    font-size: 0.78rem;
+    padding: 8px 10px;
+    border: 1px solid var(--ege-line);
+    background: var(--ege-card);
+  }
+
+  .ege-nav__btn.is-perfect:not(.is-active),
+  .ege-nav__btn.is-partial:not(.is-active) {
+    box-shadow: inset 0 0 0 1px var(--ege-ok);
+  }
+
+  .ege-nav__btn.is-partial:not(.is-active) {
+    box-shadow: inset 0 0 0 1px #ca8a04;
+  }
+
+  .ege-topbar--compact .ege-topbar__title {
+    white-space: normal;
+  }
+
+  .ege-input {
+    width: 100%;
+    max-width: 160px;
+  }
+}
+
+@media (min-width: 861px) {
+  .ege-mobile-switch,
+  .ege-mobile-switch__line--end {
+    display: none;
+  }
+}
+
+
+
+
+/* Clickable words in work panel */
+.ege-vocab-picks {
+  display: grid;
+  gap: 10px;
+}
+.ege-vocab-picks .ege-match-words {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+.ege-vocab-picks .ege-match-pill--word {
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+  min-height: 44px;
+  font-size: 1rem;
+}
+.ege-vocab-picks .ege-match-pill--word .ege-vocab-word__n {
+  display: inline-block;
+  min-width: 1.4em;
+  margin-right: 6px;
+  font-weight: 700;
+  color: var(--ege-accent);
+  opacity: 0.85;
+}
+.ege-vocab-picks .ege-match-pill--word.is-selected .ege-vocab-word__n {
+  color: inherit;
+}
+
+@keyframes ege-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-4px);
+  }
+  40%,
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+.ege-vocab-picks.is-shake {
+  animation: ege-shake 0.35s ease;
+}
+
+.ege-task.is-all-correct .ege-panel--read {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ege-ok) 45%, transparent);
+}
+
+.ege-task.is-all-correct .ege-gap-insert.is-filled .ege-gap-insert__text {
+  background: var(--ege-ok-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ege-task-panel {
+    animation: none;
+  }
+
+  .ege-btn {
+    transition: none;
+  }
+
+  .ege-tips-toggle,
+  .ege-tips-toggle__icon {
+    animation: none;
+  }
+
+  .ege-vocab-picks.is-shake,
+  .ege-gap-insert.is-just-filled .ege-gap-insert__text,
+  .ege-gap-insert.is-just-filled:not(.is-filled) {
+    animation: none;
+  }
+}
+
+  </style>
+</head>
+<body class="yap-brand">
+  <main class="ege-page" id="egePage">
+    <div class="ege-topics">
+      <div class="ege-mobile-switch" id="egeMobileSwitch">
+        <hr class="ege-mobile-switch__line" />
+        <div class="ege-mobile-switch__controls">
+          <button type="button" class="ege-mobile-switch__btn" id="egePrevTask" aria-label="Previous text">‹</button>
+          <button type="button" class="ege-mobile-switch__current" id="egeMobileCurrent" aria-expanded="false" aria-controls="egeNav">Texts</button>
+          <button type="button" class="ege-mobile-switch__btn" id="egeNextTask" aria-label="Next text">›</button>
+        </div>
+      </div>
+
+      <aside class="ege-rail">
+        <div class="ege-rail__head">
+          <img class="ege-rail__mark" src="timetoege.png" alt="" width="64" aria-hidden="true" />
+          <h1 class="ege-rail__title">Vocabulary in Context</h1>
+        </div>
+        <a href="index.html" class="ege-back ege-rail__back">← Sections</a>
+        <nav class="ege-nav" id="egeNav" aria-label="Texts"></nav>
+      </aside>
+
+      <hr class="ege-mobile-switch__line ege-mobile-switch__line--end" />
+    </div>
+
+    <div class="ege-workspace">
+      <header class="ege-topbar ege-topbar--compact">
+        <div class="ege-topbar__main">
+          <h1 class="ege-topbar__title" id="egeTopicTitle">
+            <img class="ege-brand-mark ege-brand-mark--sm" src="assets/clocklogo.png" alt="" width="32" height="32" aria-hidden="true" />
+            <span id="egeTopicTitleText">Задания 30–36</span>
+          </h1>
+        </div>
+        <p class="ege-instructions" id="egeInstructions">Click a numbered gap, then choose word 1–4 (keys 1–4 work too).</p>
+      </header>
+
+      <div id="egePanels"></div>
+    </div>
+  </main>
+
+  <script>
+window.VOCAB_CLOZE_DATA = {
+  "id": "vocabulary-cloze",
+  "title": "Задания 30–36",
+  "subtitle": "Choose the best word for each gap in the text.",
+  "instructions": "Click a numbered gap, then choose word 1–4 (keys 1–4 work too).",
+  "tasks": [
+    {
+      "id": "vocab-eiffel",
+      "nav": "Eiffel Tower",
+      "badge": "Vocabulary",
+      "title": "A Night in the Eiffel Tower",
+      "instructions": "Choose the best word (1–4) for each numbered gap.",
+      "type": "mc",
+      "passage": "Seven million people visit the Eiffel Tower every year. But have you ever dreamed [30] sleeping in this iconic structure?<br><br>Holiday rental company Viva constructed a temporary VIP apartment on the first level of the tower, open only for the duration of the Euro football tournament from 10 June to 10 July 2016. The two-bedroom apartment, with the best Paris views was furnished with a big screen television for [31] the game. The space also included a seating area filled with hanging plants.<br><br>A lot of people were attracted by the [32] to sleep in the apartment. To determine who got this chance, Viva [33] a contest asking entrants to describe how they would spend their night in the tower.<br><br>\"My two young sons are autistic and are both obsessed with lights and the tower itself so I'd spend the night [34] their excitement!\" was the winning response from Michelle, in the UK.<br><br>Scott, from the United States, [35] to win a night's stay with his response about reuniting five generations in Paris: his mother who first visited the city in 1953, his daughter and granddaughter who visited at 13 and 14 respectively, and a brand new granddaughter who joined the trip.<br><br>The four winners began their one-night stays from the 23rd of June. [36] there were no other nights to win, all the visitors to the Eiffel Tower had the chance to tour the apartment and join a match viewing party.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "at",
+            "over",
+            "of",
+            "for"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "staring",
+            "watching",
+            "seeing",
+            "looking"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "probability",
+            "ability",
+            "availability",
+            "opportunity"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "held",
+            "kept",
+            "took",
+            "gave"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "amusing",
+            "preferring",
+            "enjoying",
+            "pleasing"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "handled",
+            "achieved",
+            "maintained",
+            "managed"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "Although",
+            "Moreover",
+            "Therefore",
+            "However"
+          ],
+          "correct": 0
+        }
+      ]
+    },
+    {
+      "id": "vocab-two-years-hut",
+      "nav": "Two Years in a Hut",
+      "badge": "Vocabulary",
+      "title": "Two Years in a Hut",
+      "instructions": "Read the text and choose the best word (1–4) for each numbered gap.",
+      "type": "mc",
+      "passage": "Henry Thompson, a writer, built a hut on the shore of the pond and lived there all alone for two years. He did this for two reasons: because he wanted to [30] that people spend too much time and money on food and clothes and because he wanted a perfectly quiet chance to write more books. [31] to the writer, he spent only one hundred dollars a year while he lived in this hut. He raised beans on his land, ate wild berries, caught fish and \"went visiting\" his friends and neighbours now and then. To buy his woodsman's clothes and a few necessities, he planted gardens, painted houses, and cut wood for his friends.<br><br>This period influenced Henry's creative work a lot. He wrote a book called \"The Wood\" which [32] all about these seven or eight hundred days he lived in his hut. Several other books also describe the time when he [33] to live all by himself. These sold very well. In all of them Henry was boasting that he had found the only sensible way to live. \"I am for simple living, and I [34] being alone!\" he would declare in his books. He [35] you feel, when you read his books, that it is fine to walk around the fields, sniffing the wild grape and the green grass, and that no one can find pleasure like the man who rows, and skates, and swims. [36], people passing by the pond used to hear him whistling old ballads, or playing very softly and beautifully on a flute, and they thought he sounded lonely and sad.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "agree",
+            "secure",
+            "ensure",
+            "prove"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "According",
+            "Including",
+            "Regarding",
+            "Concerning"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "says",
+            "talks",
+            "tells",
+            "speaks"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "kept",
+            "made",
+            "held",
+            "used"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "amuse",
+            "please",
+            "enjoy",
+            "satisfy"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "turns",
+            "makes",
+            "gives",
+            "takes"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "Although",
+            "Otherwise",
+            "However",
+            "Moreover"
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "vocab-new-coat",
+      "nav": "A New Coat",
+      "badge": "Vocabulary",
+      "title": "A New Coat",
+      "instructions": "Choose the best word (1–4) for each numbered gap.",
+      "type": "mc",
+      "passage": "At the weekend Dotty went to Anna for tea and Anna's mother Miranda gasped when she saw Dotty. She had changed a lot. Anna had [30] Dotty to the hairdresser's and now she had a very beautiful hairstyle with a fringe. [31], Miranda knew that the girls had bought a new suit for Dotty.<br><br>\"You look completely different with your hair like that,\" Miranda said approvingly, then, \"Did you bring your suit with you? Anna told me how nice it was.\" Dotty waved a bag at her. \"Yes, I did. Anna is going to let me borrow one of her coats which would match my suit. She says I'm not [32] to wear this one now.\"<br><br>\"Well, I certainly agree with her on that point but I think you may take my woollen coat [33] of Anna's. I never wear it any more so if you like it you're more than welcome to keep it.\" Miranda disappeared to return minutes later with a very smart swing coat in navy blue folded across her arm. \"Here, try this on,\" she encouraged and Dotty slipped it on. \"It's just perfect,\" Miranda told her. \"And I have to say it looks so much better on you than it ever did on me. Take it and wear it in good health.\"<br><br>\"But I couldn't,\" Dotty spluttered. \"It must have cost a [34] and I really can't take it.\"<br><br>\"Of course you can,\" Miranda said. What good is it to me, hanging in the wardrobe and never [35] the light of day? You'll be [36] me a favour taking it out of the way.\" Dotty was really pleased with Miranda's present.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "proceeded",
+            "accompanied",
+            "followed",
+            "addressed"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "Therefore",
+            "Otherwise",
+            "Moreover",
+            "Although"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "agreed",
+            "accepted",
+            "afforded",
+            "allowed"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "instead",
+            "besides",
+            "against",
+            "outside"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "price",
+            "thing",
+            "fortune",
+            "wealth"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "looking",
+            "seeing",
+            "watching",
+            "glancing"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "making",
+            "getting",
+            "doing",
+            "giving"
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "vocab-busy-day",
+      "nav": "A Busy Day",
+      "badge": "Vocabulary",
+      "title": "A Busy Day",
+      "instructions": "Choose the best word (1–4) for each numbered gap.",
+      "type": "mc",
+      "passage": "The January sales started and when the girls arrived at Browns department store, where they worked, there were a lot of people queuing along the street. [30] the time before Christmas had been very busy for shop assistants, they were shocked by such a big crowd outside the shop.<br><br>\"I've never [31] such a queue! Do they think we're going to be giving the stuff away or something?\" Anna asked her friend Lucy.<br><br>\"Well, you know what they say – the early bird catches the worm, and [32] to the radio, some people have been queuing all night in London to get the best bargains,\" Lucy said. \"Let's think positively – if we are busy, the time will go quicker.\"<br><br>On her [33] to the cosmetics department Anna was wondering if they would even have time for their breaks or lunch-hours. And she was quite right as there was no chance of a morning break but at last the girls were given [34] to go for a shortened lunch break and they met up in the staff dining room.<br><br>\"My God,\" Lucy said as they stood at the counter. \"I've actually had two ladies almost come to fight over a dress. I could [35] calm them down.\"<br><br>\"It hasn't been much better in the perfume and cosmetics department,\" Anna remarked. \"I ran out of Chanel perfume within an hour and the customers got angry with me, as if it was my [36]! I'll tell you, at one point I was ready to walk out!\" That was really busy time for them. After all, the worst of the sales rush should be over soon.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "Therefore",
+            "Although",
+            "However",
+            "Moreover"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "glanced",
+            "watched",
+            "seen",
+            "looked"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "concerning",
+            "regarding",
+            "including",
+            "according"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "way",
+            "track",
+            "path",
+            "road"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "promise",
+            "proposal",
+            "permission",
+            "possibility"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "sharply",
+            "hardly",
+            "roughly",
+            "nearly"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "harm",
+            "shame",
+            "blame",
+            "fault"
+          ],
+          "correct": 3
+        }
+      ]
+    },
+    {
+      "id": "vocab-stephen-kibaki",
+      "nav": "Stephen Kibaki",
+      "badge": "Vocabulary",
+      "title": "Stephen Kibaki",
+      "instructions": "Choose the best word (1–4) for each numbered gap.",
+      "type": "mc",
+      "passage": "Stephen Kibaki walks through his family's farm just outside Nairobi National Park in Kenya. Goats, cows, and sheep graze peacefully in the pasture. In the park nearby, lions roam, living in peaceful coexistence with the farm. It's [30] to be an extraordinary picture for many places in Africa.<br><br>\"I love lions,\" Stephen [31] the journalist. \"If my cows are protected and they're safe, we can live with the lions without any problem.\"<br><br>How do cattle [32] to live safely near these huge predators? It's all due to this young man's brilliant invention. When he was 11, he created Lion Lights, a clever way of keeping his family's livestock safe.<br><br>First, there seemed to be no good [33] to the problem, but Stephen started experimenting with ways to scare off the predators. He tried to use fire and a scarecrow. His first two [34] were unsuccessful: the lions were too clever to be fooled by either. But one night he was walking around the pasture with a flashlight and noticed that lions stayed away. That's when he [35]: these big cats were afraid of moving lights!<br><br>Then Stephen [36] a system of flashing LED light bulbs on poles around the perimeter of the pasture. The blinking lights tricked the lions into thinking the grounds were patrolled. That finally kept the lions away.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "confessed",
+            "convinced",
+            "considered",
+            "concerned"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "said",
+            "told",
+            "spoke",
+            "talked"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "manage",
+            "complete",
+            "succeed",
+            "achieve"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "decision",
+            "permission",
+            "exception",
+            "solution"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "complaints",
+            "impacts",
+            "requests",
+            "attempts"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "released",
+            "recovered",
+            "realised",
+            "recognised"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "deceived",
+            "developed",
+            "defended",
+            "demanded"
+          ],
+          "correct": 1
+        }
+      ]
+    },
+    {
+      "id": "vocab-chicago-day",
+      "nav": "A Day in Chicago",
+      "badge": "Vocabulary",
+      "title": "A Day in Chicago",
+      "instructions": "Choose the best word (1–4) for each numbered gap.",
+      "type": "mc",
+      "passage": "Lily and her best friend Zoe were driving home from their vacation in California. That was a great adventure which they were enjoying a lot. They [30] to visit so many interesting places. As they were driving closer to Chicago, the ladies were [31] facts from the guidebook about this city, which was their little road ritual.<br><br>They had planned to stop first at Millennium Park, one of the city's public parks made famous by its unique art displays. Lily had seen pictures of her friends posing with \"The Bean,\" a three-storey steel sculpture shaped like a giant legume, and she was [32] to have one of her own. The piece was completely reflective, so those standing around it could look at their reflections as if they were looking into a mirror. Everybody [33] it made spectacular photographs.<br><br>The two travellers spent the day walking around Chicago. They listened to music in Millennium Park, lying on their backs in the grass, peering up at the modern sculptures across the lawn. They took an overwhelming [34] of photographs at The Bean, much to Lily's satisfaction. Finally, her dream to post this photo [35] true. They met some friends with whom they had gone to university to eat deep-dish pizza for dinner – a Chicago staple. Even before the sun set, Zoe and Lily were exhausted. [36], they still had one more thing to do.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "achieved",
+            "managed",
+            "succeeded",
+            "completed"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "reflecting",
+            "reciting",
+            "recovering",
+            "restoring"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "amused",
+            "confused",
+            "attractive",
+            "enthusiastic"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "spoke",
+            "told",
+            "said",
+            "talked"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "quantity",
+            "capacity",
+            "volume",
+            "number"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "came",
+            "got",
+            "went",
+            "held"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "Although",
+            "Therefore",
+            "Nevertheless",
+            "Moreover"
+          ],
+          "correct": 2
+        }
+      ]
+    },
+    {
+      "id": "vocab-willis-in-tower",
+      "nav": "In Willis Tower",
+      "badge": "Vocabulary",
+      "title": "In Willis Tower",
+      "instructions": "Choose the best word (1–4) for each numbered gap.",
+      "type": "mc",
+      "passage": "Victoria and Mary were going up one of the tallest towers in America, called Willis Tower. First, they had to stand in a long line to enter the building. When the ladies came up to the lift, it was full of people who had to adjust themselves to [30] the two extra passengers in. As they rode up, Mary [31] the change in air pressure as they were getting higher. She looked at the screen flashing interesting facts about the height of the building – she found [32] that at 455 feet, they were at the height of the Great Pyramid of Giza; at 1,250 feet, they were at the height of the Empire State Building. Then, they finally [33] the top.<br><br>The elevator doors opened to a large room with walls made entirely of glass. Mary and Victoria looked at each other with jaws dropped. They could see the entire city, lit up with tiny lights. [34], it was one of the best views of Chicago! Then a man in uniform guided them toward another line that wound around the room. \"If you'd like to go out on the Ledge, please join the line here,\" he [35] the group. Mary and Victoria had heard about the Ledge when they first bought their tickets to visit the tower – a glass box suspended 1,353 feet in the air, 4.3 feet out from the building. Visitors could step into the box and feel as though they were walking on air. \"Oh man, another line?\" Victoria whispered to Mary. [36] they could hardly wait, they joined the back of the line.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "afford",
+            "allow",
+            "access",
+            "attend"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "remarked",
+            "mentioned",
+            "noticed",
+            "reflected"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "about",
+            "over",
+            "down",
+            "out"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "reached",
+            "arrived",
+            "achieved",
+            "emerged"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "Hopefully",
+            "Obviously",
+            "Essentially",
+            "Absolutely"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "spoke",
+            "said",
+            "told",
+            "talked"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "Nevertheless",
+            "Moreover",
+            "However",
+            "Although"
+          ],
+          "correct": 3
+        }
+      ]
+    }
+  ]
+};
+  </script>
+  <script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "ege-prep.highlights.v1";
+
+  var ICON_PEN =
+    '<svg class="ege-highlight-tools__icon" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path d="M15.5 2.5l6 6-12 12H3.5v-6l12-12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>' +
+    '<path d="M14 4l6 6" fill="none" stroke="currentColor" stroke-width="2"/>' +
+    "</svg>";
+
+  var ICON_ERASER =
+    '<svg class="ege-highlight-tools__icon" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path d="M7 21h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+    '<path d="M6.8 12.3L14 5.1l5.9 5.9-7.2 7.2H4.6V12.3h2.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>' +
+    "</svg>";
+
+  function loadAll() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (_err) {
+      return {};
+    }
+  }
+
+  function saveEntry(id, html) {
+    try {
+      var all = loadAll();
+      if (html && html.indexOf("ege-highlight") !== -1) {
+        all[id] = html;
+      } else {
+        delete all[id];
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+    } catch (_err) {
+      /* ignore quota errors */
+    }
+  }
+
+  function unwrapHighlight(mark) {
+    var parent = mark.parentNode;
+    if (!parent) return;
+    while (mark.firstChild) {
+      parent.insertBefore(mark.firstChild, mark);
+    }
+    parent.removeChild(mark);
+    parent.normalize();
+  }
+
+  function selectionInside(container, range) {
+    return container.contains(range.commonAncestorContainer);
+  }
+
+  function selectionBlocked(range) {
+    var node = range.commonAncestorContainer;
+    if (node.nodeType === Node.TEXT_NODE) node = node.parentElement;
+    if (!node || !node.closest) return false;
+    return !!node.closest(
+      ".ege-gap-picks, .ege-gap-insert:not(.is-filled), .ege-choice-group, button, .ege-highlight-tools, .ege-match-picks, .ege-input"
+    );
+  }
+
+  function applyHighlight(container) {
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.isCollapsed) return false;
+
+    var range = sel.getRangeAt(0);
+    if (!selectionInside(container, range) || selectionBlocked(range)) {
+      sel.removeAllRanges();
+      return false;
+    }
+
+    var mark = document.createElement("mark");
+    mark.className = "ege-highlight";
+
+    try {
+      var contents = range.extractContents();
+      if (!contents.textContent.trim()) {
+        sel.removeAllRanges();
+        return false;
+      }
+      mark.appendChild(contents);
+      range.insertNode(mark);
+      sel.removeAllRanges();
+      return true;
+    } catch (_err) {
+      sel.removeAllRanges();
+      return false;
+    }
+  }
+
+  function sanitizePassageHtml(container) {
+    var clone = container.cloneNode(true);
+    clone.querySelectorAll(".ege-gap-insert").forEach(function (insert) {
+      insert.classList.remove("is-filled", "is-correct", "is-wrong");
+      var text = insert.querySelector(".ege-gap-insert__text");
+      if (text) text.textContent = "";
+      else {
+        var span = document.createElement("span");
+        span.className = "ege-gap-insert__text";
+        insert.appendChild(span);
+      }
+    });
+    return clone.innerHTML;
+  }
+
+  function persistContainer(container) {
+    var id = container.dataset.highlightId;
+    if (id) saveEntry(id, sanitizePassageHtml(container));
+  }
+
+  function buildTaskToolbar(containers) {
+    var tools = document.createElement("div");
+    tools.className = "ege-highlight-tools";
+    tools.setAttribute("role", "toolbar");
+    tools.setAttribute("aria-label", "Reading tools");
+
+    var highlightBtn = document.createElement("button");
+    highlightBtn.type = "button";
+    highlightBtn.className = "ege-highlight-tools__btn";
+    highlightBtn.dataset.mode = "highlight";
+    highlightBtn.innerHTML = ICON_PEN;
+    highlightBtn.setAttribute("aria-label", "Highlight");
+    highlightBtn.setAttribute("title", "Highlight");
+    highlightBtn.setAttribute("aria-pressed", "false");
+
+    var eraseBtn = document.createElement("button");
+    eraseBtn.type = "button";
+    eraseBtn.className = "ege-highlight-tools__btn";
+    eraseBtn.dataset.mode = "erase";
+    eraseBtn.innerHTML = ICON_ERASER;
+    eraseBtn.setAttribute("aria-label", "Erase");
+    eraseBtn.setAttribute("title", "Erase");
+    eraseBtn.setAttribute("aria-pressed", "false");
+
+    var clearBtn = document.createElement("button");
+    clearBtn.type = "button";
+    clearBtn.className = "ege-highlight-tools__btn ege-highlight-tools__btn--ghost";
+    clearBtn.dataset.mode = "clear";
+    clearBtn.textContent = "Clear";
+    clearBtn.setAttribute("aria-label", "Clear all highlights");
+    clearBtn.setAttribute("title", "Clear all");
+
+    var mode = "none";
+
+    function setMode(next) {
+      mode = next;
+      highlightBtn.classList.toggle("is-active", mode === "highlight");
+      eraseBtn.classList.toggle("is-active", mode === "erase");
+      highlightBtn.setAttribute("aria-pressed", mode === "highlight" ? "true" : "false");
+      eraseBtn.setAttribute("aria-pressed", mode === "erase" ? "true" : "false");
+      containers.forEach(function (container) {
+        container.classList.toggle("ege-erase-mode", mode === "erase");
+      });
+    }
+
+    function clearAll() {
+      containers.forEach(function (container) {
+        container.querySelectorAll(".ege-highlight").forEach(function (mark) {
+          unwrapHighlight(mark);
+        });
+        persistContainer(container);
+      });
+    }
+
+    highlightBtn.addEventListener("click", function () {
+      setMode(mode === "highlight" ? "none" : "highlight");
+    });
+
+    eraseBtn.addEventListener("click", function () {
+      setMode(mode === "erase" ? "none" : "erase");
+    });
+
+    clearBtn.addEventListener("click", function () {
+      clearAll();
+      setMode("none");
+    });
+
+    containers.forEach(function (container) {
+      function tryHighlight() {
+        if (mode !== "highlight") return;
+        window.setTimeout(function () {
+          if (applyHighlight(container)) persistContainer(container);
+        }, 0);
+      }
+
+      container.addEventListener("mouseup", tryHighlight);
+      container.addEventListener("touchend", tryHighlight);
+
+      container.addEventListener("click", function (event) {
+        if (mode !== "erase") return;
+        var mark = event.target.closest(".ege-highlight");
+        if (!mark || !container.contains(mark)) return;
+        event.preventDefault();
+        unwrapHighlight(mark);
+        persistContainer(container);
+      });
+    });
+
+    tools.appendChild(highlightBtn);
+    tools.appendChild(eraseBtn);
+    tools.appendChild(clearBtn);
+
+    return tools;
+  }
+
+  function attachAll(panel, topicId, taskId) {
+    if (!panel) return;
+
+    var existing = panel.querySelector(".ege-highlight-tools");
+    if (existing) existing.remove();
+
+    var task = panel.querySelector(".ege-task");
+    if (!task) return;
+
+    var base = topicId + "_" + taskId;
+    var savedAll = loadAll();
+    var containers = [];
+
+    task.querySelectorAll(".ege-passage, .ege-text-block").forEach(function (el, index) {
+      var id = base + "_h" + index;
+      var hasInteractiveGaps = !!el.querySelector(".ege-gap-insert");
+      var saved = savedAll[id];
+      var savedHasGaps = !!(saved && saved.indexOf("ege-gap-insert") !== -1);
+
+      /* Skip incompatible highlight saves that would wipe gap-insert shells */
+      if (saved && (!hasInteractiveGaps || savedHasGaps)) {
+        el.innerHTML = saved;
+        el.querySelectorAll(".ege-gap-insert").forEach(function (insert) {
+          insert.classList.remove("is-filled", "is-correct", "is-wrong");
+          var text = insert.querySelector(".ege-gap-insert__text");
+          if (text) text.textContent = "";
+          else {
+            var span = document.createElement("span");
+            span.className = "ege-gap-insert__text";
+            insert.appendChild(span);
+          }
+        });
+      }
+
+      el.classList.add("ege-highlightable");
+      el.dataset.highlightId = id;
+      containers.push(el);
+    });
+
+    if (!containers.length) return;
+
+    var tools = buildTaskToolbar(containers);
+    panel.insertBefore(tools, task);
+  }
+
+  window.EgeHighlight = {
+    attachAll: attachAll,
+  };
+})();
+
+  </script>
+  <script>
+
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "ege-prep.scores.v1";
+  var TOPIC_ID = "vocabulary-cloze";
+
+  function taskMaxScore(task) {
+    return task.questions.length;
+  }
+
+  function findTask(taskId) {
+    if (!state.topic) return null;
+    return state.topic.tasks.find(function (item) {
+      return item.id === taskId;
+    });
+  }
+
+  function taskPrefix(taskId) {
+    return state.topicId + "_" + taskId;
+  }
+
+  function vocabGapNum(question) {
+    return String(parseInt(question.q, 10));
+  }
+
+  function buildTaskArticle(task) {
+    var wrap = document.createElement("article");
+    wrap.className = "ege-task ege-task--panels";
+    wrap.id = "task-" + task.id;
+    wrap.dataset.taskId = task.id;
+    return wrap;
+  }
+
+  function replaceGapPlaceholders(root, entries) {
+    var inserts = {};
+    entries.forEach(function (entry) {
+      var placeholder = root.querySelector(entry.selector);
+      if (!placeholder) return;
+
+      var insert = document.createElement("span");
+      insert.className = "ege-gap-insert";
+      insert.dataset.gap = entry.gapId;
+
+      var textSpan = document.createElement("span");
+      textSpan.className = "ege-gap-insert__text";
+      insert.appendChild(textSpan);
+      placeholder.replaceWith(insert);
+      inserts[entry.gapId] = insert;
+    });
+    return inserts;
+  }
+
+  function setRadioValue(name, value) {
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      radio.checked = radio.value === String(value);
+    });
+  }
+
+  function getCheckedValue(name) {
+    var checked = document.querySelector('input[name="' + name + '"]:checked');
+    return checked ? checked.value : "";
+  }
+
+  function clearChoiceGroup(name) {
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      radio.checked = false;
+      var pill = radio.closest(".ege-pill");
+      if (pill) pill.classList.remove("is-correct", "is-wrong");
+    });
+  }
+
+  function gradeMcQuestion(name, correctVal) {
+    var checked = document.querySelector('input[name="' + name + '"]:checked');
+    var value = checked ? checked.value : "";
+
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      var pill = radio.closest(".ege-pill");
+      if (pill) pill.classList.remove("is-correct", "is-wrong");
+    });
+
+    if (checked) {
+      if (value === correctVal) {
+        checked.closest(".ege-pill").classList.add("is-correct");
+        return true;
+      }
+      checked.closest(".ege-pill").classList.add("is-wrong");
+    }
+
+    var correctRadio = document.querySelector(
+      'input[name="' + name + '"][value="' + correctVal + '"]'
+    );
+    if (correctRadio) correctRadio.closest(".ege-pill").classList.add("is-correct");
+    return false;
+  }
+
+  function getGapInsert(taskId, gapId) {
+    return document.querySelector(
+      "#task-" + taskId + ' .ege-gap-insert[data-gap="' + String(gapId) + '"]'
+    );
+  }
+
+  function markGapInsert(taskId, gapId, ok, hasValue) {
+    var insert = getGapInsert(taskId, gapId);
+    if (!insert) return;
+    insert.classList.toggle("is-correct", ok);
+    insert.classList.toggle("is-wrong", hasValue && !ok);
+  }
+
+  function showScoreFeedback(taskId, correct, max, options) {
+    var scoreEl = document.getElementById("score-" + taskId);
+    if (!scoreEl) return;
+    var task = findTask(taskId);
+    var revealKey = options && options.revealKey;
+    var lines = [
+      "Score: " + correct + " / " + max + (correct === max ? ". All correct." : ""),
+    ];
+    var detail = buildGapScoreLines(taskId, task, { revealKey: revealKey || correct === max });
+    if (detail.length) lines = lines.concat(detail);
+    scoreEl.hidden = false;
+    scoreEl.textContent = lines.join("\n");
+    scoreEl.className =
+      "ege-task__score " + (correct === max ? "is-good" : correct === 0 ? "is-bad" : "is-mixed");
+  }
+
+  function hideScoreFeedback(taskId) {
+    var scoreEl = document.getElementById("score-" + taskId);
+    if (!scoreEl) return;
+    scoreEl.hidden = true;
+    scoreEl.textContent = "";
+  }
+
+  function buildGapScoreLines(taskId, task, opts) {
+    var lines = [];
+    if (!task || !task.questions) return lines;
+    var revealKey = opts && opts.revealKey;
+    var prefix = taskPrefix(taskId);
+    task.questions.forEach(function (question, index) {
+      var gap = vocabGapNum(question);
+      var value = getCheckedValue(prefix + "_q_" + index);
+      var picked = value ? question.opts[parseInt(value, 10) - 1] || "—" : "—";
+      var answer = question.opts[question.correct] || "";
+      var ok = value && value === String(question.correct + 1);
+      if (ok) {
+        lines.push(gap + ": " + picked + " ✓");
+      } else if (revealKey) {
+        lines.push(gap + ": " + picked + " → " + answer);
+      } else {
+        lines.push(gap + ": " + picked + " ✗");
+      }
+    });
+    return lines;
+  }
+
+  function buildAnswerStrings(taskId, task) {
+    var yourAnswers = "";
+    var correctAnswers = "";
+    if (!task || !task.questions) return { yourAnswers: yourAnswers, correctAnswers: correctAnswers };
+
+    var prefix = taskPrefix(taskId);
+    task.questions.forEach(function (question, index) {
+      var value = getCheckedValue(prefix + "_q_" + index);
+      yourAnswers += value || "–";
+      correctAnswers += String(question.correct + 1);
+    });
+    return { yourAnswers: yourAnswers, correctAnswers: correctAnswers };
+  }
+
+  function allGapsFilled(taskId) {
+    var task = findTask(taskId);
+    if (!task || !task.questions) return false;
+    var prefix = taskPrefix(taskId);
+    return task.questions.every(function (_question, index) {
+      return !!getCheckedValue(prefix + "_q_" + index);
+    });
+  }
+
+  function syncCheckEnabled(taskId) {
+    var checkBtn = document.getElementById("check-" + taskId);
+    if (!checkBtn || checkBtn.hidden) return;
+    var ready = allGapsFilled(taskId);
+    checkBtn.disabled = !ready;
+    checkBtn.title = ready ? "" : "Fill all gaps first";
+  }
+
+  function loadScores(topicId) {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return {};
+      var all = JSON.parse(raw);
+      return all[topicId] || {};
+    } catch (_err) {
+      return {};
+    }
+  }
+
+  function saveScore(topicId, taskId, score, max) {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      var all = raw ? JSON.parse(raw) : {};
+      if (!all[topicId]) all[topicId] = {};
+      all[topicId][taskId] = { score: score, max: max, at: Date.now() };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+    } catch (_err) {
+      /* ignore quota errors */
+    }
+  }
+
+  function clearScore(topicId, taskId) {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var all = JSON.parse(raw);
+      if (all[topicId]) {
+        delete all[topicId][taskId];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+      }
+    } catch (_err) {
+      /* ignore */
+    }
+  }
+
+  function optionRange(count) {
+    var items = [];
+    for (var i = 1; i <= count; i += 1) items.push(i);
+    return items;
+  }
+
+  function buildChoiceGroup(name, count, opts) {
+    opts = opts || {};
+    var group = document.createElement("div");
+    group.className = "ege-choice-group";
+    group.setAttribute("role", "radiogroup");
+    if (opts.label) group.setAttribute("aria-label", opts.label);
+
+    optionRange(count).forEach(function (num) {
+      var label = document.createElement("label");
+      label.className = "ege-pill" + (opts.text ? " ege-pill--text" : "");
+      var input = document.createElement("input");
+      input.type = "radio";
+      input.name = name;
+      input.value = String(num);
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(String(num)));
+      group.appendChild(label);
+    });
+
+    return group;
+  }
+
+
+  function buildPanel(label, content, extraClass) {
+    var panel = document.createElement("div");
+    panel.className = "ege-panel" + (extraClass ? " " + extraClass : "");
+
+    var labelEl = document.createElement("p");
+    labelEl.className = "ege-panel__label";
+    labelEl.textContent = label;
+    panel.appendChild(labelEl);
+    panel.appendChild(content);
+    return panel;
+  }
+
+  function buildSplit(readEl, workEl, modifier) {
+    var split = document.createElement("div");
+    split.className = "ege-split" + (modifier ? " " + modifier : "");
+
+    var read = document.createElement("div");
+    read.className = "ege-split__read";
+    read.appendChild(readEl);
+
+    var work = document.createElement("div");
+    work.className = "ege-split__work";
+    work.appendChild(workEl);
+
+    split.appendChild(read);
+    split.appendChild(work);
+    return split;
+  }
+
+  function markChoiceGroup(name, value, correctValue, revealCorrect) {
+    var pills = [];
+    document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+      var pill = radio.closest(".ege-pill");
+      if (pill) {
+        pill.classList.remove("is-correct", "is-wrong");
+        pills.push({ pill: pill, value: radio.value, checked: radio.checked });
+      }
+    });
+
+    var ok = value === String(correctValue);
+    pills.forEach(function (item) {
+      if (item.checked) {
+        item.pill.classList.add(ok ? "is-correct" : "is-wrong");
+      } else if (revealCorrect && !ok && item.value === String(correctValue)) {
+        item.pill.classList.add("is-correct");
+      }
+    });
+    return ok;
+  }
+
+  function buildVocabBoard(task, topicId, inserts) {
+    var prefix = topicId + "_" + task.id;
+    var board = document.createElement("div");
+    board.className = "ege-sidebar-work ege-vocab-picks";
+    board.setAttribute("aria-label", "Choose a word for the selected gap");
+
+    var hidden = document.createElement("div");
+    hidden.className = "ege-match-hidden";
+
+    var wordsRow = document.createElement("div");
+    wordsRow.className = "ege-match-words";
+
+    var activeIndex = 0;
+
+    function radioName(index) {
+      return prefix + "_q_" + index;
+    }
+
+    function gapAt(index) {
+      return vocabGapNum(task.questions[index]);
+    }
+
+    function updateInsert(index, num) {
+      var gap = gapAt(index);
+      var insert = getGapInsert(task.id, gap) || inserts[gap];
+      if (!insert || !insert.isConnected) return;
+      inserts[gap] = insert;
+      var textSpan = insert.querySelector(".ege-gap-insert__text");
+      if (!textSpan) {
+        textSpan = document.createElement("span");
+        textSpan.className = "ege-gap-insert__text";
+        insert.appendChild(textSpan);
+      }
+      if (num) {
+        textSpan.textContent = task.questions[index].opts[parseInt(num, 10) - 1] || "";
+        insert.classList.add("is-filled");
+        insert.classList.remove("is-empty");
+      } else {
+        textSpan.textContent = "";
+        insert.classList.remove("is-filled", "is-empty", "is-just-filled");
+      }
+    }
+
+    function flashFilledGap(index) {
+      var insert = getGapInsert(task.id, gapAt(index)) || inserts[gapAt(index)];
+      if (!insert) return;
+      insert.classList.remove("is-just-filled");
+      void insert.offsetWidth;
+      insert.classList.add("is-just-filled");
+      window.setTimeout(function () {
+        insert.classList.remove("is-just-filled");
+      }, 560);
+    }
+
+    function setHoverMatch(on) {
+      if (activeIndex < 0) return;
+      var insert = getGapInsert(task.id, gapAt(activeIndex)) || inserts[gapAt(activeIndex)];
+      if (!insert) return;
+      insert.classList.toggle("is-hover-match", !!on);
+    }
+
+    function suppressStickyHover() {
+      board.classList.add("is-suppress-hover");
+      function release() {
+        board.classList.remove("is-suppress-hover");
+        document.removeEventListener("pointermove", release, true);
+        document.removeEventListener("pointerdown", release, true);
+      }
+      document.addEventListener("pointermove", release, true);
+      document.addEventListener("pointerdown", release, true);
+    }
+
+    function clearWordListHighlight() {
+      wordsRow.querySelectorAll(".ege-match-pill--word").forEach(function (btn) {
+        btn.classList.remove("is-selected", "is-correct", "is-wrong");
+        btn.blur();
+      });
+      if (document.activeElement && wordsRow.contains(document.activeElement)) {
+        document.activeElement.blur();
+      }
+    }
+
+    function syncActiveGaps() {
+      task.questions.forEach(function (_question, index) {
+        var insert = getGapInsert(task.id, gapAt(index)) || inserts[gapAt(index)];
+        if (insert) insert.classList.toggle("is-active-gap", index === activeIndex);
+      });
+    }
+
+    function syncWordsRow() {
+      if (activeIndex < 0 || !task.questions[activeIndex]) {
+        clearWordListHighlight();
+        return;
+      }
+      var question = task.questions[activeIndex];
+      var value = getCheckedValue(radioName(activeIndex));
+      wordsRow.querySelectorAll(".ege-match-pill--word").forEach(function (btn) {
+        btn.classList.toggle("is-selected", !!value && btn.dataset.value === value);
+        btn.classList.remove("is-correct", "is-wrong");
+      });
+      /* rebuild if option set changed (per gap) */
+      var same =
+        wordsRow.children.length === question.opts.length &&
+        Array.prototype.every.call(wordsRow.children, function (btn, i) {
+          return btn.dataset.word === question.opts[i];
+        });
+      if (!same) renderWordsRow();
+      else {
+        wordsRow.querySelectorAll(".ege-match-pill--word").forEach(function (btn) {
+          btn.classList.toggle("is-selected", !!value && btn.dataset.value === value);
+        });
+      }
+    }
+
+    function renderWordsRow() {
+      var question = activeIndex >= 0 ? task.questions[activeIndex] : null;
+      var value =
+        activeIndex >= 0 ? getCheckedValue(radioName(activeIndex)) : "";
+      wordsRow.textContent = "";
+      if (!question) return;
+      question.opts.forEach(function (opt, optIndex) {
+        var num = optIndex + 1;
+        var wordBtn = document.createElement("button");
+        wordBtn.type = "button";
+        wordBtn.className = "ege-match-pill ege-match-pill--word";
+        wordBtn.dataset.value = String(num);
+        wordBtn.dataset.word = opt;
+        var n = document.createElement("span");
+        n.className = "ege-vocab-word__n";
+        n.textContent = num + ".";
+        wordBtn.appendChild(n);
+        wordBtn.appendChild(document.createTextNode(opt));
+        if (value && value === String(num)) wordBtn.classList.add("is-selected");
+        wordBtn.addEventListener("click", function () {
+          assignWord(num);
+        });
+        wordBtn.addEventListener("mouseenter", function () {
+          setHoverMatch(true);
+        });
+        wordBtn.addEventListener("mouseleave", function () {
+          setHoverMatch(false);
+        });
+        wordsRow.appendChild(wordBtn);
+      });
+    }
+
+    function nextEmptyIndex(fromIndex) {
+      var start = fromIndex == null ? 0 : fromIndex + 1;
+      for (var i = start; i < task.questions.length; i += 1) {
+        if (!getCheckedValue(radioName(i))) return i;
+      }
+      for (var j = 0; j < start; j += 1) {
+        if (!getCheckedValue(radioName(j))) return j;
+      }
+      return fromIndex;
+    }
+
+    function clearGapMarks(index) {
+      var gap = gapAt(index);
+      var insert = getGapInsert(task.id, gap) || inserts[gap];
+      if (insert) insert.classList.remove("is-correct", "is-wrong");
+      wordsRow.querySelectorAll(".ege-match-pill--word").forEach(function (btn) {
+        btn.classList.remove("is-correct", "is-wrong");
+      });
+    }
+
+    function clearIndex(index) {
+      var insert = getGapInsert(task.id, gapAt(index)) || inserts[gapAt(index)];
+      if (insert && insert.classList.contains("is-locked")) return;
+      clearChoiceGroup(radioName(index));
+      updateInsert(index, null);
+      clearGapMarks(index);
+      if (insert) insert.classList.remove("is-correct", "is-wrong", "is-locked");
+      if (index === activeIndex) syncWordsRow();
+      syncCheckEnabled(task.id);
+    }
+
+    function assignWord(num) {
+      var insert = getGapInsert(task.id, gapAt(activeIndex)) || inserts[gapAt(activeIndex)];
+      if (insert && insert.classList.contains("is-locked")) return;
+
+      var current = getCheckedValue(radioName(activeIndex));
+      if (current === String(num)) {
+        clearChoiceGroup(radioName(activeIndex));
+        updateInsert(activeIndex, null);
+        clearGapMarks(activeIndex);
+        syncWordsRow();
+        syncCheckEnabled(task.id);
+        return;
+      }
+      var filledIndex = activeIndex;
+      setRadioValue(radioName(activeIndex), num);
+      updateInsert(activeIndex, String(num));
+      clearGapMarks(activeIndex);
+      flashFilledGap(filledIndex);
+      setHoverMatch(false);
+
+      var next = nextEmptyIndex(activeIndex);
+      setActiveIndex(next);
+
+      /* Commit clears list highlight — selected style returns only if you re-open a filled gap */
+      clearWordListHighlight();
+      suppressStickyHover();
+      syncCheckEnabled(task.id);
+    }
+
+    function setActiveIndex(index) {
+      if (index == null || index < 0 || index >= task.questions.length) return;
+      setHoverMatch(false);
+      activeIndex = index;
+      syncActiveGaps();
+      renderWordsRow();
+    }
+
+    function bindGapInsert(index) {
+      var gap = gapAt(index);
+      var insert = getGapInsert(task.id, gap) || inserts[gap];
+      if (!insert || insert.dataset.boundSelect === "1") return;
+      insert.dataset.boundSelect = "1";
+      insert.setAttribute("role", "button");
+      insert.setAttribute("aria-label", "Select gap " + gap);
+      insert.tabIndex = 0;
+      insert.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        setActiveIndex(index);
+      });
+      insert.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        setActiveIndex(index);
+      });
+    }
+
+    task.questions.forEach(function (question, index) {
+      hidden.appendChild(
+        buildChoiceGroup(radioName(index), question.opts.length, {
+          label: "Word for gap " + vocabGapNum(question),
+        })
+      );
+      bindGapInsert(index);
+    });
+
+    board.appendChild(wordsRow);
+    board.appendChild(hidden);
+    board.setActiveIndex = setActiveIndex;
+    board.assignWord = assignWord;
+    board.syncWordsRow = syncWordsRow;
+    board.updateInsert = updateInsert;
+    board.clearIndex = clearIndex;
+    board.getActiveIndex = function () {
+      return activeIndex;
+    };
+    board.inserts = inserts;
+
+    setActiveIndex(0);
+    syncCheckEnabled(task.id);
+    return board;
+  }
+
+  function buildTaskFooter(taskId, max) {
+    var footer = document.createElement("div");
+    footer.className = "ege-task__footer";
+
+    var actions = document.createElement("div");
+    actions.className = "ege-task__actions";
+
+    var checkBtn = document.createElement("button");
+    checkBtn.type = "button";
+    checkBtn.className = "ege-btn ege-btn--primary";
+    checkBtn.id = "check-" + taskId;
+    checkBtn.textContent = "Check answers";
+    checkBtn.disabled = true;
+    checkBtn.title = "Fill all gaps first";
+    checkBtn.addEventListener("click", function () {
+      checkTask(taskId);
+    });
+
+    var tryBtn = document.createElement("button");
+    tryBtn.type = "button";
+    tryBtn.className = "ege-btn ege-btn--primary";
+    tryBtn.id = "try-" + taskId;
+    tryBtn.textContent = "Try again";
+    tryBtn.hidden = true;
+    tryBtn.addEventListener("click", function () {
+      tryAgainTask(taskId);
+    });
+
+    var showBtn = document.createElement("button");
+    showBtn.type = "button";
+    showBtn.className = "ege-btn ege-btn--ghost";
+    showBtn.id = "show-" + taskId;
+    showBtn.textContent = "Show answers";
+    showBtn.hidden = true;
+    showBtn.addEventListener("click", function () {
+      revealTask(taskId);
+    });
+
+    var resetBtn = document.createElement("button");
+    resetBtn.type = "button";
+    resetBtn.className = "ege-btn ege-btn--ghost";
+    resetBtn.textContent = "Reset";
+    resetBtn.addEventListener("click", function () {
+      resetTask(taskId);
+    });
+
+    actions.appendChild(checkBtn);
+    actions.appendChild(tryBtn);
+    actions.appendChild(showBtn);
+    actions.appendChild(resetBtn);
+
+    var score = document.createElement("p");
+    score.className = "ege-task__score";
+    score.id = "score-" + taskId;
+    score.hidden = true;
+    score.setAttribute("aria-live", "polite");
+
+    footer.appendChild(actions);
+    footer.appendChild(score);
+    footer.dataset.max = String(max);
+    return footer;
+  }
+
+  function renderVocabCloze(task, topicId) {
+    var max = taskMaxScore(task);
+    var wrap = buildTaskArticle(task);
+
+    var htmlPass = task.passage;
+    task.questions.forEach(function (question) {
+      var gapNum = vocabGapNum(question);
+      htmlPass = htmlPass.split("[" + gapNum + "]").join('<span data-vocab-gap="' + gapNum + '"></span>');
+    });
+
+    var passage = document.createElement("div");
+    passage.className = "ege-passage ege-gapfill-passage";
+    passage.innerHTML = htmlPass;
+
+    var inserts = replaceGapPlaceholders(
+      passage,
+      task.questions.map(function (question) {
+        var gapNum = vocabGapNum(question);
+        return { selector: '[data-vocab-gap="' + gapNum + '"]', gapId: gapNum };
+      })
+    );
+
+    var board = buildVocabBoard(task, topicId, inserts);
+
+    wrap.appendChild(
+      buildSplit(
+        buildPanel("Text", passage, "ege-panel--read"),
+        buildPanel("Words", board, "ege-panel--work"),
+        "ege-split--panels"
+      )
+    );
+    wrap.appendChild(buildTaskFooter(task.id, max));
+    return wrap;
+  }
+
+  var state = {
+    topic: null,
+    topicId: "",
+    scores: {},
+    activeTaskId: null,
+  };
+
+  function setNavStatus(taskId, score, max) {
+    var btn = document.getElementById("nav-" + taskId);
+    if (!btn) return;
+    btn.classList.remove("is-perfect", "is-partial", "is-empty");
+    if (score === max && max > 0) btn.classList.add("is-perfect");
+    else if (score > 0) btn.classList.add("is-partial");
+    else btn.classList.add("is-empty");
+    btn.setAttribute("aria-label", btn.textContent + ": " + score + " of " + max);
+  }
+
+  function setNavOpen(open) {
+    var page = document.getElementById("egePage");
+    var currentBtn = document.getElementById("egeMobileCurrent");
+    if (page) page.classList.toggle("is-nav-open", open);
+    if (currentBtn) currentBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function showTask(taskId) {
+    state.activeTaskId = taskId;
+    document.querySelectorAll(".ege-task-panel").forEach(function (panel) {
+      panel.hidden = panel.dataset.taskId !== taskId;
+    });
+    document.querySelectorAll(".ege-nav__btn").forEach(function (btn) {
+      btn.classList.toggle("is-active", btn.dataset.taskId === taskId);
+    });
+
+    var task = findTask(taskId);
+    var currentBtn = document.getElementById("egeMobileCurrent");
+    if (currentBtn && task) currentBtn.textContent = task.nav;
+
+    var instructions = document.getElementById("egeInstructions");
+    if (instructions) {
+      instructions.textContent =
+        (state.topic && (state.topic.instructions || state.topic.subtitle)) ||
+        "";
+    }
+    syncCheckEnabled(taskId);
+  }
+
+  function showAdjacentTask(delta) {
+    if (!state.topic) return;
+    var ids = state.topic.tasks.map(function (t) { return t.id; });
+    var idx = ids.indexOf(state.activeTaskId);
+    if (idx < 0) return;
+    var next = idx + delta;
+    if (next < 0 || next >= ids.length) return;
+    setNavOpen(false);
+    showTask(ids[next]);
+  }
+
+  function clearEmptyHighlights(taskId, task) {
+    if (!task || !task.questions) return;
+    task.questions.forEach(function (question) {
+      var insert = getGapInsert(taskId, vocabGapNum(question));
+      if (insert) insert.classList.remove("is-empty");
+    });
+  }
+
+  function highlightEmptyGaps(taskId, task) {
+    if (!task || !task.questions) return;
+    var prefix = taskPrefix(taskId);
+    task.questions.forEach(function (question, index) {
+      var empty = !getCheckedValue(prefix + "_q_" + index);
+      var insert = getGapInsert(taskId, vocabGapNum(question));
+      if (insert) insert.classList.toggle("is-empty", empty);
+    });
+  }
+
+  function shakeWordsPanel(taskId) {
+    var board = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
+    if (!board) return;
+    board.classList.remove("is-shake");
+    void board.offsetWidth;
+    board.classList.add("is-shake");
+    function onEnd() {
+      board.classList.remove("is-shake");
+      board.removeEventListener("animationend", onEnd);
+    }
+    board.addEventListener("animationend", onEnd);
+  }
+
+  function setTaskSuccess(taskId, on) {
+    var taskEl = document.getElementById("task-" + taskId);
+    if (taskEl) taskEl.classList.toggle("is-all-correct", !!on);
+  }
+
+  function setShowAnswersVisible(taskId, visible) {
+    var showBtn = document.getElementById("show-" + taskId);
+    if (showBtn) showBtn.hidden = !visible;
+  }
+
+  function setTryAgainVisible(taskId, visible) {
+    var tryBtn = document.getElementById("try-" + taskId);
+    if (tryBtn) tryBtn.hidden = !visible;
+  }
+
+  function setCheckVisible(taskId, visible) {
+    var checkBtn = document.getElementById("check-" + taskId);
+    if (!checkBtn) return;
+    checkBtn.hidden = !visible;
+    if (visible) syncCheckEnabled(taskId);
+  }
+
+  /** Footer modes so we never show Check + Try again + Reveal + Reset together. */
+  function setFooterMode(taskId, mode) {
+    if (mode === "mistakes") {
+      setCheckVisible(taskId, false);
+      setTryAgainVisible(taskId, true);
+      setShowAnswersVisible(taskId, true);
+      return;
+    }
+    if (mode === "retrying") {
+      setCheckVisible(taskId, true);
+      setTryAgainVisible(taskId, false);
+      setShowAnswersVisible(taskId, true);
+      return;
+    }
+    if (mode === "revealed") {
+      setCheckVisible(taskId, false);
+      setTryAgainVisible(taskId, false);
+      setShowAnswersVisible(taskId, false);
+      return;
+    }
+    /* work | perfect */
+    setCheckVisible(taskId, true);
+    setTryAgainVisible(taskId, false);
+    setShowAnswersVisible(taskId, false);
+  }
+
+  function lockCorrectGaps(taskId, task) {
+    var prefix = taskPrefix(taskId);
+    task.questions.forEach(function (question, index) {
+      var value = getCheckedValue(prefix + "_q_" + index);
+      if (!value || value !== String(question.correct + 1)) return;
+      var insert = getGapInsert(taskId, vocabGapNum(question));
+      if (!insert) return;
+      insert.classList.add("is-locked", "is-correct");
+      insert.classList.remove("is-wrong");
+      insert.setAttribute("aria-disabled", "true");
+      insert.tabIndex = -1;
+    });
+  }
+
+  function unlockAllGaps(taskId, task) {
+    task.questions.forEach(function (question) {
+      var insert = getGapInsert(taskId, vocabGapNum(question));
+      if (!insert) return;
+      insert.classList.remove("is-locked");
+      insert.removeAttribute("aria-disabled");
+      insert.tabIndex = 0;
+    });
+  }
+
+  function checkTask(taskId) {
+    var task = findTask(taskId);
+    if (!task) return;
+
+    if (!allGapsFilled(taskId)) {
+      var scoreEl = document.getElementById("score-" + taskId);
+      if (scoreEl) {
+        scoreEl.hidden = false;
+        scoreEl.textContent = "Fill all gaps before checking.";
+        scoreEl.className = "ege-task__score is-bad";
+      }
+      highlightEmptyGaps(taskId, task);
+      shakeWordsPanel(taskId);
+      setTaskSuccess(taskId, false);
+      syncCheckEnabled(taskId);
+      return;
+    }
+
+    clearEmptyHighlights(taskId, task);
+
+    var correct = 0;
+    var max = taskMaxScore(task);
+    var board = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
+    var wrongIndexes = [];
+    var prefix = taskPrefix(taskId);
+
+    task.questions.forEach(function (question, index) {
+      var name = prefix + "_q_" + index;
+      var value = getCheckedValue(name);
+      var gapNum = vocabGapNum(question);
+      var ok = markChoiceGroup(name, value, question.correct + 1, false);
+      if (ok) correct += 1;
+      else wrongIndexes.push(index);
+      markGapInsert(taskId, gapNum, ok, !!value);
+    });
+
+    lockCorrectGaps(taskId, task);
+
+    if (board && board.syncWordsRow) board.syncWordsRow();
+    if (board) {
+      var active = board.getActiveIndex ? board.getActiveIndex() : 0;
+      var name = prefix + "_q_" + active;
+      var checked = document.querySelector('input[name="' + name + '"]:checked');
+      if (checked) {
+        var pill = checked.closest(".ege-pill");
+        var wordBtn = board.querySelector(
+          '.ege-match-pill--word[data-value="' + checked.value + '"]'
+        );
+        if (wordBtn && pill) {
+          if (pill.classList.contains("is-correct")) wordBtn.classList.add("is-correct");
+          if (pill.classList.contains("is-wrong")) wordBtn.classList.add("is-wrong");
+        }
+      }
+    }
+
+    state.scores[taskId] = correct;
+    saveScore(state.topicId, taskId, correct, max);
+    setNavStatus(taskId, correct, max);
+    showScoreFeedback(taskId, correct, max, { revealKey: false });
+    setTaskSuccess(taskId, correct === max);
+
+    if (wrongIndexes.length > 0) {
+      setFooterMode(taskId, "mistakes");
+    } else {
+      setFooterMode(taskId, "perfect");
+    }
+  }
+
+  function tryAgainTask(taskId) {
+    var task = findTask(taskId);
+    if (!task) return;
+
+    var prefix = taskPrefix(taskId);
+    var board = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
+    var firstWrong = null;
+
+    task.questions.forEach(function (question, index) {
+      var name = prefix + "_q_" + index;
+      var value = getCheckedValue(name);
+      if (value && value === String(question.correct + 1)) return;
+
+      if (firstWrong == null) firstWrong = index;
+      if (board && board.clearIndex) {
+        board.clearIndex(index);
+      } else {
+        clearChoiceGroup(name);
+        var insert = getGapInsert(taskId, vocabGapNum(question));
+        if (insert) {
+          insert.classList.remove(
+            "is-correct",
+            "is-wrong",
+            "is-filled",
+            "is-locked",
+            "is-empty",
+            "is-just-filled"
+          );
+          insert.removeAttribute("aria-disabled");
+          insert.tabIndex = 0;
+          var textSpan = insert.querySelector(".ege-gap-insert__text");
+          if (textSpan) textSpan.textContent = "";
+        }
+      }
+    });
+
+    if (board && board.setActiveIndex) {
+      board.setActiveIndex(firstWrong != null ? firstWrong : 0);
+    } else if (board && board.syncWordsRow) {
+      board.syncWordsRow();
+    }
+
+    hideScoreFeedback(taskId);
+    setTaskSuccess(taskId, false);
+    setFooterMode(taskId, "retrying");
+    syncCheckEnabled(taskId);
+  }
+
+  function revealTask(taskId) {
+    var task = findTask(taskId);
+    if (!task) return;
+
+    var prefix = taskPrefix(taskId);
+    var board = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
+    var snapshot = buildAnswerStrings(taskId, task);
+    var max = taskMaxScore(task);
+    var earned = 0;
+
+    task.questions.forEach(function (question, index) {
+      var value = getCheckedValue(prefix + "_q_" + index);
+      if (value && value === String(question.correct + 1)) earned += 1;
+    });
+
+    unlockAllGaps(taskId, task);
+
+    task.questions.forEach(function (question, index) {
+      var answer = String(question.correct + 1);
+      setRadioValue(prefix + "_q_" + index, answer);
+      if (board && board.updateInsert) board.updateInsert(index, answer);
+      markGapInsert(taskId, vocabGapNum(question), true, true);
+      markChoiceGroup(prefix + "_q_" + index, answer, answer, true);
+    });
+
+    lockCorrectGaps(taskId, task);
+    if (board && board.syncWordsRow) board.syncWordsRow();
+
+    state.scores[taskId] = earned;
+    saveScore(state.topicId, taskId, earned, max);
+    setNavStatus(taskId, earned, max);
+    showScoreFeedback(taskId, earned, max, {
+      revealKey: true,
+      yourAnswers: snapshot.yourAnswers,
+      correctAnswers: snapshot.correctAnswers,
+    });
+    setTaskSuccess(taskId, true);
+    setFooterMode(taskId, "revealed");
+  }
+
+  function resetTask(taskId) {
+    var task = findTask(taskId);
+    if (!task) return;
+
+    var prefix = taskPrefix(taskId);
+    var board = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
+
+    unlockAllGaps(taskId, task);
+
+    task.questions.forEach(function (question, index) {
+      clearChoiceGroup(prefix + "_q_" + index);
+      var gapNum = vocabGapNum(question);
+      var insert = document.querySelector(
+        "#task-" + taskId + ' .ege-gap-insert[data-gap="' + gapNum + '"]'
+      );
+      if (insert) {
+        insert.classList.remove(
+          "is-correct",
+          "is-wrong",
+          "is-filled",
+          "is-active-gap",
+          "is-empty",
+          "is-just-filled",
+          "is-hover-match",
+          "is-locked"
+        );
+        insert.removeAttribute("aria-disabled");
+        insert.tabIndex = 0;
+        var textSpan = insert.querySelector(".ege-gap-insert__text");
+        if (textSpan) textSpan.textContent = "";
+      }
+    });
+
+    if (board && board.setActiveIndex) board.setActiveIndex(0);
+    else if (board && board.syncWordsRow) board.syncWordsRow();
+
+    state.scores[taskId] = 0;
+    clearScore(state.topicId, taskId);
+    setNavStatus(taskId, 0, taskMaxScore(task));
+    hideScoreFeedback(taskId);
+    setTaskSuccess(taskId, false);
+    setFooterMode(taskId, "work");
+    syncCheckEnabled(taskId);
+  }
+
+  function mountTopic(topic, topicId) {
+    state.topic = topic;
+    state.topicId = topicId;
+    state.scores = {};
+
+    var saved = loadScores(topicId);
+    topic.tasks.forEach(function (task) {
+      state.scores[task.id] = saved[task.id] ? saved[task.id].score : 0;
+    });
+
+    document.title = topic.title + " – ЕГЭ Prep – Yap O'Clock";
+    var titleEl = document.getElementById("egeTopicTitleText") || document.getElementById("egeTopicTitle");
+    if (titleEl) titleEl.textContent = topic.title;
+    var instructionsEl = document.getElementById("egeInstructions");
+    if (instructionsEl) {
+      instructionsEl.textContent = topic.instructions || topic.subtitle || "";
+    }
+
+    var nav = document.getElementById("egeNav");
+    var panels = document.getElementById("egePanels");
+    nav.textContent = "";
+    panels.textContent = "";
+
+    topic.tasks.forEach(function (task, index) {
+      var max = taskMaxScore(task);
+      var savedScore = state.scores[task.id] || 0;
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ege-nav__btn";
+      btn.id = "nav-" + task.id;
+      btn.dataset.taskId = task.id;
+      btn.textContent = task.nav;
+      btn.addEventListener("click", function () {
+        setNavOpen(false);
+        showTask(task.id);
+      });
+      nav.appendChild(btn);
+      setNavStatus(task.id, savedScore, max);
+
+      var shell = document.createElement("section");
+      shell.className = "ege-task-panel";
+      shell.id = "panel-" + task.id;
+      shell.dataset.taskId = task.id;
+      shell.hidden = index !== 0;
+
+      shell.appendChild(renderVocabCloze(task, topicId));
+      if (window.EgeHighlight) {
+        EgeHighlight.attachAll(shell, topicId, task.id);
+      }
+      panels.appendChild(shell);
+    });
+
+    showTask(topic.tasks[0].id);
+    bindMobileSwitch();
+  }
+
+  function bindMobileSwitch() {
+    var currentBtn = document.getElementById("egeMobileCurrent");
+    var prevBtn = document.getElementById("egePrevTask");
+    var nextBtn = document.getElementById("egeNextTask");
+    if (currentBtn && !currentBtn.dataset.bound) {
+      currentBtn.dataset.bound = "1";
+      currentBtn.addEventListener("click", function () {
+        var page = document.getElementById("egePage");
+        setNavOpen(!(page && page.classList.contains("is-nav-open")));
+      });
+    }
+    if (prevBtn && !prevBtn.dataset.bound) {
+      prevBtn.dataset.bound = "1";
+      prevBtn.addEventListener("click", function () {
+        showAdjacentTask(-1);
+      });
+    }
+    if (nextBtn && !nextBtn.dataset.bound) {
+      nextBtn.dataset.bound = "1";
+      nextBtn.addEventListener("click", function () {
+        showAdjacentTask(1);
+      });
+    }
+  }
+
+  function isTypingTarget(el) {
+    if (!el || el === document.body) return false;
+    var tag = el.tagName;
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return true;
+    if (el.isContentEditable) return true;
+    return false;
+  }
+
+  function handleTaskShortcuts(event) {
+    if (event.defaultPrevented) return;
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.repeat) return;
+    if (isTypingTarget(event.target)) return;
+
+    var taskId = state.activeTaskId;
+    if (!taskId) return;
+    var task = findTask(taskId);
+    if (!task) return;
+    var board = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
+    if (!board) return;
+
+    var key = event.key;
+    var code = event.code;
+
+    var num = null;
+    if (/^[1-4]$/.test(key)) num = parseInt(key, 10);
+    else if (/^Digit[1-4]$/.test(code) || /^Numpad[1-4]$/.test(code)) {
+      num = parseInt(code.replace(/\D/g, ""), 10);
+    }
+    if (num != null && board.assignWord) {
+      var active = board.getActiveIndex ? board.getActiveIndex() : 0;
+      var question = task.questions[active];
+      if (question && num <= question.opts.length) {
+        event.preventDefault();
+        board.assignWord(num);
+      }
+    }
+  }
+
+  function init() {
+    var topic = window.VOCAB_CLOZE_DATA;
+    if (!topic || !topic.tasks || !topic.tasks.length) {
+      var panels = document.getElementById("egePanels");
+      if (panels) {
+        panels.innerHTML = '<p class="ege-error">No vocabulary data embedded.</p>';
+      }
+      return;
+    }
+    mountTopic(topic, topic.id || TOPIC_ID);
+    document.addEventListener("keydown", handleTaskShortcuts);
+  }
+
+  window.VocabClozeStandalone = { init: init };
+})();
+
+
+  </script>
+  <script>
+    VocabClozeStandalone.init();
+  </script>
+  <script src="shared/site-footer.js"></script>
+</body>
+</html>

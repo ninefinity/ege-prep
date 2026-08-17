@@ -1,0 +1,567 @@
+{
+  "id": "matching-headings",
+  "title": "Matching Headings",
+  "subtitle": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+  "tasks": [
+    {
+      "id": "headings-sights",
+      "nav": "Sights of the World",
+      "title": "Sights of the World",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Inspired by nature",
+        "Wonderful combination",
+        "Restoring old traditions",
+        "Protecting the environment",
+        "Different at different times",
+        "Chosen as the best among hundreds",
+        "The closest to the sky",
+        "Saved from being pulled down"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Sydney Opera House was declared a UNESCO World Heritage Site in 2007 as one of the most iconic buildings in the world. Its planning began in the 1940s, as the existing building for large theatrical productions was not large enough. The Opera House was designed by a Danish architect Jorn Utzon whose design was selected as the winning one among 232 other entries in an international design competition. The formal inauguration of the building took place on 20 October 1973."
+        },
+        {
+          "letter": "B",
+          "text": "The Eiffel Tower was built in 1889 in Paris. It was designed as an entrance to the 1889 World's Fair and named after the engineer Gustave Eiffel, whose company designed and built the tower. However, initially the plan was to make it stand for only twenty years since its construction. The City had planned to tear it down in 1909, but as the tower proved to be valuable for the image of the city, it was allowed to remain. Now it has become the symbol of the city, seen as one of the World's wonders."
+        },
+        {
+          "letter": "C",
+          "text": "The Electric Forest Festival, which started less than a decade ago, is a four-day multi-genre event, held in Rothbury, Michigan. The main focus of the event is upon electronic and jam bands. But what captures the eyes is a special atmosphere during this festival. The surrounding environment becomes a kaleidoscope of laser light shows. The mixture of electronic lights and the sounds appeal to different senses and together create a unique, surreal, magical experience."
+        },
+        {
+          "letter": "D",
+          "text": "Casa Mila, designed by the architect Antoni Gaudí, is one of Barcelona's World Heritage sites and is one of the most visited attractions the city has to offer. The building is also known as \"La Pedrera\" translated as the Stone wave, because of the facade which is made up completely with natural stones and does not have any straight lines. Gaudi explained it by the fact that straight lines cannot be found anywhere in the wild landscape and it can be made only by men."
+        },
+        {
+          "letter": "E",
+          "text": "To mark the end of the Christmas season, Shetland in Scotland celebrates a variety of fire festivals every year. The most interesting of them is held at the capital, where this practice was born as early as in 1876, when strong men dragged barrels with burning tar on sledges. Today, thousands of people dress up in period-clothes. The procession burns down the model of a Viking ship. The brightness of the fire and men in clothes of the long-gone era make a spectacle show."
+        },
+        {
+          "letter": "F",
+          "text": "Burj Khalifa is an 829.8 m skyscraper in Dubai. It is the tallest structure in the world. There are hotels, residences and observational laboratories in the 163 floors of the building. It's not only the tallest building in the world, it is also the tallest freestanding structure in the world, has the highest number of stories in the world, highest occupied floor in the world, highest outdoor observation deck in the world, and an elevator with the longest travel distance in the world."
+        },
+        {
+          "letter": "G",
+          "text": "The Taj Mahal is an architectural marvel made of white marble situated on the banks of the river Yamuna in Agra, India. It was built by the Mughal Emperor Shah Jahan in memory of his beloved wife Mumtaz Mahal. Nowadays around 8 million tourists visit the Taj Mahal every year. They come to see the changing colors of the Taj Mahal, which change from pink in the morning, milky white in the evening and golden at night when lit by the moon."
+        }
+      ],
+      "answers": {
+        "A": "6",
+        "B": "8",
+        "C": "2",
+        "D": "1",
+        "E": "3",
+        "F": "7",
+        "G": "5"
+      }
+    },
+    {
+      "id": "headings-castles",
+      "nav": "Castles",
+      "title": "Castles",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Going up and coming down",
+        "A new epoch in construction",
+        "From protection into fun",
+        "The choice of the material matters",
+        "A royal fortress",
+        "Various activities to do",
+        "Similar but different",
+        "Higher and stronger"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Castles and palaces may seem alike. However, there are some distinctions between them. A castle is a strong and fortified building made of stone. It has tall walls and sometimes even a surrounding water-filled ditch, called a moat. Castles were built to protect people from enemies and attacks. On the other hand, a palace is a luxurious residence designed primarily for comfort and elegance. Palaces were not built for defense like castles, so they usually didn't have thick walls, towers, or other fortification features."
+        },
+        {
+          "letter": "B",
+          "text": "During the early days, castles were constructed using wood. Recognizing this weakness, lords and castle builders began using stone as the main material for constructing castles. Stone castles provided greater protection and durability against attacks. In terms of attacking these stone castles, the primary weapons used were battering rams and catapults. Battering rams were large, heavy objects used to forcefully strike castle gates, while catapults were siege engines designed to launch projectiles, such as rocks or flaming objects."
+        },
+        {
+          "letter": "C",
+          "text": "During the medieval period, specifically between the 11th and 13th centuries, castles were commonly constructed on elevated, man-made hills known as mottes. The primary purpose of building castles on mottes was to enhance their defensive capabilities. Mottes were typically large, artificial hills that provided strategic advantages. By elevating the castle above the surrounding area, defenders had a better point to observe and protect the surrounding lands. The height of the mottes allowed soldiers to have a broader range to defend against potential attackers."
+        },
+        {
+          "letter": "D",
+          "text": "In the past, castles used moats as a defense. Moats were ditches dug around the castle to guard it from enemies. They were often filled with water to make it difficult for attackers to tunnel into the castle. However, in some castles, people came up with more unique ideas. For example, at Český Krumlov Castle in the Czech Republic, the moat has been filled with bears since 1707. Nowadays, the bears have someone to take care of them, and they even have birthday parties and festivals organized for them."
+        },
+        {
+          "letter": "E",
+          "text": "One interesting detail about castles is their spiral stairwells. These staircases are designed to spiral in a specific direction, usually clockwise. The reason for this clever design was to put invaders at a disadvantage during a battle. Most people, including swordsmen, were right-handed and held their swords in their right hand. When invaders climbed the spiral stairs, they were not be able to use their dominant sword arm effectively, because the narrow space of the staircase restricted their movement during battles."
+        },
+        {
+          "letter": "F",
+          "text": "The Norman Conquest of 1066 was a significant event in British history. It marked the invasion and successful takeover of England by William the Conqueror, the Duke of Normandy. After the Norman Conquest, William the Conqueror and his successors built numerous castles throughout England. These castles served as strategic fortifications and symbols of their power and control over the newly-conquered lands. They were used as defensive structures, residences for the nobility, and centres of administration."
+        },
+        {
+          "letter": "G",
+          "text": "Today Great Britain has a rich tradition of castle sites, which show the best examples of the legacy of medieval times. Windsor Castle, the home of the Kings and Queens' families of the English Commonwealth, is both the oldest and largest continuously-inhabited castle in the world. It was built in the 11th century, after the Norman Invasion, and has been used by reigning monarchs since the reign of Henry I. The castle also houses the famous St. George's Chapel, which is designed in Gothic style, and houses the Order of the Garter."
+        }
+      ],
+      "answers": {
+        "A": "7",
+        "B": "4",
+        "C": "8",
+        "D": "3",
+        "E": "1",
+        "F": "2",
+        "G": "5"
+      }
+    },
+    {
+      "id": "headings-new-york",
+      "nav": "New York",
+      "title": "New York and Skyscrapers",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Always in a hurry",
+        "The city of skyscrapers",
+        "Winning and losing",
+        "Unknown side of the city",
+        "Saving the variety",
+        "Getting around the city",
+        "For the holiday and more",
+        "Nickname for a building"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "New York is really the melting pot of the world. Over 30 percent of its residents have come from abroad. It is believed that the city has the greatest linguistic diversity on the planet. There are over 800 different languages divided among its people. As some of these languages are nearly extinct, the City University of New York has begun a project called the Endangered Language Alliance. Its aim is to preserve rare languages like Bukhari, Vhlaski, and Ormuri."
+        },
+        {
+          "letter": "B",
+          "text": "New Yorkers love to think they know everything about their city: where to find the best fruit, how to avoid paying full price at museums, what route to take to avoid traffic. But New York City can reveal new treasures even to its veterans. Beyond the city where New-Yorkers work, eat, play and commute every day lies a hidden New York: mysterious, forgotten, abandoned or just overlooked. There are places about which you're not likely to read in any guidebook."
+        },
+        {
+          "letter": "C",
+          "text": "The Chrysler Building was in a race with the Bank of Manhattan for getting the title of the tallest skyscraper in the world. The Bank was likely to triumph, with its height of 282 meters. But the spire of the Chrysler Building was constructed in secret inside the tower. Just one week after the Bank of Manhattan was finished, it was put in place, making it 318 meters tall and beating the Bank. It wouldn't keep this title for long: one year later the Empire State Building was erected."
+        },
+        {
+          "letter": "D",
+          "text": "The Flatiron Building was constructed between 1901 and 1903 at the intersection of Broadway and Fifth Avenue. It was designed by Chicago's Daniel Burnham as a steel-frame skyscraper covered with white terra-cotta. Built as the headquarters of the Fuller Construction company, the skyscraper was meant to be named Fuller Building. But locals soon started calling it \"Flatiron\" because of its unusual shape. The name stuck and soon became official."
+        },
+        {
+          "letter": "E",
+          "text": "How does Rockefeller Center manage to find the perfect fur-tree each Christmas season? They do aerial searches by helicopter, of course, and bring it to the city during the night when there isn't much traffic on the streets. After the tree is taken down for the year, it continues to be useful. For example, in 2005 Habitat for Humanity used the wood to make doorframes for houses for the poor and in 2012 the paper was used to publish a book."
+        },
+        {
+          "letter": "F",
+          "text": "In New York life never stands still. People have to call cabs, ride subway cars, do business of all kinds, eat pizzas and sandwiches for lunch. When you multiply that by more than eight million people in less than 500 square miles, you get the idea: everyone goes everywhere as fast as it is humanly possible. Whatever you do, don't stop in the middle of the sidewalk or you'll make everyone around you incredibly angry."
+        },
+        {
+          "letter": "G",
+          "text": "New York is extremely easy to navigate. Manhattan is divided into numbered streets from north to south and avenues from east to west. It's almost impossible to get lost there. Buses are useful to travel around Manhattan, and the subway is the best means of transport to the other parts of the city. At some stage you'll definitely use a yellow taxi. Try to get one on an avenue that's going in the same direction you are – you'll save time and money. And don't forget to leave a tip for the driver."
+        }
+      ],
+      "answers": {
+        "A": "5",
+        "B": "4",
+        "C": "3",
+        "D": "8",
+        "E": "7",
+        "F": "1",
+        "G": "6"
+      }
+    },
+    {
+      "id": "headings-city-names",
+      "nav": "City Names",
+      "title": "Cities and Their Names",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Named after a politician",
+        "Too lengthy to stay",
+        "In hope for a good future",
+        "Named after a tsar",
+        "Modern pronunciation",
+        "Named after the river",
+        "Named after a wrong person",
+        "Bringing back the first name"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "One local legend claims that the city of Orlando is named after the character in Shakespeare's \"As You Like It\", but the more commonly accepted version is that a man named Orlando Reeves owned a plantation and a sugar mill a bit north of what later became the city. Early settlers found where Reeves had carved his name in a tree and thought that it was a grave marker to a soldier, a hero who died in the Seminole War and mistakenly named their settlement after him."
+        },
+        {
+          "letter": "B",
+          "text": "When Arizona city began expanding in the late 1860s, settlers realized that their little town needed a name. The founder of the city Jack Swilling, a Confederate veteran, wanted to name the town Stonewall in honour of Stonewall Jackson, but Darrell Duppa found out that their site had been a Native American settlement centuries earlier. He offered the name Phoenix. He believed that their new city would rise from the ruins of the former civilization like the legendary bird."
+        },
+        {
+          "letter": "C",
+          "text": "In 1788, Captain Arthur Phillip discovered a supply of fresh water for his thirsty armada in a cave near Port Jackson, today's Sydney Harbor. Later he started a settlement there. The place needed a name. Though originally he had planned to name his new freshwater-filled settlement Albion – a poetic name for England – instead he decided to call the bay Sydney Cove after the Secretary of State, Lord Sydney. The fact that the guy had never even set foot in Australia didn't stop him."
+        },
+        {
+          "letter": "D",
+          "text": "The Russian capital sits on the Moscva River, which is obviously where the city's name comes from. However, there are a couple of theories as to where the name Moscva comes from. The first states that it is a derivative of a Finno-Ugric name meaning river of either cows, or bears, or darkness. Nobody is really sure which of the three exactly, but all of them seem quite possible. The other, more popular theory, says that the name comes from a Slavic word meaning dank, swampy river."
+        },
+        {
+          "letter": "E",
+          "text": "It's widely known that the City of Angels got its name from Spanish settlers. The beauty of the place impressed them so much that they considered it heaven on Earth. The original name, however, was a lot longer: El Pueblo de Nuestra Senora la Reina de los Angeles de Porcincula, or \"The Town of Our Lady the Queen of Angels of the Little Portion\". They realized there would be a lot of letters to fit on a hat they wore, so they just shortened it to Los Angeles."
+        },
+        {
+          "letter": "F",
+          "text": "Have you ever wondered why in a restaurant we never order Beijing duck, but instead call it Peking like our grandmas did? Well, since Chinese characters don't much lend themselves to transliteration, English interpretations of how the name is pronounced have changed over the years. The name was given to the city during the Ming Dynasty by Zhu Di, who moved his capital there. \"Beijing\" is about as close as we can get now to saying it like the Chinese."
+        },
+        {
+          "letter": "G",
+          "text": "St. Petersburg was founded on May 16, 1703, when the foundation of the Peter and Paul Fortress was laid. Since its foundation, the city's name has changed several times. Originally, it was named after the Apostle Peter as tsar Peter, the Apostle's namesake, relied on this saint's patronage. For a decade in the 1900's it was called Petrograd. This was from 1914–1924. After Lenin died, Petrograd was renamed Leningrad. St. Petersburg resumed its original name in 1992."
+        }
+      ],
+      "answers": {
+        "A": "7",
+        "B": "3",
+        "C": "1",
+        "D": "6",
+        "E": "2",
+        "F": "5",
+        "G": "8"
+      }
+    },
+    {
+      "id": "headings-paris",
+      "nav": "Paris",
+      "title": "Paris",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Getting bigger",
+        "The weather in Paris",
+        "Why live in Paris?",
+        "Key facts",
+        "Becoming stronger",
+        "Location",
+        "A rich place",
+        "The jewel of Paris"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Paris is the capital city of France. It is situated in the north-central part of the country. People were living on the site of the present-day city, located along the Seine River by about 7600 BC. The modern city has spread far beyond both banks of the Seine. Paris is by far the country's most important centre of commerce and culture. The area of the city is 41 square miles (105 square km); the population of Paris and its suburbs is approximately 10 million people."
+        },
+        {
+          "letter": "B",
+          "text": "For centuries Paris has been one of the world's most important and attractive cities. It is appreciated for the opportunities it offers for business and commerce, for study, culture, and entertainment; its gastronomy, haute couture, painting, literature, and intellectual community especially enjoy an enviable reputation. It is called the City of Light and it lives up to its reputation being an important centre for education and intellectual pursuits."
+        },
+        {
+          "letter": "C",
+          "text": "Paris is situated at a crossroads of both water and land routes significant not only to France but also to Europe. It has had a continuing influence on its growth. Under Roman administration, in the 1st century BC, the original site on the Île de la Cité was designated the capital of the territory. Under King Hugh Capet (ruled 987 – 996), the preeminence of Paris was firmly established, and Paris became a political and cultural hub as modern France took shape."
+        },
+        {
+          "letter": "D",
+          "text": "Paris is located on the western side of Europe and in a plain relatively close to the sea. Thanks to the Gulf Stream, it has a fairly temperate climate. The weather can be very changeable, however, especially in the winter and spring, when the wind can be sharp and cold. The annual average temperature is roughly 12 °C; the July average is about 19 °C, and the January average is about 3 °C. The temperature drops below freezing for about a month each year, and snow falls on such days."
+        },
+        {
+          "letter": "E",
+          "text": "At the eastern end of the Île de la Cité we can see the cathedral of Notre-Dame de Paris. It is situated on a spot that Parisians have always reserved for the practice of religious rites. Like all cathedrals in France, Notre-Dame is the property of the state, although its operation as a religious institution is left entirely to the Roman Catholic Church. The cathedral looks stunning. It is certainly the most famous landmark in Paris, attracting millions of tourists each year."
+        },
+        {
+          "letter": "F",
+          "text": "In 1850, Paris had approximately 600,000 inhabitants. It then grew rapidly as industrial expansion attracted a constant stream of people from the provinces. By 1870, the population had surpassed 1,000,000, and by 1931 the conurbation contained some 5,000,000 people, more than half of them living in the city of Paris, the administrative city within the old gates. After World War II, this growth continued, and in the early 21st century Greater Paris had over 10 million people."
+        },
+        {
+          "letter": "G",
+          "text": "Paris is not only the political and cultural capital of France but also its major financial and commercial centre. It is a very wealthy city, home to many vast private fortunes, both of French and foreign origin. It serves as the base for numerous international business concerns, and even if large French firms have their manufacturing plants in the provinces, nearly all keep their headquarters in Paris, conveniently close to major banks and key ministries."
+        }
+      ],
+      "answers": {
+        "A": "4",
+        "B": "3",
+        "C": "5",
+        "D": "2",
+        "E": "8",
+        "F": "1",
+        "G": "7"
+      }
+    },
+    {
+      "id": "headings-perm",
+      "nav": "Perm",
+      "title": "Perm",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Perm's industry",
+        "Beneficial location",
+        "City's cultural life",
+        "Too important to be left alone",
+        "Traditionally liberal",
+        "The greatest achievement",
+        "Natural resource as attraction",
+        "Where the name comes from"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "The word \"Perm\" first appeared in the 12th century in the Primary Chronicle, the main source describing the early history of the Russian people. The Perm were listed among the people who paid tribute to the Rus. The origin of the word \"Perm\" remains unclear. Most likely, the word came from the Finno-Ugric languages and meant \"far land\" or \"flat, forested place\". But some local residents say it may have come from Per, a hero and the main character of many local legends."
+        },
+        {
+          "letter": "B",
+          "text": "Novgorodian traders were the first to show an interest in Perm. Starting from the 15th century, the Muscovite princes included the area in their plans to create a unified Russian state. During this time the first Russian villages appeared in the northern part of the region. The first industry to appear in the area was a salt factory, which developed on the Usolka river in the city of Solikamsk. Rich salt reserves generated great interest on the part of Russia's wealthiest merchants, some of whom bought land there."
+        },
+        {
+          "letter": "C",
+          "text": "The history of the modern city of Perm starts with the development of the Ural region by Tsar Peter the Great. Perm became the capital of the region in 1781 when the territorial structure of the country was reformed. A special commission determined that the best place would be at the crossroads of the Trans-Siberian Railroad, which runs east-west and the Kazan line, which runs north-south. This choice resulted in Perm becoming a major trade and industrial centre. The city quickly grew to become one of the biggest in the region."
+        },
+        {
+          "letter": "D",
+          "text": "Perm is generally stable and peaceful, so the shocks of 1917 did not reach it right away. Neither did they have the same bloody results as in Petrograd. Perm tried to distance itself from the excesses and did not share the enthusiasm for change of its neighbours. Residents supported more moderate parties. They voted for the establishment of a west European style democracy in Russia. Unfortunately, the city could not stay completely unaffected, as both the White and the Red armies wanted its factories."
+        },
+        {
+          "letter": "E",
+          "text": "Perm's desire for stability and self-control made the region seem like a \"swamp\" during the democratic reforms of the 1990s. Unlike other regions, there were no intense social conflicts or strikes. Nevertheless, Perm was always among the regions that supported the democratic movement. In the 1999 elections, the party that wanted to continue the reforms won a majority in the region. So the city got an unofficial status of \"the capital of civil society\" or even \"the capital of Russian liberalism\"."
+        },
+        {
+          "letter": "F",
+          "text": "During the Second World War many factories were moved to Perm Oblast and continued to work there after it ended. Chemicals, non-ferrous metallurgy, and oil refining were the key industries after the war. Other factories produced aircraft engines, equipment for telephones, ships, bicycles, and cable. Perm press produces about 70 percent of Russia's currency and stamped envelopes. Nowadays several major business companies are located in Perm. The biggest players of Russian aircraft industry are among them."
+        },
+        {
+          "letter": "G",
+          "text": "Perm has at least a dozen theatres featuring productions that are attracting audiences from faraway cities, and even from abroad. The broad esplanade running from the city's main square has become the site of almost continuous international art, theatre and music fairs during the summer. Even the former prison camp with grim walls outside town was converted into a theater last July for a production of \"Fidelio\", Beethoven's opera about political repression. The performance was well-reviewed."
+        }
+      ],
+      "answers": {
+        "A": "8",
+        "B": "7",
+        "C": "2",
+        "D": "4",
+        "E": "5",
+        "F": "1",
+        "G": "3"
+      }
+    },
+    {
+      "id": "headings-rome",
+      "nav": "Rome",
+      "title": "Rome",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Beautiful water",
+        "The jewel of Rome",
+        "Rome layout",
+        "Built on seven hills",
+        "From the history of Rome",
+        "Highs and lows",
+        "Climate in Rome",
+        "Key facts"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Rome is an important historic city of Italy. Rome is located in the central part of the Italian peninsula, on the Tiber River about 15 miles (24 km) inland from the Tyrrhenian Sea. Once the capital of an ancient republic and empire whose armies were so powerful, now it is the spiritual and physical seat of the Roman Catholic Church and the site of major pinnacles of artistic and intellectual achievement. The city area is 496 square miles; the population is more than 3 million people."
+        },
+        {
+          "letter": "B",
+          "text": "For well over a millennium, Rome controlled the life of all civilizations known to Europe, but then it fell into dissolution and disrepair. Physically, economically, politically and militarily helpless by the late Middle Ages, Rome nevertheless remained a world power as an idea. The force of Rome as a lawgiver, teacher, and builder continued to radiate throughout Europe. Rome found glory as the head of Christianity and the capital for arts and eventually won back its power and wealth."
+        },
+        {
+          "letter": "C",
+          "text": "The ancient centre of Rome is divided into 22 districts, the names of most dating back to Classical times, while surrounding it are 35 urban sectors that began to be officially absorbed into the municipality after 1911. Within the city limits on the western and northwestern fringes are six large suburbs. About 6 miles (10 km) out from the centre of the city, a belt highway makes a huge circle around the capital, tying together the antiquated roads that led to ancient Rome."
+        },
+        {
+          "letter": "D",
+          "text": "Rome's hot, dry summer days, with high temperatures often above 24 °C, are frequently cooled in the afternoons by a west wind that rises from the Tyrrhenian Sea. The city receives roughly 30 inches (750 mm) of precipitation annually; spring and autumn are the rainiest seasons. Frosts and occasional light snowfalls punctuate the otherwise mild winters, when high temperatures average just above 10 °C. A cold, dry wind from the north frequents the city in the winter."
+        },
+        {
+          "letter": "E",
+          "text": "The main street in central Rome is Via del Corso, an important thoroughfare since Classical times, when it was the Via Flaminia, the road to the Adriatic. Its present name comes from the horse races that were part of the Roman carnival celebrations. From the foot of the Capitoline Hill, the Corso runs to the Piazza del Popolo and through a gate in the city wall, the Porta del Popolo, there to resume its ancient name. It's a must to see for any visitor to Rome."
+        },
+        {
+          "letter": "F",
+          "text": "Rome is as much a city of fountains as it is of churches or palaces, antiquities or urban problems. The more than 300 monumental fountains are an essential part of Rome's seductive powers. They are points of personal, often sentimental attachment to the city and have been a source of inspiration for many people of art throughout the history of mankind. They also provide a sense of luxury. One cannot turn them off as they flow all the time."
+        },
+        {
+          "letter": "G",
+          "text": "The Roman countryside, also known as the Campagna, was one of the last areas of central Italy to be settled in antiquity. It is important to mention that Rome was built on a defensible hill that dominated the last downstream, high-banked river crossing. This hill, Palatine Hill, was one of a group of hills, traditionally counted as seven, around which the ancient city grew. The other hills are the Capitoline, the Quirinal, the Viminal, the Esquiline, the Caelian, and the Aventine."
+        }
+      ],
+      "answers": {
+        "A": "8",
+        "B": "6",
+        "C": "3",
+        "D": "7",
+        "E": "2",
+        "F": "1",
+        "G": "4"
+      }
+    },
+    {
+      "id": "headings-madrid",
+      "nav": "Madrid",
+      "title": "Madrid",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "The transport system",
+        "From the history of Madrid",
+        "A rich place",
+        "Key facts",
+        "Late to bed, late to rise",
+        "The city and its geography",
+        "Something for anyone",
+        "A city of variety"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Madrid is the capital of Spain. It is also Spain's arts and financial centre. Madrid was officially made the national capital by Philip III, an entire generation after Philip II took the court to Madrid in 1561. Under the patronage of Philip II and his successors, Madrid developed into a city of curious contrasts, preserving its old, overcrowded centre, around which developed palaces, convents, churches, and public buildings. The population of the city now is more than 3 million people."
+        },
+        {
+          "letter": "B",
+          "text": "Madrid lies almost exactly at the geographical heart of the Iberian Peninsula. It is situated on a plateau of sand and clay at an elevation of some 2,120 feet (646 metres) above sea level, making it one of the highest-located capitals in Europe. This location is partly responsible for the weather pattern of cold, crisp winters accompanied by sharp winds. Sudden variations of temperature are possible, but summers are consistently dry and hot. Autumn is the best season for visitors."
+        },
+        {
+          "letter": "C",
+          "text": "Madrid is a city of contrasting styles, reflecting clearly the different periods in which change and development took place. The old centre, a maze of small streets around a few squares in the vicinity of the imposing Plaza Mayor, contrasts with the Neoclassical buildings and grand boulevards created by the best architects of their day. Modern office buildings in the centre and apartment blocks around the outskirts reflect the styles and economic realities of present-day development."
+        },
+        {
+          "letter": "D",
+          "text": "The local population of Madrid is often referred to as 'cats', partly due to the local lifestyle and the late hours kept by the city's inhabitants, although keeping late hours is also common in other parts of Spain, especially in the heat of summer. People eat late, theatres and cinemas begin performances late, and the siesta is by no means dead, although the introduction of modern business methods and the influx of foreign interests have tended to alter the traditional workday."
+        },
+        {
+          "letter": "E",
+          "text": "Being the centre of government, finance, and insurance has long contributed to the prosperity of the capital, as have tourism and the city's position as Spain's transportation hub. Following the Spanish Civil War (1936 – 39), the city became an important manufacturing centre for the automotive and aircraft industries and for electric and electronic equipment, metallurgical manufactures, and optics, as well as for the production of plastics, rubber, and consumer goods."
+        },
+        {
+          "letter": "F",
+          "text": "The road and rail systems both come to the capital from all corners of the country. A subway system, the Metro, serves Madrid with various lines that extend throughout the city. Barajas Airport – Madrid's international airport – lies about 8 miles (13 km) east of the city. A motorway (expressway) system encircles Madrid in a roughly pentagonal shape, coming to a point in the south. Other major motorways radiate from the encircling artery in all directions."
+        },
+        {
+          "letter": "G",
+          "text": "Modern Madrid has attractions for all people. Las Ventas, which is the largest bullring in Spain with a capacity of some 25,000 people, is where you can watch famous Spanish bullfights. For football fans there is always a game of football to watch at any of the stadiums located in Madrid. The verbenas, special fiestas held in each quarter in honour of its patron saint, are popular events, especially during warm weather. There are more than 40 parks and public gardens, churches and museums."
+        }
+      ],
+      "answers": {
+        "A": "4",
+        "B": "6",
+        "C": "8",
+        "D": "5",
+        "E": "3",
+        "F": "1",
+        "G": "7"
+      }
+    },
+    {
+      "id": "headings-britain",
+      "nav": "Britain",
+      "title": "Britain",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Pet-friendly booking",
+        "Funny names",
+        "Different tactics",
+        "Seeing wild animals",
+        "Almost at the shore",
+        "Seaside observation point",
+        "Quiet places to explore",
+        "Various activities to do"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "The English have a very ironic sense of humour, and it may become clear when you discover what some of the towns and villages across England and the United Kingdom are called. Some are hilarious, while others are just plain rude. It is important to keep an eye out when you pass through the English countryside to see if you can spot a few on your travels. There's Sheepy Parva and Sheepy Magna in Lancashire, Greedy Gut in Somerset, No Place in Derbyshire. There is always something to keep people entertained during their trip!"
+        },
+        {
+          "letter": "B",
+          "text": "England is part of the British Isles and a large archipelago off the coast of Europe. It is not a very big country. In fact, you could fit all the United Kingdom, that is, England, Wales, Scotland, and Northern Ireland, inside Texas, the USA, over 2.8 times. So, it shouldn't come as too much surprise to know that you are never far from the sea when you are in England. In fact, even if you are standing in the very center of the country, you are still no more than 70 miles away from the coast. What a shame that the English weather doesn't often encourage a beach day!"
+        },
+        {
+          "letter": "C",
+          "text": "Badgers are not always a farmer's best friends, but Badger Watch farm in deepest rural Dorset has decided to exploit rather than fight Britain's cutest large mammals. Extremely difficult to spot, a badger seen in the wild is an unforgettable experience. Two specially designed hides at Badger Watch Dorset offer one of the best chances of finding one. Each hide can be booked privately for up to eight people, from 6.30 pm until the lights are shut off at midnight. Alongside badgers, the hides offer a good chance of seeing foxes, deer, and rabbits."
+        },
+        {
+          "letter": "D",
+          "text": "Holidays are the best opportunity to explore the UK and overseas territories, spending quality time with family or friends including a four-legged one. In fact, holidays are the best excuse to go on some nice dog adventure and give your dog the best time. To plan your perfect holiday, it's a matter of finding a place suitable for dogs. The good news is that there is more choice than you may think. We found that almost all holiday accommodation and hotels have a filter which you can use to navigate your options, although some are better presented than others."
+        },
+        {
+          "letter": "E",
+          "text": "The Hebrides are a beautiful archipelago, where Scottish Gaelic is still spoken. Each day will be a combination of relaxation and adventure. On a full day's excursion, we may spend four or five hours in the kayaks and cover between seven and ten miles, with plenty of opportunities to land and explore islands on foot. One of the best ways to explore its coastline and spot some of the many bird species, otters and seals is by kayak. We can offer full-day guided trips, taking in hidden coves, long sandy beaches, and hidden ancient sites."
+        },
+        {
+          "letter": "F",
+          "text": "You never forget your first whale. Such sightings are, of course, down to good fortune and timing, but once you've seen your first whale, you will want to see another and another. Famous for its whaling fleet, the Yorkshire coast is one of the best places in England to spot Minke whales, which appear in late summer, following the mackerel. From the coastline of the Outer Hebrides, you can spot up to 23 species of whales, more than a quarter of the world's 89 known species, which pass through the waters off the west coast of Scotland."
+        },
+        {
+          "letter": "G",
+          "text": "In summer the possibility of finding a calm area away from the crowds of holiday-goers can be a difficult task. Known as the Heritage Coast, the Northumberland coast area of outstanding natural beauty is surprisingly crowd-free, even in high summer. If you're willing to relax, you'll find a number of excellent bathing beaches here. Heritage hunters and nature watchers are spoiled with fantastically arresting castles. Most striking is the mighty fortress at Bamburgh. Many architectural historians have declared this the most wondrous of all England's coastal castles."
+        }
+      ],
+      "answers": {
+        "A": "2",
+        "B": "5",
+        "C": "4",
+        "D": "1",
+        "E": "8",
+        "F": "6",
+        "G": "7"
+      }
+    },
+    {
+      "id": "headings-satellites-robots",
+      "nav": "Satellites & Robots",
+      "title": "Satellites and Robots",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Danger for space missions",
+        "Costly problem of space junk",
+        "How it all started",
+        "Do-It-Yourself device",
+        "Entertaining worker",
+        "Rapid transportation",
+        "Looking for easier ways",
+        "Tiny but informative"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Launched in December 1961, OSCAR 1 was the world's first non-governmental satellite. It was built for only 63 dollars by a group of amateur radio operators and operated for nearly 20 days, testing radio reception from space. OSCAR 1 marked the beginning of a program that continues to this day. The program has led to innovations in spacecraft design and enabled radio enthusiasts to participate in satellite communications."
+        },
+        {
+          "letter": "B",
+          "text": "Having a small satellite launched into orbit might sound strange, but over the past few decades a unique class of satellites has been created that seems ideal for space operations: CubeSats. The most common CubeSat is a 10 cm cube. Within their compact bodies these miniature satellites are able to place sensors and communications receivers/transmitters that enable operators to study the Earth from space, as well as space around the Earth."
+        },
+        {
+          "letter": "C",
+          "text": "A CubeSat is a small satellite that weighs just 1 kilogram. The design of these satellites has been so simplified that almost anyone can build them. More than that, the instructions are available for free online. They are quite easy to understand. After you build one, you can also test and launch it. CubeSats can be combined to make larger satellites if you need to carry heavier weights. Is it expensive to build one? Typically less than $5,000."
+        },
+        {
+          "letter": "D",
+          "text": "Australian scientists have successfully tested a new kind of jet aircraft that can move seven times faster than the speed of sound. It can bring hypersonic or ultra-fast travel a step closer to reality. Hypersonic jet engine that could be used to fly people from Sydney to London in just two hours is planned to make its first flight in 2018, according to the Australian scientists and engineers working on the project."
+        },
+        {
+          "letter": "E",
+          "text": "A robot-cook, which is created by the programmers of the company-resident of the business incubator of Tomsk State University of Control Systems and Radioelectronics, will be able to replace workers of fast food restaurants in making hot dogs, candy floss and other foods. The authors of the idea believe that the robot will be popular with restaurant-keepers, especially as a marketing tool to attract customers."
+        },
+        {
+          "letter": "F",
+          "text": "Since the birth of space flight in 1957, the number of man-made objects orbiting the Earth has grown every year. There are now more than 15,000 such objects larger than 10cm, at least those that we know of. Even very small particles can pose a risk to spacecraft, because of the high relative speeds at which they travel. Space trash can affect not only critical equipment such as communications satellites, but it can also be problematic for space flights."
+        },
+        {
+          "letter": "G",
+          "text": "National space agencies and private satellite and communications companies have an interest in reducing the amount of space trash or so-called debris in orbit. If one organisation removes debris, it will help everyone in space. But because doing so will be complex and very expensive, the best option for anyone of these players is to wait for somebody else to have a go first. That would give them a cleaner space without paying for clearing it up."
+        }
+      ],
+      "answers": {
+        "A": "3",
+        "B": "8",
+        "C": "4",
+        "D": "6",
+        "E": "5",
+        "F": "1",
+        "G": "2"
+      }
+    }
+  ]
+}
