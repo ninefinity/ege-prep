@@ -79,6 +79,7 @@
             return;
           }
 
+          catalog.textContent = "";
           groupSections(data.sections).forEach(function (group) {
             var block = document.createElement("section");
             block.className = "ege-catalog-group";
