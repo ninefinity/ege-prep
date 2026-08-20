@@ -562,6 +562,18 @@
   function showScoreFeedback(taskId, correct, max, options) {
     var scoreEl = document.getElementById("score-" + taskId);
     if (!scoreEl) return;
+
+    // Reveal path: answer key only — no score / "All correct" celebration.
+    if (options && options.revealed) {
+      var keyLines =
+        options.lines && options.lines.length ? options.lines : ["Answers shown."];
+      scoreEl.hidden = false;
+      scoreEl.textContent = keyLines.join("\n");
+      scoreEl.className = "ege-task__score";
+      setCheckGateHint(taskId, "");
+      return;
+    }
+
     var lines = [
       "Score: " +
         correct +
@@ -1017,9 +1029,11 @@
     var revealed = taskEl && taskEl.dataset.answersRevealed === "1";
     var ready = isTaskFullyAnswered(taskId) && !revealed;
 
-    checkBtn.hidden = !ready;
+    checkBtn.hidden = false;
     checkBtn.disabled = !ready;
-    checkBtn.title = ready ? "" : "Answer all questions first";
+    if (revealed) checkBtn.title = "Answers already shown";
+    else if (!ready) checkBtn.title = "Answer all questions first";
+    else checkBtn.title = "";
   }
 
   function updateAnsweredCount(taskId) {
@@ -1443,11 +1457,14 @@
     var lines = [];
     if (!task || !task.texts) return lines;
     var revealKey = opts && opts.revealKey;
+    var keyOnly = opts && opts.keyOnly;
     var prefix = taskPrefix(taskId);
     task.texts.forEach(function (item) {
       var value = getCheckedValue(prefix + "_" + item.letter);
       var expected = String(task.answers[item.letter]);
-      if (value && value === expected) {
+      if (keyOnly) {
+        lines.push(item.letter + " → " + expected);
+      } else if (value && value === expected) {
         lines.push(item.letter + ": " + value + " ✓");
       } else if (revealKey) {
         lines.push(item.letter + ": " + (value || "—") + " → " + expected);
@@ -1926,12 +1943,7 @@
         "ege-split--panels"
       )
     );
-    wrap.appendChild(
-      buildTaskFooter(task.id, max, {
-        showAnswers: true,
-        gateCheck: true,
-      })
-    );
+    wrap.appendChild(buildTaskFooter(task.id, max, { showAnswers: true }));
     return wrap;
   }
 
@@ -2059,21 +2071,11 @@
       body.appendChild(
         buildSplit(buildPanel("Text", readScroll, "ege-panel--read"), workCol, "ege-split--panels")
       );
-      body.appendChild(
-        buildTaskFooter(task.id, max, {
-          showAnswers: true,
-          answeredCount: true,
-        })
-      );
+      body.appendChild(buildTaskFooter(task.id, max, { showAnswers: true }));
       wrap.appendChild(body);
     } else {
       wrap.appendChild(buildPanel("Questions", work, "ege-panel--solo"));
-      wrap.appendChild(
-        buildTaskFooter(task.id, max, {
-          showAnswers: true,
-          answeredCount: true,
-        })
-      );
+      wrap.appendChild(buildTaskFooter(task.id, max, { showAnswers: true }));
     }
     return wrap;
   }
@@ -4063,9 +4065,9 @@
 
     var showBtn = document.createElement("button");
     showBtn.type = "button";
-    showBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
+    showBtn.className = "ege-btn ege-btn--ghost";
     showBtn.id = "show-" + taskId;
-    showBtn.textContent = "Reveal answers";
+    showBtn.textContent = "Show answers";
     showBtn.hidden = true;
     showBtn.addEventListener("click", function () {
       revealTask(taskId);
@@ -4512,6 +4514,7 @@
     var lines = [];
     if (!task || !task.items) return lines;
     var revealKey = opts && opts.revealKey;
+    var keyOnly = opts && opts.keyOnly;
     var prefix = taskPrefix(taskId);
     task.items.forEach(function (item, index) {
       var input = document.getElementById(prefix + "_wf_" + index);
@@ -4520,7 +4523,9 @@
       var valid = buildAcceptedAnswers(item.answer, item.alt);
       var ok = valid.indexOf(val) !== -1;
       var num = index + 1;
-      if (ok) {
+      if (keyOnly) {
+        lines.push(num + " → " + item.answer);
+      } else if (ok) {
         lines.push(num + ": " + raw.trim() + " ✓");
       } else if (revealKey) {
         lines.push(num + ": " + (raw.trim() || "—") + " → " + item.answer);
@@ -4623,12 +4628,7 @@
     });
 
     wrap.appendChild(buildPanel("", body, "ege-panel--solo"));
-    wrap.appendChild(
-      buildTaskFooter(task.id, max, {
-        showAnswers: true,
-        gateCheck: true,
-      })
-    );
+    wrap.appendChild(buildTaskFooter(task.id, max, { showAnswers: true }));
     syncWordformCheckEnabled(task.id);
     return wrap;
   }
@@ -4672,15 +4672,8 @@
     checkBtn.className = "ege-btn ege-btn--primary";
     checkBtn.id = "check-" + taskId;
     checkBtn.textContent = "Check answers";
-    checkBtn.hidden = true;
     checkBtn.disabled = true;
     checkBtn.title = "Answer all questions first";
-    if (options && options.gateCheck) {
-      checkBtn.disabled = true;
-      if (options.gateCheckTitle) {
-        checkBtn.title = options.gateCheckTitle;
-      }
-    }
     checkBtn.addEventListener("click", function () {
       checkTask(taskId);
     });
@@ -4707,9 +4700,6 @@
       showBtn.className = "ege-btn ege-btn--ghost";
       showBtn.id = "show-" + taskId;
       showBtn.textContent = "Show answers";
-      if (options.answeredCount) {
-        showBtn.hidden = true;
-      }
       showBtn.addEventListener("click", function () {
         revealTask(taskId);
       });
@@ -4719,10 +4709,6 @@
     footer.appendChild(actions);
     footer.appendChild(checkHint);
 
-    if (options && options.gateCheck && options.gateCheckTitle) {
-      setCheckGateHint(taskId, options.gateCheckTitle);
-    }
-
     var score = document.createElement("p");
     score.className = "ege-task__score";
     score.id = "score-" + taskId;
@@ -4731,6 +4717,7 @@
 
     footer.appendChild(score);
     footer.dataset.max = String(max);
+    syncCheckButton(taskId);
     return footer;
   }
 
@@ -4854,6 +4841,15 @@
     var task = findTask(taskId);
     if (!task) return;
 
+    var revealedEl = document.getElementById("task-" + taskId);
+    if (
+      task.type !== "listening" &&
+      revealedEl &&
+      revealedEl.dataset.answersRevealed === "1"
+    ) {
+      return;
+    }
+
     if (task.type === "mc" && !isVocabCloze(task)) {
       var prefixGate = taskPrefix(taskId);
       var incomplete = task.questions.some(function (_question, index) {
@@ -4971,8 +4967,6 @@
       });
       var attemptEl = document.getElementById("task-" + taskId);
       if (attemptEl) attemptEl.dataset.hasAttempt = "1";
-      var showBtn = document.getElementById("show-" + taskId);
-      if (showBtn) showBtn.hidden = false;
       updateAnsweredCount(taskId);
     }
 
@@ -5197,7 +5191,6 @@
     }
 
     revealTask(taskId);
-    checkTask(taskId);
   }
 
   function markListeningReveal(taskId) {
@@ -5226,6 +5219,8 @@
         if (board.syncUsedState) board.syncUsedState();
         if (board.syncNumberRow) board.syncNumberRow();
       }
+      var gapEl = document.getElementById("task-" + taskId);
+      if (gapEl) gapEl.dataset.answersRevealed = "1";
     } else if (task.type === "matching") {
       var matchBoard = document.querySelector("#task-" + taskId + " .ege-match-picks");
       task.texts.forEach(function (item) {
@@ -5246,24 +5241,16 @@
         }
       });
       if (matchBoard && matchBoard.syncUsedState) matchBoard.syncUsedState();
-      var matchMax = taskMaxScore(task);
-      var matchEarned = 0;
-      task.texts.forEach(function (item) {
-        if (getCheckedValue(prefix + "_" + item.letter) === String(task.answers[item.letter])) {
-          matchEarned += 1;
-        }
-      });
-      state.scores[taskId] = matchEarned;
-      saveScore(state.topicId, taskId, matchEarned, matchMax);
-      setNavStatus(taskId, matchEarned, matchMax);
-      showScoreFeedback(taskId, matchEarned, matchMax, {
-        lines: buildMatchingScoreLines(taskId, task, { revealKey: true }),
+      var matchEl = document.getElementById("task-" + taskId);
+      if (matchEl) matchEl.dataset.answersRevealed = "1";
+      showScoreFeedback(taskId, 0, taskMaxScore(task), {
+        revealed: true,
+        lines: buildMatchingScoreLines(taskId, task, { keyOnly: true }),
       });
       syncMatchingCheckEnabled(taskId);
       showToast("Answers shown.");
       return;
     } else if (task.type === "wordform") {
-      var wfEarned = 0;
       task.items.forEach(function (item, index) {
         var input = document.getElementById(prefix + "_wf_" + index);
         if (!input) return;
@@ -5271,14 +5258,12 @@
         input.classList.remove("is-wrong", "is-empty");
         input.classList.add("is-correct");
         input.removeAttribute("title");
-        wfEarned += 1;
       });
-      var wfMax = taskMaxScore(task);
-      state.scores[taskId] = wfEarned;
-      saveScore(state.topicId, taskId, wfEarned, wfMax);
-      setNavStatus(taskId, wfEarned, wfMax);
-      showScoreFeedback(taskId, wfEarned, wfMax, {
-        lines: buildWordformScoreLines(taskId, task, { revealKey: true }),
+      var wfEl = document.getElementById("task-" + taskId);
+      if (wfEl) wfEl.dataset.answersRevealed = "1";
+      showScoreFeedback(taskId, 0, taskMaxScore(task), {
+        revealed: true,
+        lines: buildWordformScoreLines(taskId, task, { keyOnly: true }),
       });
       syncWordformCheckEnabled(taskId);
       showToast("Answers shown.");
@@ -5386,6 +5371,8 @@
         if (board.syncUsedState) board.syncUsedState();
         if (board.setActiveLetter) board.setActiveLetter("");
       }
+      var matchResetEl = document.getElementById("task-" + taskId);
+      if (matchResetEl) delete matchResetEl.dataset.answersRevealed;
       syncMatchingCheckEnabled(taskId);
     }
 
@@ -5412,10 +5399,15 @@
         if (board.syncUsedState) board.syncUsedState();
         if (board.setActiveGap) board.setActiveGap("");
       }
+      var gapResetEl = document.getElementById("task-" + taskId);
+      if (gapResetEl) delete gapResetEl.dataset.answersRevealed;
+      syncCheckButton(taskId);
     }
 
     if (task.type === "mc" && isVocabCloze(task)) {
       var vocabBoard = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
+      var vocabResetEl = document.getElementById("task-" + taskId);
+      if (vocabResetEl) delete vocabResetEl.dataset.answersRevealed;
       task.questions.forEach(function (question, index) {
         clearChoiceGroup(prefix + "_q_" + index);
         var gapNum = vocabGapNum(question);
@@ -5429,14 +5421,13 @@
         }
       });
       if (vocabBoard && vocabBoard.setActiveGap) vocabBoard.setActiveGap("");
+      syncCheckButton(taskId);
     } else if (task.type === "mc") {
       var taskEl = document.getElementById("task-" + taskId);
       if (taskEl) {
         delete taskEl.dataset.answersRevealed;
         delete taskEl.dataset.hasAttempt;
       }
-      var showBtn = document.getElementById("show-" + taskId);
-      if (showBtn) showBtn.hidden = true;
       task.questions.forEach(function (_question, index) {
         clearChoiceGroup(prefix + "_q_" + index);
       });
@@ -5444,6 +5435,8 @@
     }
 
     if (task.type === "wordform") {
+      var wfResetEl = document.getElementById("task-" + taskId);
+      if (wfResetEl) delete wfResetEl.dataset.answersRevealed;
       task.items.forEach(function (_item, index) {
         var input = document.getElementById(prefix + "_wf_" + index);
         if (!input) return;
