@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ЕГЭ Prep – Yap O'Clock</title>
-  <link rel="icon" href="assets/clocklogo.png" type="image/png" />
+  <title>Time to ЕГЭ – Yap O'Clock</title>
+  <link rel="icon" href="assets/timetoege.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="shell.css" />
+  <link rel="stylesheet" href="css/shell.css" />
 </head>
 <body class="yap-brand">
   <main class="ege-page" id="egePage">
@@ -23,31 +23,40 @@
       </div>
 
       <aside class="ege-rail">
-        <div class="ege-rail__head">
-          <img class="ege-rail__mark" src="timetoege.png" alt="" width="64" aria-hidden="true" />
-          <h1 class="ege-rail__title" id="egeRailTitle">Loading…</h1>
+        <div class="ege-rail__head" id="egeRailHead">
+          <div class="ege-rail__logo">
+            <img class="ege-rail__mark" src="assets/timetoege.png" alt="" aria-hidden="true" />
+          </div>
+          <h1 class="ege-rail__title" id="egeRailTitle" hidden>Loading…</h1>
+          <p class="ege-rail__exam" id="egeRailExam" hidden></p>
         </div>
-        <a href="index.html" class="ege-back ege-rail__back">← Sections</a>
-        <nav class="ege-nav" id="egeNav" aria-label="Tasks"></nav>
+        <div class="ege-topic-sidebar" id="egeTopicSidebar">
+          <div class="ege-topic-sidebar__head">
+            <div class="ege-topic-sidebar__logo">
+              <img class="ege-rail__mark" src="assets/timetoege.png" alt="" aria-hidden="true" />
+            </div>
+            <a href="index.html" class="ege-back ege-topic-sidebar__back">← Sections</a>
+          </div>
+          <div class="ege-topic-nav" id="egeTopicNav">
+            <nav class="ege-nav" id="egeNav" aria-label="Tasks"></nav>
+          </div>
+        </div>
       </aside>
 
       <hr class="ege-mobile-switch__line ege-mobile-switch__line--end" />
     </div>
 
     <div class="ege-workspace">
-      <header class="ege-topbar ege-topbar--compact">
-        <div class="ege-topbar__main">
-          <h1 class="ege-topbar__title" id="egeTopicTitle">Loading…</h1>
-        </div>
-      </header>
       <div id="egeListeningChrome" hidden></div>
       <p class="ege-instructions" id="egeInstructions" hidden></p>
-      <div id="egePanels"></div>
+      <div id="egePanels" aria-live="polite" aria-busy="true">
+        <p class="ege-loading" id="egeTopicLoading">Loading…</p>
+      </div>
     </div>
   </main>
 
-  <script src="highlight.js"></script>
-  <script src="engine.js"></script>
+  <script src="js/highlight.js"></script>
+  <script src="js/engine.js"></script>
   <script>
     EgePrep.initTopicPage();
   </script>

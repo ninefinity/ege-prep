@@ -3,34 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ЕГЭ Prep – Yap O'Clock</title>
-  <link rel="icon" href="assets/clocklogo.png" type="image/png" />
+  <title>Time to ЕГЭ – Yap O'Clock</title>
+  <link rel="icon" href="assets/timetoege.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="shell.css" />
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="css/shell.css" />
+  <link rel="stylesheet" href="css/index.css" />
 </head>
 <body class="yap-brand">
-  <main class="ege-page">
-    <header class="ege-topbar">
+  <main class="ege-page ege-page--catalog">
+    <header class="ege-topbar ege-catalog-header">
       <div class="ege-topbar__row">
         <div class="ege-topbar__left">
           <div class="ege-header">
             <h1 class="ege-header__title">
-              <img class="ege-brand-mark" src="assets/clocklogo.png" alt="" width="44" height="44" aria-hidden="true" />
-              <span id="egeCatalogTitle">ЕГЭ Prep</span>
+              <a class="ege-header__brand-link" href="https://t.me/mossyaps" target="_blank" rel="noopener noreferrer">
+                <img class="ege-brand-mark ege-brand-mark--wordmark" src="assets/timetoege.png" alt="Time to ЕГЭ" width="168" height="72" />
+              </a>
             </h1>
-            <p class="ege-lede" id="egeCatalogSubtitle">Practice by task type.</p>
           </div>
         </div>
       </div>
     </header>
 
-    <div class="ege-catalog" id="egeCatalog" aria-live="polite"></div>
+    <div class="ege-catalog" id="egeCatalog" aria-live="polite" aria-busy="true">
+      <p class="ege-loading">Loading…</p>
+    </div>
   </main>
 
   <script>
     (function () {
       var catalog = document.getElementById("egeCatalog");
+      var groupOrder = ["Listening", "Reading", "Grammar & Word Formation", "Vocabulary"];
+      var groupIcons = {
+        Listening: "headphones",
+        Reading: "book",
+        "Grammar & Word Formation": "pencil"
+      };
+
+      function formatExamNum(from, to) {
+        if (from == null) return "";
+        if (to == null || to === from) return String(from);
+        return from + "–" + to;
+      }
+
+      function groupSections(sections) {
+        var map = {};
+        sections.forEach(function (section) {
+          var name = section.group || "Other";
+          if (!map[name]) map[name] = [];
+          map[name].push(section);
+        });
+        return groupOrder
+          .filter(function (name) {
+            return map[name] && map[name].length;
+          })
+          .map(function (name) {
+            return { name: name, sections: map[name] };
+          });
+      }
 
       fetch("sections.json")
         .then(function (res) {
@@ -38,51 +68,86 @@
         })
         .then(function (data) {
           if (data.title) {
-            document.getElementById("egeCatalogTitle").textContent = data.title;
-          }
-          if (data.subtitle) {
-            document.getElementById("egeCatalogSubtitle").textContent = data.subtitle;
+            document.title = data.title + " – Yap O'Clock";
+            var brandMark = document.querySelector(".ege-brand-mark--wordmark");
+            if (brandMark) brandMark.alt = data.title;
           }
 
           if (!data.sections || !data.sections.length) {
             catalog.innerHTML = '<p class="ege-empty">No sections yet.</p>';
+            catalog.removeAttribute("aria-busy");
             return;
           }
 
-          data.sections.forEach(function (section) {
-            var link = document.createElement("a");
-            link.className = "ege-topic-card";
-            link.href = "topic.html?t=" + encodeURIComponent(section.id);
-            link.setAttribute("aria-label", "Open section: " + section.title);
+          groupSections(data.sections).forEach(function (group) {
+            var block = document.createElement("section");
+            block.className = "ege-catalog-group";
 
-            var badge = section.badge || "";
-            var title = section.title || "";
-            var badgeNorm = badge.toLowerCase().replace(/\s+/g, " ").trim();
-            var titleNorm = title.toLowerCase().replace(/\s+/g, " ").trim();
-            var showBadge =
-              badgeNorm &&
-              titleNorm !== badgeNorm &&
-              titleNorm.indexOf(badgeNorm) !== 0;
+            var heading = document.createElement("h2");
+            heading.className = "ege-catalog-group__title";
+            var iconName = groupIcons[group.name];
+            if (iconName) {
+              heading.classList.add("ege-catalog-group__title--icon");
+              var icon = document.createElement("span");
+              icon.className = "ege-catalog-group__icon ege-catalog-group__icon--" + iconName;
+              icon.setAttribute("aria-hidden", "true");
+              heading.appendChild(icon);
+            }
+            heading.appendChild(document.createTextNode(group.name));
+            block.appendChild(heading);
 
-            link.innerHTML =
-              (showBadge
-                ? '<div class="ege-topic-card__badges"><span class="ege-topic-card__badge">' +
-                  badge +
-                  "</span></div>"
-                : "") +
-              '<h2 class="ege-topic-card__title">' +
-              title +
-              "</h2>" +
-              (section.subtitle
-                ? '<p class="ege-topic-card__subtitle">' + section.subtitle + "</p>"
-                : "") +
-              '<span class="ege-topic-card__cta">Start →</span>';
+            var list = document.createElement("ul");
+            list.className = "ege-catalog-list";
 
-            catalog.appendChild(link);
+            group.sections.forEach(function (section) {
+              var available = section.available !== false;
+              var title = section.title || "";
+              if (title === group.name) title = "";
+              var num = formatExamNum(section.examFrom, section.examTo);
+              var item = document.createElement("li");
+              item.className = "ege-catalog-list__item";
+
+              var row = available ? document.createElement("a") : document.createElement("div");
+              row.className =
+                "ege-catalog-row" + (available ? "" : " ege-catalog-row--locked");
+
+              var ariaTitle = title || group.name;
+              if (available) {
+                row.href = "topic.html?t=" + encodeURIComponent(section.id);
+                row.setAttribute("aria-label", (num + (ariaTitle ? ". " + ariaTitle : "")).trim());
+              } else {
+                row.setAttribute(
+                  "aria-label",
+                  (num + (ariaTitle ? ". " + ariaTitle : "") + ", coming soon").trim()
+                );
+              }
+
+              var body = title
+                ? '<span class="ege-catalog-row__label">' + title + "</span>"
+                : '<span class="ege-catalog-row__label"></span>';
+
+              row.innerHTML =
+                '<span class="ege-catalog-row__num">' + num + "</span>" +
+                '<div class="ege-catalog-row__body">' +
+                body +
+                "</div>" +
+                (available
+                  ? '<span class="ege-catalog-row__start" aria-hidden="true">Start</span>'
+                  : '<span class="ege-catalog-row__soon">Coming soon</span>');
+
+              item.appendChild(row);
+              list.appendChild(item);
+            });
+
+            block.appendChild(list);
+            catalog.appendChild(block);
           });
+
+          catalog.removeAttribute("aria-busy");
         })
         .catch(function () {
-          catalog.innerHTML = '<p class="ege-empty">Could not load sections.</p>';
+            catalog.innerHTML = '<p class="ege-empty">Could not load sections. <a href="index.html">Retry</a>.</p>';
+          catalog.removeAttribute("aria-busy");
         });
     })();
   </script>

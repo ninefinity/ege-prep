@@ -1,47 +1,75 @@
 {
-  "title": "ЕГЭ Prep",
-  "subtitle": "Практика по типам заданий.",
+  "title": "Time to ЕГЭ",
   "sections": [
     {
-      "id": "matching-headings",
-      "title": "Matching Headings",
-      "subtitle": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
-      "taskCount": 10,
-      "badge": "Reading"
+      "id": "listening-main",
+      "group": "Listening",
+      "examFrom": 1,
+      "examTo": 1,
+      "title": "Main idea",
+      "available": false
     },
     {
-      "id": "gap-fill",
-      "title": "Complete the Sentences",
-      "subtitle": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
-      "taskCount": 23,
-      "badge": "Reading"
-    },
-    {
-      "id": "reading-comprehension",
-      "title": "Reading Comprehension",
-      "subtitle": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
-      "taskCount": 8,
-      "badge": "Reading"
-    },
-    {
-      "id": "word-formation",
-      "title": "Grammar & Word Formation",
-      "subtitle": "Задания 19–24 (грамматика) и 25–29 (словообразование).",
-      "taskCount": 18
-    },
-    {
-      "id": "vocabulary-cloze",
-      "title": "Vocabulary in Context",
-      "subtitle": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
-      "taskCount": 7,
-      "badge": "Vocabulary"
+      "id": "listening-select",
+      "group": "Listening",
+      "examFrom": 2,
+      "examTo": 2,
+      "title": "Key details",
+      "available": false
     },
     {
       "id": "listening",
-      "title": "Listening",
-      "subtitle": "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+      "group": "Listening",
+      "examFrom": 3,
+      "examTo": 9,
+      "title": "Interview",
       "taskCount": 5,
-      "badge": "Listening"
+      "available": true
+    },
+    {
+      "id": "matching-headings",
+      "group": "Reading",
+      "examFrom": 10,
+      "examTo": 10,
+      "title": "Matching Headings",
+      "taskCount": 10,
+      "available": true
+    },
+    {
+      "id": "gap-fill",
+      "group": "Reading",
+      "examFrom": 11,
+      "examTo": 11,
+      "title": "Complete the Sentences",
+      "taskCount": 23,
+      "available": true
+    },
+    {
+      "id": "reading-comprehension",
+      "group": "Reading",
+      "examFrom": 12,
+      "examTo": 18,
+      "title": "Reading Comprehension",
+      "taskCount": 8,
+      "available": true
+    },
+    {
+      "id": "word-formation",
+      "group": "Grammar & Word Formation",
+      "examFrom": 19,
+      "examTo": 29,
+      "title": "Word Formation",
+      "taskCount": 18,
+      "available": true
+    },
+    {
+      "id": "vocabulary-cloze",
+      "group": "Vocabulary",
+      "examFrom": 30,
+      "examTo": 36,
+      "title": "Vocabulary in Context",
+      "taskCount": 7,
+      "available": true
     }
   ]
 }

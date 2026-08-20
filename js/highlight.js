@@ -141,6 +141,7 @@
     clearBtn.textContent = "Clear";
     clearBtn.setAttribute("aria-label", "Clear all highlights");
     clearBtn.setAttribute("title", "Clear all");
+    clearBtn.hidden = true;
 
     var mode = "none";
 
@@ -155,6 +156,13 @@
       });
     }
 
+    function syncClearBtn() {
+      var hasMarks = containers.some(function (container) {
+        return container.querySelector(".ege-highlight");
+      });
+      clearBtn.hidden = !hasMarks;
+    }
+
     function clearAll() {
       containers.forEach(function (container) {
         container.querySelectorAll(".ege-highlight").forEach(function (mark) {
@@ -162,6 +170,7 @@
         });
         persistContainer(container);
       });
+      syncClearBtn();
     }
 
     highlightBtn.addEventListener("click", function () {
@@ -181,7 +190,10 @@
       function tryHighlight() {
         if (mode !== "highlight") return;
         window.setTimeout(function () {
-          if (applyHighlight(container)) persistContainer(container);
+          if (applyHighlight(container)) {
+            persistContainer(container);
+            syncClearBtn();
+          }
         }, 0);
       }
 
@@ -195,6 +207,7 @@
         event.preventDefault();
         unwrapHighlight(mark);
         persistContainer(container);
+        syncClearBtn();
       });
     });
 
@@ -206,6 +219,8 @@
       if (next === "highlight" || next === "erase" || next === "none") setMode(next);
     };
 
+    setMode("none");
+    syncClearBtn();
     return tools;
   }
 
@@ -299,6 +314,10 @@
 
       if (key === "h" || key === "r") {
         var tools = panel.querySelector(".ege-highlight-tools");
+        if (!tools) {
+          var shortcutSlot = document.getElementById("egeTopicToolbarSlot");
+          tools = shortcutSlot && shortcutSlot.querySelector(".ege-highlight-tools");
+        }
         if (!tools || !tools.setHighlightMode) return;
         if (tools.closest("[hidden]")) return;
         event.preventDefault();
@@ -343,6 +362,18 @@
     read.insertBefore(audio, read.firstChild);
   }
 
+  function isHiddenHighlightHost(el) {
+    var node = el.parentElement;
+    while (node) {
+      if (node.hasAttribute("hidden")) {
+        if (node.classList && node.classList.contains("ege-task-panel")) return false;
+        return true;
+      }
+      node = node.parentElement;
+    }
+    return false;
+  }
+
   function attachAll(panel, topicId, taskId) {
     if (!panel) return;
 
@@ -359,7 +390,7 @@
     var containers = [];
 
     task.querySelectorAll(".ege-passage, .ege-text-block").forEach(function (el, index) {
-      if (el.closest("[hidden]")) return;
+      if (isHiddenHighlightHost(el)) return;
 
       var id = base + "_h" + index;
       var hasInteractiveGaps = !!el.querySelector(".ege-gap-insert");
@@ -389,6 +420,7 @@
     if (!containers.length) return;
 
     var tools = buildTaskToolbar(containers);
+    tools.dataset.taskId = taskId;
     var isListening = task.classList.contains("ege-task--listening");
     var listenHost = null;
 
@@ -399,7 +431,14 @@
       if (!listenHost) return;
       listenHost.insertBefore(tools, listenHost.firstChild);
     } else {
-      panel.insertBefore(tools, task);
+      var intro = panel.querySelector(".ege-task-intro");
+      if (intro) {
+        var head = intro.querySelector(".ege-task-intro__head");
+        if (head) head.appendChild(tools);
+        else intro.appendChild(tools);
+      } else {
+        panel.insertBefore(tools, task);
+      }
     }
 
     // For listening tasks, keep audio control beside marker/eraser tools.

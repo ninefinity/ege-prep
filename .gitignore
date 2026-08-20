@@ -2,3 +2,5 @@
 Thumbs.db
 *.swp
 *~
+.editor-notes.txt
+scripts/.editor-note.py

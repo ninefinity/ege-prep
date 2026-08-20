@@ -1,3077 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Listening – ЕГЭ Prep</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
-  <style>
-:root {
-  /* Yap O'Clock brand */
-  --yap-hot: #f90240;
-  --yap-royal: #01089e;
-  --yap-paper: #eef0fa;
-  --yap-ink: #0b072e;
-  --yap-mist: #a4a5c1;
-  --yap-wine: #981b40;
-  --yap-dust: #6a69a5;
-  --yap-navy: #00003b;
-
-  --ege-ink: var(--yap-ink);
-  --ege-muted: var(--yap-dust);
-  --ege-line: #c4c5d8;
-  --ege-bg: #e6e7f4;
-  --ege-card: rgba(238, 240, 250, 0.96);
-  --ege-primary: var(--yap-ink);
-  --ege-accent: var(--yap-hot);
-  --ege-accent-deep: var(--yap-wine);
-  --ege-accent-soft: #fde8ef;
-  --ege-accent-glow: rgba(249, 2, 64, 0.22);
-  --ege-ok: #27ae60;
-  --ege-ok-bg: #d5f5e3;
-  --ege-bad: #c0392b;
-  --ege-bad-bg: #fadbd8;
-  --ege-text-ok-bg: var(--ege-ok-bg);
-  --ege-text-ok-fg: var(--ege-ink);
-  --ege-text-bad-bg: var(--ege-bad-bg);
-  --ege-text-mark-pad: 1px 4px;
-  --ege-text-mark-radius: 3px;
-  --ege-wrong-pick: var(--yap-royal);
-  --ege-wrong-pick-bg: #e6e8fc;
-  --ege-mixed-bg: #fff0f4;
-  --ege-radius: 12px;
-  --ege-shadow: 0 4px 16px rgba(11, 7, 46, 0.1), 0 1px 3px rgba(11, 7, 46, 0.07);
-  --ege-font-ui: "Fredoka", system-ui, sans-serif;
-  --ege-font-text: "Montserrat", system-ui, sans-serif;
-  --ege-font-cyrillic: "Montserrat", system-ui, sans-serif;
-  --ege-workspace-min: 480px;
-  --ege-workspace-max: calc(100vh - 120px);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  background-color: var(--ege-bg);
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-family: var(--ege-font-text);
-  color: var(--ege-ink);
-  background-color: var(--ege-bg);
-  background-image:
-    radial-gradient(ellipse 90% 55% at 12% -10%, rgba(1, 8, 158, 0.22), transparent 55%),
-    radial-gradient(ellipse 70% 50% at 92% 8%, rgba(249, 2, 64, 0.16), transparent 50%),
-    radial-gradient(ellipse 60% 45% at 50% 100%, rgba(106, 105, 165, 0.18), transparent 55%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  line-height: 1.65;
-}
-
-a {
-  color: var(--ege-accent-deep);
-}
-
-.ege-page {
-  flex: 1;
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 16px 18px 32px;
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 20px 24px;
-  align-items: start;
-}
-
-.ege-topics {
-  position: sticky;
-  top: 16px;
-  max-height: calc(100vh - 32px);
-  overflow-y: auto;
-  padding-right: 4px;
-  grid-row: 1;
-  align-self: start;
-}
-
-.ege-page--listening .ege-topics {
-  overflow: visible;
-  max-height: none;
-}
-
-.ege-page--listening .ege-rail {
-  display: flex;
-  flex-direction: column;
-  max-height: calc(100vh - 32px);
-}
-
-.ege-page--listening .ege-nav {
-  overflow-y: auto;
-  min-height: 0;
-  flex: 1 1 auto;
-  padding-right: 2px;
-}
-
-.ege-rail {
-  min-width: 0;
-}
-
-.ege-rail__head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.ege-rail__mark {
-  display: block;
-  width: 64px;
-  height: auto;
-  flex-shrink: 0;
-  border-radius: 0;
-  object-fit: contain;
-}
-
-.ege-rail__title {
-  margin: 0;
-  font-family: var(--ege-font-cyrillic);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--ege-primary);
-  line-height: 1.15;
-  min-width: 0;
-}
-
-.ege-rail__back {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.ege-workspace {
-  min-width: 0;
-  display: grid;
-  gap: 0;
-  align-self: start;
-  align-content: start;
-  align-items: start;
-}
-
-.ege-page--listening {
-  row-gap: 12px;
-  align-content: start;
-  align-items: start;
-}
-
-.ege-page--listening .ege-workspace {
-  align-content: start;
-  align-items: start;
-}
-
-.ege-page--listening .ege-workspace > .ege-topbar {
-  display: none;
-}
-
-#egeListeningChrome[hidden] {
-  display: none;
-}
-
-#egeListeningChrome > .ege-listening-chrome {
-  display: contents;
-}
-
-#egeListeningChrome:not([hidden]) + #egePanels {
-  margin-top: 0;
-}
-
-.ege-listening-root {
-  display: block;
-  min-height: 0;
-}
-
-.ege-listening-chrome {
-  margin: 0;
-  padding: 0;
-}
-
-#egePanels {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(0, auto);
-  min-height: 0;
-}
-
-#egePanels > .ege-task-panel {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-/* ── Topbar ── */
-.ege-topbar {
-  display: grid;
-  gap: 10px;
-  margin-bottom: 0;
-}
-
-.ege-topbar--compact .ege-topbar__main {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.ege-topbar__title {
-  margin: 0;
-  font-family: var(--ege-font-cyrillic);
-  font-size: clamp(1.1rem, 3vw, 1.45rem);
-  font-weight: 700;
-  color: var(--ege-primary);
-  line-height: 1.2;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.ege-back {
-  display: inline-block;
-  text-decoration: none;
-  color: var(--yap-royal);
-  font-family: var(--ege-font-ui);
-  font-weight: 700;
-  font-size: 0.84rem;
-  white-space: nowrap;
-}
-
-.ege-back:hover {
-  color: var(--yap-hot);
-}
-
-.ege-header h1,
-.ege-header__title {
-  margin: 0;
-  font-family: var(--ege-font-cyrillic);
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 700;
-  color: var(--ege-primary);
-  line-height: 1.15;
-}
-
-.ege-header__title {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-.ege-brand-mark {
-  display: block;
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.ege-brand-mark--sm {
-  width: 32px;
-  height: 32px;
-}
-
-.ege-kicker {
-  margin: 0;
-  font-family: var(--ege-font-cyrillic);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ege-accent);
-}
-
-.ege-lede {
-  margin: 0;
-  color: var(--ege-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  max-width: 56ch;
-}
-
-/* ── Task nav (left rail) ── */
-.ege-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.ege-nav__btn {
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--ege-primary);
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-family: var(--ege-font-ui);
-  font-size: 0.82rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: left;
-  width: 100%;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
-}
-
-.ege-nav__btn:hover {
-  background: var(--ege-accent-soft);
-  border-color: var(--ege-line);
-}
-
-.ege-nav__btn.is-active {
-  background: var(--ege-accent);
-  border-color: var(--ege-accent);
-  color: #fff;
-}
-
-.ege-nav__btn.is-perfect:not(.is-active) {
-  box-shadow: inset 3px 0 0 var(--ege-ok);
-}
-
-.ege-nav__btn.is-partial:not(.is-active) {
-  box-shadow: inset 3px 0 0 #ca8a04;
-}
-
-.ege-mobile-switch {
-  display: none;
-}
-
-.ege-mobile-switch__line--end {
-  display: none;
-}
-
-/* ── Task panel ── */
-.ege-task-panel[hidden] {
-  display: none !important;
-}
-
-.ege-task-panel {
-  animation: ege-fade 0.25s ease;
-}
-
-@keyframes ege-fade {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.ege-instructions {
-  margin: 0 0 10px;
-  font-family: var(--ege-font-text);
-  font-size: 0.88rem;
-  color: var(--ege-muted);
-  line-height: 1.55;
-}
-
-.ege-instructions[hidden],
-.ege-workspace > .ege-instructions:empty {
-  display: none;
-  margin: 0;
-}
-
-.ege-instructions .ege-badge {
-  display: block;
-  width: fit-content;
-  margin: 0 0 6px;
-}
-
-.ege-badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--ege-accent-soft);
-  color: var(--ege-accent-deep);
-  font-family: var(--ege-font-ui);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  vertical-align: middle;
-}
-
-.ege-task {
-  background: var(--ege-card);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: var(--ege-radius);
-  padding: 14px;
-  box-shadow: var(--ege-shadow);
-}
-
-.ege-task--panels {
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.ege-task--listening {
-  font-family: var(--ege-font-text);
-}
-
-button.ege-prep-gapfill__slot,
-button.ege-prep-wordbank__word,
-button.ege-prep-pair-card {
-  font-family: var(--ege-font-text);
-}
-
-.ege-panel {
-  border: 1px solid var(--ege-line);
-  border-radius: var(--ege-radius);
-  background: var(--ege-card);
-  padding: 16px;
-  min-height: 0;
-}
-
-.ege-panel__label {
-  margin: 0 0 12px;
-  font-family: var(--ege-font-ui);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ege-muted);
-}
-
-.ege-ref-strip {
-  margin: 0;
-}
-
-.ege-panel--read .ege-passage,
-.ege-panel--read .ege-text-block,
-.ege-panel--read .ege-gapfill-passage {
-  font-family: var(--ege-font-text);
-  font-size: 1rem;
-  line-height: 1.85;
-}
-
-.ege-panel--work .ege-mc-stack {
-  display: grid;
-  gap: 10px;
-}
-
-.ege-sidebar-work {
-  display: grid;
-  gap: 12px;
-}
-
-.ege-panel--solo {
-  min-height: min(var(--ege-workspace-min), 60vh);
-  max-height: var(--ege-workspace-max);
-  overflow-y: auto;
-}
-
-/* ── Side-by-side panels ── */
-.ege-split {
-  display: grid;
-  gap: 12px;
-}
-
-.ege-split--panels {
-  gap: 12px;
-}
-
-@media (min-width: 768px) {
-  .ege-split--panels {
-    grid-template-columns: minmax(0, 1.75fr) minmax(220px, 0.82fr);
-    gap: 12px;
-    align-items: start;
-  }
-
-  .ege-split--panels .ege-split__read,
-  .ege-split--panels .ege-split__work {
-    border: none;
-    padding: 0;
-    min-width: 0;
-  }
-
-  .ege-split--panels .ege-split__read {
-    position: static;
-  }
-
-  .ege-split--panels .ege-split__work {
-    position: sticky;
-    top: 8px;
-    max-height: var(--ege-workspace-max);
-    overflow: visible;
-    min-width: 0;
-  }
-
-  .ege-split--panels .ege-split__work:has(.ege-work-col) {
-    overflow: hidden;
-  }
-
-  .ege-split--panels .ege-panel--read {
-    min-height: var(--ege-workspace-min);
-    max-height: none;
-    overflow: visible;
-  }
-
-  .ege-split--panels .ege-panel--work {
-    min-height: 0;
-    max-height: none;
-    overflow: visible;
-    padding: 12px;
-  }
-
-  .ege-work-col {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: var(--ege-workspace-max);
-    max-height: var(--ege-workspace-max);
-    min-height: 0;
-  }
-
-  .ege-work-scroll {
-    flex: 1 1 auto;
-    min-height: 0;
-    overflow-y: auto;
-    overflow-anchor: none;
-  }
-
-  .ege-work-scroll .ege-panel--work {
-    min-height: 100%;
-    box-sizing: border-box;
-  }
-
-  .ege-split--panels .ege-panel--solo {
-    min-height: var(--ege-workspace-min);
-    max-height: var(--ege-workspace-max);
-    overflow-y: auto;
-  }
-
-  .ege-split--panels .ege-split__read .ege-passage,
-  .ege-split--panels .ege-split__read .ege-text-block,
-  .ege-split--panels .ege-split__read .ege-gapfill-passage {
-    max-height: none;
-    overflow: visible;
-    padding-right: 0;
-  }
-
-  .ege-panel--work .ege-panel__label {
-    margin-bottom: 8px;
-  }
-
-  .ege-panel--work .ege-ref__list {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-
-  .ege-panel--work .ege-ref__list li {
-    font-size: 1rem;
-    line-height: 1.65;
-  }
-
-  .ege-panel--work .ege-match-read {
-    gap: 10px;
-  }
-
-  .ege-split--panels .ege-gap-picks,
-  .ege-split--panels .ege-match-picks {
-    border-top: none;
-    padding-top: 0;
-  }
-
-  .ege-split--panels .ege-vocab-picks .ege-match-words {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .ege-split--panels .ege-vocab-picks .ege-match-pill--word {
-    width: 100%;
-    justify-content: flex-start;
-    text-align: left;
-  }
-}
-
-@media (max-width: 767px) {
-  .ege-split--panels .ege-panel--read,
-  .ege-split--panels .ege-panel--work,
-  .ege-panel--solo {
-    min-height: min(360px, 55vh);
-  }
-}
-
-.ege-ref__list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px 20px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  counter-reset: ege-ref;
-}
-
-.ege-ref__list li {
-  display: grid;
-  grid-template-columns: 1.6em 1fr;
-  gap: 0 6px;
-  font-family: var(--ege-font-text);
-  font-size: 1rem;
-  line-height: 1.65;
-  counter-increment: ege-ref;
-  opacity: 0.72;
-  transition: opacity 0.12s, color 0.12s;
-}
-
-.ege-ref__list li.is-used {
-  opacity: 1;
-  color: var(--ege-accent-deep);
-  font-weight: 600;
-}
-
-.ege-ref__list li::before {
-  content: counter(ege-ref) ".";
-  font-family: var(--ege-font-ui);
-  font-weight: 700;
-  color: var(--ege-accent);
-  text-align: right;
-}
-
-@media (min-width: 560px) {
-  .ege-ref__list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .ege-panel--work .ege-ref__list {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ── Matching: one shared number row ── */
-.ege-match-read {
-  display: grid;
-  gap: 14px;
-}
-
-.ege-match-picks {
-  display: grid;
-  gap: 10px;
-  padding-top: 12px;
-  border-top: 1px solid var(--ege-line);
-}
-
-.ege-match-letters,
-.ege-match-numbers {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  gap: 4px;
-  width: 100%;
-}
-
-.ege-match-words {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.ege-match-letters .ege-match-pill,
-.ege-match-numbers .ege-match-pill {
-  flex: 1 1 0;
-  box-sizing: border-box;
-  width: auto;
-  min-width: 0;
-  max-width: 2.4rem;
-  height: auto;
-  min-height: 0;
-  aspect-ratio: 1;
-  padding: 0;
-  font-size: clamp(0.68rem, 1.9vw, 0.84rem);
-}
-
-.ege-match-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  min-width: 36px;
-  min-height: 36px;
-  padding: 6px 12px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  background: #fff;
-  font-family: var(--ege-font-ui);
-  font-size: 0.84rem;
-  font-weight: 700;
-  color: var(--ege-primary);
-  cursor: pointer;
-  opacity: 0.72;
-  transition: background 0.12s, border-color 0.12s, color 0.12s, opacity 0.12s;
-}
-
-.ege-match-letters .ege-match-pill,
-.ege-match-numbers .ege-match-pill {
-  min-width: 0;
-  min-height: 0;
-}
-
-.ege-match-pill--num {
-  padding: 0;
-}
-
-.ege-match-pill.is-empty:not(.is-correct):not(.is-wrong) {
-  border-color: var(--ege-bad);
-  background: var(--ege-bad-bg);
-  color: var(--ege-bad);
-  opacity: 1;
-}
-
-.ege-match-pill--clear {
-  flex: 0 0 auto;
-  justify-self: start;
-  width: auto;
-  min-width: auto;
-  height: auto;
-  min-height: 2.25rem;
-  padding: 6px 12px;
-  font-weight: 600;
-  color: var(--ege-muted);
-  opacity: 0.85;
-}
-
-.ege-match-pill--word {
-  min-width: auto;
-  padding: 8px 14px;
-  min-height: 40px;
-  font-family: var(--ege-font-text);
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.ege-match-pill--word .ege-gap-pick {
-  font-family: inherit;
-  font-weight: 600;
-}
-
-.ege-match-pill.is-active .ege-gap-pick {
-  color: #fff;
-}
-
-.ege-match-letter__pick {
-  min-width: 1ch;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-
-.ege-match-pill:hover:not(.is-correct):not(.is-wrong) {
-  border-color: var(--yap-royal);
-  background: var(--ege-wrong-pick-bg);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--yap-royal) 20%, transparent);
-  opacity: 1;
-}
-
-.ege-match-pill:focus-visible:not(.is-correct):not(.is-wrong) {
-  outline: 2px solid var(--yap-royal);
-  outline-offset: 2px;
-}
-
-.ege-match-pill.is-used:not(.is-correct):not(.is-wrong) {
-  opacity: 1;
-  background: var(--ege-wrong-pick-bg);
-  border-color: color-mix(in srgb, var(--yap-royal) 35%, var(--ege-line));
-  color: var(--yap-royal);
-}
-
-.ege-match-pill.is-active:not(.is-correct):not(.is-wrong) {
-  opacity: 1;
-  background: var(--yap-royal);
-  border-color: var(--yap-royal);
-  color: #fff;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--yap-royal) 22%, transparent);
-}
-
-.ege-match-pill.is-active:not(.is-correct):not(.is-wrong) .ege-match-letter__pick {
-  color: #fff;
-}
-
-.ege-match-pill.is-selected:not(.is-correct):not(.is-wrong) {
-  opacity: 1;
-  background: var(--yap-royal);
-  border-color: var(--yap-royal);
-  color: #fff;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--yap-royal) 22%, transparent);
-}
-
-.ege-match-pill.is-correct {
-  opacity: 1;
-  background: var(--ege-ok-bg);
-  border-color: var(--ege-ok);
-  color: var(--ege-ok);
-}
-
-.ege-match-pill.is-wrong {
-  opacity: 1;
-  background: var(--ege-bad-bg);
-  border-color: var(--ege-bad);
-  color: var(--ege-bad);
-}
-
-.ege-match-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
-/* ── Text blocks ── */
-.ege-text-block {
-  margin: 0 0 14px;
-  font-family: var(--ege-font-text);
-  font-size: 0.95rem;
-  line-height: 1.75;
-  border-radius: 8px;
-  padding: 2px 6px;
-  margin-left: -6px;
-  margin-right: -6px;
-  cursor: pointer;
-  transition: background 0.12s, box-shadow 0.12s;
-}
-
-.ege-text-block:hover {
-  background: color-mix(in srgb, var(--ege-wrong-pick-bg) 55%, transparent);
-}
-
-.ege-text-block.is-active {
-  background: var(--ege-wrong-pick-bg);
-  box-shadow: inset 3px 0 0 var(--yap-royal);
-}
-
-.ege-text-block:focus-visible {
-  outline: 2px solid var(--yap-royal);
-  outline-offset: 2px;
-}
-
-.ege-text-block:last-child {
-  margin-bottom: 0;
-}
-
-.ege-text-block strong {
-  color: var(--ege-accent-deep);
-}
-
-.ege-passage {
-  font-family: var(--ege-font-text);
-  font-size: 0.95rem;
-  line-height: 1.8;
-}
-
-/* ── Text highlighter (outside task box) ── */
-.ege-highlight-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.ege-highlight-tools__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid var(--ege-line);
-  border-radius: 10px;
-  background: var(--ege-card);
-  box-shadow: var(--ege-shadow);
-  font-family: var(--ege-font-ui);
-  font-size: 0.76rem;
-  font-weight: 700;
-  color: var(--ege-primary);
-  cursor: pointer;
-  transition: background 0.12s, border-color 0.12s, color 0.12s, box-shadow 0.12s;
-}
-
-.ege-highlight-tools__icon {
-  width: 18px;
-  height: 18px;
-  display: block;
-}
-
-.ege-highlight-tools__btn:hover {
-  border-color: var(--ege-accent);
-  background: var(--ege-accent-soft);
-}
-
-.ege-highlight-tools__btn.is-active {
-  background: var(--ege-accent);
-  border-color: var(--ege-accent);
-  color: #fff;
-  box-shadow: 0 4px 12px var(--ege-accent-glow);
-}
-
-.ege-highlight-tools__btn--ghost {
-  color: var(--ege-muted);
-  min-width: auto;
-  padding: 0 14px;
-}
-
-.ege-highlightable {
-  user-select: text;
-  -webkit-user-select: text;
-}
-
-.ege-highlightable.ege-erase-mode {
-  cursor: default;
-}
-
-.ege-highlightable .ege-highlight {
-  background: rgba(249, 2, 64, 0.18);
-  color: inherit;
-  border-radius: 2px;
-  padding: 0 2px;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
-.ege-highlightable.ege-erase-mode .ege-highlight {
-  cursor: pointer;
-  outline: 1px dashed rgba(249, 2, 64, 0.5);
-  outline-offset: 1px;
-}
-
-.ege-mc-stack {
-  display: grid;
-  gap: 10px;
-}
-
-.ege-mc-card {
-  padding: 12px 14px;
-  border: 1px solid var(--ege-line);
-  border-radius: 10px;
-  background: #fff;
-  font-family: var(--ege-font-text);
-}
-
-.ege-mc-card:last-child {
-  margin-bottom: 0;
-}
-
-.ege-mc__prompt {
-  font-family: var(--ege-font-text);
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin: 0 0 10px;
-  padding: 0;
-  line-height: 1.55;
-}
-
-.ege-answered-count {
-  margin: 8px 0 0;
-  padding: 0;
-  min-height: 1.35em;
-  font-family: var(--ege-font-ui);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--ege-muted);
-}
-
-.ege-read-col {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-}
-
-.ege-mc-reset {
-  flex: 0 0 auto;
-  margin-top: 0;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.ege-choice-group--mc {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 6px;
-  margin-top: 0;
-}
-
-.ege-pill--option {
-  width: 100%;
-  min-height: 44px;
-  border-radius: 10px;
-  padding: 10px 12px;
-}
-
-/* ── Pill choice groups ── */
-.ege-choice-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
-}
-
-.ege-choice-group--inline {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin: 0 2px;
-  vertical-align: middle;
-}
-
-.ege-choice-group--grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-}
-
-@media (min-width: 640px) {
-  .ege-choice-group--grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.ege-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 32px;
-  min-height: 32px;
-  padding: 4px 10px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  background: #fff;
-  font-family: var(--ege-font-ui);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--ege-primary);
-  cursor: pointer;
-  transition: background 0.12s, border-color 0.12s, color 0.12s;
-  user-select: none;
-}
-
-.ege-pill--text {
-  min-width: 0;
-  justify-content: flex-start;
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-family: var(--ege-font-text);
-  font-size: 0.88rem;
-  font-weight: 500;
-  line-height: 1.55;
-  text-align: left;
-}
-
-.ege-pill input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-}
-
-.ege-pill:hover {
-  border-color: var(--ege-wrong-pick);
-  background: var(--ege-wrong-pick-bg);
-}
-
-.ege-pill:has(input:checked) {
-  background: var(--ege-wrong-pick-bg);
-  border-color: var(--ege-wrong-pick);
-  color: var(--ege-wrong-pick);
-}
-
-.ege-pill.is-correct,
-.ege-pill.is-correct:has(input:checked) {
-  background: var(--ege-ok-bg);
-  border-color: var(--ege-ok);
-  color: var(--ege-ok);
-}
-
-.ege-pill.is-wrong,
-.ege-pill.is-wrong:has(input:checked) {
-  background: var(--ege-wrong-pick-bg);
-  border-color: var(--ege-wrong-pick);
-  color: var(--ege-wrong-pick);
-}
-
-.ege-gapfill-passage {
-  font-family: var(--ege-font-text);
-  font-size: 1rem;
-  line-height: 1.85;
-}
-
-.ege-gap-insert {
-  display: inline;
-  white-space: normal;
-}
-
-.ege-gap-insert:not(.is-filled) {
-  display: inline-block;
-  padding: 1px 8px;
-  margin: 0 1px;
-  border: 1px dashed color-mix(in srgb, var(--ege-accent) 45%, transparent);
-  border-radius: 6px;
-  background: var(--ege-accent-soft);
-  font-family: var(--ege-font-ui);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--ege-accent-deep);
-  vertical-align: baseline;
-}
-
-.ege-gap-insert:not(.is-filled)::before {
-  content: attr(data-gap);
-}
-
-.ege-gap-insert:not(.is-filled)::after {
-  content: " ···";
-  font-weight: 600;
-  color: var(--ege-muted);
-}
-
-.ege-gap-insert__text {
-  font-family: var(--ege-font-text);
-  font-weight: 500;
-}
-
-.ege-gap-insert.is-filled:not(.is-correct):not(.is-wrong) .ege-gap-insert__text,
-.ege-listening-mark.is-filled:not(.is-checked-correct):not(.is-checked-wrong),
-.ege-prep-gapfill__slot.is-filled:not(.is-checked-correct):not(.is-checked-wrong) {
-  background: var(--ege-wrong-pick-bg);
-  color: var(--yap-royal);
-  padding: var(--ege-text-mark-pad);
-  border: none;
-  border-radius: var(--ege-text-mark-radius);
-  font-weight: 700;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
-.ege-gap-insert.is-filled .ege-gap-insert__text:empty {
-  display: none;
-}
-
-.ege-gap-insert.is-correct.is-filled .ege-gap-insert__text,
-.ege-prep-gapfill__answer,
-.ege-listening-mark.is-checked-correct,
-.ege-prep-gapfill__slot.is-checked-correct {
-  background: var(--ege-text-ok-bg);
-  color: var(--ege-text-ok-fg);
-  padding: var(--ege-text-mark-pad);
-  border: none;
-  border-radius: var(--ege-text-mark-radius);
-  font-weight: 700;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
-.ege-gap-insert.is-wrong.is-filled .ege-gap-insert__text,
-.ege-listening-mark.is-checked-wrong,
-.ege-prep-gapfill__slot.is-checked-wrong {
-  background: var(--ege-text-bad-bg);
-  color: var(--ege-ink);
-  padding: var(--ege-text-mark-pad);
-  border: none;
-  border-radius: var(--ege-text-mark-radius);
-  font-weight: 700;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
-.ege-gap-picks {
-  display: grid;
-  gap: 10px;
-  padding-top: 12px;
-  border-top: 1px solid var(--ege-line);
-}
-
-.ege-gap-picks .ege-match-pill {
-  font-size: 0.95rem;
-  min-height: 40px;
-}
-
-.ege-gap-picks .ege-match-letters .ege-match-pill,
-.ege-gap-picks .ege-match-numbers .ege-match-pill {
-  min-height: 0;
-  font-size: clamp(0.72rem, 1.9vw, 0.95rem);
-}
-
-.ege-gap-pick {
-  min-width: 1ch;
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-/* ── Word formation ── */
-.ege-wordform-list {
-  display: grid;
-  gap: 0;
-}
-
-.ege-wordform-break {
-  margin: 18px 0 10px;
-  padding-top: 14px;
-  border-top: 1px solid var(--ege-line);
-  font-family: var(--ege-font-ui);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--ege-primary);
-}
-
-.ege-wordform-break:first-child {
-  margin-top: 0;
-  padding-top: 0;
-  border-top: none;
-}
-
-.ege-wordform {
-  margin: 0 0 14px;
-  font-family: var(--ege-font-text);
-  font-size: 0.95rem;
-  line-height: 1.85;
-}
-
-.ege-wordform__num {
-  display: inline-block;
-  min-width: 1.6em;
-  margin-right: 4px;
-  font-family: var(--ege-font-ui);
-  font-weight: 700;
-  color: var(--ege-muted);
-}
-
-.ege-wordform__hint {
-  margin: 0 4px;
-  font-family: var(--ege-font-text);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--yap-royal);
-  letter-spacing: 0.03em;
-}
-
-.ege-wordform .ege-input,
-.ege-wordform__input {
-  font-family: var(--ege-font-text);
-  font-size: 0.95rem;
-  border: 1px solid var(--ege-line);
-  border-radius: 8px;
-  padding: 6px 10px;
-  background: #fff;
-  color: var(--ege-ink);
-  min-height: 36px;
-  width: auto;
-  min-width: 8ch;
-  max-width: min(100%, 28ch);
-  vertical-align: baseline;
-}
-
-.ege-wordform .ege-input.is-empty {
-  border-color: var(--ege-bad);
-  background: var(--ege-bad-bg);
-}
-
-.ege-input {
-  font-family: var(--ege-font-text);
-  font-size: 0.95rem;
-  border: 1px solid var(--ege-line);
-  border-radius: 8px;
-  padding: 6px 10px;
-  background: #fff;
-  color: var(--ege-ink);
-  min-height: 36px;
-  width: 120px;
-}
-
-.ege-input.is-correct {
-  border-color: var(--ege-ok);
-  background: var(--ege-ok-bg);
-}
-
-.ege-listening-answers .ege-input.is-filled:not(.is-checked-correct):not(.is-checked-wrong) {
-  border-color: color-mix(in srgb, var(--yap-royal) 45%, transparent);
-  background: var(--ege-wrong-pick-bg);
-  color: var(--yap-royal);
-  font-weight: 500;
-}
-
-.ege-listening-answers .ege-input.is-checked-correct {
-  border-color: var(--ege-ok);
-  background: var(--ege-ok-bg);
-  color: var(--ege-ink);
-}
-
-.ege-listening-answers .ege-input.is-checked-wrong {
-  border-color: var(--ege-bad);
-  background: var(--ege-bad-bg);
-  color: var(--ege-ink);
-}
-
-.ege-input.is-wrong {
-  border-color: var(--ege-bad);
-  background: var(--ege-bad-bg);
-}
-
-/* ── Listening ── */
-.ege-listening-read {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.ege-listening-audio {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.ege-listening-audio audio {
-  display: none;
-}
-
-.ege-listening-seek {
-  --ege-seek-progress: 0%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  width: 100%;
-  min-height: 18px;
-  padding: 8px 0;
-  touch-action: none;
-  cursor: pointer;
-  outline: none;
-}
-
-.ege-listening-seek:focus-visible {
-  outline: 2px solid var(--yap-royal);
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-
-.ege-listening-seek__track {
-  position: relative;
-  flex: 1 1 auto;
-  height: 1px;
-  min-width: 0;
-  border: none;
-  border-radius: 999px;
-  background: transparent;
-}
-
-.ege-listening-seek__track::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: var(--ege-seek-progress);
-  height: 100%;
-  border: none;
-  border-radius: 999px;
-  background: var(--yap-royal);
-  pointer-events: none;
-}
-
-.ege-listening-seek__thumb {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 9.6px;
-  height: 9.6px;
-  margin-top: -4.8px;
-  margin-left: -4.8px;
-  border-radius: 50%;
-  background: var(--yap-ink);
-  box-shadow: 0 0 0 2px #fff;
-  pointer-events: none;
-  z-index: 2;
-  transition: transform 0.12s ease, left 0.08s linear, background 0.15s ease;
-  will-change: left;
-}
-
-.ege-listening-seek.is-playing .ege-listening-seek__thumb {
-  background: var(--yap-hot);
-}
-
-.ege-listening-seek.is-dragging .ege-listening-seek__thumb {
-  transition: transform 0.12s ease;
-  transform: scale(1.15);
-}
-
-.ege-listening-seek:hover .ege-listening-seek__thumb {
-  transform: scale(1.12);
-}
-
-.ege-listening-seek__marks {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.ege-listening-seek__mark {
-  position: absolute;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  margin-top: -3px;
-  margin-left: -3px;
-  border: none;
-  border-radius: 50%;
-  background: var(--yap-royal);
-  box-shadow: 0 0 0 1.5px #fff;
-  pointer-events: auto;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1;
-  opacity: 0.85;
-  transition: transform 0.12s ease, opacity 0.12s ease;
-}
-
-.ege-listening-seek__mark:hover {
-  opacity: 1;
-  transform: scale(1.25);
-}
-
-.ege-listening-audio__controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.ege-listening-speed {
-  display: inline-flex;
-  align-items: center;
-  gap: 2px;
-  padding: 2px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  background: #fff;
-}
-
-.ege-listening-speed__btn {
-  border: none;
-  border-radius: 999px;
-  padding: 6px 9px;
-  background: transparent;
-  font-family: var(--ege-font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--ege-muted);
-  cursor: pointer;
-  line-height: 1;
-  transition: background 0.12s, color 0.12s;
-}
-
-.ege-listening-speed__btn:hover {
-  color: var(--ege-ink);
-}
-
-.ege-listening-speed__btn.is-active {
-  background: var(--ege-wrong-pick-bg, #eef0ff);
-  color: var(--yap-royal);
-}
-
-.ege-highlight-tools .ege-listening-audio--toolbar {
-  display: contents;
-}
-
-.ege-panel--read:has(.ege-listening-seek) {
-  position: relative;
-  padding-top: 26px;
-  overflow: visible;
-}
-
-.ege-highlight-tools:has(.ege-listening-seek) {
-  margin-top: 0;
-}
-
-.ege-highlight-tools .ege-listening-seek {
-  position: absolute;
-  top: -8px;
-  left: 0;
-  right: 0;
-  z-index: 3;
-  box-sizing: border-box;
-  width: auto;
-  margin: 0;
-  padding: 0 16px;
-  min-height: 16px;
-  height: 16px;
-  align-items: center;
-}
-
-.ege-highlight-tools .ege-listening-seek__track {
-  height: 1px;
-}
-
-.ege-highlight-tools .ege-listening-audio__controls {
-  margin-left: auto;
-  gap: 6px;
-}
-
-.ege-highlight-tools .ege-listening-audio--toolbar .ege-listening-play {
-  height: 40px;
-  padding: 0 14px;
-  font-size: 0.82rem;
-}
-
-.ege-highlight-tools .ege-listening-audio--toolbar .ege-listening-speed__btn {
-  padding: 7px 8px;
-  font-size: 0.68rem;
-}
-
-.ege-listening-play {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  padding: 10px 18px;
-  background: #fff;
-  font-family: var(--ege-font-ui);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--ege-ink);
-  cursor: pointer;
-  transition: border-color 0.15s, transform 0.15s;
-}
-
-.ege-listening-play:hover {
-  border-color: var(--yap-royal);
-  transform: translateY(-1px);
-}
-
-.ege-listening-play.is-playing {
-  border-color: var(--ege-accent);
-  background: var(--ege-accent-soft, #fff5f7);
-}
-
-.ege-listening-play__icon {
-  font-size: 0.85rem;
-  line-height: 1;
-}
-
-.ege-listening-transcript {
-  margin: 0;
-  font-family: var(--ege-font-text);
-}
-
-.ege-dialogue {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  font-family: var(--ege-font-text);
-}
-
-.ege-dialogue__turn {
-  margin: 0;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid var(--ege-line);
-  background: rgba(255, 255, 255, 0.55);
-}
-
-.ege-dialogue__turn--host {
-  border-left: 3px solid var(--ege-accent);
-}
-
-.ege-dialogue__turn--guest {
-  border-left: 3px solid var(--yap-royal);
-}
-
-.ege-dialogue__turn--narrator {
-  border-left: 3px solid var(--ege-muted);
-  background: rgba(255, 255, 255, 0.35);
-}
-
-.ege-dialogue__speaker {
-  display: none;
-}
-
-.ege-dialogue__text {
-  margin: 0;
-  font-family: var(--ege-font-text);
-  font-size: 1rem;
-  line-height: 1.9;
-}
-
-.ege-dialogue__turn--host:not(.ege-dialogue__turn--intro) .ege-dialogue__text {
-  font-size: calc(1rem - 2pt);
-}
-
-.ege-listening-mark {
-  display: inline;
-  min-width: 0;
-  padding: 0 2px;
-  margin: 0 1px;
-  border-radius: 3px;
-  border: 1px dashed transparent;
-  border-bottom-color: var(--ege-line);
-  font-family: var(--ege-font-text);
-  font-size: inherit;
-  font-weight: 500;
-  line-height: inherit;
-  color: var(--ege-muted);
-  vertical-align: baseline;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
-
-button.ege-listening-mark {
-  cursor: pointer;
-  background: transparent;
-  appearance: none;
-  -webkit-appearance: none;
-  font-family: var(--ege-font-text);
-  font-size: inherit;
-  line-height: inherit;
-  transition: color 0.12s, background 0.12s, border-color 0.12s;
-}
-
-button.ege-listening-mark:hover:not(.is-checked-correct):not(.is-checked-wrong) {
-  border-bottom-color: var(--yap-royal);
-  color: var(--yap-royal);
-  background: var(--ege-wrong-pick-bg);
-}
-
-button.ege-listening-mark:focus-visible {
-  outline: 2px solid var(--yap-royal);
-  outline-offset: 2px;
-}
-
-.ege-listening-mark:not(.is-filled) {
-  padding: 0 4px;
-  border: 1px dashed color-mix(in srgb, var(--yap-royal) 45%, transparent);
-  border-radius: 4px;
-  background: var(--ege-wrong-pick-bg);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--yap-royal);
-}
-
-.ege-listening-transcript p {
-  margin: 0 0 12px;
-}
-
-.ege-listening-transcript p:last-child {
-  margin-bottom: 0;
-}
-
-.ege-listening-answers {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-  width: 100%;
-}
-
-.ege-listening-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-  width: 100%;
-}
-
-.ege-listening-row__label {
-  flex: 0 0 auto;
-  min-width: 1.5em;
-  font-family: var(--ege-font-text);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--ege-muted);
-}
-
-.ege-listening-input,
-.ege-listening-answers .ege-input {
-  flex: 1 1 auto;
-  min-width: 0;
-  width: 100%;
-  max-width: none;
-  box-sizing: border-box;
-  font-weight: 500;
-}
-
-.ege-listening-input,
-.ege-listening-answers .ege-input,
-.ege-listening-row__label,
-.ege-listening-mark {
-  font-family: var(--ege-font-text);
-}
-
-.ege-listening-step[hidden] {
-  display: none !important;
-  height: 0 !important;
-  min-height: 0 !important;
-  max-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  border: none !important;
-}
-
-.ege-listening-step[hidden] .ege-panel--read,
-.ege-listening-step[hidden] .ege-panel--solo,
-.ege-listening-step[hidden] .ege-panel--work,
-.ege-listening-step[hidden] .ege-work-col,
-.ege-listening-step[hidden] .ege-split--panels {
-  min-height: 0 !important;
-  height: auto !important;
-  max-height: none !important;
-}
-
-.ege-prep-stack {
-  display: grid;
-  gap: 12px;
-}
-
-.ege-panel--prep-match[hidden],
-.ege-panel--prep-gapfill[hidden] {
-  display: none !important;
-  height: 0 !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  border: none !important;
-}
-
-.ege-prep-wordbank {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 0 0 14px;
-  padding: 10px;
-  border: 1px solid var(--ege-line);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.45);
-  transition: border-color 0.12s, background 0.12s;
-}
-
-.ege-prep-wordbank.is-dragover {
-  border-color: var(--yap-royal);
-  background: var(--ege-wrong-pick-bg);
-}
-
-.ege-prep-wordbank__word {
-  padding: 4px 10px;
-  border: 1px solid var(--ege-line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.7);
-  font-family: var(--ege-font-text);
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--ege-ink);
-  cursor: grab;
-  user-select: none;
-  touch-action: manipulation;
-  appearance: none;
-  transition: border-color 0.12s, background 0.12s, color 0.12s, box-shadow 0.12s;
-}
-
-.ege-prep-wordbank__word:hover:not(.is-used) {
-  border-color: var(--yap-royal);
-}
-
-.ege-prep-wordbank__word.is-dragging {
-  opacity: 0.55;
-  cursor: grabbing;
-}
-
-.ege-prep-wordbank__word.is-selected {
-  border-color: var(--yap-royal);
-  background: var(--ege-wrong-pick-bg);
-  box-shadow: 0 0 0 2px var(--ege-wrong-pick-bg);
-}
-
-.ege-prep-wordbank__word.is-used {
-  border-color: transparent;
-  background: transparent;
-  box-shadow: none;
-  color: var(--ege-muted);
-  text-decoration: line-through;
-  cursor: default;
-}
-
-.ege-prep-wordbank__word:focus-visible {
-  outline: 2px solid var(--yap-royal);
-  outline-offset: 2px;
-}
-
-.ege-listening-prep-fill {
-  margin: 0;
-  padding: 10px 20px;
-  font-family: var(--ege-font-ui);
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--ege-muted);
-  border-radius: 999px;
-  border: 1px solid var(--ege-line);
-  background: rgba(255, 255, 255, 0.55);
-}
-
-.ege-prep-gapfill-live {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.ege-prep-gapfill__items {
-  display: grid;
-  gap: 10px;
-}
-
-.ege-prep-gapfill__item {
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--ege-font-text);
-  font-size: 0.95rem;
-  line-height: 1.75;
-}
-
-.ege-prep-gapfill__num {
-  flex: 0 0 auto;
-  font-weight: 600;
-  color: var(--ege-muted);
-}
-
-.ege-prep-gapfill__slot {
-  flex: 1 1 8em;
-  min-width: 6em;
-  max-width: 12em;
-  min-height: 2.1em;
-  margin: 0;
-  padding: 4px 10px;
-  border: 1px solid var(--ege-line);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.7);
-  font-family: var(--ege-font-text);
-  font-size: 0.88rem;
-  font-weight: 600;
-  line-height: 1.4;
-  text-align: center;
-  color: var(--ege-ink);
-  cursor: pointer;
-  appearance: none;
-  transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
-}
-
-.ege-prep-gapfill__slot-text {
-  display: block;
-  min-height: 1.2em;
-}
-
-.ege-prep-gapfill__slot:hover:not(.is-checked-correct):not(.is-checked-wrong) {
-  border-color: var(--yap-royal);
-}
-
-.ege-prep-gapfill__slot:focus-visible {
-  outline: 2px solid var(--yap-royal);
-  outline-offset: 2px;
-}
-
-.ege-prep-gapfill__slot.is-dragover {
-  border-color: var(--yap-royal);
-  background: var(--ege-wrong-pick-bg);
-}
-
-.ege-prep-gapfill__slot.is-filled:not(.is-checked-correct):not(.is-checked-wrong) {
-  border-color: color-mix(in srgb, var(--yap-royal) 45%, transparent);
-  background: var(--ege-wrong-pick-bg);
-  color: var(--yap-royal);
-}
-
-.ege-prep-gapfill__slot.is-checked-correct {
-  border-color: var(--ege-ok);
-  background: var(--ege-ok-bg);
-  color: var(--ege-ink);
-}
-
-.ege-prep-gapfill__slot.is-checked-wrong {
-  border-color: var(--ege-bad);
-  background: var(--ege-bad-bg);
-  color: var(--ege-ink);
-}
-
-.ege-prep-gapfill__slot.is-filled .ege-prep-gapfill__slot-text {
-  background: transparent;
-}
-
-.ege-prep-gapfill__slot.is-filled,
-.ege-prep-gapfill__slot.is-checked-correct,
-.ege-prep-gapfill__slot.is-checked-wrong {
-  min-height: 2.1em;
-  padding: 4px 10px;
-}
-
-.ege-prep-match .ege-panel--read .ege-text-block {
-  font-family: var(--ege-font-text);
-}
-
-.ege-prep-pair-status {
-  margin-bottom: 12px;
-}
-
-.ege-prep-pair-count {
-  margin: 0;
-  font-family: var(--ege-font-ui);
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--ege-muted);
-}
-
-.ege-prep-pair-board {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 12px 16px;
-}
-
-.ege-prep-pair-col {
-  display: grid;
-  gap: 8px;
-  min-width: 0;
-}
-
-.ege-prep-pair-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  width: 100%;
-  margin: 0;
-  padding: 10px 12px;
-  border: 1px solid var(--ege-line);
-  border-radius: 10px;
-  background: #fff;
-  font-family: var(--ege-font-text);
-  font-size: 0.9rem;
-  line-height: 1.55;
-  text-align: left;
-  color: var(--ege-ink);
-  cursor: pointer;
-  transition: border-color 0.12s, background 0.12s, box-shadow 0.12s;
-}
-
-.ege-prep-pair-card:focus {
-  outline: none;
-}
-
-.ege-prep-pair-card:hover:not(:disabled):not(.is-matched):not(.is-error) {
-  border-color: var(--yap-royal);
-  background: var(--ege-wrong-pick-bg);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--yap-royal) 22%, transparent);
-}
-
-.ege-prep-pair-card:focus-visible:not(.is-error) {
-  outline: 2px solid var(--yap-royal);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--yap-royal) 18%, transparent);
-}
-
-.ege-prep-pair-card.is-selected {
-  border-color: var(--yap-royal);
-  background: var(--ege-wrong-pick-bg);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--yap-royal) 18%, transparent);
-}
-
-.ege-prep-pair-card.is-matched {
-  border-color: var(--ege-ok);
-  background: var(--ege-ok-bg);
-  cursor: default;
-}
-
-.ege-prep-pair-card.is-matched::after {
-  content: none;
-}
-
-.ege-prep-pair-card.is-error {
-  border-color: var(--ege-bad);
-  background: var(--ege-bad-bg);
-  animation: ege-prep-shake 0.4s ease;
-}
-
-@keyframes ege-prep-shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-4px);
-  }
-  75% {
-    transform: translateX(4px);
-  }
-}
-
-.ege-prep-pair-card:disabled {
-  opacity: 1;
-}
-
-.ege-prep-pair-badge {
-  flex: 0 0 auto;
-  min-width: 1.6em;
-  padding: 2px 6px;
-  border-radius: 6px;
-  background: var(--ege-wrong-pick-bg);
-  color: var(--yap-royal);
-  font-family: var(--ege-font-text);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.ege-prep-pair-text {
-  flex: 1 1 auto;
-  min-width: 0;
-  font-family: var(--ege-font-text);
-}
-
-.ege-prep-pair-link {
-  flex: 0 0 auto;
-  margin-left: auto;
-  min-width: 2.4em;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: #fff;
-  border: 1px solid var(--ege-ok);
-  font-family: var(--ege-font-text);
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--ege-ok);
-  text-align: center;
-  white-space: nowrap;
-}
-
-@media (max-width: 640px) {
-  .ege-prep-pair-board {
-    grid-template-columns: 1fr;
-  }
-}
-
-.ege-listening-progress {
-  margin: 0 0 6px;
-  width: 100%;
-  max-width: none;
-}
-
-.ege-listening-prep-instr {
-  margin: 0 0 10px;
-  font-family: var(--ege-font-text);
-  font-size: 0.88rem;
-  color: var(--ege-muted);
-  line-height: 1.55;
-  max-width: none;
-}
-
-.ege-listening-prep-instr[hidden] {
-  display: none;
-  margin: 0;
-}
-
-.ege-listening-progress__track {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  width: 100%;
-}
-
-.ege-listening-progress__line {
-  flex: 1 1 0;
-  height: 2px;
-  min-width: 1.5rem;
-  max-width: none;
-  background: var(--ege-line);
-  transition: background 0.15s;
-}
-
-.ege-listening-progress__line.is-complete {
-  background: var(--yap-royal);
-}
-
-.ege-listening-progress__step {
-  flex: 0 0 auto;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  padding: 6px 12px;
-  background: #fff;
-  font-family: var(--ege-font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--ege-muted);
-  cursor: pointer;
-  transition: border-color 0.15s, color 0.15s, background 0.15s;
-}
-
-.ege-listening-progress__step.is-current {
-  border-color: var(--yap-royal);
-  color: var(--yap-royal);
-  background: var(--ege-wrong-pick-bg);
-}
-
-.ege-listening-progress__step.is-complete {
-  border-color: var(--yap-royal);
-  color: var(--yap-royal);
-}
-
-.ege-listening-progress__step:disabled {
-  opacity: 0.42;
-  cursor: default;
-}
-
-.ege-page--listening .ege-task-panel {
-  animation: none;
-}
-
-/* Listening: Montserrat on task content; Fredoka on UI chrome */
-.ege-page--listening #egePanels :is(
-  .ege-prep-gapfill,
-  .ege-prep-gapfill__item,
-  .ege-prep-gapfill__slot,
-  .ege-prep-wordbank__word,
-  .ege-prep-pair-card,
-  .ege-prep-pair-text,
-  .ege-prep-pair-badge,
-  .ege-prep-pair-link,
-  .ege-mc-card,
-  .ege-mc__prompt,
-  .ege-pill--text,
-  .ege-input,
-  .ege-listening-mark,
-  .ege-dialogue__text,
-  .ege-listening-transcript,
-  .ege-passage,
-  .ege-text-block
-),
-.ege-page--listening #egeListeningChrome .ege-listening-prep-instr,
-.ege-page--listening .ege-instructions {
-  font-family: var(--ege-font-text);
-}
-
-.ege-page--listening .ege-rail__head {
-  min-height: 64px;
-  margin-bottom: 10px;
-  align-items: center;
-}
-
-.ege-page--listening #egeListeningChrome .ege-listening-progress {
-  margin: 0 0 10px;
-  min-height: 64px;
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-}
-
-.ege-page--listening #egeListeningChrome .ege-listening-progress__track {
-  width: 100%;
-}
-
-.ege-page--listening #egeListeningChrome .ege-listening-prep-instr {
-  margin: 0 0 10px;
-}
-
-.ege-page--listening .ege-nav__btn,
-.ege-page--listening :is(
-  .ege-listening-progress,
-  .ege-listening-progress__step,
-  .ege-btn,
-  .ege-listening-prep-fill,
-  .ege-prep-pair-count,
-  .ege-task__score,
-  .ege-highlight-tools,
-  .ege-highlight-tools__btn,
-  .ege-listening-play,
-  .ege-listening-speed__btn,
-  .ege-panel__label,
-  .ege-answered-count,
-  .ege-rail__title,
-  .ege-back
-) {
-  font-family: var(--ege-font-ui);
-}
-
-.ege-task-panel:has([data-listening-kind="prep-gap"]) > .ege-highlight-tools,
-.ege-task-panel:has([data-listening-kind="prep-match"]) > .ege-highlight-tools,
-.ege-task-panel:has([data-listening-kind="prep"]) > .ege-highlight-tools {
-  display: none !important;
-  height: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border: none;
-}
-
-.ege-task-panel:has([data-listening-kind="mc"]) .ege-highlight-tools__btn {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .ege-split--panels .ege-split__work:has(.ege-panel--listening-work) {
-    overflow: visible;
-    max-height: none;
-    align-self: start;
-  }
-
-  .ege-work-col:has(.ege-panel--listening-work) {
-    height: auto;
-    max-height: none;
-  }
-
-  .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll {
-    overflow: visible;
-    flex: 0 0 auto;
-  }
-
-  .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll .ege-panel--work {
-    min-height: 0;
-  }
-
-  .ege-panel--listening-work {
-    min-height: calc(15 * 36px + 14 * 10px + 3rem);
-  }
-
-  .ege-panel--listening-mc {
-    margin-top: 12px;
-  }
-
-  .ege-panel--listening-mc .ege-mc-stack {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 767px) {
-  .ege-panel--listening-mc .ege-mc-stack {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ── Task footer ── */
-.ege-task__footer {
-  margin-top: 16px;
-}
-
-.ege-task--panels .ege-task__footer {
-  margin-top: 12px;
-}
-
-.ege-task--panels .ege-panel {
-  border-bottom: 1px solid var(--ege-line);
-}
-
-.ege-task__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.ege-btn {
-  border-radius: 999px;
-  padding: 10px 20px;
-  font-family: var(--ege-font-ui);
-  font-size: 0.88rem;
-  font-weight: 700;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: background 0.15s, border-color 0.15s, transform 0.15s;
-}
-
-.ege-btn[hidden] {
-  display: none !important;
-}
-
-.ege-btn:hover {
-  transform: translateY(-1px);
-}
-
-.ege-btn--primary {
-  background: var(--ege-accent);
-  color: #fff;
-  box-shadow: 0 4px 12px var(--ege-accent-glow);
-}
-
-.ege-btn--primary:hover {
-  background: #d60138;
-}
-
-.ege-prep-gapfill.is-review .ege-prep-wordbank {
-  display: none;
-}
-
-.ege-prep-gapfill__item--review {
-  align-items: baseline;
-}
-
-.ege-prep-gapfill__full {
-  font-family: var(--ege-font-text);
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--ege-ink);
-  line-height: 1.55;
-}
-
-@keyframes ege-btn-pulse {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(1, 8, 158, 0.4);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(1, 8, 158, 0);
-    transform: scale(1.04);
-  }
-}
-
-.ege-btn--pulse {
-  background: var(--yap-royal);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(1, 8, 158, 0.28);
-  animation: ege-btn-pulse 1.5s ease-in-out infinite;
-}
-
-.ege-btn--pulse:hover {
-  background: #00007a;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ege-btn--pulse {
-    animation: none;
-  }
-}
-
-.ege-btn:disabled,
-.ege-btn:disabled:hover {
-  opacity: 0.45;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-.ege-btn--ghost {
-  background: #fff;
-  border-color: var(--ege-line);
-  color: var(--ege-muted);
-}
-
-.ege-btn--ghost:hover {
-  border-color: var(--ege-accent);
-  color: var(--ege-ink);
-}
-
-.ege-btn--small {
-  padding: 6px 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.ege-task__score {
-  margin: 10px 0 0;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-family: var(--ege-font-ui);
-  font-weight: 700;
-  font-size: 0.88rem;
-  white-space: pre-line;
-}
-
-.ege-listening-footer .ege-task__score {
-  margin: 0 0 10px;
-}
-
-.ege-task__score.is-good {
-  background: var(--ege-ok-bg);
-  color: var(--ege-ok);
-}
-
-.ege-task__score.is-bad {
-  background: var(--ege-bad-bg);
-  color: var(--ege-bad);
-}
-
-.ege-task__score.is-mixed {
-  background: var(--ege-mixed-bg);
-  color: var(--ege-accent-deep);
-}
-
-.ege-toast {
-  position: fixed;
-  left: 50%;
-  bottom: 28px;
-  z-index: 40;
-  max-width: min(90vw, 320px);
-  padding: 12px 18px;
-  border-radius: 999px;
-  background: var(--ege-ink);
-  color: #fff;
-  font-family: var(--ege-font-ui);
-  font-size: 0.88rem;
-  font-weight: 700;
-  box-shadow: var(--ege-shadow);
-  transform: translate(-50%, 12px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.ege-toast.is-visible {
-  opacity: 1;
-  transform: translate(-50%, 0);
-}
-
-.ege-error {
-  padding: 24px;
-  text-align: center;
-  color: var(--ege-bad);
-}
-
-/* Footer on branded ЕГЭ pages */
-body.yap-brand .site-author {
-  border-top-color: rgba(106, 105, 165, 0.28);
-  background: rgba(238, 240, 250, 0.82);
-}
-
-body.yap-brand .site-author p {
-  color: var(--yap-dust);
-}
-
-body.yap-brand .site-author__name {
-  color: var(--yap-ink);
-}
-
-body.yap-brand .site-author__promo a {
-  color: var(--yap-hot);
-}
-
-@media (max-width: 860px) {
-  .ege-page {
-    grid-template-columns: 1fr;
-    padding: 12px 12px 24px;
-    gap: 12px;
-  }
-
-  .ege-topics {
-    position: static;
-    max-height: none;
-    overflow: visible;
-    padding: 0;
-    grid-row: auto;
-  }
-
-  .ege-rail {
-    display: none;
-    padding: 4px 0 10px;
-  }
-
-  .ege-page.is-nav-open .ege-rail {
-    display: block;
-  }
-
-  .ege-mobile-switch {
-    display: block;
-  }
-
-  .ege-mobile-switch__line,
-  .ege-mobile-switch__line--end {
-    display: block;
-    height: 0;
-    border: 0;
-    border-top: 1.5px solid var(--ege-ink);
-    margin: 0;
-    width: 100%;
-  }
-
-  .ege-mobile-switch__controls {
-    display: grid;
-    grid-template-columns: 40px minmax(0, 1fr) 40px;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 0;
-  }
-
-  .ege-mobile-switch__btn {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--ege-line);
-    border-radius: 8px;
-    background: var(--ege-card);
-    color: var(--ege-ink);
-    font-size: 1.25rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-
-  .ege-mobile-switch__btn:disabled {
-    opacity: 0.35;
-    cursor: default;
-  }
-
-  .ege-mobile-switch__current {
-    border: none;
-    background: transparent;
-    color: var(--ege-ink);
-    font-family: var(--ege-font-ui);
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-align: center;
-    padding: 8px 4px;
-    cursor: pointer;
-    min-width: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .ege-mobile-switch__current::after {
-    content: "";
-    display: inline-block;
-    width: 0.45em;
-    height: 0.45em;
-    margin-left: 0.45em;
-    border-right: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
-    transform: translateY(-0.15em) rotate(45deg);
-    vertical-align: middle;
-    opacity: 0.55;
-  }
-
-  .ege-page.is-nav-open .ege-mobile-switch__current::after {
-    transform: translateY(0.1em) rotate(-135deg);
-  }
-
-  .ege-nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-  }
-
-  .ege-nav__btn {
-    font-size: 0.78rem;
-    padding: 8px 10px;
-    border: 1px solid var(--ege-line);
-    background: var(--ege-card);
-  }
-
-  .ege-nav__btn.is-perfect:not(.is-active),
-  .ege-nav__btn.is-partial:not(.is-active) {
-    box-shadow: none;
-  }
-
-  .ege-nav__btn.is-partial:not(.is-active) {
-    border-color: #ca8a04;
-  }
-
-  .ege-topbar--compact .ege-topbar__main {
-    flex-wrap: wrap;
-  }
-
-  .ege-topbar--compact .ege-topbar__title {
-    white-space: normal;
-    flex: 1 1 100%;
-  }
-
-  .ege-input {
-    width: 100%;
-    max-width: 160px;
-  }
-}
-
-@media (max-width: 640px) {
-  .ege-page {
-    padding: 12px 12px 24px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ege-task-panel {
-    animation: none;
-  }
-
-  .ege-btn {
-    transition: none;
-  }
-
-  .ege-btn:hover {
-    transform: none;
-  }
-}
-
-  </style>
-</head>
-<body class="yap-brand">
-  <main class="ege-page" id="egePage">
-    <div class="ege-topics">
-      <div class="ege-mobile-switch" id="egeMobileSwitch">
-        <hr class="ege-mobile-switch__line" />
-        <div class="ege-mobile-switch__controls">
-          <button type="button" class="ege-mobile-switch__btn" id="egePrevTask" aria-label="Previous interview">‹</button>
-          <button type="button" class="ege-mobile-switch__current" id="egeMobileCurrent" aria-expanded="false" aria-controls="egeNav">Interviews</button>
-          <button type="button" class="ege-mobile-switch__btn" id="egeNextTask" aria-label="Next interview">›</button>
-        </div>
-      </div>
-
-      <aside class="ege-rail">
-        <div class="ege-rail__head">
-          <img class="ege-rail__mark" src="timetoege.png" alt="" width="64" aria-hidden="true" />
-          <h1 class="ege-rail__title" id="egeRailTitle">Listening</h1>
-        </div>
-        <nav class="ege-nav" id="egeNav" aria-label="Interviews"></nav>
-      </aside>
-
-      <hr class="ege-mobile-switch__line ege-mobile-switch__line--end" />
-    </div>
-
-    <div class="ege-workspace">
-      <div id="egeListeningChrome" hidden></div>
-      <p class="ege-instructions" id="egeInstructions" hidden></p>
-      <div id="egePanels"></div>
-    </div>
-  </main>
-  <script>
-(function () {
-  "use strict";
-
-  var STORAGE_KEY = "ege-prep.highlights.v1";
-
-  var ICON_PEN =
-    '<svg class="ege-highlight-tools__icon" viewBox="0 0 24 24" aria-hidden="true">' +
-    '<path d="M15.5 2.5l6 6-12 12H3.5v-6l12-12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>' +
-    '<path d="M14 4l6 6" fill="none" stroke="currentColor" stroke-width="2"/>' +
-    "</svg>";
-
-  var ICON_ERASER =
-    '<svg class="ege-highlight-tools__icon" viewBox="0 0 24 24" aria-hidden="true">' +
-    '<path d="M7 21h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
-    '<path d="M6.8 12.3L14 5.1l5.9 5.9-7.2 7.2H4.6V12.3h2.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>' +
-    "</svg>";
-
-  function loadAll() {
-    try {
-      var raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : {};
-    } catch (_err) {
-      return {};
-    }
-  }
-
-  function saveEntry(id, html) {
-    try {
-      var all = loadAll();
-      if (html && html.indexOf("ege-highlight") !== -1) {
-        all[id] = html;
-      } else {
-        delete all[id];
-      }
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
-    } catch (_err) {
-      /* ignore quota errors */
-    }
-  }
-
-  function unwrapHighlight(mark) {
-    var parent = mark.parentNode;
-    if (!parent) return;
-    while (mark.firstChild) {
-      parent.insertBefore(mark.firstChild, mark);
-    }
-    parent.removeChild(mark);
-    parent.normalize();
-  }
-
-  function selectionInside(container, range) {
-    return container.contains(range.commonAncestorContainer);
-  }
-
-  function selectionBlocked(range) {
-    var node = range.commonAncestorContainer;
-    if (node.nodeType === Node.TEXT_NODE) node = node.parentElement;
-    if (!node || !node.closest) return false;
-    return !!node.closest(
-      ".ege-gap-picks, .ege-gap-insert:not(.is-filled), .ege-choice-group, button, .ege-highlight-tools, .ege-match-picks, .ege-input"
-    );
-  }
-
-  function applyHighlight(container) {
-    var sel = window.getSelection();
-    if (!sel || !sel.rangeCount || sel.isCollapsed) return false;
-
-    var range = sel.getRangeAt(0);
-    if (!selectionInside(container, range) || selectionBlocked(range)) {
-      sel.removeAllRanges();
-      return false;
-    }
-
-    var mark = document.createElement("mark");
-    mark.className = "ege-highlight";
-
-    try {
-      var contents = range.extractContents();
-      if (!contents.textContent.trim()) {
-        sel.removeAllRanges();
-        return false;
-      }
-      mark.appendChild(contents);
-      range.insertNode(mark);
-      sel.removeAllRanges();
-      return true;
-    } catch (_err) {
-      sel.removeAllRanges();
-      return false;
-    }
-  }
-
-  function sanitizePassageHtml(container) {
-    var clone = container.cloneNode(true);
-    clone.querySelectorAll(".ege-gap-insert").forEach(function (insert) {
-      insert.classList.remove("is-filled", "is-correct", "is-wrong");
-      var text = insert.querySelector(".ege-gap-insert__text");
-      if (text) text.textContent = "";
-      else {
-        var span = document.createElement("span");
-        span.className = "ege-gap-insert__text";
-        insert.appendChild(span);
-      }
-    });
-    return clone.innerHTML;
-  }
-
-  function persistContainer(container) {
-    var id = container.dataset.highlightId;
-    if (id) saveEntry(id, sanitizePassageHtml(container));
-  }
-
-  function buildTaskToolbar(containers) {
-    var tools = document.createElement("div");
-    tools.className = "ege-highlight-tools";
-    tools.setAttribute("role", "toolbar");
-    tools.setAttribute("aria-label", "Reading tools");
-
-    var highlightBtn = document.createElement("button");
-    highlightBtn.type = "button";
-    highlightBtn.className = "ege-highlight-tools__btn";
-    highlightBtn.dataset.mode = "highlight";
-    highlightBtn.innerHTML = ICON_PEN;
-    highlightBtn.setAttribute("aria-label", "Highlight");
-    highlightBtn.setAttribute("title", "Highlight (H)");
-    highlightBtn.setAttribute("aria-pressed", "false");
-
-    var eraseBtn = document.createElement("button");
-    eraseBtn.type = "button";
-    eraseBtn.className = "ege-highlight-tools__btn";
-    eraseBtn.dataset.mode = "erase";
-    eraseBtn.innerHTML = ICON_ERASER;
-    eraseBtn.setAttribute("aria-label", "Erase");
-    eraseBtn.setAttribute("title", "Erase (R)");
-    eraseBtn.setAttribute("aria-pressed", "false");
-
-    var clearBtn = document.createElement("button");
-    clearBtn.type = "button";
-    clearBtn.className = "ege-highlight-tools__btn ege-highlight-tools__btn--ghost";
-    clearBtn.dataset.mode = "clear";
-    clearBtn.textContent = "Clear";
-    clearBtn.setAttribute("aria-label", "Clear all highlights");
-    clearBtn.setAttribute("title", "Clear all");
-
-    var mode = "none";
-
-    function setMode(next) {
-      mode = next;
-      highlightBtn.classList.toggle("is-active", mode === "highlight");
-      eraseBtn.classList.toggle("is-active", mode === "erase");
-      highlightBtn.setAttribute("aria-pressed", mode === "highlight" ? "true" : "false");
-      eraseBtn.setAttribute("aria-pressed", mode === "erase" ? "true" : "false");
-      containers.forEach(function (container) {
-        container.classList.toggle("ege-erase-mode", mode === "erase");
-      });
-    }
-
-    function clearAll() {
-      containers.forEach(function (container) {
-        container.querySelectorAll(".ege-highlight").forEach(function (mark) {
-          unwrapHighlight(mark);
-        });
-        persistContainer(container);
-      });
-    }
-
-    highlightBtn.addEventListener("click", function () {
-      setMode(mode === "highlight" ? "none" : "highlight");
-    });
-
-    eraseBtn.addEventListener("click", function () {
-      setMode(mode === "erase" ? "none" : "erase");
-    });
-
-    clearBtn.addEventListener("click", function () {
-      clearAll();
-      setMode("none");
-    });
-
-    containers.forEach(function (container) {
-      function tryHighlight() {
-        if (mode !== "highlight") return;
-        window.setTimeout(function () {
-          if (applyHighlight(container)) persistContainer(container);
-        }, 0);
-      }
-
-      container.addEventListener("mouseup", tryHighlight);
-      container.addEventListener("touchend", tryHighlight);
-
-      container.addEventListener("click", function (event) {
-        if (mode !== "erase") return;
-        var mark = event.target.closest(".ege-highlight");
-        if (!mark || !container.contains(mark)) return;
-        event.preventDefault();
-        unwrapHighlight(mark);
-        persistContainer(container);
-      });
-    });
-
-    tools.appendChild(highlightBtn);
-    tools.appendChild(eraseBtn);
-    tools.appendChild(clearBtn);
-
-    tools.setHighlightMode = function (next) {
-      if (next === "highlight" || next === "erase" || next === "none") setMode(next);
-    };
-
-    return tools;
-  }
-
-  function isTypingTarget(el) {
-    if (!el || el === document.body) return false;
-    var tag = (el.tagName || "").toLowerCase();
-    if (tag === "input" || tag === "textarea" || tag === "select") return true;
-    if (el.isContentEditable) return true;
-    return false;
-  }
-
-  function bindToolShortcuts() {
-    if (window._egeHighlightKeysBound) return;
-    window._egeHighlightKeysBound = true;
-
-    var holdDir = 0;
-    var holdAudio = null;
-    var holdRaf = 0;
-    var holdStartedAt = 0;
-    var holdLastTs = 0;
-
-    function stopHoldSeek() {
-      holdDir = 0;
-      holdAudio = null;
-      holdStartedAt = 0;
-      holdLastTs = 0;
-      if (holdRaf) {
-        cancelAnimationFrame(holdRaf);
-        holdRaf = 0;
-      }
-    }
-
-    function seekAudioBy(audioEl, delta) {
-      if (!audioEl || !isFinite(audioEl.duration) || audioEl.duration <= 0) return;
-      audioEl.currentTime = Math.min(
-        audioEl.duration,
-        Math.max(0, audioEl.currentTime + delta)
-      );
-    }
-
-    function holdTick(ts) {
-      if (!holdDir || !holdAudio) {
-        holdRaf = 0;
-        return;
-      }
-      if (!holdLastTs) holdLastTs = ts;
-      var dt = Math.min(0.05, (ts - holdLastTs) / 1000);
-      holdLastTs = ts;
-      var held = (ts - holdStartedAt) / 1000;
-      var speed = Math.min(48, 10 + held * 18);
-      seekAudioBy(holdAudio, holdDir * speed * dt);
-      holdRaf = requestAnimationFrame(holdTick);
-    }
-
-    function activeListeningAudio(panel) {
-      var audioEl = panel.querySelector(".ege-listening-audio audio");
-      if (!audioEl) return null;
-      var audioWrap = audioEl.closest(".ege-listening-audio, .ege-listening-step");
-      if (audioWrap && audioWrap.hidden) return null;
-      var listenStep = audioEl.closest(".ege-listening-step");
-      if (listenStep && listenStep.hidden) return null;
-      if (!isFinite(audioEl.duration) || audioEl.duration <= 0) return null;
-      return audioEl;
-    }
-
-    document.addEventListener("keydown", function (event) {
-      if (event.metaKey || event.ctrlKey || event.altKey) return;
-      if (isTypingTarget(event.target)) return;
-
-      var key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
-      var panel = document.querySelector(".ege-task-panel:not([hidden])");
-      if (!panel) return;
-
-      if (key === "ArrowLeft" || key === "ArrowRight") {
-        var audioEl = activeListeningAudio(panel);
-        if (!audioEl) return;
-        event.preventDefault();
-        var dir = key === "ArrowLeft" ? -1 : 1;
-        if (event.repeat || holdDir === dir) return;
-        stopHoldSeek();
-        holdDir = dir;
-        holdAudio = audioEl;
-        holdStartedAt = performance.now();
-        holdLastTs = 0;
-        seekAudioBy(audioEl, dir * 5);
-        holdRaf = requestAnimationFrame(holdTick);
-        return;
-      }
-
-      if (event.repeat) return;
-
-      if (key === "h" || key === "r") {
-        var tools = panel.querySelector(".ege-highlight-tools");
-        if (!tools || !tools.setHighlightMode) return;
-        if (tools.closest("[hidden]")) return;
-        event.preventDefault();
-        tools.setHighlightMode(key === "h" ? "highlight" : "erase");
-        return;
-      }
-
-      if (key === "p") {
-        var playBtn = panel.querySelector(".ege-listening-play");
-        if (!playBtn) return;
-        var audioHost = playBtn.closest(
-          ".ege-listening-audio, .ege-highlight-tools, .ege-listening-step"
-        );
-        if (audioHost && audioHost.hidden) return;
-        var step = playBtn.closest(".ege-listening-step");
-        if (step && step.hidden) return;
-        event.preventDefault();
-        playBtn.click();
-      }
-    });
-
-    document.addEventListener("keyup", function (event) {
-      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-      var dir = event.key === "ArrowLeft" ? -1 : 1;
-      if (holdDir === dir) stopHoldSeek();
-    });
-
-    window.addEventListener("blur", stopHoldSeek);
-  }
-
-  function restoreListeningAudio(panel, task) {
-    var tools = panel && panel.querySelector(".ege-highlight-tools");
-    if (!tools || !task) return;
-
-    var audio = tools.querySelector(".ege-listening-audio");
-    if (!audio) return;
-
-    var read = task.querySelector(".ege-listening-read");
-    if (!read) return;
-
-    audio.classList.remove("ege-listening-audio--toolbar");
-    read.insertBefore(audio, read.firstChild);
-  }
-
-  function attachAll(panel, topicId, taskId) {
-    if (!panel) return;
-
-    var task = panel.querySelector(".ege-task");
-    if (!task) return;
-
-    restoreListeningAudio(panel, task);
-
-    var existing = panel.querySelector(".ege-highlight-tools");
-    if (existing) existing.remove();
-
-    var base = topicId + "_" + taskId;
-    var savedAll = loadAll();
-    var containers = [];
-
-    task.querySelectorAll(".ege-passage, .ege-text-block").forEach(function (el, index) {
-      if (el.closest("[hidden]")) return;
-
-      var id = base + "_h" + index;
-      var hasInteractiveGaps = !!el.querySelector(".ege-gap-insert");
-      var saved = savedAll[id];
-      var savedHasGaps = !!(saved && saved.indexOf("ege-gap-insert") !== -1);
-
-      /* Skip incompatible highlight saves that would wipe gap-insert shells */
-      if (saved && (!hasInteractiveGaps || savedHasGaps)) {
-        el.innerHTML = saved;
-        el.querySelectorAll(".ege-gap-insert").forEach(function (insert) {
-          insert.classList.remove("is-filled", "is-correct", "is-wrong");
-          var text = insert.querySelector(".ege-gap-insert__text");
-          if (text) text.textContent = "";
-          else {
-            var span = document.createElement("span");
-            span.className = "ege-gap-insert__text";
-            insert.appendChild(span);
-          }
-        });
-      }
-
-      el.classList.add("ege-highlightable");
-      el.dataset.highlightId = id;
-      containers.push(el);
-    });
-
-    if (!containers.length) return;
-
-    var tools = buildTaskToolbar(containers);
-    var isListening = task.classList.contains("ege-task--listening");
-    var listenHost = null;
-
-    if (isListening) {
-      var gapsStep = task.querySelector(".ege-listening-step--gaps");
-      if (!gapsStep || gapsStep.hidden) return;
-      listenHost = gapsStep.querySelector(".ege-panel--read");
-      if (!listenHost) return;
-      listenHost.insertBefore(tools, listenHost.firstChild);
-    } else {
-      panel.insertBefore(tools, task);
-    }
-
-    // For listening tasks, keep audio control beside marker/eraser tools.
-    var listeningAudio = task.querySelector(".ege-listening-audio");
-    if (listeningAudio) {
-      listeningAudio.classList.add("ege-listening-audio--toolbar");
-      tools.appendChild(listeningAudio);
-    }
-  }
-
-  bindToolShortcuts();
-
-  window.EgeHighlight = {
-    attachAll: attachAll,
-  };
-})();
-
-  </script>
-  <script>
 (function () {
   "use strict";
 
@@ -3489,6 +415,91 @@ body.yap-brand .site-author__promo a {
     return wrap;
   }
 
+  function taskInstructionsText(task) {
+    var text = String(task.instructions || "").trim();
+    if (!text && state.sectionMeta && state.sectionMeta.instructions) {
+      text = String(state.sectionMeta.instructions).trim();
+    }
+    return text;
+  }
+
+  /* Shared topic layout (topic.html): matching-headings, gap-fill, reading-comprehension,
+     word-formation, vocabulary-cloze. Listening uses ege-page--listening instead. */
+  function usesTopicLayout(topicId) {
+    var id = topicId != null ? topicId : state.topicId;
+    return !!id && id !== "listening";
+  }
+
+  function formatExamRange(from, to) {
+    if (from == null) return "";
+    if (to == null || to === from) return String(from);
+    return from + "–" + to;
+  }
+
+  function foldExamLabel(text) {
+    return String(text || "").replace(/[–—−]/g, "-");
+  }
+
+  function buildTaskIntro(task) {
+    if (task.type === "listening") return null;
+
+    var intro = document.createElement("div");
+    intro.className = "ege-task-intro";
+
+    var lead = document.createElement("div");
+    lead.className = "ege-task-intro__lead";
+    lead.dataset.taskId = task.id;
+
+    var section = state.sectionMeta;
+    var examLabel = section ? formatExamRange(section.examFrom, section.examTo) : "";
+
+    var instrText = taskInstructionsText(task);
+    if (
+      examLabel &&
+      instrText &&
+      foldExamLabel(instrText).indexOf(foldExamLabel(examLabel)) !== -1
+    ) {
+      examLabel = "";
+    }
+    if (instrText || examLabel) {
+      var instr = document.createElement("p");
+      instr.className = "ege-instructions";
+      instr.lang = "ru";
+
+      if (examLabel) {
+        var exam = document.createElement("span");
+        exam.className = "ege-task-intro__exam";
+        exam.textContent = examLabel;
+        instr.appendChild(exam);
+      }
+
+      if (instrText) {
+        if (examLabel) instr.appendChild(document.createTextNode(" "));
+        instr.appendChild(document.createTextNode(instrText));
+      }
+
+      lead.appendChild(instr);
+    }
+
+    if (lead.childElementCount) {
+      intro.appendChild(lead);
+    }
+
+    var titleText = String(task.title || "").trim();
+    if (titleText) {
+      var head = document.createElement("div");
+      head.className = "ege-task-intro__head";
+
+      var title = document.createElement("h2");
+      title.className = "ege-task-title";
+      title.textContent = titleText;
+      head.appendChild(title);
+      intro.appendChild(head);
+    }
+
+    return intro.childElementCount ? intro : null;
+  }
+
   function replaceGapPlaceholders(root, entries) {
     var inserts = {};
     entries.forEach(function (entry) {
@@ -3552,7 +563,11 @@ body.yap-brand .site-author__promo a {
     var scoreEl = document.getElementById("score-" + taskId);
     if (!scoreEl) return;
     var lines = [
-      "Score: " + correct + " / " + max + (correct === max ? ". All correct." : ""),
+      "Score: " +
+        correct +
+        " / " +
+        max +
+        (correct === max ? ". All correct." : ". Change the marked answers."),
     ];
     if (options && options.lines && options.lines.length) {
       lines = lines.concat(options.lines);
@@ -3561,6 +576,7 @@ body.yap-brand .site-author__promo a {
     scoreEl.textContent = lines.join("\n");
     scoreEl.className =
       "ege-task__score " + (correct === max ? "is-good" : correct === 0 ? "is-bad" : "is-mixed");
+    setCheckGateHint(taskId, "");
   }
 
   function hideScoreFeedback(taskId) {
@@ -3650,6 +666,225 @@ body.yap-brand .site-author__promo a {
     return String(parseInt(question.q, 10));
   }
 
+  var taskDigitBuffer = { taskId: "", digits: "", timer: null };
+  var mcKeyboardState = { taskId: "", questionIndex: -1 };
+
+  function resetTaskDigitBuffer() {
+    clearTimeout(taskDigitBuffer.timer);
+    taskDigitBuffer.digits = "";
+    taskDigitBuffer.taskId = "";
+    taskDigitBuffer.timer = null;
+  }
+
+  function resetMcKeyboardState(taskId) {
+    if (taskId && mcKeyboardState.taskId === taskId) return;
+    var prev = mcKeyboardState.taskId;
+    mcKeyboardState.taskId = taskId || "";
+    mcKeyboardState.questionIndex = -1;
+    if (prev) {
+      var prevEl = document.getElementById("task-" + prev);
+      if (prevEl) {
+        prevEl.querySelectorAll(".ege-mc-card.is-active").forEach(function (card) {
+          card.classList.remove("is-active");
+        });
+      }
+    }
+  }
+
+  function shouldIgnoreTaskKeyboard(event) {
+    if (event.defaultPrevented) return true;
+    if (event.metaKey || event.ctrlKey || event.altKey) return true;
+    if (event.repeat) return true;
+    if (!state.activeTaskId) return true;
+
+    var target = event.target;
+    if (!target) return false;
+    var tag = (target.tagName || "").toLowerCase();
+    if (tag === "textarea" || tag === "select") return true;
+    if (tag === "input") {
+      var type = (target.type || "").toLowerCase();
+      if (type !== "button" && type !== "submit" && type !== "reset") return true;
+    }
+    if (target.isContentEditable) return true;
+    return false;
+  }
+
+  function parseDigitKey(event) {
+    var key = event.key;
+    var code = event.code;
+    if (/^[1-9]$/.test(key)) return parseInt(key, 10);
+    if (/^Digit[1-9]$/.test(code) || /^Numpad[1-9]$/.test(code)) {
+      return parseInt(code.replace(/\D/g, ""), 10);
+    }
+    return null;
+  }
+
+  function parseLetterKey(event) {
+    if (event.key.length !== 1) return null;
+    var ch = event.key.toUpperCase();
+    if (ch >= "A" && ch <= "Z") return ch;
+    return null;
+  }
+
+  function pushTaskDigitBuffer(taskId, digit, candidates, onMatch) {
+    if (taskDigitBuffer.taskId !== taskId) resetTaskDigitBuffer();
+    taskDigitBuffer.taskId = taskId;
+    clearTimeout(taskDigitBuffer.timer);
+    taskDigitBuffer.digits += String(digit);
+
+    var exact = candidates.filter(function (candidate) {
+      return String(candidate) === taskDigitBuffer.digits;
+    });
+    if (exact.length === 1) {
+      onMatch(exact[0]);
+      resetTaskDigitBuffer();
+      return "matched";
+    }
+
+    var prefix = candidates.filter(function (candidate) {
+      return String(candidate).indexOf(taskDigitBuffer.digits) === 0;
+    });
+    if (!prefix.length) {
+      resetTaskDigitBuffer();
+      return "none";
+    }
+
+    taskDigitBuffer.timer = setTimeout(resetTaskDigitBuffer, 450);
+    return "pending";
+  }
+
+  function setActiveReadingMcQuestion(taskId, index) {
+    mcKeyboardState.taskId = taskId;
+    mcKeyboardState.questionIndex = index;
+    var taskEl = document.getElementById("task-" + taskId);
+    if (!taskEl) return;
+    var cards = taskEl.querySelectorAll(".ege-work-scroll .ege-mc-card, .ege-mc-stack .ege-mc-card");
+    cards.forEach(function (card, i) {
+      card.classList.toggle("is-active", i === index);
+    });
+    var card = cards[index];
+    if (card) card.scrollIntoView({ block: "nearest" });
+  }
+
+  function resolvePickSlotLetter(slots, letter) {
+    if (!letter || !slots || !slots.length) return "";
+    for (var i = 0; i < slots.length; i += 1) {
+      if (String(slots[i]).toUpperCase() === letter) return slots[i];
+    }
+    return "";
+  }
+
+  function handlePickAssignKeyboard(event, board, slots, maxOption) {
+    if (!board) return false;
+
+    var letter = parseLetterKey(event);
+    if (letter) {
+      var slot = resolvePickSlotLetter(slots, letter);
+      var activate = board.activateLetter || board.activateGap;
+      if (slot && activate) {
+        event.preventDefault();
+        resetTaskDigitBuffer();
+        activate.call(board, slot);
+      }
+      return true;
+    }
+
+    var num = parseDigitKey(event);
+    if (num != null && num <= maxOption && board.assignNumber) {
+      event.preventDefault();
+      resetTaskDigitBuffer();
+      board.assignNumber(num);
+      return true;
+    }
+
+    return false;
+  }
+
+  function handleTaskKeyboard(event) {
+    if (shouldIgnoreTaskKeyboard(event)) return;
+
+    var taskId = state.activeTaskId;
+    var task = findTask(taskId);
+    if (!task) return;
+
+    var panel = document.getElementById("panel-" + taskId);
+    if (panel && panel.hidden) return;
+
+    if (task.type === "matching") {
+      var matchBoard = document.querySelector("#task-" + taskId + " .ege-match-picks");
+      handlePickAssignKeyboard(
+        event,
+        matchBoard,
+        task.texts.map(function (item) {
+          return item.letter;
+        }),
+        task.headings.length
+      );
+      return;
+    }
+
+    if (task.type === "gapfill") {
+      var gapBoard = document.querySelector("#task-" + taskId + " .ege-gap-picks");
+      handlePickAssignKeyboard(event, gapBoard, task.gaps, task.options.length);
+      return;
+    }
+
+    if (task.type === "mc" && isVocabCloze(task)) {
+      var vocabBoard = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
+      if (!vocabBoard) return;
+
+      var digit = parseDigitKey(event);
+      if (digit == null) return;
+
+      var activeGap = vocabBoard.getActiveGap ? vocabBoard.getActiveGap() : "";
+      if (activeGap) {
+        var activeIndex = task.questions.findIndex(function (question) {
+          return vocabGapNum(question) === activeGap;
+        });
+        if (activeIndex >= 0 && digit <= task.questions[activeIndex].opts.length) {
+          event.preventDefault();
+          setRadioValue(taskPrefix(taskId) + "_q_" + activeIndex, String(digit - 1));
+          if (vocabBoard.syncInserts) vocabBoard.syncInserts();
+          return;
+        }
+      }
+
+      var gapCandidates = task.questions.map(vocabGapNum);
+      var gapResult = pushTaskDigitBuffer(taskId, digit, gapCandidates, function (gapNum) {
+        if (vocabBoard.setActiveGap) vocabBoard.setActiveGap(gapNum);
+      });
+      if (gapResult !== "none") event.preventDefault();
+      return;
+    }
+
+    if (task.type === "mc" && task.passage) {
+      digit = parseDigitKey(event);
+      if (digit == null) return;
+
+      var prefix = taskPrefix(taskId);
+      if (
+        mcKeyboardState.taskId === taskId &&
+        mcKeyboardState.questionIndex >= 0 &&
+        digit <= task.questions[mcKeyboardState.questionIndex].opts.length
+      ) {
+        event.preventDefault();
+        setRadioValue(prefix + "_q_" + mcKeyboardState.questionIndex, String(digit - 1));
+        updateAnsweredCount(taskId);
+        syncCheckButton(taskId);
+        return;
+      }
+
+      var questionCandidates = task.questions.map(function (question) {
+        return String(parseInt(String(question.q).trim(), 10));
+      });
+      var questionResult = pushTaskDigitBuffer(taskId, digit, questionCandidates, function (_num) {
+        var index = questionCandidates.indexOf(String(_num));
+        if (index >= 0) setActiveReadingMcQuestion(taskId, index);
+      });
+      if (questionResult !== "none") event.preventDefault();
+    }
+  }
+
   function loadScores(topicId) {
     try {
       var raw = localStorage.getItem(STORAGE_KEY);
@@ -3719,39 +954,76 @@ body.yap-brand .site-author__promo a {
     return group;
   }
 
-  function updateAnsweredCount(taskId) {
-    var countEl = document.getElementById("answered-" + taskId);
-    var checkBtn = document.getElementById("check-" + taskId);
-    var task = findTask(taskId);
-    if (!task || task.type !== "mc" || isVocabCloze(task)) return;
+  function setCheckGateHint(taskId, message) {
+    var hint = document.getElementById("check-hint-" + taskId);
+    if (!hint) return;
+    if (message) {
+      hint.textContent = message;
+      hint.hidden = false;
+    } else {
+      hint.textContent = "";
+      hint.hidden = true;
+    }
+  }
 
+  function showTopicLoading() {
+    var panels = document.getElementById("egePanels");
+    var page = document.getElementById("egePage");
+    if (panels) {
+      panels.setAttribute("aria-busy", "true");
+      panels.innerHTML = '<p class="ege-loading" id="egeTopicLoading">Loading…</p>';
+    }
+    if (page) page.setAttribute("aria-busy", "true");
+  }
+
+  function clearTopicLoading() {
+    var panels = document.getElementById("egePanels");
+    var page = document.getElementById("egePage");
+    if (panels) panels.removeAttribute("aria-busy");
+    if (page) page.removeAttribute("aria-busy");
+  }
+
+  function isTaskFullyAnswered(taskId) {
+    var task = findTask(taskId);
+    if (!task) return false;
     var prefix = taskPrefix(taskId);
-    var total = task.questions.length;
-    var answered = 0;
-    task.questions.forEach(function (_question, index) {
-      if (getCheckedValue(prefix + "_q_" + index)) answered += 1;
-    });
+
+    if (task.type === "mc") {
+      return (task.questions || []).every(function (_question, index) {
+        return getCheckedValue(prefix + "_q_" + index) !== "";
+      });
+    }
+
+    if (task.type === "matching") return allMatchingFilled(taskId);
+
+    if (task.type === "gapfill") {
+      return (task.gaps || []).every(function (gap) {
+        return getCheckedValue(prefix + "_gap_" + gap) !== "";
+      });
+    }
+
+    if (task.type === "wordform") return allWordformFilled(taskId);
+
+    return false;
+  }
+
+  function syncCheckButton(taskId) {
+    var checkBtn = document.getElementById("check-" + taskId);
+    if (!checkBtn) return;
+    var task = findTask(taskId);
+    if (!task || task.type === "listening") return;
 
     var taskEl = document.getElementById("task-" + taskId);
     var revealed = taskEl && taskEl.dataset.answersRevealed === "1";
-    var allAnswered = answered === total;
-    var ready = allAnswered && !revealed;
+    var ready = isTaskFullyAnswered(taskId) && !revealed;
 
-    if (checkBtn) {
-      checkBtn.hidden = !ready;
-      checkBtn.disabled = !ready;
-      checkBtn.title = ready ? "" : "Answer all questions first";
-    }
+    checkBtn.hidden = !ready;
+    checkBtn.disabled = !ready;
+    checkBtn.title = ready ? "" : "Answer all questions first";
+  }
 
-    if (!countEl) return;
-    countEl.textContent = "Answered " + answered + " / " + total;
-    var scoreEl = document.getElementById("score-" + taskId);
-    var hide =
-      allAnswered ||
-      revealed ||
-      (scoreEl && !scoreEl.hidden);
-    countEl.hidden = false;
-    countEl.style.visibility = hide ? "hidden" : "visible";
+  function updateAnsweredCount(taskId) {
+    syncCheckButton(taskId);
   }
 
   function syncMcChoiceGroup(group) {
@@ -3772,6 +1044,8 @@ body.yap-brand .site-author__promo a {
         syncListeningMcFooterUI(tid);
       }
     }
+    var vocabPicks = group.closest(".ege-vocab-picks");
+    if (vocabPicks && vocabPicks.syncInserts) vocabPicks.syncInserts();
     if (work) work.scrollTop = scrollTop;
   }
 
@@ -3789,6 +1063,7 @@ body.yap-brand .site-author__promo a {
       input.name = name;
       input.value = String(optIndex);
       input.dataset.wasChecked = "0";
+      input.autocomplete = "off";
       input.addEventListener("click", function () {
         if (input.dataset.wasChecked === "1") {
           input.checked = false;
@@ -3828,6 +1103,80 @@ body.yap-brand .site-author__promo a {
     return wrap;
   }
 
+  function wirePickableRefList(list, onPick, itemLabel) {
+    if (!list) return;
+    list.classList.add("ege-ref__list--pickable");
+    list.querySelectorAll("li").forEach(function (li, index) {
+      var num = index + 1;
+      li.dataset.value = String(num);
+      li.setAttribute("role", "button");
+      li.tabIndex = 0;
+      li.setAttribute("aria-label", (itemLabel || "Option") + " " + num);
+      li.addEventListener("click", function () {
+        onPick(num);
+      });
+      li.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        onPick(num);
+      });
+    });
+  }
+
+  function buildAnswerTrack(slots, onSelect) {
+    var track = document.createElement("div");
+    track.className = "ege-answer-track";
+    track.setAttribute("aria-label", "Your answers");
+
+    var row = document.createElement("div");
+    row.className = "ege-answer-track__row";
+
+    slots.forEach(function (slot) {
+      var cell = document.createElement("div");
+      cell.className = "ege-answer-track__cell";
+      cell.dataset.slot = String(slot.id);
+
+      var slotEl = document.createElement("span");
+      slotEl.className = "ege-answer-track__slot";
+      slotEl.textContent = slot.label;
+
+      var valEl = document.createElement("span");
+      valEl.className = "ege-answer-track__val";
+      cell.appendChild(slotEl);
+      cell.appendChild(valEl);
+
+      if (onSelect) {
+        cell.setAttribute("role", "button");
+        cell.tabIndex = 0;
+        cell.setAttribute("aria-label", "Select " + slot.label);
+        cell.addEventListener("click", function () {
+          onSelect(slot.id);
+        });
+        cell.addEventListener("keydown", function (event) {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          onSelect(slot.id);
+        });
+      }
+
+      row.appendChild(cell);
+    });
+
+    track.appendChild(row);
+    return track;
+  }
+
+  function getAnswerTrackCell(taskId, slotId) {
+    var taskEl = document.getElementById("task-" + taskId);
+    if (!taskEl) return null;
+    return taskEl.querySelector('.ege-answer-track__cell[data-slot="' + slotId + '"]');
+  }
+
+  function getMatchingTextBlock(taskId, letter) {
+    var root = document.querySelector("#task-" + taskId + " .ege-match-texts");
+    return root ? root.querySelector('[data-letter="' + letter + '"]') : null;
+  }
+
   function buildPanel(label, content, extraClass) {
     var panel = document.createElement("div");
     panel.className = "ege-panel" + (extraClass ? " " + extraClass : "");
@@ -3846,22 +1195,27 @@ body.yap-brand .site-author__promo a {
     var prefix = topicId + "_" + task.id;
     var read = document.createElement("div");
     read.className = "ege-match-read";
-    read.appendChild(buildRefStrip("Headings", task.headings));
+
+    var refStrip = buildRefStrip("Headings", task.headings);
+    var refList = refStrip.querySelector(".ege-ref__list");
+    read.appendChild(refStrip);
+
+    var track = buildAnswerTrack(
+      task.texts.map(function (item) {
+        return { id: item.letter, label: item.letter };
+      }),
+      null
+    );
+    read.appendChild(track);
 
     var picks = document.createElement("div");
-    picks.className = "ege-match-picks";
-    picks.setAttribute("aria-label", "Match each text to a heading number");
+    picks.className = "ege-match-picks ege-picks-controller";
+    picks.setAttribute("aria-hidden", "true");
 
     var hidden = document.createElement("div");
     hidden.className = "ege-match-hidden";
 
-    var lettersRow = document.createElement("div");
-    lettersRow.className = "ege-match-letters";
-
-    var numbersRow = document.createElement("div");
-    numbersRow.className = "ege-match-numbers";
-
-    var activeLetter = task.texts[0].letter;
+    var activeLetter = "";
 
     function radioName(letter) {
       return prefix + "_" + letter;
@@ -3872,11 +1226,17 @@ body.yap-brand .site-author__promo a {
     }
 
     function clearLetterMarks(letter) {
-      var btn = lettersRow.querySelector('[data-letter="' + letter + '"]');
-      if (btn) btn.classList.remove("is-correct", "is-wrong", "is-empty");
-      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (numBtn) {
-        numBtn.classList.remove("is-correct", "is-wrong");
-      });
+      if (textsRoot) {
+        var block = textsRoot.querySelector('[data-letter="' + letter + '"]');
+        if (block) block.classList.remove("is-correct", "is-wrong", "is-empty");
+      }
+      if (refList) {
+        refList.querySelectorAll("li").forEach(function (li) {
+          li.classList.remove("is-correct", "is-wrong");
+        });
+      }
+      var cell = track.querySelector('[data-slot="' + letter + '"]');
+      if (cell) cell.classList.remove("is-correct", "is-wrong", "is-empty");
     }
 
     function syncActiveText() {
@@ -3886,43 +1246,54 @@ body.yap-brand .site-author__promo a {
       });
     }
 
+    function syncTextBlocks() {
+      if (!textsRoot) return;
+      textsRoot.querySelectorAll(".ege-text-block").forEach(function (block) {
+        var letter = block.dataset.letter;
+        var val = getCheckedValue(radioName(letter));
+        block.classList.toggle("is-used", !!val);
+      });
+    }
+
+    function syncTrack() {
+      track.querySelectorAll(".ege-answer-track__cell").forEach(function (cell) {
+        var letter = cell.dataset.slot;
+        var val = getCheckedValue(radioName(letter));
+        var valEl = cell.querySelector(".ege-answer-track__val");
+        if (valEl) valEl.textContent = val || "";
+        cell.classList.toggle("is-filled", !!val);
+        cell.classList.toggle("is-active", letter === activeLetter);
+      });
+    }
+
     function syncNumberRow() {
-      var value = getCheckedValue(radioName(activeLetter));
-      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
-        btn.classList.toggle("is-selected", btn.dataset.value === value);
-        btn.classList.remove("is-correct", "is-wrong");
+      var value = activeLetter ? getCheckedValue(radioName(activeLetter)) : "";
+      if (!refList) return;
+      refList.querySelectorAll("li").forEach(function (li, index) {
+        li.classList.toggle("is-selected", li.dataset.value === value);
+        li.classList.remove("is-correct", "is-wrong");
       });
     }
 
     function syncUsedState() {
       var usedNumbers = {};
-      lettersRow.querySelectorAll(".ege-match-pill--letter").forEach(function (btn) {
-        var val = getCheckedValue(radioName(btn.dataset.letter));
-        btn.classList.toggle("is-used", !!val);
+      task.texts.forEach(function (item) {
+        var val = getCheckedValue(radioName(item.letter));
         if (val) usedNumbers[val] = true;
       });
 
-      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
-        btn.classList.toggle("is-used", !!usedNumbers[btn.dataset.value]);
-      });
-
-      var list = read.querySelector(".ege-ref__list");
-      if (list) {
-        list.querySelectorAll("li").forEach(function (li, index) {
-          li.classList.toggle("is-used", !!usedNumbers[String(index + 1)]);
+      if (refList) {
+        refList.querySelectorAll("li").forEach(function (li) {
+          li.classList.toggle("is-used", !!usedNumbers[li.dataset.value]);
         });
       }
-    }
 
-    function setLetterPick(letter, num) {
-      var btn = lettersRow.querySelector('[data-letter="' + letter + '"]');
-      var pickEl = btn && btn.querySelector(".ege-match-letter__pick");
-      if (pickEl) pickEl.textContent = num ? String(num) : "";
+      syncTextBlocks();
+      syncTrack();
     }
 
     function clearLetter(letter) {
       clearChoiceGroup(radioName(letter));
-      setLetterPick(letter, "");
       clearLetterMarks(letter);
       if (letter === activeLetter) syncNumberRow();
       syncUsedState();
@@ -3944,6 +1315,12 @@ body.yap-brand .site-author__promo a {
     }
 
     function assignNumber(num) {
+      if (!activeLetter) {
+        var first = nextEmptyLetter("");
+        if (!first && task.texts.length) first = task.texts[0].letter;
+        if (first) setActiveLetter(first);
+      }
+      if (!activeLetter) return;
       var current = getCheckedValue(radioName(activeLetter));
       if (current === String(num)) {
         clearLetter(activeLetter);
@@ -3954,13 +1331,11 @@ body.yap-brand .site-author__promo a {
         if (item.letter === activeLetter) return;
         if (getCheckedValue(radioName(item.letter)) === String(num)) {
           clearChoiceGroup(radioName(item.letter));
-          setLetterPick(item.letter, "");
           clearLetterMarks(item.letter);
         }
       });
 
       setRadioValue(radioName(activeLetter), num);
-      setLetterPick(activeLetter, num);
       clearLetterMarks(activeLetter);
       hideScoreFeedback(task.id);
       syncNumberRow();
@@ -3969,36 +1344,33 @@ body.yap-brand .site-author__promo a {
 
       var next = nextEmptyLetter(activeLetter);
       if (next !== activeLetter) setActiveLetter(next);
-      else syncNumberRow();
     }
 
     function setActiveLetter(letter) {
-      activeLetter = letter;
-      lettersRow.querySelectorAll(".ege-match-pill--letter").forEach(function (btn) {
-        btn.classList.toggle("is-active", btn.dataset.letter === letter);
-      });
+      activeLetter = letter || "";
       syncActiveText();
       syncNumberRow();
+      syncTrack();
     }
 
-    task.texts.forEach(function (item, index) {
+    function activateTextBlock(letter) {
+      if (letter === activeLetter) {
+        if (getCheckedValue(radioName(letter))) {
+          clearLetter(letter);
+        } else {
+          setActiveLetter("");
+        }
+        return;
+      }
+      setActiveLetter(letter);
+    }
+
+    task.texts.forEach(function (item) {
       hidden.appendChild(
         buildChoiceGroup(radioName(item.letter), task.headings.length, {
           label: "Heading for text " + item.letter,
         })
       );
-
-      var letterBtn = document.createElement("button");
-      letterBtn.type = "button";
-      letterBtn.className =
-        "ege-match-pill ege-match-pill--letter" + (index === 0 ? " is-active" : "");
-      letterBtn.dataset.letter = item.letter;
-      letterBtn.innerHTML =
-        item.letter + ' <span class="ege-match-letter__pick"></span>';
-      letterBtn.addEventListener("click", function () {
-        setActiveLetter(item.letter);
-      });
-      lettersRow.appendChild(letterBtn);
     });
 
     if (textsRoot) {
@@ -4007,36 +1379,33 @@ body.yap-brand .site-author__promo a {
         block.tabIndex = 0;
         block.setAttribute("aria-label", "Select text " + block.dataset.letter);
         block.addEventListener("click", function () {
-          setActiveLetter(block.dataset.letter);
+          activateTextBlock(block.dataset.letter);
         });
         block.addEventListener("keydown", function (event) {
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
-          setActiveLetter(block.dataset.letter);
+          activateTextBlock(block.dataset.letter);
         });
       });
     }
 
-    optionRange(task.headings.length).forEach(function (num) {
-      var numBtn = document.createElement("button");
-      numBtn.type = "button";
-      numBtn.className = "ege-match-pill ege-match-pill--num";
-      numBtn.dataset.value = String(num);
-      numBtn.textContent = String(num);
-      numBtn.addEventListener("click", function () {
-        assignNumber(num);
+    task.texts.forEach(function (item) {
+      var cell = track.querySelector('[data-slot="' + item.letter + '"]');
+      if (!cell) return;
+      cell.setAttribute("role", "button");
+      cell.tabIndex = 0;
+      cell.setAttribute("aria-label", "Select text " + item.letter);
+      cell.addEventListener("click", function () {
+        activateTextBlock(item.letter);
       });
-      numbersRow.appendChild(numBtn);
+      cell.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        activateTextBlock(item.letter);
+      });
     });
 
-    var clearBtn = document.createElement("button");
-    clearBtn.type = "button";
-    clearBtn.className = "ege-match-pill ege-match-pill--clear";
-    clearBtn.textContent = "Clear";
-    clearBtn.setAttribute("aria-label", "Clear selected text match");
-    clearBtn.addEventListener("click", function () {
-      clearLetter(activeLetter);
-    });
+    wirePickableRefList(refList, assignNumber, "Heading");
 
     picks.dataset.taskId = task.id;
     picks.syncUsedState = syncUsedState;
@@ -4044,13 +1413,11 @@ body.yap-brand .site-author__promo a {
     picks.setActiveLetter = setActiveLetter;
     picks.assignNumber = assignNumber;
     picks.clearLetter = clearLetter;
+    picks.activateLetter = activateTextBlock;
     picks.getActiveLetter = function () {
       return activeLetter;
     };
 
-    picks.appendChild(lettersRow);
-    picks.appendChild(numbersRow);
-    picks.appendChild(clearBtn);
     picks.appendChild(hidden);
     read.appendChild(picks);
     syncActiveText();
@@ -4069,13 +1436,7 @@ body.yap-brand .site-author__promo a {
   }
 
   function syncMatchingCheckEnabled(taskId) {
-    var checkBtn = document.getElementById("check-" + taskId);
-    if (!checkBtn || checkBtn.hidden) return;
-    var task = findTask(taskId);
-    if (!task || task.type !== "matching") return;
-    var ready = allMatchingFilled(taskId);
-    checkBtn.disabled = !ready;
-    checkBtn.title = ready ? "" : "Match all texts first";
+    syncCheckButton(taskId);
   }
 
   function buildMatchingScoreLines(taskId, task, opts) {
@@ -4099,22 +1460,24 @@ body.yap-brand .site-author__promo a {
     return lines;
   }
 
-  function buildGapfillPicker(task, topicId, inserts) {
+  function buildGapfillPicker(task, topicId, inserts, refList) {
     var prefix = topicId + "_" + task.id;
+
+    var track = buildAnswerTrack(
+      task.gaps.map(function (gap) {
+        return { id: gap, label: gap };
+      }),
+      null
+    );
+
     var picks = document.createElement("div");
-    picks.className = "ege-gap-picks";
-    picks.setAttribute("aria-label", "Fill each gap with a sentence part");
+    picks.className = "ege-gap-picks ege-picks-controller";
+    picks.setAttribute("aria-hidden", "true");
 
     var hidden = document.createElement("div");
     hidden.className = "ege-match-hidden";
 
-    var lettersRow = document.createElement("div");
-    lettersRow.className = "ege-match-letters";
-
-    var numbersRow = document.createElement("div");
-    numbersRow.className = "ege-match-numbers";
-
-    var activeGap = task.gaps[0];
+    var activeGap = "";
 
     function radioName(gap) {
       return prefix + "_gap_" + gap;
@@ -4140,46 +1503,59 @@ body.yap-brand .site-author__promo a {
       }
     }
 
+    function syncActiveGap() {
+      task.gaps.forEach(function (gap) {
+        var insert = getGapInsert(task.id, gap) || inserts[gap];
+        if (insert) insert.classList.toggle("is-active", gap === activeGap);
+      });
+    }
+
     function syncNumberRow() {
-      var value = getCheckedValue(radioName(activeGap));
-      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
-        btn.classList.toggle("is-selected", btn.dataset.value === value);
-        btn.classList.remove("is-correct", "is-wrong");
+      var value = activeGap ? getCheckedValue(radioName(activeGap)) : "";
+      if (!refList) return;
+      refList.querySelectorAll("li").forEach(function (li) {
+        li.classList.toggle("is-selected", li.dataset.value === value);
+        li.classList.remove("is-correct", "is-wrong");
+      });
+    }
+
+    function syncTrack() {
+      track.querySelectorAll(".ege-answer-track__cell").forEach(function (cell) {
+        var gap = cell.dataset.slot;
+        var val = getCheckedValue(radioName(gap));
+        var valEl = cell.querySelector(".ege-answer-track__val");
+        if (valEl) valEl.textContent = val || "";
+        cell.classList.toggle("is-filled", !!val);
+        cell.classList.toggle("is-active", gap === activeGap);
       });
     }
 
     function syncUsedState() {
       var usedNumbers = {};
-      lettersRow.querySelectorAll(".ege-match-pill--gap").forEach(function (btn) {
-        var gap = btn.dataset.gap;
+      task.gaps.forEach(function (gap) {
         var val = getCheckedValue(radioName(gap));
-        btn.classList.toggle("is-used", !!val);
-        var pickEl = btn.querySelector(".ege-gap-pick");
-        if (pickEl) pickEl.textContent = val || "";
         if (val) usedNumbers[val] = true;
       });
 
-      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
-        btn.classList.toggle("is-used", !!usedNumbers[btn.dataset.value]);
-      });
-
-      var ref = picks.closest(".ege-split") || picks.closest(".ege-task");
-      var list = ref && ref.querySelector(".ege-ref__list");
-      if (list) {
-        list.querySelectorAll("li").forEach(function (li, index) {
-          li.classList.toggle("is-used", !!usedNumbers[String(index + 1)]);
+      if (refList) {
+        refList.querySelectorAll("li").forEach(function (li) {
+          li.classList.toggle("is-used", !!usedNumbers[li.dataset.value]);
         });
       }
+
+      syncTrack();
     }
 
     function clearGapMarks(gap) {
       var insert = getGapInsert(task.id, gap) || inserts[gap];
       if (insert) insert.classList.remove("is-correct", "is-wrong");
-      var gapBtn = lettersRow.querySelector('[data-gap="' + gap + '"]');
-      if (gapBtn) gapBtn.classList.remove("is-correct", "is-wrong");
-      numbersRow.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
-        btn.classList.remove("is-correct", "is-wrong");
-      });
+      if (refList) {
+        refList.querySelectorAll("li").forEach(function (li) {
+          li.classList.remove("is-correct", "is-wrong");
+        });
+      }
+      var cell = track.querySelector('[data-slot="' + gap + '"]');
+      if (cell) cell.classList.remove("is-correct", "is-wrong", "is-empty");
     }
 
     function clearGap(gap) {
@@ -4188,100 +1564,147 @@ body.yap-brand .site-author__promo a {
       clearGapMarks(gap);
       if (gap === activeGap) syncNumberRow();
       syncUsedState();
+      syncCheckButton(task.id);
+    }
+
+    function nextEmptyGap(fromGap) {
+      var start = task.gaps.indexOf(fromGap);
+      if (start < 0) start = 0;
+      for (var i = 1; i <= task.gaps.length; i += 1) {
+        var gap = task.gaps[(start + i) % task.gaps.length];
+        if (!getCheckedValue(radioName(gap))) return gap;
+      }
+      return fromGap || task.gaps[0];
     }
 
     function assignNumber(num) {
+      if (!activeGap) {
+        var first = nextEmptyGap("");
+        if (first) setActiveGap(first);
+      }
+      if (!activeGap) return;
       var current = getCheckedValue(radioName(activeGap));
       if (current === String(num)) {
         clearGap(activeGap);
         return;
       }
+
+      task.gaps.forEach(function (gap) {
+        if (gap === activeGap) return;
+        if (getCheckedValue(radioName(gap)) === String(num)) {
+          clearChoiceGroup(radioName(gap));
+          updateInsert(gap, null);
+          clearGapMarks(gap);
+        }
+      });
+
       setRadioValue(radioName(activeGap), num);
       updateInsert(activeGap, String(num));
       clearGapMarks(activeGap);
       syncNumberRow();
       syncUsedState();
+      syncCheckButton(task.id);
+
+      var next = nextEmptyGap(activeGap);
+      if (next !== activeGap) setActiveGap(next);
     }
 
     function setActiveGap(gap) {
-      activeGap = gap;
-      lettersRow.querySelectorAll(".ege-match-pill--gap").forEach(function (btn) {
-        btn.classList.toggle("is-active", btn.dataset.gap === gap);
-      });
+      activeGap = gap || "";
+      syncActiveGap();
       syncNumberRow();
+      syncTrack();
     }
 
-    task.gaps.forEach(function (gap, index) {
+    function activateGapInsert(gap) {
+      if (gap === activeGap) {
+        if (getCheckedValue(radioName(gap))) {
+          clearGap(gap);
+        } else {
+          setActiveGap("");
+        }
+        return;
+      }
+      setActiveGap(gap);
+    }
+
+    task.gaps.forEach(function (gap) {
       hidden.appendChild(
         buildChoiceGroup(radioName(gap), task.options.length, {
           label: "Sentence part for gap " + gap,
         })
       );
 
-      var gapBtn = document.createElement("button");
-      gapBtn.type = "button";
-      gapBtn.className =
-        "ege-match-pill ege-match-pill--gap" + (index === 0 ? " is-active" : "");
-      gapBtn.dataset.gap = gap;
-      gapBtn.innerHTML = gap + ' <span class="ege-gap-pick"></span>';
-      gapBtn.addEventListener("click", function () {
-        setActiveGap(gap);
+      var insert = inserts[gap];
+      if (!insert) return;
+      insert.setAttribute("role", "button");
+      insert.tabIndex = 0;
+      insert.setAttribute("aria-label", "Select gap " + gap);
+      insert.addEventListener("click", function () {
+        activateGapInsert(gap);
       });
-      lettersRow.appendChild(gapBtn);
-    });
-
-    var clearBtn = document.createElement("button");
-    clearBtn.type = "button";
-    clearBtn.className = "ege-match-pill ege-match-pill--clear";
-    clearBtn.textContent = "Clear";
-    clearBtn.setAttribute("aria-label", "Clear selected gap");
-    clearBtn.addEventListener("click", function () {
-      clearGap(activeGap);
-    });
-
-    optionRange(task.options.length).forEach(function (num) {
-      var numBtn = document.createElement("button");
-      numBtn.type = "button";
-      numBtn.className = "ege-match-pill ege-match-pill--num";
-      numBtn.dataset.value = String(num);
-      numBtn.textContent = String(num);
-      numBtn.addEventListener("click", function () {
-        assignNumber(num);
+      insert.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        activateGapInsert(gap);
       });
-      numbersRow.appendChild(numBtn);
     });
 
-    picks.appendChild(lettersRow);
-    picks.appendChild(numbersRow);
-    picks.appendChild(clearBtn);
+    wirePickableRefList(refList, assignNumber, "Sentence part");
+
+    task.gaps.forEach(function (gap) {
+      var cell = track.querySelector('[data-slot="' + gap + '"]');
+      if (!cell) return;
+      cell.setAttribute("role", "button");
+      cell.tabIndex = 0;
+      cell.setAttribute("aria-label", "Select gap " + gap);
+      cell.addEventListener("click", function () {
+        activateGapInsert(gap);
+      });
+      cell.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        activateGapInsert(gap);
+      });
+    });
+
     picks.appendChild(hidden);
+    picks.dataset.taskId = task.id;
     picks.syncUsedState = syncUsedState;
     picks.syncNumberRow = syncNumberRow;
     picks.updateInsert = updateInsert;
     picks.clearGap = clearGap;
+    picks.setActiveGap = setActiveGap;
+    picks.assignNumber = assignNumber;
+    picks.activateGap = activateGapInsert;
+    picks.activateLetter = activateGapInsert;
+    picks.getActiveGap = function () {
+      return activeGap;
+    };
     picks.inserts = inserts;
     syncUsedState();
+    syncActiveGap();
 
-    return picks;
+    return { picks: picks, track: track };
   }
 
   function buildVocabClozePicker(task, topicId, inserts) {
     var prefix = topicId + "_" + task.id;
+    var activeGapNum = "";
+
     var picks = document.createElement("div");
-    picks.className = "ege-gap-picks ege-vocab-picks";
+    picks.className = "ege-mc-stack ege-vocab-picks";
     picks.setAttribute("aria-label", "Choose a word for each gap");
-
-    var hidden = document.createElement("div");
-    hidden.className = "ege-match-hidden";
-
-    var gapsRow = document.createElement("div");
-    gapsRow.className = "ege-match-letters";
-
-    var wordsRow = document.createElement("div");
-    wordsRow.className = "ege-match-words";
 
     function radioName(index) {
       return prefix + "_q_" + index;
+    }
+
+    function questionIndexForGap(gapNum) {
+      for (var i = 0; i < task.questions.length; i += 1) {
+        if (vocabGapNum(task.questions[i]) === String(gapNum)) return i;
+      }
+      return -1;
     }
 
     function updateInsert(gapNum, word) {
@@ -4303,84 +1726,128 @@ body.yap-brand .site-author__promo a {
       }
     }
 
-    function syncWordsRow(index) {
-      var name = radioName(index);
-      var value = getCheckedValue(name);
-      wordsRow.querySelectorAll(".ege-match-pill--word").forEach(function (btn) {
-        btn.classList.toggle("is-selected", btn.dataset.value === value);
-        btn.classList.remove("is-correct", "is-wrong");
+    function syncActiveGap() {
+      task.questions.forEach(function (question) {
+        var gapNum = vocabGapNum(question);
+        var insert = getGapInsert(task.id, gapNum) || inserts[gapNum];
+        if (insert) insert.classList.toggle("is-active", gapNum === activeGapNum);
       });
     }
 
-    function renderWordsRow(index) {
-      var question = task.questions[index];
-      wordsRow.textContent = "";
-      question.opts.forEach(function (opt, optIndex) {
-        var wordBtn = document.createElement("button");
-        wordBtn.type = "button";
-        wordBtn.className = "ege-match-pill ege-match-pill--word";
-        wordBtn.dataset.value = String(optIndex);
-        wordBtn.textContent = opt;
-        wordBtn.addEventListener("click", function () {
-          assignWord(index, optIndex);
-        });
-        wordsRow.appendChild(wordBtn);
+    function syncActiveCard() {
+      picks.querySelectorAll(".ege-mc-card").forEach(function (card) {
+        card.classList.toggle("is-active", card.dataset.gap === activeGapNum);
       });
-      syncWordsRow(index);
     }
 
-    function syncGapButtons() {
-      gapsRow.querySelectorAll(".ege-match-pill--gap").forEach(function (btn, index) {
-        var name = radioName(index);
-        var value = getCheckedValue(name);
-        var question = task.questions[index];
-        btn.classList.toggle("is-used", value !== "");
-        var pickEl = btn.querySelector(".ege-gap-pick");
-        if (pickEl) {
-          pickEl.textContent = value !== "" ? question.opts[parseInt(value, 10)] : "";
+    function syncInserts() {
+      task.questions.forEach(function (question, index) {
+        var value = getCheckedValue(radioName(index));
+        var word = value === "" ? "" : question.opts[parseInt(value, 10)] || "";
+        updateInsert(vocabGapNum(question), word);
+      });
+      syncCheckButton(task.id);
+      if (activeGapNum) {
+        var activeIndex = questionIndexForGap(activeGapNum);
+        if (activeIndex >= 0 && getCheckedValue(radioName(activeIndex))) {
+          var next = nextEmptyGap(activeGapNum);
+          if (next !== activeGapNum) setActiveGap(next);
         }
-      });
+      }
     }
 
-    function assignWord(index, optIndex) {
-      setRadioValue(radioName(index), optIndex);
-      var question = task.questions[index];
-      updateInsert(vocabGapNum(question), question.opts[optIndex]);
-      syncWordsRow(index);
-      syncGapButtons();
+    function setActiveGap(gapNum) {
+      activeGapNum = gapNum || "";
+      syncActiveGap();
+      syncActiveCard();
+      if (!activeGapNum) return;
+      var card = picks.querySelector('[data-gap="' + activeGapNum + '"]');
+      if (card) card.scrollIntoView({ block: "nearest" });
     }
 
-    function setActiveIndex(index) {
-      gapsRow.querySelectorAll(".ege-match-pill--gap").forEach(function (btn, btnIndex) {
-        btn.classList.toggle("is-active", btnIndex === index);
-      });
-      renderWordsRow(index);
+    function clearGapAnswer(gapNum) {
+      var index = questionIndexForGap(gapNum);
+      if (index < 0) return;
+      clearChoiceGroup(radioName(index));
+      updateInsert(gapNum, "");
+      var insert = getGapInsert(task.id, gapNum) || inserts[gapNum];
+      if (insert) insert.classList.remove("is-correct", "is-wrong");
+      syncInserts();
     }
+
+    function activateGapInsert(gapNum) {
+      if (gapNum === activeGapNum) {
+        var index = questionIndexForGap(gapNum);
+        if (index >= 0 && getCheckedValue(radioName(index))) {
+          clearGapAnswer(gapNum);
+        } else {
+          setActiveGap("");
+        }
+        return;
+      }
+      setActiveGap(gapNum);
+    }
+
+    function nextEmptyGap(fromGapNum) {
+      var start = questionIndexForGap(fromGapNum);
+      if (start < 0) start = 0;
+      for (var i = 1; i <= task.questions.length; i += 1) {
+        var index = (start + i) % task.questions.length;
+        if (!getCheckedValue(radioName(index))) {
+          return vocabGapNum(task.questions[index]);
+        }
+      }
+      return fromGapNum || vocabGapNum(task.questions[0]);
+    }
+
+    picks.syncInserts = syncInserts;
+    picks.setActiveGap = setActiveGap;
+    picks.getActiveGap = function () {
+      return activeGapNum;
+    };
 
     task.questions.forEach(function (question, index) {
-      hidden.appendChild(buildMcChoiceGroup(radioName(index), question.opts, "Gap " + question.q));
+      var block = document.createElement("div");
+      block.className = "ege-mc-card";
+      block.id = prefix + "_q_" + index;
+      block.dataset.gap = vocabGapNum(question);
 
-      var gapBtn = document.createElement("button");
-      gapBtn.type = "button";
-      gapBtn.className =
-        "ege-match-pill ege-match-pill--gap" + (index === 0 ? " is-active" : "");
-      gapBtn.dataset.gap = vocabGapNum(question);
-      gapBtn.dataset.index = String(index);
-      gapBtn.innerHTML = vocabGapNum(question) + ' <span class="ege-gap-pick"></span>';
-      gapBtn.addEventListener("click", function () {
-        setActiveIndex(index);
+      var prompt = document.createElement("p");
+      prompt.className = "ege-mc__prompt";
+      prompt.textContent = question.q;
+      block.appendChild(prompt);
+      block.appendChild(buildMcChoiceGroup(radioName(index), question.opts, question.q));
+      block.addEventListener("click", function () {
+        setActiveGap(block.dataset.gap);
       });
-      gapsRow.appendChild(gapBtn);
+      picks.appendChild(block);
     });
 
-    picks.appendChild(gapsRow);
-    picks.appendChild(wordsRow);
-    picks.appendChild(hidden);
-    picks.syncGapButtons = syncGapButtons;
-    picks.renderWordsRow = renderWordsRow;
-    picks.syncWordsRow = syncWordsRow;
-    renderWordsRow(0);
-    syncGapButtons();
+    Object.keys(inserts).forEach(function (gapNum) {
+      var insert = inserts[gapNum];
+      if (!insert) return;
+      insert.setAttribute("role", "button");
+      insert.tabIndex = 0;
+      insert.setAttribute("aria-label", "Select gap " + gapNum);
+      insert.addEventListener("click", function (event) {
+        event.stopPropagation();
+        activateGapInsert(gapNum);
+      });
+      insert.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        activateGapInsert(gapNum);
+      });
+    });
+
+    picks.addEventListener("change", function (event) {
+      var card = event.target.closest(".ege-mc-card");
+      if (card) setActiveGap(card.dataset.gap);
+    });
+
+    syncInserts();
+    syncActiveGap();
+    syncActiveCard();
 
     return picks;
   }
@@ -4440,6 +1907,7 @@ body.yap-brand .site-author__promo a {
   function renderMatching(task, topicId) {
     var max = taskMaxScore(task);
     var wrap = buildTaskArticle(task);
+    wrap.classList.add("ege-task--matching");
 
     var texts = document.createElement("div");
     texts.className = "ege-match-texts";
@@ -4459,7 +1927,10 @@ body.yap-brand .site-author__promo a {
       )
     );
     wrap.appendChild(
-      buildTaskFooter(task.id, max, { showAnswers: true, gateCheck: true })
+      buildTaskFooter(task.id, max, {
+        showAnswers: true,
+        gateCheck: true,
+      })
     );
     return wrap;
   }
@@ -4467,6 +1938,7 @@ body.yap-brand .site-author__promo a {
   function renderGapfill(task, topicId) {
     var max = taskMaxScore(task);
     var wrap = buildTaskArticle(task);
+    wrap.classList.add("ege-task--gapfill");
 
     var text = document.createElement("div");
     text.className = "ege-passage ege-gapfill-passage";
@@ -4479,15 +1951,20 @@ body.yap-brand .site-author__promo a {
       })
     );
 
+    var refStrip = buildRefStrip("Sentence parts", task.options);
+    var refList = refStrip.querySelector(".ege-ref__list");
+
     var side = document.createElement("div");
     side.className = "ege-sidebar-work";
-    side.appendChild(buildRefStrip("Sentence parts", task.options));
-    side.appendChild(buildGapfillPicker(task, topicId, inserts));
+    var picker = buildGapfillPicker(task, topicId, inserts, refList);
+    side.appendChild(refStrip);
+    side.appendChild(picker.track);
+    side.appendChild(picker.picks);
 
     wrap.appendChild(
       buildSplit(
-        buildPanel("Text", text, "ege-panel--read"),
-        buildPanel("Gaps", side, "ege-panel--work"),
+        buildPanel("", text, "ege-panel--read"),
+        buildPanel("", side, "ege-panel--work"),
         "ege-split--panels"
       )
     );
@@ -4498,6 +1975,7 @@ body.yap-brand .site-author__promo a {
   function renderVocabCloze(task, topicId) {
     var max = taskMaxScore(task);
     var wrap = buildTaskArticle(task);
+    wrap.classList.add("ege-task--vocab");
 
     var html = task.passage;
     task.questions.forEach(function (question) {
@@ -4517,10 +1995,15 @@ body.yap-brand .site-author__promo a {
       })
     );
 
+    var picker = buildVocabClozePicker(task, topicId, inserts);
+    var side = document.createElement("div");
+    side.className = "ege-sidebar-work";
+    side.appendChild(picker);
+
     wrap.appendChild(
       buildSplit(
-        buildPanel("Text", passage, "ege-panel--read"),
-        buildPanel("Gaps", buildVocabClozePicker(task, topicId, inserts), "ege-panel--work"),
+        buildPanel("", passage, "ege-panel--read"),
+        buildPanel("", side, "ege-panel--work"),
         "ege-split--panels"
       )
     );
@@ -4556,42 +2039,42 @@ body.yap-brand .site-author__promo a {
       passage.className = "ege-passage";
       passage.innerHTML = task.passage;
 
-      var readCol = document.createElement("div");
-      readCol.className = "ege-read-col";
-      readCol.appendChild(buildPanel("Text", passage, "ege-panel--read"));
+      var readScroll = document.createElement("div");
+      readScroll.className = "ege-read-scroll";
+      readScroll.appendChild(passage);
 
-      var resetRow = document.createElement("div");
-      resetRow.className = "ege-mc-reset";
-      var resetBtn = document.createElement("button");
-      resetBtn.type = "button";
-      resetBtn.className = "ege-btn ege-btn--ghost";
-      resetBtn.textContent = "Reset";
-      resetBtn.addEventListener("click", function () {
-        resetTask(task.id);
-      });
-      resetRow.appendChild(resetBtn);
-      readCol.appendChild(resetRow);
-
-      var workPanel = buildPanel("Questions", work, "ege-panel--work");
-      var workCol = document.createElement("div");
-      workCol.className = "ege-work-col";
       var scrollWrap = document.createElement("div");
       scrollWrap.className = "ege-work-scroll";
-      scrollWrap.appendChild(workPanel);
-      workCol.appendChild(scrollWrap);
+      scrollWrap.appendChild(work);
 
-      wrap.appendChild(buildSplit(readCol, workCol, "ege-split--panels"));
+      var workPanel = buildPanel("Questions", scrollWrap, "ege-panel--work");
+      var workCol = document.createElement("div");
+      workCol.className = "ege-work-col";
+      workCol.appendChild(workPanel);
+
+      var body = document.createElement("div");
+      body.className = "ege-reading-mc-body";
+
+      wrap.classList.add("ege-task--reading-mc");
+      body.appendChild(
+        buildSplit(buildPanel("Text", readScroll, "ege-panel--read"), workCol, "ege-split--panels")
+      );
+      body.appendChild(
+        buildTaskFooter(task.id, max, {
+          showAnswers: true,
+          answeredCount: true,
+        })
+      );
+      wrap.appendChild(body);
     } else {
       wrap.appendChild(buildPanel("Questions", work, "ege-panel--solo"));
+      wrap.appendChild(
+        buildTaskFooter(task.id, max, {
+          showAnswers: true,
+          answeredCount: true,
+        })
+      );
     }
-
-    wrap.appendChild(
-      buildTaskFooter(task.id, max, {
-        showAnswers: true,
-        answeredCount: true,
-        omitReset: true,
-      })
-    );
     return wrap;
   }
 
@@ -6575,9 +4058,7 @@ body.yap-brand .site-author__promo a {
     resetBtn.className = "ege-btn ege-btn--ghost";
     resetBtn.id = "reset-" + taskId;
     resetBtn.textContent = "Reset";
-    resetBtn.addEventListener("click", function () {
-      resetTask(taskId);
-    });
+    bindResetButton(resetBtn, taskId);
     actions.appendChild(resetBtn);
 
     var showBtn = document.createElement("button");
@@ -6669,7 +4150,7 @@ body.yap-brand .site-author__promo a {
     if (window.matchMedia("(max-width: 860px)").matches) return;
 
     var host = document.getElementById("egeListeningChrome");
-    var back = document.querySelector(".ege-rail__back");
+    var back = document.querySelector(".ege-topic-sidebar__back");
     if (!host || host.hidden) return;
 
     var progress = host.querySelector(".ege-listening-progress");
@@ -6730,6 +4211,121 @@ body.yap-brand .site-author__promo a {
     if (Math.abs(delta) >= 1) {
       nav.scrollTop = Math.max(0, nav.scrollTop + delta);
     }
+  }
+
+  var topicNavAlignRaf = 0;
+  var topicNavResizeObserver = null;
+
+  function getTopicExercisePanel(taskId) {
+    var task = document.getElementById("task-" + taskId);
+    if (!task) return null;
+
+    if (task.classList.contains("ege-task--reading-mc")) {
+      var workCol = task.querySelector(".ege-work-col");
+      if (workCol) return workCol;
+    }
+
+    var panel = task.querySelector(".ege-split__work .ege-panel--work");
+    if (panel) return panel;
+
+    panel = task.querySelector(".ege-work-col");
+    if (panel) return panel;
+
+    panel = task.querySelector(".ege-split__work");
+    if (panel) return panel;
+
+    return task;
+  }
+
+  function scrollActiveNavIntoView(taskId) {
+    if (window.matchMedia("(max-width: 860px)").matches) return;
+
+    var nav = document.getElementById("egeNav");
+    var btn = document.getElementById("nav-" + taskId);
+    if (!nav || !btn) return;
+
+    btn.scrollIntoView({ block: "nearest" });
+  }
+
+  function syncTopicNavAlign(taskId) {
+    if (!usesTopicLayout(state.topicId)) return;
+
+    var navShell = document.getElementById("egeTopicNav");
+    var nav = document.getElementById("egeNav");
+    if (!navShell || !nav) return;
+
+    if (window.matchMedia("(max-width: 860px)").matches) {
+      navShell.style.maxHeight = "";
+      nav.style.maxHeight = "";
+      navShell.classList.remove("is-scrollable");
+      return;
+    }
+
+    var exercisePanel = getTopicExercisePanel(taskId || state.activeTaskId);
+    if (!exercisePanel) {
+      navShell.style.maxHeight = "";
+      nav.style.maxHeight = "";
+      navShell.classList.remove("is-scrollable");
+      return;
+    }
+
+    var height = Math.round(exercisePanel.getBoundingClientRect().height);
+    if (height > 0) {
+      navShell.style.maxHeight = height + "px";
+      nav.style.maxHeight = height + "px";
+    }
+
+    navShell.classList.toggle("is-scrollable", nav.scrollHeight > nav.clientHeight + 1);
+  }
+
+  function observeTopicExercisePanel(taskId) {
+    if (!topicNavResizeObserver || !usesTopicLayout(state.topicId)) return;
+
+    topicNavResizeObserver.disconnect();
+    var panel = getTopicExercisePanel(taskId || state.activeTaskId);
+    if (panel) topicNavResizeObserver.observe(panel);
+  }
+
+  function scheduleTopicNavAlign(taskId) {
+    if (!usesTopicLayout(state.topicId)) return;
+
+    if (topicNavAlignRaf) cancelAnimationFrame(topicNavAlignRaf);
+    topicNavAlignRaf = requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        topicNavAlignRaf = 0;
+        syncTopicNavAlign(taskId || state.activeTaskId);
+        syncReadingMcScrollState(taskId || state.activeTaskId);
+      });
+    });
+  }
+
+  function syncReadingMcScrollState(taskId) {
+    if (window.matchMedia("(max-width: 860px)").matches) return;
+
+    var taskEl = document.getElementById("task-" + taskId);
+    if (!taskEl || !taskEl.classList.contains("ege-task--reading-mc")) return;
+
+    taskEl.querySelectorAll(".ege-work-scroll").forEach(function (el) {
+      el.classList.toggle("is-scrollable", el.scrollHeight > el.clientHeight + 1);
+    });
+  }
+
+  function bindTopicNavAlign() {
+    if (window._egeTopicNavAlignBound) return;
+    window._egeTopicNavAlignBound = true;
+
+    if (typeof ResizeObserver !== "undefined") {
+      topicNavResizeObserver = new ResizeObserver(function () {
+        scheduleTopicNavAlign(state.activeTaskId);
+      });
+    }
+
+    window.addEventListener("resize", function () {
+      if (usesTopicLayout(state.topicId)) {
+        observeTopicExercisePanel(state.activeTaskId);
+        scheduleTopicNavAlign(state.activeTaskId);
+      }
+    });
   }
 
   function wrapListeningRoot(task, article) {
@@ -6909,13 +4505,7 @@ body.yap-brand .site-author__promo a {
   }
 
   function syncWordformCheckEnabled(taskId) {
-    var checkBtn = document.getElementById("check-" + taskId);
-    if (!checkBtn || checkBtn.hidden) return;
-    var task = findTask(taskId);
-    if (!task || task.type !== "wordform") return;
-    var ready = allWordformFilled(taskId);
-    checkBtn.disabled = !ready;
-    checkBtn.title = ready ? "" : "Fill all gaps first";
+    syncCheckButton(taskId);
   }
 
   function buildWordformScoreLines(taskId, task, opts) {
@@ -6960,6 +4550,7 @@ body.yap-brand .site-author__promo a {
   function renderWordform(task, topicId) {
     var max = taskMaxScore(task);
     var wrap = buildTaskArticle(task);
+    wrap.classList.add("ege-task--wordform");
     var prefix = topicId + "_" + task.id;
 
     var body = document.createElement("div");
@@ -7036,11 +4627,37 @@ body.yap-brand .site-author__promo a {
       buildTaskFooter(task.id, max, {
         showAnswers: true,
         gateCheck: true,
-        gateCheckTitle: "Fill all gaps first",
       })
     );
     syncWordformCheckEnabled(task.id);
     return wrap;
+  }
+
+  function bindResetButton(btn, taskId) {
+    var armed = false;
+    var timer = 0;
+
+    function disarm() {
+      armed = false;
+      btn.textContent = "Reset";
+      btn.classList.remove("is-armed");
+      if (timer) {
+        window.clearTimeout(timer);
+        timer = 0;
+      }
+    }
+
+    btn.addEventListener("click", function () {
+      if (!armed) {
+        armed = true;
+        btn.textContent = "Reset?";
+        btn.classList.add("is-armed");
+        timer = window.setTimeout(disarm, 4000);
+        return;
+      }
+      disarm();
+      resetTask(taskId);
+    });
   }
 
   function buildTaskFooter(taskId, max, options) {
@@ -7055,15 +4672,14 @@ body.yap-brand .site-author__promo a {
     checkBtn.className = "ege-btn ege-btn--primary";
     checkBtn.id = "check-" + taskId;
     checkBtn.textContent = "Check answers";
-    if (options && options.answeredCount) {
-      checkBtn.hidden = true;
-      checkBtn.disabled = true;
-      checkBtn.title = "Answer all questions first";
-    }
+    checkBtn.hidden = true;
+    checkBtn.disabled = true;
+    checkBtn.title = "Answer all questions first";
     if (options && options.gateCheck) {
       checkBtn.disabled = true;
-      checkBtn.title =
-        (options && options.gateCheckTitle) || "Complete all items first";
+      if (options.gateCheckTitle) {
+        checkBtn.title = options.gateCheckTitle;
+      }
     }
     checkBtn.addEventListener("click", function () {
       checkTask(taskId);
@@ -7071,14 +4687,17 @@ body.yap-brand .site-author__promo a {
 
     actions.appendChild(checkBtn);
 
+    var checkHint = document.createElement("p");
+    checkHint.className = "ege-check-hint";
+    checkHint.id = "check-hint-" + taskId;
+    checkHint.hidden = true;
+
     if (!(options && options.omitReset)) {
       var resetBtn = document.createElement("button");
       resetBtn.type = "button";
       resetBtn.className = "ege-btn ege-btn--ghost";
       resetBtn.textContent = "Reset";
-      resetBtn.addEventListener("click", function () {
-        resetTask(taskId);
-      });
+      bindResetButton(resetBtn, taskId);
       actions.appendChild(resetBtn);
     }
 
@@ -7098,16 +4717,10 @@ body.yap-brand .site-author__promo a {
     }
 
     footer.appendChild(actions);
+    footer.appendChild(checkHint);
 
-    if (options && options.answeredCount) {
-      var countEl = document.createElement("p");
-      countEl.className = "ege-answered-count";
-      countEl.id = "answered-" + taskId;
-      countEl.textContent = "Answered 0 / " + max;
-      countEl.hidden = false;
-      countEl.style.visibility = "visible";
-      countEl.setAttribute("aria-live", "polite");
-      footer.appendChild(countEl);
+    if (options && options.gateCheck && options.gateCheckTitle) {
+      setCheckGateHint(taskId, options.gateCheckTitle);
     }
 
     var score = document.createElement("p");
@@ -7124,6 +4737,7 @@ body.yap-brand .site-author__promo a {
   var state = {
     topic: null,
     topicId: "",
+    sectionMeta: null,
     scores: {},
     activeTaskId: null,
     listeningSelections: {},
@@ -7186,6 +4800,8 @@ body.yap-brand .site-author__promo a {
 
   function showTask(taskId) {
     state.activeTaskId = taskId;
+    resetTaskDigitBuffer();
+    resetMcKeyboardState(taskId);
     document.querySelectorAll(".ege-task-panel").forEach(function (panel) {
       panel.hidden = panel.dataset.taskId !== taskId;
     });
@@ -7198,28 +4814,14 @@ body.yap-brand .site-author__promo a {
     if (currentBtn && task) currentBtn.textContent = task.nav || task.title || "Task";
     syncMobileTaskControls();
 
-    var titleEl = document.getElementById("egeTopicTitle");
-    if (titleEl) {
-      if (task && task.type === "listening") {
-        titleEl.textContent = (state.topic && state.topic.title) || task.title || "";
-      } else if (task) {
-        titleEl.textContent = task.title || task.nav || "";
-      }
-    }
-
     var instructions = document.getElementById("egeInstructions");
     if (instructions && task) {
       if (task.type === "listening") {
         syncListeningInstructions(taskId);
       } else {
-        var text = String(task.instructions || "").trim();
-        if (text) {
-          instructions.hidden = false;
-          instructions.textContent = text;
-        } else {
-          instructions.hidden = true;
-          instructions.textContent = "";
-        }
+        instructions.hidden = true;
+        instructions.removeAttribute("lang");
+        instructions.textContent = "";
       }
     } else if (instructions) {
       instructions.hidden = true;
@@ -7235,6 +4837,17 @@ body.yap-brand .site-author__promo a {
     }
     if (task && task.type === "matching") syncMatchingCheckEnabled(taskId);
     if (task && task.type === "wordform") syncWordformCheckEnabled(taskId);
+    if (task && (task.type === "mc" || task.type === "gapfill")) syncCheckButton(taskId);
+    var panel = document.getElementById("panel-" + taskId);
+    if (panel && window.EgeHighlight && task && task.type !== "listening") {
+      EgeHighlight.attachAll(panel, state.topicId, taskId);
+    }
+    syncTopicLayout(taskId);
+    if (task && usesTopicLayout(state.topicId) && task.type !== "listening") {
+      observeTopicExercisePanel(taskId);
+      scheduleTopicNavAlign(taskId);
+      scrollActiveNavIntoView(taskId);
+    }
   }
 
   function checkTask(taskId) {
@@ -7289,10 +4902,10 @@ body.yap-brand .site-author__promo a {
         task.texts.forEach(function (item) {
           var name = prefix + "_" + item.letter;
           var empty = !getCheckedValue(name);
-          if (board) {
-            var letterBtn = board.querySelector('[data-letter="' + item.letter + '"]');
-            if (letterBtn) letterBtn.classList.toggle("is-empty", empty);
-          }
+          var block = getMatchingTextBlock(taskId, item.letter);
+          if (block) block.classList.toggle("is-empty", empty);
+          var cell = getAnswerTrackCell(taskId, item.letter);
+          if (cell) cell.classList.toggle("is-empty", empty);
         });
         syncMatchingCheckEnabled(taskId);
         return;
@@ -7304,15 +4917,19 @@ body.yap-brand .site-author__promo a {
         var ok = markChoiceGroup(name, value, task.answers[item.letter]);
         if (ok) correct += 1;
 
-        if (board) {
-          var letterBtn = board.querySelector('[data-letter="' + item.letter + '"]');
-          if (letterBtn) {
-            letterBtn.classList.remove("is-empty");
-            letterBtn.classList.toggle("is-correct", !!ok);
-            letterBtn.classList.toggle("is-wrong", value && !ok);
-            var pickEl = letterBtn.querySelector(".ege-match-letter__pick");
-            if (pickEl) pickEl.textContent = value || "";
-          }
+        var block = getMatchingTextBlock(taskId, item.letter);
+        if (block) {
+          block.classList.remove("is-empty");
+          block.classList.toggle("is-correct", !!ok);
+          block.classList.toggle("is-wrong", value && !ok);
+        }
+        var cell = getAnswerTrackCell(taskId, item.letter);
+        if (cell) {
+          cell.classList.remove("is-empty");
+          cell.classList.toggle("is-correct", !!ok);
+          cell.classList.toggle("is-wrong", value && !ok);
+          var valEl = cell.querySelector(".ege-answer-track__val");
+          if (valEl) valEl.textContent = value || "";
         }
       });
       if (board && board.syncUsedState) board.syncUsedState();
@@ -7328,50 +4945,24 @@ body.yap-brand .site-author__promo a {
 
         markGapInsert(taskId, gap, ok, !!value);
 
-        if (board) {
-          var gapBtn = board.querySelector('[data-gap="' + gap + '"]');
-          if (gapBtn) {
-            gapBtn.classList.toggle("is-correct", !!ok);
-            gapBtn.classList.toggle("is-wrong", value && !ok);
-          }
+        var cell = getAnswerTrackCell(taskId, gap);
+        if (cell) {
+          cell.classList.toggle("is-correct", !!ok);
+          cell.classList.toggle("is-wrong", value && !ok);
         }
       });
       if (board && board.syncUsedState) board.syncUsedState();
     }
 
     if (task.type === "mc" && isVocabCloze(task)) {
-      var vocabBoard = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
       task.questions.forEach(function (question, index) {
         var name = prefix + "_q_" + index;
         var value = getCheckedValue(name);
         var gapNum = vocabGapNum(question);
         var ok = gradeMcQuestion(name, String(question.correct));
         if (ok) correct += 1;
-
         markGapInsert(taskId, gapNum, ok, !!value);
-
-        if (vocabBoard) {
-          var gapBtn = vocabBoard.querySelector('[data-gap="' + gapNum + '"]');
-          if (gapBtn) {
-            gapBtn.classList.toggle("is-correct", ok);
-            gapBtn.classList.toggle("is-wrong", value && !ok);
-          }
-        }
       });
-
-      if (vocabBoard && vocabBoard.syncWordsRow) {
-        var activeBtn = vocabBoard.querySelector(".ege-match-pill--gap.is-active");
-        if (activeBtn) vocabBoard.syncWordsRow(parseInt(activeBtn.dataset.index, 10));
-        vocabBoard.querySelectorAll('input[name^="' + prefix + '_q_"]:checked').forEach(function (radio) {
-          var pill = radio.closest(".ege-pill");
-          if (!pill) return;
-          var wordBtn = vocabBoard.querySelector(
-            '.ege-match-pill--word[data-value="' + radio.value + '"]'
-          );
-          if (wordBtn && pill.classList.contains("is-correct")) wordBtn.classList.add("is-correct");
-          if (wordBtn && pill.classList.contains("is-wrong")) wordBtn.classList.add("is-wrong");
-        });
-      }
     } else if (task.type === "mc") {
       task.questions.forEach(function (question, index) {
         if (gradeMcQuestion(prefix + "_q_" + index, String(question.correct))) {
@@ -7629,14 +5220,6 @@ body.yap-brand .site-author__promo a {
         if (board && board.updateInsert) board.updateInsert(gap, answer);
         markGapInsert(taskId, gap, true, true);
         markChoiceGroup(prefix + "_gap_" + gap, answer, answer);
-
-        if (board) {
-          var gapBtn = board.querySelector('[data-gap="' + gap + '"]');
-          if (gapBtn) {
-            gapBtn.classList.add("is-correct");
-            gapBtn.classList.remove("is-wrong");
-          }
-        }
       });
 
       if (board) {
@@ -7649,14 +5232,17 @@ body.yap-brand .site-author__promo a {
         var answer = String(task.answers[item.letter]);
         setRadioValue(prefix + "_" + item.letter, answer);
         markChoiceGroup(prefix + "_" + item.letter, answer, answer);
-        if (matchBoard) {
-          var letterBtn = matchBoard.querySelector('[data-letter="' + item.letter + '"]');
-          if (letterBtn) {
-            letterBtn.classList.add("is-correct", "is-used");
-            letterBtn.classList.remove("is-wrong", "is-empty");
-            var pickEl = letterBtn.querySelector(".ege-match-letter__pick");
-            if (pickEl) pickEl.textContent = answer;
-          }
+        var block = getMatchingTextBlock(taskId, item.letter);
+        if (block) {
+          block.classList.add("is-correct", "is-used");
+          block.classList.remove("is-wrong", "is-empty");
+        }
+        var cell = getAnswerTrackCell(taskId, item.letter);
+        if (cell) {
+          cell.classList.add("is-correct", "is-filled");
+          cell.classList.remove("is-wrong", "is-empty");
+          var valEl = cell.querySelector(".ege-answer-track__val");
+          if (valEl) valEl.textContent = answer;
         }
       });
       if (matchBoard && matchBoard.syncUsedState) matchBoard.syncUsedState();
@@ -7697,13 +5283,17 @@ body.yap-brand .site-author__promo a {
       syncWordformCheckEnabled(taskId);
       showToast("Answers shown.");
       return;
-    } else if (task.type === "mc" && !isVocabCloze(task)) {
+    } else if (task.type === "mc") {
       task.questions.forEach(function (question, index) {
         var name = prefix + "_q_" + index;
         var correctVal = String(question.correct);
         setRadioValue(name, correctVal);
         markChoiceGroup(name, correctVal, correctVal);
       });
+      if (isVocabCloze(task)) {
+        var vocabBoard = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
+        if (vocabBoard && vocabBoard.syncInserts) vocabBoard.syncInserts();
+      }
       var taskEl = document.getElementById("task-" + taskId);
       if (taskEl) taskEl.dataset.answersRevealed = "1";
     } else if (task.type === "listening") {
@@ -7783,23 +5373,18 @@ body.yap-brand .site-author__promo a {
       var board = document.querySelector("#task-" + taskId + " .ege-match-picks");
       task.texts.forEach(function (item) {
         clearChoiceGroup(prefix + "_" + item.letter);
-        if (board) {
-          var letterBtn = board.querySelector('[data-letter="' + item.letter + '"]');
-          if (letterBtn) {
-            letterBtn.classList.remove("is-correct", "is-wrong", "is-used", "is-empty");
-            var pickEl = letterBtn.querySelector(".ege-match-letter__pick");
-            if (pickEl) pickEl.textContent = "";
-          }
+        var block = getMatchingTextBlock(taskId, item.letter);
+        if (block) block.classList.remove("is-correct", "is-wrong", "is-used", "is-empty");
+        var cell = getAnswerTrackCell(taskId, item.letter);
+        if (cell) {
+          cell.classList.remove("is-correct", "is-wrong", "is-used", "is-empty", "is-filled", "is-active");
+          var valEl = cell.querySelector(".ege-answer-track__val");
+          if (valEl) valEl.textContent = "";
         }
       });
       if (board) {
-        board.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
-          btn.classList.remove("is-selected", "is-correct", "is-wrong", "is-used");
-        });
         if (board.syncUsedState) board.syncUsedState();
-        if (board.setActiveLetter && task.texts[0]) {
-          board.setActiveLetter(task.texts[0].letter);
-        }
+        if (board.setActiveLetter) board.setActiveLetter("");
       }
       syncMatchingCheckEnabled(taskId);
     }
@@ -7812,24 +5397,20 @@ body.yap-brand .site-author__promo a {
           "#task-" + taskId + ' .ege-gap-insert[data-gap="' + gap + '"]'
         );
         if (insert) {
-          insert.classList.remove("is-correct", "is-wrong", "is-filled");
+          insert.classList.remove("is-correct", "is-wrong", "is-filled", "is-active");
           var textSpan = insert.querySelector(".ege-gap-insert__text");
           if (textSpan) textSpan.textContent = "";
         }
-        if (board) {
-          var gapBtn = board.querySelector('[data-gap="' + gap + '"]');
-          if (gapBtn) {
-            gapBtn.classList.remove("is-correct", "is-wrong", "is-used");
-            var pickEl = gapBtn.querySelector(".ege-gap-pick");
-            if (pickEl) pickEl.textContent = "";
-          }
+        var cell = getAnswerTrackCell(taskId, gap);
+        if (cell) {
+          cell.classList.remove("is-correct", "is-wrong", "is-filled", "is-active");
+          var valEl = cell.querySelector(".ege-answer-track__val");
+          if (valEl) valEl.textContent = "";
         }
       });
       if (board) {
-        board.querySelectorAll(".ege-match-pill--num").forEach(function (btn) {
-          btn.classList.remove("is-selected", "is-correct", "is-wrong", "is-used");
-        });
         if (board.syncUsedState) board.syncUsedState();
+        if (board.setActiveGap) board.setActiveGap("");
       }
     }
 
@@ -7842,29 +5423,12 @@ body.yap-brand .site-author__promo a {
           "#task-" + taskId + ' .ege-gap-insert[data-gap="' + gapNum + '"]'
         );
         if (insert) {
-          insert.classList.remove("is-correct", "is-wrong", "is-filled");
+          insert.classList.remove("is-correct", "is-wrong", "is-filled", "is-active");
           var textSpan = insert.querySelector(".ege-gap-insert__text");
           if (textSpan) textSpan.textContent = "";
         }
-        if (vocabBoard) {
-          var gapBtn = vocabBoard.querySelector('[data-gap="' + gapNum + '"]');
-          if (gapBtn) {
-            gapBtn.classList.remove("is-correct", "is-wrong", "is-used");
-            var pickEl = gapBtn.querySelector(".ege-gap-pick");
-            if (pickEl) pickEl.textContent = "";
-          }
-        }
       });
-      if (vocabBoard) {
-        vocabBoard.querySelectorAll(".ege-match-pill--word").forEach(function (btn) {
-          btn.classList.remove("is-selected", "is-correct", "is-wrong");
-        });
-        if (vocabBoard.syncGapButtons) vocabBoard.syncGapButtons();
-        var activeBtn = vocabBoard.querySelector(".ege-match-pill--gap.is-active");
-        if (activeBtn && vocabBoard.renderWordsRow) {
-          vocabBoard.renderWordsRow(parseInt(activeBtn.dataset.index, 10));
-        }
-      }
+      if (vocabBoard && vocabBoard.setActiveGap) vocabBoard.setActiveGap("");
     } else if (task.type === "mc") {
       var taskEl = document.getElementById("task-" + taskId);
       if (taskEl) {
@@ -7964,6 +5528,138 @@ body.yap-brand .site-author__promo a {
     hideScoreFeedback(taskId);
   }
 
+  function restoreTopicLayoutTools() {
+    document.querySelectorAll(".ege-highlight-tools").forEach(function (tools) {
+      var panel = tools.closest(".ege-task-panel");
+      if (!panel && tools.dataset.taskId) {
+        panel = document.getElementById("panel-" + tools.dataset.taskId);
+      }
+      if (!panel) return;
+
+      var intro = panel.querySelector(".ege-task-intro");
+      var task = panel.querySelector(".ege-task");
+      if (intro) {
+        var head = intro.querySelector(".ege-task-intro__head");
+        var target = head || intro;
+        if (tools.parentNode !== target) target.appendChild(tools);
+      } else if (task) {
+        panel.insertBefore(tools, task);
+      } else if (tools.parentNode !== panel) {
+        panel.appendChild(tools);
+      }
+    });
+  }
+
+  function restoreTopicLayoutTitle() {
+    var titleSlot = document.getElementById("egeTopicToolbarTitle");
+    if (!titleSlot) return;
+
+    var title = titleSlot.querySelector(".ege-task-title");
+    if (!title) return;
+
+    var taskId = title.dataset.taskId;
+    var panel = taskId ? document.getElementById("panel-" + taskId) : null;
+    if (!panel) {
+      document.querySelectorAll(".ege-task-panel").forEach(function (candidate) {
+        if (candidate.querySelector(".ege-task-intro")) panel = candidate;
+      });
+    }
+    if (!panel) return;
+
+    var intro = panel.querySelector(".ege-task-intro");
+    if (!intro) {
+      var heroMain = document.getElementById("egeTopicHeroMain");
+      intro = heroMain && heroMain.querySelector(".ege-task-intro");
+    }
+    if (!intro) return;
+
+    var head = intro.querySelector(".ege-task-intro__head");
+    if (head) head.appendChild(title);
+    else intro.appendChild(title);
+    titleSlot.textContent = "";
+  }
+
+  function restoreTopicLayoutIntros() {
+    restoreTopicLayoutTitle();
+    document.querySelectorAll(".ege-task-intro").forEach(function (intro) {
+      var panel = intro.closest(".ege-task-panel");
+      if (!panel) {
+        var lead = intro.querySelector(".ege-task-intro__lead");
+        var ownerId = lead && lead.dataset.taskId;
+        if (ownerId) panel = document.getElementById("panel-" + ownerId);
+      }
+      if (!panel) return;
+      if (intro.parentNode !== panel) {
+        panel.insertBefore(intro, panel.firstChild);
+      }
+    });
+  }
+
+  function teardownTopicLayout() {
+    restoreTopicLayoutIntros();
+    restoreTopicLayoutTools();
+  }
+
+  function syncTopicLayout() {
+    restoreTopicLayoutIntros();
+    restoreTopicLayoutTools();
+  }
+
+  function setRailHeadVisible(visible) {
+    var railHead = document.getElementById("egeRailHead");
+    if (railHead) railHead.hidden = !visible;
+  }
+
+  function applySectionMeta(section) {
+    if (!section) return;
+    state.sectionMeta = section;
+
+    var topicLayout = usesTopicLayout(section.id);
+
+    setRailHeadVisible(!topicLayout);
+
+    var railHead = document.getElementById("egeRailHead");
+    if (railHead) {
+      railHead.classList.toggle(
+        "ege-rail__head--logo-only",
+        topicLayout || section.id === "listening"
+      );
+    }
+
+    var railTitle = document.getElementById("egeRailTitle");
+    if (railTitle) {
+      railTitle.hidden = true;
+      railTitle.textContent = "";
+    }
+
+    var examEl = document.getElementById("egeRailExam");
+    if (examEl) {
+      examEl.hidden = true;
+      examEl.textContent = "";
+    }
+
+    if (!topicLayout && section && section.id !== "listening") {
+      if (railTitle) {
+        railTitle.hidden = false;
+        railTitle.textContent = section.title || "";
+      }
+      if (examEl) {
+        var label = formatExamRange(section.examFrom, section.examTo);
+        if (label) {
+          examEl.textContent = label;
+          examEl.hidden = false;
+        }
+      }
+    }
+  }
+
+  function sectionDisplayTitle(topic) {
+    if (state.sectionMeta && state.sectionMeta.title) {
+      return state.sectionMeta.title;
+    }
+    return topic.title;
+  }
+
   function mountTopic(topic, topicId) {
     state.topic = topic;
     state.topicId = topicId;
@@ -7988,16 +5684,27 @@ body.yap-brand .site-author__promo a {
       state.scores[task.id] = saved[task.id] ? saved[task.id].score : 0;
     });
 
-    document.title = topic.title + " – ЕГЭ Prep – Yap O'Clock";
-    var titleEl = document.getElementById("egeTopicTitle");
-    if (titleEl) titleEl.textContent = topic.title;
+    document.title = sectionDisplayTitle(topic) + " – Time to ЕГЭ – Yap O'Clock";
+    setRailHeadVisible(!usesTopicLayout(topicId));
+
     var railTitle = document.getElementById("egeRailTitle");
-    if (railTitle) railTitle.textContent = topic.title;
+    if (railTitle && !usesTopicLayout(topicId) && topicId !== "listening") {
+      railTitle.hidden = false;
+      railTitle.textContent = sectionDisplayTitle(topic);
+    }
 
     var nav = document.getElementById("egeNav");
     var panels = document.getElementById("egePanels");
     nav.textContent = "";
     panels.textContent = "";
+    clearTopicLoading();
+    teardownTopicLayout();
+
+    var page = document.getElementById("egePage");
+    if (page) {
+      page.classList.toggle("ege-page--listening", topicId === "listening");
+      page.classList.toggle("ege-page--topic-layout", usesTopicLayout(topicId));
+    }
 
     topic.tasks.forEach(function (task, index) {
       var max = taskMaxScore(task);
@@ -8020,20 +5727,33 @@ body.yap-brand .site-author__promo a {
       shell.className = "ege-task-panel";
       shell.id = "panel-" + task.id;
       shell.dataset.taskId = task.id;
-      shell.hidden = index !== 0;
 
+      var intro = buildTaskIntro(task);
+      if (intro) shell.appendChild(intro);
       shell.appendChild(renderTaskPanel(task));
       if (window.EgeHighlight) {
         EgeHighlight.attachAll(shell, topicId, task.id);
       }
+      shell.hidden = index !== 0;
       panels.appendChild(shell);
     });
 
     showTask(topic.tasks[0].id);
     bindMobileTaskSwitch();
+    bindTopicNavAlign();
+    observeTopicExercisePanel(topic.tasks[0].id);
+    scheduleTopicNavAlign(topic.tasks[0].id);
 
-    var page = document.getElementById("egePage");
-    if (page) page.classList.toggle("ege-page--listening", topicId === "listening");
+    if (!window._egeTopicLayoutResizeBound) {
+      window._egeTopicLayoutResizeBound = true;
+      window.addEventListener("resize", function () {
+        if (state.activeTaskId) syncTopicLayout(state.activeTaskId);
+        if (usesTopicLayout(state.topicId)) {
+          observeTopicExercisePanel(state.activeTaskId);
+          scheduleTopicNavAlign(state.activeTaskId);
+        }
+      });
+    }
 
     if (topicId === "listening" && !window._egeListeningNavAlignBound) {
       window._egeListeningNavAlignBound = true;
@@ -8051,6 +5771,41 @@ body.yap-brand .site-author__promo a {
         if (event.code !== "Digit9") return;
         event.preventDefault();
         fillActiveCorrectAnswers();
+      });
+    }
+
+    if (!window._egeCheckKeyBound) {
+      window._egeCheckKeyBound = true;
+      document.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter") return;
+        if (event.defaultPrevented) return;
+        if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+        if (!state.activeTaskId) return;
+
+        var target = event.target;
+        if (target) {
+          var tag = (target.tagName || "").toLowerCase();
+          if (tag === "textarea" || tag === "select") return;
+          if (tag === "input") {
+            var type = (target.type || "").toLowerCase();
+            if (type !== "button" && type !== "submit" && type !== "reset") return;
+          }
+          if (target.isContentEditable) return;
+        }
+
+        if (state.topicId === "listening") {
+          var nextInterviewBtn = document.getElementById(
+            "next-interview-" + state.activeTaskId
+          );
+          if (nextInterviewBtn && !nextInterviewBtn.hidden) return;
+          var prepNextBtn = document.getElementById("prep-next-" + state.activeTaskId);
+          if (prepNextBtn && !prepNextBtn.hidden) return;
+        }
+
+        var checkBtn = document.getElementById("check-" + state.activeTaskId);
+        if (!checkBtn || checkBtn.hidden || checkBtn.disabled) return;
+        event.preventDefault();
+        checkBtn.click();
       });
     }
 
@@ -8082,43 +5837,6 @@ body.yap-brand .site-author__promo a {
 
         event.preventDefault();
         nextBtn.click();
-      });
-    }
-
-    if (!window._egeMatchingKeysBound) {
-      window._egeMatchingKeysBound = true;
-      document.addEventListener("keydown", function (event) {
-        if (event.defaultPrevented) return;
-        if (event.metaKey || event.ctrlKey || event.altKey) return;
-        if (event.repeat) return;
-        if (!state.activeTaskId) return;
-
-        var task = findTask(state.activeTaskId);
-        if (!task || task.type !== "matching") return;
-
-        var target = event.target;
-        if (target) {
-          var tag = (target.tagName || "").toLowerCase();
-          if (tag === "input" || tag === "textarea" || tag === "select") return;
-          if (target.isContentEditable) return;
-        }
-
-        var board = document.querySelector(
-          "#task-" + state.activeTaskId + " .ege-match-picks"
-        );
-        if (!board || !board.assignNumber) return;
-
-        var key = event.key;
-        var code = event.code;
-        var num = null;
-        if (/^[1-9]$/.test(key)) num = parseInt(key, 10);
-        else if (/^Digit[1-9]$/.test(code) || /^Numpad[1-9]$/.test(code)) {
-          num = parseInt(code.replace(/\D/g, ""), 10);
-        }
-        if (num == null || num > task.headings.length) return;
-
-        event.preventDefault();
-        board.assignNumber(num);
       });
     }
 
@@ -8166,17 +5884,38 @@ body.yap-brand .site-author__promo a {
       return;
     }
 
-    fetch("data/" + topicId + ".json")
-      .then(function (res) {
+    showTopicLoading();
+
+    Promise.all([
+      fetch("data/" + topicId + ".json").then(function (res) {
         if (!res.ok) throw new Error("Topic not found");
         return res.json();
-      })
-      .then(function (topic) {
+      }),
+      fetch("sections.json")
+        .then(function (res) {
+          return res.ok ? res.json() : { sections: [] };
+        })
+        .catch(function () {
+          return { sections: [] };
+        }),
+    ])
+      .then(function (results) {
+        var topic = results[0];
+        var catalog = results[1];
+        var section = (catalog.sections || []).find(function (entry) {
+          return entry.id === topicId;
+        });
+        if (section && section.available === false) {
+          window.location.href = "index.html";
+          return null;
+        }
+        applySectionMeta(section);
         return loadTaskTranscripts(topic).then(function () {
           mountTopic(topic, topicId);
         });
       })
       .catch(function () {
+        clearTopicLoading();
         var panels = document.getElementById("egePanels");
         if (panels) {
           panels.innerHTML =
@@ -8187,24 +5926,10 @@ body.yap-brand .site-author__promo a {
 
   window.EgePrep = {
     initTopicPage: initTopicPage,
-    mountTopic: mountTopic,
   };
-})();
 
-  </script>
-  <script>
-(function () {
-  "use strict";
-  var TOPIC = {"id":"listening","title":"Listening","subtitle":"Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.","tasks":[{"id":"ava-james","nav":"Ava James","title":"Five Minutes with a Star — Ava James","type":"listening","audio":"audio/AvaJames.mp3","prep":{"gapFill":{"instruction":"Complete the expressions. Use the words from the box. There is one extra word.","wordBank":["behind","ball","level","dime","chest","touch","held","rob","communicate","care"],"extraWord":"care","items":[{"id":1,"sentence":"to get left ________","answer":"behind"},{"id":2,"sentence":"to start the ________ rolling","answer":"ball"},{"id":3,"sentence":"to go to the next ________","answer":"level"},{"id":4,"sentence":"at the drop of a ________","answer":"dime"},{"id":5,"sentence":"to get something off your ________","answer":"chest"},{"id":6,"sentence":"to be in ________ with your emotions","answer":"touch"},{"id":7,"sentence":"to feel very ________ back","answer":"held"},{"id":8,"sentence":"to ________ yourself of something","answer":"rob"},{"id":9,"sentence":"to ________ one-to-one","answer":"communicate"}]},"matching":{"instruction":"Match the expressions (1–9) with their meanings (A–I).","expressions":[{"id":1,"text":"get left behind"},{"id":2,"text":"start the ball rolling"},{"id":3,"text":"go to the next level"},{"id":4,"text":"at the drop of a dime"},{"id":5,"text":"get something off your chest"},{"id":6,"text":"in touch with your emotions"},{"id":7,"text":"held back"},{"id":8,"text":"rob yourself of something"},{"id":9,"text":"communicate one-to-one"}],"meanings":[{"id":"A","text":"immediately, very quickly, without hesitation"},{"id":"B","text":"aware of and connected to your feelings"},{"id":"C","text":"speak with someone privately, face to face"},{"id":"D","text":"fall behind, fail to keep up"},{"id":"E","text":"advance, improve"},{"id":"F","text":"deprive yourself of something"},{"id":"G","text":"restricted"},{"id":"H","text":"cause something to begin"},{"id":"I","text":"talk about something that has been worrying you"}],"answers":{"1":"D","2":"H","3":"E","4":"A","5":"I","6":"B","7":"G","8":"F","9":"C"}}},"transcript":"@narrator|Today in our studio, we have Ava James, a world-famous singer, [1] and [2]. A classically trained pianist, Ava started composing songs when she was 12 and signed her first contract when she was only 15 years old.\n@host|Good afternoon, Ava.\n@guest|Good afternoon. Thank you for inviting me. It's a [3] being here.\n@host|When you entered the music industry, you were only a teen. Was it hard for you?\n@guest|When I first started in the world of music, it was such a shock for me. It was a totally different world.\n@guest|In a lot of ways, I started to think that I had to be perfect, look perfect, sound perfect and say perfect phrases. The [4] industry is [5] [6].\n@host|How did you cope with that?\n@guest|Well, at some point, I just realized that there is a lot of judgment in the world.\n@guest|We judge each other at school, we judge each other at work, we [7]. Now we've got social media and we have to look at everybody judging us, telling us what they think about us and what they don't like about us. You just grow up and realize that everybody's opinion doesn't matter.\n@guest|You just start to care less.\n@host|You've just released your new album. What is it about?\n@guest|In fact, my new album is partly about what we've just [8].\n@guest|It's about breaking out of people's opinions of you and [9] whoever you are and who you want to be. It's about life as it truly is, not as how we're made to think that it should be. It's about [10], the reality of who we are as people and [11] that truth.\n@host|How did you start writing songs?\n@guest|When I was young, I wrote things down just to get them out of my head, almost to make space, because I haven't always been so good at communicating [12]-[13]-[14]. So I'd always have to write it down first and kind of understand it and then be able to talk about it. I needed to get it out of myself, out of my mind, out of my heart, out of my way to understand it.\n@guest|I guess that started the ball rolling.\n@host|Does it mean that most of your songs are very personal?\n@guest|Of course. A lot of my songs are about the things that I personally have wanted to talk about and get off my own [15].\n@guest|I'm not afraid to be emotional. In fact, I believe that strong people are the ones who are in touch with their emotions and their feelings. Such people can just cry at the drop of a [16] because they relate so much to someone else's pain.\n@guest|I think you rob yourself of life and rob yourself of your own [17] when you don't let yourself feel whatever it is that you feel.\n@host|How does it feel to be a woman in the entertainment industry today?\n@guest|I speak to a lot of [18] and I find that they do feel very held back. It seems to me that there's some fear about [19] us as women to rise, to go to the next level.\n@guest|And [20], there are still so many issues with equal pay [21] and [22]. And I find that pretty crazy. Because obviously, the more [23] there is, the stronger the business.\n@guest|But unfortunately, a lot of people are very [24] in their thinking. So I think that there is still that challenge. You still have to work extra hard, harder than a man would.\n@guest|You still have to [25] yourself more. It's very [26], but I also do know that this is the time of the woman. And if you don't know it, you'd better start to get it.\n@guest|Because [27], you're going to get left behind. So, I do [28] see an [29] in the world in that sense.\n@host|Thank you very much, Ava.","gaps":[{"num":1,"answer":"songwriter"},{"num":2,"answer":"pianist"},{"num":3,"answer":"pleasure"},{"num":4,"answer":"entertainment"},{"num":5,"answer":"particularly"},{"num":6,"answer":"judgmental"},{"num":7,"answer":"compete"},{"num":8,"answer":"discussed"},{"num":9,"answer":"redefining"},{"num":10,"answer":"imperfection"},{"num":11,"answer":"celebrating"},{"num":12,"answer":"one"},{"num":13,"answer":"to"},{"num":14,"answer":"one"},{"num":15,"answer":"chest"},{"num":16,"answer":"dime"},{"num":17,"answer":"experience"},{"num":18,"answer":"businesswomen","alt":["business women"]},{"num":19,"answer":"allowing"},{"num":20,"answer":"obviously"},{"num":21,"answer":"scales"},{"num":22,"answer":"equality"},{"num":23,"answer":"diversity"},{"num":24,"answer":"archaic"},{"num":25,"answer":"prove"},{"num":26,"answer":"frustrating"},{"num":27,"answer":"otherwise"},{"num":28,"answer":"definitely"},{"num":29,"answer":"improvement"}],"questions":[{"q":"1. What do we learn about Ava James at the beginning of the interview?","opts":["She is internationally famous.","She's been a singer for 15 years.","She never got a formal musical education."],"correct":0},{"q":"2. For Ava, starting a career as a teenager was …","opts":["quite easy.","challenging.","pleasant."],"correct":1},{"q":"3. Ava thinks other people's critical remarks are …","opts":["helpful.","destructive.","natural."],"correct":2},{"q":"4. Ava's new album is NOT about …","opts":["shaping adequate self-esteem.","finding your place in the world.","difficulties of the modern world."],"correct":2},{"q":"5. Ava started to write songs because it was …","opts":["a form of self-therapy.","her homework at school.","a topic to discuss with her friends."],"correct":0},{"q":"6. Ava thinks strong people NEVER …","opts":["cry in the presence of others.","hide their real feelings.","talk about their problems."],"correct":1},{"q":"7. Speaking about the entertainment industry today, Ava says that …","opts":["there's more gender inequality there than ever before.","women occupy most powerful positions there.","it is still not very easy for a woman to work in."],"correct":2}],"playthroughStarts":["1:18","5:44"],"instructions":"Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."},{"id":"isla-russell","nav":"Isla Russell","title":"Five Minutes with a Star — Isla Russell","type":"listening","audio":"audio/IslaRussel.mp3","prep":{"gapFill":{"instruction":"Complete the expressions. Use the words from the box. There is one extra word.","wordBank":["towards","rummage","spilling","force","stream","voice","yourself","spark","chord"],"extraWord":"force","items":[{"id":1,"sentence":"to gravitate ________ something","answer":"towards"},{"id":2,"sentence":"to ________ through your notes","answer":"rummage"},{"id":3,"sentence":"to come ________ out","answer":"spilling"},{"id":4,"sentence":"to strike a ________ in you","answer":"chord"},{"id":5,"sentence":"a ________ of consciousness","answer":"stream"},{"id":6,"sentence":"the ________ of a generation","answer":"voice"},{"id":7,"sentence":"to see ________ in someone else","answer":"yourself"},{"id":8,"sentence":"to ________ joy in you","answer":"spark"}]},"matching":{"instruction":"Match the expressions (1–8) with their meanings (A–H).","expressions":[{"id":1,"text":"To gravitate towards"},{"id":2,"text":"To rummage through"},{"id":3,"text":"To come spilling out"},{"id":4,"text":"To strike a chord"},{"id":5,"text":"A stream of consciousness"},{"id":6,"text":"The voice of a generation"},{"id":7,"text":"To see yourself in someone else"},{"id":8,"text":"To spark joy in you"}],"meanings":[{"id":"A","text":"feel a strong connection or attraction to something"},{"id":"B","text":"search quickly and untidily through something"},{"id":"C","text":"to flow out freely and naturally"},{"id":"D","text":"creates a similar emotional reaction or feeling in you"},{"id":"E","text":"a continuous flow of thoughts written without strict structure"},{"id":"F","text":"someone who expresses the feelings and ideas of many people"},{"id":"G","text":"identify with another person"},{"id":"H","text":"suddenly creates a feeling of happiness or delight in you"}],"answers":{"1":"A","2":"B","3":"C","4":"D","5":"E","6":"F","7":"G","8":"H"}}},"gaps":[{"num":1,"answer":"numerous"},{"num":2,"answer":"generation"},{"num":3,"answer":"artificial"},{"num":4,"answer":"represented"},{"num":5,"answer":"energized","alt":["energised"]},{"num":6,"answer":"aim"},{"num":7,"answer":"target"},{"num":8,"answer":"gravitate"},{"num":9,"answer":"lyrics"},{"num":10,"answer":"kick"},{"num":11,"answer":"autotunes","alt":["autotune"]},{"num":12,"answer":"kaleidoscope"},{"num":13,"answer":"consciousness"},{"num":14,"answer":"verse"},{"num":15,"answer":"spark"},{"num":16,"answer":"melody"},{"num":17,"answer":"chord"},{"num":18,"answer":"rummage"},{"num":19,"answer":"similar"},{"num":20,"answer":"poetry"},{"num":21,"answer":"preconceived"},{"num":22,"answer":"elite"},{"num":23,"answer":"erudite"},{"num":24,"answer":"boundaries"},{"num":25,"answer":"instinctive"},{"num":26,"answer":"necessity"},{"num":27,"answer":"urgency"},{"num":28,"answer":"fascinated"}],"transcript":"@narrator|Hello everybody, and here we are with our weekly program, 5 Minutes with a Star. Today in our studio, we have Isla Russell, a world-famous singer and songwriter. Her albums have won [1] awards, and her songs can be heard on the radio all the time.\n@host|Good afternoon, Isla.\n@guest|Good afternoon. Thank you for inviting me. It's a pleasure being here.\n@host|You've been called the voice of a [2]. Are you?\n@guest|It's great that you've asked me that question. I guess I want to be a voice for the kids. I mean, it sounds quite [3], but I want to make music that I would have wanted to hear when I was 14.\n@guest|When I was that age, I would listen to artists and think, wow, I feel [4] by that. I feel inspired by that. I want to be that person that kids can listen to and feel [5] by because they've never felt like they had someone that they could listen to and see themselves in before.\n@host|Do you [6] your music at teenagers then?\n@guest|It can be dangerous to kind of try and [7] your art to a certain type of people. You don't know who's going to [8] towards your work. You never know what people are going to get out of the work. So I just try and create music that feels true to my taste and then see what happens. I collect words and [9] and [10] drum sounds and filters and [11]. And this becomes a [12] of truly everything that I like.\n@guest|All I can do is put that together and put it out. And at least I know that it's me.\n@host|Could you please tell our listeners about your songwriting process?\n@guest|I'll start with a kind of stream of [13].\n@guest|A lot of my writing is actually freeform. Sometimes I'll have like a [14] that maybe I've already written down somewhere and I'll listen to an instrumental and that will kind of [15] something in me. Or sometimes it starts with a [16]. So I have a [17] progression and drums and then I'll voice a melody over the top of that. And then I'll kind of [18] through my notes and find something that strikes a [19] chord in me as the music goes.\n@host|Is there a difference for you between words, [20], and song lyrics?\n@guest|I don't think there is. Anything can be a poem, and when I write, it's just putting the words down on paper. I don't really have any kind of [21] idea of what its final form will be. It just all kind of comes spilling out with me from the same place.\n@guest|Poetry doesn't necessarily need to be some [22] [23] thing. I think that those [24] should be broken down. Everything I write comes from the same [25] place anyway.\n@host|Do you write every day?\n@guest|I do, but I never force it out of myself. I'm kind of trying to explore writing as a practice. So, you know, I journal every day.\n@guest|I try and do kind of something for the art every day, whether that's reading or practicing the guitar. But when it comes to writing poetry or songs, I really have to have an idea or have that desire to get something down. I feel like the best art comes from a sense of [26] and [27]. Like I can't help but talk about this.\n@host|Has it always been easier for you to express yourself through art and music?\n@guest|Poetry was always something that [28] me. I started writing it when I was around six, and then it felt like that way of expression was always the one that I was most familiar with. Then I discovered the guitar, and I think I've unlocked a different part of myself because I don't even have to speak or think. It's just all in the feeling of it. So, I guess the answer is yes.\n@host|Thank you very much, Isla. It has been very interesting talking to you.\n@guest|Thank you.","questions":[{"q":"1. What do we learn about Isla Russell at the beginning of the interview?","opts":["She writes songs for other singers.","She's internationally famous.","She hasn't won any national awards."],"correct":1},{"q":"2. Isla wants to be the voice for …","opts":["artists.","young people.","all people."],"correct":1},{"q":"3. Isla characterizes her music as being …","opts":["calm.","revolutionary.","sincere."],"correct":2},{"q":"4. Isla describes the songwriting process as …","opts":["hard to understand.","very disciplined.","not very organized."],"correct":2},{"q":"5. According to Isla, poetry is something …","opts":["meant for highly intellectual people.","that can be flexible and unpredictable.","that has strict rules and boundaries."],"correct":1},{"q":"6. Isla prefers writing when she …","opts":["feels she just can't but do it.","faces an important deadline.","listens to good guitar music."],"correct":0},{"q":"7. In her childhood, Isla expressed herself by …","opts":["reading books.","writing poems.","playing music."],"correct":1}],"playthroughStarts":["1:19","5:36"],"instructions":"Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."},{"id":"brie-martin","nav":"Brie Martin","title":"Five Minutes with a Star — Brie Martin","type":"listening","audio":"audio/BrieMartin.mp3","prep":{"gapFill":{"instruction":"Complete the expressions. Use the words from the box. There is one extra word.","wordBank":["identify","feature","rush","refuse","towards","eyes","actress","write","anonymity"],"extraWord":"anonymity","items":[{"id":1,"sentence":"to ________ with something","answer":"identify"},{"id":2,"sentence":"to release a ________ film","answer":"feature"},{"id":3,"sentence":"to feel a ________","answer":"rush"},{"id":4,"sentence":"to ________ to be one thing","answer":"refuse"},{"id":5,"sentence":"to move ________ your goal","answer":"towards"},{"id":6,"sentence":"to feel a lot of ________ on you","answer":"eyes"},{"id":7,"sentence":"to be a prize-winning ________","answer":"actress"},{"id":8,"sentence":"to ________ something down","answer":"write"}]},"matching":{"instruction":"Match the expressions (1–8) with their meanings (A–H).","expressions":[{"id":1,"text":"identify with"},{"id":2,"text":"release a feature film"},{"id":3,"text":"feel a rush"},{"id":4,"text":"refuse to be one thing"},{"id":5,"text":"move towards your goal"},{"id":6,"text":"feel a lot of eyes on you"},{"id":7,"text":"prize-winning actress"},{"id":8,"text":"write something down"}],"meanings":[{"id":"A","text":"relate to / feel a connection with"},{"id":"B","text":"put out a full-length cinema film"},{"id":"C","text":"experience a sudden exciting or thrilling feeling"},{"id":"D","text":"do not want to be limited to only one role or style"},{"id":"E","text":"make progress in the direction of what you want to achieve"},{"id":"F","text":"feel that many people are watching and judging you"},{"id":"G","text":"an actress who has won major awards"},{"id":"H","text":"put thoughts or information on paper"}],"answers":{"1":"A","2":"B","3":"C","4":"D","5":"E","6":"F","7":"G","8":"H"}}},"transcript":"@narrator|Today in our studio, we are lucky to have Brie Martin. She [1] as an actress when she was 19 years old, and now she's a world-famous film [2], producer, and [3] of sci-fi [4].\n@host|Good afternoon, Brie.\n@guest|Good afternoon. Thank you for inviting me. It's a pleasure being here.\n@host|How do you manage to invent the [5] creative universes which we find in your films?\n@guest|I use my dreams a lot for [6]. I've always had intense and [7] dreams that I could perfectly remember and write down afterwards. And I always left the open door for that, for dreams to show me things.\n@guest|At the same time, I've had [8] my entire life. So, I would have all these [9] hours in the night where everyone else sleeps, sitting in the dark, looking at the [10], thinking and inventing things. I think that between the insomnia and the [11] dreams, it [12] shifted the way that I am.\n@guest|Even though now I'm way more [13] than I was before, I still can identify with that.\n@host|What made you start doing this?\n@guest|I've been in love with creating worlds since forever. For me, it was always a rush to make something exist that didn't exist before.\n@guest|I've always felt [14] was more exciting than real life. That's also why I've always loved [15]. They make me feel alive.\n@guest|With my own work, I am [16] to change the movies that I make and to explore different [17]. I have the goal of doing a comedy, a classical thriller, maybe even a musical, and not an experimental sci-fi, as I've done before.\n@host|Are you [18]?\n@guest|I think I am.\n@guest|I refuse to be one thing. In general, I want to make movies in different [19]. I've already started moving towards this goal by watching movies from all around the world.\n@guest|By doing this, I can [20] with all these different stories of these different people that live in completely different parts of the world and still feel this human experience. I'm really interested in exploring this.\n@host|How much of yourself is present in your films?\n@guest|It's actually very funny because anyone that sees my movies probably imagines that I must be very nostalgic, silent, maybe [21] individual because that's the energy that my past movies have.\n@guest|However, I'm completely the [22]. I'm normally happy, telling jokes all the time. It's very interesting for me to see the movies that I make because I sometimes watch them and I am like, Yes, this is a huge part of me, but this is not me.\n@host|What does it feel like to be a film director?\n@guest|It's fascinating and [23] at the same time. I think it's easier with short films because you understand that viewers are going to watch [24] of them in a row. Making a film that people are going to sit down and watch for at least an hour and a half and then talk about, well, that's different.\n@host|What did it take for you to make your first [25] film?\n@guest|I did feel a lot of [26] eyes on me when I was doing my first film. Can you believe I wrote the script for it when I was 21? But I only released it close to my 30th birthday. It took years to get [27].\n@guest|Then I finally found a great team and a producer and we shot it. But I was a [28]-[29] actress already. I thought that I was going to release my first feature film in complete [30].\n@guest|But in the end, people started looking at it.\n@host|Thank you very much, Brie. It has been very interesting talking to you.","gaps":[{"num":1,"answer":"debuted"},{"num":2,"answer":"director"},{"num":3,"answer":"scriptwriter"},{"num":4,"answer":"blockbusters"},{"num":5,"answer":"unique"},{"num":6,"answer":"inspiration"},{"num":7,"answer":"memorable"},{"num":8,"answer":"insomnia"},{"num":9,"answer":"endless"},{"num":10,"answer":"ceiling"},{"num":11,"answer":"intense"},{"num":12,"answer":"profoundly"},{"num":13,"answer":"rational"},{"num":14,"answer":"fiction"},{"num":15,"answer":"thrillers"},{"num":16,"answer":"aiming"},{"num":17,"answer":"genres"},{"num":18,"answer":"ambitious"},{"num":19,"answer":"languages"},{"num":20,"answer":"empathize"},{"num":21,"answer":"tormented"},{"num":22,"answer":"opposite"},{"num":23,"answer":"horrifying"},{"num":24,"answer":"several"},{"num":25,"answer":"feature"},{"num":26,"answer":"external"},{"num":27,"answer":"financing"},{"num":28,"answer":"prize"},{"num":29,"answer":"winning"},{"num":30,"answer":"anonymity"}],"questions":[{"q":"1. What do we learn about Brie Martin at the beginning of the interview?","opts":["She's worked in different spheres.","All of her films are blockbusters.","She enjoys watching sci-fi films."],"correct":0},{"q":"2. Brie describes her dreams as …","opts":["stimulating.","horrifying.","easy to forget."],"correct":0},{"q":"3. It's often hard for Brie to …","opts":["remember her dreams.","fall asleep at night.","invent plots for her films."],"correct":1},{"q":"4. For Brie, real life is less … than fiction.","opts":["interesting","memorable","difficult"],"correct":0},{"q":"5. Brie wants to …","opts":["change the world of cinema.","experiment with new genres.","travel to different countries."],"correct":1},{"q":"6. Brie characterizes herself as …","opts":["sentimental.","interesting.","cheerful."],"correct":2},{"q":"7. Speaking about being a film director, Brie points out that …","opts":["it takes some time to become famous.","it's not a huge responsibility to make feature films.","it takes a long time and a lot of money to make films."],"correct":2}],"playthroughStarts":["1:19","5:35"],"instructions":"Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."},{"id":"alice-white","nav":"Alice White","title":"Five Minutes with a Star — Alice White","type":"listening","audio":"audio/AliceWhite.mp3","prep":{"gapFill":{"instruction":"Complete the expressions. Use the words from the box. There is one extra word.","wordBank":["resonate","nightmare","give","fashioned","top","core","normal","up","stamina","audition","smile"],"extraWord":"smile","items":[{"id":1,"sentence":"to ________ with the viewer","answer":"resonate"},{"id":2,"sentence":"to go through a ________","answer":"nightmare"},{"id":3,"sentence":"to ________ something a go","answer":"give"},{"id":4,"sentence":"to be old-________","answer":"fashioned"},{"id":5,"sentence":"to be over-the-________","answer":"top"},{"id":6,"sentence":"to feel something in your ________","answer":"core"},{"id":7,"sentence":"to go back to ________","answer":"normal"},{"id":8,"sentence":"to take ________ ballet","answer":"up"},{"id":9,"sentence":"to need ________ to survive","answer":"stamina"},{"id":10,"sentence":"to be rejected after an ________","answer":"audition"}]},"matching":{"instruction":"Match the expressions (1–10) with their meanings (A–J).","expressions":[{"id":1,"text":"resonate with the viewer"},{"id":2,"text":"go through a nightmare"},{"id":3,"text":"give something a go"},{"id":4,"text":"old-fashioned"},{"id":5,"text":"over-the-top"},{"id":6,"text":"feel something in your core"},{"id":7,"text":"go back to normal"},{"id":8,"text":"take up ballet"},{"id":9,"text":"need stamina to survive"},{"id":10,"text":"rejected after an audition"}],"meanings":[{"id":"A","text":"create a strong emotional connection with the audience"},{"id":"B","text":"experience something very unpleasant or difficult"},{"id":"C","text":"try something / attempt to do something"},{"id":"D","text":"traditional / preferring classic styles or ideas"},{"id":"E","text":"exaggerated or extreme (often in a negative way)"},{"id":"F","text":"experience something deeply / feel it strongly inside"},{"id":"G","text":"return to the usual / previous condition"},{"id":"H","text":"start doing ballet regularly"},{"id":"I","text":"need lasting physical or mental strength to continue"},{"id":"J","text":"not get the part after a casting tryout"}],"answers":{"1":"A","2":"B","3":"C","4":"D","5":"E","6":"F","7":"G","8":"H","9":"I","10":"J"}}},"transcript":"@narrator|Hello everybody, and here we are with our weekly program, Five Minutes with a Star. Today in our studio, we are lucky to have Alice White, a world-famous actress, dancer and film producer.\n@narrator|Alice rarely gives interviews, so feel very [1] today.\n@host|Good afternoon, Alice.\n@guest|Good afternoon.\n@guest|Thank you for inviting me. It's a pleasure being here. In your [2] interviews, you've mentioned the fact that you're a very [3] woman.\n@host|How often do you cry while watching a movie?\n@guest|I don't cry because I'm watching a sad film. I cry anytime anyone does something [4], or someone says or does something nice to another person. When I grew up, my mom cried all the time because she was [5], or it was so beautiful when I sang at school.\n@guest|She stood there in the [6] crying. And now, ever since I turned 20, I've realized I cry less and less from pain or sadness, and more for the beautiful things.\n@host|Do you enjoy watching [7]?\n@guest|Some people think that melodramas are [8] films, but in fact it's not an easy task to make a melodrama that will [9] with the viewer.\n@guest|Modern melodramas can often be so [10]-[11]-[12]. I mean, when the emotional aspects of a film don't [13], when it feels emotional without making you actually feel it in your core. I guess that's also why emotional dramas are one of the most difficult film genres to make, to be honest.\n@host|Why do you often play in melodramas? What [14] you to that genre?\n@guest|Well, I just grew up with some [15] stories of this genre. This year, I've worked on a beautiful new melodrama, too. I guess I like being [16]-[17].\n@guest|I usually feel really engaged by melodramatic [18] because when it comes to wanting love, wanting family, losing people, [19], pain, those are things that everyone relates to.\n@host|Apart from being an actress, you're a dancer. What made you take up [20]?\n@guest|Ballet is good training for the film [21] because you're in serious pain, but you always have to have a [22] on your face.\n@guest|I think as soon as you stop training, though, your body goes back to normal, so the amount of pain you can take is not the same. I actually just put on a pair of [23] shoes for the first time in a long time the other day, and it was a [24]. In the school I trained at, they didn't let you [25] your [26] for the first two years, and it's so painful.\n@guest|I went home crying, and my parents almost wanted me to quit, but then I just did it. It requires a lot of [27] to not give up.\n@host|Do you use that stamina now on film sets?\n@guest|Yeah, quite often, I would say.\n@guest|It's normally quite uncomfortable to make films. Actually, I did a film this summer where it was [28] to be summer, and we were in Germany. It was quite cold outside, but we had to [29] it was summer.\n@guest|On a shoot, normally it was like 5 [30], and I had a little tank top on, and I was running around for like 10 hours a day, pretending to be really warm when I was about to [31]. I hate being cold, so I needed all of my stamina to survive.\n@host|When you're [32] after an audition, how do you cope with it?\n@guest|It's a [33] industry.\n@guest|When you decide that you want to give it a go, you're also accepting that you might get one job, and then it'll be a long time before the next one, if ever. I never thought that I was going to be given even one [34], and now I've been invited to work with so many [35] [36] and actors.\n@guest|It's been amazing to be part of those projects.\n@host|Thank you very much, Alice. It has been very interesting talking to you.","gaps":[{"num":1,"answer":"privileged"},{"num":2,"answer":"previous"},{"num":3,"answer":"emotional"},{"num":4,"answer":"sweet"},{"num":5,"answer":"touched"},{"num":6,"answer":"corner"},{"num":7,"answer":"melodramas"},{"num":8,"answer":"shallow"},{"num":9,"answer":"resonate"},{"num":10,"answer":"over"},{"num":11,"answer":"the"},{"num":12,"answer":"top"},{"num":13,"answer":"resonate"},{"num":14,"answer":"attracts"},{"num":15,"answer":"classical"},{"num":16,"answer":"old"},{"num":17,"answer":"fashioned"},{"num":18,"answer":"scripts"},{"num":19,"answer":"heartbreak"},{"num":20,"answer":"ballet"},{"num":21,"answer":"industry"},{"num":22,"answer":"smile"},{"num":23,"answer":"pointe"},{"num":24,"answer":"nightmare"},{"num":25,"answer":"tape"},{"num":26,"answer":"toes"},{"num":27,"answer":"stamina"},{"num":28,"answer":"supposed"},{"num":29,"answer":"pretend"},{"num":30,"answer":"degrees"},{"num":31,"answer":"freeze"},{"num":32,"answer":"rejected"},{"num":33,"answer":"tough"},{"num":34,"answer":"opportunity"},{"num":35,"answer":"incredible"},{"num":36,"answer":"filmmakers"}],"questions":[{"q":"1. What do we learn about Alice White at the beginning of the interview?","opts":["She's won several international awards.","She's internationally famous.","She often gives interviews."],"correct":1},{"q":"2. What is most likely to make Alice cry?","opts":["Something ugly.","Something lovely.","Something tragic."],"correct":1},{"q":"3. Alice thinks melodramas are …","opts":["very primitive.","hard to make.","usually over the top."],"correct":2},{"q":"4. Alice enjoys acting in melodramas because most viewers …","opts":["are quite old-fashioned.","love their scripts.","understand the characters."],"correct":2},{"q":"5. Alice's dancing background was useful for her because she …","opts":["could develop her endurance.","can now play in films about ballet.","became elegant thanks to it."],"correct":0},{"q":"6. Alice describes the conditions on most of her film sets as …","opts":["physically challenging.","very comfortable.","warm and welcoming."],"correct":0},{"q":"7. Talking about her career, Alice sounds …","opts":["modest.","arrogant.","indifferent."],"correct":0}],"playthroughStarts":["1:19","5:42"],"instructions":"Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."},{"id":"brenda-black","nav":"Brenda Black","title":"Five Minutes with a Star — Brenda Black","type":"listening","audio":"audio/BrendaBlack.mp3","prep":{"gapFill":{"instruction":"Complete the expressions. Use the words from the box. There is one extra word.","wordBank":["eyes","break","anew","mercy","role","brought","vulnerable","doubt","shackles"],"extraWord":"shackles","items":[{"id":1,"sentence":"to see the world through different ________","answer":"eyes"},{"id":2,"sentence":"to ________ away from the shackles","answer":"break"},{"id":3,"sentence":"to discover yourself ________ every day","answer":"anew"},{"id":4,"sentence":"to be at someone's ________","answer":"mercy"},{"id":5,"sentence":"to play a supporting ________","answer":"role"},{"id":6,"sentence":"to be ________ up a certain way","answer":"brought"},{"id":7,"sentence":"to make yourself ________","answer":"vulnerable"},{"id":8,"sentence":"to have a moment of ________","answer":"doubt"}]},"matching":{"instruction":"Match the expressions (1–8) with their meanings (A–H).","expressions":[{"id":1,"text":"see the world through different eyes"},{"id":2,"text":"break away from the shackles"},{"id":3,"text":"discover yourself anew"},{"id":4,"text":"at someone's mercy"},{"id":5,"text":"supporting role"},{"id":6,"text":"brought up a certain way"},{"id":7,"text":"make yourself vulnerable"},{"id":8,"text":"moment of doubt"}],"meanings":[{"id":"A","text":"understand life from new perspectives"},{"id":"B","text":"free yourself from limiting circumstances and habits"},{"id":"C","text":"learn new things about your own personality again and again"},{"id":"D","text":"completely dependent on another person or their decisions"},{"id":"E","text":"a secondary / non-leading part in a film or play"},{"id":"F","text":"raised / educated in a particular manner"},{"id":"G","text":"allow yourself to be open to emotional risk or hurt"},{"id":"H","text":"a short period of uncertainty or lack of confidence"}],"answers":{"1":"A","2":"B","3":"C","4":"D","5":"E","6":"F","7":"G","8":"H"}}},"gaps":[{"num":1,"answer":"influential"},{"num":2,"answer":"according"},{"num":3,"answer":"magazine"},{"num":4,"answer":"artistic"},{"num":5,"answer":"coming"},{"num":6,"answer":"of"},{"num":7,"answer":"age"},{"num":8,"answer":"lifelong"},{"num":9,"answer":"shackles"},{"num":10,"answer":"bind"},{"num":11,"answer":"curiosity"},{"num":12,"answer":"inner"},{"num":13,"answer":"require"},{"num":14,"answer":"vulnerable"},{"num":15,"answer":"forgiveness"},{"num":16,"answer":"lines"},{"num":17,"answer":"throughout"},{"num":18,"answer":"weather"},{"num":19,"answer":"issues"},{"num":20,"answer":"technical"},{"num":21,"answer":"mercy"},{"num":22,"answer":"puller"},{"num":23,"answer":"attitude"},{"num":24,"answer":"regret"},{"num":25,"answer":"doubts"},{"num":26,"answer":"simpler"},{"num":27,"answer":"adulthood"},{"num":28,"answer":"deeper"},{"num":29,"answer":"participants"},{"num":30,"answer":"creatures"},{"num":31,"answer":"burden"},{"num":32,"answer":"entire"},{"num":33,"answer":"angles"},{"num":34,"answer":"anew"}],"transcript":"@narrator|Hello everybody, and here we are with our weekly program, 5 Minutes with a Star. Today in our studio, we are lucky to have Brenda Black, a world-famous actress. Having started with supporting roles in comedies, Brenda is now one of the most [1] people in the world, [2] to Time [3].\n@host|Good afternoon, Brenda.\n@guest|Good afternoon. Thank you for inviting me. It's a pleasure being here.\n@host|As I have already mentioned, you started your [4] career with comedies about teenagers. Are these roles still important to you?\n@guest|Oh yes, they are, because they reflect my personal [5]-[6]-[7] story. Such stories are always important. It's an ever-changing, [8] process to continue to break away from the [9] that [10] us.\n@guest|We are born with a connection to our family, being brought up in a certain way, a certain community that we live in, and a certain part of the world that we live in. It takes our sense of [11] to continue to push forward and break away from those things. I wouldn't be on the path that I am with the career that I've had if I didn't have a deep understanding of the sense of my [12] freedom.\n@host|Does acting [13] making yourself [14]?\n@guest|Yes, it does. Plus, you have to allow yourself to be that vulnerable in front of so many people. You gain a sense of freedom and understanding and [15] for being human. You realize how difficult being an adult can be. Instead of trying to control things and make it the way you want them, you have to be more open to what it is.\n@host|Does it mean that actors don't need to be in control?\n@guest|In fact, it's very rare when actors are in control of everything. Sure, I can learn my [16]. I can know my character really well. But there are so many factors going on [17] the day. There are [18] [19]. There are [20] issues. Any number of things can happen during the day. And the actor's job is at the [21] of everybody else. Of the focus [22]. That the lighting is right, that the camera is turned on, that everybody is having a good [23] and moving quickly.\n@host|Do you ever [24] becoming an actress?\n@guest|I still have moments of [25], and I still get scared, and I still wish sometimes that I was back at home with my parents, and they were making lunch, and I would go to school, and life was [26], but there is no going back to that reality. Still, I'm happy to be what I am. There's so much to be gained from [27]. Feelings just become so much [28].\n@host|What do you think is the most important thing people should remember?\n@guest|I think that people must not forget that it's both hard and exciting to be a human being. We have to choose every day to be active [29]. To wake up in the morning and choose this life and make something of it is an incredible thing. Not many living [30] have that option. We have so many opportunities and options. It's a huge [31], but it's also the most freeing part of our lives.\n@host|Did acting help you find your way?\n@guest|Most people have just been themselves their [32] lives. I've had to be so many different types of people and learn to see the world from many different [33]. I've had the rare experience of living life as many different people. I get in touch with many different things that are so surprising that I didn't know about until I started seeing the world through different eyes. Acting changes me every day. I discover myself [34] every day.\n@host|Thank you very much, Brenda. It has been very interesting talking to you.\n@guest|Thank you.","questions":[{"q":"1. What do we learn about Brenda Black at the beginning of the interview?","opts":["She's won several awards.","She plays in comedies only.","She has a successful career."],"correct":2},{"q":"2. Brenda thinks her early roles are …","opts":["significant.","curious.","shallow."],"correct":0},{"q":"3. According to Brenda, actors have to …","opts":["be bossy and pushy.","learn to accept things.","forgive other people."],"correct":1},{"q":"4. Brenda thinks her job depends on …","opts":["only herself.","a variety of factors.","being in control."],"correct":1},{"q":"5. Sometimes Brenda wishes she could …","opts":["be an actress forever.","go back in time.","have a supporting family."],"correct":1},{"q":"6. Brenda thinks it's important NOT to …","opts":["take an active approach to life.","forget that life is really hard.","take your life for granted."],"correct":2},{"q":"7. According to Brenda, which of the following is TRUE for actors?","opts":["They can see things from different perspectives.","Their lives are always full of pleasant surprises.","They get in touch with many interesting people."],"correct":0}],"playthroughStarts":["1:19","5:35"],"instructions":"Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."}]};
-  function boot() {
-    EgePrep.mountTopic(TOPIC, TOPIC.id);
-  }
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
-  } else {
-    boot();
+  if (!window._egeTaskKeysBound) {
+    window._egeTaskKeysBound = true;
+    document.addEventListener("keydown", handleTaskKeyboard);
   }
 })();
-  </script>
-</body>
-</html>
