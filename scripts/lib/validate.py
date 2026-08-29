@@ -165,6 +165,37 @@ def _validate_listening(report: Report, base: str, task: dict) -> None:
             report.warn(base, f"transcript file not found: {transcript}")
 
 
+def _validate_speaking(report: Report, base: str, task: dict) -> None:
+    images = task.get("images") or []
+    if len(images) != 2:
+        report.warn(base, f"speaking task usually has 2 images, got {len(images)}")
+    for i, image in enumerate(images):
+        if not image.get("src"):
+            report.error(base, f"image {i}: missing src")
+        if not image.get("alt"):
+            report.warn(base, f"image {i}: missing alt text")
+    if not task.get("prompt"):
+        report.error(base, "speaking task missing prompt")
+    if not task.get("plan"):
+        report.warn(base, "speaking task missing plan")
+
+
+def _validate_speaking_questions(report: Report, base: str, task: dict) -> None:
+    if not task.get("prompt"):
+        report.error(base, "speaking-questions task missing prompt")
+    if not task.get("adTitle"):
+        report.warn(base, "speaking-questions task missing adTitle")
+    image = task.get("image") or {}
+    if not image.get("src"):
+        report.warn(base, "speaking-questions task missing image src")
+    questions = task.get("questions") or []
+    if len(questions) != 4:
+        report.warn(base, f"speaking-questions task usually has 4 points, got {len(questions)}")
+    for i, item in enumerate(questions):
+        if not str(item).strip():
+            report.error(base, f"question {i}: empty")
+
+
 def validate_topic(report: Report, topic_id: str, topic: dict) -> int:
     if topic.get("id") != topic_id:
         report.error(topic_id, f"topic id {topic.get('id')!r} != filename {topic_id}")
@@ -189,6 +220,8 @@ def validate_topic(report: Report, topic_id: str, topic: dict) -> int:
             "mc": _validate_mc,
             "wordform": _validate_wordform,
             "listening": _validate_listening,
+            "speaking": _validate_speaking,
+            "speaking-questions": _validate_speaking_questions,
         }
         fn = validators.get(task_type)
         if not fn:

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Yap o'clock timer</title>
+  <desc id="desc">A balanced playful red, white, and navy timer icon without facial features.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="9" stdDeviation="3" flood-color="#081B5C" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <g stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
+    <path d="M206 88V72h100v16" fill="none" stroke="#081B5C" stroke-width="20"/>
+    <rect x="177" y="43" width="158" height="40" rx="20" fill="#FF174F" stroke="#081B5C" stroke-width="14"/>
+    <path d="M163 117l-41-41" fill="none" stroke="#081B5C" stroke-width="19"/>
+    <path d="M87 50l50 50-29 29-50-50z" fill="#FF174F" stroke="#081B5C" stroke-width="14"/>
+    <path d="M349 117l41-41" fill="none" stroke="#081B5C" stroke-width="19"/>
+    <path d="M425 50l-50 50 29 29 50-50z" fill="#FF174F" stroke="#081B5C" stroke-width="14"/>
+    <circle cx="256" cy="278" r="185" fill="#FFFDF7" stroke="#081B5C" stroke-width="20"/>
+    <circle
+      class="ege-speaking-timer__progress"
+      cx="256"
+      cy="278"
+      r="168"
+      fill="none"
+      stroke="#FF174F"
+      stroke-width="13"
+      stroke-linecap="round"
+      pathLength="100"
+      stroke-dasharray="100"
+      stroke-dashoffset="100"
+      transform="rotate(-90 256 278)"
+      opacity="0.95"
+    />
+    <path d="M256 129v20M256 427v-20M107 278h20M405 278h-20" fill="none" stroke="#081B5C" stroke-width="16"/>
+    <path d="M151 173l14 14M361 173l-14 14M151 383l14-14M361 383l-14-14" fill="none" stroke="#081B5C" stroke-width="13"/>
+    <path class="ege-speaking-timer__hand ege-speaking-timer__hand--hour" d="M256 278V179" fill="none" stroke="#081B5C" stroke-width="23"/>
+    <g class="ege-speaking-timer__sweep">
+      <path d="M256 278V179" fill="none" stroke="#FF174F" stroke-width="23"/>
+    </g>
+    <circle cx="256" cy="278" r="22" fill="#FF174F" stroke="#081B5C" stroke-width="12"/>
+    <path d="M171 447l-15 31M341 447l15 31" fill="none" stroke="#081B5C" stroke-width="19"/>
+  </g>
+</svg>

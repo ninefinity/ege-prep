@@ -61,13 +61,18 @@
     );
   }
 
-  function applyHighlight(container) {
+  function applyHighlight(container, rangeOpt) {
+    var range = rangeOpt || null;
     var sel = window.getSelection();
-    if (!sel || !sel.rangeCount || sel.isCollapsed) return false;
+    var usingLiveSelection = !range;
 
-    var range = sel.getRangeAt(0);
+    if (!range) {
+      if (!sel || !sel.rangeCount || sel.isCollapsed) return false;
+      range = sel.getRangeAt(0);
+    }
+
     if (!selectionInside(container, range) || selectionBlocked(range)) {
-      sel.removeAllRanges();
+      if (usingLiveSelection && sel) sel.removeAllRanges();
       return false;
     }
 
@@ -77,17 +82,40 @@
     try {
       var contents = range.extractContents();
       if (!contents.textContent.trim()) {
-        sel.removeAllRanges();
+        if (sel) sel.removeAllRanges();
         return false;
       }
       mark.appendChild(contents);
       range.insertNode(mark);
-      sel.removeAllRanges();
+      if (sel) sel.removeAllRanges();
       return true;
     } catch (_err) {
-      sel.removeAllRanges();
+      if (sel) sel.removeAllRanges();
       return false;
     }
+  }
+
+  function cloneLiveSelectionRange() {
+    var sel = window.getSelection();
+    if (!sel || !sel.rangeCount || sel.isCollapsed) return null;
+    try {
+      return sel.getRangeAt(0).cloneRange();
+    } catch (_err) {
+      return null;
+    }
+  }
+
+  function applySelectionToContainers(containers, rangeOpt) {
+    var range = rangeOpt || cloneLiveSelectionRange();
+    if (!range) return null;
+
+    for (var i = 0; i < containers.length; i += 1) {
+      var container = containers[i];
+      if (!applyHighlight(container, range.cloneRange())) continue;
+      persistContainer(container);
+      return container;
+    }
+    return null;
   }
 
   function sanitizePassageHtml(container) {
@@ -144,6 +172,7 @@
     clearBtn.hidden = true;
 
     var mode = "none";
+    var pendingHighlightRange = null;
 
     function setMode(next) {
       mode = next;
@@ -173,15 +202,32 @@
       syncClearBtn();
     }
 
+    function tryHighlightSelection(rangeOpt) {
+      if (!applySelectionToContainers(containers, rangeOpt || null)) return false;
+      syncClearBtn();
+      return true;
+    }
+
+    highlightBtn.addEventListener("mousedown", function (event) {
+      if (event.button !== 0) return;
+      pendingHighlightRange = cloneLiveSelectionRange();
+      if (pendingHighlightRange) event.preventDefault();
+    });
+
     highlightBtn.addEventListener("click", function () {
+      var saved = pendingHighlightRange;
+      pendingHighlightRange = null;
+      if (tryHighlightSelection(saved)) return;
       setMode(mode === "highlight" ? "none" : "highlight");
     });
 
     eraseBtn.addEventListener("click", function () {
+      pendingHighlightRange = null;
       setMode(mode === "erase" ? "none" : "erase");
     });
 
     clearBtn.addEventListener("click", function () {
+      pendingHighlightRange = null;
       clearAll();
       setMode("none");
     });
@@ -205,6 +251,7 @@
         var mark = event.target.closest(".ege-highlight");
         if (!mark || !container.contains(mark)) return;
         event.preventDefault();
+        event.stopPropagation();
         unwrapHighlight(mark);
         persistContainer(container);
         syncClearBtn();
@@ -216,6 +263,7 @@
     tools.appendChild(clearBtn);
 
     tools.setHighlightMode = function (next) {
+      if (next === "highlight" && tryHighlightSelection()) return;
       if (next === "highlight" || next === "erase" || next === "none") setMode(next);
     };
 

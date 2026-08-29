@@ -1,0 +1,231 @@
+{
+  "id": "speaking",
+  "title": "Photo Monologue",
+  "instructions": "Вы получите задание с двумя иллюстрациями. Подготовьтесь к монологу по плану. На выполнение задания даётся 1,5 минуты на подготовку и 2,5 минуты на ответ.",
+  "tasks": [
+    {
+      "id": "doing-school-projects",
+      "nav": "Doing School Projects",
+      "title": "Doing School Projects",
+      "type": "speaking",
+      "prompt": "Imagine that you and your friend are doing a school project \"Doing School Projects\". You have found some illustrations and want to share the news. Leave a voice message to your friend. In 2.5 minutes be ready to:\n\n— explain the choice of the illustrations for the project by briefly describing them and noting the differences;\n— mention the advantages (1–2) of the two ways of working on a project;\n— mention the disadvantages (1–2) of the two ways of working on a project;\n— express your opinion on the subject of the project — which way of working on school projects you prefer and why.\n\nYou will speak for not more than 3 minutes (12–15 sentences). You have to talk continuously.",
+      "plan": [
+        "explain the choice of the illustrations for the project by briefly describing them and noting the differences;",
+        "mention the advantages (1–2) of the two ways of working on a project;",
+        "mention the disadvantages (1–2) of the two ways of working on a project;",
+        "express your opinion on the subject of the project — which way of working on school projects you prefer and why."
+      ],
+      "opinionQuestion": "which way of working on school projects you prefer and why",
+      "images": [
+        {
+          "id": 1,
+          "src": "school-projects-solo.jpg",
+          "alt": "A teenage girl with notebook and a laptop alone at a desk.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@juliolopez?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Julio Lopez</a> on <a href=\"https://unsplash.com/photos/young-woman-wearing-headphones-studying-at-a-desk-MRtEiAj9uaM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        },
+        {
+          "id": 2,
+          "src": "school-projects-collab.jpg",
+          "alt": "Three classmates working on a group project around a library table.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@planeteelevene?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Muhammad-Taha Ibrahim</a> on <a href=\"https://unsplash.com/photos/three-women-review-papers-together-indoors-kKkovYfJvTs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        }
+      ]
+    },
+    {
+      "id": "modes-of-education",
+      "nav": "Modes of Education",
+      "title": "Modes of Education",
+      "type": "speaking",
+      "prompt": "Imagine that you and your friend are doing a school project \"Modes of Education\". You have found some illustrations and want to share the news. Leave a voice message to your friend. In 2.5 minutes be ready to:\n\n— explain the choice of the illustrations for the project by briefly describing them and noting the differences;\n— mention the advantages (1–2) of the two modes of studying;\n— mention the disadvantages (1–2) of the two modes of studying;\n— express your opinion on the subject of the project — which mode of education you would choose for preparing for your exams and why.\n\nYou will speak for not more than 3 minutes (12–15 sentences). You have to talk continuously.",
+      "plan": [
+        "explain the choice of the illustrations for the project by briefly describing them and noting the differences;",
+        "mention the advantages (1–2) of the two modes of studying;",
+        "mention the disadvantages (1–2) of the two modes of studying;",
+        "express your opinion on the subject of the project — which mode of education you would choose for preparing for your exams and why."
+      ],
+      "opinionQuestion": "which mode of education you would choose for preparing for your exams and why",
+      "images": [
+        {
+          "id": 1,
+          "src": "online-edu.jpg",
+          "alt": "A girl wearing headphones taking notes during an online lecture.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@soundtrap?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Soundtrap</a> on <a href=\"https://unsplash.com/photos/person-writing-in-notebook-at-home-office-ddwbTn5HDdQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        },
+        {
+          "id": 2,
+          "src": "happy-teacher.jpg",
+          "alt": "A happy teacher at a flipchart interacting with students in a classroom.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@5dworkspace?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Fred Kloet</a> on <a href=\"https://unsplash.com/photos/man-facing-in-front-of-another-sitting-man-IrQZkyhdOow?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        }
+      ]
+    },
+    {
+      "id": "schoolwear",
+      "nav": "Schoolwear",
+      "title": "Schoolwear",
+      "type": "speaking",
+      "prompt": "Imagine that you and your friend are doing a school project \"Schoolwear\". You have found some illustrations and want to share the news. Leave a voice message to your friend. In 2.5 minutes be ready to:\n\n— explain the choice of the illustrations for the project by briefly describing them and noting the differences;\n— mention the advantages (1–2) of the two types of school clothing;\n— mention the disadvantages (1–2) of the two types of school clothing;\n— express your opinion on the subject of the project — whether you would like to wear a school uniform and why.\n\nYou will speak for not more than 3 minutes (12–15 sentences). You have to talk continuously.",
+      "plan": [
+        "explain the choice of the illustrations for the project by briefly describing them and noting the differences;",
+        "mention the advantages (1–2) of the two types of school clothing;",
+        "mention the disadvantages (1–2) of the two types of school clothing;",
+        "express your opinion on the subject of the project — whether you would like to wear a school uniform and why."
+      ],
+      "opinionQuestion": "whether you would like to wear a school uniform and why",
+      "images": [
+        {
+          "id": 1,
+          "src": "school-uniform.jpg",
+          "alt": "Students having fun wearing uniform: purple polo and grey trousers/skirt in school hallway.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@aduratomi?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Joseph Agboola</a> on <a href=\"https://unsplash.com/photos/a-couple-of-kids-that-are-sitting-on-a-window-sill-yspAqiIej0s?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        },
+        {
+          "id": 2,
+          "src": "no-uniform-lesson.jpg",
+          "alt": "Students in casual hoodies, jeans, at the board together.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@jizhidexiaohailang?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Maccy</a> on <a href=\"https://unsplash.com/photos/people-sitting-inside-room-DJsbfCjhnJ4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        }
+      ]
+    },
+    {
+      "id": "careers-in-demand",
+      "nav": "Careers in Demand",
+      "title": "Careers in Demand",
+      "type": "speaking",
+      "prompt": "Imagine that you and your friend are doing a school project \"Careers in Demand\". You have found some illustrations and want to share the news. Leave a voice message to your friend. In 2.5 minutes be ready to:\n\n— explain the choice of the illustrations for the project by briefly describing them and noting the differences;\n— mention the advantages (1–2) of the two professions;\n— mention the disadvantages (1–2) of the two professions;\n— express your opinion on the subject of the project — which of the two career paths you would consider for yourself and why.\n\nYou will speak for not more than 3 minutes (12–15 sentences). You have to talk continuously.",
+      "plan": [
+        "explain the choice of the illustrations for the project by briefly describing them and noting the differences;",
+        "mention the advantages (1–2) of the two professions;",
+        "mention the disadvantages (1–2) of the two professions;",
+        "express your opinion on the subject of the project — which of the two career paths you would consider for yourself and why."
+      ],
+      "opinionQuestion": "which of the two career paths you would consider for yourself and why",
+      "images": [
+        {
+          "id": 1,
+          "src": "engineers.jpg",
+          "alt": "A female aerospace engineer controlling flight simulator with colleague.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@thisisengineering?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">ThisisEngineering</a> on <a href=\"https://unsplash.com/photos/woman-in-black-shirt-using-computer-3cx_tx4h9oI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        },
+        {
+          "id": 2,
+          "src": "dr.jpg",
+          "alt": "A smiling doctor in blue scrubs and stethoscope.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@naosouogagliasso?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Bruno Rodrigues</a> on <a href=\"https://unsplash.com/photos/man-in-blue-medical-scrubs-279xIHymPYY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        }
+      ]
+    },
+    {
+      "id": "part-time-jobs-for-teenagers",
+      "nav": "Part-time Jobs for Teenagers",
+      "title": "Part-time Jobs for Teenagers",
+      "type": "speaking",
+      "prompt": "Imagine that you and your friend are doing a school project \"Part-time Jobs for Teenagers\". You have found some illustrations and want to share the news. Leave a voice message to your friend. In 2.5 minutes be ready to:\n\n— explain the choice of the illustrations for the project by briefly describing them and noting the differences;\n— mention the advantages (1–2) of the two kinds of part-time jobs;\n— mention the disadvantages (1–2) of the two kinds of part-time jobs;\n— express your opinion on the subject of the project — what kind of part-time job you would prefer to have during summer holidays and why.\n\nYou will speak for not more than 3 minutes (12–15 sentences). You have to talk continuously.",
+      "plan": [
+        "explain the choice of the illustrations for the project by briefly describing them and noting the differences;",
+        "mention the advantages (1–2) of the two kinds of part-time jobs;",
+        "mention the disadvantages (1–2) of the two kinds of part-time jobs;",
+        "express your opinion on the subject of the project — what kind of part-time job you would prefer to have during summer holidays and why."
+      ],
+      "opinionQuestion": "what kind of part-time job you would prefer to have during summer holidays and why",
+      "images": [
+        {
+          "id": 1,
+          "src": "barista.jpg",
+          "alt": "A barista in a yellow beanie making a cup of coffee.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@brookecagle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Brooke Cagle</a> on <a href=\"https://unsplash.com/photos/woman-holding-clear-drinking-glass-9fHMo1-5Io8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        },
+        {
+          "id": 2,
+          "src": "delivery-driver.jpg",
+          "alt": "A top-down view of a male food delivery courier riding a bicycle on an asphalt city street, wearing a bright yellow Delivery company backpack and casting a long shadow in the afternoon sun.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@stepan_photo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Stepan</a> on <a href=\"https://unsplash.com/photos/man-on-bicycle-with-large-yellow-backpack-on-road-fNR4lQ8U-rU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        }
+      ]
+    },
+    {
+      "id": "leisure-time",
+      "nav": "Leisure Time",
+      "title": "Leisure Time",
+      "type": "speaking",
+      "prompt": "Imagine that you and your friend are doing a school project \"Leisure Time\". You have found some illustrations and want to share the news. Leave a voice message to your friend. In 2.5 minutes be ready to:\n\n— explain the choice of the illustrations for the project by briefly describing them and noting the differences;\n— mention the advantages (1–2) of the two types of leisure activities;\n— mention the disadvantages (1–2) of the two types of leisure activities;\n— express your opinion on the subject of the project — how you prefer to spend your free time on weekends and why.\n\nYou will speak for not more than 3 minutes (12–15 sentences). You have to talk continuously.",
+      "plan": [
+        "explain the choice of the illustrations for the project by briefly describing them and noting the differences;",
+        "mention the advantages (1–2) of the two types of leisure activities;",
+        "mention the disadvantages (1–2) of the two types of leisure activities;",
+        "express your opinion on the subject of the project — how you prefer to spend your free time on weekends and why."
+      ],
+      "opinionQuestion": "how you prefer to spend your free time on weekends and why",
+      "images": [
+        {
+          "id": 1,
+          "src": "vr.jpg",
+          "alt": "A teenager wearing a VR headset.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@soberanes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Uriel Soberanes</a> on <a href=\"https://unsplash.com/photos/man-wearing-sony-playstation-vr-MxVkWPiJALs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        },
+        {
+          "id": 2,
+          "src": "reading.jpg",
+          "alt": "A girl sitting outside reading a paperback book.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@j_erhunse?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Jeffery Erhunse</a> on <a href=\"https://unsplash.com/photos/woman-in-white-long-sleeve-shirt-reading-book-5eQ-_Gebljg?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        }
+      ]
+    },
+    {
+      "id": "staying-fit",
+      "nav": "Staying Fit",
+      "title": "Staying Fit",
+      "type": "speaking",
+      "prompt": "Imagine that you and your friend are doing a school project \"Staying Fit\". You have found some illustrations and want to share the news. Leave a voice message to your friend. In 2.5 minutes be ready to:\n\n— explain the choice of the illustrations for the project by briefly describing them and noting the differences;\n— mention the advantages (1–2) of the two ways of exercising;\n— mention the disadvantages (1–2) of the two ways of exercising;\n— express your opinion on the subject of the project — which way of doing sports you prefer and why.\n\nYou will speak for not more than 3 minutes (12–15 sentences). You have to talk continuously.",
+      "plan": [
+        "explain the choice of the illustrations for the project by briefly describing them and noting the differences;",
+        "mention the advantages (1–2) of the two ways of exercising;",
+        "mention the disadvantages (1–2) of the two ways of exercising;",
+        "express your opinion on the subject of the project — which way of doing sports you prefer and why."
+      ],
+      "opinionQuestion": "which way of doing sports you prefer and why",
+      "images": [
+        {
+          "id": 1,
+          "src": "jog.jpg",
+          "alt": "A woman jogging or running marathon holding a water bottle.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@nobleseed?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">nobleseed nobleseed</a> on <a href=\"https://unsplash.com/photos/a-woman-runs-outdoors-holding-a-water-bottle-eTGFoliYvhk?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        },
+        {
+          "id": 2,
+          "src": "gym.jpg",
+          "alt": "A man exercising inside a modern fitness gym.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@totalshape?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Total Shape</a> on <a href=\"https://unsplash.com/photos/man-in-black-tank-top-and-gray-shorts-holding-black-smartphone-wXBK9JrM0iU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        }
+      ]
+    },
+    {
+      "id": "eating-habits",
+      "nav": "Eating Habits",
+      "title": "Eating Habits",
+      "type": "speaking",
+      "prompt": "Imagine that you and your friend are doing a school project \"Eating Habits\". You have found some illustrations and want to share the news. Leave a voice message to your friend. In 2.5 minutes be ready to:\n\n— explain the choice of the illustrations for the project by briefly describing them and noting the differences;\n— mention the advantages (1–2) of the two ways of eating;\n— mention the disadvantages (1–2) of the two ways of eating;\n— express your opinion on the subject of the project — which eating habit you follow in your daily life and why.\n\nYou will speak for not more than 3 minutes (12–15 sentences). You have to talk continuously.",
+      "plan": [
+        "explain the choice of the illustrations for the project by briefly describing them and noting the differences;",
+        "mention the advantages (1–2) of the two ways of eating;",
+        "mention the disadvantages (1–2) of the two ways of eating;",
+        "express your opinion on the subject of the project — which eating habit you follow in your daily life and why."
+      ],
+      "opinionQuestion": "which eating habit you follow in your daily life and why",
+      "images": [
+        {
+          "id": 1,
+          "src": "fries.jpg",
+          "alt": "Teenager eating fries with ketchup and mustard in a fast-food restaurant.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@_karsten?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Karsten Winegeart</a> on <a href=\"https://unsplash.com/photos/woman-in-white-and-red-mickey-mouse-crew-neck-t-shirt-holding-french-fries-s2MjR3xoJkE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        },
+        {
+          "id": 2,
+          "src": "home-veg.jpg",
+          "alt": "A mother showing her daughter fresh vegetables and greens at home.",
+          "attribution": "Photo by <a href=\"https://unsplash.com/@knuckles_echidna?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Dmitry Rodionov</a> on <a href=\"https://unsplash.com/photos/mother-and-daughter-preparing-vegetables-in-a-kitchen-kY2R7Jb_8co?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+{
+  "id": "speaking-questions",
+  "title": "Direct Questions",
+  "instructions": "Вы получите рекламное объявление. Подготовьтесь задать 4 прямых вопроса по плану. На подготовку даётся 1,5 минуты.",
+  "tasks": [
+    {
+      "id": "ardoyne-youth-club",
+      "nav": "Ardoyne Youth Club",
+      "title": "Ardoyne Youth Club",
+      "type": "speaking-questions",
+      "adTitle": "Ardoyne Youth Club: Exciting Weekend Leisure Activities!",
+      "image": {
+        "src": "youth-club.jpg"
+      },
+      "prompt": "You are considering joining the weekend leisure activities at Ardoyne Youth Club and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Location of the youth club.",
+        "Weekend opening hours.",
+        "Types of leisure activities available.",
+        "Free trial classes."
+      ],
+      "modelQuestions": [
+        "Where is the youth club located?",
+        "What are your weekend opening hours?",
+        "What types of leisure activities are available?",
+        "Are there any free trial classes available?"
+      ]
+    },
+    {
+      "id": "safenet",
+      "nav": "SafeNet",
+      "title": "SafeNet",
+      "type": "speaking-questions",
+      "adTitle": "SafeNet: Online Safety Course for Teenagers!",
+      "image": {
+        "src": "safenet.jpg",
+        "attribution": "Photo by <a href=\"https://unsplash.com/@flyd2069?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">FlyD</a> on <a href=\"https://unsplash.com/photos/padlock-on-laptop-with-light-trails-C5pXRFEjq3w?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText\">Unsplash</a>"
+      },
+      "prompt": "You are considering taking an online safety course at SafeNet and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Duration of the course.",
+        "Course fee.",
+        "If previous technical knowledge is required.",
+        "Certificate upon completion."
+      ],
+      "modelQuestions": [
+        "How long is the course?",
+        "How much is the course fee?",
+        "Is previous technical knowledge required?",
+        "Will I get a certificate upon completion?"
+      ]
+    },
+    {
+      "id": "maslenitsa",
+      "nav": "Maslenitsa",
+      "title": "Maslenitsa",
+      "type": "speaking-questions",
+      "adTitle": "Shirokaya Maslenitsa: Traditional Festival Games & Fun!",
+      "image": {
+        "src": "maslenitsa.jpg"
+      },
+      "prompt": "You are considering visiting the Shirokaya Maslenitsa festival and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Dates of the festival.",
+        "Location of the event.",
+        "Ticket price.",
+        "Traditional sports and games available."
+      ],
+      "modelQuestions": [
+        "What are the dates of the festival?",
+        "Where is the event located?",
+        "How much is the ticket price?",
+        "What traditional sports and games are available?"
+      ]
+    },
+    {
+      "id": "green-planet",
+      "nav": "Green Planet",
+      "title": "Green Planet",
+      "type": "speaking-questions",
+      "adTitle": "Green Planet: Join Our Environmental Volunteer Team!",
+      "image": {
+        "src": "planting-trees.jpg"
+      },
+      "prompt": "You are considering joining the Green Planet environmental volunteer team and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Minimum age for volunteers.",
+        "Meeting dates and times.",
+        "Special clothing or equipment needed.",
+        "Types of environmental projects."
+      ],
+      "modelQuestions": [
+        "What is the minimum age for volunteers?",
+        "What are the meeting dates and times?",
+        "Is any special clothing or equipment needed?",
+        "What types of environmental projects do you have?"
+      ]
+    },
+    {
+      "id": "robominds",
+      "nav": "RoboMinds",
+      "title": "RoboMinds",
+      "type": "speaking-questions",
+      "adTitle": "RoboMinds: Future Engineers After-school Club!",
+      "image": {
+        "src": "robotics.jpeg"
+      },
+      "prompt": "You are considering joining the after-school robotics club and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Age of participants.",
+        "Monthly membership fee.",
+        "Equipment provided.",
+        "Participation in competitions."
+      ],
+      "modelQuestions": [
+        "What is the age of participants in the club?",
+        "How much is the monthly membership fee?",
+        "Is the necessary equipment provided?",
+        "Do members participate in competitions?"
+      ]
+    },
+    {
+      "id": "yakutia-summer-school",
+      "nav": "Yakutia Summer School",
+      "title": "International Summer School in Yakutia",
+      "type": "speaking-questions",
+      "adTitle": "International Summer School in Yakutia, Russia: Study and Have Fun!",
+      "image": {
+        "src": "summer-school.jpg"
+      },
+      "prompt": "You are considering attending the International Summer School in Yakutia and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Dates of the summer session.",
+        "Subjects offered.",
+        "Total tuition fee.",
+        "Accommodation options."
+      ],
+      "modelQuestions": [
+        "What are the dates of the summer session?",
+        "What subjects are offered?",
+        "How much is the total tuition fee?",
+        "What accommodation options are available?"
+      ]
+    },
+    {
+      "id": "smm-pro",
+      "nav": "SMM Pro",
+      "title": "SMM Pro",
+      "type": "speaking-questions",
+      "adTitle": "SMM Pro: Learn Social Media Marketing & Content Creation!",
+      "image": {
+        "src": "marketing.jpg"
+      },
+      "prompt": "You are considering taking an SMM course and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Length of the course.",
+        "Mode of study (online or in-person).",
+        "Price of the course.",
+        "Possibility of an internship."
+      ],
+      "modelQuestions": [
+        "How long is the course?",
+        "Is the mode of study online or in-person?",
+        "What is the price of the course?",
+        "Is there a possibility of an internship after the course?"
+      ]
+    },
+    {
+      "id": "kalisawah",
+      "nav": "Kalisawah",
+      "title": "Kalisawah",
+      "type": "speaking-questions",
+      "adTitle": "Kalisawah: Family Weekend Camps & Activities!",
+      "image": {
+        "src": "family-camping.jpg"
+      },
+      "prompt": "You are considering booking a family weekend at Kalisawah and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Location of the camp.",
+        "Price per family for the weekend.",
+        "Activities for teenagers.",
+        "Meals included in the price."
+      ],
+      "modelQuestions": [
+        "Where is the camp located?",
+        "How much is the price per family for the weekend?",
+        "What activities for teenagers do you offer?",
+        "Are meals included in the price?"
+      ]
+    },
+    {
+      "id": "kimberlie-co",
+      "nav": "Cleaning Service",
+      "title": "Cleaning Service",
+      "type": "speaking-questions",
+      "adTitle": "Professional Cleaning Services for Busy Families!",
+      "image": {
+        "src": "cleaning.png",
+        "scale": 0.5
+      },
+      "prompt": "You are considering using a cleaning service and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Price list for deep cleaning.",
+        "Eco-friendly cleaning products used.",
+        "Working hours on weekends.",
+        "Discounts for regular customers."
+      ],
+      "modelQuestions": [
+        "Where can I see the price list for deep cleaning?",
+        "Do you use eco-friendly cleaning products?",
+        "What are your working hours on weekends?",
+        "Do you offer discounts for regular customers?"
+      ]
+    },
+    {
+      "id": "burger-dojo",
+      "nav": "Burger Dojo",
+      "title": "Burger Dojo",
+      "type": "speaking-questions",
+      "adTitle": "Burger Dojo: Delicious and Fresh Fast Food!",
+      "image": {
+        "src": "burger-spot.jpg"
+      },
+      "prompt": "You are considering visiting Burger Dojo and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Location of the cafe.",
+        "Vegetarian menu options.",
+        "Delivery service availability.",
+        "Opening hours."
+      ],
+      "modelQuestions": [
+        "Where is the cafe located?",
+        "Are there any vegetarian menu options?",
+        "Do you offer a delivery service?",
+        "What are your opening hours?"
+      ]
+    },
+    {
+      "id": "easy-one-pan-meals",
+      "nav": "1-Pan Meals",
+      "title": "Easy, No-Mess 1-Pan Meals",
+      "type": "speaking-questions",
+      "adTitle": "Easy, No-Mess 1-Pan Meals: Weekend Cooking Course!",
+      "image": {
+        "src": "cooking.jpg"
+      },
+      "prompt": "You are considering taking the Easy, No-Mess 1-Pan Meals cooking course and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Schedule of upcoming classes.",
+        "Price per session.",
+        "If ingredients are included in the price.",
+        "Maximum size of the group."
+      ],
+      "modelQuestions": [
+        "What is the schedule of upcoming classes?",
+        "How much is the price per session?",
+        "Are ingredients included in the price?",
+        "What is the maximum size of the group?"
+      ]
+    },
+    {
+      "id": "cyberarena",
+      "nav": "CyberArena",
+      "title": "CyberArena",
+      "type": "speaking-questions",
+      "adTitle": "CyberArena: Top Gaming Equipment & Esports Tournaments!",
+      "image": {
+        "src": "esports.jpg"
+      },
+      "prompt": "You are considering going to the CyberArena gaming club and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Hourly rate for gaming PCs.",
+        "Opening hours.",
+        "Booking a place in advance.",
+        "Upcoming esports tournaments."
+      ],
+      "modelQuestions": [
+        "What is the hourly rate for gaming PCs?",
+        "What are your opening hours?",
+        "Can I book a place in advance?",
+        "Are there any upcoming esports tournaments?"
+      ]
+    },
+    {
+      "id": "fastlink",
+      "nav": "FastLink",
+      "title": "FastLink",
+      "type": "speaking-questions",
+      "adTitle": "FastLink: Fiber Optic High-Speed Internet!",
+      "image": {
+        "src": "5g.jpg"
+      },
+      "prompt": "You are considering connecting to FastLink high-speed Internet and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Monthly subscription fee.",
+        "Internet connection speed.",
+        "Free Wi-Fi router installation.",
+        "Technical support working hours."
+      ],
+      "modelQuestions": [
+        "How much is the monthly subscription fee?",
+        "What is the Internet connection speed?",
+        "Do you provide free Wi-Fi router installation?",
+        "What are the technical support working hours?"
+      ]
+    },
+    {
+      "id": "uniprep-academy",
+      "nav": "UniPrep Academy",
+      "title": "UniPrep Academy",
+      "type": "speaking-questions",
+      "adTitle": "UniPrep Academy: State Exam & University Foundation Courses!",
+      "image": {
+        "src": "uniprep-academy.jpg"
+      },
+      "prompt": "You are considering taking preparatory courses at UniPrep Academy and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Subjects available.",
+        "Tuition fee per month.",
+        "Class schedule.",
+        "Teacher qualifications."
+      ],
+      "modelQuestions": [
+        "What subjects are available?",
+        "How much is the tuition fee per month?",
+        "What is the class schedule?",
+        "What qualifications do your teachers have?"
+      ]
+    },
+    {
+      "id": "ismart",
+      "nav": "iSmart",
+      "title": "iSmart",
+      "type": "speaking-questions",
+      "adTitle": "iSmart: Brand-New Smartphones & Express Repair!",
+      "image": {
+        "src": "ismart.jpg"
+      },
+      "prompt": "You are considering buying a smartphone or getting a gadget repaired at iSmart and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Trade-in discount options.",
+        "Warranty period for repairs.",
+        "Delivery options.",
+        "Working hours."
+      ],
+      "modelQuestions": [
+        "Do you offer trade-in discount options?",
+        "What is the warranty period for repairs?",
+        "What delivery options do you have?",
+        "What are your working hours?"
+      ]
+    },
+    {
+      "id": "neonloft",
+      "nav": "NeonLoft",
+      "title": "NeonLoft",
+      "type": "speaking-questions",
+      "adTitle": "NeonLoft: The Ultimate Teen Birthday Party Venue!",
+      "image": {
+        "src": "neonloft.jpg"
+      },
+      "prompt": "You are considering renting the NeonLoft venue for a birthday party and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Rental cost per hour.",
+        "Maximum capacity of guests.",
+        "DJ and music equipment availability.",
+        "Possibility of bringing your own food."
+      ],
+      "modelQuestions": [
+        "How much is the rental cost per hour?",
+        "What is the maximum capacity of guests?",
+        "Is DJ and music equipment available?",
+        "Is it possible to bring our own food?"
+      ]
+    },
+    {
+      "id": "family-weekend-on-the-lake",
+      "nav": "Family weekend on the lake",
+      "title": "Family weekend on the lake",
+      "type": "speaking-questions",
+      "adTitle": "Family weekend on the lake!",
+      "prompt": "You are considering going on the family weekend and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Location.",
+        "Accommodation.",
+        "Price for the weekend for a family of three.",
+        "Fishing equipment rental."
+      ],
+      "image": {
+        "src": "family-weekend-on-the-lake.png"
+      }
+    },
+    {
+      "id": "special-order-cakes-for-any-occasion",
+      "nav": "Special order cakes for any occasion",
+      "title": "Special order cakes for any occasion",
+      "type": "speaking-questions",
+      "adTitle": "Special order cakes for any occasion!",
+      "prompt": "You are considering ordering a cake from this company and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Maximum size.",
+        "Cake fillings.",
+        "Delivery.",
+        "Discounts."
+      ],
+      "image": {
+        "src": "special-order-cakes-for-any-occasion.jpg"
+      }
+    },
+    {
+      "id": "join-our-botany-club",
+      "nav": "Join our botany club",
+      "title": "Join our botany club",
+      "type": "speaking-questions",
+      "adTitle": "Join our botany club!",
+      "prompt": "You are considering going to the botany club and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Activities.",
+        "Timetable.",
+        "Minimum age.",
+        "Number of members in the club."
+      ],
+      "image": {
+        "src": "join-our-botany-club.png"
+      }
+    },
+    {
+      "id": "let-s-teach-everyone-how-to-cook",
+      "nav": "Let’s teach everyone how to cook",
+      "title": "Let’s teach everyone how to cook",
+      "type": "speaking-questions",
+      "adTitle": "Let’s teach everyone how to cook!",
+      "prompt": "You are considering going to the cooking masterclass and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "questions": [
+        "Kinds of dishes.",
+        "Number of people in the group.",
+        "The duration of the masterclass.",
+        "Tuition fee."
+      ],
+      "image": {
+        "src": "let-s-teach-everyone-how-to-cook.jpg"
+      }
+    }
+  ]
+}

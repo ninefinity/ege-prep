@@ -15,7 +15,10 @@ TOPIC_FILES = {
     "matching-headings": DATA / "matching-headings.json",
     "gap-fill": DATA / "gap-fill.json",
     "reading-comprehension": DATA / "reading-comprehension.json",
+    "grammar-transformations": DATA / "grammar-transformations.json",
     "word-formation": DATA / "word-formation.json",
     "vocabulary-cloze": DATA / "vocabulary-cloze.json",
     "listening": DATA / "listening.json",
+    "speaking": DATA / "speaking.json",
+    "speaking-questions": DATA / "speaking-questions.json",
 }

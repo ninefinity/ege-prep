@@ -7,11 +7,12 @@
   footer.className = "site-author";
   footer.setAttribute("role", "contentinfo");
   footer.innerHTML =
-    "<p>Created by <span class=\"site-author__name\">Julia Moss</span> &copy; All rights reserved</p>" +
-    "<p class=\"site-author__promo\" hidden>" +
-    "<a href=\"https://t.me/mosssblue\" target=\"_blank\" rel=\"noopener noreferrer\">Telegram @mosssblue</a>" +
+    "<p>&copy; 2026 <span class=\"site-author__name\">Julia Moss</span>. Авторские материалы и задания на основе открытого банка ФИПИ.</p>" +
+    "<p class=\"site-author__promo\">" +
+    "Contact: " +
+    "<a href=\"mailto:ninefinity@yandex.ru\">ninefinity@yandex.ru</a>" +
     "<span aria-hidden=\"true\"> · </span>" +
-    "<a href=\"https://instagram.com/mosssblue\" target=\"_blank\" rel=\"noopener noreferrer\">Instagram @mosssblue</a>" +
+    "<a href=\"https://t.me/mosssblue\" target=\"_blank\" rel=\"noopener noreferrer\">Telegram</a>" +
     "</p>";
 
   document.body.appendChild(footer);

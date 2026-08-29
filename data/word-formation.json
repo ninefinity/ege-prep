@@ -1,86 +1,383 @@
 {
   "id": "word-formation",
-  "title": "Grammar & Word Formation",
-  "subtitle": "Задания 19–24 (грамматика) и 25–29 (словообразование).",
+  "title": "Word Formation",
+  "subtitle": "Задания 25–29.",
   "tasks": [
     {
-      "id": "wordform-drivers",
-      "nav": "Drivers / Meteora",
-      "title": "A Solution for Drivers / Meteora",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
-      "type": "wordform",
-      "items": [
-        {
-          "pre": "It's a problem for any driver to drive in sunny weather. Wearing sunglasses",
-          "word": "NOT HELP",
-          "post": "much – it's still very hard to see anything in front of you.",
-          "answer": "does not help",
-          "alt": [
-            "doesn't help"
-          ]
-        },
-        {
-          "pre": "Now there is a solution to this problem. In 2011 LCD sunglasses",
-          "word": "INVENT",
-          "post": ".",
-          "answer": "were invented"
-        },
-        {
-          "pre": "They dynamically block direct sunlight. There's no doubt that in the future more drivers",
-          "word": "USE",
-          "post": "them.",
-          "answer": "will use"
-        },
-        {
-          "pre": "Meteora is an area that attracts thousands of tourists from all over the world. Meteora",
-          "word": "SITUATE",
-          "post": "in Greece.",
-          "answer": "is situated"
-        },
-        {
-          "pre": "It is famous for the ancient monasteries",
-          "word": "BUILD",
-          "post": "right on the eroded rocks.",
-          "answer": "built"
-        },
-        {
-          "pre": "Now tourists enjoy",
-          "word": "VISIT",
-          "post": "them and they take numerous pictures.",
-          "answer": "visiting"
-        },
-        {
-          "pre": "The",
-          "word": "GOOD",
-          "post": "way to reach this amazing place is to take a bus from Athens.",
-          "answer": "best"
-        }
-      ]
-    },
-    {
-      "id": "wordform-stanley",
-      "nav": "Stanley Park",
-      "title": "Stanley Park",
+      "id": "wordform-w-auckland-university",
+      "nav": "Auckland University",
+      "title": "Auckland University",
       "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
       "type": "wordform",
       "items": [
         {
-          "pre": "Stanley Park is a 1,001-acre public park that borders downtown Vancouver, Canada. This",
+          "pre": "The University of Auckland is New Zealand's leading university.",
+          "word": "ACTUAL",
+          "post": ", it's among the top 200 universities of the world.",
+          "answer": ""
+        },
+        {
+          "pre": "The University of Auckland has a strong focus on legal and",
+          "word": "BUSY",
+          "post": "programmes welcoming students from all parts of the world.",
+          "answer": ""
+        },
+        {
+          "pre": "The student",
+          "word": "POPULATE",
+          "post": "of the University of Auckland is 40,000, about 4,000 of whom have come to study from abroad.",
+          "answer": ""
+        },
+        {
+          "pre": "The University of Auckland also offers postgraduate studies, which will certainly broaden your academic and",
+          "word": "EMPLOY",
+          "post": "horizons.",
+          "answer": ""
+        },
+        {
+          "pre": "It will be",
+          "word": "VALUE",
+          "post": "for your CV with specialist skills and knowledge provided.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-russian-winter-clothes",
+      "nav": "Russian winter clothes",
+      "title": "Russian winter clothes",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Winters in some areas of Russia can be quite cold. Thus, both local people and",
+          "word": "VISIT",
+          "post": "to the country need some good warm clothes.",
+          "answer": ""
+        },
+        {
+          "pre": "When it's freezing cold outdoors, you can still look",
+          "word": "FASHION",
+          "post": "as you can find great winterwear in Russian shops. Still, there are some pieces of advice for you to follow in winter.",
+          "answer": ""
+        },
+        {
+          "pre": "Firstly, it's a good idea to put on multiple layers of clothes. They really help you to feel warm even in",
+          "word": "EXTREME",
+          "post": "cold weather. If it's colder than minus 15 degrees Centigrade, you can put on a thermal layer first.",
+          "answer": ""
+        },
+        {
+          "pre": "Secondly, you should have a fur coat, or, if you prefer something more",
+          "word": "PRACTICE",
+          "post": ", a warm jacket.",
+          "answer": ""
+        },
+        {
+          "pre": "Finally, you can make your winter outfit look interesting with the help of various accessories such as stylish hats with ear flaps or",
+          "word": "COLOUR",
+          "post": "woolen scarves and warm gloves.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-galapagos-islands",
+      "nav": "Galapagos Islands",
+      "title": "Galapagos Islands",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "The world-renowned Galapagos archipelago is located in the Pacific Ocean, approximately 1,000 km off the coast of Ecuador. The remote islands are one of the world's most",
           "word": "AMAZE",
-          "post": "place is almost entirely surrounded by the waters of the Pacific Ocean.",
-          "answer": "amazing"
+          "post": "wildlife viewing destinations.",
+          "answer": ""
         },
         {
-          "pre": "It is one of the main sights of Vancouver to be explored by",
-          "word": "TOUR",
+          "pre": "Thus, they feature on the bucket lists of many",
+          "word": "ADVENTURE",
           "post": ".",
-          "answer": "tourists"
+          "answer": ""
         },
         {
-          "pre": "The park has a long history. The land was",
-          "word": "ORIGINAL",
-          "post": "used by indigenous peoples for thousands of years.",
-          "answer": "originally"
+          "pre": "The waters around the islands are home to a vast",
+          "word": "COLLECT",
+          "post": "of marine life, which makes scuba diving in the area one of the highlights of any visit.",
+          "answer": ""
+        },
+        {
+          "pre": "You can either explore the islands on a boat or go on day trips to the more remote",
+          "word": "INHABITED",
+          "post": "islands where no one lives.",
+          "answer": ""
+        },
+        {
+          "pre": "As the islands are home to such an exceptional diversity of wildlife, much of which is found nowhere else on Earth, tourism is very",
+          "word": "CAREFUL",
+          "post": "controlled to protect the fragile environment.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-pavel-yablochkov",
+      "nav": "Pavel Yablochkov",
+      "title": "Pavel Yablochkov",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Pavel Yablochkov was a Russian electrical engineer and businessman. He was also the",
+          "word": "INVENT",
+          "post": "of the Yablochkov candle – a type of electric carbon arc lamp – and the transformer. A Yablochkov candle was much easier to use than other kinds of lamps.",
+          "answer": ""
+        },
+        {
+          "pre": "The first public use of a Yablochkov candle took place in Paris in 1877. The Paris Exposition of 1878 gave Yablochkov a great opportunity to make a spectacular",
+          "word": "DEMONSTRATE",
+          "post": "of his candle to the world audience.",
+          "answer": ""
+        },
+        {
+          "pre": "It was so",
+          "word": "SUCCESS",
+          "post": "that many contemporary businessmen got interested in Yablochkov candles.",
+          "answer": ""
+        },
+        {
+          "pre": "They",
+          "word": "QUICK",
+          "post": "set up companies licensing Yablochkov's patents. From the mid-1880s, Yablochkov started to devote more of his time to the problems of generating electrical energy.",
+          "answer": ""
+        },
+        {
+          "pre": "Many of Yablochkov's further inventions were much ahead of his time. Modern",
+          "word": "SCIENCE",
+          "post": "still use his ideas in their work.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-daniil-medvedev",
+      "nav": "Daniil Medvedev",
+      "title": "Daniil Medvedev",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Daniil Medvedev is a Russian professional tennis player. He is",
+          "word": "CURRENT",
+          "post": "ranked by the Association of Tennis Professionals (ATP) as world No 2.",
+          "answer": ""
+        },
+        {
+          "pre": "He was born in Moscow. In his early",
+          "word": "CHILD",
+          "post": "he was interested in music.",
+          "answer": ""
+        },
+        {
+          "pre": "However, when he was 9 years old, his mother saw an",
+          "word": "ADVERTISE",
+          "post": "for group tennis lessons, and Daniil decided to try them. His first tennis coach was Ekaterina Kryuchkova, a former coach of the famous professional tennis player Vera Zvonareva.",
+          "answer": ""
+        },
+        {
+          "pre": "When he was 18, his results were so",
+          "word": "IMPRESS",
+          "post": "that Medvedev even had to drop out of college to focus on tennis.",
+          "answer": ""
+        },
+        {
+          "pre": "Medvedev is known for mirroring his opponent's play. His playstyle incorporates strong returns with as few mistakes as possible and making games",
+          "word": "PREDICTABLE",
+          "post": ".",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-blogger-s-audience",
+      "nav": "blogger's audience",
+      "title": "blogger's audience",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "A beginning blogger can make some mistakes while making the first steps online.",
+          "word": "PROBABLE",
+          "post": ", the biggest of them is when beginner bloggers do not know their audience.",
+          "answer": ""
+        },
+        {
+          "pre": "Bloggers think about their content without thinking about their potential",
+          "word": "READ",
+          "post": ".",
+          "answer": ""
+        },
+        {
+          "pre": "Still, there's a big",
+          "word": "VARY",
+          "post": "of them. Let's say you are going to write about yoga. Are you going to do it for yoga enthusiasts or yoga studio owners?",
+          "answer": ""
+        },
+        {
+          "pre": "If you are unsure about the audience of your future blog, you will not be able to produce",
+          "word": "EXCITE",
+          "post": "content, because your audience should define it. Write down some of their interests and needs.",
+          "answer": ""
+        },
+        {
+          "pre": "Based on what you know about their",
+          "word": "PERSONAL",
+          "post": ", brainstorm what subjects will interest them or what issues they might be facing.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-russian-pelmeni",
+      "nav": "Russian pelmeni",
+      "title": "Russian pelmeni",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "When you think of Russian food, the first thing that may come to your mind is pelmeni. Pelmeni is Russia's",
+          "word": "NATION",
+          "post": "dish.",
+          "answer": ""
+        },
+        {
+          "pre": "They are small dumplings with",
+          "word": "VARY",
+          "post": "fillings wrapped in a thin layer of dough. The most popular fillings are all kinds of meat and sometimes fish, but some people add cabbage or mushrooms, too. You can add some sour cream to make pelmeni even more delicious.",
+          "answer": ""
+        },
+        {
+          "pre": "",
+          "word": "HISTORICAL",
+          "post": ", Russian women made pelmeni only in winter so that they could make a lot of them and keep them frozen outdoors in special wooden boxes. Now you can eat pelmeni all the year round.",
+          "answer": ""
+        },
+        {
+          "pre": "Most",
+          "word": "VISIT",
+          "post": "to Russia try pelmeni and find them very tasty.",
+          "answer": ""
+        },
+        {
+          "pre": "There is an",
+          "word": "USUAL",
+          "post": "monument to pelmeni in Russia. It is located in Izhevsk, Udmurtia. There is a gastronomic festival devoted to pelmeni in Udmurtia, too.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-visiting-tasmania",
+      "nav": "Visiting Tasmania",
+      "title": "Visiting Tasmania",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Are you planning a trip to Tasmania? Without a doubt, any",
+          "word": "TOUR",
+          "post": "will find some things to do there.",
+          "answer": ""
+        },
+        {
+          "pre": "To begin with, driving up the east coast of Tasmania is one of the most",
+          "word": "MEMORY",
+          "post": "things you can do there.",
+          "answer": ""
+        },
+        {
+          "pre": "Tasmania's east coast is",
+          "word": "REAL",
+          "post": "spectacular and along the way you'll be able to stop for walks along cliff tops and swim in gorgeous beaches.",
+          "answer": ""
+        },
+        {
+          "pre": "By the age of 19, Tretyak was already famous not only in Russia, but also on the",
+          "word": "NATIONAL",
+          "post": "level.",
+          "answer": ""
+        },
+        {
+          "pre": "His great",
+          "word": "PERFORM",
+          "post": "in the Summit Series in 1972 earned him a massive fan base all over the world. Tretyak retired at the age of 32 to spend more time with his family. He is the current president of the Ice Hockey Federation in Russia.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-ottawa-s-parliament-hill",
+      "nav": "Ottawa's Parliament Hill",
+      "title": "Ottawa's Parliament Hill",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Have you ever been to Ottawa? It's",
+          "word": "CERTAIN",
+          "post": "a very beautiful city.",
+          "answer": ""
+        },
+        {
+          "pre": "One of its main",
+          "word": "ATTRACT",
+          "post": "is Parliament Hill standing high above the Ottawa River.",
+          "answer": ""
+        },
+        {
+          "pre": "There you can see the Neo-Gothic-style Parliament",
+          "word": "BUILD",
+          "post": "of the last half of the 19th century.",
+          "answer": ""
+        },
+        {
+          "pre": "One more opportunity is to camp out at",
+          "word": "NATION",
+          "post": "parks and do other cool activities.",
+          "answer": ""
+        },
+        {
+          "pre": "One of the biggest",
+          "word": "ATTRACT",
+          "post": "along the east coast of Tasmania is Freycinet Park, renowned for the stunning Wineglass Bay and many routes for day walks, bird watching and mountaineering.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-digital-library",
+      "nav": "digital library",
+      "title": "digital library",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Digital libraries can be accessed from any computer or device with an internet connection. It means that there is no need for",
+          "word": "USE",
+          "post": "to physically visit the library or store materials to access them.",
+          "answer": ""
+        },
+        {
+          "pre": "That is why digital libraries are used by public libraries, university libraries and private companies. The software you will need to access a digital library is",
+          "word": "USUAL",
+          "post": "free to use.",
+          "answer": ""
+        },
+        {
+          "pre": "However, some libraries require specific plugins or software installed, otherwise it will be",
+          "word": "POSSIBLE",
+          "post": "to view the content.",
+          "answer": ""
         },
         {
           "pre": "Then the British decided to",
@@ -96,860 +393,942 @@
           "word": "GOVERN",
           "post": "general.",
           "answer": "governor"
-        },
-        {
-          "pre": "Unlike other large urban parks, Stanley Park is not the",
-          "word": "CREATE",
-          "post": "of a landscape architect, but rather the evolution of a forest and urban space over many years.",
-          "answer": "creation"
         }
       ]
     },
     {
-      "id": "wordform-household-wallpaper",
-      "nav": "Wallpaper & Dreams",
-      "title": "Wallpaper / I Saw It in a Dream",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
-      "type": "wordform",
-      "items": [
-        {
-          "pre": "Many people prefer to decorate their rooms with wallpaper. It",
-          "word": "SELL",
-          "post": "in rolls and is relatively inexpensive.",
-          "answer": "is sold",
-          "alt": [
-            "issold"
-          ]
-        },
-        {
-          "pre": "Wallpaper is",
-          "word": "GOOD",
-          "post": "than paint because it comes in all sorts of patterns and colours.",
-          "answer": "better"
-        },
-        {
-          "pre": "You can even buy wallpaper with a photo of a landscape and enjoy",
-          "word": "LOOK",
-          "post": "at beautiful views every day.",
-          "answer": "looking"
-        },
-        {
-          "pre": "I saw it in a dream! When scientists think about something very hard, their minds work all the time. Many scientists didn't expect that they",
-          "word": "FIND",
-          "post": "a solution to their problem in their sleep.",
-          "answer": "would find",
-          "alt": [
-            "wouldfind"
-          ]
-        },
-        {
-          "pre": "For instance, Niels Bohr",
-          "word": "HAVE",
-          "post": "an idea about the atomic structure while sleeping.",
-          "answer": "had"
-        },
-        {
-          "pre": "Some great musical pieces of Richard Wagner",
-          "word": "HEAR",
-          "post": "by him in his dreams.",
-          "answer": "were heard",
-          "alt": [
-            "wereheard"
-          ]
-        },
-        {
-          "pre": "There are",
-          "word": "MANY",
-          "post": "examples of it than you can imagine, so next time you have a hard problem to solve, just have a good night's sleep!",
-          "answer": "more"
-        }
-      ]
-    },
-    {
-      "id": "wordform-household-cleaning",
-      "nav": "Cleaning Wand",
-      "title": "A Cleaning Wand / Robert Heinlein",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
-      "type": "wordform",
-      "items": [
-        {
-          "pre": "A cleaning wand is a totally new invention. It features the advanced UV-C technology that helps to kill bacteria and germs. It's the",
-          "word": "ONE",
-          "post": "ever cleaning device you can literally take anywhere.",
-          "answer": "first"
-        },
-        {
-          "pre": "The",
-          "word": "GOOD",
-          "post": "thing about it is that it can clean anything.",
-          "answer": "best"
-        },
-        {
-          "pre": "There's no doubt that",
-          "word": "WOMAN",
-          "post": "are going to like this invention very much.",
-          "answer": "women"
-        },
-        {
-          "pre": "Robert A. Heinlein was a US science fiction author. He was among those writers who emphasized scientific accuracy in their fiction. He also",
-          "word": "THINK",
-          "post": "it was necessary to challenge the readers.",
-          "answer": "thought"
-        },
-        {
-          "pre": "He pointed out it was necessary to develop",
-          "word": "THEY",
-          "post": "critical thinking.",
-          "answer": "their"
-        },
-        {
-          "pre": "He pointed out that any science fiction book",
-          "word": "BE",
-          "post": "a success if the author followed these two important principles.",
-          "answer": "would be",
-          "alt": [
-            "wouldbe"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "wordform-household-candles",
-      "nav": "Candles",
-      "title": "Candles",
+      "id": "wordform-w-uluru",
+      "nav": "Uluru",
+      "title": "Uluru",
       "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
       "type": "wordform",
       "items": [
         {
-          "pre": "If you have an active profile in any social media, you may have noticed how often candles feature in people's posts and stories. In fact, there are",
-          "word": "VARY",
-          "post": "reasons why people use candles at home.",
-          "answer": "various"
-        },
-        {
-          "pre": "To begin with, candles create a cozy atmosphere. It is so nice to burn a candle when it is raining",
-          "word": "HEAVY",
-          "post": "outdoors.",
-          "answer": "heavily"
-        },
-        {
-          "pre": "It gives soft and pleasant light which is especially good for people after a",
-          "word": "STRESS",
-          "post": "day at school or at work.",
-          "answer": "stressful"
-        },
-        {
-          "pre": "You may light a candle at your evening mealtime and have a quiet conversation with your nearest and dearest. Moreover, we burn candles when we have an important",
-          "word": "CELEBRATE",
-          "post": "like a birthday or on seasonal holidays.",
-          "answer": "celebration"
-        },
-        {
-          "pre": "Finally, candles simply look",
-          "word": "AMAZE",
-          "post": "and are a great decoration.",
-          "answer": "amazing"
-        }
-      ]
-    },
-    {
-      "id": "wordform-shopping-skirts",
-      "nav": "Skirts & English",
-      "title": "Skirts / The English Language",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
-      "type": "wordform",
-      "items": [
-        {
-          "pre": "Skirts are a popular item of clothing. They",
-          "word": "INVENT",
-          "post": "around 3900 BC.",
-          "answer": "were invented"
-        },
-        {
-          "pre": "Now mostly",
-          "word": "WOMAN",
-          "post": "wear skirts of different colours, styles and length.",
-          "answer": "women"
-        },
-        {
-          "pre": "However, you may be surprised to learn that in ancient Greece only men",
-          "word": "WEAR",
-          "post": "skirts. In some cultures, skirts are still a part of male outfits.",
-          "answer": "wore"
-        },
-        {
-          "pre": "You are lucky to know English! It",
-          "word": "BE",
-          "post": "one of the most popular languages in the world for many years.",
-          "answer": "has been"
-        },
-        {
-          "pre": "However, learning English can be hard because some linguists say it has the",
-          "word": "BAD",
-          "post": "grammar of all European languages.",
-          "answer": "worst"
-        },
-        {
-          "pre": "There are many grammar rules and even more exceptions to",
-          "word": "THEY",
-          "post": ".",
-          "answer": "them"
-        },
-        {
-          "pre": "Spelling",
-          "word": "NOT BE",
-          "post": "easy either. So, if you have mastered English, you are a highly intelligent person!",
-          "answer": "is not",
-          "alt": [
-            "isn't"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "wordform-shopping-yaroslavl",
-      "nav": "Yaroslavl & Sweaters",
-      "title": "Yaroslavl / Sweaters",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
-      "type": "wordform",
-      "items": [
-        {
-          "pre": "Yaroslavl is one of the most beautiful and ancient cities of Russia, the capital of the Russian Golden Ring. It",
-          "word": "LOCATE",
-          "post": "on the Volga River and has a lot of old churches, cathedrals and monasteries as well as museums and historical monuments.",
-          "answer": "is located",
-          "alt": [
-            "is situated"
-          ]
-        },
-        {
-          "pre": "Tourists also enjoy",
-          "word": "WALK",
-          "post": "along its wonderful embankment which offers its visitors picturesque views of the Volga.",
-          "answer": "walking"
-        },
-        {
-          "pre": "Millions of tourists",
+          "pre": "Uluru (often called Ayers Rock) is located deep in the outback in central Australia. It's considered a sacred site by the Aborigines.",
           "word": "VISIT",
-          "post": "Yaroslavl so far, and a lot of them want to come to this city again.",
-          "answer": "have visited"
+          "post": "can reach the area by a 200 km car trip after flying into Alice Springs, Darwin or Adelaide.",
+          "answer": ""
         },
         {
-          "pre": "Probably every person in the world has at least one sweater. It is a very popular item of clothing now, especially for",
-          "word": "CHILD",
-          "post": ", who don't like buttons and zips.",
-          "answer": "children"
+          "pre": "The area includes many breathtaking",
+          "word": "NATURE",
+          "post": "wonders and reveals much about the legends and mysteries of Aboriginal people.",
+          "answer": ""
         },
         {
-          "pre": "It is interesting to know why a sweater is called so. In fact, a knitted woolen sweater as we know it today",
-          "word": "CREATE",
-          "post": "in Europe in the 19th century.",
-          "answer": "was created"
+          "pre": "Located in the Red Centre, Uluru is one the most",
+          "word": "FORGET",
+          "post": "sights in Australia.",
+          "answer": ""
         },
         {
-          "pre": "Overweight people",
-          "word": "WEAR",
-          "post": "sweaters in order to lose some weight. They sweated profusely in warm sweaters, that is why this item of clothing got such a name.",
-          "answer": "wore"
+          "pre": "The advantages of using a digital library include access to an expensive",
+          "word": "COLLECT",
+          "post": "of materials and increased convenience.",
+          "answer": ""
+        },
+        {
+          "pre": "Digital libraries also offer a more engaging experience with",
+          "word": "INTERACT",
+          "post": "elements, as well as social media-like features for connecting with others and exploring topics in new ways.",
+          "answer": ""
         }
       ]
     },
     {
-      "id": "wordform-cities-literature",
-      "nav": "Literature & Houses",
-      "title": "Kenneth Grahame / Walking House / New Year",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "id": "wordform-w-texas-rodeo",
+      "nav": "Texas Rodeo",
+      "title": "Texas Rodeo",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
       "type": "wordform",
       "items": [
         {
-          "pre": "Kenneth Grahame (1859–1932) was a Scottish writer. Life was very hard on",
-          "word": "HE",
-          "post": "but he remained an optimistic person.",
-          "answer": "him"
+          "pre": "The rodeo is a really exciting event. It is a thrilling",
+          "word": "COMPETE",
+          "post": "between cowboys from all over the country.",
+          "answer": ""
         },
         {
-          "pre": "His books are classics of literature for",
-          "word": "CHILD",
+          "pre": "It has a long tradition and even today there are rodeo schools which keep it alive and",
+          "word": "PROFESSION",
           "post": ".",
-          "answer": "children"
+          "answer": ""
         },
         {
-          "pre": "Recently the Disney studio",
-          "word": "MAKE",
-          "post": "some films based on his books.",
-          "answer": "has made",
-          "alt": [
-            "hasmade"
-          ]
+          "pre": "The rodeo is a spectacular sight. If a",
+          "word": "VISIT",
+          "post": "has a place in the first row of the arena, he or she may even be sprinkled with sand by the passing horses.",
+          "answer": ""
         },
         {
-          "pre": "An innovative prototype of a walking house",
-          "word": "INTRODUCE",
-          "post": "last year in England.",
-          "answer": "was introduced",
-          "alt": [
-            "wasintroduced"
-          ]
+          "pre": "Here you can learn more about the cultural",
+          "word": "SIGNIFICANT",
+          "post": "of the area, you can do a base walk and meet some of the local wildlife (get ready for the Australian face fly), and you can take more photos than you thought possible.",
+          "answer": ""
+        },
+        {
+          "pre": "",
+          "word": "ACCOMMODATE",
+          "post": "ranges from budget to luxury.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-geosure-global",
+      "nav": "GeoSure Global",
+      "title": "GeoSure Global",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "GeoSure Global is a great mobile app for travellers. It is",
+          "word": "CERTAIN",
+          "post": "a revolutionary safety service aimed at ensuring that your trips involve fewer risks.",
+          "answer": ""
+        },
+        {
+          "pre": "GeoSure Global provides safety ratings for",
+          "word": "COUNT",
+          "post": "neighborhoods all over the world.",
+          "answer": ""
+        },
+        {
+          "pre": "These ratings offer a general view of how safe an area is and are broken down into lots of smaller categories, each with their own scores. Examples include health and medical care, theft and so on. If you're travelling to a foreign country as a",
+          "word": "TOUR",
+          "post": ", you may be at greater risk of crimes like pickpocketing.",
+          "answer": ""
         },
         {
           "pre": "The",
-          "word": "GOOD",
-          "post": "thing about it is that this eco-friendly house has everything necessary.",
-          "answer": "best"
+          "word": "PERFORM",
+          "post": "usually starts with an opening ceremony by horsemen dressed in bright colours and carrying flags.",
+          "answer": ""
         },
         {
-          "pre": "Without a doubt, such houses",
+          "pre": "All through the show the master of the ceremony",
+          "word": "CONSTANT",
+          "post": "jokes with special clowns.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-carnival-venice",
+      "nav": "Carnival Venice",
+      "title": "Carnival Venice",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Have you ever been to Venice? It's a",
+          "word": "BEAUTY",
+          "post": "Italian city with a lot of historical buildings.",
+          "answer": ""
+        },
+        {
+          "pre": "Still, the main",
           "word": "ATTRACT",
-          "post": "enthusiastic travellers in the near future.",
-          "answer": "will attract",
-          "alt": [
-            "willattract"
-          ]
+          "post": "of Venice is not its architecture or canals, but its Carnival. This festival was started in 1162, but in the 17th century this festival declined in popularity under the rule of the King of Austria and reappeared only in the 19th century.",
+          "answer": ""
         },
         {
-          "pre": "The",
-          "word": "ONE",
-          "post": "samples are already on sale.",
-          "answer": "first"
-        }
-      ]
-    },
-    {
-      "id": "wordform-cities-newyear",
-      "nav": "New Year & Chair",
-      "title": "New Year / Mr Brown's Chair",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
-      "type": "wordform",
-      "items": [
-        {
-          "pre": "Everybody loves New Year. It is a holiday which",
-          "word": "CELEBRATE",
-          "post": "all over the world.",
-          "answer": "is celebrated",
-          "alt": [
-            "iscelebrated"
-          ]
-        },
-        {
-          "pre": "In Scandinavia",
-          "word": "WOMAN",
-          "post": "cook rice with nuts and not turkey for New Year.",
-          "answer": "women"
-        },
-        {
-          "pre": "Italian people enjoy",
-          "word": "THROW",
-          "post": "old things out of the windows on New Year's Day.",
-          "answer": "throwing"
-        },
-        {
-          "pre": "Mr Brown",
-          "word": "BUY",
-          "post": "a chair on sale.",
-          "answer": "bought"
-        },
-        {
-          "pre": "However, Mrs Brown",
-          "word": "NOT LIKE",
-          "post": "it.",
-          "answer": "did not like",
-          "alt": [
-            "didn't like",
-            "didnotlike"
-          ]
-        },
-        {
-          "pre": "Mr Brown took it to the attic thinking he",
-          "word": "SELL",
-          "post": "it later.",
-          "answer": "would sell",
-          "alt": [
-            "wouldsell"
-          ]
-        },
-        {
-          "pre": "Mrs Brown says it's the",
-          "word": "GOOD",
-          "post": "surprise in her life!",
-          "answer": "best"
-        }
-      ]
-    },
-    {
-      "id": "wordform-cities-canberra",
-      "nav": "Canberra & Wolf",
-      "title": "Canberra / The Wolf and the Goat",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
-      "type": "wordform",
-      "items": [
-        {
-          "pre": "Canberra",
-          "word": "CHOOSE",
-          "post": "as the capital because Sydney and Melbourne could not stop arguing.",
-          "answer": "was chosen",
-          "alt": [
-            "waschosen"
-          ]
-        },
-        {
-          "pre": "The sports capital of the world has 70% of",
-          "word": "IT",
-          "post": "total population active in sport.",
-          "answer": "its"
-        },
-        {
-          "pre": "80% believe this based on research",
-          "word": "ORGANISE",
-          "post": "by the Australia Day Council in 2008.",
-          "answer": "organised",
-          "alt": [
-            "organized"
-          ]
-        },
-        {
-          "pre": "A hungry wolf was out searching for a meal. He",
-          "word": "SEE",
-          "post": "a goat feeding on a cliff.",
-          "answer": "saw"
-        },
-        {
-          "pre": "'Besides, the grass is much",
-          "word": "GREEN",
-          "post": "down here,' said the wolf.",
-          "answer": "greener"
-        },
-        {
-          "pre": "'You",
-          "word": "NOT CARE",
-          "post": "if I eat good grass or bad,' said the goat.",
-          "answer": "do not care",
-          "alt": [
-            "don't care",
-            "donotcare"
-          ]
-        },
-        {
-          "pre": "'What you care about is",
-          "word": "EAT",
-          "post": "me.'",
-          "answer": "eating"
-        }
-      ]
-    },
-    {
-      "id": "wordform-space-yakutia",
-      "nav": "Yakutia & Print Brush",
-      "title": "Yakutia / The Print Brush",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
-      "type": "wordform",
-      "items": [
-        {
-          "pre": "Yakutia is right in the middle of Russia's far eastern region. Probably Yakutia is one of the",
-          "word": "COLD",
-          "post": "parts of Russia. Still, it's a beautiful place.",
-          "answer": "coldest"
-        },
-        {
-          "pre": "Tourists love",
+          "pre": "Now the Carnival of Venice is one the biggest festivals in Italy and attracts huge crowds of",
           "word": "VISIT",
-          "post": "Yakutia because it is a perfect place for photography tours and spending quality time outdoors.",
-          "answer": "visiting"
-        },
-        {
-          "pre": "You only have to remember that winter",
-          "word": "NOT BE",
-          "post": "a good time to visit the area as winters here are very cold there.",
-          "answer": "is not",
-          "alt": [
-            "isn't"
-          ]
-        },
-        {
-          "pre": "As its name suggests, the print brush is a printer that acts like a paint brush. The print brush",
-          "word": "DEMONSTRATE",
-          "post": "to public in 2011.",
-          "answer": "was demonstrated"
-        },
-        {
-          "pre": "It immediately",
-          "word": "CATCH",
-          "post": "the attention of designers.",
-          "answer": "caught"
-        },
-        {
-          "pre": "If you want to use it, you just swipe it over any flat surface and in less than 10 seconds it prints over it. It is very small and has a digital camera",
-          "word": "INSTALL",
           "post": ".",
-          "answer": "installed"
-        },
-        {
-          "pre": "You can connect it to your laptop and literally print any image from it. Isn't it amazing? Since 2011 a lot of people",
-          "word": "BUY",
-          "post": "the print brush and are happy with it.",
-          "answer": "have bought",
-          "alt": [
-            "have bought"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "wordform-space-wolf-bulb",
-      "nav": "Wolf & Light Bulb",
-      "title": "A Hungry Wolf / The Invention of the Light Bulb",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
-      "type": "wordform",
-      "items": [
-        {
-          "pre": "An old nurse was putting a baby to bed. She",
-          "word": "TELL",
-          "post": "the boy to be quiet otherwise she would give him to a wolf.",
-          "answer": "told"
-        },
-        {
-          "pre": "But the child",
-          "word": "SCREAM",
-          "post": "even more and more loudly.",
-          "answer": "was screaming"
-        },
-        {
-          "pre": "The wolf heard the screams and thought to himself, \"I",
-          "word": "NOT HAVE",
-          "post": "any lunch yet. This boy is just what I need.\" But the old nurse shut the door and all the windows, and the wolf had to go away.",
-          "answer": "haven't had",
-          "alt": [
-            "have not had"
-          ]
-        },
-        {
-          "pre": "Every person in the world knows about Thomas Edison. The electric light bulb",
-          "word": "INVENT",
-          "post": "by this famous scientist.",
-          "answer": "was invented"
-        },
-        {
-          "pre": "The electrification of the modern world profoundly changed human life,",
-          "word": "ILLUMINATE",
-          "post": "the night.",
-          "answer": "illuminating"
+          "answer": ""
         },
         {
           "pre": "The",
-          "word": "ONE",
-          "post": "electric bulb made it possible for people to continue their usual day activities after dark.",
-          "answer": "first"
+          "word": "AMAZE",
+          "post": "app updates as you move around, letting you explore a city.",
+          "answer": ""
         },
         {
-          "pre": "Edison started with a 40-hour life light bulb and finally made a bulb that lasted for 1500 hours. This certainly revolutionized human",
-          "word": "LIFE",
-          "post": "at that time.",
-          "answer": "lives"
+          "pre": "Thus, you will have constant up-to-date readings on the security and safety of the area around you and the neighbouring",
+          "word": "LOCATE",
+          "post": ". It's a great tool for any traveller to have.",
+          "answer": ""
         }
       ]
     },
     {
-      "id": "wordform-space-livegreen",
-      "nav": "Live Green & Teacher",
-      "title": "Live Green! / Where's Our Teacher?",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "id": "wordform-w-arenal-volcano",
+      "nav": "Arenal Volcano",
+      "title": "Arenal Volcano",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
       "type": "wordform",
       "items": [
         {
-          "pre": "The Oriental Development Company is an enterprise in Japan. It specializes in green inventions. One of their newest inventions is connected with",
-          "word": "RECYCLE",
-          "post": "paper.",
-          "answer": "recycling"
+          "pre": "Costa Rica is a country that has a lot of volcanoes. Even so, Arenal Volcano is one of the greatest natural wonders of this country. It is one of the most",
+          "word": "IMPRESS",
+          "post": "volcanoes in the world. It is a stratovolcano whose height is 5,437 feet.",
+          "answer": ""
         },
         {
-          "pre": "The machine can recycle waste paper. It",
-          "word": "INTRODUCE",
-          "post": "to the public several months ago.",
-          "answer": "was introduced"
+          "pre": "After a long dormant period, Arenal erupted",
+          "word": "VIOLENT",
+          "post": "in 1968, covering a vast area of over 15 km in lava, rocks and ash.",
+          "answer": ""
         },
         {
-          "pre": "A big advantage is that this machine",
-          "word": "NOT PRODUCE",
-          "post": "any harmful emissions.",
-          "answer": "does not produce",
-          "alt": [
-            "doesn't produce"
-          ]
+          "pre": "Several minor",
+          "word": "ERUPT",
+          "post": "followed. Since that time Arenal Volcano has been a popular tourist attraction.",
+          "answer": ""
         },
         {
-          "pre": "One school had a very strict head teacher. Once he",
-          "word": "WALK",
-          "post": "around the school when he heard a terrible noise coming from one of the classrooms.",
-          "answer": "was walking"
+          "pre": "This event is well-known for its",
+          "word": "COLOUR",
+          "post": "and elaborate masks.",
+          "answer": ""
         },
         {
-          "pre": "Opening the door, the teacher",
-          "word": "SEE",
-          "post": "a noisy young man in the centre of the classroom.",
-          "answer": "saw"
-        },
-        {
-          "pre": "He was",
-          "word": "TALL",
-          "post": "than the others and he was making the most noise. The head teacher ordered him to leave the classroom immediately.",
-          "answer": "taller"
-        },
-        {
-          "pre": "\"Any more questions?\" he asked the students. \"Yes, sir,\" the",
-          "word": "CHILD",
-          "post": "replied. \"Can we have our teacher back?\"",
-          "answer": "children"
+          "pre": "Masking is an important carnival tradition and can",
+          "word": "ACTUAL",
+          "post": "be considered the main feature of the event. The Venetian mask makers also have a special position in the community.",
+          "answer": ""
         }
       ]
     },
     {
-      "id": "wordform-space-smartcat",
-      "nav": "Smart Cat & Microwaves",
-      "title": "A Smart Cat / Creative Thinking",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "id": "wordform-w-public-libraries",
+      "nav": "Public libraries",
+      "title": "Public libraries",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
       "type": "wordform",
       "items": [
         {
-          "pre": "My Snowball is a wonderful cat. I don't know of any other cat that loves to watch Sesame Street. He will also come running up to the TV if he",
-          "word": "HEAR",
-          "post": "a baby crying or little kids playing.",
-          "answer": "hears"
+          "pre": "As libraries have been around for thousands of years, many people take them for granted. However, we must realize that public libraries",
+          "word": "ACTUAL",
+          "post": "play a significant role in our society.",
+          "answer": ""
         },
         {
-          "pre": "Anytime a commercial comes on he turns his head to the side and so he",
-          "word": "NOT HAVE",
-          "post": "to watch the commercial. When the show is back on the air, he will start watching the show again.",
-          "answer": "does not have",
-          "alt": [
-            "doesn't have"
-          ]
+          "pre": "Public libraries provide access to information about",
+          "word": "BUSY",
+          "post": "planning, market research and finance opportunities for those who are looking for spaces to network or conduct research.",
+          "answer": ""
         },
         {
-          "pre": "It was then that I",
-          "word": "FIND",
-          "post": "out that when a commercial is on, the volume goes up a bit, and this is his signal to turn away.",
-          "answer": "found"
+          "pre": "Even though job",
+          "word": "REQUIRE",
+          "post": "are changing fast, public libraries make it possible to upskill the workforce at a low cost or even for free.",
+          "answer": ""
         },
         {
-          "pre": "Percy Spencer was an American physicist and inventor. Once he noticed that microwaves from the radar set he",
-          "word": "WORK",
-          "post": "on had melted the candy bar in his pocket.",
-          "answer": "worked"
+          "pre": "The volcano is located in a beautiful national park which is a perfect place for both amateur and professional",
+          "word": "HIKE",
+          "post": ".",
+          "answer": ""
         },
         {
-          "pre": "It had been known that microwaves generate heat. But he was the",
-          "word": "ONE",
-          "post": "one to think of using this heat to cook food.",
-          "answer": "first"
-        },
-        {
-          "pre": "He received a patent in 1950, and Raytheon developed the idea",
-          "word": "FAR",
-          "post": "for commercial and industrial use.",
-          "answer": "further"
-        },
-        {
-          "pre": "In a sign of things to come, popcorn was what Spencer and",
-          "word": "HE",
-          "post": "colleagues cooked with microwaves.",
-          "answer": "his"
+          "pre": "Among numerous outdoor",
+          "word": "ACTIVE",
+          "post": ", visitors to the Arenal Volcano National Park can enjoy adventure tours to the rainforest there or just relax in a natural geothermal hot spring.",
+          "answer": ""
         }
       ]
     },
     {
-      "id": "wordform-space-railways-norway",
-      "nav": "Railways & Norway",
-      "title": "Beginnings of Russian Railways / White Nights in Norway",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "id": "wordform-w-rovos-rail",
+      "nav": "Rovos Rail",
+      "title": "Rovos Rail",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
       "type": "wordform",
       "items": [
         {
-          "pre": "In the middle of the 19th century, the Russian Empire was so big that the necessity of creating a railway system became obvious. The",
-          "word": "ONE",
-          "post": "public railway in Russia connected Saint Petersburg with the Emperor's residence in Tsarskoe Selo.",
-          "answer": "first"
+          "pre": "If you dislike travelling by train, you will probably change your mind after trying one of the scenic rides the world has to offer. One of such rides which are",
+          "word": "POSSIBLE",
+          "post": "to forget is the Rovos Rail in South Africa.",
+          "answer": ""
         },
         {
-          "pre": "It was 27 kilometers long and it",
-          "word": "TAKE",
-          "post": "about two years to build it.",
-          "answer": "took"
+          "pre": "The train has several routes. You will pass through a number of African countries and admire the",
+          "word": "DIVERSE",
+          "post": "of their landscapes.",
+          "answer": ""
         },
         {
-          "pre": "At that time nobody knew that in the future Russia",
-          "word": "HAVE",
-          "post": "one of the longest and best railway systems in the world.",
-          "answer": "would have"
+          "pre": "You will see wildlife national parks, historical battle fields and",
+          "word": "FASCINATE",
+          "post": "cities.",
+          "answer": ""
         },
         {
-          "pre": "Though winters are quite dark and gloomy, summers make up for it by the season of white nights. From May to July the sun",
-          "word": "NOT SET",
-          "post": "below the horizon.",
-          "answer": "does not set",
-          "alt": [
-            "doesn't set"
-          ]
+          "pre": "Public libraries provide resources and services for literacy and",
+          "word": "EDUCATE",
+          "post": "to anyone.",
+          "answer": ""
         },
         {
-          "pre": "This phenomenon",
-          "word": "CALL",
-          "post": "white nights.",
-          "answer": "is called"
-        },
-        {
-          "pre": "In summers many Norwegians enjoy",
-          "word": "HAVE",
-          "post": "a four-week holiday which gives them plenty of time to hunt, fish or simply walk.",
-          "answer": "having"
+          "pre": "They help people become a part of a community. Therefore, peoples' need for libraries is",
+          "word": "LIKELY",
+          "post": "to change any time soon.",
+          "answer": ""
         }
       ]
     },
     {
-      "id": "wordform-space-discovery-flam",
-      "nav": "Crimea & Flam Railway",
-      "title": "An Important Discovery / The Flam Railway",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "id": "wordform-w-denis-matsuev",
+      "nav": "Denis Matsuev",
+      "title": "Denis Matsuev",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
       "type": "wordform",
       "items": [
         {
-          "pre": "Crimea is not only a popular holiday destination for tourists, it is also a place where history comes alive. Scientists used to think that the",
-          "word": "ONE",
-          "post": "men came to the Crimean lands about 100,000 years ago.",
-          "answer": "first"
+          "pre": "Denis Matsuev is a Russian classical pianist. Born in Irkutsk in 1975, Matsuev is the only child of two musicians. His mother is a piano teacher and his father is a pianist and a",
+          "word": "COMPOSE",
+          "post": ".",
+          "answer": ""
         },
         {
-          "pre": "However, some months ago they",
-          "word": "MAKE",
-          "post": "a surprising discovery which baffled many archeologists worldwide.",
-          "answer": "made"
+          "pre": "Matsuev's talent became obvious in his early childhood. He was only three years old when he managed to",
+          "word": "PRODUCE",
+          "post": "on his piano at home a melody which he had heard on television.",
+          "answer": ""
         },
         {
-          "pre": "There",
-          "word": "FIND",
-          "post": "some tools that were approximately 800,000 years old and could belong to Neanderthals.",
-          "answer": "were found"
+          "pre": "In 1990 young Denis won a prize at the New Names Charitable Foundation",
+          "word": "COMPETE",
+          "post": "in Irkutsk and got a scholarship from the foundation to study music in Moscow.",
+          "answer": ""
         },
         {
-          "pre": "One of such scenic routes can be found in Norway. It's the Flam railway. It is thought to be one of the",
-          "word": "GOOD",
-          "post": "in the world.",
-          "answer": "best"
+          "pre": "Onboard, the passengers can use various facilities like a dining car, luxury sleeping cabins and themed",
+          "word": "ENTERTAIN",
+          "post": ".",
+          "answer": ""
         },
         {
-          "pre": "The journey lasts 1 hour. The train passes through 20 tunnels and enables the passengers to enjoy",
-          "word": "LOOK",
-          "post": "at the idyllic mountain scenery.",
-          "answer": "looking"
-        },
-        {
-          "pre": "Thousands of tourists",
-          "word": "TRY",
-          "post": "this exciting route so far.",
-          "answer": "have tried"
+          "pre": "All types of cabins have ensuite showers, sinks and restrooms, and some of them even have bathtubs. With its",
+          "word": "EXCEPTION",
+          "post": "service, Rovos Rail is truly one of the greatest train journeys in the world.",
+          "answer": ""
         }
       ]
     },
     {
-      "id": "wordform-foreign-usa-brownings",
-      "nav": "USA & Brownings",
-      "title": "Languages in the USA / The Brownings",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "id": "wordform-w-sketching",
+      "nav": "Sketching",
+      "title": "Sketching",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
       "type": "wordform",
       "items": [
         {
-          "pre": "The most commonly used language in the United States is English, which is the de facto national language. Nonetheless, many other languages",
-          "word": "SPEAK",
-          "post": "in the United States.",
-          "answer": "are spoken"
+          "pre": "Hobbies are a great way to relax and unwind after a busy day at school or at work. One of the most popular hobbies nowadays is sketching. It is",
+          "word": "DEFINITE",
+          "post": "a good hobby for you if you want to start thinking in a different way.",
+          "answer": ""
+        },
+        {
+          "pre": "Sketching develops your",
+          "word": "CREATE",
+          "post": ".",
+          "answer": ""
+        },
+        {
+          "pre": "It can be very helpful for your personal",
+          "word": "DEVELOP",
+          "post": ".",
+          "answer": ""
+        },
+        {
+          "pre": "In 1994 he took part in his first",
+          "word": "NATIONAL",
+          "post": "piano contest in Johannesburg, South Africa, where he was awarded the Grand Prix.",
+          "answer": ""
+        },
+        {
+          "pre": "His musical career quickly progressed. He is now a world-famous pianist with",
+          "word": "VARY",
+          "post": "awards and a massive fan base.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-womad",
+      "nav": "WOMAD",
+      "title": "WOMAD",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Have you heard about WOMAD? It is one of the most famous musical festivals which is held in late July. The abbreviation WOMAD stands for the World of Music, Arts and Dance. It was founded in 1980, and since then it has been focusing on embracing the world's",
+          "word": "VARY",
+          "post": "of cultures.",
+          "answer": ""
+        },
+        {
+          "pre": "The festival encourages",
+          "word": "NATIONAL",
+          "post": "friendship and breaking down the boundaries through art, music, and movement.",
+          "answer": ""
+        },
+        {
+          "pre": "Besides musical performances, WOMAD offers",
+          "word": "CREATE",
+          "post": "workshops for children, including circus skills, painting and storytelling.",
+          "answer": ""
+        },
+        {
+          "pre": "Besides, you can apply the skills you learn through sketching in a number ways in your life. To begin with, you may become interested in a career of an",
+          "word": "ILLUSTRATE",
+          "post": ".",
+          "answer": ""
+        },
+        {
+          "pre": "Moreover, you will never need a camera when you are on holiday because your drawings will be the best memories about your trip. Finally, while sketching you learn to notice your feelings and emotions and thus improve your",
+          "word": "COMMUNICATE",
+          "post": "skills.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-libraries-education",
+      "nav": "Libraries education",
+      "title": "Libraries education",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Public libraries play an important role in supporting education and literacy. They provide",
+          "word": "COUNT",
+          "post": "valuable resources to their visitors.",
+          "answer": ""
+        },
+        {
+          "pre": "Modern libraries contain a lot of",
+          "word": "EDUCATION",
+          "post": "materials, scientific publications, newspapers and magazines which may not be available anywhere else.",
+          "answer": ""
+        },
+        {
+          "pre": "They are",
+          "word": "REAL",
+          "post": "important for school and university students.",
+          "answer": ""
+        },
+        {
+          "pre": "For adult",
+          "word": "VISIT",
+          "post": "there are workshops on dancing and playing exotic musical instruments.",
+          "answer": ""
+        },
+        {
+          "pre": "There are",
+          "word": "COUNT",
+          "post": "other activities like lessons of exotic cuisines conducted by musicians themselves or discussions of global concerns.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-crown",
+      "nav": "Crown",
+      "title": "Crown",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Even those people who are not fans of the royal family enjoy the series The Crown. This is",
+          "word": "ACTUAL",
+          "post": "a palace drama based on a true story. In fact, one of the show's great strengths is that the viewers understand that this story is real.",
+          "answer": ""
+        },
+        {
+          "pre": "The first season caught everybody's attention, but The Crown's second season went even deeper into its characters and their",
+          "word": "RELATION",
+          "post": ".",
+          "answer": ""
+        },
+        {
+          "pre": "The most",
+          "word": "INTEREST",
+          "post": "episodes are undoubtedly the ones devoted to Elizabeth II as a monarch.",
+          "answer": ""
+        },
+        {
+          "pre": "Libraries encourage them to become more",
+          "word": "ACT",
+          "post": "readers. They also allow students to explore literature outside of their curriculum, thus expanding their knowledge.",
+          "answer": ""
+        },
+        {
+          "pre": "Many students also use their school or university library as a reading room, though prior",
+          "word": "PERMIT",
+          "post": "will probably have to be asked to bring external books into the library.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-met",
+      "nav": "Met",
+      "title": "Met",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "The Met is an encyclopedic museum, founded in 1870. It has one of the biggest art",
+          "word": "COLLECT",
+          "post": "in the world with more than two million individual objects.",
+          "answer": ""
+        },
+        {
+          "pre": "Among them you can find anything from Egyptian temples to American",
+          "word": "PAINT",
+          "post": ".",
+          "answer": ""
+        },
+        {
+          "pre": "The museum attracts over six million",
+          "word": "VISIT",
+          "post": "a year to its 17 acres of galleries making it the largest single-site attraction in New York City. In other words, plan on spending some time here.",
+          "answer": ""
+        },
+        {
+          "pre": "She has to deal with her prime ministers and the",
+          "word": "GOVERN",
+          "post": ", with the press, and with the Kennedys.",
+          "answer": ""
+        },
+        {
+          "pre": "You can also enjoy the",
+          "word": "BEAUTY",
+          "post": "settings and the costumes created for the show.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-ferapontov-monastery-vologda",
+      "nav": "Ferapontov Monastery Vologda",
+      "title": "Ferapontov Monastery Vologda",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Ferapontov monastery was founded in 1398. This was when Ferapont the Reverend established a new settlement on a lake not far from Vologda. There were many villages around this",
+          "word": "BEAUTY",
+          "post": "place and soon people started to come to him for advice.",
+          "answer": ""
+        },
+        {
+          "pre": "Then some people decided to stay with him as monks. That's",
+          "word": "ACTUAL",
+          "post": "how the monastery was started.",
+          "answer": ""
+        },
+        {
+          "pre": "Later Ferapont built a wooden church and other",
+          "word": "CONSTRUCT",
+          "post": ". He left the monastery to build another one but never returned.",
+          "answer": ""
+        },
+        {
+          "pre": "The museum has",
+          "word": "WONDER",
+          "post": "examples of ancient Egyptian art, some of which date back to the Paleolithic era. The 27 galleries devoted to classical antiquity are illuminated by natural daylight.",
+          "answer": ""
+        },
+        {
+          "pre": "In the northwest corner, the American galleries demonstrate a wide",
+          "word": "VARY",
+          "post": "of decorative and fine art from throughout US history.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-evgenia-medvedeva",
+      "nav": "Evgenia Medvedeva",
+      "title": "Evgenia Medvedeva",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Evgeniya Medvedeva is an outstanding Russian figure skater. She is a two-time European and World champion and a two-time Olympic silver",
+          "word": "MEDAL",
+          "post": "(2018 ladies' singles and 2018 team event).",
+          "answer": ""
+        },
+        {
+          "pre": "She has many more prizes in important",
+          "word": "CHAMPION",
+          "post": "and competitions.",
+          "answer": ""
+        },
+        {
+          "pre": "Medvedeva is famous for having set the world record score 13 times. She spent her most",
+          "word": "SUCCESS",
+          "post": "seasons with her coach Eteri Tutberidze.",
+          "answer": ""
+        },
+        {
+          "pre": "However, the monastery remained both a",
+          "word": "FAME",
+          "post": "and popular place even without him.",
+          "answer": ""
+        },
+        {
+          "pre": "Now tourists can enjoy its",
+          "word": "AMAZE",
+          "post": "frescoes, created in 1502.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-lantern-festival",
+      "nav": "Lantern Festival",
+      "title": "Lantern Festival",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "The Lantern Festival is one of the most popular events in Taiwan. It has no fixed date but must be held on the first full moon of a lunar year. This",
+          "word": "COLOUR",
+          "post": "celebration is definitely a spectacular sight.",
+          "answer": ""
+        },
+        {
+          "pre": "It's not surprising that it attracts crowds of",
+          "word": "VISIT",
+          "post": "from all over the world.",
+          "answer": ""
+        },
+        {
+          "pre": "During the festival people can enjoy looking at",
+          "word": "COUNT",
+          "post": "lanterns in the dark sky.",
+          "answer": ""
+        },
+        {
+          "pre": "After taking only the second place in the 2018 Olympics Medvedeva was",
+          "word": "REAL",
+          "post": "upset and decided to change the coach. She moved to Canada to train in Toronto Cricket Club with Brian Orser. In March 2021 she returned to Eteri Tutberidze.",
+          "answer": ""
         },
         {
           "pre": "",
-          "word": "THIS",
-          "post": "include indigenous languages, languages brought to the country by colonists, enslaved people and immigrants from Europe, Africa and Asia.",
-          "answer": "These"
-        },
-        {
-          "pre": "Spanish, of course, is the",
-          "word": "TWO",
-          "post": "most commonly spoken language in the United States.",
-          "answer": "second"
-        },
-        {
-          "pre": "On January 10, 1845, Robert Browning sent a letter to Elizabeth Barrett. Over the course of the next 20 months, they",
-          "word": "WRITE",
-          "post": "each other close to 600 letters.",
-          "answer": "wrote"
-        },
-        {
-          "pre": "It is one of the",
-          "word": "GREAT",
-          "post": "literary correspondences of all time.",
-          "answer": "greatest"
-        },
-        {
-          "pre": "The couple's last letter was exchanged on September 18, 1846, the night before the two",
-          "word": "LEAVE",
-          "post": "for a trip to Italy and two weeks after their secret marriage.",
-          "answer": "left"
-        },
-        {
-          "pre": "",
-          "word": "THEY",
-          "post": "romance, which Elizabeth credited with saving her life, lasted for 15 years and spawned some of the world's most beautiful poetry.",
-          "answer": "Their"
+          "word": "FORTUNATELY",
+          "post": ", she hasn't competed for a year but the world still remembers her as one of the most prominent female figure skaters in the world.",
+          "answer": ""
         }
       ]
     },
     {
-      "id": "wordform-foreign-basque-slavery",
-      "nav": "Basque & Slavery",
-      "title": "Languages of the World / Slavery in North America",
-      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 19–24.",
+      "id": "wordform-w-importance-visuals-blog",
+      "nav": "importance visuals blog",
+      "title": "importance visuals blog",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
       "type": "wordform",
       "items": [
         {
-          "pre": "What do you think is the most difficult language to learn? Chinese? Japanese? No, it is Basque, the language which",
-          "word": "SPEAK",
-          "post": "in northwestern Spain and southwestern France.",
-          "answer": "is spoken"
+          "pre": "If you are going to take up blogging, you must be thinking about your future content a lot. However, you should",
+          "word": "DEFINITE",
+          "post": "consider not only your writing, but also some visual elements to your articles.",
+          "answer": ""
         },
         {
-          "pre": "It",
-          "word": "NOT RELATE",
-          "post": "to any other language in the world.",
-          "answer": "is not related",
-          "alt": [
-            "isn't related"
-          ]
+          "pre": "In fact, Internet",
+          "word": "JOURNAL",
+          "post": "point out that articles get shared twice as much when they have one image per every one hundred words.",
+          "answer": ""
         },
         {
-          "pre": "Spanish has a",
-          "word": "GREAT",
-          "post": "variety of names for the language than French.",
-          "answer": "greater"
+          "pre": "With that in mind, break up large blocks of text by incorporating",
+          "word": "COLOUR",
+          "post": "images and videos.",
+          "answer": ""
         },
         {
-          "pre": "August 13, 1619 is the date when the first Africans kidnapped by the Portuguese arrived in the British colony of Virginia and",
-          "word": "BUY",
-          "post": "by English colonists.",
-          "answer": "were bought"
+          "pre": "The big lanterns come in shapes of",
+          "word": "VARY",
+          "post": "animals and birds.",
+          "answer": ""
         },
         {
           "pre": "",
-          "word": "FOUND",
-          "post": "at Jamestown in 1607, the Virginia Colony was home to about 700 people by 1619.",
-          "answer": "Founded"
+          "word": "CERTAIN",
+          "post": ", the main lantern at the festival has the Chinese zodiac sign of the respective year. The smaller lanterns represent some most important historical events.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-natural-sights-queensland",
+      "nav": "Natural sights Queensland",
+      "title": "Natural sights Queensland",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Apart from cultural experiences, Queensland makes it possible for you to enjoy the beauty of nature to the full. For instance, tourists are",
+          "word": "TYPICAL",
+          "post": "very interested in the Daintree Rainforest which is the oldest rainforest in the world.",
+          "answer": ""
         },
         {
-          "pre": "The first enslaved Africans to arrive there disembarked at Point Comfort, in what",
-          "word": "KNOW",
-          "post": "today as Hampton Roads.",
-          "answer": "is known"
+          "pre": "It offers",
+          "word": "VISIT",
+          "post": "spectacular beauty and extraordinary diversity of flora and fauna.",
+          "answer": ""
         },
         {
-          "pre": "Most of",
-          "word": "THEY",
-          "post": "names, as well as the exact number of those who remained at Point Comfort, have been lost to history.",
-          "answer": "their"
+          "pre": "An hour's drive north of Cairns, it can be explored on expert guided tours, and you can even have a",
+          "word": "COMFORT",
+          "post": "one-night stay in tree-house style eco-lodges.",
+          "answer": ""
+        },
+        {
+          "pre": "This keeps the attention of your",
+          "word": "READ",
+          "post": "on the page for longer and prevents them from getting bored or intimidated by so much text.",
+          "answer": ""
+        },
+        {
+          "pre": "Be sure to use unique, high-quality images to create a polished and professional piece. If you're",
+          "word": "ABLE",
+          "post": "to use photographs of your own for some reason, you can get free stock photos from different sites.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-visiting-uluru",
+      "nav": "Visiting Uluru",
+      "title": "Visiting Uluru",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "If you are thinking of making the journey to witness the incredible red rock Uluru in person, here are some facts you should know before you leave. Thousands of",
+          "word": "VISIT",
+          "post": "to Australia go to see Uluru.",
+          "answer": ""
+        },
+        {
+          "pre": "Uluru is located west of the Simpson Desert 335 km southwest of Alice Springs. While some people believe it to be the largest monolith in the world, this title is",
+          "word": "ACTUAL",
+          "post": "held by Mount Augustus in Western Australia.",
+          "answer": ""
+        },
+        {
+          "pre": "Uluru is known to undergo a series of colour changes. These can be just subtle",
+          "word": "DIFFER",
+          "post": "when it rains.",
+          "answer": ""
+        },
+        {
+          "pre": "One more must-see is the Great Barrier Reef. To see it go all the way up to the very northern tip of Queensland. There are many ways underwater life can be experienced there, for example, scuba",
+          "word": "DIVE",
+          "post": ".",
+          "answer": ""
+        },
+        {
+          "pre": "The Great Barrier Reef will give you",
+          "word": "FORGET",
+          "post": "and breathtaking insights into the beauty and magic of this incredible biosphere.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-auckland",
+      "nav": "Auckland",
+      "title": "Auckland",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Auckland is the largest and most populous city in New Zealand. The",
+          "word": "POPULATE",
+          "post": "of Auckland is getting close to 1.4 million residents.",
+          "answer": ""
+        },
+        {
+          "pre": "It is",
+          "word": "CONVENIENT",
+          "post": "situated in the North Island of the country, between the Waitakere Ranges and the Hauraki Gulf.",
+          "answer": ""
+        },
+        {
+          "pre": "The city enjoys an oceanic climate, which is",
+          "word": "COMPARE",
+          "post": "to the climate in most of Europe.",
+          "answer": ""
+        },
+        {
+          "pre": "However, the view undergoes amazing",
+          "word": "TRANSFORM",
+          "post": "when caught by the spectacular sunset rays.",
+          "answer": ""
+        },
+        {
+          "pre": "This is so partially because the surface of Uluru is full of",
+          "word": "USUAL",
+          "post": "caves and holes due to millions of years of erosion.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-anton-shipulin",
+      "nav": "Anton Shipulin",
+      "title": "Anton Shipulin",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Anton Shipulin is an outstanding retired Russian biathlete. In his long career he won",
+          "word": "VARY",
+          "post": "international competitions and was considered to be among the strongest biathletes of his time.",
+          "answer": ""
+        },
+        {
+          "pre": "In 2010 he was even awarded an order by the Russian President. Among his best achievements is",
+          "word": "CERTAIN",
+          "post": "the gold medal in the men's relay at the 2014 Winter Olympics in Sochi.",
+          "answer": ""
+        },
+        {
+          "pre": "His sister Anastasia Kuzmina is also a",
+          "word": "SUCCESS",
+          "post": "biathlete. She lives in Slovakia.",
+          "answer": ""
+        },
+        {
+          "pre": "Nothing can",
+          "word": "APPOINT",
+          "post": "you about Auckland, which is why it is a popular destination for numerous immigrants to New Zealand.",
+          "answer": ""
+        },
+        {
+          "pre": "Expats have an overall good experience when staying in Auckland. Most expats find it very easy to communicate with the locals, who are very",
+          "word": "FRIEND",
+          "post": ".",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-ivan-sechenov",
+      "nav": "Ivan Sechenov",
+      "title": "Ivan Sechenov",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Ivan Sechenov was an outstanding Russian scientist. He was born in 1829 in a noble family. His parents inspired young Ivan to continue his education throughout his entire life, and the boy followed their advice. At the age of 14 he chose to become a military engineer and studied",
+          "word": "VARY",
+          "post": "technical subjects.",
+          "answer": ""
+        },
+        {
+          "pre": "However, his heart was not really in it. In 1850 Sechenov entered Moscow Medical University with a full",
+          "word": "AWARE",
+          "post": "of the goals of his life.",
+          "answer": ""
+        },
+        {
+          "pre": "Sechenov was a",
+          "word": "WILL",
+          "post": "student, which enabled him to graduate among top students.",
+          "answer": ""
+        },
+        {
+          "pre": "She is also an Olympic gold",
+          "word": "MEDAL",
+          "post": ".",
+          "answer": ""
+        },
+        {
+          "pre": "In December 2018 Shipulin announced his",
+          "word": "RETIRE",
+          "post": "from sports after the World Team Challenge, which is also called the Christmas Race.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-alexander-blok",
+      "nav": "Alexander Blok",
+      "title": "Alexander Blok",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "Alexander Blok was a Russian lyrical poet, writer, publicist, playwright, translator and literary critic. He was born in 1880 in Saint Petersburg in a",
+          "word": "HIGH",
+          "post": "educated family.",
+          "answer": ""
+        },
+        {
+          "pre": "His father was a professor of law, and his grandfather was a famous",
+          "word": "BOTANY",
+          "post": "and the rector of Saint Petersburg State University.",
+          "answer": ""
+        },
+        {
+          "pre": "The",
+          "word": "AMAZE",
+          "post": "images of his early poetry established him as a major figure of the Russian Symbolism style.",
+          "answer": ""
+        },
+        {
+          "pre": "He mastered biology, anatomy, surgery and physiology to",
+          "word": "PERFECT",
+          "post": ".",
+          "answer": ""
+        },
+        {
+          "pre": "After a short period of studying and working abroad Sechenov returned to Russia where he made numerous discoveries in psychology, physiology and anatomy, many of which we still use today. Publishing houses",
+          "word": "PRINT",
+          "post": "his scientific works every year.",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "id": "wordform-w-new-england-aquarium",
+      "nav": "New England Aquarium",
+      "title": "New England Aquarium",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста. Заполните пропуски полученными словами. Каждый пропуск соответствует отдельному заданию из группы 25–29.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "The New England Aquarium has sea creatures of all sizes, shapes and colors. This place is",
+          "word": "CERTAIN",
+          "post": "the centerpiece of downtown Boston's waterfront.",
+          "answer": ""
+        },
+        {
+          "pre": "Its main",
+          "word": "ATTRACT",
+          "post": "is the newly renovated, three-story Giant Ocean Tank. It literally swirls with thousands of creatures, including turtles and sharks.",
+          "answer": ""
+        },
+        {
+          "pre": "",
+          "word": "COUNT",
+          "post": "side exhibits explore the lives and habitats of other underwater species, as well as penguins and marine mammals.",
+          "answer": ""
+        },
+        {
+          "pre": "Poetic",
+          "word": "INSPIRE",
+          "post": "came naturally to him.",
+          "answer": ""
+        },
+        {
+          "pre": "Blok often produced unforgettable and otherworldly images out of the most banal",
+          "word": "SURROUND",
+          "post": "and trivial events, though his most beautiful poems were still devoted to his wife. Blok greeted the 1905 Russian Revolution enthusiastically, but later became disillusioned with it and couldn't write any more, although he still gave lectures on literature.",
+          "answer": ""
         }
       ]
     }

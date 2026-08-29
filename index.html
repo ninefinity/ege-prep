@@ -20,6 +20,108 @@
                 <img class="ege-brand-mark ege-brand-mark--wordmark" src="assets/timetoege.png" alt="Time to ЕГЭ" width="168" height="72" />
               </a>
             </h1>
+            <div class="ege-countdown" id="egeCountdown" aria-live="off">
+              <div class="ege-countdown__stage">
+                <svg class="ege-countdown__board" viewBox="0 0 760 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="egeCardDark" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0b072e"/>
+                    <stop offset="100%" stop-color="#00003b"/>
+                  </linearGradient>
+                  <linearGradient id="egeCardShine" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#eef0fa" stop-opacity="0.10"/>
+                    <stop offset="50%" stop-color="#eef0fa" stop-opacity="0"/>
+                  </linearGradient>
+                  <filter id="egeCardShadow" x="-30%" y="-30%" width="160%" height="160%">
+                    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#00003b" flood-opacity="0.4"/>
+                  </filter>
+                  <g id="egeCardFace">
+                    <rect width="64" height="100" rx="9" fill="url(#egeCardDark)" filter="url(#egeCardShadow)"/>
+                    <rect width="64" height="50" rx="9" fill="url(#egeCardDark)"/>
+                    <rect y="48" width="64" height="4" fill="#00003b" opacity="0.7"/>
+                    <rect width="64" height="50" rx="9" fill="url(#egeCardShine)"/>
+                    <circle cx="7" cy="50" r="2.6" fill="#6a69a5"/>
+                    <circle cx="57" cy="50" r="2.6" fill="#6a69a5"/>
+                  </g>
+                </defs>
+
+                <g transform="translate(20,8)">
+                  <use href="#egeCardFace"/>
+                  <text id="egeCdD0" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+                  <text class="ege-countdown__label" x="106" y="128" text-anchor="middle">DAYS</text>
+                </g>
+                <g transform="translate(90,8)">
+                  <use href="#egeCardFace"/>
+                  <text id="egeCdD1" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+                </g>
+                <g transform="translate(160,8)">
+                  <use href="#egeCardFace"/>
+                  <text id="egeCdD2" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+                </g>
+
+                <text class="ege-countdown__colon" x="248" y="72">:</text>
+
+                <g transform="translate(268,8)">
+                  <use href="#egeCardFace"/>
+                  <text id="egeCdH0" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+                  <text class="ege-countdown__label" x="102" y="128" text-anchor="middle">HOURS</text>
+                </g>
+                <g transform="translate(338,8)">
+                  <use href="#egeCardFace"/>
+                  <text id="egeCdH1" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+                </g>
+
+                <text class="ege-countdown__colon" x="426" y="72">:</text>
+
+                <g transform="translate(446,8)">
+                  <use href="#egeCardFace"/>
+                  <text id="egeCdM0" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+                  <text class="ege-countdown__label" x="102" y="128" text-anchor="middle">MINUTES</text>
+                </g>
+                <g transform="translate(516,8)">
+                  <use href="#egeCardFace"/>
+                  <text id="egeCdM1" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+                </g>
+
+                <text class="ege-countdown__colon" x="604" y="72">:</text>
+
+                <g transform="translate(624,8)">
+                  <use href="#egeCardFace"/>
+                  <text id="egeCdS0" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+                  <text class="ege-countdown__label" x="102" y="128" text-anchor="middle">SECONDS</text>
+                </g>
+                <g transform="translate(694,8)">
+                  <use href="#egeCardFace"/>
+                  <text id="egeCdS1" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+                </g>
+                </svg>
+                <div class="ege-countdown__corner">
+                  <button
+                    type="button"
+                    class="ege-countdown__edit"
+                    id="egeCountdownEdit"
+                    aria-label="Set custom date"
+                    title="Set date"
+                  >
+                    <span class="ege-countdown__edit-icon" aria-hidden="true"></span>
+                  </button>
+                  <form class="ege-countdown__form" id="egeCountdownForm" hidden>
+                    <label class="ege-countdown__form-label" for="egeCountdownDate">DD/MM/YYYY</label>
+                    <input
+                      class="ege-countdown__date"
+                      id="egeCountdownDate"
+                      type="text"
+                      inputmode="numeric"
+                      autocomplete="off"
+                      maxlength="10"
+                      placeholder="DD/MM/YYYY"
+                      spellcheck="false"
+                    />
+                  </form>
+                </div>
+              </div>
+              <span class="ege-countdown__tail">left</span>
+            </div>
           </div>
         </div>
       </div>
@@ -33,17 +135,346 @@
   <script>
     (function () {
       var catalog = document.getElementById("egeCatalog");
-      var groupOrder = ["Listening", "Reading", "Grammar & Word Formation", "Vocabulary"];
+      var DEFAULT_EGE = new Date(2027, 5, 16, 10, 0, 0).getTime();
+      var STORAGE_KEY = "ege-prep:countdown-date";
+      var EGE_AT = DEFAULT_EGE;
+      var countdownDone = false;
+
+      function pad2(n) {
+        return n < 10 ? "0" + n : String(n);
+      }
+
+      function formatDate(ms) {
+        var d = new Date(ms);
+        return pad2(d.getDate()) + "/" + pad2(d.getMonth() + 1) + "/" + d.getFullYear();
+      }
+
+      function parseDateDMY(text) {
+        var m = String(text || "")
+          .trim()
+          .match(/^(\d{1,2})[/.\-](\d{1,2})[/.\-](\d{4})$/);
+        if (!m) return null;
+        var day = parseInt(m[1], 10);
+        var month = parseInt(m[2], 10);
+        var year = parseInt(m[3], 10);
+        if (month < 1 || month > 12 || day < 1 || day > 31) return null;
+        var dt = new Date(year, month - 1, day, 10, 0, 0);
+        if (
+          dt.getFullYear() !== year ||
+          dt.getMonth() !== month - 1 ||
+          dt.getDate() !== day
+        ) {
+          return null;
+        }
+        return dt.getTime();
+      }
+
+      function loadStoredDate() {
+        try {
+          var raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return DEFAULT_EGE;
+          var parsed = parseDateDMY(raw);
+          return parsed == null ? DEFAULT_EGE : parsed;
+        } catch (err) {
+          return DEFAULT_EGE;
+        }
+      }
+
+      function saveStoredDate(ms) {
+        try {
+          localStorage.setItem(STORAGE_KEY, formatDate(ms));
+        } catch (err) {
+          /* ignore quota / private mode */
+        }
+      }
+
+      EGE_AT = loadStoredDate();
+
+      function padDigits(n, width) {
+        var s = String(Math.max(0, n));
+        while (s.length < width) s = "0" + s;
+        if (s.length > width) s = s.slice(-width);
+        return s;
+      }
+
+      function setDigit(id, ch) {
+        var node = document.getElementById(id);
+        if (node && node.textContent !== ch) node.textContent = ch;
+      }
+
+      function setDigitGroup(ids, value) {
+        for (var i = 0; i < ids.length; i += 1) {
+          setDigit(ids[i], value.charAt(i));
+        }
+      }
+
+      function tickCountdown() {
+        var el = document.getElementById("egeCountdown");
+        if (!el) return;
+        var ms = EGE_AT - Date.now();
+        if (ms <= 0) {
+          countdownDone = true;
+          el.setAttribute("aria-label", "Date reached. No countdown left.");
+          setDigitGroup(["egeCdD0", "egeCdD1", "egeCdD2"], "000");
+          setDigitGroup(["egeCdH0", "egeCdH1"], "00");
+          setDigitGroup(["egeCdM0", "egeCdM1"], "00");
+          setDigitGroup(["egeCdS0", "egeCdS1"], "00");
+          return;
+        }
+        countdownDone = false;
+        var totalSec = Math.floor(ms / 1000);
+        var days = Math.floor(totalSec / 86400);
+        var hours = Math.floor((totalSec % 86400) / 3600);
+        var mins = Math.floor((totalSec % 3600) / 60);
+        var secs = totalSec % 60;
+
+        el.setAttribute(
+          "aria-label",
+          days +
+            " days " +
+            hours +
+            " hours " +
+            mins +
+            " minutes " +
+            secs +
+            " seconds left"
+        );
+        setDigitGroup(["egeCdD0", "egeCdD1", "egeCdD2"], padDigits(days, 3));
+        setDigitGroup(["egeCdH0", "egeCdH1"], padDigits(hours, 2));
+        setDigitGroup(["egeCdM0", "egeCdM1"], padDigits(mins, 2));
+        setDigitGroup(["egeCdS0", "egeCdS1"], padDigits(secs, 2));
+      }
+
+      function wireCountdownEdit() {
+        var editBtn = document.getElementById("egeCountdownEdit");
+        var form = document.getElementById("egeCountdownForm");
+        var input = document.getElementById("egeCountdownDate");
+        if (!editBtn || !form || !input) return;
+
+        function openEditor() {
+          input.value = formatDate(EGE_AT);
+          form.hidden = false;
+          editBtn.hidden = true;
+          input.focus();
+          input.select();
+        }
+
+        function closeEditor() {
+          form.hidden = true;
+          editBtn.hidden = false;
+          input.classList.remove("is-invalid");
+        }
+
+        function applyDate() {
+          var parsed = parseDateDMY(input.value);
+          if (parsed == null) {
+            input.classList.add("is-invalid");
+            input.focus();
+            return;
+          }
+          EGE_AT = parsed;
+          countdownDone = false;
+          saveStoredDate(EGE_AT);
+          input.classList.remove("is-invalid");
+          closeEditor();
+          tickCountdown();
+        }
+
+        editBtn.addEventListener("click", openEditor);
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          applyDate();
+        });
+        input.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            closeEditor();
+          }
+        });
+        input.addEventListener("blur", function () {
+          if (form.hidden) return;
+          window.setTimeout(function () {
+            if (document.activeElement === input) return;
+            if (!form.hidden) applyDate();
+          }, 120);
+        });
+      }
+
+      tickCountdown();
+      setInterval(tickCountdown, 1000);
+      wireCountdownEdit();
+
+      var groupOrder = ["Listening", "Reading", "Grammar & Vocabulary", "Speaking"];
       var groupIcons = {
         Listening: "headphones",
         Reading: "book",
-        "Grammar & Word Formation": "pencil"
+        "Grammar & Vocabulary": "pencil",
+        Speaking: "bubble"
       };
+      var groupRanges = {
+        Listening: { from: 1, to: 9 },
+        Reading: { from: 10, to: 18 },
+        "Grammar & Vocabulary": { from: 19, to: 36 },
+        Speaking: { from: 40, to: 42 }
+      };
+      var groupKeywords = {
+        Listening: "listening аудирование audio hear",
+        Reading: "reading чтение text passage",
+        "Grammar & Vocabulary": "grammar vocabulary грамматика лексика words lexico",
+        Speaking: "speaking говорение oral talk"
+      };
+      var sectionKeywords = {
+        "listening-main": "main idea gist основная мысль",
+        "listening-select": "key details select statements детали",
+        listening: "interview dialogue speakers интервью",
+        "matching-headings": "matching headings titles paragraphs заголовки",
+        "gap-fill": "gap fill complete sentences missing parts пропуски",
+        "reading-comprehension": "reading comprehension multiple choice вопросы",
+        "grammar-transformations": "grammar transformations verb forms tense грамматика",
+        "word-formation": "word formation словообразование suffixes prefixes",
+        "vocabulary-cloze": "vocabulary in context cloze multiple choice лексика",
+        "speaking-questions": "direct questions advertisement ask вопросы объявление",
+        "speaking-interview": "interview questions examiner интервью",
+        speaking: "photo monologue compare pictures фото монолог"
+      };
+      var searchIndex = [];
+      var menuWrap = null;
+      var searchWrap = null;
+      var resultsList = null;
+      var emptyEl = null;
+      var MAX_RESULTS = 40;
+      var BOOK_LEFT = ["Listening", "Reading"];
+      var BOOK_RIGHT = ["Grammar & Vocabulary", "Speaking"];
 
       function formatExamNum(from, to) {
         if (from == null) return "";
         if (to == null || to === from) return String(from);
         return from + "–" + to;
+      }
+
+      function normalizeSearch(text) {
+        return String(text || "")
+          .toLowerCase()
+          .replace(/<[^>]+>/g, " ")
+          .replace(/[–—−]/g, "-")
+          .replace(/[^a-z0-9а-яё&/\s-]+/gi, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function escapeHtml(text) {
+        return String(text || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function cleanSnippetText(text) {
+        return String(text || "")
+          .replace(/<[^>]+>/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function queryTokens(query) {
+        return normalizeSearch(query)
+          .split(/[\s/-]+/)
+          .filter(function (token) {
+            return token.length > 0;
+          });
+      }
+
+      function searchTokens(text) {
+        return normalizeSearch(text)
+          .split(/[\s/-]+/)
+          .filter(function (token) {
+            return token.length > 0;
+          });
+      }
+
+      function tokenMatches(hayToken, needle) {
+        if (!needle) return false;
+        if (hayToken === needle) return true;
+        return needle.length >= 3 && hayToken.indexOf(needle) === 0;
+      }
+
+      function textHasAllTokens(text, tokens) {
+        if (!tokens.length) return false;
+        var hay = searchTokens(text);
+        for (var i = 0; i < tokens.length; i += 1) {
+          var needle = tokens[i];
+          var found = false;
+          for (var j = 0; j < hay.length; j += 1) {
+            if (tokenMatches(hay[j], needle)) {
+              found = true;
+              break;
+            }
+          }
+          if (!found) return false;
+        }
+        return true;
+      }
+
+      function findMatchSnippet(bits, tokens) {
+        if (!tokens.length) return "";
+
+        for (var i = 0; i < bits.length; i += 1) {
+          var raw = cleanSnippetText(bits[i]);
+          if (!raw || raw.length < 2) continue;
+          if (!textHasAllTokens(raw, tokens)) continue;
+
+          var lower = raw.toLowerCase();
+          var token = tokens[0];
+          var idx = lower.indexOf(token);
+          if (idx < 0) idx = 0;
+          var matchLen = token.length;
+
+          var radius = 42;
+          var start = Math.max(0, idx - radius);
+          var end = Math.min(raw.length, idx + matchLen + radius);
+          var before = (start > 0 ? "…" : "") + raw.slice(start, idx);
+          var hit = raw.slice(idx, idx + matchLen);
+          var after = raw.slice(idx + matchLen, end) + (end < raw.length ? "…" : "");
+          return (
+            escapeHtml(before) +
+            "<mark>" +
+            escapeHtml(hit) +
+            "</mark>" +
+            escapeHtml(after)
+          );
+        }
+        return "";
+      }
+
+      function matchReason(entry, tokens) {
+        if (!tokens.length) return "";
+        if (textHasAllTokens(entry.label, tokens)) return "";
+        if (textHasAllTokens(entry.meta, tokens)) return "";
+        if (textHasAllTokens(entry.num, tokens)) return "";
+        return findMatchSnippet(entry.bits || [], tokens);
+      }
+
+      function scoreSearchHit(entry, tokens, qNorm) {
+        var label = normalizeSearch(entry.label);
+        var meta = normalizeSearch(entry.meta);
+        var num = normalizeSearch(entry.num);
+        var search = entry.search || "";
+        var score = 0;
+
+        if (entry.kind === "section") score += 200;
+        else if (entry.kind === "variant") score += 120;
+        else score += 20;
+
+        if (label === qNorm) score += 100;
+        else if (qNorm && label.indexOf(qNorm) !== -1) score += 70;
+
+        if (textHasAllTokens(label, tokens)) score += 50;
+        if (textHasAllTokens(num, tokens)) score += 45;
+        if (textHasAllTokens(meta, tokens)) score += 15;
+        if (qNorm && search.indexOf(qNorm) !== -1) score += 10;
+
+        return score;
       }
 
       function groupSections(sections) {
@@ -60,6 +491,266 @@
           .map(function (name) {
             return { name: name, sections: map[name] };
           });
+      }
+
+      function firstAvailableSection(sections) {
+        for (var i = 0; i < sections.length; i += 1) {
+          if (sections[i].available !== false) return sections[i];
+        }
+        return null;
+      }
+
+      function appendRow(list, options) {
+        var item = document.createElement("li");
+        item.className =
+          "ege-catalog-list__item" +
+          (options.itemClass ? " " + options.itemClass : "");
+
+        var available = options.available !== false;
+        var useCheckbox = !!(available && options.checkbox);
+        var row;
+
+        if (useCheckbox) {
+          row = document.createElement("div");
+        } else {
+          row = available ? document.createElement("a") : document.createElement("div");
+        }
+
+        row.className =
+          "ege-catalog-row" +
+          (available ? "" : " ege-catalog-row--locked") +
+          (options.rowClass ? " " + options.rowClass : "") +
+          (useCheckbox ? " ege-catalog-row--selectable" : "");
+
+        var labelHtml = options.label
+          ? '<span class="ege-catalog-row__label">' + escapeHtml(options.label) + "</span>"
+          : '<span class="ege-catalog-row__label"></span>';
+        if (options.meta) {
+          labelHtml +=
+            '<span class="ege-catalog-row__meta">' + escapeHtml(options.meta) + "</span>";
+        }
+        if (options.hint) {
+          labelHtml +=
+            '<span class="ege-catalog-row__hint">' + options.hint + "</span>";
+        }
+
+        if (useCheckbox) {
+          row.innerHTML =
+            '<span class="ege-catalog-row__num">' +
+            escapeHtml(options.num || "") +
+            "</span>" +
+            '<a class="ege-catalog-row__hit" href="' +
+            escapeHtml(options.href || "") +
+            '" aria-label="' +
+            escapeHtml(options.ariaLabel || options.label || "") +
+            '">' +
+            '<div class="ege-catalog-row__body">' +
+            labelHtml +
+            "</div>" +
+            '<span class="ege-catalog-row__start" aria-hidden="true">Start</span>' +
+            "</a>" +
+            '<label class="ege-catalog-row__check-wrap">' +
+            '<input type="checkbox" class="ege-catalog-row__check" ' +
+            'data-section-id="' +
+            escapeHtml(options.checkbox.sectionId) +
+            '" aria-label="Select ' +
+            escapeHtml(options.checkbox.label || options.label || "task") +
+            '">' +
+            "</label>";
+
+          var check = row.querySelector(".ege-catalog-row__check");
+          if (check) {
+            check.addEventListener("change", function () {
+              if (typeof options.checkbox.onChange === "function") {
+                options.checkbox.onChange(check);
+              }
+            });
+          }
+        } else {
+          if (available && options.href) {
+            row.href = options.href;
+            row.setAttribute("aria-label", options.ariaLabel || options.label || "");
+          } else {
+            row.setAttribute(
+              "aria-label",
+              (options.ariaLabel || options.label || "") +
+                (available ? "" : ", coming soon")
+            );
+          }
+
+          row.innerHTML =
+            '<span class="ege-catalog-row__num">' +
+            (options.num || "") +
+            "</span>" +
+            '<div class="ege-catalog-row__body">' +
+            labelHtml +
+            "</div>" +
+            (available
+              ? '<span class="ege-catalog-row__start" aria-hidden="true">Start</span>'
+              : '<span class="ege-catalog-row__soon">' +
+                escapeHtml(options.soon || "Coming soon") +
+                "</span>");
+
+          if (options.icon && !(options.num || "").trim()) {
+            var numEl = row.querySelector(".ege-catalog-row__num");
+            numEl.textContent = "";
+            var icon = document.createElement("span");
+            icon.className =
+              "ege-catalog-row__icon ege-catalog-group__icon ege-catalog-group__icon--" +
+              options.icon;
+            icon.setAttribute("aria-hidden", "true");
+            numEl.appendChild(icon);
+          }
+        }
+
+        item.appendChild(row);
+        list.appendChild(item);
+        return item;
+      }
+
+      function buildSearchIndex(sections, topicsById) {
+        var index = [];
+
+        index.push({
+          kind: "variant",
+          href: "",
+          available: false,
+          num: formatExamNum(1, 42),
+          label: "Mock exam",
+          meta: "Beta",
+          bits: ["mock exam", "full variant", "exam", "timed", "complete paper"],
+          search: normalizeSearch(
+            "mock exam beta full variant exam 1-42 1 42 timed complete paper полный вариант"
+          ),
+          soon: "Beta"
+        });
+
+        sections.forEach(function (section) {
+          if (section.available === false) return;
+          var range = formatExamNum(section.examFrom, section.examTo);
+          var bits = [
+            section.group,
+            section.title,
+            section.id,
+            range,
+            String(section.examFrom || ""),
+            String(section.examTo || ""),
+            groupKeywords[section.group] || "",
+            sectionKeywords[section.id] || ""
+          ];
+
+          index.push({
+            kind: "section",
+            href: "topic.html?t=" + encodeURIComponent(section.id),
+            available: true,
+            num: range,
+            label: section.title || section.id,
+            meta: section.group || "",
+            bits: bits,
+            group: section.group || "",
+            sectionId: section.id,
+            search: normalizeSearch(bits.join(" ")),
+            icon: groupIcons[section.group] || ""
+          });
+
+          var topic = topicsById[section.id];
+          if (!topic || !topic.tasks) return;
+
+          topic.tasks.forEach(function (task) {
+            var label = task.nav || task.title || task.id;
+            var meta = (section.title || section.id) + " · " + (section.group || "");
+            var bits = [
+              label,
+              task.id,
+              section.group,
+              section.title,
+              section.id,
+              range
+            ];
+            index.push({
+              kind: "task",
+              href:
+                "topic.html?t=" +
+                encodeURIComponent(section.id) +
+                "&task=" +
+                encodeURIComponent(task.id),
+              available: true,
+              num: "",
+              label: label,
+              meta: meta,
+              bits: bits,
+              group: section.group || "",
+              sectionId: section.id,
+              taskId: task.id,
+              search: normalizeSearch(bits.join(" "))
+            });
+          });
+        });
+
+        return index;
+      }
+
+      function renderSearchResults(query) {
+        var tokens = queryTokens(query);
+        var qNorm = tokens.join(" ");
+        resultsList.textContent = "";
+
+        if (!tokens.length) {
+          resultsList.hidden = true;
+          emptyEl.hidden = true;
+          if (searchWrap) searchWrap.classList.remove("is-open");
+          return;
+        }
+
+        if (searchWrap) searchWrap.classList.add("is-open");
+
+        var hits = [];
+        for (var i = 0; i < searchIndex.length; i += 1) {
+          var entry = searchIndex[i];
+          if (!textHasAllTokens(entry.search, tokens)) continue;
+          hits.push({
+            entry: entry,
+            score: scoreSearchHit(entry, tokens, qNorm)
+          });
+        }
+
+        hits.sort(function (a, b) {
+          if (b.score !== a.score) return b.score - a.score;
+          return (a.entry.label || "").localeCompare(b.entry.label || "");
+        });
+
+        if (!hits.length) {
+          resultsList.hidden = true;
+          emptyEl.hidden = false;
+          return;
+        }
+
+        resultsList.hidden = false;
+        emptyEl.hidden = true;
+        hits.slice(0, MAX_RESULTS).forEach(function (hit) {
+          var entry = hit.entry;
+          var hint = matchReason(entry, tokens);
+          appendRow(resultsList, {
+            num: entry.num,
+            label: entry.label,
+            meta: entry.meta,
+            hint: hint,
+            available: entry.available !== false,
+            soon: entry.soon,
+            href: entry.href,
+            ariaLabel: (entry.label + (entry.meta ? ", " + entry.meta : "")).trim(),
+            rowClass:
+              entry.kind === "task"
+                ? "ege-catalog-row--task ege-catalog-row--result"
+                : "ege-catalog-row--section ege-catalog-row--result" +
+                  (entry.kind === "variant" ? " ege-catalog-row--variant" : ""),
+            itemClass:
+              entry.kind === "task"
+                ? "ege-catalog-list__item--task"
+                : "ege-catalog-list__item--section",
+            icon: entry.icon || ""
+          });
+        });
       }
 
       fetch("sections.json")
@@ -79,75 +770,369 @@
             return;
           }
 
-          catalog.textContent = "";
-          groupSections(data.sections).forEach(function (group) {
-            var block = document.createElement("section");
-            block.className = "ege-catalog-group";
-
-            var heading = document.createElement("h2");
-            heading.className = "ege-catalog-group__title";
-            var iconName = groupIcons[group.name];
-            if (iconName) {
-              heading.classList.add("ege-catalog-group__title--icon");
-              var icon = document.createElement("span");
-              icon.className = "ege-catalog-group__icon ege-catalog-group__icon--" + iconName;
-              icon.setAttribute("aria-hidden", "true");
-              heading.appendChild(icon);
-            }
-            heading.appendChild(document.createTextNode(group.name));
-            block.appendChild(heading);
-
-            var list = document.createElement("ul");
-            list.className = "ege-catalog-list";
-
-            group.sections.forEach(function (section) {
-              var available = section.available !== false;
-              var title = section.title || "";
-              if (title === group.name) title = "";
-              var num = formatExamNum(section.examFrom, section.examTo);
-              var item = document.createElement("li");
-              item.className = "ege-catalog-list__item";
-
-              var row = available ? document.createElement("a") : document.createElement("div");
-              row.className =
-                "ege-catalog-row" + (available ? "" : " ege-catalog-row--locked");
-
-              var ariaTitle = title || group.name;
-              if (available) {
-                row.href = "topic.html?t=" + encodeURIComponent(section.id);
-                row.setAttribute("aria-label", (num + (ariaTitle ? ". " + ariaTitle : "")).trim());
-              } else {
-                row.setAttribute(
-                  "aria-label",
-                  (num + (ariaTitle ? ". " + ariaTitle : "") + ", coming soon").trim()
-                );
-              }
-
-              var body = title
-                ? '<span class="ege-catalog-row__label">' + title + "</span>"
-                : '<span class="ege-catalog-row__label"></span>';
-
-              row.innerHTML =
-                '<span class="ege-catalog-row__num">' + num + "</span>" +
-                '<div class="ege-catalog-row__body">' +
-                body +
-                "</div>" +
-                (available
-                  ? '<span class="ege-catalog-row__start" aria-hidden="true">Start</span>'
-                  : '<span class="ege-catalog-row__soon">Coming soon</span>');
-
-              item.appendChild(row);
-              list.appendChild(item);
-            });
-
-            block.appendChild(list);
-            catalog.appendChild(block);
+          var availableSections = data.sections.filter(function (section) {
+            return section.available !== false;
           });
 
-          catalog.removeAttribute("aria-busy");
+          return Promise.all(
+            availableSections.map(function (section) {
+              return fetch("data/" + section.id + ".json")
+                .then(function (res) {
+                  if (!res.ok) throw new Error("missing");
+                  return res.json();
+                })
+                .then(function (topic) {
+                  return { id: section.id, topic: topic };
+                })
+                .catch(function () {
+                  return { id: section.id, topic: null };
+                });
+            })
+          ).then(function (loaded) {
+            var topicsById = {};
+            loaded.forEach(function (entry) {
+              if (entry.topic) topicsById[entry.id] = entry.topic;
+            });
+            searchIndex = buildSearchIndex(data.sections, topicsById);
+
+            catalog.textContent = "";
+
+            searchWrap = document.createElement("div");
+            searchWrap.className = "ege-catalog-search";
+            var searchInput = document.createElement("input");
+            searchInput.type = "search";
+            searchInput.className = "ege-catalog-search__input";
+            searchInput.id = "egeCatalogSearch";
+            searchInput.placeholder = "Search topics or key words";
+            searchInput.setAttribute("aria-label", "Search topics or key words");
+            searchInput.autocomplete = "off";
+            searchWrap.appendChild(searchInput);
+
+            resultsList = document.createElement("ul");
+            resultsList.className =
+              "ege-catalog-list ege-catalog-list--menu ege-catalog-list--results";
+            resultsList.id = "egeCatalogResults";
+            resultsList.hidden = true;
+
+            emptyEl = document.createElement("p");
+            emptyEl.className = "ege-catalog-search__empty";
+            emptyEl.textContent = "No matches";
+            emptyEl.hidden = true;
+
+            searchWrap.appendChild(resultsList);
+            searchWrap.appendChild(emptyEl);
+            catalog.appendChild(searchWrap);
+
+            menuWrap = document.createElement("div");
+            menuWrap.className = "ege-catalog-menu";
+            menuWrap.id = "egeCatalogMenu";
+
+            var variantList = document.createElement("ul");
+            variantList.className =
+              "ege-catalog-list ege-catalog-list--menu ege-catalog-list--variant";
+            appendRow(variantList, {
+              num: formatExamNum(1, 42),
+              label: "Mock exam",
+              available: false,
+              soon: "Beta",
+              ariaLabel: "Mock exam, beta, tasks 1 to 42",
+              rowClass: "ege-catalog-row--section ege-catalog-row--variant",
+              itemClass: "ege-catalog-list__item--section"
+            });
+            menuWrap.appendChild(variantList);
+
+            var book = document.createElement("div");
+            book.className = "ege-catalog-book";
+            book.setAttribute("role", "presentation");
+
+            var groups = groupSections(data.sections);
+            var groupsByName = {};
+            groups.forEach(function (group) {
+              groupsByName[group.name] = group;
+            });
+
+            var sectionById = {};
+            data.sections.forEach(function (section) {
+              sectionById[section.id] = section;
+            });
+
+            var playlistChecks = [];
+            var groupHeaders = {};
+
+            var playlistList = document.createElement("ul");
+            playlistList.className =
+              "ege-catalog-list ege-catalog-list--menu ege-catalog-list--playlist";
+            playlistList.hidden = true;
+
+            function playlistHref(ids) {
+              if (ids.length === 1) {
+                return "topic.html?t=" + encodeURIComponent(ids[0]);
+              }
+              return (
+                "topic.html?parts=" + ids.map(encodeURIComponent).join(",")
+              );
+            }
+
+            function selectedSectionIds() {
+              var checked = {};
+              playlistChecks.forEach(function (entry) {
+                if (entry.input.checked) checked[entry.sectionId] = true;
+              });
+              var ids = [];
+              data.sections.forEach(function (section) {
+                if (checked[section.id]) ids.push(section.id);
+              });
+              return ids;
+            }
+
+            function resetGroupHeader(header) {
+              if (!header || !header.row || !header.start) return;
+              header.row.classList.remove(
+                "ege-catalog-row--playlist-active",
+                "ege-catalog-row--playlist-picking"
+              );
+              header.start.hidden = false;
+              header.start.textContent = "Start";
+              header.row.href = header.groupHref;
+              header.row.setAttribute(
+                "aria-label",
+                header.name + " (all available parts)"
+              );
+              if (header.body) {
+                header.body.textContent = "";
+                var label = document.createElement("span");
+                label.className = "ege-catalog-row__label";
+                label.textContent = header.name;
+                header.body.appendChild(label);
+              }
+            }
+
+            function playlistStepLabel(id) {
+              var section = sectionById[id];
+              if (!section) return id;
+              return formatExamNum(section.examFrom, section.examTo);
+            }
+
+            function buildPlaylistTrack(ids) {
+              var progress = document.createElement("div");
+              progress.className = "ege-listening-progress ege-playlist-progress";
+
+              var track = document.createElement("div");
+              track.className = "ege-listening-progress__track";
+
+              ids.forEach(function (id, index) {
+                if (index > 0) {
+                  var line = document.createElement("span");
+                  line.className = "ege-listening-progress__line is-complete";
+                  line.setAttribute("aria-hidden", "true");
+                  track.appendChild(line);
+                }
+
+                var step = document.createElement("span");
+                step.className = "ege-listening-progress__step is-current";
+                step.textContent = playlistStepLabel(id);
+                track.appendChild(step);
+              });
+
+              progress.appendChild(track);
+              return progress;
+            }
+
+            function setPlaylistBody(body, ids) {
+              if (!body) return;
+              body.textContent = "";
+              body.appendChild(buildPlaylistTrack(ids));
+            }
+
+            function activateGroupHeader(header, ids) {
+              if (!header || !header.row || !header.start) return;
+              header.row.classList.add("ege-catalog-row--playlist-active");
+              header.start.hidden = false;
+              header.start.textContent = "Start " + ids.length;
+              header.row.href = playlistHref(ids);
+              header.row.setAttribute(
+                "aria-label",
+                header.name +
+                  (ids.length === 1
+                    ? " (start 1 selected part)"
+                    : " (start " + ids.length + " selected parts)")
+              );
+              setPlaylistBody(header.body, ids);
+            }
+
+            function syncPlaylistBar(ids) {
+              if (!ids.length) {
+                playlistList.hidden = true;
+                playlistList.textContent = "";
+                return;
+              }
+
+              playlistList.hidden = false;
+              playlistList.textContent = "";
+              appendRow(playlistList, {
+                num: "",
+                label: "",
+                available: true,
+                href: playlistHref(ids),
+                ariaLabel:
+                  ids.length === 1
+                    ? "Start 1 selected part"
+                    : "Start " + ids.length + " selected parts",
+                rowClass:
+                  "ege-catalog-row--section ege-catalog-row--playlist ege-catalog-row--playlist-active",
+                itemClass: "ege-catalog-list__item--section"
+              });
+              var row = playlistList.querySelector(".ege-catalog-row");
+              var body = row && row.querySelector(".ege-catalog-row__body");
+              var start = row && row.querySelector(".ege-catalog-row__start");
+              setPlaylistBody(body, ids);
+              if (start) start.textContent = "Start " + ids.length;
+            }
+
+            function syncPlaylist() {
+              var ids = selectedSectionIds();
+              Object.keys(groupHeaders).forEach(function (name) {
+                resetGroupHeader(groupHeaders[name]);
+              });
+
+              if (!ids.length) {
+                syncPlaylistBar([]);
+                return;
+              }
+
+              var groupsSelected = {};
+              ids.forEach(function (id) {
+                var section = sectionById[id];
+                if (section && section.group) groupsSelected[section.group] = true;
+              });
+              var groupNames = Object.keys(groupsSelected);
+
+              if (groupNames.length === 1) {
+                syncPlaylistBar([]);
+                activateGroupHeader(groupHeaders[groupNames[0]], ids);
+              } else {
+                syncPlaylistBar(ids);
+              }
+            }
+
+            function appendGroupToList(list, group) {
+              if (!group) return;
+
+              var range = groupRanges[group.name] || {};
+              var lead = firstAvailableSection(group.sections);
+              var iconName = groupIcons[group.name] || "";
+              var rangeLabel = formatExamNum(range.from, range.to);
+              var groupHref = lead
+                ? "topic.html?group=" + encodeURIComponent(group.name)
+                : "";
+
+              var headerItem = appendRow(list, {
+                num: "",
+                label: group.name,
+                available: !!lead,
+                href: groupHref,
+                ariaLabel: lead
+                  ? group.name + " (all available parts)"
+                  : group.name + ", tasks " + rangeLabel,
+                rowClass: "ege-catalog-row--section",
+                itemClass: "ege-catalog-list__item--section",
+                icon: iconName
+              });
+              var headerRow = headerItem.querySelector(".ege-catalog-row");
+              var headerStart =
+                headerRow && headerRow.querySelector(".ege-catalog-row__start");
+
+              if (lead && headerRow && headerStart) {
+                groupHeaders[group.name] = {
+                  name: group.name,
+                  row: headerRow,
+                  start: headerStart,
+                  body: headerRow.querySelector(".ege-catalog-row__body"),
+                  groupHref: groupHref
+                };
+              }
+
+              group.sections.forEach(function (section) {
+                var available = section.available !== false;
+                var title = section.title || "";
+                if (title === group.name) title = "";
+                var num = formatExamNum(section.examFrom, section.examTo);
+                var ariaTitle = title || group.name;
+
+                var taskItem = appendRow(list, {
+                  num: num,
+                  label: title,
+                  available: available,
+                  href: available
+                    ? "topic.html?t=" + encodeURIComponent(section.id)
+                    : "",
+                  ariaLabel: (num + (ariaTitle ? ". " + ariaTitle : "")).trim(),
+                  rowClass: "ege-catalog-row--task",
+                  itemClass: "ege-catalog-list__item--task",
+                  checkbox: available
+                    ? {
+                        sectionId: section.id,
+                        label: ariaTitle,
+                        onChange: syncPlaylist
+                      }
+                    : null
+                });
+
+                if (available) {
+                  var check = taskItem.querySelector(".ege-catalog-row__check");
+                  if (check) {
+                    playlistChecks.push({
+                      input: check,
+                      sectionId: section.id,
+                      groupName: group.name
+                    });
+                  }
+                }
+              });
+            }
+
+            function buildPage(sideClass, names, label) {
+              var page = document.createElement("div");
+              page.className = "ege-catalog-book__page " + sideClass;
+              var list = document.createElement("ul");
+              list.className = "ege-catalog-list ege-catalog-list--menu";
+              list.setAttribute("aria-label", label);
+              names.forEach(function (name) {
+                appendGroupToList(list, groupsByName[name]);
+              });
+              page.appendChild(list);
+              return page;
+            }
+
+            book.appendChild(
+              buildPage(
+                "ege-catalog-book__page--left",
+                BOOK_LEFT,
+                "Listening and Reading"
+              )
+            );
+            book.appendChild(
+              buildPage(
+                "ege-catalog-book__page--right",
+                BOOK_RIGHT,
+                "Grammar and Speaking"
+              )
+            );
+            menuWrap.appendChild(playlistList);
+            menuWrap.appendChild(book);
+
+            catalog.appendChild(menuWrap);
+
+            searchInput.addEventListener("input", function () {
+              renderSearchResults(searchInput.value);
+            });
+
+            catalog.removeAttribute("aria-busy");
+          });
         })
         .catch(function () {
-            catalog.innerHTML = '<p class="ege-empty">Could not load sections. <a href="index.html">Retry</a>.</p>';
+          catalog.innerHTML =
+            '<p class="ege-empty">Could not load sections. <a href="index.html">Retry</a>.</p>';
           catalog.removeAttribute("aria-busy");
         });
     })();

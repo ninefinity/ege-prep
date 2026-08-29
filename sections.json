@@ -41,7 +41,7 @@
       "examFrom": 11,
       "examTo": 11,
       "title": "Complete the Sentences",
-      "taskCount": 23,
+      "taskCount": 62,
       "available": true
     },
     {
@@ -54,21 +54,56 @@
       "available": true
     },
     {
-      "id": "word-formation",
-      "group": "Grammar & Word Formation",
+      "id": "grammar-transformations",
+      "group": "Grammar & Vocabulary",
       "examFrom": 19,
+      "examTo": 24,
+      "title": "Grammar",
+      "taskCount": 41,
+      "available": true
+    },
+    {
+      "id": "word-formation",
+      "group": "Grammar & Vocabulary",
+      "examFrom": 25,
       "examTo": 29,
       "title": "Word Formation",
-      "taskCount": 18,
+      "taskCount": 34,
       "available": true
     },
     {
       "id": "vocabulary-cloze",
-      "group": "Vocabulary",
+      "group": "Grammar & Vocabulary",
       "examFrom": 30,
       "examTo": 36,
       "title": "Vocabulary in Context",
-      "taskCount": 7,
+      "taskCount": 63,
+      "available": true
+    },
+    {
+      "id": "speaking-questions",
+      "group": "Speaking",
+      "examFrom": 40,
+      "examTo": 40,
+      "title": "Direct Questions",
+      "taskCount": 20,
+      "available": true
+    },
+    {
+      "id": "speaking-interview",
+      "group": "Speaking",
+      "examFrom": 41,
+      "examTo": 41,
+      "title": "Interview",
+      "available": false
+    },
+    {
+      "id": "speaking",
+      "group": "Speaking",
+      "examFrom": 42,
+      "examTo": 42,
+      "title": "Photo Monologue",
+      "taskCount": 8,
       "available": true
     }
   ]

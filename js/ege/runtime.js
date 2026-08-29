@@ -1,0 +1,28 @@
+/** Shared mutable runtime for EGE prep modules. */
+export const E = {
+  STORAGE_KEY: "ege-prep.scores.v1",
+  LISTENING_TARGET_GAPS: 15,
+  prepNextPulseTimers: {},
+  toastTimer: null,
+  taskDigitBuffer: { taskId: "", digits: "", timer: null },
+  mcKeyboardState: { taskId: "", questionIndex: -1 },
+  listeningNavAlignRaf: 0,
+  topicNavAlignRaf: 0,
+  topicNavResizeObserver: null,
+  speakingTimerHandles: {},
+  speakingTimerControllers: {},
+  speakingAskCycles: {},
+  state: {
+    topic: null,
+    topicId: "",
+    sectionMeta: null,
+    playlist: false,
+    hideCompleted: false,
+    scores: {},
+    activeTaskId: null,
+    listeningSelections: {},
+    listeningRuns: {},
+    listeningSteps: {},
+    prepLayouts: {},
+  },
+};
