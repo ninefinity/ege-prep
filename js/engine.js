@@ -6,6 +6,7 @@ import "./ege/listening.js";
 import "./ege/wordform.js";
 import "./ege/speaking.js";
 import "./ege/scoring.js";
+import "./ege/points.js";
 import "./ege/nav.js";
 
 window.EgePrep = {

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time to ЕГЭ — 2027 demo</title>
+  <meta name="description" content="Interactive ЕГЭ 2027 demo." />
+  <meta property="og:title" content="Time to ЕГЭ — 2027 demo" />
+  <meta property="og:description" content="Interactive ЕГЭ 2027 demo." />
+  <meta property="og:image" content="assets/time-to-ege-2027-edition.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#1a0812" />
+  <link rel="icon" href="assets/time-to-ege-2027-edition.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shell.css" />
+  <link rel="stylesheet" href="css/promo.css" />
+</head>
+<body class="yap-brand yap-promo">
+  <main class="ege-page ege-page--promo">
+    <section class="ege-promo-gate" id="egePromoGate">
+      <img class="ege-promo-gate__logo" src="assets/time-to-ege-2027-edition.png" alt="Time to ЕГЭ 2027" width="240" height="240" />
+
+      <div class="ege-countdown ege-countdown--hero" id="egeCountdown" aria-live="off">
+        <div class="ege-countdown__stage">
+          <svg class="ege-countdown__board" viewBox="0 0 760 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="egeCardDark" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0b072e"/>
+                <stop offset="100%" stop-color="#00003b"/>
+              </linearGradient>
+              <linearGradient id="egeCardShine" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#eef0fa" stop-opacity="0.10"/>
+                <stop offset="50%" stop-color="#eef0fa" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="egeCardShadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#00003b" flood-opacity="0.4"/>
+              </filter>
+              <g id="egeCardFace">
+                <rect width="64" height="100" rx="9" fill="url(#egeCardDark)" filter="url(#egeCardShadow)"/>
+                <rect width="64" height="50" rx="9" fill="url(#egeCardDark)"/>
+                <rect y="48" width="64" height="4" fill="#00003b" opacity="0.7"/>
+                <rect width="64" height="50" rx="9" fill="url(#egeCardShine)"/>
+                <circle cx="7" cy="50" r="2.6" fill="#6a69a5"/>
+                <circle cx="57" cy="50" r="2.6" fill="#6a69a5"/>
+              </g>
+            </defs>
+
+            <g transform="translate(20,8)">
+              <use href="#egeCardFace"/>
+              <text id="egeCdD0" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+              <text class="ege-countdown__label" x="106" y="128" text-anchor="middle">DAYS</text>
+            </g>
+            <g transform="translate(90,8)">
+              <use href="#egeCardFace"/>
+              <text id="egeCdD1" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+            </g>
+            <g transform="translate(160,8)">
+              <use href="#egeCardFace"/>
+              <text id="egeCdD2" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+            </g>
+
+            <text class="ege-countdown__colon" x="248" y="72">:</text>
+
+            <g transform="translate(268,8)">
+              <use href="#egeCardFace"/>
+              <text id="egeCdH0" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+              <text class="ege-countdown__label" x="102" y="128" text-anchor="middle">HOURS</text>
+            </g>
+            <g transform="translate(338,8)">
+              <use href="#egeCardFace"/>
+              <text id="egeCdH1" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+            </g>
+
+            <text class="ege-countdown__colon" x="426" y="72">:</text>
+
+            <g transform="translate(446,8)">
+              <use href="#egeCardFace"/>
+              <text id="egeCdM0" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+              <text class="ege-countdown__label" x="102" y="128" text-anchor="middle">MINUTES</text>
+            </g>
+            <g transform="translate(516,8)">
+              <use href="#egeCardFace"/>
+              <text id="egeCdM1" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+            </g>
+
+            <text class="ege-countdown__colon" x="604" y="72">:</text>
+
+            <g transform="translate(624,8)">
+              <use href="#egeCardFace"/>
+              <text id="egeCdS0" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+              <text class="ege-countdown__label" x="102" y="128" text-anchor="middle">SECONDS</text>
+            </g>
+            <g transform="translate(694,8)">
+              <use href="#egeCardFace"/>
+              <text id="egeCdS1" class="ege-countdown__digit" x="32" y="69" text-anchor="middle">0</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <form class="ege-promo-unlock" id="egePromoUnlock" autocomplete="off">
+        <label class="ege-promo-unlock__label" for="egePromoPassword">Password</label>
+        <input
+          class="ege-promo-unlock__input"
+          id="egePromoPassword"
+          type="password"
+          name="password"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Password"
+          required
+        />
+        <button class="ege-promo-unlock__go" type="submit">Enter</button>
+      </form>
+
+      <a class="ege-promo-subscribe" href="https://t.me/mossyaps" target="_blank" rel="noopener noreferrer">Subscribe</a>
+    </section>
+
+    <div class="ege-promo-hub" id="egePromoHub" hidden>
+      <header class="ege-promo-hero">
+        <a class="ege-promo-hero__back" href="index.html">← All sections</a>
+        <img class="ege-promo-hero__logo" src="assets/time-to-ege-2027-edition.png" alt="Time to ЕГЭ 2027" width="240" height="240" />
+        <a class="ege-promo-cta" href="topic.html?variant=2027-demo">Start 2027 demo</a>
+      </header>
+
+      <section class="ege-promo-section" aria-labelledby="egePromoFeatures">
+        <h2 class="ege-promo-section__heading" id="egePromoFeatures">Try each part</h2>
+        <ul class="ege-promo-grid">
+          <li>
+            <a class="ege-promo-card" href="topic.html?t=listening&amp;task=demo2027-mike-watson">
+              <img class="ege-promo-card__icon" src="assets/headphones.svg" alt="" width="24" height="24" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">3–9</span>
+                <span class="ege-promo-card__label">Listening</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-card" href="topic.html?t=matching-headings&amp;task=demo2027-lions">
+              <img class="ege-promo-card__icon" src="assets/book.svg" alt="" width="24" height="24" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">10</span>
+                <span class="ege-promo-card__label">Matching Headings</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-card" href="topic.html?t=gap-fill&amp;task=demo2027-amur-river">
+              <img class="ege-promo-card__icon" src="assets/book.svg" alt="" width="24" height="24" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">11</span>
+                <span class="ege-promo-card__label">Complete the Sentences</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-card" href="topic.html?t=reading-comprehension&amp;task=demo2027-ai-education">
+              <img class="ege-promo-card__icon" src="assets/book.svg" alt="" width="24" height="24" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">12–18</span>
+                <span class="ege-promo-card__label">Reading Comprehension</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-card" href="topic.html?t=grammar-transformations&amp;task=demo2027-yaroslavl-sweaters">
+              <img class="ege-promo-card__icon" src="assets/pencil.svg" alt="" width="24" height="24" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">19–24</span>
+                <span class="ege-promo-card__label">Grammar</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-card" href="topic.html?t=word-formation&amp;task=demo2027-hermitage">
+              <img class="ege-promo-card__icon" src="assets/pencil.svg" alt="" width="24" height="24" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">25–29</span>
+                <span class="ege-promo-card__label">Word Formation</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-card" href="topic.html?t=vocabulary-cloze&amp;task=demo2027-sunday">
+              <img class="ege-promo-card__icon" src="assets/pencil.svg" alt="" width="24" height="24" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">30–36</span>
+                <span class="ege-promo-card__label">Vocabulary in Context</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-card ege-promo-card--thumb" href="topic.html?t=speaking-questions&amp;task=demo2027-cooking-class">
+              <img class="ege-promo-card__thumb" src="speaking/ads/demo2027-cooking-ad.jpg" alt="" width="56" height="40" loading="lazy" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">40</span>
+                <span class="ege-promo-card__label">Direct Questions</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-card" href="topic.html?t=speaking-interview&amp;task=demo2027-online-shopping">
+              <img class="ege-promo-card__icon" src="assets/bubble.svg" alt="" width="24" height="24" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">41</span>
+                <span class="ege-promo-card__label">Interview</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-card ege-promo-card--thumb" href="topic.html?t=speaking&amp;task=demo2027-solo-or-company">
+              <img class="ege-promo-card__thumb" src="speaking/demo2027/group-tour.jpg" alt="" width="56" height="40" loading="lazy" />
+              <span class="ege-promo-card__body">
+                <span class="ege-promo-card__num">42</span>
+                <span class="ege-promo-card__label">Photo Monologue</span>
+              </span>
+              <span class="ege-promo-card__try">Try</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="ege-promo-section" aria-labelledby="egePromoPlaylists">
+        <h2 class="ege-promo-section__heading" id="egePromoPlaylists">Practice by exam part</h2>
+        <ul class="ege-promo-playlists">
+          <li>
+            <a class="ege-promo-playlist" href="topic.html?variant=2027-demo-reading">
+              <span class="ege-promo-playlist__label">Reading</span>
+              <span class="ege-promo-playlist__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-playlist" href="topic.html?variant=2027-demo-language">
+              <span class="ege-promo-playlist__label">Grammar &amp; vocabulary</span>
+              <span class="ege-promo-playlist__try">Try</span>
+            </a>
+          </li>
+          <li>
+            <a class="ege-promo-playlist" href="topic.html?variant=2027-demo-speaking">
+              <span class="ege-promo-playlist__label">Speaking</span>
+              <span class="ege-promo-playlist__try">Try</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="ege-promo-section" aria-labelledby="egePromoMaterials">
+        <h2 class="ege-promo-section__heading" id="egePromoMaterials">Official FIPI materials</h2>
+        <ul class="ege-promo-materials">
+          <li><a href="2027/%D0%90%D0%AF-11%20%D0%95%D0%93%D0%AD%202027%20%D0%94%D0%95%D0%9C%D0%9E_%D0%9F%D0%A7.pdf" target="_blank" rel="noopener noreferrer">Demo — written part</a></li>
+          <li><a href="2027/%D0%90%D0%AF-11%20%D0%95%D0%93%D0%AD%202027%20%D0%94%D0%95%D0%9C%D0%9E_%D0%A3%D0%A7.pdf" target="_blank" rel="noopener noreferrer">Demo — oral part</a></li>
+          <li><a href="2027/%D0%90%D0%AF-11%20%D0%95%D0%93%D0%AD%202027%20%D0%9A%D0%9E%D0%94%D0%98%D0%A4.pdf" target="_blank" rel="noopener noreferrer">Codifier</a></li>
+          <li><a href="2027/%D0%98%D0%9D%D0%AF%D0%97-11%20%D0%95%D0%93%D0%AD%202027%20%D0%A1%D0%9F%D0%95%D0%A6.pdf" target="_blank" rel="noopener noreferrer">Specification</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var UNLOCK_KEY = "ege-prep:promo-unlock";
+      var EGE_AT = new Date(2027, 5, 16, 10, 0, 0).getTime();
+      var gate = document.getElementById("egePromoGate");
+      var hub = document.getElementById("egePromoHub");
+      var form = document.getElementById("egePromoUnlock");
+      var input = document.getElementById("egePromoPassword");
+
+      function padDigits(n, width) {
+        var s = String(Math.max(0, n));
+        while (s.length < width) s = "0" + s;
+        if (s.length > width) s = s.slice(-width);
+        return s;
+      }
+
+      function setDigit(id, ch) {
+        var node = document.getElementById(id);
+        if (node && node.textContent !== ch) node.textContent = ch;
+      }
+
+      function setDigitGroup(ids, value) {
+        for (var i = 0; i < ids.length; i += 1) {
+          setDigit(ids[i], value.charAt(i));
+        }
+      }
+
+      function tickCountdown() {
+        var el = document.getElementById("egeCountdown");
+        if (!el) return;
+        var ms = EGE_AT - Date.now();
+        if (ms <= 0) {
+          el.setAttribute("aria-label", "Date reached.");
+          setDigitGroup(["egeCdD0", "egeCdD1", "egeCdD2"], "000");
+          setDigitGroup(["egeCdH0", "egeCdH1"], "00");
+          setDigitGroup(["egeCdM0", "egeCdM1"], "00");
+          setDigitGroup(["egeCdS0", "egeCdS1"], "00");
+          return;
+        }
+        var totalSec = Math.floor(ms / 1000);
+        var days = Math.floor(totalSec / 86400);
+        var hours = Math.floor((totalSec % 86400) / 3600);
+        var mins = Math.floor((totalSec % 3600) / 60);
+        var secs = totalSec % 60;
+        el.setAttribute(
+          "aria-label",
+          days + " days " + hours + " hours " + mins + " minutes " + secs + " seconds"
+        );
+        setDigitGroup(["egeCdD0", "egeCdD1", "egeCdD2"], padDigits(days, 3));
+        setDigitGroup(["egeCdH0", "egeCdH1"], padDigits(hours, 2));
+        setDigitGroup(["egeCdM0", "egeCdM1"], padDigits(mins, 2));
+        setDigitGroup(["egeCdS0", "egeCdS1"], padDigits(secs, 2));
+      }
+
+      function isUnlocked() {
+        try {
+          return localStorage.getItem(UNLOCK_KEY) === "1";
+        } catch (err) {
+          return false;
+        }
+      }
+
+      function persistUnlock() {
+        try {
+          localStorage.setItem(UNLOCK_KEY, "1");
+        } catch (err) {
+          /* ignore quota / private mode */
+        }
+      }
+
+      function showHub() {
+        if (gate) gate.hidden = true;
+        if (hub) hub.hidden = false;
+        document.body.classList.add("yap-promo--open");
+      }
+
+      function showGate() {
+        if (gate) gate.hidden = false;
+        if (hub) hub.hidden = true;
+        document.body.classList.remove("yap-promo--open");
+        if (input) input.focus();
+      }
+
+      function rejectPassword() {
+        if (!input) return;
+        input.classList.add("is-invalid");
+        input.value = "";
+        input.focus();
+      }
+
+      if (form && input) {
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var guess = String(input.value || "").trim();
+          var btn = form.querySelector('[type="submit"]');
+          if (!guess) {
+            rejectPassword();
+            return;
+          }
+          if (btn) btn.disabled = true;
+          fetch("/api/unlock", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ password: guess })
+          })
+            .then(function (res) {
+              return res
+                .json()
+                .catch(function () {
+                  return {};
+                })
+                .then(function (data) {
+                  return res.ok && data.ok === true;
+                });
+            })
+            .then(function (ok) {
+              if (ok) {
+                persistUnlock();
+                showHub();
+                return;
+              }
+              rejectPassword();
+            })
+            .catch(rejectPassword)
+            .then(function () {
+              if (btn) btn.disabled = false;
+            });
+        });
+        input.addEventListener("input", function () {
+          input.classList.remove("is-invalid");
+        });
+      }
+
+      if (isUnlocked()) showHub();
+      else showGate();
+
+      tickCountdown();
+      setInterval(tickCountdown, 1000);
+    })();
+  </script>
+  <script src="shared/site-footer.js"></script>
+</body>
+</html>

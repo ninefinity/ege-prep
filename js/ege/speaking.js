@@ -59,17 +59,6 @@ E.getSpeakingTaskEl = function getSpeakingTaskEl(taskId) {
     E.syncResetButton(taskId);
   }
 
-  E.speakingTimersDone = function speakingTimersDone(taskId) {
-    var taskEl = E.getSpeakingTaskEl(taskId);
-    if (!taskEl) return false;
-    var timers = taskEl.querySelectorAll(".ege-speaking-timer");
-    if (!timers.length) return false;
-    for (var i = 0; i < timers.length; i += 1) {
-      if (!timers[i].classList.contains("is-done")) return false;
-    }
-    return true;
-  }
-
   E.syncSpeakingTimerMotion = function syncSpeakingTimerMotion(wrap, remaining, duration) {
     if (!wrap || !duration) return;
     var elapsed = Math.max(0, Math.min(duration, duration - remaining));
@@ -78,10 +67,6 @@ E.getSpeakingTaskEl = function getSpeakingTaskEl(taskId) {
     var ring = wrap.querySelector(".ege-speaking-timer__progress");
     if (sweep) sweep.style.transform = "rotate(" + progress * 360 + "deg)";
     if (ring) ring.style.strokeDashoffset = String(100 - progress * 100);
-  }
-
-  E.isSpeakingAskCycleDone = function isSpeakingAskCycleDone(taskId) {
-    return !!(E.speakingAskCycles[taskId] && E.speakingAskCycles[taskId].isDone());
   }
 
   E.isSpeakingMarkedComplete = function isSpeakingMarkedComplete(taskId) {
@@ -95,38 +80,23 @@ E.syncSpeakingCompleteButton = function syncSpeakingCompleteButton(taskId) {
     var btn = document.getElementById("complete-" + taskId);
     if (!btn) return;
 
-    var task = E.findTask(taskId);
-    var askMode = task && task.type === "speaking-questions";
     var marked = E.isSpeakingMarkedComplete(taskId);
-    var ready = askMode ? E.isSpeakingAskCycleDone(taskId) : E.speakingTimersDone(taskId);
-
-    if (askMode) {
-      btn.hidden = !(ready || marked);
-    } else {
-      btn.hidden = false;
-    }
 
     if (marked) {
-      btn.disabled = true;
-      btn.textContent = "Completed";
-      btn.removeAttribute("title");
+      btn.hidden = true;
       return;
     }
 
-    btn.disabled = !ready;
+    btn.hidden = false;
+    btn.disabled = false;
     btn.textContent = "Mark as complete";
-    if (ready) btn.removeAttribute("title");
-    else btn.title = askMode ? "Finish the questions first" : "Finish both timers first";
+    btn.removeAttribute("title");
   }
 
 E.markSpeakingComplete = function markSpeakingComplete(taskId) {
     var task = E.findTask(taskId);
     if (!task || !E.isSpeakingPractice(task)) return;
-    var ready =
-      task.type === "speaking-questions"
-        ? E.isSpeakingAskCycleDone(taskId)
-        : E.speakingTimersDone(taskId);
-    if (!ready || E.isSpeakingMarkedComplete(taskId)) return;
+    if (E.isSpeakingMarkedComplete(taskId)) return;
 
     var max = E.taskMaxScore(task);
     E.state.scores[taskId] = max;
@@ -254,7 +224,12 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
   }
 
 E.isSpeakingPractice = function isSpeakingPractice(task) {
-    return task && (task.type === "speaking" || task.type === "speaking-questions");
+    return (
+      task &&
+      (task.type === "speaking" ||
+        task.type === "speaking-questions" ||
+        task.type === "speaking-interview")
+    );
   }
 
   E.buildSpeakingTimerFace = function buildSpeakingTimerFace() {
@@ -613,7 +588,12 @@ E.renderSpeaking = function renderSpeaking(task) {
     mainCol.appendChild(briefCol);
     mainCol.appendChild(E.buildSpeakingImagesCol(task.images));
 
-    var wrap = E.buildSpeakingShell(task, "ege-task--speaking", mainCol);
+    var prepSeconds = task.prepSeconds || 150;
+    var speakSeconds = task.speakSeconds || 180;
+    var wrap = E.buildSpeakingShell(task, "ege-task--speaking", mainCol, [
+      prepSeconds,
+      speakSeconds,
+    ]);
     wrap.appendChild(E.buildSpeakingFooter(task.id));
     E.syncSpeakingCompleteButton(task.id);
     return wrap;
@@ -626,17 +606,11 @@ E.buildSpeakingFooter = function buildSpeakingFooter(taskId) {
     var actions = document.createElement("div");
     actions.className = "ege-task__actions";
 
-    var task = E.findTask(taskId);
-    var askMode = task && task.type === "speaking-questions";
-
     var completeBtn = document.createElement("button");
     completeBtn.type = "button";
-    completeBtn.className = "ege-btn ege-btn--primary";
+    completeBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
     completeBtn.id = "complete-" + taskId;
     completeBtn.textContent = "Mark as complete";
-    completeBtn.disabled = true;
-    completeBtn.hidden = !!askMode;
-    completeBtn.title = askMode ? "Finish the questions first" : "Finish both timers first";
     completeBtn.addEventListener("click", function () {
       E.markSpeakingComplete(taskId);
     });
@@ -644,7 +618,7 @@ E.buildSpeakingFooter = function buildSpeakingFooter(taskId) {
 
     var resetBtn = document.createElement("button");
     resetBtn.type = "button";
-    resetBtn.className = "ege-btn ege-btn--ghost";
+    resetBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
     resetBtn.id = "reset-" + taskId;
     resetBtn.textContent = "Reset";
     resetBtn.hidden = true;
@@ -758,6 +732,52 @@ E.renderSpeakingQuestions = function renderSpeakingQuestions(task) {
     mainCol.appendChild(askNote);
 
     var wrap = E.buildSpeakingShell(task, "ege-task--speaking-questions", mainCol, false);
+    wrap.appendChild(E.buildSpeakingFooter(task.id));
+    E.syncSpeakingCompleteButton(task.id);
+    return wrap;
+  }
+
+E.renderSpeakingInterview = function renderSpeakingInterview(task) {
+    var mainCol = document.createElement("div");
+    mainCol.className = "ege-speaking-main ege-speaking-main--interview";
+
+    if (task.channel) {
+      var channel = document.createElement("p");
+      channel.className = "ege-speaking-ad-title";
+      channel.textContent = task.channel;
+      mainCol.appendChild(channel);
+    }
+
+    if (task.prompt) {
+      var promptBlock = document.createElement("div");
+      promptBlock.className = "ege-speaking-prompt";
+      var p = document.createElement("p");
+      p.textContent = task.prompt;
+      promptBlock.appendChild(p);
+      mainCol.appendChild(promptBlock);
+    }
+
+    if (task.questions && task.questions.length) {
+      mainCol.appendChild(E.buildSpeakingQuestionsList(task.questions));
+    }
+
+    var askSeconds = task.answerSeconds || 40;
+    var media = document.createElement("div");
+    media.className = "ege-speaking-questions-media ege-speaking-questions-media--solo";
+    var timersCol = document.createElement("aside");
+    timersCol.className = "ege-speaking-timers-col ege-speaking-timers-col--media";
+    timersCol.appendChild(
+      E.buildSpeakingTimers(task.id, [1, askSeconds], { askCycle: true })
+    );
+    media.appendChild(timersCol);
+    mainCol.appendChild(media);
+
+    var askNote = document.createElement("p");
+    askNote.className = "ege-speaking-ask-note";
+    askNote.textContent = "You have " + askSeconds + " seconds to answer each question.";
+    mainCol.appendChild(askNote);
+
+    var wrap = E.buildSpeakingShell(task, "ege-task--speaking-interview", mainCol, false);
     wrap.appendChild(E.buildSpeakingFooter(task.id));
     E.syncSpeakingCompleteButton(task.id);
     return wrap;

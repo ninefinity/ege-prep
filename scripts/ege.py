@@ -24,6 +24,7 @@ from lib.importers import (
 from lib.io import load_json, save_json
 from lib.paths import DRAFTS, SECTIONS, TOPIC_FILES
 from lib.scaffold import scaffold
+from lib.demo_2027 import import_demo_2027
 from lib.validate import validate_all
 
 
@@ -120,6 +121,12 @@ def cmd_import(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_import_demo_2027(args: argparse.Namespace) -> int:
+    for line in import_demo_2027(dry_run=args.dry_run):
+        print(line)
+    return 0
+
+
 def cmd_scaffold(args: argparse.Namespace) -> int:
     task = scaffold(args.type, args.slug, title=args.title)
     out = DRAFTS / f"{args.slug}.json"
@@ -157,6 +164,10 @@ def main() -> int:
     p_import.add_argument("--dry-run", action="store_true", help="preview JSON without saving")
     p_import.add_argument("--stdout", action="store_true", help="print JSON only")
     p_import.set_defaults(func=cmd_import)
+
+    p_demo = sub.add_parser("import-demo-2027", help="import 2027 FIPI demo tasks from 2027/*.json")
+    p_demo.add_argument("--dry-run", action="store_true")
+    p_demo.set_defaults(func=cmd_import_demo_2027)
 
     p_scaffold = sub.add_parser("scaffold", help="create a blank task draft")
     p_scaffold.add_argument("type", choices=["gapfill", "matching", "mc", "vocab", "wordform", "listening"])

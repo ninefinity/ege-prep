@@ -1080,7 +1080,7 @@ E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
           E.syncListeningProgressUI(taskId);
         }
         if (checkBtn) checkBtn.hidden = true;
-        E.syncResetButton(taskId, { forceHidden: true });
+        E.syncResetButton(taskId);
         E.setListeningRevealVisible(taskId, false);
         E.showPrepNextButton(taskId);
         return;
@@ -1110,7 +1110,7 @@ E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
           E.syncListeningProgressUI(taskId);
         }
         if (checkBtn) checkBtn.hidden = true;
-        E.syncResetButton(taskId, { forceHidden: true });
+        E.syncResetButton(taskId);
         E.setListeningRevealVisible(taskId, false);
         E.showPrepNextButton(taskId);
         return;
@@ -1125,7 +1125,7 @@ E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
     if (kind === "prep-gap" && E.isPrepMatchingUnlocked(taskId)) {
       if (progressEl) progressEl.hidden = true;
       if (checkBtn) checkBtn.hidden = true;
-      E.syncResetButton(taskId, { forceHidden: true });
+      E.syncResetButton(taskId);
       E.setListeningRevealVisible(taskId, false);
       E.showPrepNextButton(taskId);
       return;
@@ -1164,7 +1164,7 @@ E.syncListeningGapsFooterUI = function syncListeningGapsFooterUI(taskId) {
 
     if (E.isListeningGapsPassed(taskId)) {
       if (checkBtn) checkBtn.hidden = true;
-      E.syncResetButton(taskId, { forceHidden: true });
+      E.syncResetButton(taskId);
       E.setListeningRevealVisible(taskId, false);
       if (E.listeningMcMax(task) > 0) E.showPrepNextButton(taskId);
       else E.hidePrepNextButton(taskId);
@@ -1197,13 +1197,11 @@ E.hasNextInterview = function hasNextInterview(taskId) {
   }
 
 E.hideListeningFinishButtons = function hideListeningFinishButtons(taskId) {
-    var startOverBtn = document.getElementById("start-over-" + taskId);
     var nextInterviewBtn = document.getElementById("next-interview-" + taskId);
     if (E.prepNextPulseTimers["interview-" + taskId]) {
       window.clearTimeout(E.prepNextPulseTimers["interview-" + taskId]);
       delete E.prepNextPulseTimers["interview-" + taskId];
     }
-    if (startOverBtn) startOverBtn.hidden = true;
     if (nextInterviewBtn) {
       nextInterviewBtn.hidden = true;
       nextInterviewBtn.classList.remove("ege-btn--pulse");
@@ -1217,16 +1215,14 @@ E.syncListeningMcFooterUI = function syncListeningMcFooterUI(taskId) {
 
     var checkBtn = document.getElementById("check-" + taskId);
     var showBtn = document.getElementById("show-" + taskId);
-    var startOverBtn = document.getElementById("start-over-" + taskId);
     var nextInterviewBtn = document.getElementById("next-interview-" + taskId);
 
     E.hidePrepNextButton(taskId);
 
     if (E.isListeningMcPassed(taskId)) {
       if (checkBtn) checkBtn.hidden = true;
-      E.syncResetButton(taskId, { forceHidden: true });
+      E.syncResetButton(taskId);
       if (showBtn) showBtn.hidden = true;
-      if (startOverBtn) startOverBtn.hidden = false;
       if (nextInterviewBtn) {
         var canNext = E.hasNextInterview(taskId);
         nextInterviewBtn.hidden = !canNext;
@@ -2270,7 +2266,7 @@ E.buildListeningFooter = function buildListeningFooter(task) {
 
     var resetBtn = document.createElement("button");
     resetBtn.type = "button";
-    resetBtn.className = "ege-btn ege-btn--ghost";
+    resetBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
     resetBtn.id = "reset-" + taskId;
     resetBtn.textContent = "Reset";
     resetBtn.hidden = true;
@@ -2287,17 +2283,6 @@ E.buildListeningFooter = function buildListeningFooter(task) {
       E.revealTask(taskId);
     });
     actions.appendChild(showBtn);
-
-    var startOverBtn = document.createElement("button");
-    startOverBtn.type = "button";
-    startOverBtn.className = "ege-btn ege-btn--ghost";
-    startOverBtn.id = "start-over-" + taskId;
-    startOverBtn.textContent = "Start over";
-    startOverBtn.hidden = true;
-    startOverBtn.addEventListener("click", function () {
-      E.resetTask(taskId);
-    });
-    actions.appendChild(startOverBtn);
 
     var nextInterviewBtn = document.createElement("button");
     nextInterviewBtn.type = "button";
@@ -2340,23 +2325,30 @@ E.mountListeningChrome = function mountListeningChrome(taskId) {
     if (!host) return;
 
     if (!E.isListeningMode() || !taskId) {
-      host.hidden = true;
+      host.classList.remove("is-mounted");
+      host.replaceChildren();
+      host.setAttribute("aria-hidden", "true");
       return;
     }
 
     var task = E.findTask(taskId);
     if (!task || task.type !== "listening") {
-      host.hidden = true;
+      host.classList.remove("is-mounted");
+      host.replaceChildren();
+      host.setAttribute("aria-hidden", "true");
       return;
     }
 
     var chrome = document.querySelector("#panel-" + taskId + " .ege-listening-chrome");
     if (!chrome) {
-      host.hidden = true;
+      host.classList.remove("is-mounted");
+      host.replaceChildren();
+      host.setAttribute("aria-hidden", "true");
       return;
     }
 
-    host.hidden = false;
+    host.classList.add("is-mounted");
+    host.removeAttribute("aria-hidden");
     host.replaceChildren(chrome);
   }
 
@@ -2366,7 +2358,7 @@ E.syncListeningChromeAlign = function syncListeningChromeAlign() {
 
     var host = document.getElementById("egeListeningChrome");
     var back = document.querySelector(".ege-topic-sidebar__back");
-    if (!host || host.hidden) return;
+    if (!host || !host.classList.contains("is-mounted")) return;
 
     var progress = host.querySelector(".ege-listening-progress");
     var instr = host.querySelector(".ege-listening-prep-instr");

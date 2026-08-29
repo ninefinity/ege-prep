@@ -1784,6 +1784,80 @@
         "5:35"
       ],
       "instructions": "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."
+    },
+    {
+      "id": "demo2027-mike-watson",
+      "nav": "Mike Watson",
+      "title": "Five Minutes with a Star — Mike Watson",
+      "type": "listening",
+      "audio": "audio/Demo2027-PCh.mp3",
+      "instructions": "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+      "transcript": "@host|Hello, everybody, and here we are with our weekly programme, Five Minutes with a Star. Today in our studio we are happy to have Mike Watson, the famous comedy actor and film director, as well as the winner of numerous awards. Good afternoon, Mike!\n@guest|Good afternoon. Thank you for inviting me here today.\n@host|As an actor and a film director, are you upset when you see a bad movie?\n@guest|In my opinion, films have unparalleled power to influence culture. Of course, it bothers me to see that power abused. It appalls me when that power is abused to make money, to show irresponsible acts or even violence, and essentially give people a Roman circus in a movie theater for 10 dollars. I get upset after seeing some films. Some of them are completely awful.\n@host|Do you see your job as kind of a responsibility then?\n@guest|No, I mean anybody can do anything they want. But the power of films to move, the power to serve as a mirror for our society, the power to spread a sense of humanity and make people laugh – never stop to impress me. Chaplin made the whole world laugh for the very first time at the same things, and with no words. Film is truly a universal language. Like so many things, I wish it were used more as a weapon of beauty, rather than a weapon of ugliness.\n@host|Have you always wanted to be a film director?\n@guest|I've been a genuine film fan for about as long as I can remember. I've always been crazy about movies. And then I went to Stanford and was considering which graduate school to apply to. And I wasn't even thinking that I wanted to be a film director, I was thinking that I wanted to go to a film school. I just wanted to see what that was, and see if my love of watching films would translate into loving making them.\n@host|Which it clearly did…\n@guest|It did. And I had the patience for it. One does not know the dedication it requires and how time-consuming it is to make a movie until you do it. And I liked it. I was certainly not the most talented student in my group, but I still found I had just enough talent to be able to build on.\n@host|Do you think that your academic education is beneficial to you now as a director?\n@guest|I do have to credit my education in literature and history. You study the human story of what people do, and try to get at why they do those things, – a sense of narrative. History is narrative; and literature is obviously narrative – presenting characters, selecting events from their lives, and getting at motivations. The best historians write with the same urgency and flourish as great novelists. The great historians have a prose style as fluid and compelling as novelists do.\n@host|You were 35 when you made your first feature film. Does it necessarily take a long time to become a director?\n@guest|Not for everybody, but for me it did. I was 35, but that's a fairly standard average age for making a first feature film. Many high-profile film directors made their first feature film at about that age, like mid-thirties, and don't forget that back then, everybody started working earlier, too.\n@host|Don't you think that's for a good reason? I mean, it's hard for a 25-year-old person to handle a 20-million-dollar budget.\n@guest|You don't need 20 million dollars to make a feature film nowadays. We live in an age where there are no more excuses. The means of production are readily accessible. You can make a feature film with your smartphone. It's amazing – the age we live in. You have a movie camera in your pocket, and it's even with sync-sound. It's unbelievable. When something is happening, you can just point your phone camera at it.\n@host|Thank you very much, Mike. It was nice talking to you.\n@guest|Thank you.",
+      "questions": [
+        {
+          "q": "What do we learn about Mike Watson at the beginning of the interview?",
+          "opts": [
+            "He's worked in several spheres.",
+            "He is internationally famous.",
+            "He has never won any awards."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "Mike is worried that the film industry has become too …",
+          "opts": [
+            "boring.",
+            "powerful.",
+            "commercialized."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "Mike uses Chaplin to stress the fact that …",
+          "opts": [
+            "people understand films without knowing the words.",
+            "films are made for people to have a good laugh.",
+            "the best films of the past were black and white."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "After Mike went to Stanford, he wanted to …",
+          "opts": [
+            "get famous worldwide.",
+            "attend a film school.",
+            "become a film director."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "Mike thinks one needs to be very … to become a film director.",
+          "opts": [
+            "self-confident",
+            "talented",
+            "hard-working"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "Mike Watson finds his education to be beneficial for his career because he …",
+          "opts": [
+            "was motivated by literature.",
+            "managed to become a good novelist.",
+            "learnt how to tell stories well."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "What surprises Mike about life today?",
+          "opts": [
+            "Quality of film equipment.",
+            "Availability of equipment.",
+            "Prices for film equipment."
+          ],
+          "correct": 1
+        }
+      ]
     }
   ]
 }

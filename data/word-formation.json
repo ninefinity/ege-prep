@@ -1331,6 +1331,50 @@
           "answer": ""
         }
       ]
+    },
+    {
+      "id": "demo2027-hermitage",
+      "nav": "State Hermitage",
+      "title": "The State Hermitage Museum",
+      "instructions": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами в конце строк, обозначенных номерами 25–29, однокоренные слова так, чтобы они грамматически и лексически соответствовали содержанию текста.",
+      "type": "wordform",
+      "items": [
+        {
+          "pre": "The State Hermitage Museum is located in Saint Petersburg, Russia. It is",
+          "word": "CERTAIN",
+          "post": "one of the greatest and most visited museums of the world.",
+          "answer": "certainly",
+          "alt": null
+        },
+        {
+          "pre": "Catherine the Great founded it in 1764, but it was opened to the public in 1852 only. Now it can boast a huge",
+          "word": "COLLECT",
+          "post": "of over 3 million works of art.",
+          "answer": "collection",
+          "alt": null
+        },
+        {
+          "pre": "It may be an",
+          "word": "POSSIBLE",
+          "post": "task to see all the masterpieces kept in the museum – it will take a person about eleven years to look at each of the museum's exhibits for just one minute.",
+          "answer": "impossible",
+          "alt": null
+        },
+        {
+          "pre": "However, the Hermitage is interesting not only because of the",
+          "word": "PRICE",
+          "post": "paintings kept there.",
+          "answer": "priceless",
+          "alt": null
+        },
+        {
+          "pre": "The Winter Palace used to be the official",
+          "word": "RESIDE",
+          "post": "for the Romanov Tsars, so it is a beautiful construction – one of the greatest symbols of imperial Russia.",
+          "answer": "residence",
+          "alt": null
+        }
+      ]
     }
   ]
 }

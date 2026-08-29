@@ -135,6 +135,7 @@
   <script>
     (function () {
       var catalog = document.getElementById("egeCatalog");
+      var DEMO_2027_HREF = "topic.html?variant=2027-demo";
       var DEFAULT_EGE = new Date(2027, 5, 16, 10, 0, 0).getTime();
       var STORAGE_KEY = "ege-prep:countdown-date";
       var EGE_AT = DEFAULT_EGE;
@@ -547,7 +548,6 @@
             '<div class="ege-catalog-row__body">' +
             labelHtml +
             "</div>" +
-            '<span class="ege-catalog-row__start" aria-hidden="true">Start</span>' +
             "</a>" +
             '<label class="ege-catalog-row__check-wrap">' +
             '<input type="checkbox" class="ege-catalog-row__check" ' +
@@ -586,7 +586,7 @@
             labelHtml +
             "</div>" +
             (available
-              ? '<span class="ege-catalog-row__start" aria-hidden="true">Start</span>'
+              ? ""
               : '<span class="ege-catalog-row__soon">' +
                 escapeHtml(options.soon || "Coming soon") +
                 "</span>");
@@ -613,16 +613,15 @@
 
         index.push({
           kind: "variant",
-          href: "",
-          available: false,
+          href: DEMO_2027_HREF,
+          available: true,
           num: formatExamNum(1, 42),
-          label: "Mock exam",
-          meta: "Beta",
-          bits: ["mock exam", "full variant", "exam", "timed", "complete paper"],
+          label: "2027 Demo",
+          meta: "Full variant",
+          bits: ["2027 demo", "mock exam", "full variant", "exam", "демо 2027", "полный вариант"],
           search: normalizeSearch(
-            "mock exam beta full variant exam 1-42 1 42 timed complete paper полный вариант"
-          ),
-          soon: "Beta"
+            "2027 demo mock exam full variant exam 1-42 1 42 демо 2027 полный вариант"
+          )
         });
 
         sections.forEach(function (section) {
@@ -797,6 +796,11 @@
 
             catalog.textContent = "";
 
+            var promoLink = document.createElement("p");
+            promoLink.className = "ege-catalog-promo";
+            promoLink.innerHTML = '<a href="promo.html">2027 demo</a>';
+            catalog.appendChild(promoLink);
+
             searchWrap = document.createElement("div");
             searchWrap.className = "ege-catalog-search";
             var searchInput = document.createElement("input");
@@ -832,10 +836,11 @@
               "ege-catalog-list ege-catalog-list--menu ege-catalog-list--variant";
             appendRow(variantList, {
               num: formatExamNum(1, 42),
-              label: "Mock exam",
-              available: false,
-              soon: "Beta",
-              ariaLabel: "Mock exam, beta, tasks 1 to 42",
+              label: "2027 Demo",
+              available: true,
+              href: DEMO_2027_HREF,
+              meta: "Full variant",
+              ariaLabel: "2027 Demo, tasks 1 to 42",
               rowClass: "ege-catalog-row--section ege-catalog-row--variant",
               itemClass: "ege-catalog-list__item--section"
             });
@@ -873,6 +878,25 @@
               );
             }
 
+            function playlistStartLabel(count) {
+              return count === 1 ? "Start" : "Start " + count;
+            }
+
+            function setRowStartLabel(row, text) {
+              if (!row) return;
+              var start = row.querySelector(".ege-catalog-row__start");
+              if (!text) {
+                if (start) start.remove();
+                return;
+              }
+              if (!start) {
+                start = document.createElement("span");
+                start.className = "ege-catalog-row__start";
+                row.appendChild(start);
+              }
+              start.textContent = text;
+            }
+
             function selectedSectionIds() {
               var checked = {};
               playlistChecks.forEach(function (entry) {
@@ -886,13 +910,12 @@
             }
 
             function resetGroupHeader(header) {
-              if (!header || !header.row || !header.start) return;
+              if (!header || !header.row) return;
               header.row.classList.remove(
                 "ege-catalog-row--playlist-active",
                 "ege-catalog-row--playlist-picking"
               );
-              header.start.hidden = false;
-              header.start.textContent = "Start";
+              setRowStartLabel(header.row, "");
               header.row.href = header.groupHref;
               header.row.setAttribute(
                 "aria-label",
@@ -945,10 +968,9 @@
             }
 
             function activateGroupHeader(header, ids) {
-              if (!header || !header.row || !header.start) return;
+              if (!header || !header.row) return;
               header.row.classList.add("ege-catalog-row--playlist-active");
-              header.start.hidden = false;
-              header.start.textContent = "Start " + ids.length;
+              setRowStartLabel(header.row, playlistStartLabel(ids.length));
               header.row.href = playlistHref(ids);
               header.row.setAttribute(
                 "aria-label",
@@ -984,9 +1006,8 @@
               });
               var row = playlistList.querySelector(".ege-catalog-row");
               var body = row && row.querySelector(".ege-catalog-row__body");
-              var start = row && row.querySelector(".ege-catalog-row__start");
               setPlaylistBody(body, ids);
-              if (start) start.textContent = "Start " + ids.length;
+              setRowStartLabel(row, playlistStartLabel(ids.length));
             }
 
             function syncPlaylist() {
@@ -1039,14 +1060,11 @@
                 icon: iconName
               });
               var headerRow = headerItem.querySelector(".ege-catalog-row");
-              var headerStart =
-                headerRow && headerRow.querySelector(".ege-catalog-row__start");
 
-              if (lead && headerRow && headerStart) {
+              if (lead && headerRow) {
                 groupHeaders[group.name] = {
                   name: group.name,
                   row: headerRow,
-                  start: headerStart,
                   body: headerRow.querySelector(".ege-catalog-row__body"),
                   groupHref: groupHref
                 };

@@ -196,6 +196,17 @@ def _validate_speaking_questions(report: Report, base: str, task: dict) -> None:
             report.error(base, f"question {i}: empty")
 
 
+def _validate_speaking_interview(report: Report, base: str, task: dict) -> None:
+    if not task.get("prompt"):
+        report.error(base, "speaking-interview task missing prompt")
+    questions = task.get("questions") or []
+    if len(questions) != 5:
+        report.warn(base, f"speaking-interview task usually has 5 questions, got {len(questions)}")
+    for i, item in enumerate(questions):
+        if not str(item).strip():
+            report.error(base, f"question {i}: empty")
+
+
 def validate_topic(report: Report, topic_id: str, topic: dict) -> int:
     if topic.get("id") != topic_id:
         report.error(topic_id, f"topic id {topic.get('id')!r} != filename {topic_id}")
@@ -222,6 +233,7 @@ def validate_topic(report: Report, topic_id: str, topic: dict) -> int:
             "listening": _validate_listening,
             "speaking": _validate_speaking,
             "speaking-questions": _validate_speaking_questions,
+            "speaking-interview": _validate_speaking_interview,
         }
         fn = validators.get(task_type)
         if not fn:

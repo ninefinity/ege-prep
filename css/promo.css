@@ -1,0 +1,414 @@
+body.yap-promo {
+  min-height: 100vh;
+  background-color: #1a0812;
+  background-image: url("../assets/dark-bg.png");
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.yap-promo .site-author {
+  border-top-color: rgba(255, 255, 255, 0.12);
+  background: rgba(12, 6, 10, 0.72);
+}
+
+body.yap-promo .site-author p,
+body.yap-promo .site-author__name {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.yap-promo .site-author__promo a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+body.yap-promo .site-author__promo a:hover {
+  color: #fff;
+}
+
+.ege-page--promo {
+  display: block;
+  max-width: none;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.ege-promo-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.35rem;
+  width: min(52rem, 100%);
+  min-height: calc(100svh - 8.5rem);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ege-promo-gate[hidden],
+.ege-promo-hub[hidden] {
+  display: none;
+}
+
+.ege-promo-gate__logo {
+  display: block;
+  max-height: clamp(6.5rem, 28vw, 10rem);
+  max-width: min(100%, 18rem);
+  width: auto;
+  height: auto;
+}
+
+.ege-countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.ege-countdown__stage {
+  position: relative;
+  width: 100%;
+}
+
+.ege-countdown__board {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ege-countdown__digit {
+  font-family: "Fredoka", system-ui, sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  fill: #eef0fa;
+}
+
+.ege-countdown__label {
+  font-family: "Fredoka", system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  fill: #eef0fa;
+}
+
+.ege-countdown__colon {
+  font-family: "Fredoka", system-ui, sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  fill: #f90240;
+}
+
+.ege-promo-unlock {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  width: min(22rem, 100%);
+}
+
+.ege-promo-unlock__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.ege-promo-unlock__input {
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--ege-radius);
+  background: rgba(12, 6, 10, 0.55);
+  color: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-lg);
+  font-weight: 600;
+}
+
+.ege-promo-unlock__input::placeholder {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.ege-promo-unlock__input:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.ege-promo-unlock__input.is-invalid {
+  border-color: var(--ege-bad);
+  background: rgba(192, 57, 43, 0.22);
+}
+
+.ege-promo-unlock__go {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.55rem 1.15rem;
+  border: none;
+  border-radius: var(--ege-radius);
+  background: var(--yap-hot);
+  color: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-lg);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 12px var(--ege-accent-glow);
+}
+
+.ege-promo-unlock__go:hover {
+  filter: brightness(1.05);
+}
+
+.ege-promo-unlock__go:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  filter: none;
+}
+
+.ege-promo-subscribe {
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-md);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+}
+
+.ege-promo-subscribe:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ege-promo-hub {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.ege-promo-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.ege-promo-hero__back {
+  align-self: flex-start;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+}
+
+.ege-promo-hero__back:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ege-promo-hero__logo {
+  display: block;
+  max-height: clamp(5rem, 22vw, 7.5rem);
+  max-width: min(100%, 14rem);
+  width: auto;
+  height: auto;
+}
+
+.ege-promo-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.65rem 1.5rem;
+  border: none;
+  border-radius: var(--ege-radius);
+  background: var(--yap-hot);
+  color: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-lg);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 3px 12px var(--ege-accent-glow);
+}
+
+.ege-promo-cta:hover {
+  filter: brightness(1.05);
+}
+
+.ege-promo-cta:focus-visible,
+.ege-promo-card:focus-visible,
+.ege-promo-playlist:focus-visible,
+.ege-promo-hero__back:focus-visible,
+.ege-promo-materials a:focus-visible,
+.ege-promo-unlock__go:focus-visible,
+.ege-promo-subscribe:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.ege-promo-section {
+  margin-bottom: 1.5rem;
+}
+
+.ege-promo-section__heading {
+  margin: 0 0 0.65rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-md);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ege-promo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ege-promo-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: var(--ege-radius);
+  background: var(--ege-card);
+  box-shadow: var(--ege-shadow);
+  text-decoration: none;
+  color: inherit;
+  min-height: 44px;
+}
+
+.ege-promo-card:hover {
+  outline: 2px solid color-mix(in srgb, var(--yap-royal) 35%, transparent);
+  outline-offset: -2px;
+}
+
+.ege-promo-card--thumb {
+  grid-template-columns: 3.5rem 1fr auto;
+}
+
+.ege-promo-card__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.ege-promo-card__thumb {
+  width: 3.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.ege-promo-card__body {
+  min-width: 0;
+}
+
+.ege-promo-card__num {
+  display: block;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs);
+  font-weight: 700;
+  color: var(--ege-accent-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.ege-promo-card__label {
+  display: block;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-lg);
+  font-weight: 600;
+  color: var(--ege-primary);
+  line-height: 1.25;
+}
+
+.ege-promo-card__try {
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-hot);
+  white-space: nowrap;
+}
+
+.ege-promo-playlists {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ege-promo-playlist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--ege-radius);
+  background: var(--ege-card);
+  box-shadow: var(--ege-shadow);
+  text-decoration: none;
+  color: inherit;
+  min-height: 44px;
+}
+
+.ege-promo-playlist:hover {
+  outline: 2px solid color-mix(in srgb, var(--yap-royal) 35%, transparent);
+  outline-offset: -2px;
+}
+
+.ege-promo-playlist__label {
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-md);
+  font-weight: 600;
+  color: var(--ege-primary);
+}
+
+.ege-promo-playlist__try {
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-hot);
+  white-space: nowrap;
+}
+
+.ege-promo-materials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ege-promo-materials a {
+  display: block;
+  padding: 0.45rem 0;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-md);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ege-promo-materials a:hover {
+  color: #fff;
+}
+

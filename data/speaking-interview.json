@@ -1,0 +1,23 @@
+{
+  "id": "speaking-interview",
+  "title": "Interview",
+  "instructions": "Ответьте на вопросы интервьюера. На каждый ответ даётся ограниченное время.",
+  "tasks": [
+    {
+      "id": "demo2027-online-shopping",
+      "nav": "Online Shopping",
+      "title": "Attitudes to online shopping",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Have you ever bought anything online?",
+        "Why do people enjoy shopping online?",
+        "What are the disadvantages of shopping online?",
+        "Do you think it's a good idea to buy food online? Why or why not?",
+        "What would you recommend to a teenager who is buying clothes online?"
+      ],
+      "answerSeconds": 40
+    }
+  ]
+}

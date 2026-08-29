@@ -1,0 +1,191 @@
+{
+  "exam": "EGE 2027 English Language – Oral Part (Demo Version)",
+  "source": "AIa-11-EGE-2027-DEMO_UCh-4.pdf (FIPI, project/ПРОЕКТ, 2027)",
+  "language": "en",
+  "instructions_ru": "Устная часть экзаменационной работы по английскому языку состоит из 4 заданий.",
+  "total_tasks": 4,
+  "total_max_score": 20,
+  "approx_total_response_time_minutes": 17,
+  "tasks": [
+    {
+      "id": 1,
+      "type": "reading_aloud",
+      "title_en": "Reading a text aloud",
+      "instructions_ru": "Вам нужно подготовить связное высказывание на основе текста научно-популярного характера. У вас есть 1,5 минуты для подготовки. Ваш ответ должен занимать не более 1,5 минут. Читайте текст вслух, дайте вам такую возможность.",
+      "preparation_time_seconds": 90,
+      "max_response_time_seconds": 90,
+      "text_title": "Land pollution",
+      "text": "Land pollution is one of the most serious environmental issues, but there are many solutions we can use to fight it. When farmers or builders need to clear an area, they often plan to cut down all the trees. However, it is a good idea to leave old and dying trees in place, and even encourage more trees and plants to grow there. Old trees provide homes for insects and small animals, and they help keep the soil healthy. Another way to protect the land is to be careful about how we get rid of waste, especially dangerous chemicals or electronic waste, which can harm the soil and water if thrown away incorrectly. It is also important to try to reduce our use of plastic, since plastic can stay in the ground for hundreds of years and slowly release harmful substances. Instead of throwing away items after just one use, people should try to reuse or recycle as many things as possible. Finally, growing food and plants using organic methods, without harmful chemicals or pesticides, is another excellent way to protect the land we live on and keep it healthy for future generations.",
+      "max_score": 1,
+      "scoring_criteria": {
+        "phonetic": {
+          "1": "Речь звучит скорее естественно: соблюдаются интонационный контур высказывания и ритмическая организация фразы, все синтагмы связаны в смысловые группы правильно, нет фонематических ошибок, искажающих смысл; допускается не более 5 фонетических ошибок, из них не более 2, искажающих смысл высказывания.",
+          "0": "Речь звучит неестественно: не соблюдаются интонационный контур высказывания и/или ритмическая организация фразы, ИЛИ имеются фонематические ошибки, искажающие смысл (более 2), ИЛИ допущено более 5 фонетических ошибок в целом."
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "questions_about_advertisement",
+      "title_en": "Asking questions based on an advertisement",
+      "instructions_ru": "Вы участвуете в проекте по изучению рекламы в разных странах. Рассмотрите рекламное объявление и в течение 1,5 минут задайте 4 прямых вопроса в соответствии с содержанием рекламы, а именно, узнайте: 1) какие виды блюд там готовят; 2) сколько человек может быть в группе; 3) сколько длится курс; 4) сколько стоит обучение.",
+      "preparation_time_seconds": 90,
+      "time_per_question_seconds": 20,
+      "advertisement": {
+        "headline": "Let's teach everyone how to cook!",
+        "description": "An image showing a family/group cooking-masterclass session, with adults and children cooking together at a kitchen counter.",
+        "required_question_topics": [
+          "kinds of dishes taught at the masterclass",
+          "size of the group (number of people)",
+          "duration of the course",
+          "tuition fee / cost"
+        ]
+      },
+      "max_score": 4,
+      "scoring_per_question": {
+        "1_point": "коммуникативная задача выполнена полностью: не нарушены нормы вежливости, вопрос сформулирован в соответствии с грамматической структурой вопросительного предложения, вопрос понятен собеседнику без затруднений (допускаются 1-2 негрубые лексико-грамматические и/или фонетические ошибки, не искажающие смысл).",
+        "0_points": "коммуникативная задача не выполнена: вопрос не задан, ИЛИ вопрос задан не по требуемой теме, ИЛИ грамматическая структура вопроса нарушена таким образом, что смысл трудно понять, ИЛИ допущены фонетические ошибки, искажающие смысл."
+      }
+    },
+    {
+      "id": 3,
+      "type": "interview",
+      "title_en": "Interview – answering questions",
+      "instructions_ru": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "time_per_answer_seconds": 40,
+      "channel_name": "Teenagers Round the World Channel",
+      "topic": "Attitudes to online shopping",
+      "questions": [
+        {
+          "number": 1,
+          "text": "Have you ever bought anything online?"
+        },
+        {
+          "number": 2,
+          "text": "Why do people enjoy shopping online?"
+        },
+        {
+          "number": 3,
+          "text": "What are the disadvantages of shopping online?"
+        },
+        {
+          "number": 4,
+          "text": "Do you think it's a good idea to buy food online? Why or why not?"
+        },
+        {
+          "number": 5,
+          "text": "What would you recommend to a teenager who is buying clothes online?"
+        }
+      ],
+      "max_score": 5,
+      "scoring_per_answer": {
+        "1_point": "коммуникативная задача выполнена полностью: given answer includes 2-3 full communicative sentences relevant to the question, no elementary lexical, grammatical, or phonetic errors that distort meaning.",
+        "0_points": "коммуникативная задача не выполнена: ответ отсутствует, ИЛИ не соответствует вопросу, ИЛИ содержит элементарные лексические/грамматические/фонетические ошибки, искажающие смысл, ИЛИ представляет собой односложный ответ без развёрнутого высказывания."
+      },
+      "appendix_grammar_elements_tested": [
+        "comparative and superlative forms of adjectives",
+        "adjectives and adverbs",
+        "articles (definite, indefinite, zero)",
+        "future forms: will, to be going to, Present Continuous for future",
+        "imperative mood",
+        "linking verbs: to be, to look, to feel, to seem",
+        "expressing preference: to prefer, would prefer",
+        "modal verbs and their equivalents: can/could, to have to, should, must",
+        "countable and uncountable nouns, plural forms and exceptions, noun-verb agreement, much/many",
+        "passive voice: Present Simple, Past Simple",
+        "Present Continuous, Past Continuous",
+        "Present Simple, Past Simple",
+        "possessive case of nouns",
+        "prepositions of place, time, and direction",
+        "Present Perfect",
+        "personal, possessive, demonstrative, and other pronouns",
+        "there is/are, it is constructions",
+        "verb + -ing patterns",
+        "verb + to-infinitive patterns",
+        "word order in statements and questions"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "photo_description_comparison",
+      "title_en": "Photo description and comparison (voice message)",
+      "instructions_ru": "Вы готовите видеопроект «Solo or in company» и хотите обсудить с друзьями фотографии двух вариантов путешествий. Запишите голосовое сообщение другу и опишите фотографии. Вы должны подготовить связное высказывание, используя приведённый план. У вас есть 2,5 минуты для подготовки. Ваш ответ должен занимать не более 3 минут.",
+      "preparation_time_seconds": 150,
+      "max_response_time_seconds": 180,
+      "recommended_sentence_count": "12-15",
+      "project_title": "Solo or in company",
+      "photos": [
+        {
+          "label": "Photo 1",
+          "description": "A group of tourists on an organized bus tour, travelling together with a guide."
+        },
+        {
+          "label": "Photo 2",
+          "description": "A solo traveller standing alone in front of a famous landmark."
+        }
+      ],
+      "plan": [
+        "give a general statement introducing the two photos and their common theme",
+        "compare and contrast the photos (what is common and what is different)",
+        "say 1-2 advantages of the type of travelling shown in each photo",
+        "say 1-2 disadvantages of the type of travelling shown in each photo",
+        "say which of the two types of travelling you would prefer and why"
+      ],
+      "max_score": 10,
+      "scoring_criteria": {
+        "K1_K2_content_and_organization": {
+          "max_score": 4,
+          "note": "Combines content completeness (aspects below) with organizational/logical criteria (introduction, comparison, logical connectors, conclusion).",
+          "content_aspects": [
+            "general statement about the photos / common theme given",
+            "photos compared and contrasted (similarities and differences)",
+            "1-2 advantages of each type of travelling given",
+            "1-2 disadvantages of each type of travelling given",
+            "personal preference stated with a reason"
+          ],
+          "levels": {
+            "4": "Задание выполнено полностью: все аспекты, указанные в задании, раскрыты полно и точно; высказывание логично, вступление и заключение присутствуют, средства логической связи использованы правильно.",
+            "3": "Задание выполнено практически полностью: незначительные недочёты в раскрытии 1 аспекта, высказывание в целом логично, имеются отдельные (1-2) нарушения в организации текста.",
+            "2": "Задание выполнено не полностью: не раскрыт 1 аспект содержания ИЛИ имеются 2-3 нарушения логики/организации высказывания.",
+            "1": "Задание выполнено на элементарном уровне: не раскрыты 2 аспекта содержания ИЛИ высказывание малологично, отсутствует вступление или заключение.",
+            "0": "Задание не выполнено: содержание не соответствует поставленной коммуникативной задаче ИЛИ высказывание нелогично и не воспринимается как целый текст."
+          }
+        },
+        "K3_language": {
+          "max_score": 3,
+          "levels": {
+            "3": "Используемый словарный запас и грамматические структуры соответствуют высокому уровню сложности задания, практически нет фонетических ошибок, искажающих смысл (допускается не более 2 негрубых лексико-грамматических ошибок и не более 2 фонетических ошибок, не искажающих смысл).",
+            "2": "Имеются 3-4 лексико-грамматические ошибки И/ИЛИ 3-4 фонетические ошибки, не искажающие смысла, ИЛИ 1 ошибка, искажающая смысл высказывания.",
+            "1": "Имеются 5-6 лексико-грамматических ошибок И/ИЛИ множественные фонетические ошибки, ИЛИ 2 ошибки, искажающие смысл.",
+            "0": "Имеются 7 и более лексико-грамматических ошибок, ИЛИ 3 и более ошибки, искажающие смысл высказывания."
+          }
+        }
+      }
+    }
+  ],
+  "appendices": {
+    "task_3_grammar_checklist": [
+      "comparative/superlative adjectives",
+      "adjectives/adverbs",
+      "articles",
+      "future forms (will/going to/Present Continuous)",
+      "imperatives",
+      "linking verbs (be/look/feel/seem)",
+      "preference expressions (prefer/'d prefer)",
+      "modals (can/could, have to, should, must)",
+      "countable/uncountable nouns + plural rules + noun-verb agreement + much/many",
+      "passive voice (Present/Past Simple)",
+      "Present/Past Continuous",
+      "Present/Past Simple",
+      "possessive case",
+      "prepositions of place/time/direction",
+      "Present Perfect",
+      "pronouns",
+      "there+be / it+be",
+      "verb + -ing patterns",
+      "verb + to-infinitive patterns",
+      "word order in statements/questions"
+    ],
+    "procedural_note": "The demo document also contains administrative rules for resolving discrepancies between examiner-experts (2nd/3rd marker escalation); these are procedural and not included here as they are not relevant to practice-app content."
+  }
+}

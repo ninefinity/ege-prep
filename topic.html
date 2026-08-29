@@ -13,15 +13,6 @@
 <body class="yap-brand">
   <main class="ege-page" id="egePage">
     <div class="ege-topics">
-      <div class="ege-mobile-switch" id="egeMobileSwitch">
-        <hr class="ege-mobile-switch__line" />
-        <div class="ege-mobile-switch__controls">
-          <button type="button" class="ege-mobile-switch__btn" id="egePrevTask" aria-label="Previous task">‹</button>
-          <button type="button" class="ege-mobile-switch__current" id="egeMobileCurrent" aria-expanded="false" aria-controls="egeNav">Tasks</button>
-          <button type="button" class="ege-mobile-switch__btn" id="egeNextTask" aria-label="Next task">›</button>
-        </div>
-      </div>
-
       <aside class="ege-rail">
         <div class="ege-rail__head" id="egeRailHead">
           <div class="ege-rail__logo">
@@ -46,15 +37,23 @@
           </div>
         </div>
       </aside>
-
-      <hr class="ege-mobile-switch__line ege-mobile-switch__line--end" />
     </div>
 
     <div class="ege-workspace">
-      <div id="egeListeningChrome" hidden></div>
-      <p class="ege-instructions" id="egeInstructions" hidden></p>
-      <div id="egePanels" aria-live="polite" aria-busy="true">
-        <p class="ege-loading" id="egeTopicLoading">Loading…</p>
+      <div class="ege-main" id="egeMain">
+        <div id="egeListeningChrome" aria-hidden="true"></div>
+        <p class="ege-instructions" id="egeInstructions" hidden></p>
+        <div id="egePanels" aria-live="polite" aria-busy="true">
+          <p class="ege-loading" id="egeTopicLoading">Loading…</p>
+        </div>
+        <nav class="ege-task-flow" id="egeTaskFlow" aria-label="Task navigation" hidden>
+          <button type="button" class="ege-task-flow__btn" id="egeFlowPrev" aria-label="Previous task" hidden>‹</button>
+          <button type="button" class="ege-task-flow__current" id="egeFlowCurrent" aria-expanded="false" aria-controls="egeNav">
+            <span class="ege-task-flow__position" id="egeFlowPosition"></span>
+            <span class="ege-task-flow__label" id="egeFlowLabel"></span>
+          </button>
+          <button type="button" class="ege-task-flow__btn" id="egeFlowNext" aria-label="Next task" hidden>›</button>
+        </nav>
       </div>
     </div>
   </main>

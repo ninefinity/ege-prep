@@ -339,7 +339,7 @@
       if (isTypingTarget(event.target)) return;
 
       var key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
-      var panel = document.querySelector(".ege-task-panel:not([hidden])");
+      var panel = document.querySelector(".ege-task-panel.is-active");
       if (!panel) return;
 
       if (key === "ArrowLeft" || key === "ArrowRight") {

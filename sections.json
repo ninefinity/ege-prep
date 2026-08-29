@@ -23,7 +23,7 @@
       "examFrom": 3,
       "examTo": 9,
       "title": "Interview",
-      "taskCount": 5,
+      "taskCount": 6,
       "available": true
     },
     {
@@ -32,7 +32,7 @@
       "examFrom": 10,
       "examTo": 10,
       "title": "Matching Headings",
-      "taskCount": 10,
+      "taskCount": 11,
       "available": true
     },
     {
@@ -41,7 +41,7 @@
       "examFrom": 11,
       "examTo": 11,
       "title": "Complete the Sentences",
-      "taskCount": 62,
+      "taskCount": 63,
       "available": true
     },
     {
@@ -50,7 +50,7 @@
       "examFrom": 12,
       "examTo": 18,
       "title": "Reading Comprehension",
-      "taskCount": 8,
+      "taskCount": 9,
       "available": true
     },
     {
@@ -59,7 +59,7 @@
       "examFrom": 19,
       "examTo": 24,
       "title": "Grammar",
-      "taskCount": 41,
+      "taskCount": 42,
       "available": true
     },
     {
@@ -68,7 +68,7 @@
       "examFrom": 25,
       "examTo": 29,
       "title": "Word Formation",
-      "taskCount": 34,
+      "taskCount": 35,
       "available": true
     },
     {
@@ -77,7 +77,7 @@
       "examFrom": 30,
       "examTo": 36,
       "title": "Vocabulary in Context",
-      "taskCount": 63,
+      "taskCount": 64,
       "available": true
     },
     {
@@ -86,7 +86,7 @@
       "examFrom": 40,
       "examTo": 40,
       "title": "Direct Questions",
-      "taskCount": 20,
+      "taskCount": 21,
       "available": true
     },
     {
@@ -95,7 +95,8 @@
       "examFrom": 41,
       "examTo": 41,
       "title": "Interview",
-      "available": false
+      "taskCount": 1,
+      "available": true
     },
     {
       "id": "speaking",
@@ -103,7 +104,7 @@
       "examFrom": 42,
       "examTo": 42,
       "title": "Photo Monologue",
-      "taskCount": 8,
+      "taskCount": 9,
       "available": true
     }
   ]

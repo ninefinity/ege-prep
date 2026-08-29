@@ -73,26 +73,25 @@ E.taskInstructionsText = function taskInstructionsText(task) {
     return text;
   }
 
-  /* Shared topic layout (topic.html): matching-headings, gap-fill, reading-comprehension,
-     grammar-transformations, word-formation, vocabulary-cloze. Listening uses ege-page--listening. */
+  /* Topic runner: one sidebar + main column for every task type (incl. listening). */
 E.usesTopicLayout = function usesTopicLayout(topicId) {
-    var task = E.findTask(E.state.activeTaskId);
-    if (task) return !E.isListeningTask(task);
+    if (E.state.topic && E.state.topic.tasks && E.state.topic.tasks.length) return true;
     var id = topicId != null ? topicId : E.state.topicId;
-    if (!id) return false;
-    if (id === "listening") return false;
-    if (id.indexOf("group-Listening") === 0) return false;
-    if (id === "parts-listening") return false;
-    return true;
+    return !!id;
   }
 
 E.syncPageModeForTask = function syncPageModeForTask(taskId) {
     var page = document.getElementById("egePage");
     if (!page) return;
     var task = E.findTask(taskId);
-    var listening = E.isListeningTask(task);
-    page.classList.toggle("ege-page--listening", listening);
-    page.classList.toggle("ege-page--topic-layout", !listening && !!task);
+    page.classList.toggle("ege-page--topic-layout", !!task);
+    page.classList.toggle("ege-page--listening-task", E.isListeningTask(task));
+    var main = document.getElementById("egeMain");
+    if (main) main.classList.toggle("ege-main--listening", E.isListeningTask(task));
+  }
+
+E.prefersReducedMotion = function prefersReducedMotion() {
+    return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }
 
 E.formatExamRange = function formatExamRange(from, to) {
@@ -114,6 +113,14 @@ E.numberedTopicLabel = function numberedTopicLabel(taskId, label) {
     if (!text) return "";
     var num = E.taskOrderNumber(taskId);
     return num ? num + ") " + text : text;
+  }
+
+E.navItemLabel = function navItemLabel(task) {
+    if (!task) return "";
+    if (E.state.playlist && task._sectionMeta) {
+      return String(task._sectionMeta.title || task._sectionId || "").trim();
+    }
+    return E.numberedTopicLabel(task.id, task.nav || task.title);
   }
 
 E.foldExamLabel = function foldExamLabel(text) {
@@ -250,7 +257,6 @@ E.showScoreFeedback = function showScoreFeedback(taskId, correct, max, options) 
       scoreEl.hidden = false;
       scoreEl.textContent = keyLines.join("\n");
       scoreEl.className = "ege-task__score";
-      E.setCheckGateHint(taskId, "");
       return;
     }
 
@@ -268,7 +274,6 @@ E.showScoreFeedback = function showScoreFeedback(taskId, correct, max, options) 
     scoreEl.textContent = lines.join("\n");
     scoreEl.className =
       "ege-task__score " + (correct === max ? "is-good" : correct === 0 ? "is-bad" : "is-mixed");
-    E.setCheckGateHint(taskId, "");
   }
 
 E.hideScoreFeedback = function hideScoreFeedback(taskId) {
@@ -276,6 +281,21 @@ E.hideScoreFeedback = function hideScoreFeedback(taskId) {
     if (!scoreEl) return;
     scoreEl.hidden = true;
     scoreEl.textContent = "";
+  }
+
+E.hasGradedScore = function hasGradedScore(taskId) {
+    var scoreEl = document.getElementById("score-" + taskId);
+    if (!scoreEl || scoreEl.hidden) return false;
+    return /^Score:\s/.test(String(scoreEl.textContent || "").trim());
+  }
+
+E.clearGradedCheckState = function clearGradedCheckState(taskId) {
+    var taskEl = document.getElementById("task-" + taskId);
+    if (taskEl && taskEl.dataset.answersRevealed === "1") return;
+    E.hideScoreFeedback(taskId);
+    if (taskEl && taskEl.dataset.hasAttempt === "1") {
+      delete taskEl.dataset.hasAttempt;
+    }
   }
 
 E.consumeListeningReveal = function consumeListeningReveal(taskId) {
@@ -515,7 +535,7 @@ E.handleTaskKeyboard = function handleTaskKeyboard(event) {
     if (!task) return;
 
     var panel = document.getElementById("panel-" + taskId);
-    if (panel && panel.hidden) return;
+    if (panel && !panel.classList.contains("is-active")) return;
 
     if (task.type === "matching") {
       var matchBoard = document.querySelector("#task-" + taskId + " .ege-match-picks");
@@ -659,18 +679,6 @@ E.buildChoiceGroup = function buildChoiceGroup(name, count, opts) {
     });
 
     return group;
-  }
-
-E.setCheckGateHint = function setCheckGateHint(taskId, message) {
-    var hint = document.getElementById("check-hint-" + taskId);
-    if (!hint) return;
-    if (message) {
-      hint.textContent = message;
-      hint.hidden = false;
-    } else {
-      hint.textContent = "";
-      hint.hidden = true;
-    }
   }
 
 E.showTopicLoading = function showTopicLoading() {
@@ -856,14 +864,11 @@ E.taskHasProgress = function taskHasProgress(taskId) {
     return false;
   };
 
-E.syncResetButton = function syncResetButton(taskId, options) {
+E.syncResetButton = function syncResetButton(taskId) {
     var resetBtn = document.getElementById("reset-" + taskId);
     if (!resetBtn) return;
-    if (options && options.forceHidden) {
-      resetBtn.hidden = true;
-      return;
-    }
     resetBtn.hidden = !E.taskHasProgress(taskId);
+    resetBtn.disabled = false;
   };
 
 E.syncCheckButton = function syncCheckButton(taskId) {
@@ -875,12 +880,17 @@ E.syncCheckButton = function syncCheckButton(taskId) {
     var taskEl = document.getElementById("task-" + taskId);
     var revealed = taskEl && taskEl.dataset.answersRevealed === "1";
     var ready = E.isTaskFullyAnswered(taskId) && !revealed;
+    var hide = revealed || E.hasGradedScore(taskId);
 
-    checkBtn.hidden = false;
+    checkBtn.hidden = hide;
+    if (hide) {
+      checkBtn.disabled = true;
+      checkBtn.title = "";
+      return;
+    }
+
     checkBtn.disabled = !ready;
-    if (revealed) checkBtn.title = "Answers already shown";
-    else if (!ready) checkBtn.title = "Answer all questions first";
-    else checkBtn.title = "";
+    checkBtn.title = ready ? "" : "Answer all questions first";
   }
 
 E.updateAnsweredCount = function updateAnsweredCount(taskId) {
@@ -901,6 +911,7 @@ E.syncMcChoiceGroup = function syncMcChoiceGroup(group) {
     var taskEl = group.closest("[data-task-id]");
     if (taskEl) {
       var tid = taskEl.dataset.taskId;
+      E.clearGradedCheckState(tid);
       E.updateAnsweredCount(tid);
       var listeningTask = E.findTask(tid);
       if (listeningTask && listeningTask.type === "listening") {
@@ -1101,15 +1112,10 @@ E.buildTaskFooter = function buildTaskFooter(taskId, max, options) {
 
     actions.appendChild(checkBtn);
 
-    var checkHint = document.createElement("p");
-    checkHint.className = "ege-check-hint";
-    checkHint.id = "check-hint-" + taskId;
-    checkHint.hidden = true;
-
     if (!(options && options.omitReset)) {
       var resetBtn = document.createElement("button");
       resetBtn.type = "button";
-      resetBtn.className = "ege-btn ege-btn--ghost";
+      resetBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
       resetBtn.id = "reset-" + taskId;
       resetBtn.textContent = "Reset";
       resetBtn.hidden = true;
@@ -1130,7 +1136,6 @@ E.buildTaskFooter = function buildTaskFooter(taskId, max, options) {
     }
 
     footer.appendChild(actions);
-    footer.appendChild(checkHint);
 
     var score = document.createElement("p");
     score.className = "ege-task__score";

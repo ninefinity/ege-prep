@@ -9,6 +9,7 @@ E.renderTaskPanel = function renderTaskPanel(task) {
     if (task.type === "listening") return E.renderListening(task, E.state.topicId);
     if (task.type === "speaking") return E.renderSpeaking(task);
     if (task.type === "speaking-questions") return E.renderSpeakingQuestions(task);
+    if (task.type === "speaking-interview") return E.renderSpeakingInterview(task);
     return document.createElement("div");
   }
 
@@ -21,6 +22,93 @@ E.setNavStatus = function setNavStatus(taskId, score, max) {
     else btn.classList.add("is-empty");
     btn.setAttribute("aria-label", btn.textContent + ": " + score + " of " + max);
     E.syncNavCompletedFilter();
+    E.syncPlaylistCompletionUI();
+  }
+
+E.isTaskComplete = function isTaskComplete(task) {
+    if (!task) return false;
+    if (E.isSpeakingPractice(task)) {
+      return E.isSpeakingMarkedComplete(task.id);
+    }
+    var max = E.taskMaxScore(task);
+    if (max <= 0) return false;
+    return (E.state.scores[task.id] || 0) >= max;
+  }
+
+E.getPlaylistProgress = function getPlaylistProgress() {
+    if (!E.state.playlist || !E.state.topic || !E.state.topic.tasks) {
+      return { done: 0, total: 0, complete: false };
+    }
+    var tasks = E.state.topic.tasks;
+    var done = 0;
+    tasks.forEach(function (task) {
+      if (E.isTaskComplete(task)) done += 1;
+    });
+    return {
+      done: done,
+      total: tasks.length,
+      complete: tasks.length > 0 && done === tasks.length,
+    };
+  }
+
+E.ensurePlaylistStatusEl = function ensurePlaylistStatusEl() {
+    var statusEl = document.getElementById("egePlaylistStatus");
+    if (statusEl) return statusEl;
+    var navWrap = document.getElementById("egeTopicNav");
+    var nav = document.getElementById("egeNav");
+    if (!navWrap || !nav) return null;
+
+    statusEl = document.createElement("div");
+    statusEl.id = "egePlaylistStatus";
+    statusEl.className = "ege-playlist-status";
+    statusEl.innerHTML =
+      '<div class="ege-playlist-status__track" aria-hidden="true">' +
+      '<span class="ege-playlist-status__fill"></span></div>' +
+      '<p class="ege-playlist-status__label"></p>';
+    navWrap.insertBefore(statusEl, nav);
+    return statusEl;
+  }
+
+E.syncPlaylistCompletionUI = function syncPlaylistCompletionUI() {
+    var statusEl = document.getElementById("egePlaylistStatus");
+    if (!E.state.playlist || !E.state.topic) {
+      if (statusEl) statusEl.remove();
+      var pageOff = document.getElementById("egePage");
+      if (pageOff) pageOff.classList.remove("is-playlist-complete");
+      return;
+    }
+
+    var progress = E.getPlaylistProgress();
+    statusEl = E.ensurePlaylistStatusEl();
+    if (!statusEl) return;
+
+    var fill = statusEl.querySelector(".ege-playlist-status__fill");
+    var label = statusEl.querySelector(".ege-playlist-status__label");
+    var pct = progress.total ? Math.round((progress.done / progress.total) * 100) : 0;
+
+    if (fill) fill.style.width = pct + "%";
+    statusEl.classList.toggle("is-complete", progress.complete);
+
+    if (label) {
+      label.textContent = progress.complete
+        ? "All done."
+        : progress.done + " of " + progress.total;
+    }
+
+    statusEl.setAttribute(
+      "aria-label",
+      progress.complete
+        ? "Series complete"
+        : progress.done + " of " + progress.total + " tasks complete"
+    );
+
+    var page = document.getElementById("egePage");
+    if (page) page.classList.toggle("is-playlist-complete", progress.complete);
+
+    if (progress.complete && !E.state.playlistWasComplete) {
+      E.showToast("All done.");
+    }
+    E.state.playlistWasComplete = progress.complete;
   }
 
 E.loadHideCompleted = function loadHideCompleted() {
@@ -54,32 +142,7 @@ E.syncNavCompletedFilter = function syncNavCompletedFilter() {
     var hide = !!(toggle && toggle.checked);
     E.state.hideCompleted = hide;
     nav.classList.toggle("is-hide-completed", hide);
-
-    var nodes = Array.prototype.slice.call(nav.children);
-    var i = 0;
-    while (i < nodes.length) {
-      var node = nodes[i];
-      if (!node.classList.contains("ege-nav__section")) {
-        i += 1;
-        continue;
-      }
-      var hasVisible = false;
-      var j = i + 1;
-      while (j < nodes.length && !nodes[j].classList.contains("ege-nav__section")) {
-        var btn = nodes[j];
-        if (
-          btn.classList.contains("ege-nav__btn") &&
-          !(hide && btn.classList.contains("is-perfect") && !btn.classList.contains("is-active"))
-        ) {
-          hasVisible = true;
-        }
-        j += 1;
-      }
-      node.hidden = hide && !hasVisible;
-      i = j;
-    }
-
-    E.syncMobileTaskControls();
+    E.syncTaskFlowControls();
   }
 
 E.bindHideCompletedFilter = function bindHideCompletedFilter() {
@@ -96,19 +159,18 @@ E.bindHideCompletedFilter = function bindHideCompletedFilter() {
 
 E.setNavOpen = function setNavOpen(open) {
     var page = document.getElementById("egePage");
-    var currentBtn = document.getElementById("egeMobileCurrent");
+    var currentBtn = document.getElementById("egeFlowCurrent");
     if (page) page.classList.toggle("is-nav-open", open);
     if (currentBtn) currentBtn.setAttribute("aria-expanded", open ? "true" : "false");
   }
 
-E.syncMobileTaskControls = function syncMobileTaskControls() {
+E.syncTaskFlowControls = function syncTaskFlowControls() {
     if (!E.state.topic || !E.state.activeTaskId) return;
-    var ids = E.state.topic.tasks.map(function (task) {
+    var tasks = E.state.topic.tasks;
+    var ids = tasks.map(function (task) {
       return task.id;
     });
     var idx = ids.indexOf(E.state.activeTaskId);
-    var prevBtn = document.getElementById("egePrevTask");
-    var nextBtn = document.getElementById("egeNextTask");
     var hasPrev = false;
     var hasNext = false;
     for (var i = 0; i < ids.length; i += 1) {
@@ -116,8 +178,52 @@ E.syncMobileTaskControls = function syncMobileTaskControls() {
       if (i < idx) hasPrev = true;
       if (i > idx) hasNext = true;
     }
-    if (prevBtn) prevBtn.disabled = !hasPrev;
-    if (nextBtn) nextBtn.disabled = !hasNext;
+    var prevBtn = document.getElementById("egeFlowPrev");
+    var nextBtn = document.getElementById("egeFlowNext");
+    if (prevBtn) prevBtn.hidden = !hasPrev;
+    if (nextBtn) nextBtn.hidden = !hasNext;
+    var flowNav = document.getElementById("egeTaskFlow");
+    if (flowNav) {
+      var mobileNav =
+        window.matchMedia && window.matchMedia("(max-width: 860px)").matches;
+      flowNav.hidden = !hasPrev && !hasNext && !mobileNav;
+    }
+
+    var task = E.findTask(E.state.activeTaskId);
+    var labelEl = document.getElementById("egeFlowLabel");
+    var positionEl = document.getElementById("egeFlowPosition");
+    if (labelEl && task) {
+      labelEl.textContent = E.navItemLabel(task) || "Task";
+    }
+    if (positionEl) {
+      if (tasks.length > 1 && idx >= 0) {
+        positionEl.textContent = idx + 1 + " / " + tasks.length;
+        positionEl.hidden = false;
+      } else {
+        positionEl.textContent = "";
+        positionEl.hidden = true;
+      }
+    }
+  }
+
+E.scrollMainToTop = function scrollMainToTop() {
+    var main = document.getElementById("egeMain");
+    var behavior = E.prefersReducedMotion() ? "auto" : "smooth";
+    if (main && typeof main.scrollIntoView === "function") {
+      main.scrollIntoView({ behavior: behavior, block: "start" });
+      return;
+    }
+    if (typeof window.scrollTo === "function") {
+      window.scrollTo({ top: 0, behavior: behavior });
+    }
+  }
+
+E.setActiveTaskPanel = function setActiveTaskPanel(taskId) {
+    document.querySelectorAll(".ege-task-panel").forEach(function (panel) {
+      var active = panel.dataset.taskId === taskId;
+      panel.classList.toggle("is-active", active);
+      panel.setAttribute("aria-hidden", active ? "false" : "true");
+    });
   }
 
 E.showAdjacentTask = function showAdjacentTask(delta) {
@@ -140,9 +246,7 @@ E.showTask = function showTask(taskId) {
     E.state.activeTaskId = taskId;
     E.resetTaskDigitBuffer();
     E.resetMcKeyboardState(taskId);
-    document.querySelectorAll(".ege-task-panel").forEach(function (panel) {
-      panel.hidden = panel.dataset.taskId !== taskId;
-    });
+    E.setActiveTaskPanel(taskId);
     document.querySelectorAll(".ege-nav__btn").forEach(function (btn) {
       btn.classList.toggle("is-active", btn.dataset.taskId === taskId);
     });
@@ -153,10 +257,6 @@ E.showTask = function showTask(taskId) {
     }
     E.syncPageModeForTask(taskId);
 
-    var currentBtn = document.getElementById("egeMobileCurrent");
-    if (currentBtn && task) {
-      currentBtn.textContent = E.numberedTopicLabel(task.id, task.nav || task.title) || "Task";
-    }
     E.syncNavCompletedFilter();
 
     var instructions = document.getElementById("egeInstructions");
@@ -176,7 +276,6 @@ E.showTask = function showTask(taskId) {
       E.mountListeningChrome(taskId);
       E.syncListeningStepUI(taskId);
       E.scheduleListeningNavAlign(taskId);
-      if (typeof window.scrollTo === "function") window.scrollTo(0, 0);
     } else {
       E.mountListeningChrome(null);
     }
@@ -190,10 +289,22 @@ E.showTask = function showTask(taskId) {
       EgeHighlight.attachAll(panel, hl.topicId, hl.taskId);
     }
     E.syncTopicLayout(taskId);
-    if (task && E.usesTopicLayout(E.state.topicId) && task.type !== "listening") {
-      E.observeTopicExercisePanel(taskId);
-      E.scheduleTopicNavAlign(taskId);
-      E.scrollActiveNavIntoView(taskId);
+    E.syncTaskFlowControls();
+
+    var afterLayout = function () {
+      if (task && E.usesTopicLayout(E.state.topicId)) {
+        E.observeTopicExercisePanel(taskId);
+        E.scheduleTopicNavAlign(taskId);
+        E.scrollActiveNavIntoView(taskId);
+      }
+      E.scrollMainToTop();
+    };
+    if (typeof requestAnimationFrame === "function") {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(afterLayout);
+      });
+    } else {
+      afterLayout();
     }
   }
 
@@ -219,37 +330,7 @@ E.restoreTopicLayoutTools = function restoreTopicLayoutTools() {
     });
   }
 
-E.restoreTopicLayoutTitle = function restoreTopicLayoutTitle() {
-    var titleSlot = document.getElementById("egeTopicToolbarTitle");
-    if (!titleSlot) return;
-
-    var title = titleSlot.querySelector(".ege-task-title");
-    if (!title) return;
-
-    var taskId = title.dataset.taskId;
-    var panel = taskId ? document.getElementById("panel-" + taskId) : null;
-    if (!panel) {
-      document.querySelectorAll(".ege-task-panel").forEach(function (candidate) {
-        if (candidate.querySelector(".ege-task-intro")) panel = candidate;
-      });
-    }
-    if (!panel) return;
-
-    var intro = panel.querySelector(".ege-task-intro");
-    if (!intro) {
-      var heroMain = document.getElementById("egeTopicHeroMain");
-      intro = heroMain && heroMain.querySelector(".ege-task-intro");
-    }
-    if (!intro) return;
-
-    var head = intro.querySelector(".ege-task-intro__head");
-    if (head) head.appendChild(title);
-    else intro.appendChild(title);
-    titleSlot.textContent = "";
-  }
-
 E.restoreTopicLayoutIntros = function restoreTopicLayoutIntros() {
-    E.restoreTopicLayoutTitle();
     document.querySelectorAll(".ege-task-intro").forEach(function (intro) {
       var panel = intro.closest(".ege-task-panel");
       if (!panel) {
@@ -269,6 +350,176 @@ E.teardownTopicLayout = function teardownTopicLayout() {
     E.restoreTopicLayoutTools();
   }
 
+E.formatExamClock = function formatExamClock(ms) {
+    var total = Math.max(0, Math.floor(ms / 1000));
+    var hours = Math.floor(total / 3600);
+    var mins = Math.floor((total % 3600) / 60);
+    var secs = total % 60;
+    function pad(n) {
+      return n < 10 ? "0" + n : String(n);
+    }
+    return hours + ":" + pad(mins) + ":" + pad(secs);
+  }
+
+E.examTimerStorageKey = function examTimerStorageKey(key) {
+    return "ege-prep:exam-timer:" + String(key || "demo");
+  }
+
+E.ensureExamBar = function ensureExamBar() {
+    var bar = document.getElementById("egeExamBar");
+    if (bar) return bar;
+    bar = document.createElement("div");
+    bar.id = "egeExamBar";
+    bar.className = "ege-exam-bar";
+    bar.hidden = true;
+    bar.innerHTML =
+      '<div class="ege-exam-points" id="egeExamPoints" hidden>' +
+      '<button type="button" class="ege-exam-points__total" id="egeExamPointsTotal" aria-expanded="false" aria-controls="egeExamPointsDetail"></button>' +
+      '<div class="ege-exam-points__detail" id="egeExamPointsDetail" hidden></div>' +
+      "</div>" +
+      '<div class="ege-exam-timer" id="egeExamTimer" hidden>' +
+      '<button type="button" class="ege-exam-timer__time" id="egeExamTimerDisplay"></button>' +
+      "</div>";
+    var workspace = document.querySelector(".ege-workspace");
+    if (workspace) workspace.insertBefore(bar, workspace.firstChild);
+
+    var pointsBtn = bar.querySelector("#egeExamPointsTotal");
+    var detail = bar.querySelector("#egeExamPointsDetail");
+    if (pointsBtn && detail) {
+      pointsBtn.addEventListener("click", function () {
+        var open = detail.hidden;
+        detail.hidden = !open;
+        pointsBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    }
+
+    var timer = bar.querySelector("#egeExamTimer");
+    var display = bar.querySelector("#egeExamTimerDisplay");
+    if (timer && display) {
+      display.addEventListener("click", function () {
+        if (timer.classList.contains("is-armed")) E.runExamTimer();
+      });
+    }
+    return bar;
+  }
+
+E.ensureExamTimerEl = function ensureExamTimerEl() {
+    E.ensureExamBar();
+    return document.getElementById("egeExamTimer");
+  }
+
+E.tickExamTimer = function tickExamTimer() {
+    var el = document.getElementById("egeExamTimer");
+    var display = document.getElementById("egeExamTimerDisplay");
+    if (!el || !display || !E.state.examEndsAt) return;
+    var left = E.state.examEndsAt - Date.now();
+    display.textContent = E.formatExamClock(left);
+    el.classList.toggle("is-urgent", left > 0 && left <= 10 * 60 * 1000);
+    el.classList.toggle("is-done", left <= 0);
+    el.classList.toggle("is-running", left > 0);
+    el.setAttribute(
+      "aria-label",
+      left <= 0 ? "Time is up" : "Time left " + display.textContent
+    );
+    if (display) {
+      display.setAttribute(
+        "aria-label",
+        left <= 0 ? "Time is up" : "Time left " + display.textContent
+      );
+    }
+  }
+
+E.applyBrandMark = function applyBrandMark(topicId) {
+    var is2027 = /^variant:2027/.test(String(topicId || ""));
+    var src = is2027
+      ? "assets/time-to-ege-2027-edition.png"
+      : "assets/timetoege.png";
+    document.querySelectorAll(".ege-rail__mark").forEach(function (img) {
+      if (img.getAttribute("src") !== src) img.setAttribute("src", src);
+    });
+    var icon = document.querySelector('link[rel="icon"]');
+    if (icon && icon.getAttribute("href") !== src) icon.setAttribute("href", src);
+  }
+
+E.stopExamTimer = function stopExamTimer() {
+    if (E.examTimerInterval) {
+      clearInterval(E.examTimerInterval);
+      E.examTimerInterval = null;
+    }
+    E.state.examEndsAt = 0;
+    E.state.examMinutes = 0;
+    E.state.examTimerKey = "";
+    var el = document.getElementById("egeExamTimer");
+    if (el) {
+      el.hidden = true;
+      el.classList.remove("is-urgent", "is-done", "is-running", "is-armed");
+    }
+    if (typeof E.hideExamPoints === "function") E.hideExamPoints();
+  }
+
+E.armExamTimer = function armExamTimer(minutes, key) {
+    if (E.examTimerInterval) {
+      clearInterval(E.examTimerInterval);
+      E.examTimerInterval = null;
+    }
+    var mins = Number(minutes);
+    if (!mins || mins <= 0) {
+      E.stopExamTimer();
+      return;
+    }
+    E.state.examMinutes = mins;
+    E.state.examTimerKey = String(key || "demo");
+    E.state.examEndsAt = 0;
+
+    var started = 0;
+    try {
+      started = parseInt(sessionStorage.getItem(E.examTimerStorageKey(E.state.examTimerKey)), 10) || 0;
+    } catch (err) {
+      started = 0;
+    }
+
+    var el = E.ensureExamTimerEl();
+    var display = document.getElementById("egeExamTimerDisplay");
+    el.hidden = false;
+    el.classList.remove("is-urgent", "is-done", "is-running");
+
+    if (started) {
+      E.runExamTimer(started);
+      if (typeof E.syncExamPoints === "function") E.syncExamPoints();
+      return;
+    }
+
+    el.classList.add("is-armed");
+    if (display) {
+      display.textContent = E.formatExamClock(mins * 60 * 1000);
+      display.setAttribute("aria-label", "Start exam timer " + display.textContent);
+    }
+    el.setAttribute("aria-label", "Start exam timer");
+    var bar = document.getElementById("egeExamBar");
+    if (bar) bar.hidden = false;
+    if (typeof E.syncExamPoints === "function") E.syncExamPoints();
+  }
+
+E.runExamTimer = function runExamTimer(startedAt) {
+    var mins = Number(E.state.examMinutes);
+    if (!mins || mins <= 0) return;
+    var started = Number(startedAt) || Date.now();
+    try {
+      sessionStorage.setItem(E.examTimerStorageKey(E.state.examTimerKey), String(started));
+    } catch (err) {
+      /* ignore quota / private mode */
+    }
+    E.state.examEndsAt = started + mins * 60 * 1000;
+    var el = E.ensureExamTimerEl();
+    el.classList.remove("is-armed");
+    el.classList.add("is-running");
+    if (E.examTimerInterval) clearInterval(E.examTimerInterval);
+    E.tickExamTimer();
+    E.examTimerInterval = setInterval(E.tickExamTimer, 1000);
+    var bar = document.getElementById("egeExamBar");
+    if (bar) bar.hidden = false;
+  }
+
 E.syncTopicLayout = function syncTopicLayout() {
     E.restoreTopicLayoutIntros();
     E.restoreTopicLayoutTools();
@@ -283,16 +534,11 @@ E.applySectionMeta = function applySectionMeta(section) {
     if (!section) return;
     E.state.sectionMeta = section;
 
-    var topicLayout = E.usesTopicLayout(section.id);
-
-    E.setRailHeadVisible(!topicLayout);
+    E.setRailHeadVisible(false);
 
     var railHead = document.getElementById("egeRailHead");
     if (railHead) {
-      railHead.classList.toggle(
-        "ege-rail__head--logo-only",
-        topicLayout || section.id === "listening"
-      );
+      railHead.classList.add("ege-rail__head--logo-only");
     }
 
     var railTitle = document.getElementById("egeRailTitle");
@@ -305,20 +551,6 @@ E.applySectionMeta = function applySectionMeta(section) {
     if (examEl) {
       examEl.hidden = true;
       examEl.textContent = "";
-    }
-
-    if (!topicLayout && section && section.id !== "listening") {
-      if (railTitle) {
-        railTitle.hidden = false;
-        railTitle.textContent = section.title || "";
-      }
-      if (examEl) {
-        var label = E.formatExamRange(section.examFrom, section.examTo);
-        if (label) {
-          examEl.textContent = label;
-          examEl.hidden = false;
-        }
-      }
     }
   }
 
@@ -354,13 +586,71 @@ E.cloneTaskForPlaylist = function cloneTaskForPlaylist(task, sectionId, sectionM
     return cloned;
   }
 
-E.mergeSectionTopics = function mergeSectionTopics(entries, title) {
+E.playlistUsedStorageKey = function playlistUsedStorageKey(playlistKey, sectionId) {
+    return "ege-prep.playlist-used." + playlistKey + "." + sectionId;
+  }
+
+E.loadPlaylistUsed = function loadPlaylistUsed(playlistKey, sectionId) {
+    if (!playlistKey) return [];
+    try {
+      var raw = localStorage.getItem(E.playlistUsedStorageKey(playlistKey, sectionId));
+      return raw ? JSON.parse(raw) : [];
+    } catch (_err) {
+      return [];
+    }
+  }
+
+E.savePlaylistUsed = function savePlaylistUsed(playlistKey, sectionId, ids) {
+    if (!playlistKey) return;
+    try {
+      localStorage.setItem(E.playlistUsedStorageKey(playlistKey, sectionId), JSON.stringify(ids));
+    } catch (_err) {
+      /* ignore quota errors */
+    }
+  }
+
+E.sectionSeriesSlots = function sectionSeriesSlots(section) {
+    if (!section || section.examFrom == null) return 1;
+    if (section.examTo == null || section.examTo === section.examFrom) return 1;
+    return section.examTo - section.examFrom + 1;
+  }
+
+E.pickSeriesVariants = function pickSeriesVariants(sectionId, pool, count, playlistKey) {
+    if (!pool || !pool.length || count < 1) return [];
+
+    var want = Math.min(count, pool.length);
+    var used = E.loadPlaylistUsed(playlistKey, sectionId);
+    var available = pool.filter(function (task) {
+      return used.indexOf(task.id) === -1;
+    });
+
+    if (available.length < want) {
+      used = [];
+      available = pool.slice();
+    }
+
+    var shuffled = E.shuffleList(available);
+    var picked = shuffled.slice(0, want);
+
+    if (playlistKey) {
+      picked.forEach(function (task) {
+        if (used.indexOf(task.id) === -1) used.push(task.id);
+      });
+      E.savePlaylistUsed(playlistKey, sectionId, used);
+    }
+
+    return picked;
+  }
+
+E.mergeSectionTopics = function mergeSectionTopics(entries, title, playlistKey) {
     var tasks = [];
     entries.forEach(function (entry) {
       var section = entry.section;
       var topic = entry.topic;
-      if (!topic || !topic.tasks) return;
-      topic.tasks.forEach(function (task) {
+      if (!topic || !topic.tasks || !topic.tasks.length) return;
+      var slots = E.sectionSeriesSlots(section);
+      var picked = E.pickSeriesVariants(section.id, topic.tasks, slots, playlistKey);
+      picked.forEach(function (task) {
         tasks.push(E.cloneTaskForPlaylist(task, section.id, section));
       });
     });
@@ -394,13 +684,6 @@ E.resolveAvailableSections = function resolveAvailableSections(catalog, predicat
     });
   }
 
-E.appendNavSectionDivider = function appendNavSectionDivider(nav, label) {
-    var divider = document.createElement("div");
-    divider.className = "ege-nav__section";
-    divider.textContent = label;
-    nav.appendChild(divider);
-  }
-
 E.mountTopic = function mountTopic(topic, topicId) {
     E.state.topic = topic;
     E.state.topicId = topicId;
@@ -430,12 +713,13 @@ E.mountTopic = function mountTopic(topic, topicId) {
     });
 
     document.title = E.sectionDisplayTitle(topic) + " – Time to ЕГЭ – Yap O'Clock";
-    E.setRailHeadVisible(!E.usesTopicLayout(topicId));
+    E.applyBrandMark(topicId);
+    E.setRailHeadVisible(false);
 
     var railTitle = document.getElementById("egeRailTitle");
-    if (railTitle && !E.usesTopicLayout(topicId) && !E.isListeningMode()) {
-      railTitle.hidden = false;
-      railTitle.textContent = E.sectionDisplayTitle(topic);
+    if (railTitle) {
+      railTitle.hidden = true;
+      railTitle.textContent = "";
     }
 
     var nav = document.getElementById("egeNav");
@@ -447,34 +731,27 @@ E.mountTopic = function mountTopic(topic, topicId) {
 
     var page = document.getElementById("egePage");
     if (page) {
-      var firstTask = topic.tasks[0];
-      var listeningFirst = E.isListeningTask(firstTask);
-      page.classList.toggle("ege-page--listening", listeningFirst);
-      page.classList.toggle("ege-page--topic-layout", !listeningFirst);
+      page.classList.add("ege-page--topic-layout");
+      page.classList.toggle(
+        "ege-page--listening-task",
+        E.isListeningTask(topic.tasks[0])
+      );
+      var main = document.getElementById("egeMain");
+      if (main) {
+        main.classList.toggle("ege-main--listening", E.isListeningTask(topic.tasks[0]));
+      }
     }
 
-    var lastSectionId = null;
     topic.tasks.forEach(function (task, index) {
       var max = E.taskMaxScore(task);
       var savedScore = E.state.scores[task.id] || 0;
-
-      if (
-        E.state.playlist &&
-        task._sectionId &&
-        task._sectionId !== lastSectionId
-      ) {
-        lastSectionId = task._sectionId;
-        var sectionLabel =
-          (task._sectionMeta && task._sectionMeta.title) || task._sectionId;
-        E.appendNavSectionDivider(nav, sectionLabel);
-      }
 
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "ege-nav__btn";
       btn.id = "nav-" + task.id;
       btn.dataset.taskId = task.id;
-      btn.textContent = E.numberedTopicLabel(task.id, task.nav || task.title);
+      btn.textContent = E.navItemLabel(task);
       btn.addEventListener("click", function () {
         E.setNavOpen(false);
         E.showTask(task.id);
@@ -488,14 +765,15 @@ E.mountTopic = function mountTopic(topic, topicId) {
       shell.dataset.taskId = task.id;
       if (task._sectionId) shell.dataset.sectionId = task._sectionId;
 
-      var intro = E.buildTaskIntro(task);
+      var intro = E.isSpeakingPractice(task) ? null : E.buildTaskIntro(task);
       if (intro) shell.appendChild(intro);
       shell.appendChild(E.renderTaskPanel(task));
       if (window.EgeHighlight && !E.isSpeakingPractice(task)) {
         var hl = E.highlightStoreIds(task, task.id);
         EgeHighlight.attachAll(shell, hl.topicId, hl.taskId);
       }
-      shell.hidden = index !== 0;
+      shell.classList.toggle("is-active", index === 0);
+      shell.setAttribute("aria-hidden", index === 0 ? "false" : "true");
       panels.appendChild(shell);
     });
 
@@ -514,11 +792,17 @@ E.mountTopic = function mountTopic(topic, topicId) {
     }
 
     E.bindHideCompletedFilter();
+    E.state.playlistWasComplete = E.state.playlist ? E.getPlaylistProgress().complete : false;
+    E.syncPlaylistCompletionUI();
     E.showTask(startTaskId);
-    E.bindMobileTaskSwitch();
+    E.bindTaskFlow();
     E.bindTopicNavAlign();
     E.observeTopicExercisePanel(startTaskId);
     E.scheduleTopicNavAlign(startTaskId);
+
+    if (String(topicId || "").indexOf("variant:") !== 0) {
+      E.stopExamTimer();
+    }
 
     if (!window._egeTopicLayoutResizeBound) {
       window._egeTopicLayoutResizeBound = true;
@@ -623,27 +907,33 @@ E.mountTopic = function mountTopic(topic, topicId) {
     }
   }
 
-E.bindMobileTaskSwitch = function bindMobileTaskSwitch() {
-    var prevBtn = document.getElementById("egePrevTask");
-    var nextBtn = document.getElementById("egeNextTask");
-    var currentBtn = document.getElementById("egeMobileCurrent");
-    if (prevBtn && !prevBtn.dataset.bound) {
-      prevBtn.dataset.bound = "1";
-      prevBtn.addEventListener("click", function () {
-        E.showAdjacentTask(-1);
+E.bindTaskFlow = function bindTaskFlow() {
+    function bindSwitchBtn(id, delta) {
+      var btn = document.getElementById(id);
+      if (!btn || btn.dataset.bound) return;
+      btn.dataset.bound = "1";
+      btn.addEventListener("click", function () {
+        E.showAdjacentTask(delta);
       });
     }
-    if (nextBtn && !nextBtn.dataset.bound) {
-      nextBtn.dataset.bound = "1";
-      nextBtn.addEventListener("click", function () {
-        E.showAdjacentTask(1);
-      });
-    }
+
+    bindSwitchBtn("egeFlowPrev", -1);
+    bindSwitchBtn("egeFlowNext", 1);
+
+    var currentBtn = document.getElementById("egeFlowCurrent");
     if (currentBtn && !currentBtn.dataset.bound) {
       currentBtn.dataset.bound = "1";
       currentBtn.addEventListener("click", function () {
+        if (window.matchMedia && window.matchMedia("(min-width: 861px)").matches) return;
         var page = document.getElementById("egePage");
         E.setNavOpen(!(page && page.classList.contains("is-nav-open")));
+      });
+    }
+
+    if (!window._egeTaskFlowResizeBound) {
+      window._egeTaskFlowResizeBound = true;
+      window.addEventListener("resize", function () {
+        E.syncTaskFlowControls();
       });
     }
   }
@@ -660,9 +950,12 @@ E.getTaskIdFromUrl = function getTaskIdFromUrl() {
 
 E.parseTopicRoute = function parseTopicRoute() {
     var params = new URLSearchParams(window.location.search);
+    var variant = params.get("variant");
     var partsRaw = params.get("parts");
     var group = params.get("group");
     var topicId = params.get("t");
+
+    if (variant) return { mode: "variant", id: variant };
 
     if (partsRaw) {
       var ids = partsRaw
@@ -678,11 +971,52 @@ E.parseTopicRoute = function parseTopicRoute() {
     return null;
   }
 
+E.mountVariantPlaylist = function mountVariantPlaylist(variant) {
+    return E.fetchSectionsCatalog().then(function (catalog) {
+      var sectionById = {};
+      (catalog.sections || []).forEach(function (section) {
+        sectionById[section.id] = section;
+      });
+
+      return Promise.all(
+        (variant.entries || []).map(function (entry) {
+          var section = sectionById[entry.section];
+          if (!section || section.available === false) {
+            throw new Error("Section unavailable: " + entry.section);
+          }
+          return E.fetchTopicJson(entry.section).then(function (topic) {
+            var task = (topic.tasks || []).find(function (t) {
+              return t.id === entry.task;
+            });
+            if (!task) {
+              throw new Error("Task not found: " + entry.task);
+            }
+            return { section: section, task: task };
+          });
+        })
+      ).then(function (entries) {
+        var tasks = entries.map(function (entry) {
+          return E.cloneTaskForPlaylist(entry.task, entry.section.id, entry.section);
+        });
+        var merged = {
+          title: variant.title || variant.id || "Variant",
+          tasks: tasks,
+        };
+        E.state.sectionMeta = entries[0].section;
+        E.applySectionMeta(entries[0].section);
+        return E.loadTaskTranscripts(merged).then(function () {
+          E.mountTopic(merged, "variant:" + (variant.id || "demo"));
+          E.armExamTimer(variant.timeMinutes, variant.id || "demo");
+        });
+      });
+    });
+  }
+
 E.mountMergedPlaylist = function mountMergedPlaylist(entries, title, playlistKey) {
     if (!entries.length) {
       throw new Error("No available sections");
     }
-    var merged = E.mergeSectionTopics(entries, title);
+    var merged = E.mergeSectionTopics(entries, title, playlistKey);
     if (!merged.tasks.length) {
       throw new Error("No tasks in playlist");
     }
@@ -704,6 +1038,17 @@ E.initTopicPage = function initTopicPage() {
 
     E.fetchSectionsCatalog()
       .then(function (catalog) {
+        if (route.mode === "variant") {
+          return fetch("data/variants/" + encodeURIComponent(route.id) + ".json")
+            .then(function (res) {
+              if (!res.ok) throw new Error("Variant not found");
+              return res.json();
+            })
+            .then(function (variant) {
+              return E.mountVariantPlaylist(variant);
+            });
+        }
+
         if (route.mode === "single") {
           var section = (catalog.sections || []).find(function (entry) {
             return entry.id === route.id;

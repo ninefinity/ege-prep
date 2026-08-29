@@ -4,3 +4,7 @@ Thumbs.db
 *~
 .editor-notes.txt
 scripts/.editor-note.py
+.env
+.env.local
+.env*.local
+.vercel

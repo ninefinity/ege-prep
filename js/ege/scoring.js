@@ -20,12 +20,6 @@ E.checkTask = function checkTask(taskId) {
       });
       if (incomplete) {
         E.updateAnsweredCount(taskId);
-        var scoreElMc = document.getElementById("score-" + taskId);
-        if (scoreElMc) {
-          scoreElMc.hidden = false;
-          scoreElMc.textContent = "Answer all questions before checking.";
-          scoreElMc.className = "ege-task__score is-bad";
-        }
         return;
       }
     }
@@ -34,12 +28,6 @@ E.checkTask = function checkTask(taskId) {
       var listeningKindGate = E.getListeningStepKind(task, E.getListeningStep(taskId));
       if (listeningKindGate === "mc" && !E.isListeningMcComplete(taskId)) {
         E.syncListeningMcFooterUI(taskId);
-        var scoreElListenMc = document.getElementById("score-" + taskId);
-        if (scoreElListenMc) {
-          scoreElListenMc.hidden = false;
-          scoreElListenMc.textContent = "Answer all questions before checking.";
-          scoreElListenMc.className = "ege-task__score is-bad";
-        }
         return;
       }
     }
@@ -52,12 +40,6 @@ E.checkTask = function checkTask(taskId) {
       var board = document.querySelector("#task-" + taskId + " .ege-match-picks");
 
       if (!E.allMatchingFilled(taskId)) {
-        var scoreEl = document.getElementById("score-" + taskId);
-        if (scoreEl) {
-          scoreEl.hidden = false;
-          scoreEl.textContent = "Match all texts before checking.";
-          scoreEl.className = "ege-task__score is-bad";
-        }
         task.texts.forEach(function (item) {
           var name = prefix + "_" + item.letter;
           var empty = !E.getCheckedValue(name);
@@ -135,12 +117,6 @@ E.checkTask = function checkTask(taskId) {
 
     if (task.type === "wordform") {
       if (!E.allWordformFilled(taskId)) {
-        var scoreElWf = document.getElementById("score-" + taskId);
-        if (scoreElWf) {
-          scoreElWf.hidden = false;
-          scoreElWf.textContent = "Fill all gaps before checking.";
-          scoreElWf.className = "ege-task__score is-bad";
-        }
         task.items.forEach(function (_item, index) {
           var inputEmpty = document.getElementById(prefix + "_wf_" + index);
           if (!inputEmpty) return;
@@ -300,6 +276,7 @@ E.checkTask = function checkTask(taskId) {
         if (max > 0 && correct === max) E.setListeningMcPassed(taskId, true);
         E.syncListeningMcFooterUI(taskId);
       }
+      if (typeof E.syncExamPoints === "function") E.syncExamPoints();
       return;
     }
 
@@ -317,7 +294,9 @@ E.checkTask = function checkTask(taskId) {
     } else {
       E.showScoreFeedback(taskId, correct, max);
     }
+    E.syncCheckButton(taskId);
     E.syncShowAnswersButton(taskId);
+    if (typeof E.syncExamPoints === "function") E.syncExamPoints();
   }
 
 E.fillActiveCorrectAnswers = function fillActiveCorrectAnswers() {
@@ -703,4 +682,5 @@ E.resetTask = function resetTask(taskId) {
     }
 
     E.syncResetButton(taskId);
+    if (typeof E.syncExamPoints === "function") E.syncExamPoints();
   }

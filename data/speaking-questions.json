@@ -440,6 +440,23 @@
       "image": {
         "src": "let-s-teach-everyone-how-to-cook.jpg"
       }
+    },
+    {
+      "id": "demo2027-cooking-class",
+      "nav": "Cooking Masterclass",
+      "title": "Cooking Masterclass",
+      "type": "speaking-questions",
+      "adTitle": "Let's teach everyone how to cook!",
+      "image": {
+        "src": "demo2027-cooking-ad.jpg"
+      },
+      "prompt": "Вы участвуете в проекте по изучению рекламы в разных странах. Рассмотрите рекламное объявление и в течение 1,5 минут задайте 4 прямых вопроса в соответствии с содержанием рекламы, а именно, узнайте: 1) какие виды блюд там готовят; 2) сколько человек может быть в группе; 3) сколько длится курс; 4) сколько стоит обучение.",
+      "questions": [
+        "kinds of dishes taught at the masterclass",
+        "size of the group (number of people)",
+        "duration of the course",
+        "tuition fee / cost"
+      ]
     }
   ]
 }

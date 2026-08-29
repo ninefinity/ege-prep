@@ -199,7 +199,7 @@ E.renderWordform = function renderWordform(task, topicId) {
       input.removeAttribute("title");
       E.syncWordformMarkFromInput(task.id, index, item.word);
       input.classList.toggle("is-filled", !!input.value.trim());
-      E.hideScoreFeedback(task.id);
+      E.clearGradedCheckState(task.id);
       E.syncWordformCheckEnabled(task.id);
     });
 

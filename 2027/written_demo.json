@@ -1,0 +1,1332 @@
+{
+  "exam": "EGE 2027 English Language – Written Part (Demo Version)",
+  "source": "AIa-11-EGE-2027-DEMO_PCh-3.pdf (FIPI, project/ПРОЕКТ, 2027)",
+  "language": "en",
+  "instructions_ru": "Экзаменационная работа по английскому языку состоит из четырёх разделов («Аудирование», «Чтение», «Грамматика и лексика», «Письменная речь»), включающих в себя 38 заданий.",
+  "total_time_minutes": 190,
+  "total_tasks": 38,
+  "max_score": 20,
+  "sections": [
+    {
+      "id": "listening",
+      "title_ru": "Раздел 1. Аудирование",
+      "title_en": "Listening",
+      "recommended_time_minutes": 30,
+      "task_count": 9,
+      "tasks": [
+        {
+          "id": 1,
+          "type": "matching",
+          "title_en": "Speaker matching",
+          "instructions_ru": "Вы услышите 6 высказываний. Установите соответствие между высказываниями каждого говорящего A–F и утверждениями, данными в списке 1–7. Используйте каждое утверждение, обозначенное соответствующей цифрой, только один раз. В задании есть одно лишнее утверждение. Вы услышите запись дважды.",
+          "max_score": 2,
+          "statements": [
+            {
+              "number": 1,
+              "text": "Classroom projects can cause some conflicts in a group."
+            },
+            {
+              "number": 2,
+              "text": "Classroom projects have several advantages."
+            },
+            {
+              "number": 3,
+              "text": "It's bad when people don't do their share for a project."
+            },
+            {
+              "number": 4,
+              "text": "Teachers enjoy classroom projects more than students."
+            },
+            {
+              "number": 5,
+              "text": "Classroom projects can be inconvenient for students."
+            },
+            {
+              "number": 6,
+              "text": "Classroom projects should not be the same all the time."
+            },
+            {
+              "number": 7,
+              "text": "Classroom projects encourage collaboration."
+            }
+          ],
+          "speakers": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F"
+          ],
+          "audio_transcript": [
+            {
+              "speaker": "A",
+              "text": "As for me, I like it when our teachers ask us to do some project. In my opinion, projects allow students to work together to show what they have learned. We work on too many solo activities throughout the day, and giving us a chance to collaborate is a nice change. Working together helps us to complete more work in a shorter amount of time. Plus, if we are confused about a concept, it is likely that our classmates will help explain concepts to us."
+            },
+            {
+              "speaker": "B",
+              "text": "Well, classroom projects are certainly more interesting than traditional paper-and-pencil tests, but I think they still do not reach every learning style or intelligence level. Our teachers always ask us to make presentations as classroom projects. I'm an introvert, and I find frequent presentations hard. My grades suffer because of them. If our teachers plan a variety of projects, or even let students choose what kind of project they'll do, it will be much better."
+            },
+            {
+              "speaker": "C",
+              "text": "I hate classroom projects. Honestly, we've all been there. It's 11:50 p.m. and your project is due at midnight. And there's one person who hasn't done their part yet, so you quickly scramble to do it yourself. Or when you have a presentation, and you have no idea whether or not people in your group actually know what they are presenting on. It's so annoying. I prefer to do everything on my own, as I don't like it when I depend on other people in terms of my grades."
+            },
+            {
+              "speaker": "D",
+              "text": "Our teachers always tell us that a classroom project is a perfect chance for us to learn how to collaborate with one another. However, I disagree with them here. Even if you know your group members well enough, some of them may not be able to work well together, especially if there are two people in a group who both want to be the leader. Compromise is certainly the key to getting through group projects, but it's just not always possible, in my opinion."
+            },
+            {
+              "speaker": "E",
+              "text": "I think it's worth doing projects, but there can be a huge problem connected with doing a project in a group. Sometimes students are put together in groups by their professors, but these students can have conflicting schedules. Every college student has a different schedule. There are extracurricular activities and even part-time jobs that we have, too. I wish professors would take this into consideration when picking our groups for us and assigning group projects."
+            },
+            {
+              "speaker": "F",
+              "text": "As for me, I enjoy doing projects at school. First of all, I think students have more control over their education with project-based learning. They have to make choices and be responsible for their academic performance. Secondly, classroom projects enable students to understand the material much better. Thirdly, it's a great chance to improve your communication skills, as you have to collaborate with your groupmates to complete a classroom project."
+            }
+          ],
+          "correct_answer": {
+            "A": 7,
+            "B": 6,
+            "C": 3,
+            "D": 1,
+            "E": 5,
+            "F": 2
+          },
+          "answer_key_raw": "763152"
+        },
+        {
+          "id": 2,
+          "type": "true_false_not_stated",
+          "title_en": "Dialogue comprehension",
+          "instructions_ru": "Вы услышите диалог. Определите, какие из приведённых утверждений А–G соответствуют содержанию текста (1 – True), какие не соответствуют (2 – False) и о чём в тексте не сказано (3 – Not stated). Вы услышите запись дважды.",
+          "max_score": 3,
+          "statements": [
+            {
+              "letter": "A",
+              "text": "Ben worked hard during the academic year."
+            },
+            {
+              "letter": "B",
+              "text": "Ben and Sophie study at the same school."
+            },
+            {
+              "letter": "C",
+              "text": "Sophie wants to be a school teacher."
+            },
+            {
+              "letter": "D",
+              "text": "Sophie has already found a summer job."
+            },
+            {
+              "letter": "E",
+              "text": "Ben is thinking of a career in medicine."
+            },
+            {
+              "letter": "F",
+              "text": "Ben disapproves of Sophie's summer plans."
+            },
+            {
+              "letter": "G",
+              "text": "Sophie hasn't had a rest by the sea for some time."
+            }
+          ],
+          "audio_transcript": [
+            {
+              "speaker": "Ben",
+              "text": "Hey, Sophie! Long time, no see! How are you?"
+            },
+            {
+              "speaker": "Sophie",
+              "text": "Oh, hi, Ben. It's good to see you. I'm fine, thank you. What about you?"
+            },
+            {
+              "speaker": "Ben",
+              "text": "Oh, I'm fine too, thanks. So, it's summer vacation at last! I'm so happy all the tests and projects are over, at least for a couple of months. What are your plans?"
+            },
+            {
+              "speaker": "Sophie",
+              "text": "Oh, I'm so excited. I'm planning to look for a summer job, maybe as a camp counsellor. As you know, I love working with kids, and it seems like a fun way to spend the summer."
+            },
+            {
+              "speaker": "Ben",
+              "text": "That's awesome! I thought about that too, but I decided to volunteer at the hospital instead. I want to see what it's like behind the scenes."
+            },
+            {
+              "speaker": "Sophie",
+              "text": "Wow, that's really impressive. Isn't it hard to get a volunteer spot there?"
+            },
+            {
+              "speaker": "Ben",
+              "text": "A bit, but I applied early. I want to see what it's like to work in healthcare, and maybe get some experience for the future."
+            },
+            {
+              "speaker": "Sophie",
+              "text": "That's smart. I want to gain some experience working with kids, so camp counselling seems perfect for me. It's also a good way to meet new people."
+            },
+            {
+              "speaker": "Ben",
+              "text": "Have you applied yet?"
+            },
+            {
+              "speaker": "Sophie",
+              "text": "Not yet. I'm going to a job fair tomorrow to see what's available. Hopefully, I'll find something interesting. Summer is the busiest time for camps for kids. I do hope they'll be interested in me."
+            },
+            {
+              "speaker": "Ben",
+              "text": "Good luck! I hope you'll find something you like. I believe it's important to enjoy what you do."
+            },
+            {
+              "speaker": "Sophie",
+              "text": "Thanks! What made you want to volunteer at the hospital? It must be very hard to work there. It's not like you'll be able to breathe some fresh air at this job."
+            },
+            {
+              "speaker": "Ben",
+              "text": "I'm thinking about studying medicine in the future, so I want to see if it's really for me. Plus, I want to help people. It's great to give back to the community, right?"
+            },
+            {
+              "speaker": "Sophie",
+              "text": "That's a great idea. I wish I knew what I wanted to do later. Sometimes it feels overwhelming."
+            },
+            {
+              "speaker": "Ben",
+              "text": "Don't worry, you have plenty of time. Besides, working with kids is super important too. You'll be able to gain some valuable skills."
+            },
+            {
+              "speaker": "Sophie",
+              "text": "True! Maybe we could both try volunteering at each other's places one day. It would be interesting to do."
+            },
+            {
+              "speaker": "Ben",
+              "text": "That would be fun! I'd love to see what camp counselling is like. Maybe I could learn some new things."
+            },
+            {
+              "speaker": "Sophie",
+              "text": "And I'm curious about the hospital. Maybe we can arrange a visit sometime."
+            },
+            {
+              "speaker": "Ben",
+              "text": "For sure! By the way, do you fancy going to the beach this weekend? It's supposed to be really sunny, and it would be a nice break."
+            },
+            {
+              "speaker": "Sophie",
+              "text": "I'd love to! Let's do it. It's been a while since I relaxed by the sea. We can get some food and organize a picnic."
+            },
+            {
+              "speaker": "Ben",
+              "text": "I think I'll get a ball too."
+            },
+            {
+              "speaker": "Sophie",
+              "text": "It's a date then."
+            }
+          ],
+          "correct_answer": {
+            "A": 3,
+            "B": 3,
+            "C": 3,
+            "D": 2,
+            "E": 1,
+            "F": 2,
+            "G": 1
+          },
+          "answer_key_raw": "3332121",
+          "answer_legend": {
+            "1": "True",
+            "2": "False",
+            "3": "Not stated"
+          }
+        },
+        {
+          "id": 3,
+          "type": "multiple_choice",
+          "title_en": "Interview comprehension",
+          "instructions_ru": "Вы услышите интервью. В заданиях 3–9 запишите цифру 1, 2 или 3, соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды.",
+          "max_score": 1,
+          "question": "What do we learn about Mike Watson at the beginning of the interview?",
+          "options": [
+            {
+              "number": 1,
+              "text": "He's worked in several spheres."
+            },
+            {
+              "number": 2,
+              "text": "He is internationally famous."
+            },
+            {
+              "number": 3,
+              "text": "He has never won any awards."
+            }
+          ],
+          "correct_answer": 1
+        },
+        {
+          "id": 4,
+          "type": "multiple_choice",
+          "max_score": 1,
+          "question": "Mike is worried that the film industry has become too …",
+          "options": [
+            {
+              "number": 1,
+              "text": "boring."
+            },
+            {
+              "number": 2,
+              "text": "powerful."
+            },
+            {
+              "number": 3,
+              "text": "commercialized."
+            }
+          ],
+          "correct_answer": 3
+        },
+        {
+          "id": 5,
+          "type": "multiple_choice",
+          "max_score": 1,
+          "question": "Mike uses Chaplin to stress the fact that …",
+          "options": [
+            {
+              "number": 1,
+              "text": "people understand films without knowing the words."
+            },
+            {
+              "number": 2,
+              "text": "films are made for people to have a good laugh."
+            },
+            {
+              "number": 3,
+              "text": "the best films of the past were black and white."
+            }
+          ],
+          "correct_answer": 1
+        },
+        {
+          "id": 6,
+          "type": "multiple_choice",
+          "max_score": 1,
+          "question": "After Mike went to Stanford, he wanted to …",
+          "options": [
+            {
+              "number": 1,
+              "text": "get famous worldwide."
+            },
+            {
+              "number": 2,
+              "text": "attend a film school."
+            },
+            {
+              "number": 3,
+              "text": "become a film director."
+            }
+          ],
+          "correct_answer": 2
+        },
+        {
+          "id": 7,
+          "type": "multiple_choice",
+          "max_score": 1,
+          "question": "Mike thinks one needs to be very … to become a film director.",
+          "options": [
+            {
+              "number": 1,
+              "text": "self-confident"
+            },
+            {
+              "number": 2,
+              "text": "talented"
+            },
+            {
+              "number": 3,
+              "text": "hard-working"
+            }
+          ],
+          "correct_answer": 3
+        },
+        {
+          "id": 8,
+          "type": "multiple_choice",
+          "max_score": 1,
+          "question": "Mike Watson finds his education to be beneficial for his career because he …",
+          "options": [
+            {
+              "number": 1,
+              "text": "was motivated by literature."
+            },
+            {
+              "number": 2,
+              "text": "managed to become a good novelist."
+            },
+            {
+              "number": 3,
+              "text": "learnt how to tell stories well."
+            }
+          ],
+          "correct_answer": 3
+        },
+        {
+          "id": 9,
+          "type": "multiple_choice",
+          "max_score": 1,
+          "question": "What surprises Mike about life today?",
+          "options": [
+            {
+              "number": 1,
+              "text": "Quality of film equipment."
+            },
+            {
+              "number": 2,
+              "text": "Availability of equipment."
+            },
+            {
+              "number": 3,
+              "text": "Prices for film equipment."
+            }
+          ],
+          "correct_answer": 2,
+          "shared_audio_transcript_for_tasks_3_9": [
+            {
+              "speaker": "Presenter",
+              "text": "Hello, everybody, and here we are with our weekly programme, Five Minutes with a Star. Today in our studio we are happy to have Mike Watson, the famous comedy actor and film director, as well as the winner of numerous awards. Good afternoon, Mike!"
+            },
+            {
+              "speaker": "Mike Watson",
+              "text": "Good afternoon. Thank you for inviting me here today."
+            },
+            {
+              "speaker": "Presenter",
+              "text": "As an actor and a film director, are you upset when you see a bad movie?"
+            },
+            {
+              "speaker": "Mike Watson",
+              "text": "In my opinion, films have unparalleled power to influence culture. Of course, it bothers me to see that power abused. It appalls me when that power is abused to make money, to show irresponsible acts or even violence, and essentially give people a Roman circus in a movie theater for 10 dollars. I get upset after seeing some films. Some of them are completely awful."
+            },
+            {
+              "speaker": "Presenter",
+              "text": "Do you see your job as kind of a responsibility then?"
+            },
+            {
+              "speaker": "Mike Watson",
+              "text": "No, I mean anybody can do anything they want. But the power of films to move, the power to serve as a mirror for our society, the power to spread a sense of humanity and make people laugh – never stop to impress me. Chaplin made the whole world laugh for the very first time at the same things, and with no words. Film is truly a universal language. Like so many things, I wish it were used more as a weapon of beauty, rather than a weapon of ugliness."
+            },
+            {
+              "speaker": "Presenter",
+              "text": "Have you always wanted to be a film director?"
+            },
+            {
+              "speaker": "Mike Watson",
+              "text": "I've been a genuine film fan for about as long as I can remember. I've always been crazy about movies. And then I went to Stanford and was considering which graduate school to apply to. And I wasn't even thinking that I wanted to be a film director, I was thinking that I wanted to go to a film school. I just wanted to see what that was, and see if my love of watching films would translate into loving making them."
+            },
+            {
+              "speaker": "Presenter",
+              "text": "Which it clearly did…"
+            },
+            {
+              "speaker": "Mike Watson",
+              "text": "It did. And I had the patience for it. One does not know the dedication it requires and how time-consuming it is to make a movie until you do it. And I liked it. I was certainly not the most talented student in my group, but I still found I had just enough talent to be able to build on."
+            },
+            {
+              "speaker": "Presenter",
+              "text": "Do you think that your academic education is beneficial to you now as a director?"
+            },
+            {
+              "speaker": "Mike Watson",
+              "text": "I do have to credit my education in literature and history. You study the human story of what people do, and try to get at why they do those things, – a sense of narrative. History is narrative; and literature is obviously narrative – presenting characters, selecting events from their lives, and getting at motivations. The best historians write with the same urgency and flourish as great novelists. The great historians have a prose style as fluid and compelling as novelists do."
+            },
+            {
+              "speaker": "Presenter",
+              "text": "You were 35 when you made your first feature film. Does it necessarily take a long time to become a director?"
+            },
+            {
+              "speaker": "Mike Watson",
+              "text": "Not for everybody, but for me it did. I was 35, but that's a fairly standard average age for making a first feature film. Many high-profile film directors made their first feature film at about that age, like mid-thirties, and don't forget that back then, everybody started working earlier, too."
+            },
+            {
+              "speaker": "Presenter",
+              "text": "Don't you think that's for a good reason? I mean, it's hard for a 25-year-old person to handle a 20-million-dollar budget."
+            },
+            {
+              "speaker": "Mike Watson",
+              "text": "You don't need 20 million dollars to make a feature film nowadays. We live in an age where there are no more excuses. The means of production are readily accessible. You can make a feature film with your smartphone. It's amazing – the age we live in. You have a movie camera in your pocket, and it's even with sync-sound. It's unbelievable. When something is happening, you can just point your phone camera at it."
+            },
+            {
+              "speaker": "Presenter",
+              "text": "Thank you very much, Mike. It was nice talking to you."
+            },
+            {
+              "speaker": "Mike Watson",
+              "text": "Thank you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reading",
+      "title_ru": "Раздел 2. Чтение",
+      "title_en": "Reading",
+      "recommended_time_minutes": 30,
+      "task_count": 9,
+      "tasks": [
+        {
+          "id": 10,
+          "type": "matching_headlines",
+          "title_en": "Text-headline matching",
+          "instructions_ru": "Установите соответствие между текстами A–G и заголовками 1–8. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+          "max_score": 3,
+          "headlines": [
+            {
+              "number": 1,
+              "text": "Clever strategies for food"
+            },
+            {
+              "number": 2,
+              "text": "Appearance matters"
+            },
+            {
+              "number": 3,
+              "text": "Problems of family life"
+            },
+            {
+              "number": 4,
+              "text": "Necessary for nature"
+            },
+            {
+              "number": 5,
+              "text": "Lions' home"
+            },
+            {
+              "number": 6,
+              "text": "Giving a helping hand"
+            },
+            {
+              "number": 7,
+              "text": "Looking after their young"
+            },
+            {
+              "number": 8,
+              "text": "Lions in danger"
+            }
+          ],
+          "texts": [
+            {
+              "letter": "A",
+              "text": "The magnificent lion is the symbol of Africa. Powerful and beautiful, the king of the beasts has no natural enemies. Lions have strong, compact bodies and powerful forelegs, teeth, and jaws for pulling down their food. Their coats are yellow-gold, and adult males have manes that range in colour from blond, to reddish-brown and black. The length and the colour of a lion's mane are likely determined by age, genetics, and hormones. Young lions have light spots on their coats that disappear as they grow."
+            },
+            {
+              "letter": "B",
+              "text": "Lions are mammals and the most sociable of all big cats. They live in groups called prides, which usually consist of related females and their cubs. Males often fight to maintain dominance. Young females usually stay in their mothers' prides for life, unless food shortage forces them out. Young males are driven from their prides when they grow large enough to compete with the dominant males. This usually happens when young males are between the ages of 2 and 4."
+            },
+            {
+              "letter": "C",
+              "text": "Today, lions are not at risk of extinction in Africa. However, three-quarters of their populations are in decline. The main threats to African lions are conflicts with people and the loss of living space, as well as climate change and wildlife trade. Some African lion populations have become small and isolated. Besides, the number of plant-eating animals they hunt for is being reduced. With around 23,000 African lions left in the wild, they are now officially classified as \"vulnerable\"."
+            },
+            {
+              "letter": "D",
+              "text": "African lions are highly adaptable animals and can be found in a wide variety of habitats, including desert areas. They prefer open woodland and thick bush, as well as scrub and grasslands. Such environments help them to hunt and also to find shade to rest during the hottest part of the day. African lions used to be spread across most of the continent. But now they are only found in sub-Saharan Africa, with 80 % in eastern or southern Africa. Three of the five largest populations are in Tanzania."
+            },
+            {
+              "letter": "E",
+              "text": "Lions are top hunters in their environments, whether that is grassland, desert, or open woodland. It means they play an important role in keeping a healthy balance of numbers among other animals, especially plant-eating ones, like zebra and wildebeest. This influences the condition of grasslands and forests. By protecting a lion's landscape, people are helping the whole area to grow and develop, which does not just benefit wildlife, but the people who rely on local natural resources, too."
+            },
+            {
+              "letter": "F",
+              "text": "Lions do most of their hunting at night as their eyes have adapted to the dark. This gives them a huge advantage over the animals they hunt for. Interestingly, lions also hunt during storms. The noise, rain, and wind make it harder for other animals to see and hear lions, increasing their chances of a successful hunt. Females are the primary hunters, although males will sometimes join them during a hunt. When hunting, females have specific roles. Some chase the animal towards those in the centre."
+            },
+            {
+              "letter": "G",
+              "text": "To save lions, new protected areas of habitat in east Africa are organised. There is a special conservation programme in Kenya that monitors and protects lions. The programme educates local people on lion conservation, too. This includes working with local communities, such as anti-poisoning actions. They also provide better fenced areas for farm animals in local villages. Taking school children on trips to see the wild animals they are saving is one more important action to support wildlife."
+            }
+          ],
+          "correct_answer": {
+            "A": 2,
+            "B": 3,
+            "C": 8,
+            "D": 5,
+            "E": 4,
+            "F": 1,
+            "G": 6
+          },
+          "answer_key_raw": "2385416"
+        },
+        {
+          "id": 11,
+          "type": "gap_fill_sentence_parts",
+          "title_en": "Amur River region – gap fill",
+          "instructions_ru": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя.",
+          "max_score": 2,
+          "text_title": "Amur River region",
+          "text_with_gaps": "The Amur River is also known as the Heilong in China. The river covers parts of Russia, China, and Mongolia, A _______ China and south-east Russia. A large region of grasslands and forests, about 1.85 million sq km in size, is around the river.\nThe Amur region has some of the world's most extensive temperate forests. These are forests of a rather mild climate area B _______. Although the region there experiences very cold winters, it still supports a varied wildlife. The forests are home for not just rare animals, but trees like the Korean pine, and wild ginseng, C _______.\nThe most famous residents of the region include Amur or Siberian tigers, and the last remaining wild population of Amur leopards. Amur leopards are critically endangered D _______.\nAmur tigers and Amur leopards are top predators with no natural enemies. They play a great role in keeping a healthy balance of wildlife in their environment. This is very important for the local people, animals, and plants that depend on that.\nMany of the forest areas in the Amur region remain largely unchanged, E _______ increasing development and the need for resources. The forests also suffer from frequent fires, natural and man-made. Rising temperatures and changing rainfall patterns affect them as well. So, people should be working globally and locally F _______ climate change.",
+          "options": [
+            {
+              "number": 1,
+              "text": "which is endangered and should be"
+            },
+            {
+              "number": 2,
+              "text": "but they are coming under pressure from"
+            },
+            {
+              "number": 3,
+              "text": "forming the border between north-east"
+            },
+            {
+              "number": 4,
+              "text": "that receives rather heavy rainfall"
+            },
+            {
+              "number": 5,
+              "text": "which is a traditional medicinal plant"
+            },
+            {
+              "number": 6,
+              "text": "to deal with the causes and effects of"
+            },
+            {
+              "number": 7,
+              "text": "as there may be about 120 left in the wild"
+            }
+          ],
+          "correct_answer": {
+            "A": 3,
+            "B": 4,
+            "C": 5,
+            "D": 7,
+            "E": 2,
+            "F": 6
+          },
+          "answer_key_raw": "345726"
+        },
+        {
+          "id": 12,
+          "type": "multiple_choice_reading",
+          "title_en": "AI and student experience",
+          "instructions_ru": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+          "max_score": 1,
+          "shared_text_title": "AI and student experience",
+          "shared_text": "No matter what your occupation is, you have probably faced some uncertainty over the last few years as a result of innovative Artificial Intelligence (AI) technology and its growing popularity. Teachers and students alike feel strongly about the upcoming changes. There are certain ways in which AI technology is altering education, both for teachers and students. Here is what lies ahead for education and the student experience in today's AI-driven world.\nIf you have tried using AI tools yourself, you know how powerful they can be. With just a few clicks, these programmes can write stories, organise ideas, and even complete homework assignments. Unfortunately for educators, this potent tool is also available to students who may use it to cheat and plagiarise work. Over the last several months, teachers from elementary schools to universities have been trying to address this growing problem.\nSadly, there is, as yet, no silver-bullet solution for teachers. While some software has claimed to be able to detect the presence of AI-generated content, none of these have fully cracked the code. Teachers are now left to guess whether students are using this software to complete assignments. As a result of this change, there will likely be a shift in education that puts emphasis on in-person assessments, rather than take-home assignments. In this way, educators can be sure that students are not using AI software to generate their work.\nBut AI is not just causing problems – it is also creating new opportunities. Teachers are also starting to introduce AI into their processes. Instead of banning the use of AI, many educators and institutions are currently trying to figure out the best ways for students to use this technology as a helpful tool. Some teachers believe that soon, all students will learn how to use AI properly to support their learning in honest and useful ways.\nOver the decades, a critique of the school system has been its one-size-fits-all approach to education. This is a model that treats every student the same way, ignoring individual needs and learning styles. Though there were some attempts to fix this issue, none have been very effective. Today, however, AI is presenting itself as an antidote to this problem. The data about students' abilities makes it possible for teachers to use AI to personalise learning. For example, the technology can show which students need extra help, and which ones are ready for more challenging work. This means teachers can tweak their lessons to fit each student's needs, helping everyone do their best.\nGetting extra help outside of school has always been important for many students, but not everyone could afford private tutors. Now, AI is changing that. Free AI tutors are becoming available to help students with their schoolwork anytime they need it. These digital tutors can explain difficult concepts, help with homework, and give students the extra practice they need to understand tough subjects.\nThus, AI can have a wide variety of impacts on the student experience. While it is creating new problems, like cheating, it is also offering new ways to make learning more personal and accessible for every student. Now, all students have more opportunities to excel in subjects they once found challenging. This incredible innovation makes me hopeful that more students will achieve academic success. The key will be learning how to use this technology wisely – as a tool to support learning, not replace it. As teachers and students continue to adapt, one thing is clear: education will never again be the same.",
+          "question": "What feeling does the spread of AI in education bring up?",
+          "options": [
+            {
+              "number": 1,
+              "text": "Opposition."
+            },
+            {
+              "number": 2,
+              "text": "Doubt."
+            },
+            {
+              "number": 3,
+              "text": "Excitement."
+            },
+            {
+              "number": 4,
+              "text": "Curiosity."
+            }
+          ],
+          "correct_answer": 2
+        },
+        {
+          "id": 13,
+          "type": "multiple_choice_reading",
+          "max_score": 1,
+          "question": "This growing problem in paragraph 2 refers to …",
+          "options": [
+            {
+              "number": 1,
+              "text": "AI's productivity."
+            },
+            {
+              "number": 2,
+              "text": "shortage of teachers."
+            },
+            {
+              "number": 3,
+              "text": "academic dishonesty."
+            },
+            {
+              "number": 4,
+              "text": "students' access to AI."
+            }
+          ],
+          "correct_answer": 3
+        },
+        {
+          "id": 14,
+          "type": "multiple_choice_reading",
+          "max_score": 1,
+          "question": "What is the problem with the systems that spot the use of AI?",
+          "options": [
+            {
+              "number": 1,
+              "text": "They are quite unreliable."
+            },
+            {
+              "number": 2,
+              "text": "They are rather expensive."
+            },
+            {
+              "number": 3,
+              "text": "They are hard to work with."
+            },
+            {
+              "number": 4,
+              "text": "They are difficult to access."
+            }
+          ],
+          "correct_answer": 1
+        },
+        {
+          "id": 15,
+          "type": "multiple_choice_reading",
+          "max_score": 1,
+          "question": "How can the use of AI in education be described, according to the text?",
+          "options": [
+            {
+              "number": 1,
+              "text": "Successful."
+            },
+            {
+              "number": 2,
+              "text": "Controversial."
+            },
+            {
+              "number": 3,
+              "text": "Unregulated."
+            },
+            {
+              "number": 4,
+              "text": "Ineffective."
+            }
+          ],
+          "correct_answer": 2
+        },
+        {
+          "id": 16,
+          "type": "vocabulary_in_context",
+          "max_score": 1,
+          "question": "Tweak in paragraph 5 most probably means …",
+          "options": [
+            {
+              "number": 1,
+              "text": "simplify."
+            },
+            {
+              "number": 2,
+              "text": "replace."
+            },
+            {
+              "number": 3,
+              "text": "upgrade."
+            },
+            {
+              "number": 4,
+              "text": "adjust."
+            }
+          ],
+          "correct_answer": 4
+        },
+        {
+          "id": 17,
+          "type": "multiple_choice_reading",
+          "max_score": 1,
+          "question": "Which fact about AI in education is NOT mentioned in the text?",
+          "options": [
+            {
+              "number": 1,
+              "text": "AI impacts how students are assessed."
+            },
+            {
+              "number": 2,
+              "text": "AI makes education more accessible."
+            },
+            {
+              "number": 3,
+              "text": "AI makes students dependent on it."
+            },
+            {
+              "number": 4,
+              "text": "AI helps make learning individualised."
+            }
+          ],
+          "correct_answer": 3
+        },
+        {
+          "id": 18,
+          "type": "multiple_choice_reading",
+          "max_score": 1,
+          "question": "The author concludes by suggesting that …",
+          "options": [
+            {
+              "number": 1,
+              "text": "students will be more productive with AI."
+            },
+            {
+              "number": 2,
+              "text": "a balanced use of AI will benefit education."
+            },
+            {
+              "number": 3,
+              "text": "education needs to regulate the use of AI."
+            },
+            {
+              "number": 4,
+              "text": "teachers need to reconsider their methods."
+            }
+          ],
+          "correct_answer": 2
+        }
+      ]
+    },
+    {
+      "id": "grammar_vocabulary",
+      "title_ru": "Раздел 3. Грамматика и лексика",
+      "title_en": "Grammar and Vocabulary",
+      "recommended_time_minutes": 40,
+      "task_count": 18,
+      "tasks": [
+        {
+          "id": "19-24",
+          "type": "word_transformation",
+          "title_en": "Word transformation (grammar)",
+          "instructions_ru": "Прочитайте приведённый ниже текст / приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, так, чтобы они грамматически соответствовали содержанию текстов.",
+          "max_score_per_item": 1,
+          "note": "The demo offers two alternative texts (variant option in real exam); either 'Ancient Corinth' or 'Yaroslavl/sweaters' set may appear.",
+          "variant_a": {
+            "text_title": "Ancient Corinth",
+            "text_with_gaps": "Corinth was an ancient Greek city state. __19__ in southern part of Greece, this vibrant city was a prosperous trade centre that had one of the best fleets of its times.\nIt is even considered to have fought the __20__ naval battle on record.\nThe city __21__ around the 8th century BC and became famous because of its high-quality pottery. Apart from it, Corinth exported stone and bronzeware. It is important to mention that arts and culture flourished in the city, too.\nMany poets, playwrights, and architects lived in it. The Corinthian Order quickly __22__ a distinctive feature of the Greek architectural style and is still used in modern buildings.\nIn 146 BC Corinth was destroyed by the Romans only to be rebuilt under the patronage of Julius Caesar as a Roman colony. Today the ancient city lies in ruins. Since 1896 archeologists __23__ there, finding various elements of ancient buildings and constructions each year.\nTourists enjoy __24__ at what is left from once a beautiful ancient city state.",
+            "items": [
+              {
+                "id": 19,
+                "prompt_word": "SITUATE",
+                "correct_answer": "situated"
+              },
+              {
+                "id": 20,
+                "prompt_word": "ONE",
+                "correct_answer": "first"
+              },
+              {
+                "id": 21,
+                "prompt_word": "FOUND",
+                "correct_answer": "wasfounded"
+              },
+              {
+                "id": 22,
+                "prompt_word": "BECOME",
+                "correct_answer": "became"
+              },
+              {
+                "id": 23,
+                "prompt_word": "WORK",
+                "correct_answer": "haveworked",
+                "alt_correct_answer": "havebeenworking"
+              },
+              {
+                "id": 24,
+                "prompt_word": "LOOK",
+                "correct_answer": "looking"
+              }
+            ]
+          },
+          "variant_b": {
+            "text_title": "Yaroslavl / From the history of sweaters",
+            "text_with_gaps": "Yaroslavl is one of the most beautiful and ancient cities of Russia, the capital of the Russian Golden Ring. It __19__ on the Volga River and has a lot of old churches, cathedrals and monasteries as well as museums and historical monuments.\nTourists also enjoy __20__ along its wonderful embankment which offers its visitors picturesque views of the Volga.\nMillions of tourists __21__ Yaroslavl so far, and a lot of them want to come to this city again.\n\nFrom the history of sweaters\nProbably every person in the world has at least one sweater. It is a very popular item of clothing now, especially for __22__, who don't like buttons and zips.\nIt is interesting to know why a sweater is called so. In fact, a knitted woolen sweater as we know it today __23__ in Europe in the 19th century.\nOverweight people __24__ sweaters in order to lose some weight. They sweated profusely in warm sweaters, that is why this item of clothing got such a name.",
+            "items": [
+              {
+                "id": 19,
+                "prompt_word": "LOCATE",
+                "correct_answer": "islocated",
+                "alt_correct_answer": "'slocated"
+              },
+              {
+                "id": 20,
+                "prompt_word": "WALK",
+                "correct_answer": "walking"
+              },
+              {
+                "id": 21,
+                "prompt_word": "VISIT",
+                "correct_answer": "havevisited"
+              },
+              {
+                "id": 22,
+                "prompt_word": "CHILD",
+                "correct_answer": "children"
+              },
+              {
+                "id": 23,
+                "prompt_word": "CREATE",
+                "correct_answer": "wascreated"
+              },
+              {
+                "id": 24,
+                "prompt_word": "WEAR",
+                "correct_answer": "wore",
+                "alt_correct_answer": "werewearing"
+              }
+            ]
+          }
+        },
+        {
+          "id": "25-29",
+          "type": "word_formation",
+          "title_en": "Word formation (vocabulary)",
+          "instructions_ru": "Прочитайте приведённый ниже текст. Образуйте от слов, напечатанных заглавными буквами, однокоренные слова, так, чтобы они грамматически и лексически соответствовали содержанию текста.",
+          "max_score_per_item": 1,
+          "text_title": "The State Hermitage Museum",
+          "text_with_gaps": "The State Hermitage Museum is located in Saint Petersburg, Russia. It is __25__ one of the greatest and most visited museums of the world.\nCatherine the Great founded it in 1764, but it was opened to the public in 1852 only. Now it can boast a huge __26__ of over 3 million works of art.\nIt may be an __27__ task to see all the masterpieces kept in the museum – it will take a person about eleven years to look at each of the museum's exhibits for just one minute.\nHowever, the Hermitage is interesting not only because of the __28__ paintings kept there.\nThe Winter Palace used to be the official __29__ for the Romanov Tsars, so it is a beautiful construction – one of the greatest symbols of imperial Russia.",
+          "items": [
+            {
+              "id": 25,
+              "prompt_word": "CERTAIN",
+              "correct_answer": "certainly"
+            },
+            {
+              "id": 26,
+              "prompt_word": "COLLECT",
+              "correct_answer": "collection"
+            },
+            {
+              "id": 27,
+              "prompt_word": "POSSIBLE",
+              "correct_answer": "impossible"
+            },
+            {
+              "id": 28,
+              "prompt_word": "PRICE",
+              "correct_answer": "priceless"
+            },
+            {
+              "id": 29,
+              "prompt_word": "RESIDE",
+              "correct_answer": "residence"
+            }
+          ]
+        },
+        {
+          "id": "30-36",
+          "type": "multiple_choice_cloze",
+          "title_en": "Sunday – cloze multiple choice",
+          "instructions_ru": "Прочитайте текст с пропусками 30–36. Запишите цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+          "max_score_per_item": 1,
+          "text_title": "Sunday",
+          "text_with_gaps": "Gloria Wald sat back in her chair with a small sigh. She was trying to relax listening to her favourite classical music. She had to 30___ that she was tired today. Sundays always tired her. Sometimes she thought she did more work at home than she did at the office. She always spent Sundays answering her personal correspondence, looking over the books kept by the cook and the housekeeper. She made lists of what she had noticed needed to be 31___ around the apartment and of items needed to complete her wardrobe. 32___, she had to plan menus for the week. It was tedious work, but she had done it for years, even before she'd begun to run the business.\nOnce she'd taken over from her husband, she had still spent her Sundays 33___ to the household. She was also 34___ care of her grandson on the nurse's day off. Those Sundays had been precious, a few hours with her grandson without anyone interfering, anyone taking him away. She 35___ those days. A tiny bright tear crept into her lashes. How she loved that child. She would have done anything for him. And she had. She 36___ to maintain the family business empire for him, carried the legacy from one generation to the next. It was her most valuable gift for him. And she had come to love the business almost as much as she loved her grandson.",
+          "items": [
+            {
+              "id": 30,
+              "options": [
+                {
+                  "number": 1,
+                  "text": "approach"
+                },
+                {
+                  "number": 2,
+                  "text": "allow"
+                },
+                {
+                  "number": 3,
+                  "text": "admit"
+                },
+                {
+                  "number": 4,
+                  "text": "approve"
+                }
+              ],
+              "correct_answer": 3
+            },
+            {
+              "id": 31,
+              "options": [
+                {
+                  "number": 1,
+                  "text": "received"
+                },
+                {
+                  "number": 2,
+                  "text": "repaired"
+                },
+                {
+                  "number": 3,
+                  "text": "remained"
+                },
+                {
+                  "number": 4,
+                  "text": "repeated"
+                }
+              ],
+              "correct_answer": 2
+            },
+            {
+              "id": 32,
+              "options": [
+                {
+                  "number": 1,
+                  "text": "Although"
+                },
+                {
+                  "number": 2,
+                  "text": "However"
+                },
+                {
+                  "number": 3,
+                  "text": "Nevertheless"
+                },
+                {
+                  "number": 4,
+                  "text": "Moreover"
+                }
+              ],
+              "correct_answer": 4
+            },
+            {
+              "id": 33,
+              "options": [
+                {
+                  "number": 1,
+                  "text": "visiting"
+                },
+                {
+                  "number": 2,
+                  "text": "concentrating"
+                },
+                {
+                  "number": 3,
+                  "text": "attending"
+                },
+                {
+                  "number": 4,
+                  "text": "focusing"
+                }
+              ],
+              "correct_answer": 3
+            },
+            {
+              "id": 34,
+              "options": [
+                {
+                  "number": 1,
+                  "text": "taking"
+                },
+                {
+                  "number": 2,
+                  "text": "keeping"
+                },
+                {
+                  "number": 3,
+                  "text": "holding"
+                },
+                {
+                  "number": 4,
+                  "text": "making"
+                }
+              ],
+              "correct_answer": 1
+            },
+            {
+              "id": 35,
+              "options": [
+                {
+                  "number": 1,
+                  "text": "recorded"
+                },
+                {
+                  "number": 2,
+                  "text": "reminded"
+                },
+                {
+                  "number": 3,
+                  "text": "recognized"
+                },
+                {
+                  "number": 4,
+                  "text": "remembered"
+                }
+              ],
+              "correct_answer": 4
+            },
+            {
+              "id": 36,
+              "options": [
+                {
+                  "number": 1,
+                  "text": "managed"
+                },
+                {
+                  "number": 2,
+                  "text": "accomplished"
+                },
+                {
+                  "number": 3,
+                  "text": "succeeded"
+                },
+                {
+                  "number": 4,
+                  "text": "achieved"
+                }
+              ],
+              "correct_answer": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "writing",
+      "title_ru": "Раздел 4. Письменная речь",
+      "title_en": "Writing",
+      "recommended_time_minutes": 90,
+      "task_count": 2,
+      "max_score": 20,
+      "tasks": [
+        {
+          "id": 37,
+          "type": "personal_email",
+          "title_en": "Personal email",
+          "instructions_ru": "Укажите номер задания 37 в БЛАНКЕ ОТВЕТОВ № 2 и напишите текст своего ответного электронного письма зарубежному другу по переписке.",
+          "word_count_required": "100-140",
+          "word_count_tolerance_note": "Допустимое отклонение ±10%: минимум 90 слов, максимум 154 слова (текст сверх 154 слов не проверяется).",
+          "max_score": 6,
+          "prompt_email": {
+            "from": "Sophia@mail.uk",
+            "to": "Russian_friend@ege.ru",
+            "subject": "Victory Day",
+            "body": "…I'm doing a project on \"Holidays in Different Countries of the World.\" I've learnt that in Russia, Victory Day is celebrated on May 9th. What event does this holiday commemorate? What official events are held on this day? What do you and your family usually do on this day?\n…I've joined a local volunteer group…"
+          },
+          "task_instructions": "Write an email to Sophia. In your message: answer her questions; ask 3 questions about the volunteer group.",
+          "scoring_criteria": {
+            "K1_content": {
+              "max_score": 2,
+              "levels": {
+                "2": "Задание выполнено полностью: содержание отражает все аспекты, указанные в задании (даны полные и точные ответы на все вопросы, заданы правильно 3 вопроса по указанной теме); стилевое оформление речи выбрано правильно с учётом цели высказывания и адресата; соблюдены принятые в языке нормы вежливости. Допускается 1 неполный или неточный аспект.",
+                "1": "Задание выполнено не полностью: содержание отражает не все аспекты, указанные в задании (все случаи, не указанные в оценивании на 2 балла и 0 баллов).",
+                "0": "Задание не выполнено: 3 и более аспекта содержания отсутствуют, ИЛИ 6 аспектов раскрыты неполно/неточно, ИЛИ 1 аспект не раскрыт и 4–5 раскрыты неполно/неточно, ИЛИ 2 аспекта не раскрыты и 2–4 раскрыты неполно/неточно, ИЛИ ответ не соответствует требуемому объёму."
+              }
+            },
+            "K2_organization": {
+              "max_score": 2,
+              "levels": {
+                "2": "Высказывание логично; средства логической связи использованы правильно; текст верно разделён на абзацы; структурное оформление текста соответствует нормам, принятым в стране изучаемого языка (допускается 1 ошибка в организации текста).",
+                "1": "Имеются 2–3 ошибки в организации текста.",
+                "0": "Имеются 4 и более ошибки в организации текста."
+              }
+            },
+            "K3_language": {
+              "max_score": 2,
+              "levels": {
+                "2": "Используемый словарный запас и грамматические структуры соответствуют базовому уровню сложности задания, орфографические и пунктуационные ошибки практически отсутствуют (допускаются 1–2 лексико-грамматические ошибки И/ИЛИ 1–2 орфографические и пунктуационные ошибки).",
+                "1": "Имеются 3–4 лексико-грамматические ошибки И/ИЛИ 3–4 орфографические и пунктуационные ошибки.",
+                "0": "Имеются 5 и более лексико-грамматических ошибок, И/ИЛИ 5 и более орфографических и пунктуационных ошибок."
+              }
+            }
+          },
+          "notes": "При получении 0 баллов по К1, всё задание оценивается 0 баллов по всем критериям."
+        },
+        {
+          "id": 38,
+          "type": "opinion_essay_data_based",
+          "title_en": "Opinion essay based on data (choose one of two)",
+          "instructions_ru": "Выберите только ОДНО из двух предложенных заданий (38.1 или 38.2). В ответе на задание 38 числительные пишите цифрами.",
+          "word_count_required": "200-250",
+          "word_count_tolerance_note": "Допустимое отклонение ±10%: минимум 180 слов, максимум 275 слов (текст сверх 275 слов не проверяется).",
+          "max_score": 14,
+          "plagiarism_rule": "Если более 30% ответа текстуально совпадает с опубликованным источником (совпадение отрезка 10+ слов подряд), выставляется 0 баллов по всем критериям.",
+          "plan": [
+            "make an opening statement on the subject of the project",
+            "select and report 2-3 facts",
+            "make 1-2 comparisons where relevant and give your comments",
+            "outline a possible problem and suggest a way of solving it",
+            "conclude by giving and explaining your opinion"
+          ],
+          "variants": [
+            {
+              "id": "38.1",
+              "topic": "Living conditions in rural areas in Zetland",
+              "prompt": "Imagine that you are doing a project on living conditions in rural areas in Zetland. You have found some data on the subject – the results of a survey conducted among Zetland school students (see the table below). Comment on the survey data and give your opinion on the subject of the project.",
+              "survey_question": "What do you think should be done to improve living conditions in the countryside? Choose one option",
+              "data_table": [
+                {
+                  "option": "Build hospitals and schools",
+                  "percent": 48
+                },
+                {
+                  "option": "Improve internet access",
+                  "percent": 20
+                },
+                {
+                  "option": "Organize more cultural events",
+                  "percent": 18
+                },
+                {
+                  "option": "Build sports facilities",
+                  "percent": 9
+                },
+                {
+                  "option": "Develop public transport",
+                  "percent": 5
+                }
+              ],
+              "concluding_prompt": "conclude by giving and explaining your opinion on how to improve rural living conditions"
+            },
+            {
+              "id": "38.2",
+              "topic": "Jobs for young professionals in Zetland",
+              "prompt": "Imagine that you are doing a project on jobs for young professionals in Zetland. You have found some data on the subject – the results of a survey conducted among young Zetlanders (see the pie chart below). Comment on the survey data and give your opinion on the subject of the project.",
+              "survey_question": "What is the main reason why it is difficult for you as a young professional to find a job? Choose one option",
+              "data_chart": [
+                {
+                  "option": "Little professional experience",
+                  "percent": 30
+                },
+                {
+                  "option": "Low foreign language proficiency",
+                  "percent": 28
+                },
+                {
+                  "option": "Lack of qualifications",
+                  "percent": 24
+                },
+                {
+                  "option": "Salary expectations are too high",
+                  "percent": 10
+                },
+                {
+                  "option": "High competition",
+                  "percent": 8
+                }
+              ],
+              "concluding_prompt": "conclude by giving and explaining your opinion on whether it is easy for a young professional to find a job"
+            }
+          ],
+          "scoring_criteria": {
+            "K1_content": {
+              "max_score": 3,
+              "levels": {
+                "3": "Задание выполнено полностью: содержание отражает полно и точно все аспекты, указанные в задании; стилевое оформление речи выбрано правильно (допускается 1 неполный/неточный аспект и 1 нарушение нейтрального стиля).",
+                "2": "Задание выполнено в основном: 1 аспект не раскрыт (остальные раскрыты полно), ИЛИ 1 аспект не раскрыт и 1 раскрыт неполно/неточно, ИЛИ 2-3 аспекта раскрыты неполно/неточно; стилевое оформление речи в основном правильно (допускаются 2-3 нарушения нейтрального стиля).",
+                "1": "Задание выполнено не полностью: 1 аспект не раскрыт и 2-3 раскрыты неполно/неточно, ИЛИ 2 аспекта не раскрыты (остальные раскрыты полно), ИЛИ 2 аспекта содержания не раскрыты и 1 раскрыт неполно/неточно, ИЛИ 4-5 аспектов раскрыты неполно/неточно; имеются ошибки в стилевом оформлении речи (допускаются 4 нарушения нейтрального стиля).",
+                "0": "Задание не выполнено: все случаи, не указанные в оценивании на 1, 2 и 3 балла, ИЛИ ответ не соответствует требуемому объёму, ИЛИ более 30% ответа имеет непродуктивный характер (текстуально совпадает с опубликованным источником)."
+              }
+            },
+            "K2_organization": {
+              "max_score": 3,
+              "levels": {
+                "3": "Высказывание логично, структура текста соответствует предложенному плану, текст правильно разделён на абзацы, средства логической связи использованы правильно.",
+                "2": "Высказывание логично, структура текста соответствует предложенному плану, текст правильно разделён на абзацы, средства логической связи использованы (допускаются 1-3 ошибки).",
+                "1": "В высказывании имеются 4-5 ошибок в организации текста И/ИЛИ отсутствует вступление или заключение.",
+                "0": "В высказывании имеются 6 и более ошибок в организации текста, И/ИЛИ отсутствует вступление и заключение, И/ИЛИ предложенный план ответа полностью не соблюдается, И/ИЛИ отсутствует деление на абзацы."
+              }
+            },
+            "K3_lexis": {
+              "max_score": 3,
+              "levels": {
+                "3": "Используемый словарный запас соответствует высокому уровню сложности задания, практически нет нарушений в использовании лексики (допускается 1 лексическая ошибка).",
+                "2": "Имеются 2-3 лексические ошибки, ИЛИ словарный запас ограничен, но лексика использована правильно.",
+                "1": "В тексте имеются 4 лексические ошибки.",
+                "0": "В тексте имеются 5 и более лексических ошибок."
+              }
+            },
+            "K4_grammar": {
+              "max_score": 3,
+              "levels": {
+                "3": "Используемые грамматические средства соответствуют высокому уровню сложности задания, нарушений практически нет (допускаются 1-2 неповторяющиеся грамматические ошибки).",
+                "2": "В тексте имеются 3-4 грамматические ошибки.",
+                "1": "В тексте имеются 5-7 грамматических ошибок.",
+                "0": "Имеются 8 и более грамматических ошибок."
+              }
+            },
+            "K5_spelling_punctuation": {
+              "max_score": 2,
+              "levels": {
+                "2": "Орфографические ошибки практически отсутствуют. Текст разделён на предложения с правильным пунктуационным оформлением (допускается 1 орфографическая И/ИЛИ 1 пунктуационная ошибка).",
+                "1": "В тексте имеются 2-4 орфографические И/ИЛИ пунктуационные ошибки.",
+                "0": "В тексте имеются 5 и более орфографических И/ИЛИ пунктуационных ошибок."
+              }
+            }
+          },
+          "notes": "При получении 0 баллов по К1, всё задание оценивается 0 баллов по всем критериям. Максимальный балл по К5 - 2 балла."
+        }
+      ]
+    }
+  ],
+  "appendices": {
+    "answer_key": {
+      "1": "763152",
+      "2": "3332121",
+      "3": "1",
+      "4": "3",
+      "5": "1",
+      "6": "2",
+      "7": "3",
+      "8": "3",
+      "9": "2",
+      "10": "2385416",
+      "11": "345726",
+      "12": "2",
+      "13": "3",
+      "14": "1",
+      "15": "2",
+      "16": "4",
+      "17": "3",
+      "18": "2",
+      "19": {
+        "variant_a": "situated",
+        "variant_b": "islocated / 'slocated"
+      },
+      "20": {
+        "variant_a": "first",
+        "variant_b": "walking"
+      },
+      "21": {
+        "variant_a": "wasfounded",
+        "variant_b": "havevisited"
+      },
+      "22": {
+        "variant_a": "became",
+        "variant_b": "children"
+      },
+      "23": {
+        "variant_a": "haveworked / havebeenworking",
+        "variant_b": "wascreated"
+      },
+      "24": {
+        "variant_a": "looking",
+        "variant_b": "wore / werewearing"
+      },
+      "25": "certainly",
+      "26": "collection",
+      "27": "impossible",
+      "28": "priceless",
+      "29": "residence",
+      "30": "3",
+      "31": "2",
+      "32": "4",
+      "33": "3",
+      "34": "1",
+      "35": "4",
+      "36": "1"
+    },
+    "word_count_rules": {
+      "task_37": {
+        "required": "100-140",
+        "min_accepted": 90,
+        "max_scored": 154
+      },
+      "task_38": {
+        "required": "200-250",
+        "min_accepted": 180,
+        "max_scored": 275
+      },
+      "counting_rules": [
+        "Contracted forms (can't, didn't, isn't, I'm, etc.) count as one word.",
+        "Numerals written as digits (1, 25, 2009, 126 204) count as one word.",
+        "Numerals with % sign (25%, 100%) count as one word.",
+        "Numerals written as words count as words (each word counted).",
+        "Compound words (good-looking, well-bred, English-speaking, twenty-five) count as one word.",
+        "Abbreviations (USA, e-mail, TV, CD-rom) count as one word.",
+        "Salutation and signature in an email are counted."
+      ]
+    },
+    "plagiarism_rule": "For task 38: if more than 30% of the response consists of verbatim overlaps (10+ consecutive words) with a published source, the response scores 0 on all criteria."
+  }
+}

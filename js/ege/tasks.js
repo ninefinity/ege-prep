@@ -106,7 +106,7 @@ E.buildMatchingRead = function buildMatchingRead(task, topicId, textsRoot) {
       clearLetterMarks(letter);
       if (letter === activeLetter) syncNumberRow();
       syncUsedState();
-      E.hideScoreFeedback(task.id);
+      E.clearGradedCheckState(task.id);
       syncCheckGate();
     }
 
@@ -153,7 +153,7 @@ E.buildMatchingRead = function buildMatchingRead(task, topicId, textsRoot) {
 
       E.setRadioValue(radioName(activeLetter), numStr);
       clearLetterMarks(activeLetter);
-      E.hideScoreFeedback(task.id);
+      E.clearGradedCheckState(task.id);
       syncNumberRow();
       syncUsedState();
       syncCheckGate();
@@ -395,6 +395,7 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
       clearGapMarks(gap);
       if (gap === activeGap) syncNumberRow();
       syncUsedState();
+      E.clearGradedCheckState(task.id);
       E.updateAnsweredCount(task.id);
     }
 
@@ -440,6 +441,7 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
       clearGapMarks(activeGap);
       syncNumberRow();
       syncUsedState();
+      E.clearGradedCheckState(task.id);
       E.updateAnsweredCount(task.id);
     }
 
