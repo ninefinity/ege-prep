@@ -1088,6 +1088,13 @@ E.syncWriting38Workspace = function syncWriting38Workspace(taskId) {
   if (picker) picker.hidden = hasChoice;
   if (workspace) workspace.hidden = !hasChoice;
 
+  // "Choose one of two" only matters before a choice is made -- once
+  // picked, it's just a leftover instruction line taking up space above
+  // the actual task (which repeats the brief itself further down anyway).
+  var panel = document.getElementById("panel-" + taskId);
+  var instructions = panel && panel.querySelector(".ege-instructions");
+  if (instructions) instructions.hidden = hasChoice;
+
   var oldSplit = document.getElementById("writing38-split-" + taskId);
   if (oldSplit) oldSplit.remove();
 

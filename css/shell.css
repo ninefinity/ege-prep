@@ -7062,7 +7062,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-writing38-header__variant {
   margin: 0;
-  font-family: var(--ege-font-ui);
+  font-family: var(--ege-font-text);
   font-size: clamp(1.05rem, 2.2vw, 1.25rem);
   font-weight: 700;
   color: var(--ege-ink);
