@@ -1427,6 +1427,8 @@ E.appendStandardTaskActions = function appendStandardTaskActions(actions, taskId
 E.bindResetButton = function bindResetButton(btn, taskId) {
     var armed = false;
     var timer = 0;
+    btn.title = "Сбросить это задание";
+    btn.setAttribute("aria-label", "Сбросить это задание");
 
     function disarm() {
       armed = false;

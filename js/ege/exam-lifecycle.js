@@ -536,8 +536,8 @@ E.syncExamManageActions = function syncExamManageActions() {
     resetBtn.type = "button";
     resetBtn.className = "ege-btn ege-btn--ghost ege-exam-restart-btn";
     resetBtn.textContent = "✕";
-    resetBtn.setAttribute("aria-label", "Сбросить данное задание");
-    resetBtn.title = "Сбросить данное задание";
+    resetBtn.setAttribute("aria-label", "Сбросить все ответы письменной части");
+    resetBtn.title = "Сбросить все ответы письменной части";
     resetBtn.addEventListener("click", function () {
       E.resetWrittenExamAnswers(false);
     });
