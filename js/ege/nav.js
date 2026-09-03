@@ -1167,7 +1167,7 @@ E.mountTopic = function mountTopic(topic, topicId) {
     if (back) {
       if (E.is2027Demo(topicId)) {
         back.href = window.EGE_2027_DEMO ? "index.html" : "2027/";
-        back.textContent = "← go back";
+        back.textContent = "← Go back";
       } else {
         back.href = "index.html";
         back.textContent = "← Sections";

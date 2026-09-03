@@ -412,15 +412,18 @@ body.yap-promo--gate-open {
   color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .ege-promo-materials {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.35rem;
   margin: 0;
   padding: 0;
   list-style: none;
+  text-align: center;
 }
 
 .ege-promo-materials a {

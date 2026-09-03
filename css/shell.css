@@ -665,10 +665,10 @@ a {
   width: 100%;
   position: relative;
   isolation: isolate;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: transparent;
+  border: none;
   border-radius: var(--ege-radius);
-  box-shadow: var(--ege-shadow);
+  box-shadow: none;
   overflow: hidden;
   padding: 12px 12px 0;
   box-sizing: border-box;
@@ -4691,12 +4691,12 @@ button.ege-listening-mark:focus-visible {
   cursor: default;
 }
 
-.ege-page--listening-task .ege-task-panel {
+.ege-page--active-listening .ege-task-panel {
   animation: none;
 }
 
 /* Listening: Montserrat on task content; Fredoka on UI chrome */
-.ege-page--listening-task #egePanels :is(
+.ege-page--active-listening #egePanels :is(
   .ege-prep-gapfill,
   .ege-prep-gapfill__item,
   .ege-prep-gapfill__slot,
@@ -4715,22 +4715,19 @@ button.ege-listening-mark:focus-visible {
   .ege-passage,
   .ege-text-block
 ),
-.ege-page--listening-task #egeListeningChrome .ege-listening-prep-instr,
-.ege-page--listening-task .ege-instructions {
+.ege-page--active-listening #egeListeningChrome .ege-listening-prep-instr,
+.ege-page--active-listening .ege-instructions {
   font-family: var(--ege-font-text);
 }
 
 /* Reserve space for the longest listening sub-task's instructions (3 lines) so
    the player/progress row sits at the same height regardless of which sub-task
-   (main idea / specific info / full comprehension) is active.
-   Note: .ege-page--listening-task is never applied by JS (only
-   .ege-page--active-listening is, in js/ege/ui.js) — targeting the real class
-   here rather than the dead one used by the rest of this file's listening block. */
+   (main idea / specific info / full comprehension) is active. */
 .ege-page--active-listening .ege-instructions {
   min-height: 3lh;
 }
 
-.ege-page--listening-task #egeListeningChrome .ege-listening-progress {
+.ege-page--active-listening #egeListeningChrome .ege-listening-progress {
   margin: 0 0 10px;
   min-height: 64px;
   width: 100%;
@@ -4739,15 +4736,15 @@ button.ege-listening-mark:focus-visible {
   align-items: center;
 }
 
-.ege-page--listening-task #egeListeningChrome .ege-listening-progress__track {
+.ege-page--active-listening #egeListeningChrome .ege-listening-progress__track {
   width: 100%;
 }
 
-.ege-page--listening-task #egeListeningChrome .ege-listening-prep-instr {
+.ege-page--active-listening #egeListeningChrome .ege-listening-prep-instr {
   margin: 0 0 10px;
 }
 
-.ege-page--listening-task :is(
+.ege-page--active-listening :is(
   .ege-listening-progress,
   .ege-listening-progress__step,
   .ege-btn,
@@ -4766,18 +4763,18 @@ button.ege-listening-mark:focus-visible {
 
 @media (min-width: 768px) {
   /* Listening: side-by-side; answers scroll like reading work columns */
-  .ege-page--listening-task .ege-split--panels {
+  .ege-page--active-listening .ege-split--panels {
     grid-template-columns: minmax(0, 1.75fr) minmax(220px, 0.82fr);
     gap: 12px;
     align-items: stretch;
   }
 
-  .ege-page--listening-task .ege-split--panels .ege-split__read {
+  .ege-page--active-listening .ege-split--panels .ege-split__read {
     max-width: none;
     width: 100%;
   }
 
-  .ege-page--listening-task .ege-split--panels .ege-split__work:has(.ege-panel--listening-work) {
+  .ege-page--active-listening .ege-split--panels .ege-split__work:has(.ege-panel--listening-work) {
     height: 0;
     min-height: 100%;
     align-self: stretch;
@@ -4786,7 +4783,7 @@ button.ege-listening-mark:focus-visible {
     flex-direction: column;
   }
 
-  .ege-page--listening-task .ege-work-col:has(.ege-panel--listening-work) {
+  .ege-page--active-listening .ege-work-col:has(.ege-panel--listening-work) {
     position: sticky;
     top: var(--ege-sticky-top);
     flex: 1 1 auto;
@@ -4797,7 +4794,7 @@ button.ege-listening-mark:focus-visible {
     flex-direction: column;
   }
 
-  .ege-page--listening-task .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll {
+  .ege-page--active-listening .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll {
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
@@ -4808,16 +4805,16 @@ button.ege-listening-mark:focus-visible {
     scrollbar-color: color-mix(in srgb, var(--yap-dust) 55%, transparent) transparent;
   }
 
-  .ege-page--listening-task .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll::-webkit-scrollbar {
+  .ege-page--active-listening .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll::-webkit-scrollbar {
     width: 6px;
   }
 
-  .ege-page--listening-task .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll::-webkit-scrollbar-thumb {
+  .ege-page--active-listening .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll::-webkit-scrollbar-thumb {
     border-radius: 999px;
     background: color-mix(in srgb, var(--yap-dust) 45%, transparent);
   }
 
-  .ege-page--listening-task .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll .ege-panel--work {
+  .ege-page--active-listening .ege-work-col:has(.ege-panel--listening-work) .ege-work-scroll .ege-panel--work {
     min-height: 0;
   }
 
@@ -5140,6 +5137,15 @@ body.yap-brand .site-author__promo a:hover {
     border: 1px solid var(--ege-line);
     background: var(--ege-card);
     box-shadow: none;
+  }
+
+  /* An odd number of VISIBLE tasks leaves the last one stranded alone in
+     the final row -- span it across both columns instead. The oral-section
+     buttons exist in the DOM but stay [hidden] until that phase unlocks, so
+     "last of type" isn't the same as "last visible"; :has() finds the last
+     button with no other visible button after it. */
+  .ege-nav__btn:not([hidden]):not(:has(~ .ege-nav__btn:not([hidden]))) {
+    grid-column: 1 / -1;
   }
 
   .ege-nav__btn.is-partial:not(.is-active) {
@@ -6567,6 +6573,17 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
     padding-right: min(420px, 92vw);
     box-sizing: border-box;
   }
+
+  /* Anchor the drawer to the task's own content box instead of the full
+     viewport, so it starts below the exam toolbar (Сдать/timer/⋯) instead
+     of covering it. */
+  .ege-task--writing-essay {
+    position: relative;
+  }
+
+  .ege-task--writing-essay .ege-writing-criteria {
+    position: absolute;
+  }
 }
 
 .ege-writing-rubric--self {
@@ -6672,6 +6689,16 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
 
 html.ege-writing-criteria-open {
   overflow: hidden;
+}
+
+/* The mobile overlay (position: fixed, z-index: 45) lives inside
+   #egePanels > .ege-task-panel.is-active, which only carries z-index: 1 --
+   lower than .ege-exam-bar's sticky z-index: 6 in their shared stacking
+   context (.ege-workspace has isolation: isolate). That traps the overlay
+   under the Start/timer/Сдать bar despite its own higher z-index. Lift the
+   active panel's context above the exam bar only while the drawer is open. */
+html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
+  z-index: 7;
 }
 
 @media (max-width: 767px) {
