@@ -1323,9 +1323,12 @@ a {
 .ege-listening-row__label,
 .ege-prep-gapfill__num,
 .ege-gap-nav__cell:not(.is-active),
-.ege-gap-insert:not(.is-filled),
 .ege-listening-mark:not(.is-filled) {
   color: var(--ege-accent-deep);
+}
+
+.ege-gap-insert:not(.is-filled) {
+  color: var(--yap-royal);
 }
 
 .ege-instructions .ege-task-intro__exam {

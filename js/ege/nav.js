@@ -225,9 +225,20 @@ E.scrollMainToTop = function scrollMainToTop() {
     }
   }
 
+E.clearPendingPickSelections = function clearPendingPickSelections(panel) {
+    if (!panel) return;
+    panel.querySelectorAll(".ege-picks-controller").forEach(function (board) {
+      if (typeof board.setActiveLetter === "function") board.setActiveLetter("");
+      if (typeof board.setActiveGap === "function") board.setActiveGap("");
+    });
+  }
+
 E.setActiveTaskPanel = function setActiveTaskPanel(taskId) {
     document.querySelectorAll(".ege-task-panel").forEach(function (panel) {
       var active = panel.dataset.taskId === taskId;
+      if (!active && panel.classList.contains("is-active")) {
+        E.clearPendingPickSelections(panel);
+      }
       panel.hidden = !active;
       panel.classList.toggle("is-active", active);
     });
