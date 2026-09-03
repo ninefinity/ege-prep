@@ -684,6 +684,27 @@ a {
     --ege-topic-sidebar-width: 120px;
   }
 
+  /* Word Formation/Grammar (task.type "wordform") use a different container
+     strategy than every other task type -- height:auto with the page
+     itself scrolling, rather than a fixed viewport-relative height with
+     internal scrolling -- because their single-column content doesn't fit
+     the split-panel internal-scroll pattern. That's fine on its own, but
+     it means short wordform content collapses .ege-workspace far below
+     every other task's height, so the flow strip after it lands at a
+     noticeably different screen position depending on which task is open.
+     min-height alone doesn't fix it: with height:auto, a flex item's
+     margin-top: auto (used below to pin the flow strip to the bottom)
+     only distributes free space when the flex container's own size is
+     "definite" -- min-height on an auto-height box doesn't count, even
+     though the box visibly renders at the floor height. Giving it a
+     definite height instead does, and this still doesn't clip long
+     wordform content: overflow stays visible per the :has(...wordform)
+     rule below (unchanged), so tall content still grows past this height
+     and the page (not this box) scrolls, same as before. */
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) {
+    height: var(--ege-sticky-panel-max);
+  }
+
   /* Opening the list reflows the sidebar column back to full width instead
      of floating a popover over the task -- nothing ever gets covered, only
      temporarily pushed aside, which is what "don't interrupt content"
@@ -717,7 +738,7 @@ a {
      part of the page -- give it the same card treatment instead. Also
      slimmer than mobile's 48px touch targets, which desktop doesn't need. */
   #egePage.is-locked-nav .ege-task-flow {
-    margin-top: 14px;
+    margin-top: auto;
     padding: 6px 8px;
     gap: 8px;
     border: 1px solid var(--ege-line);
