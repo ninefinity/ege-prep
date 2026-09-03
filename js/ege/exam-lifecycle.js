@@ -532,21 +532,42 @@ E.syncExamManageActions = function syncExamManageActions() {
   actions.hidden = false;
 
   if (showReset) {
-    E.appendExamPhaseButton(actions, "Сбросить", false, function () {
+    var resetBtn = document.createElement("button");
+    resetBtn.type = "button";
+    resetBtn.className = "ege-btn ege-btn--ghost ege-exam-restart-btn";
+    resetBtn.textContent = "✕";
+    resetBtn.setAttribute("aria-label", "Сбросить данное задание");
+    resetBtn.title = "Сбросить данное задание";
+    resetBtn.addEventListener("click", function () {
       E.resetWrittenExamAnswers(false);
     });
+    actions.appendChild(resetBtn);
   }
   if (showRestart) {
     var restartBtn = document.createElement("button");
     restartBtn.type = "button";
     restartBtn.className = "ege-btn ege-btn--ghost ege-exam-restart-btn";
-    restartBtn.textContent = "✕";
+    restartBtn.textContent = "↺";
     restartBtn.setAttribute("aria-label", "Начать заново");
     restartBtn.title = "Начать заново";
     restartBtn.addEventListener("click", function () {
       E.restartWrittenExam(false);
     });
     actions.appendChild(restartBtn);
+  }
+
+  if (typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam()) {
+    var jumpBtn = document.createElement("button");
+    jumpBtn.type = "button";
+    jumpBtn.className = "ege-btn ege-btn--ghost ege-exam-restart-btn";
+    jumpBtn.textContent = "☰";
+    jumpBtn.setAttribute("aria-label", "Список заданий");
+    jumpBtn.title = "Список заданий";
+    jumpBtn.addEventListener("click", function () {
+      if (typeof E.toggleLockedNav === "function") E.toggleLockedNav();
+    });
+    actions.appendChild(jumpBtn);
+    if (typeof E.ensureLockedNavBackdrop === "function") E.ensureLockedNavBackdrop();
   }
 
   E.syncExamControlsLayout();
@@ -824,7 +845,9 @@ E.ensureFinishWrittenButton = function ensureFinishWrittenButton() {
   btn.type = "button";
   btn.className = "ege-btn ege-btn--primary ege-exam-finish";
   btn.id = "egeFinishWritten";
-  btn.textContent = "Сдать";
+  btn.textContent = "✓";
+  btn.setAttribute("aria-label", "Завершить и сдать все");
+  btn.title = "Завершить и сдать все";
   btn.hidden = true;
   btn.addEventListener("click", function () {
     E.confirmSubmitWrittenExam();

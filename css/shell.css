@@ -67,6 +67,7 @@ html {
   --ege-sticky-panel-max: calc(100vh - 32px);
   --ege-topic-sidebar-width: 200px;
   --ege-topic-read-col: 36rem;
+  --ege-locked-nav-max: 68rem;
   --ege-topic-read-col-vocab: calc(var(--ege-topic-read-col) * 1.2);
   --ege-split-work-min-vocab: calc(var(--ege-split-work-min) * 0.8);
   --ege-topic-read-col-matching: calc(var(--ege-topic-read-col) * 1.452);
@@ -669,6 +670,100 @@ a {
     margin: 0;
     overflow: visible;
   }
+}
+
+/* ── Mock exam: locked nav ──
+   During the full written+oral mock exam (#egePage.is-locked-nav, set by
+   E.syncTaskFlowControls in js/ege/nav.js based on E.isFullWrittenExam()),
+   the task-list sidebar goes away in favor of the ‹ › flow strip plus a
+   corner dropdown, so the exam reads as one focused task at a time instead
+   of a wall of buttons. Practice mode never gets this class, and it's
+   scoped to desktop widths -- mobile keeps its existing drawer. */
+@media (min-width: 861px) {
+  #egePage.is-locked-nav {
+    --ege-topic-sidebar-width: 120px;
+  }
+
+  #egePage.is-locked-nav .ege-topic-nav {
+    display: none;
+  }
+
+  #egePage.is-locked-nav.is-nav-open .ege-topic-nav {
+    display: flex;
+    position: fixed;
+    top: 60px;
+    right: 16px;
+    left: auto;
+    margin: 0;
+    width: min(320px, calc(100vw - 32px));
+    max-height: min(70vh, 480px);
+    overflow-y: auto;
+    background: var(--ege-card);
+    border: 1px solid var(--ege-line);
+    border-radius: var(--ege-radius);
+    box-shadow: var(--ege-shadow);
+    z-index: 20;
+    padding: 10px;
+  }
+
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace .ege-task-flow {
+    position: static;
+    bottom: auto;
+  }
+
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace #egeInstructions,
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace #egePanels,
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace #egeListeningChrome,
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace .ege-task-flow {
+    width: 100%;
+    max-width: var(--ege-locked-nav-max);
+    margin-inline: auto;
+  }
+
+  /* Slimmer than the mobile version of this strip, which needs 48px touch
+     targets -- desktop has a mouse, so it doesn't. */
+  #egePage.is-locked-nav .ege-task-flow {
+    padding: 6px 8px;
+    gap: 8px;
+  }
+
+  #egePage.is-locked-nav .ege-task-flow__btn {
+    width: 34px;
+    min-height: 34px;
+    font-size: 1.1rem;
+  }
+
+  #egePage.is-locked-nav .ege-task-flow__current {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+    min-height: 34px;
+    padding: 4px 8px;
+  }
+
+  #egePage.is-locked-nav .ege-task-flow__position {
+    font-size: var(--ege-text-xs);
+  }
+
+  #egePage.is-locked-nav .ege-task-flow__label {
+    font-size: var(--ege-text-sm);
+  }
+}
+
+.ege-locked-nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 19;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: default;
+}
+
+#egePage.is-locked-nav.is-nav-open .ege-locked-nav-backdrop {
+  display: block;
 }
 
 .ege-page--topic-layout > .ege-workspace {
@@ -3375,19 +3470,6 @@ button.ege-prep-pair-card {
   padding: 10px 8px;
   min-height: 44px;
   box-sizing: border-box;
-}
-
-.ege-gapfill-phrase-chip {
-  align-self: center;
-  flex-shrink: 0;
-  padding: 1px 6px;
-  border-radius: 4px;
-  background: var(--yap-royal);
-  color: #fff;
-  font-family: var(--ege-font-ui);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  line-height: 1.35;
 }
 
 .ege-gapfill-phrase-extra {

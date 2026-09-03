@@ -437,19 +437,6 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
 
       refList.querySelectorAll("li").forEach(function (li) {
         var num = li.dataset.value;
-        var ownerGap = usedNumbers[num] || "";
-        var chip = li.querySelector(".ege-gapfill-phrase-chip");
-        if (ownerGap) {
-          if (!chip) {
-            chip = document.createElement("span");
-            chip.className = "ege-gapfill-phrase-chip";
-            li.appendChild(chip);
-          }
-          chip.textContent = ownerGap;
-        } else if (chip) {
-          chip.remove();
-        }
-
         var isExtra = allFilled && num && !usedNumbers[num];
         li.classList.toggle("ege-gapfill-phrase--extra", !!isExtra);
         var badge = li.querySelector(".ege-gapfill-phrase-extra");

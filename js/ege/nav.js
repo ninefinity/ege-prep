@@ -189,28 +189,61 @@ E.syncTaskFlowControls = function syncTaskFlowControls() {
     var nextBtn = document.getElementById("egeFlowNext");
     if (prevBtn) prevBtn.hidden = !hasPrev;
     if (nextBtn) nextBtn.hidden = !hasNext;
+
+    // The full task list stays useful for practicing one section at a time,
+    // but during the timed mock exam it's a wall of buttons competing with
+    // the exam itself. Swap it for the same prev/next flow strip mobile
+    // already uses -- still reachable (tap the label to open the list) but
+    // not sitting on screen by default.
+    var lockedNav = typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam();
+    var page = document.getElementById("egePage");
+    if (page) page.classList.toggle("is-locked-nav", lockedNav);
+
     var flowNav = document.getElementById("egeTaskFlow");
     if (flowNav) {
       var mobileNav =
         window.matchMedia && window.matchMedia("(max-width: 860px)").matches;
-      flowNav.hidden = !mobileNav || (!hasPrev && !hasNext);
+      flowNav.hidden = !(mobileNav || lockedNav) || (!hasPrev && !hasNext);
     }
 
     var task = E.findTask(E.state.activeTaskId);
     var labelEl = document.getElementById("egeFlowLabel");
     var positionEl = document.getElementById("egeFlowPosition");
+    var positionText = "";
+    if (tasks.length > 1 && idx >= 0) positionText = idx + 1 + " / " + tasks.length;
     if (labelEl && task) {
       labelEl.textContent = E.navItemLabel(task) || "Task";
     }
     if (positionEl) {
-      if (tasks.length > 1 && idx >= 0) {
-        positionEl.textContent = idx + 1 + " / " + tasks.length;
-        positionEl.hidden = false;
-      } else {
-        positionEl.textContent = "";
-        positionEl.hidden = true;
-      }
+      positionEl.textContent = positionText;
+      positionEl.hidden = !positionText;
     }
+
+    if (lockedNav) {
+      E.ensureLockedNavBackdrop();
+    }
+  }
+
+E.toggleLockedNav = function toggleLockedNav() {
+    var page = document.getElementById("egePage");
+    E.setNavOpen(!(page && page.classList.contains("is-nav-open")));
+  }
+
+E.ensureLockedNavBackdrop = function ensureLockedNavBackdrop() {
+    var page = document.getElementById("egePage");
+    if (!page) return null;
+    var backdrop = document.getElementById("egeLockedNavBackdrop");
+    if (backdrop) return backdrop;
+    backdrop = document.createElement("button");
+    backdrop.type = "button";
+    backdrop.id = "egeLockedNavBackdrop";
+    backdrop.className = "ege-locked-nav-backdrop";
+    backdrop.setAttribute("aria-label", "Close task list");
+    backdrop.addEventListener("click", function () {
+      E.setNavOpen(false);
+    });
+    page.appendChild(backdrop);
+    return backdrop;
   }
 
 E.scrollMainToTop = function scrollMainToTop() {
@@ -1316,9 +1349,25 @@ E.bindTaskFlow = function bindTaskFlow() {
     if (currentBtn && !currentBtn.dataset.bound) {
       currentBtn.dataset.bound = "1";
       currentBtn.addEventListener("click", function () {
-        if (window.matchMedia && window.matchMedia("(min-width: 861px)").matches) return;
+        var lockedNav = typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam();
+        if (
+          !lockedNav &&
+          window.matchMedia &&
+          window.matchMedia("(min-width: 861px)").matches
+        ) {
+          return;
+        }
+        E.toggleLockedNav();
+      });
+    }
+
+    if (!window._egeLockedNavEscBound) {
+      window._egeLockedNavEscBound = true;
+      document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
         var page = document.getElementById("egePage");
-        E.setNavOpen(!(page && page.classList.contains("is-nav-open")));
+        if (!page || !page.classList.contains("is-nav-open")) return;
+        E.setNavOpen(false);
       });
     }
 
