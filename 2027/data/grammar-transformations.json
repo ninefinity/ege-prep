@@ -1,0 +1,63 @@
+{
+  "id": "grammar-transformations",
+  "title": "Grammar Transformations",
+  "subtitle": "Задания 19–24.",
+  "tasks": [
+    {
+      "id": "demo2027-yaroslavl-sweaters",
+      "nav": "Yaroslavl / Sweaters",
+      "title": "Yaroslavl / From the history of sweaters",
+      "instructions": "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, напечатанные заглавными буквами в конце строк, обозначенных номерами 19–24, так, чтобы они грамматически соответствовали содержанию текстов.",
+      "type": "wordform",
+      "grammarTitle": "Yaroslavl / From the history of sweaters",
+      "passageTitles": [
+        "Yaroslavl",
+        "From the history of sweaters"
+      ],
+      "items": [
+        {
+          "pre": "Yaroslavl is one of the most beautiful and ancient cities of Russia, the capital of the Russian Golden Ring. It",
+          "word": "LOCATE",
+          "post": "on the Volga River and has a lot of old churches, cathedrals and monasteries as well as museums and historical monuments.",
+          "answer": "islocated",
+          "alt": ["'slocated", "is located", "'s located"]
+        },
+        {
+          "pre": "Tourists also enjoy",
+          "word": "WALK",
+          "post": "along its wonderful embankment which offers its visitors picturesque views of the Volga.",
+          "answer": "walking",
+          "alt": null
+        },
+        {
+          "pre": "Millions of tourists",
+          "word": "VISIT",
+          "post": "Yaroslavl so far, and a lot of them want to come to this city again.",
+          "answer": "havevisited",
+          "alt": null
+        },
+        {
+          "pre": "Probably every person in the world has at least one sweater. It is a very popular item of clothing now, especially for",
+          "word": "CHILD",
+          "post": ", who don't like buttons and zips.",
+          "answer": "children",
+          "alt": null
+        },
+        {
+          "pre": "It is interesting to know why a sweater is called so. In fact, a knitted woolen sweater as we know it today",
+          "word": "CREATE",
+          "post": "in Europe in the 19th century.",
+          "answer": "wascreated",
+          "alt": null
+        },
+        {
+          "pre": "Overweight people",
+          "word": "WEAR",
+          "post": "sweaters in order to lose some weight. They sweated profusely in warm sweaters, that is why this item of clothing got such a name.",
+          "answer": "wore",
+          "alt": "werewearing"
+        }
+      ]
+    }
+  ]
+}

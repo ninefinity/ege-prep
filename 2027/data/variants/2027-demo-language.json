@@ -1,0 +1,19 @@
+{
+  "id": "2027-demo-language",
+  "title": "ЕГЭ 2027 Demo — Grammar & Vocabulary",
+  "entries": [
+    {
+      "section": "grammar-transformations",
+      "task": "demo2027-yaroslavl-sweaters"
+    },
+    {
+      "section": "word-formation",
+      "task": "demo2027-hermitage"
+    },
+    {
+      "section": "vocabulary-cloze",
+      "task": "demo2027-sunday"
+    }
+  ],
+  "timeMinutes": 40
+}

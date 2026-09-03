@@ -1,0 +1,134 @@
+{
+  "id": "writing",
+  "title": "Writing",
+  "subtitle": "Задания 37–38.",
+  "tasks": [
+    {
+      "id": "demo2027-victory-day-email",
+      "nav": "Personal email",
+      "title": "Personal email",
+      "type": "writing",
+      "examNum": 37,
+      "instructions": "Укажите номер задания 37 в БЛАНКЕ ОТВЕТОВ № 2 и напишите текст своего ответного электронного письма зарубежному другу по переписке.",
+      "promptHtml": "<p><strong>From:</strong> Sophia@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Victory Day</p><p>…I'm doing a project on \"Holidays in Different Countries of the World.\" I've learnt that in Russia, Victory Day is celebrated on May 9th. What event does this holiday commemorate? What official events are held on this day? What do you and your family usually do on this day?<br>…I've joined a local volunteer group…</p><p>Write an email to Sophia. In your message: answer her questions; ask 3 questions about the volunteer group.</p>",
+      "wordMin": 100,
+      "wordMax": 140,
+      "wordToleranceNote": "Допустимое отклонение ±10%: 90–154 слова.",
+      "maxScore": 6,
+      "rubricNote": "Оцените свой ответ по критериям (макс. 6 баллов).",
+      "rubric": [
+        {
+          "id": "k1",
+          "title": "Решение коммуникативной задачи",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Задание не выполнено или ответ не по теме." },
+            { "score": 1, "text": "Ответы и вопросы частично соответствуют заданию." },
+            { "score": 2, "text": "Все пункты задания раскрыты, заданы 3 вопроса о волонтёрской группе." }
+          ]
+        },
+        {
+          "id": "k2",
+          "title": "Организация текста",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Текст не оформлен как email или логика нарушена." },
+            { "score": 1, "text": "Есть приветствие/прощание, но абзацы или связность слабые." },
+            { "score": 2, "text": "Письмо логично, есть приветствие, основная часть и завершение." }
+          ]
+        },
+        {
+          "id": "k3",
+          "title": "Языковое оформление",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Много ошибок, смысл часто затруднён." },
+            { "score": 1, "text": "Ошибки есть, но смысл в целом понятен." },
+            { "score": 2, "text": "Лексика и грамматика соответствуют уровню, ошибки не мешают пониманию." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "demo2027-zetland-essay",
+      "nav": "Opinion essay",
+      "title": "Task 38 — choose one",
+      "type": "writing",
+      "examNum": 38,
+      "instructions": "Выберите только ОДНО из двух предложенных заданий (38.1 или 38.2). В ответе на задание 38 числительные пишите цифрами.",
+      "wordMin": 200,
+      "wordMax": 250,
+      "wordToleranceNote": "Допустимое отклонение ±10%: 180–275 слов.",
+      "maxScore": 14,
+      "rubricNote": "Оцените свой ответ по критериям (макс. 14 баллов).",
+      "rubric": [
+        {
+          "id": "k1",
+          "title": "Решение коммуникативной задачи",
+          "maxScore": 4,
+          "zeroAll": true,
+          "levels": [
+            { "score": 0, "text": "Задание не выполнено или текст не по теме." },
+            { "score": 1, "text": "Раскрыта только часть пунктов плана." },
+            { "score": 2, "text": "Большинство пунктов плана затронуты поверхностно." },
+            { "score": 3, "text": "Почти все пункты плана раскрыты." },
+            { "score": 4, "text": "Все пункты плана раскрыты полно, есть личное мнение в конце." }
+          ]
+        },
+        {
+          "id": "k2",
+          "title": "Организация текста",
+          "maxScore": 3,
+          "levels": [
+            { "score": 0, "text": "Текст неструктурирован." },
+            { "score": 1, "text": "Есть попытка структуры, переходы слабые." },
+            { "score": 2, "text": "Логичная структура, абзацы в основном уместны." },
+            { "score": 3, "text": "Чёткая структура, связные переходы между частями." }
+          ]
+        },
+        {
+          "id": "k3",
+          "title": "Лексика",
+          "maxScore": 3,
+          "levels": [
+            { "score": 0, "text": "Лексика не соответствует теме." },
+            { "score": 1, "text": "Базовая лексика, частые повторы." },
+            { "score": 2, "text": "Достаточный словарный запас по теме." },
+            { "score": 3, "text": "Разнообразная тематическая лексика." }
+          ]
+        },
+        {
+          "id": "k4",
+          "title": "Грамматика",
+          "maxScore": 4,
+          "levels": [
+            { "score": 0, "text": "Грамматические ошибки мешают пониманию." },
+            { "score": 1, "text": "Много ошибок в простых конструкциях." },
+            { "score": 2, "text": "Ошибки есть, но смысл понятен." },
+            { "score": 3, "text": "В основном верные грамматические структуры." },
+            { "score": 4, "text": "Разнообразные структуры, ошибки редки." }
+          ]
+        }
+      ],
+      "plan": [
+        "make an opening statement on the subject of the project",
+        "select and report 2-3 facts",
+        "make 1-2 comparisons where relevant and give your comments",
+        "outline a possible problem and suggest a way of solving it",
+        "conclude by giving and explaining your opinion"
+      ],
+      "choices": [
+        {
+          "id": "38.1",
+          "title": "Living conditions in rural areas in Zetland",
+          "promptHtml": "<p>Imagine that you are doing a project on living conditions in rural areas in Zetland. You have found some data on the subject – the results of a survey conducted among Zetland school students (see the table below). Comment on the survey data and give your opinion on the subject of the project.</p><p><strong>What do you think should be done to improve living conditions in the countryside? Choose one option</strong></p><table class='ege-writing-table'><tbody><tr><td>Build hospitals and schools</td><td>48%</td></tr><tr><td>Improve internet access</td><td>20%</td></tr><tr><td>Organize more cultural events</td><td>18%</td></tr><tr><td>Build sports facilities</td><td>9%</td></tr><tr><td>Develop public transport</td><td>5%</td></tr></tbody></table><p>conclude by giving and explaining your opinion on how to improve rural living conditions</p>"
+        },
+        {
+          "id": "38.2",
+          "title": "Jobs for young professionals in Zetland",
+          "promptHtml": "<p>Imagine that you are doing a project on jobs for young professionals in Zetland. You have found some data on the subject – the results of a survey conducted among young Zetlanders (see the pie chart below). Comment on the survey data and give your opinion on the subject of the project.</p><p><strong>What is the main reason why it is difficult for you as a young professional to find a job? Choose one option</strong></p><table class='ege-writing-table'><tbody><tr><td>Little professional experience</td><td>30%</td></tr><tr><td>Low foreign language proficiency</td><td>28%</td></tr><tr><td>Lack of qualifications</td><td>24%</td></tr><tr><td>Salary expectations are too high</td><td>10%</td></tr><tr><td>High competition</td><td>8%</td></tr></tbody></table><p>conclude by giving and explaining your opinion on whether it is easy for a young professional to find a job</p>"
+        }
+      ]
+    }
+  ]
+}

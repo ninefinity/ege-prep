@@ -1,0 +1,87 @@
+{
+  "id": "reading-comprehension",
+  "title": "Reading Comprehension",
+  "subtitle": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "tasks": [
+    {
+      "id": "demo2027-ai-education",
+      "nav": "AI in Education",
+      "title": "AI and student experience",
+      "instructions": "Прочитайте текст и выполните задания 12–18. В каждом задании запишите в поле ответа цифру 1, 2, 3 или 4.",
+      "type": "mc",
+      "passage": "No matter what your occupation is, you have probably faced some uncertainty over the last few years as a result of innovative Artificial Intelligence (AI) technology and its growing popularity. Teachers and students alike feel strongly about the upcoming changes. There are certain ways in which AI technology is altering education, both for teachers and students. Here is what lies ahead for education and the student experience in today's AI-driven world.<br><br>If you have tried using AI tools yourself, you know how powerful they can be. With just a few clicks, these programmes can write stories, organise ideas, and even complete homework assignments. Unfortunately for educators, this potent tool is also available to students who may use it to cheat and plagiarise work. Over the last several months, teachers from elementary schools to universities have been trying to address this growing problem.<br><br>Sadly, there is, as yet, no silver-bullet solution for teachers. While some software has claimed to be able to detect the presence of AI-generated content, none of these have fully cracked the code. Teachers are now left to guess whether students are using this software to complete assignments. As a result of this change, there will likely be a shift in education that puts emphasis on in-person assessments, rather than take-home assignments. In this way, educators can be sure that students are not using AI software to generate their work.<br><br>But AI is not just causing problems – it is also creating new opportunities. Teachers are also starting to introduce AI into their processes. Instead of banning the use of AI, many educators and institutions are currently trying to figure out the best ways for students to use this technology as a helpful tool. Some teachers believe that soon, all students will learn how to use AI properly to support their learning in honest and useful ways.<br><br>Over the decades, a critique of the school system has been its one-size-fits-all approach to education. This is a model that treats every student the same way, ignoring individual needs and learning styles. Though there were some attempts to fix this issue, none have been very effective. Today, however, AI is presenting itself as an antidote to this problem. The data about students' abilities makes it possible for teachers to use AI to personalise learning. For example, the technology can show which students need extra help, and which ones are ready for more challenging work. This means teachers can tweak their lessons to fit each student's needs, helping everyone do their best.<br><br>Getting extra help outside of school has always been important for many students, but not everyone could afford private tutors. Now, AI is changing that. Free AI tutors are becoming available to help students with their schoolwork anytime they need it. These digital tutors can explain difficult concepts, help with homework, and give students the extra practice they need to understand tough subjects.<br><br>Thus, AI can have a wide variety of impacts on the student experience. While it is creating new problems, like cheating, it is also offering new ways to make learning more personal and accessible for every student. Now, all students have more opportunities to excel in subjects they once found challenging. This incredible innovation makes me hopeful that more students will achieve academic success. The key will be learning how to use this technology wisely – as a tool to support learning, not replace it. As teachers and students continue to adapt, one thing is clear: education will never again be the same.",
+      "questions": [
+        {
+          "q": "12. What feeling does the spread of AI in education bring up?",
+          "opts": [
+            "Opposition.",
+            "Doubt.",
+            "Excitement.",
+            "Curiosity."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "13. This growing problem in paragraph 2 refers to …",
+          "opts": [
+            "AI's productivity.",
+            "shortage of teachers.",
+            "academic dishonesty.",
+            "students' access to AI."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "14. What is the problem with the systems that spot the use of AI?",
+          "opts": [
+            "They are quite unreliable.",
+            "They are rather expensive.",
+            "They are hard to work with.",
+            "They are difficult to access."
+          ],
+          "correct": 0
+        },
+        {
+          "q": "15. How can the use of AI in education be described, according to the text?",
+          "opts": [
+            "Successful.",
+            "Controversial.",
+            "Unregulated.",
+            "Ineffective."
+          ],
+          "correct": 1
+        },
+        {
+          "q": "16. Tweak in paragraph 5 most probably means …",
+          "opts": [
+            "simplify.",
+            "replace.",
+            "upgrade.",
+            "adjust."
+          ],
+          "correct": 3
+        },
+        {
+          "q": "17. Which fact about AI in education is NOT mentioned in the text?",
+          "opts": [
+            "AI impacts how students are assessed.",
+            "AI makes education more accessible.",
+            "AI makes students dependent on it.",
+            "AI helps make learning individualised."
+          ],
+          "correct": 2
+        },
+        {
+          "q": "18. The author concludes by suggesting that …",
+          "opts": [
+            "students will be more productive with AI.",
+            "a balanced use of AI will benefit education.",
+            "education needs to regulate the use of AI.",
+            "teachers need to reconsider their methods."
+          ],
+          "correct": 1
+        }
+      ]
+    }
+  ]
+}

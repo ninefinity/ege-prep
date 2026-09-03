@@ -1,0 +1,113 @@
+{
+  "title": "ЕГЭ 2027 Demo",
+  "sections": [
+    {
+      "id": "listening",
+      "group": "Listening",
+      "examFrom": 1,
+      "examTo": 9,
+      "title": "Listening",
+      "taskCount": 3,
+      "available": true
+    },
+    {
+      "id": "matching-headings",
+      "group": "Reading",
+      "examFrom": 10,
+      "examTo": 10,
+      "title": "Matching Headings",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "gap-fill",
+      "group": "Reading",
+      "examFrom": 11,
+      "examTo": 11,
+      "title": "Complete the Sentences",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "reading-comprehension",
+      "group": "Reading",
+      "examFrom": 12,
+      "examTo": 18,
+      "title": "Reading Comprehension",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "grammar-transformations",
+      "group": "Grammar & Vocabulary",
+      "examFrom": 19,
+      "examTo": 24,
+      "title": "Grammar",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "word-formation",
+      "group": "Grammar & Vocabulary",
+      "examFrom": 25,
+      "examTo": 29,
+      "title": "Word Formation",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "vocabulary-cloze",
+      "group": "Grammar & Vocabulary",
+      "examFrom": 30,
+      "examTo": 36,
+      "title": "Vocabulary in Context",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "writing",
+      "group": "Writing",
+      "examFrom": 37,
+      "examTo": 38,
+      "title": "Writing",
+      "taskCount": 2,
+      "available": true
+    },
+    {
+      "id": "speaking-aloud",
+      "group": "Speaking",
+      "examFrom": 39,
+      "examTo": 39,
+      "title": "Reading Aloud",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "speaking-questions",
+      "group": "Speaking",
+      "examFrom": 40,
+      "examTo": 40,
+      "title": "Direct Questions",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "speaking-interview",
+      "group": "Speaking",
+      "examFrom": 41,
+      "examTo": 41,
+      "title": "Interview",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "speaking",
+      "group": "Speaking",
+      "examFrom": 42,
+      "examTo": 42,
+      "title": "Photo Monologue",
+      "taskCount": 1,
+      "available": true
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "gap-fill",
+  "title": "Complete the Sentences",
+  "subtitle": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя. Занесите цифры, обозначающие соответствующие части предложений, в таблицу.",
+  "tasks": [
+    {
+      "id": "demo2027-amur-river",
+      "nav": "Amur River",
+      "title": "Amur River region",
+      "instructions": "Прочитайте текст и заполните пропуски A–F частями предложений, обозначенными цифрами 1–7. Одна из частей в списке 1–7 лишняя.",
+      "type": "gapfill",
+      "options": [
+        "which is endangered and should be",
+        "but they are coming under pressure from",
+        "forming the border between north-east",
+        "that receives rather heavy rainfall",
+        "which is a traditional medicinal plant",
+        "to deal with the causes and effects of",
+        "as there may be about 120 left in the wild"
+      ],
+      "html": "The Amur River is also known as the Heilong in China. The river covers parts of Russia, China, and Mongolia, <span data-gap=\"A\"></span> China and south-east Russia. A large region of grasslands and forests, about 1.85 million sq km in size, is around the river. The Amur region has some of the world's most extensive temperate forests. These are forests of a rather mild climate area <span data-gap=\"B\"></span>. Although the region there experiences very cold winters, it still supports a varied wildlife. The forests are home for not just rare animals, but trees like the Korean pine, and wild ginseng, <span data-gap=\"C\"></span>. The most famous residents of the region include Amur or Siberian tigers, and the last remaining wild population of Amur leopards. Amur leopards are critically endangered <span data-gap=\"D\"></span>. Amur tigers and Amur leopards are top predators with no natural enemies. They play a great role in keeping a healthy balance of wildlife in their environment. This is very important for the local people, animals, and plants that depend on that. Many of the forest areas in the Amur region remain largely unchanged, <span data-gap=\"E\"></span> increasing development and the need for resources. The forests also suffer from frequent fires, natural and man-made. Rising temperatures and changing rainfall patterns affect them as well. So, people should be working globally and locally <span data-gap=\"F\"></span> climate change.",
+      "gaps": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "answers": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "7",
+        "E": "2",
+        "F": "6"
+      }
+    }
+  ]
+}

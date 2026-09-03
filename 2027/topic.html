@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time to ЕГЭ — 2027 demo</title>
+  <link rel="icon" href="assets/time-to-ege-2027-edition.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shell.css" />
+</head>
+<body class="yap-brand">
+  <main class="ege-page" id="egePage">
+    <div class="ege-topics">
+      <aside class="ege-rail">
+        <div class="ege-topic-sidebar" id="egeTopicSidebar">
+          <div class="ege-topic-sidebar__head">
+            <div class="ege-topic-sidebar__logo">
+              <img class="ege-rail__mark" src="assets/time-to-ege-2027-edition.png" alt="" aria-hidden="true" />
+            </div>
+            <a href="index.html" class="ege-back ege-topic-sidebar__back">← go back</a>
+          </div>
+          <div class="ege-topic-nav" id="egeTopicNav">
+            <nav class="ege-nav" id="egeNav" aria-label="Tasks"></nav>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="ege-workspace">
+      <div id="egeListeningChrome" aria-hidden="true"></div>
+      <p class="ege-instructions" id="egeInstructions" hidden></p>
+      <div id="egePanels" aria-live="polite" aria-busy="true">
+        <p class="ege-loading" id="egeTopicLoading">Loading…</p>
+      </div>
+      <nav class="ege-task-flow" id="egeTaskFlow" aria-label="Task navigation" hidden>
+        <button type="button" class="ege-task-flow__btn" id="egeFlowPrev" aria-label="Previous task" hidden>‹</button>
+        <button type="button" class="ege-task-flow__current" id="egeFlowCurrent" aria-expanded="false" aria-controls="egeNav">
+          <span class="ege-task-flow__position" id="egeFlowPosition"></span>
+          <span class="ege-task-flow__label" id="egeFlowLabel"></span>
+        </button>
+        <button type="button" class="ege-task-flow__btn" id="egeFlowNext" aria-label="Next task" hidden>›</button>
+      </nav>
+    </div>
+  </main>
+
+  <script src="js/highlight.js"></script>
+  <script>
+    window.EGE_2027_DEMO = true;
+  </script>
+  <script type="module">
+    import { isPromoUnlocked } from "./js/promo-unlock.js";
+    if (!isPromoUnlocked()) {
+      location.replace("index.html#code");
+    } else {
+      await import("./js/engine.js");
+      EgePrep.initTopicPage();
+    }
+  </script>
+  <script src="shared/site-footer.js"></script>
+</body>
+</html>

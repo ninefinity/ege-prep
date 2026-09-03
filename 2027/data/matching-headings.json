@@ -1,0 +1,63 @@
+{
+  "id": "matching-headings",
+  "title": "Matching Headings",
+  "subtitle": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+  "tasks": [
+    {
+      "id": "demo2027-lions",
+      "nav": "African Lions",
+      "title": "African Lions",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Clever strategies for food",
+        "Appearance matters",
+        "Problems of family life",
+        "Necessary for nature",
+        "Lions' home",
+        "Giving a helping hand",
+        "Looking after their young",
+        "Lions in danger"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "The magnificent lion is the symbol of Africa. Powerful and beautiful, the king of the beasts has no natural enemies. Lions have strong, compact bodies and powerful forelegs, teeth, and jaws for pulling down their food. Their coats are yellow-gold, and adult males have manes that range in colour from blond, to reddish-brown and black. The length and the colour of a lion's mane are likely determined by age, genetics, and hormones. Young lions have light spots on their coats that disappear as they grow."
+        },
+        {
+          "letter": "B",
+          "text": "Lions are mammals and the most sociable of all big cats. They live in groups called prides, which usually consist of related females and their cubs. Males often fight to maintain dominance. Young females usually stay in their mothers' prides for life, unless food shortage forces them out. Young males are driven from their prides when they grow large enough to compete with the dominant males. This usually happens when young males are between the ages of 2 and 4."
+        },
+        {
+          "letter": "C",
+          "text": "Today, lions are not at risk of extinction in Africa. However, three-quarters of their populations are in decline. The main threats to African lions are conflicts with people and the loss of living space, as well as climate change and wildlife trade. Some African lion populations have become small and isolated. Besides, the number of plant-eating animals they hunt for is being reduced. With around 23,000 African lions left in the wild, they are now officially classified as \"vulnerable\"."
+        },
+        {
+          "letter": "D",
+          "text": "African lions are highly adaptable animals and can be found in a wide variety of habitats, including desert areas. They prefer open woodland and thick bush, as well as scrub and grasslands. Such environments help them to hunt and also to find shade to rest during the hottest part of the day. African lions used to be spread across most of the continent. But now they are only found in sub-Saharan Africa, with 80 % in eastern or southern Africa. Three of the five largest populations are in Tanzania."
+        },
+        {
+          "letter": "E",
+          "text": "Lions are top hunters in their environments, whether that is grassland, desert, or open woodland. It means they play an important role in keeping a healthy balance of numbers among other animals, especially plant-eating ones, like zebra and wildebeest. This influences the condition of grasslands and forests. By protecting a lion's landscape, people are helping the whole area to grow and develop, which does not just benefit wildlife, but the people who rely on local natural resources, too."
+        },
+        {
+          "letter": "F",
+          "text": "Lions do most of their hunting at night as their eyes have adapted to the dark. This gives them a huge advantage over the animals they hunt for. Interestingly, lions also hunt during storms. The noise, rain, and wind make it harder for other animals to see and hear lions, increasing their chances of a successful hunt. Females are the primary hunters, although males will sometimes join them during a hunt. When hunting, females have specific roles. Some chase the animal towards those in the centre."
+        },
+        {
+          "letter": "G",
+          "text": "To save lions, new protected areas of habitat in east Africa are organised. There is a special conservation programme in Kenya that monitors and protects lions. The programme educates local people on lion conservation, too. This includes working with local communities, such as anti-poisoning actions. They also provide better fenced areas for farm animals in local villages. Taking school children on trips to see the wild animals they are saving is one more important action to support wildlife."
+        }
+      ],
+      "answers": {
+        "A": "2",
+        "B": "3",
+        "C": "8",
+        "D": "5",
+        "E": "4",
+        "F": "1",
+        "G": "6"
+      }
+    }
+  ]
+}

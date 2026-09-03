@@ -1,0 +1,19 @@
+{
+  "id": "2027-demo-reading",
+  "title": "ЕГЭ 2027 Demo — Reading",
+  "entries": [
+    {
+      "section": "matching-headings",
+      "task": "demo2027-lions"
+    },
+    {
+      "section": "gap-fill",
+      "task": "demo2027-amur-river"
+    },
+    {
+      "section": "reading-comprehension",
+      "task": "demo2027-ai-education"
+    }
+  ],
+  "timeMinutes": 30
+}

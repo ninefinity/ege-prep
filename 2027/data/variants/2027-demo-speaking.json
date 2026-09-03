@@ -1,0 +1,23 @@
+{
+  "id": "2027-demo-speaking",
+  "title": "ЕГЭ 2027 Demo — Speaking",
+  "entries": [
+    {
+      "section": "speaking-aloud",
+      "task": "demo2027-land-pollution"
+    },
+    {
+      "section": "speaking-questions",
+      "task": "demo2027-cooking-class"
+    },
+    {
+      "section": "speaking-interview",
+      "task": "demo2027-online-shopping"
+    },
+    {
+      "section": "speaking",
+      "task": "demo2027-solo-or-company"
+    }
+  ],
+  "timeMinutes": 17
+}

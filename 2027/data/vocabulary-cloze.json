@@ -1,0 +1,88 @@
+{
+  "id": "vocabulary-cloze",
+  "title": "Vocabulary in Context",
+  "subtitle": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Эти номера соответствуют заданиям 30–36, в которых представлены возможные варианты ответов. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+  "tasks": [
+    {
+      "id": "demo2027-sunday",
+      "nav": "Sunday",
+      "title": "Sunday",
+      "instructions": "Прочитайте текст с пропусками, обозначенными номерами 30–36. Запишите в поле ответа цифру 1, 2, 3 или 4, соответствующую выбранному Вами варианту ответа.",
+      "type": "mc",
+      "passage": "Gloria Wald sat back in her chair with a small sigh. She was trying to relax listening to her favourite classical music. She had to [30] that she was tired today. Sundays always tired her. Sometimes she thought she did more work at home than she did at the office. She always spent Sundays answering her personal correspondence, looking over the books kept by the cook and the housekeeper. She made lists of what she had noticed needed to be [31] around the apartment and of items needed to complete her wardrobe. [32], she had to plan menus for the week. It was tedious work, but she had done it for years, even before she'd begun to run the business.\nOnce she'd taken over from her husband, she had still spent her Sundays [33] to the household. She was also [34] care of her grandson on the nurse's day off. Those Sundays had been precious, a few hours with her grandson without anyone interfering, anyone taking him away. She [35] those days. A tiny bright tear crept into her lashes. How she loved that child. She would have done anything for him. And she had. She [36] to maintain the family business empire for him, carried the legacy from one generation to the next. It was her most valuable gift for him. And she had come to love the business almost as much as she loved her grandson.",
+      "questions": [
+        {
+          "q": "30.",
+          "opts": [
+            "approach",
+            "allow",
+            "admit",
+            "approve"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "31.",
+          "opts": [
+            "received",
+            "repaired",
+            "remained",
+            "repeated"
+          ],
+          "correct": 1
+        },
+        {
+          "q": "32.",
+          "opts": [
+            "Although",
+            "However",
+            "Nevertheless",
+            "Moreover"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "33.",
+          "opts": [
+            "visiting",
+            "concentrating",
+            "attending",
+            "focusing"
+          ],
+          "correct": 2
+        },
+        {
+          "q": "34.",
+          "opts": [
+            "taking",
+            "keeping",
+            "holding",
+            "making"
+          ],
+          "correct": 0
+        },
+        {
+          "q": "35.",
+          "opts": [
+            "recorded",
+            "reminded",
+            "recognized",
+            "remembered"
+          ],
+          "correct": 3
+        },
+        {
+          "q": "36.",
+          "opts": [
+            "managed",
+            "accomplished",
+            "succeeded",
+            "achieved"
+          ],
+          "correct": 0
+        }
+      ]
+    }
+  ]
+}

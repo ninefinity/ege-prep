@@ -1,0 +1,18 @@
+{
+  "id": "speaking-aloud",
+  "title": "Reading Aloud",
+  "instructions": "Вам нужно подготовить связное высказывание на основе текста научно-популярного характера.",
+  "tasks": [
+    {
+      "id": "demo2027-land-pollution",
+      "nav": "Reading aloud",
+      "title": "Land pollution",
+      "type": "speaking-aloud",
+      "instructions": "Вам нужно прочитать текст вслух. У вас есть 1,5 минуты для подготовки. Ваш ответ должен занимать не более 1,5 минут.",
+      "textTitle": "Land pollution",
+      "text": "Land pollution is one of the most serious environmental issues, but there are many solutions we can use to fight it. When farmers or builders need to clear an area, they often plan to cut down all the trees. However, it is a good idea to leave old and dying trees in place, and even encourage more trees and plants to grow there. Old trees provide homes for insects and small animals, and they help keep the soil healthy. Another way to protect the land is to be careful about how we get rid of waste, especially dangerous chemicals or electronic waste, which can harm the soil and water if thrown away incorrectly. It is also important to try to reduce our use of plastic, since plastic can stay in the ground for hundreds of years and slowly release harmful substances. Instead of throwing away items after just one use, people should try to reuse or recycle as many things as possible. Finally, growing food and plants using organic methods, without harmful chemicals or pesticides, is another excellent way to protect the land we live on and keep it healthy for future generations.",
+      "prepSeconds": 90,
+      "speakSeconds": 90
+    }
+  ]
+}

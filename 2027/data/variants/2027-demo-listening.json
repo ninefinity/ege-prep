@@ -1,0 +1,10 @@
+{
+  "id": "2027-demo-listening",
+  "title": "ЕГЭ 2027 Demo — Listening",
+  "entries": [
+    { "section": "listening", "task": "demo2027-listening-1" },
+    { "section": "listening", "task": "demo2027-listening-2" },
+    { "section": "listening", "task": "demo2027-listening-3-9" }
+  ],
+  "timeMinutes": 30
+}

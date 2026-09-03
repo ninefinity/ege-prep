@@ -1,0 +1,36 @@
+{
+  "id": "speaking",
+  "title": "Photo Monologue",
+  "instructions": "Вы получите задание с двумя иллюстрациями. Подготовьтесь к монологу по плану. На выполнение задания даётся 1,5 минуты на подготовку и 2,5 минуты на ответ.",
+  "tasks": [
+    {
+      "id": "demo2027-solo-or-company",
+      "nav": "Solo or in Company",
+      "title": "Solo or in company",
+      "type": "speaking",
+      "prompt": "Вы готовите видеопроект «Solo or in company» и хотите обсудить с друзьями фотографии двух вариантов путешествий. Запишите голосовое сообщение другу и опишите фотографии. Вы должны подготовить связное высказывание, используя приведённый план. У вас есть 2,5 минуты для подготовки. Ваш ответ должен занимать не более 3 минут.",
+      "plan": [
+        "— give a general statement introducing the two photos and their common theme;",
+        "— compare and contrast the photos (what is common and what is different);",
+        "— say 1-2 advantages of the type of travelling shown in each photo;",
+        "— say 1-2 disadvantages of the type of travelling shown in each photo;",
+        "— say which of the two types of travelling you would prefer and why;"
+      ],
+      "opinionQuestion": "which type of travelling you would prefer and why",
+      "prepSeconds": 150,
+      "speakSeconds": 180,
+      "images": [
+        {
+          "id": 1,
+          "src": "demo2027/group-tour.jpg",
+          "alt": "A group of tourists on an organized bus tour, travelling together with a guide."
+        },
+        {
+          "id": 2,
+          "src": "demo2027/solo-travel.jpg",
+          "alt": "A solo traveller standing alone in front of a famous landmark."
+        }
+      ]
+    }
+  ]
+}

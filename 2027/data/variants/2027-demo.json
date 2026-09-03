@@ -1,0 +1,67 @@
+{
+  "id": "2027-demo",
+  "title": "ЕГЭ 2027 Demo",
+  "entries": [
+    {
+      "section": "listening",
+      "task": "demo2027-listening-1"
+    },
+    {
+      "section": "listening",
+      "task": "demo2027-listening-2"
+    },
+    {
+      "section": "listening",
+      "task": "demo2027-listening-3-9"
+    },
+    {
+      "section": "matching-headings",
+      "task": "demo2027-lions"
+    },
+    {
+      "section": "gap-fill",
+      "task": "demo2027-amur-river"
+    },
+    {
+      "section": "reading-comprehension",
+      "task": "demo2027-ai-education"
+    },
+    {
+      "section": "grammar-transformations",
+      "task": "demo2027-yaroslavl-sweaters"
+    },
+    {
+      "section": "word-formation",
+      "task": "demo2027-hermitage"
+    },
+    {
+      "section": "vocabulary-cloze",
+      "task": "demo2027-sunday"
+    },
+    {
+      "section": "writing",
+      "task": "demo2027-victory-day-email"
+    },
+    {
+      "section": "writing",
+      "task": "demo2027-zetland-essay"
+    },
+    {
+      "section": "speaking-aloud",
+      "task": "demo2027-land-pollution"
+    },
+    {
+      "section": "speaking-questions",
+      "task": "demo2027-cooking-class"
+    },
+    {
+      "section": "speaking-interview",
+      "task": "demo2027-online-shopping"
+    },
+    {
+      "section": "speaking",
+      "task": "demo2027-solo-or-company"
+    }
+  ],
+  "timeMinutes": 190
+}
