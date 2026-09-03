@@ -684,31 +684,21 @@ a {
     --ege-topic-sidebar-width: 120px;
   }
 
+  /* Opening the list reflows the sidebar column back to full width instead
+     of floating a popover over the task -- nothing ever gets covered, only
+     temporarily pushed aside, which is what "don't interrupt content"
+     actually needs (a floating overlay still covers whatever's under it
+     while open, even if it doesn't reflow anything). */
+  #egePage.is-locked-nav.is-nav-open {
+    --ege-topic-sidebar-width: 220px;
+  }
+
   #egePage.is-locked-nav .ege-topic-nav {
     display: none;
   }
 
   #egePage.is-locked-nav.is-nav-open .ege-topic-nav {
     display: flex;
-    position: fixed;
-    top: 60px;
-    right: 16px;
-    left: auto;
-    margin: 0;
-    width: min(320px, calc(100vw - 32px));
-    max-height: min(70vh, 480px);
-    overflow-y: auto;
-    background: var(--ege-card);
-    border: 1px solid var(--ege-line);
-    border-radius: var(--ege-radius);
-    box-shadow: var(--ege-shadow);
-    z-index: 20;
-    padding: 10px;
-  }
-
-  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace .ege-task-flow {
-    position: static;
-    bottom: auto;
   }
 
   #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace #egeInstructions,
@@ -720,11 +710,20 @@ a {
     margin-inline: auto;
   }
 
-  /* Slimmer than the mobile version of this strip, which needs 48px touch
-     targets -- desktop has a mouse, so it doesn't. */
+  /* The mobile version of this strip is meant to look like a flat toolbar
+     bled to the screen edge (negative margin, border-top only, sticky to
+     the viewport bottom). Sitting in normal flow under a rounded, shadowed
+     content card, that flat styling reads as a stray strip rather than
+     part of the page -- give it the same card treatment instead. Also
+     slimmer than mobile's 48px touch targets, which desktop doesn't need. */
   #egePage.is-locked-nav .ege-task-flow {
+    margin-top: 14px;
     padding: 6px 8px;
     gap: 8px;
+    border: 1px solid var(--ege-line);
+    border-radius: var(--ege-radius);
+    background: var(--ege-card);
+    box-shadow: var(--ege-shadow);
   }
 
   #egePage.is-locked-nav .ege-task-flow__btn {
@@ -3658,8 +3657,6 @@ button.ege-prep-pair-card {
 }
 
 .ege-task--vocab .ege-gap-insert.is-active.is-filled:not(.is-correct):not(.is-wrong) .ege-gap-insert__text {
-  outline: 2px solid var(--yap-royal);
-  outline-offset: 1px;
   box-shadow: none;
 }
 

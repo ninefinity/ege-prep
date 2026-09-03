@@ -330,7 +330,7 @@ E.buildTaskIntro = function buildTaskIntro(task) {
         titleText = "";
       }
     }
-    if (titleText && task.type !== "wordform" && !skipTitle) {
+    if (titleText && task.type !== "wordform" && task.type !== "writing" && !skipTitle) {
       var head = document.createElement("div");
       head.className = "ege-task-intro__head";
 

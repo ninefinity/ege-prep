@@ -780,11 +780,6 @@ E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice) {
 
   var parsed = E.parseWriting38Prompt(choice.promptHtml || "");
 
-  var title = document.createElement("h2");
-  title.className = "ege-writing38-brief__title";
-  title.textContent = E.writing38ChoiceLabel(choice).replace(/\s+in Zetland$/i, "");
-  rail.appendChild(title);
-
   if (parsed.context) {
     var taskBlock = document.createElement("section");
     taskBlock.className = "ege-writing38-brief__section";
@@ -894,7 +889,7 @@ E.buildWriting38WorkspaceHeader = function buildWriting38WorkspaceHeader(task, c
 
   var kicker = document.createElement("p");
   kicker.className = "ege-writing38-header__kicker";
-  kicker.textContent = "Task 38 · Opinion essay";
+  kicker.textContent = "Opinion essay";
   titles.appendChild(kicker);
 
   var variant = document.createElement("h2");
