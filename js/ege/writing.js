@@ -1007,21 +1007,6 @@ E.buildWriting38ActionBar = function buildWriting38ActionBar(task) {
 
   bar.appendChild(left);
 
-  var submit = document.createElement("button");
-  submit.type = "button";
-  submit.className = "ege-btn ege-btn--primary ege-writing38-actionbar__submit";
-  submit.id = "writing38-submit-" + task.id;
-  submit.textContent = "Сдать эссе";
-  submit.addEventListener("click", function () {
-    var examBtn = document.getElementById("egeFinishWritten");
-    if (examBtn && !examBtn.hidden) {
-      examBtn.click();
-      return;
-    }
-    if (typeof E.confirmSubmitWrittenExam === "function") E.confirmSubmitWrittenExam();
-  });
-  bar.appendChild(submit);
-
   return bar;
 };
 
@@ -1047,25 +1032,6 @@ E.syncWriting38OverflowMenu = function syncWriting38OverflowMenu(taskId) {
   var more = document.querySelector("#writing38-split-" + taskId + " .ege-writing38-more");
   if (!more) return;
   more.hidden = !resetBtn || resetBtn.hidden;
-};
-
-E.syncWriting38SubmitVisibility = function syncWriting38SubmitVisibility(taskId) {
-  var submit = document.getElementById("writing38-submit-" + taskId);
-  if (!submit) return;
-  var examBtn = document.getElementById("egeFinishWritten");
-  var visible = !!(
-    typeof E.isFullWrittenExam === "function" &&
-    E.isFullWrittenExam() &&
-    typeof E.isWrittenActive === "function" &&
-    E.isWrittenActive()
-  );
-  if (!visible && examBtn) visible = !examBtn.hidden;
-  submit.hidden = !visible;
-  if (!visible) return;
-  var ready =
-    typeof E.isPlacementWrittenFilled === "function" && E.isPlacementWrittenFilled();
-  submit.classList.toggle("ege-btn--primary", ready);
-  submit.classList.toggle("ege-btn--ghost", !ready);
 };
 
 E.buildWriting38ChoicePicker = function buildWriting38ChoicePicker(task) {
@@ -1146,7 +1112,6 @@ E.syncWriting38Workspace = function syncWriting38Workspace(taskId) {
   workspace.appendChild(E.buildWriting38Workspace(task, choice));
 
   E.syncWritingWordCount(taskId);
-  E.syncWriting38SubmitVisibility(taskId);
   if (typeof E.syncResetButton === "function") E.syncResetButton(taskId);
   E.syncWriting38OverflowMenu(taskId);
   if (typeof E.syncMobileReadWorkTabs === "function") E.syncMobileReadWorkTabs(taskId);

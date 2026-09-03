@@ -949,13 +949,7 @@ E.renderVocabCloze = function renderVocabCloze(task, topicId) {
     side.className = "ege-sidebar-work";
     side.appendChild(picker);
 
-    wrap.appendChild(
-      E.buildSplit(
-        E.buildPanel("", passage, "ege-panel--read"),
-        E.buildPanel("", side, "ege-panel--work"),
-        "ege-split--panels"
-      )
-    );
+    wrap.appendChild(E.buildLongreadSplit(passage, side, { workLabelKind: "questions" }));
     wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));
     return wrap;
   }

@@ -843,9 +843,6 @@ E.syncFinishWrittenButton = function syncFinishWrittenButton() {
   btn.removeAttribute("aria-disabled");
   btn.title = "";
   E.syncExamControlsLayout();
-  if (typeof E.syncWriting38SubmitVisibility === "function" && E.state.activeTaskId) {
-    E.syncWriting38SubmitVisibility(E.state.activeTaskId);
-  }
 };
 
 E.syncNavSectionHeadings = function syncNavSectionHeadings() {

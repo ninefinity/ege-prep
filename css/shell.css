@@ -1920,38 +1920,59 @@ button.ege-prep-pair-card {
     max-width: var(--ege-topic-read-col-vocab);
     width: 100%;
     min-width: 0;
-    align-self: start;
-    overflow: visible;
-    max-height: none;
-    height: auto;
-    display: block;
+    align-self: stretch;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .ege-page--topic-layout .ege-task--vocab .ege-split__work {
-    height: auto;
+    position: sticky;
+    top: var(--ege-sticky-top);
+    align-self: start;
+    max-height: var(--ege-sticky-panel-max);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     min-height: 0;
     width: 100%;
-    max-width: none;
-    align-self: start;
-    overflow: visible;
-    display: block;
-    position: static;
   }
 
-  .ege-page--topic-layout .ege-task--vocab .ege-split__work .ege-panel--work,
-  .ege-page--topic-layout .ege-task--vocab .ege-work-col,
-  .ege-page--topic-layout .ege-task--vocab .ege-work-scroll,
   .ege-page--topic-layout .ege-task--vocab .ege-panel--read,
-  .ege-page--topic-layout .ege-task--vocab .ege-read-scroll {
-    position: static;
-    overflow: visible;
+  .ege-page--topic-layout .ege-task--vocab .ege-panel--work {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1 1 auto;
     max-height: none;
     height: auto;
-    flex: none;
-    display: block;
-    min-height: 0;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .ege-page--topic-layout .ege-task--vocab .ege-work-col {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ege-page--topic-layout .ege-task--vocab .ege-read-scroll,
+  .ege-page--topic-layout .ege-task--vocab .ege-work-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    overflow-anchor: none;
+    padding: 2px 0 6px;
+    scroll-padding-top: 2px;
+    display: block;
+    height: auto;
+    max-height: none;
   }
 
   .ege-page--topic-layout .ege-task--vocab .ege-panel--work {
@@ -1973,37 +1994,59 @@ button.ege-prep-pair-card {
     min-height: 0;
   }
 
-  .ege-page--topic-layout .ege-task--gapfill .ege-split__read,
-  .ege-page--topic-layout .ege-task--gapfill .ege-split__work {
-    overflow: visible;
-    display: block;
-    height: auto;
+  .ege-page--topic-layout .ege-task--gapfill .ege-split__read {
+    align-self: stretch;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     min-height: 0;
     min-width: 0;
     width: 100%;
   }
 
   .ege-page--topic-layout .ege-task--gapfill .ege-split__work {
-    position: static;
-    top: auto;
+    position: sticky;
+    top: var(--ege-sticky-top);
     align-self: start;
     max-width: none;
-    max-height: none;
-    overflow: visible;
+    max-height: var(--ege-sticky-panel-max);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
     box-sizing: border-box;
   }
 
   .ege-page--topic-layout .ege-task--gapfill .ege-panel--read,
   .ege-page--topic-layout .ege-task--gapfill .ege-panel--work,
-  .ege-page--topic-layout .ege-task--gapfill .ege-work-col,
+  .ege-page--topic-layout .ege-task--gapfill .ege-work-col {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1 1 auto;
+    max-height: none;
+    height: auto;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .ege-page--topic-layout .ege-task--gapfill .ege-read-scroll,
   .ege-page--topic-layout .ege-task--gapfill .ege-work-scroll {
-    overflow: visible;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    overflow-anchor: none;
+    padding: 2px 0 6px;
+    scroll-padding-top: 2px;
+    display: block;
     height: auto;
     max-height: none;
-    flex: none;
-    display: block;
-    min-height: 0;
     min-width: 0;
     width: 100%;
     max-width: 100%;
@@ -4667,6 +4710,16 @@ button.ege-listening-mark:focus-visible {
   font-family: var(--ege-font-text);
 }
 
+/* Reserve space for the longest listening sub-task's instructions (3 lines) so
+   the player/progress row sits at the same height regardless of which sub-task
+   (main idea / specific info / full comprehension) is active.
+   Note: .ege-page--listening-task is never applied by JS (only
+   .ege-page--active-listening is, in js/ege/ui.js) — targeting the real class
+   here rather than the dead one used by the rest of this file's listening block. */
+.ege-page--active-listening .ege-instructions {
+  min-height: 3lh;
+}
+
 .ege-page--listening-task #egeListeningChrome .ege-listening-progress {
   margin: 0 0 10px;
   min-height: 64px;
@@ -6488,6 +6541,24 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
   justify-content: center;
 }
 
+/* Desktop: dock the criteria panel instead of letting it cover the essay.
+   The brief/prompt rail steps aside and the editor reflows into the
+   remaining width, reserving space for the fixed-position panel via
+   padding so the essay stays visible and editable while criteria is open.
+   Narrow widths keep the full-screen overlay behavior (see
+   html.ege-writing-criteria-open below) since there's no room to dock. */
+@media (min-width: 768px) {
+  .ege-task--writing-essay:has(.ege-writing-criteria.is-open) .ege-writing38-brief {
+    display: none;
+  }
+
+  .ege-task--writing-essay:has(.ege-writing-criteria.is-open) .ege-writing38-grid {
+    grid-template-columns: minmax(0, 1fr);
+    padding-right: min(420px, 92vw);
+    box-sizing: border-box;
+  }
+}
+
 .ege-writing-rubric--self {
   margin-top: 12px;
 }
@@ -7075,11 +7146,6 @@ html.ege-writing-criteria-open {
   font-size: var(--ege-text-sm);
   color: var(--ege-muted);
   min-width: 0;
-}
-
-.ege-writing38-actionbar__submit {
-  flex: 0 0 auto;
-  min-width: 8.5rem;
 }
 
 .ege-speaking-aloud-text {
