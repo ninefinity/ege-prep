@@ -530,16 +530,32 @@ E.syncExamManageActions = function syncExamManageActions() {
   }
 
   actions.hidden = false;
+
+  var more = document.createElement("details");
+  more.className = "ege-writing38-more";
+  var summary = document.createElement("summary");
+  summary.className = "ege-writing38-more__summary";
+  summary.setAttribute("aria-label", "Другие действия");
+  summary.textContent = "⋯";
+  more.appendChild(summary);
+
+  var menu = document.createElement("div");
+  menu.className = "ege-writing38-more__menu";
   if (showReset) {
-    E.appendExamPhaseButton(actions, "Сбросить", false, function () {
+    E.appendExamPhaseButton(menu, "Сбросить ответы", false, function () {
+      more.open = false;
       E.resetWrittenExamAnswers(false);
     });
   }
   if (showRestart) {
-    E.appendExamPhaseButton(actions, "Заново", false, function () {
+    E.appendExamPhaseButton(menu, "Начать заново", false, function () {
+      more.open = false;
       E.restartWrittenExam(false);
     });
   }
+  more.appendChild(menu);
+  actions.appendChild(more);
+
   E.syncExamControlsLayout();
   E.syncExamSideRail();
 };

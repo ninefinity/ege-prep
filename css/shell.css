@@ -1802,10 +1802,7 @@ button.ege-prep-pair-card {
     align-self: start;
     flex: 0 1 auto;
     overflow: visible;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0 0 40px;
+    padding: 12px 12px 40px;
   }
 
 
@@ -2034,6 +2031,13 @@ button.ege-prep-pair-card {
     box-sizing: border-box;
   }
 
+  /* The read column gets a highlight-tools header (40px + 12px margin = 52px)
+     that the work column doesn't, so without this the two panels start at
+     different heights ("step-like"). Nudge work down to match read's top. */
+  .ege-page--topic-layout .ege-task--gapfill .ege-panel--work {
+    margin-top: 50px;
+  }
+
   .ege-page--topic-layout .ege-task--gapfill .ege-read-scroll,
   .ege-page--topic-layout .ege-task--gapfill .ege-work-scroll {
     flex: 1 1 auto;
@@ -2198,6 +2202,12 @@ button.ege-prep-pair-card {
     flex: 1 1 auto;
     max-height: none;
     height: auto;
+  }
+
+  /* Same fix as gap-fill: the read column's highlight-tools header pushes it
+     down relative to work, so nudge work's top to match. */
+  .ege-page--topic-layout .ege-task--matching .ege-panel--work {
+    margin-top: 34px;
   }
 
   .ege-page--topic-layout .ege-task--matching .ege-work-col {

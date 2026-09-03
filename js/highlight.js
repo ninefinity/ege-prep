@@ -552,10 +552,7 @@
 
     if (!containers.length) return;
 
-    if (task.classList.contains("ege-task--listening")) {
-      var listenKind = task.dataset.listeningKind || "";
-      if (listenKind === "mc" || listenKind.indexOf("prep") === 0) return;
-    }
+    if (task.classList.contains("ege-task--listening")) return;
 
     var tools = buildTaskToolbar(containers);
     tools.dataset.taskId = taskId;
