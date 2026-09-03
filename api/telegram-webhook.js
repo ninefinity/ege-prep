@@ -1,6 +1,7 @@
 import { createHash, timingSafeEqual } from "node:crypto";
 
 const TELEGRAM_API = "https://api.telegram.org/bot";
+const TELEGRAM_CHANNEL = "@mossyaps";
 const SUBSCRIBED_STATUSES = new Set(["member", "administrator", "creator"]);
 
 function json(status, body) {
@@ -31,15 +32,13 @@ async function tg(method, payload) {
 }
 
 async function isSubscribed(userId) {
-  const channel = process.env.TELEGRAM_CHANNEL;
-  const data = await tg("getChatMember", { chat_id: channel, user_id: userId });
+  const data = await tg("getChatMember", { chat_id: TELEGRAM_CHANNEL, user_id: userId });
   const status = data && data.result && data.result.status;
   return SUBSCRIBED_STATUSES.has(status);
 }
 
 function channelUrl() {
-  const channel = String(process.env.TELEGRAM_CHANNEL || "").replace(/^@/, "");
-  return "https://t.me/" + channel;
+  return "https://t.me/" + TELEGRAM_CHANNEL.replace(/^@/, "");
 }
 
 function notSubscribedMessage() {
@@ -75,9 +74,8 @@ export async function POST(request) {
   if (!secretMatches(request)) return json(401, { ok: false });
 
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const channel = process.env.TELEGRAM_CHANNEL;
   const code = process.env.TELEGRAM_UNLOCK_CODE;
-  if (!token || !channel || !code) {
+  if (!token || !code) {
     console.error("Telegram bot env vars are not fully set");
     return json(200, { ok: true });
   }
