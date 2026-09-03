@@ -684,44 +684,56 @@ a {
     --ege-topic-sidebar-width: 120px;
   }
 
-  /* Word Formation/Grammar (task.type "wordform") use a different container
-     strategy than every other task type -- height:auto with the page
-     itself scrolling, rather than a fixed viewport-relative height with
-     internal scrolling -- because their single-column content doesn't fit
-     the split-panel internal-scroll pattern. That's fine on its own, but
-     it means short wordform content collapses .ege-workspace far below
-     every other task's height, so the flow strip after it lands at a
-     noticeably different screen position depending on which task is open.
-     A definite `height` here (tried first) fixes the short-content case
-     but breaks long content: overflow stays visible, so a passage taller
-     than that fixed height spills past .ege-workspace's bottom edge --
-     right into the flow strip, which sticks to *that* box's bottom edge,
-     not the true content end. min-height avoids that (the box still grows
-     for tall content) but doesn't help short content by itself, since
-     #egePanels below has flex: 0 1 auto (no grow) for this task type and
-     so doesn't expand to claim the extra floor space -- it just leaves a
-     gap between short content and the flow strip. Fix both: min-height as
-     the floor, and let #egePanels actually grow to fill it (see below). */
-  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) {
+  /* Word Formation/Grammar (task--wordform), Complete the Sentences
+     (task--gapfill), and the essay (task--writing-essay) all use a
+     different container strategy than every other task type --
+     height:auto with the page itself scrolling, rather than a fixed
+     viewport-relative height with internal scrolling -- each via their
+     own pre-existing :has() exception elsewhere in this file (confirmed
+     live via computed styles, not assumed from the class names). That's
+     fine on its own, but it means .ege-workspace's height depends
+     entirely on how much content a given task happens to have, so the
+     flow strip after it lands at a noticeably different screen position
+     depending on which task is open -- shorter than the rest for a short
+     wordform passage, taller for the essay's extra criteria-button row,
+     etc. A definite `height` here (tried first) fixes the short-content
+     case but breaks long content: overflow stays visible, so a passage
+     taller than that fixed height spills past .ege-workspace's bottom
+     edge -- right into the flow strip, which sticks to *that* box's
+     bottom edge, not the true content end. min-height avoids that (the
+     box still grows for tall content) but doesn't help short content by
+     itself, since #egePanels below has flex: 0 1 auto (no grow) for
+     these task types and so doesn't expand to claim the extra floor
+     space -- it just leaves a gap between short content and the flow
+     strip. Fix both: min-height as the floor, and let #egePanels
+     actually grow to fill it (see below). */
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform),
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--gapfill),
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--writing-essay) {
     min-height: var(--ege-sticky-panel-max);
   }
 
-  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) > #egePanels {
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) > #egePanels,
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--gapfill) > #egePanels,
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--writing-essay) > #egePanels {
     flex: 1 1 auto;
   }
 
-  /* min-height + flex-grow gets short wordform content close to the same
-     baseline as every other task type, but sticky positioning still isn't
-     safe here: it pins the flow strip at a fixed offset from the *box's*
-     edge, and wordform content can still end up slightly taller than that
-     box even after growing it, overlapping the strip by a few pixels
-     (confirmed live, not just in theory). Every other task type's content
-     is properly height-bounded with internal scrolling, so sticky can't
-     overrun it -- wordform's isn't, by design (that's the whole reason it
-     gets this separate treatment), so pin it in normal flow instead. It
-     lands lower for genuinely long content, but it will never sit on top
-     of text, which matters more than perfect vertical alignment. */
-  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) .ege-task-flow {
+  /* min-height + flex-grow gets short content close to the same baseline
+     as every other task type, but sticky positioning still isn't safe
+     here: it pins the flow strip at a fixed offset from the *box's*
+     edge, and content can still end up slightly taller than that box
+     even after growing it, overlapping the strip by a few pixels
+     (confirmed live, not just in theory). Every other task type's
+     content is properly height-bounded with internal scrolling, so
+     sticky can't overrun it -- these three aren't, by design (that's the
+     whole reason each gets its own :has() exception), so pin the strip
+     in normal flow instead. It lands lower for genuinely long content,
+     but it will never sit on top of text, which matters more than
+     perfect vertical alignment. */
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) .ege-task-flow,
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--gapfill) .ege-task-flow,
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--writing-essay) .ege-task-flow {
     position: static;
     bottom: auto;
   }
