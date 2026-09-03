@@ -531,30 +531,23 @@ E.syncExamManageActions = function syncExamManageActions() {
 
   actions.hidden = false;
 
-  var more = document.createElement("details");
-  more.className = "ege-writing38-more";
-  var summary = document.createElement("summary");
-  summary.className = "ege-writing38-more__summary";
-  summary.setAttribute("aria-label", "Другие действия");
-  summary.textContent = "⋯";
-  more.appendChild(summary);
-
-  var menu = document.createElement("div");
-  menu.className = "ege-writing38-more__menu";
   if (showReset) {
-    E.appendExamPhaseButton(menu, "Сбросить ответы", false, function () {
-      more.open = false;
+    E.appendExamPhaseButton(actions, "Сбросить", false, function () {
       E.resetWrittenExamAnswers(false);
     });
   }
   if (showRestart) {
-    E.appendExamPhaseButton(menu, "Начать заново", false, function () {
-      more.open = false;
+    var restartBtn = document.createElement("button");
+    restartBtn.type = "button";
+    restartBtn.className = "ege-btn ege-btn--ghost ege-exam-restart-btn";
+    restartBtn.textContent = "✕";
+    restartBtn.setAttribute("aria-label", "Начать заново");
+    restartBtn.title = "Начать заново";
+    restartBtn.addEventListener("click", function () {
       E.restartWrittenExam(false);
     });
+    actions.appendChild(restartBtn);
   }
-  more.appendChild(menu);
-  actions.appendChild(more);
 
   E.syncExamControlsLayout();
   E.syncExamSideRail();
