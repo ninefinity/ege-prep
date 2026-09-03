@@ -1088,17 +1088,23 @@ E.syncWriting38Workspace = function syncWriting38Workspace(taskId) {
   if (picker) picker.hidden = hasChoice;
   if (workspace) workspace.hidden = !hasChoice;
 
-  // "Choose one of two" only matters before a choice is made -- once
-  // picked, it's just a leftover instruction line taking up space above
-  // the actual task (which repeats the brief itself further down anyway).
+  // "Choose one of two" only matters before a choice is made. Once
+  // picked, that instruction line is dead space -- replace it with the
+  // задание text itself (same slot, top of the task box) instead of just
+  // hiding it, so the box leads with the actual question.
   var panel = document.getElementById("panel-" + taskId);
   var instructions = panel && panel.querySelector(".ege-instructions");
-  if (instructions) instructions.hidden = hasChoice;
+  if (instructions && instructions.dataset.origHtml === undefined) {
+    instructions.dataset.origHtml = instructions.innerHTML;
+  }
 
   var oldSplit = document.getElementById("writing38-split-" + taskId);
   if (oldSplit) oldSplit.remove();
 
   if (!hasChoice) {
+    if (instructions && instructions.dataset.origHtml !== undefined) {
+      instructions.innerHTML = instructions.dataset.origHtml;
+    }
     if (typeof E.syncMobileReadWorkTabs === "function") E.syncMobileReadWorkTabs(taskId);
     return;
   }
@@ -1106,6 +1112,11 @@ E.syncWriting38Workspace = function syncWriting38Workspace(taskId) {
   var choiceId = E.getWriting38Choice(task);
   var choice = E.getWriting38ChoiceData(task, choiceId);
   if (!workspace || !choice) return;
+
+  if (instructions) {
+    var parsedPrompt = E.parseWriting38Prompt(choice.promptHtml || "");
+    instructions.textContent = parsedPrompt.context || instructions.dataset.origHtml;
+  }
 
   workspace.appendChild(E.buildWriting38Workspace(task, choice));
 
