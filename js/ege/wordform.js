@@ -357,6 +357,10 @@ E.renderWordform = function renderWordform(task, topicId) {
   picks._pickSlots = slots.map(String);
   picks._pickMaxOption = 0;
   picks.setActiveGap = function (examNum) {
+    if (!examNum) {
+      E.syncWordformPanelUI(task.id, -1);
+      return;
+    }
     var idx = picks._pickSlots.indexOf(String(examNum));
     if (idx < 0) return;
     focusAnswer(idx, { select: true, scrollMark: true });

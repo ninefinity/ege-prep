@@ -3728,6 +3728,9 @@ E.attachListeningPrepPairing = function attachListeningPrepPairing(wrap, config)
       if (selectedExpr) return selectedExpr.dataset.exprId;
       return "";
     };
+    wrap.setActiveLetter = function (letter) {
+      if (!letter) clearSelection();
+    };
 
     updateProgress();
   }
