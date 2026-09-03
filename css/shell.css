@@ -2283,6 +2283,7 @@ button.ege-prep-pair-card {
     overflow-x: hidden;
     overflow-y: visible;
     height: auto;
+    flex-shrink: 0;
   }
 
   .ege-page--topic-layout #egePanels > .ege-task-panel.is-active .ege-task--matching .ege-split--panels {
@@ -2327,6 +2328,14 @@ button.ege-prep-pair-card {
     overflow-x: hidden;
     overflow-y: visible;
     height: auto;
+    flex-shrink: 0;
+  }
+
+  .ege-page--topic-layout #egePanels > .ege-task-panel.is-active > .ege-task--vocab {
+    overflow-x: hidden;
+    overflow-y: visible;
+    height: auto;
+    flex-shrink: 0;
   }
 
   .ege-page--topic-layout #egePanels > .ege-task-panel.is-active .ege-task--gapfill .ege-split--panels,
@@ -3179,7 +3188,6 @@ button.ege-prep-pair-card {
 .ege-vocab-picks .ege-mc-card.is-active,
 .ege-work-scroll .ege-mc-card.is-active {
   background: var(--ege-wrong-pick-bg);
-  box-shadow: inset 3px 0 0 0 var(--yap-royal);
 }
 
 
