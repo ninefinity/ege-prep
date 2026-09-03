@@ -13,9 +13,15 @@ function json(status, body) {
 }
 
 export async function POST(request) {
-  const expected = process.env.DEMO_PASSWORD;
-  if (!expected) {
-    console.error("DEMO_PASSWORD is not set");
+  // DEMO_PASSWORD is the gate's own secret; TELEGRAM_UNLOCK_CODE is what the
+  // bot actually DMs subscribers (api/telegram-webhook.js). They're separate
+  // env vars that have to be kept manually in sync -- accept either so a
+  // stale/mismatched one doesn't lock out someone with the code the bot sent.
+  const candidates = [process.env.DEMO_PASSWORD, process.env.TELEGRAM_UNLOCK_CODE].filter(
+    Boolean
+  );
+  if (!candidates.length) {
+    console.error("Neither DEMO_PASSWORD nor TELEGRAM_UNLOCK_CODE is set");
     return json(503, { ok: false });
   }
 
@@ -31,7 +37,12 @@ export async function POST(request) {
     return json(400, { ok: false });
   }
 
-  if (!timingSafeEqual(digest(password), digest(expected))) {
+  const guess = digest(password);
+  const matches = candidates.some(function (expected) {
+    return timingSafeEqual(guess, digest(expected));
+  });
+
+  if (!matches) {
     return json(401, { ok: false });
   }
 
