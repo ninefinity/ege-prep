@@ -1,37 +1,35 @@
-(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+Listening:
+The tasks on screen take up less space (width) than the other tasks. The placement of UI is poorly planned.
+1) There is no obvious listening bar. The dot is halfway out of view. 
+2) the 2 columns of text in task 1 are confusing, plus number 7 is orphaned.
+The vertical placement of the answers takes too much space -> replace with table. Click statement + click box -> done. Very space efficient and looks better. 
 
-Task 3-9. You will hear an interview. In Task 3-9, write down the number 1, 2 or 3 in the answer field, corresponding to the answer you have chosen.
+To fill the empty space on the right side of the page, we can add a 'notes' section where students can write relevant info when they hear it (they will have this option in the paper exam, so this would be a great addition) -> pencil UI + click anywhere to add note -> adds post-it note and you can write anything. Click out to save and add option to clear/delete. Cool functional addition for all listening.
 
-You will hear the recording twice. You have 50 seconds to familiarize yourself with the tasks. Are you ready? And here we are with our weekly program, 5 Minutes with a Star.
+Task 2: This is better, but we have the same player issue. The task itself is ok.
+Task 3: Very wide task boxes where half the line is empty. Scroll doesn't work cur.
 
-Today in our studio, we have Ava James, a world-famous singer, songwriter and pianist. A classically trained pianist, Ava started composing songs when she was 12 and signed her first contract when she was only 15 years old. Good afternoon, Ava.
+Match headings: we can make the text 20% wider and the right column narrower. Fix selection issue (we cur have 2 styles of selection - the left blue line and the full outline, keep one for style unification throughout. 
 
-Good afternoon. Thank you for inviting me. It's a pleasure being here.
+Complete sentences: also make text 10% wider and make the mechanic of adding the part not make the text shift so much. The spacing makes text hard to read.
 
-When you entered the music industry, you were only a teen. Was it hard for you? When I first started in the world of music, it was such a shock for me. It was a totally different world.
+Reading comprehension: too narrow. Text has to take up more space to be readable. Make 25% wider. Questions tab is ok. Also scroll doesn't work cur
 
-In a lot of ways, I started to think that I had to be perfect, look perfect, sound perfect and say perfect phrases. The entertainment industry is particularly judgmental. How did you cope with that? Well, at some point, I just realized that there is a lot of judgment in the world.
+Grammar: I'm sure we can make the text be fully visible on screen with no internal scroll. Make answers input boxes smaller.
 
-We judge each other at school, we judge each other at work, we compete. Now we've got social media and we have to look at everybody judging us, telling us what they think about us and what they don't like about us. You just grow up and realize that everybody's opinion doesn't matter.
+Word formation: pass
 
-You just start to care less. You've just released your new album. What is it about? In fact, my new album is partly about what we've just discussed.
+Vocab in context: alost perfect but creates jump when words are added + double selection style issue here too.
 
-It's about breaking out of people's opinions of you and redefining whoever you are and who you want to be. It's about life as it truly is, not as how we're made to think that it should be. It's about imperfection, the reality of who we are as people and celebrating that truth.
+Personal e-mail: input box is too tiny. Looks unfriendly and uninviting. 
+Opinion essay layout is poor
+Reading aloud also poor formatting and readability.
 
-How did you start writing songs? When I was young, I wrote things down just to get them out of my head, almost to make space, because I haven't always been so good at communicating one-to-one. So I'd always have to write it down first and kind of understand it and then be able to talk about it. I needed to get it out of myself, out of my mind, out of my heart, out of my way to understand it.
+Direct questions: make all content visible with no internal scrolling. 
 
-I guess that started the ball rolling. Does it mean that most of your songs are very personal? Of course. A lot of my songs are about the things that I personally have wanted to talk about and get off my own chest.
+++++ I can't see the last 2 tasks? They are gone? Why?
 
-I'm not afraid to be emotional. In fact, I believe that strong people are the ones who are in touch with their emotions and their feelings. Such people can just cry at the drop of a dime because they relate so much to someone else's pain.
 
-I think you rob yourself of life and rob yourself of your own experience when you don't let yourself feel whatever it is that you feel. How does it feel to be a woman in the entertainment industry today? I speak to a lot of businesswomen and I find that they do feel very held back. It seems to me that there's some fear about allowing us as women to rise, to go to the next level.
-
-And obviously, there are still so many issues with equal pay scales and equality. And I find that pretty crazy. Because obviously, the more diversity there is, the stronger the business.
-
-But unfortunately, a lot of people are very archaic in their thinking. So I think that there is still that challenge. You still have to work extra hard, harder than a man would.
-
-You still have to prove yourself more. It's very frustrating, but I also do know that this is the time of the woman. And if you don't know it, you'd better start to get it.
-
-Because otherwise, you're going to get left behind. So, I do definitely see an improvement in the world in that sense. Thank you very much, Ava. 
-
-It has been very interesting talking to you. Thank you. You have 15 seconds to complete the task.
+localStorage.clear();
+sessionStorage.clear();
+location.reload();

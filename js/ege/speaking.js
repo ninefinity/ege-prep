@@ -80,6 +80,12 @@ E.syncSpeakingCompleteButton = function syncSpeakingCompleteButton(taskId) {
     var btn = document.getElementById("complete-" + taskId);
     if (!btn) return;
 
+    var task = E.findTask(taskId);
+    if (task && task.type === "writing") {
+      btn.hidden = true;
+      return;
+    }
+
     var marked = E.isSpeakingMarkedComplete(taskId);
 
     if (marked) {
@@ -87,16 +93,29 @@ E.syncSpeakingCompleteButton = function syncSpeakingCompleteButton(taskId) {
       return;
     }
 
+    var touched = !!(E.state.speakingTimerTouched && E.state.speakingTimerTouched[taskId]);
+    var examOral =
+      typeof E.isFullWrittenExam === "function" &&
+      E.isFullWrittenExam() &&
+      typeof E.getExamPhase === "function" &&
+      typeof E.isOralTask === "function" &&
+      task &&
+      E.isOralTask(task) &&
+      (E.getExamPhase() === E.EXAM_PHASES.ORAL_READY ||
+        E.getExamPhase() === E.EXAM_PHASES.ORAL_ACTIVE);
     btn.hidden = false;
-    btn.disabled = false;
-    btn.textContent = "Mark as complete";
-    btn.removeAttribute("title");
+    btn.disabled = !examOral && !touched;
+    btn.textContent = "Done";
+    btn.title = examOral || touched ? "" : "Start a preparation or answer timer first";
   }
 
 E.markSpeakingComplete = function markSpeakingComplete(taskId) {
     var task = E.findTask(taskId);
     if (!task || !E.isSpeakingPractice(task)) return;
     if (E.isSpeakingMarkedComplete(taskId)) return;
+
+    if (!E.state.speakingTimerTouched) E.state.speakingTimerTouched = {};
+    E.state.speakingTimerTouched[taskId] = true;
 
     var max = E.taskMaxScore(task);
     E.state.scores[taskId] = max;
@@ -126,7 +145,8 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
 
     function syncLabel() {
       if (!clock) return;
-      var label = E.formatSpeakingTimer(duration) + " timer";
+      var phase = wrap.dataset.phase || "Timer";
+      var label = E.formatSpeakingTimer(duration) + " " + phase.toLowerCase();
       var prefix = running
         ? "Pause "
         : remaining === 0
@@ -175,6 +195,8 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       if (hooks && typeof hooks.beforeStart === "function" && hooks.beforeStart() === false) {
         return;
       }
+      if (!E.state.speakingTimerTouched) E.state.speakingTimerTouched = {};
+      E.state.speakingTimerTouched[taskId] = true;
       running = true;
       wrap.classList.remove("is-done");
       clearFinishShake();
@@ -228,7 +250,9 @@ E.isSpeakingPractice = function isSpeakingPractice(task) {
       task &&
       (task.type === "speaking" ||
         task.type === "speaking-questions" ||
-        task.type === "speaking-interview")
+        task.type === "speaking-interview" ||
+        task.type === "speaking-aloud" ||
+        task.type === "writing")
     );
   }
 
@@ -266,10 +290,15 @@ E.isSpeakingPractice = function isSpeakingPractice(task) {
     return svg;
   }
 
-  E.createSpeakingTimerWrap = function createSpeakingTimerWrap(seconds) {
+  E.createSpeakingTimerWrap = function createSpeakingTimerWrap(seconds, phaseLabel) {
     var wrap = document.createElement("div");
     wrap.className = "ege-speaking-timer";
     wrap.dataset.duration = String(seconds);
+    if (phaseLabel) wrap.dataset.phase = phaseLabel;
+
+    var phase = document.createElement("p");
+    phase.className = "ege-speaking-timer__phase";
+    phase.textContent = phaseLabel || "";
 
     var clock = document.createElement("button");
     clock.type = "button";
@@ -284,6 +313,7 @@ E.isSpeakingPractice = function isSpeakingPractice(task) {
 
     clock.appendChild(face);
     clock.appendChild(display);
+    wrap.appendChild(phase);
     wrap.appendChild(clock);
     E.syncSpeakingTimerMotion(wrap, seconds, seconds);
     return wrap;
@@ -429,7 +459,8 @@ E.buildSpeakingTimers = function buildSpeakingTimers(taskId, durations, options)
     var askCycle = !!(options && options.askCycle && secondsList.length === 2);
 
     secondsList.forEach(function (seconds, index) {
-      var wrap = E.createSpeakingTimerWrap(seconds);
+      var phaseLabel = index === 0 ? "Preparation" : index === 1 ? "Answer" : "";
+      var wrap = E.createSpeakingTimerWrap(seconds, phaseLabel);
       wraps[seconds] = wrap;
 
       if (askCycle && index === 1) {
@@ -559,7 +590,7 @@ E.buildSpeakingImagesCol = function buildSpeakingImagesCol(images) {
       var img = document.createElement("img");
       img.className = "ege-speaking-figure__img";
       img.src = "speaking/" + image.src;
-      img.alt = "";
+      img.alt = image.alt || "";
       img.loading = "lazy";
       figure.appendChild(img);
 
@@ -582,6 +613,20 @@ E.renderSpeaking = function renderSpeaking(task) {
     if (task.prompt) {
       briefCol.appendChild(E.buildSpeakingPromptBlock(task.prompt, task.title));
     }
+    if (task.plan && task.plan.length) {
+      var planHeading = document.createElement("h3");
+      planHeading.className = "ege-speaking-plan__heading";
+      planHeading.textContent = "Plan";
+      briefCol.appendChild(planHeading);
+      var plan = document.createElement("ol");
+      plan.className = "ege-speaking-plan";
+      task.plan.forEach(function (item) {
+        var li = document.createElement("li");
+        li.textContent = item.replace(/^\s*—\s*/, "");
+        plan.appendChild(li);
+      });
+      briefCol.appendChild(plan);
+    }
 
     var mainCol = document.createElement("div");
     mainCol.className = "ege-speaking-main";
@@ -600,35 +645,7 @@ E.renderSpeaking = function renderSpeaking(task) {
   }
 
 E.buildSpeakingFooter = function buildSpeakingFooter(taskId) {
-    var footer = document.createElement("div");
-    footer.className = "ege-task__footer ege-speaking-footer";
-
-    var actions = document.createElement("div");
-    actions.className = "ege-task__actions";
-
-    var completeBtn = document.createElement("button");
-    completeBtn.type = "button";
-    completeBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
-    completeBtn.id = "complete-" + taskId;
-    completeBtn.textContent = "Mark as complete";
-    completeBtn.addEventListener("click", function () {
-      E.markSpeakingComplete(taskId);
-    });
-    actions.appendChild(completeBtn);
-
-    var resetBtn = document.createElement("button");
-    resetBtn.type = "button";
-    resetBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
-    resetBtn.id = "reset-" + taskId;
-    resetBtn.textContent = "Reset";
-    resetBtn.hidden = true;
-    E.bindResetButton(resetBtn, taskId);
-    actions.appendChild(resetBtn);
-
-    footer.appendChild(actions);
-    footer.dataset.max = "1";
-    E.syncResetButton(taskId);
-    return footer;
+    return E.buildTaskFooter(taskId, 1, { doneButton: true });
   }
 
 E.createSpeakingAdPlaceholder = function createSpeakingAdPlaceholder() {
@@ -778,6 +795,41 @@ E.renderSpeakingInterview = function renderSpeakingInterview(task) {
     mainCol.appendChild(askNote);
 
     var wrap = E.buildSpeakingShell(task, "ege-task--speaking-interview", mainCol, false);
+    wrap.appendChild(E.buildSpeakingFooter(task.id));
+    E.syncSpeakingCompleteButton(task.id);
+    return wrap;
+  }
+
+E.renderSpeakingAloud = function renderSpeakingAloud(task) {
+    var mainCol = document.createElement("div");
+    mainCol.className = "ege-speaking-main ege-speaking-main--aloud";
+
+    if (task.textTitle) {
+      var title = document.createElement("p");
+      title.className = "ege-speaking-ad-title";
+      title.textContent = task.textTitle;
+      mainCol.appendChild(title);
+    }
+
+    if (task.text) {
+      var passage = document.createElement("div");
+      passage.className = "ege-speaking-aloud-text ege-passage";
+      task.text.split(/\n\n+/).forEach(function (para) {
+        var trimmed = para.trim();
+        if (!trimmed) return;
+        var p = document.createElement("p");
+        p.textContent = trimmed;
+        passage.appendChild(p);
+      });
+      mainCol.appendChild(passage);
+    }
+
+    var prepSeconds = task.prepSeconds || 90;
+    var speakSeconds = task.speakSeconds || 90;
+    var wrap = E.buildSpeakingShell(task, "ege-task--speaking-aloud", mainCol, [
+      prepSeconds,
+      speakSeconds,
+    ]);
     wrap.appendChild(E.buildSpeakingFooter(task.id));
     E.syncSpeakingCompleteButton(task.id);
     return wrap;

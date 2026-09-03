@@ -22,4 +22,6 @@ TOPIC_FILES = {
     "speaking": DATA / "speaking.json",
     "speaking-questions": DATA / "speaking-questions.json",
     "speaking-interview": DATA / "speaking-interview.json",
+    "speaking-aloud": DATA / "speaking-aloud.json",
+    "writing": DATA / "writing.json",
 }

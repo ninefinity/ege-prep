@@ -57,7 +57,7 @@
     if (node.nodeType === Node.TEXT_NODE) node = node.parentElement;
     if (!node || !node.closest) return false;
     return !!node.closest(
-      ".ege-gap-picks, .ege-gap-insert:not(.is-filled), .ege-choice-group, button, .ege-highlight-tools, .ege-match-picks, .ege-input"
+      ".ege-gap-picks, .ege-gap-insert:not(.is-filled), .ege-choice-group, button, .ege-highlight-tools, .ege-passage-column__tools, .ege-match-picks, .ege-input, .ege-wordform-mark, .ege-wordform-answers, .ege-writing-textarea"
     );
   }
 
@@ -142,14 +142,14 @@
     var tools = document.createElement("div");
     tools.className = "ege-highlight-tools";
     tools.setAttribute("role", "toolbar");
-    tools.setAttribute("aria-label", "Reading tools");
+    tools.setAttribute("aria-label", "Инструменты для текста");
 
     var highlightBtn = document.createElement("button");
     highlightBtn.type = "button";
     highlightBtn.className = "ege-highlight-tools__btn";
     highlightBtn.dataset.mode = "highlight";
     highlightBtn.innerHTML = ICON_PEN;
-    highlightBtn.setAttribute("aria-label", "Highlight");
+    highlightBtn.setAttribute("aria-label", "Выделить текст");
     highlightBtn.setAttribute("title", "Highlight (H)");
     highlightBtn.setAttribute("aria-pressed", "false");
 
@@ -158,7 +158,7 @@
     eraseBtn.className = "ege-highlight-tools__btn";
     eraseBtn.dataset.mode = "erase";
     eraseBtn.innerHTML = ICON_ERASER;
-    eraseBtn.setAttribute("aria-label", "Erase");
+    eraseBtn.setAttribute("aria-label", "Стереть выделение");
     eraseBtn.setAttribute("title", "Erase (R)");
     eraseBtn.setAttribute("aria-pressed", "false");
 
@@ -362,10 +362,6 @@
 
       if (key === "h" || key === "r") {
         var tools = panel.querySelector(".ege-highlight-tools");
-        if (!tools) {
-          var shortcutSlot = document.getElementById("egeTopicToolbarSlot");
-          tools = shortcutSlot && shortcutSlot.querySelector(".ege-highlight-tools");
-        }
         if (!tools || !tools.setHighlightMode) return;
         if (tools.closest("[hidden]")) return;
         event.preventDefault();
@@ -422,6 +418,89 @@
     return false;
   }
 
+  function passageColumnFor(task, container) {
+    var start =
+      container ||
+      (task && task.querySelector(".ege-passage, .ege-text-block, .ege-highlightable"));
+    if (start) {
+      return (
+        start.closest(".ege-split__read") ||
+        start.closest(".ege-panel--read") ||
+        start.closest(".ege-listening-exam-match__statements") ||
+        start.closest(".ege-listening-exam-tfn__statements") ||
+        start.closest(".ege-panel") ||
+        start.closest(".ege-listening-exam-page__block") ||
+        start.closest(".ege-listening-step") ||
+        task
+      );
+    }
+    if (!task) return null;
+    return task.querySelector(".ege-split__read, .ege-panel--read") || task;
+  }
+
+  function mountToolsFallback(panel, task, tools) {
+    if (!panel || !tools) return;
+    var intro = panel.querySelector(".ege-task-intro");
+    var head = intro && intro.querySelector(".ege-task-intro__head");
+    if (head) {
+      head.appendChild(tools);
+      return;
+    }
+    if (intro) {
+      intro.appendChild(tools);
+      return;
+    }
+    if (task && task.parentNode) {
+      task.parentNode.insertBefore(tools, task);
+      return;
+    }
+    panel.appendChild(tools);
+  }
+
+  function mountOnPassageColumn(task, tools) {
+    if (!task || !tools) return false;
+    var column = passageColumnFor(task, task.querySelector(".ege-highlightable"));
+    if (!column) return false;
+
+    column.classList.add("ege-passage-column");
+
+    var header = null;
+    for (var i = 0; i < column.children.length; i++) {
+      if (column.children[i].classList.contains("ege-passage-column__header")) {
+        header = column.children[i];
+        break;
+      }
+    }
+
+    if (!header) {
+      header = document.createElement("header");
+      header.className = "ege-passage-column__header";
+      if (column.firstChild && column.firstChild.parentNode === column) {
+        column.insertBefore(header, column.firstChild);
+      } else {
+        column.appendChild(header);
+      }
+    }
+
+    var slot = null;
+    for (var j = 0; j < header.children.length; j++) {
+      if (header.children[j].classList.contains("ege-passage-column__tools")) {
+        slot = header.children[j];
+        break;
+      }
+    }
+    if (!slot) {
+      slot = document.createElement("div");
+      slot.className = "ege-passage-column__tools";
+      slot.setAttribute("role", "group");
+      slot.setAttribute("aria-label", "Инструменты для текста");
+      header.appendChild(slot);
+    }
+
+    if (tools.parentNode !== slot) slot.appendChild(tools);
+    return true;
+  }
+
   function attachAll(panel, topicId, taskId) {
     if (!panel) return;
 
@@ -442,11 +521,17 @@
 
       var id = base + "_h" + index;
       var hasInteractiveGaps = !!el.querySelector(".ege-gap-insert");
+      var hasWordform = !!el.querySelector(".ege-wordform-mark");
       var saved = savedAll[id];
       var savedHasGaps = !!(saved && saved.indexOf("ege-gap-insert") !== -1);
+      var savedHasWordform = !!(saved && saved.indexOf("ege-wordform-mark") !== -1);
 
-      /* Skip incompatible highlight saves that would wipe gap-insert shells */
-      if (saved && (!hasInteractiveGaps || savedHasGaps)) {
+      /* Skip incompatible highlight saves that would wipe interactive shells */
+      if (
+        saved &&
+        (!hasInteractiveGaps || savedHasGaps) &&
+        (!hasWordform || savedHasWordform)
+      ) {
         el.innerHTML = saved;
         el.querySelectorAll(".ege-gap-insert").forEach(function (insert) {
           insert.classList.remove("is-filled", "is-correct", "is-wrong");
@@ -467,33 +552,15 @@
 
     if (!containers.length) return;
 
-    var tools = buildTaskToolbar(containers);
-    tools.dataset.taskId = taskId;
-    var isListening = task.classList.contains("ege-task--listening");
-    var listenHost = null;
-
-    if (isListening) {
-      var gapsStep = task.querySelector(".ege-listening-step--gaps");
-      if (!gapsStep || gapsStep.hidden) return;
-      listenHost = gapsStep.querySelector(".ege-panel--read");
-      if (!listenHost) return;
-      listenHost.insertBefore(tools, listenHost.firstChild);
-    } else {
-      var intro = panel.querySelector(".ege-task-intro");
-      if (intro) {
-        var head = intro.querySelector(".ege-task-intro__head");
-        if (head) head.appendChild(tools);
-        else intro.appendChild(tools);
-      } else {
-        panel.insertBefore(tools, task);
-      }
+    if (task.classList.contains("ege-task--listening")) {
+      var listenKind = task.dataset.listeningKind || "";
+      if (listenKind === "mc" || listenKind.indexOf("prep") === 0) return;
     }
 
-    // For listening tasks, keep audio control beside marker/eraser tools.
-    var listeningAudio = task.querySelector(".ege-listening-audio");
-    if (listeningAudio) {
-      listeningAudio.classList.add("ege-listening-audio--toolbar");
-      tools.appendChild(listeningAudio);
+    var tools = buildTaskToolbar(containers);
+    tools.dataset.taskId = taskId;
+    if (!mountOnPassageColumn(task, tools)) {
+      mountToolsFallback(panel, task, tools);
     }
   }
 
@@ -501,5 +568,6 @@
 
   window.EgeHighlight = {
     attachAll: attachAll,
+    mountOnPassageColumn: mountOnPassageColumn,
   };
 })();

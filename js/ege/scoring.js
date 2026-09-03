@@ -1,6 +1,7 @@
 import { E } from "./runtime.js";
 
 E.checkTask = function checkTask(taskId) {
+    if (typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls()) return;
     var task = E.findTask(taskId);
     if (!task) return;
 
@@ -26,6 +27,14 @@ E.checkTask = function checkTask(taskId) {
 
     if (task.type === "listening") {
       var listeningKindGate = E.getListeningStepKind(task, E.getListeningStep(taskId));
+      if (listeningKindGate === "exam-match" && !E.isListeningExamMatchComplete(taskId)) {
+        E.syncListeningExamMatchFooterUI(taskId);
+        return;
+      }
+      if (listeningKindGate === "exam-tfn" && !E.isListeningExamTfnComplete(taskId)) {
+        E.syncListeningExamTfnFooterUI(taskId);
+        return;
+      }
       if (listeningKindGate === "mc" && !E.isListeningMcComplete(taskId)) {
         E.syncListeningMcFooterUI(taskId);
         return;
@@ -133,9 +142,9 @@ E.checkTask = function checkTask(taskId) {
       task.items.forEach(function (item, index) {
         var input = document.getElementById(prefix + "_wf_" + index);
         if (!input) return;
-        var val = E.normalize(input.value);
-        var valid = E.buildAcceptedAnswers(item.answer, item.alt);
-        var ok = valid.indexOf(val) !== -1;
+        var val = E.normalizeAnswer(input.value);
+        var valid = E.buildAcceptedAnswers(item.answer, item.alt).map(E.normalizeAnswer);
+        var ok = val && valid.indexOf(val) !== -1;
         input.classList.remove("is-empty");
         input.classList.toggle("is-correct", ok);
         input.classList.toggle("is-wrong", !!input.value && !ok);
@@ -234,17 +243,87 @@ E.checkTask = function checkTask(taskId) {
         return;
       }
 
+      if (stepKind === "exam-match" && task.examMatch) {
+        var emCorrect = 0;
+        var emMax = (task.examMatch.speakers || []).length;
+        var emAnswers = task.examMatch.answers || {};
+        (task.examMatch.speakers || []).forEach(function (speaker) {
+          var name = prefix + "_em_" + speaker;
+          var val = E.getCheckedValue(name);
+          var expected = String(emAnswers[speaker] || "");
+          var ok = E.scoreShortAnswer(val, expected);
+          E.markChoiceGroup(name, val, expected);
+          var matchWrap = document.querySelector(
+            "#task-" + taskId + " .ege-listening-exam-match"
+          );
+          if (matchWrap && typeof E.syncListeningExamMatchTable === "function") {
+            E.syncListeningExamMatchTable(matchWrap);
+          }
+          if (ok) emCorrect += 1;
+        });
+        if (revealed) E.hideScoreFeedback(taskId);
+        else E.showScoreFeedback(taskId, emCorrect, emMax);
+        if (emCorrect === emMax && emMax > 0) {
+          E.setListeningExamMatchPassed(taskId, true);
+          E.syncListeningExamMatchFooterUI(taskId);
+          E.syncListeningProgressUI(taskId);
+        }
+        return;
+      }
+
+      if (stepKind === "exam-tfn" && task.examTfn) {
+        var etCorrect = 0;
+        var etMax = (task.examTfn.statements || []).length;
+        var etAnswers = task.examTfn.answers || {};
+        (task.examTfn.statements || []).forEach(function (item) {
+          var name = prefix + "_etfn_" + item.letter;
+          var val = E.getCheckedValue(name);
+          var expected = String(etAnswers[item.letter] || "");
+          var ok = E.scoreShortAnswer(val, expected);
+          if (ok) etCorrect += 1;
+          E.markChoiceGroup(name, val, expected);
+        });
+        var tfnWrap = document.querySelector("#task-" + taskId + " .ege-listening-exam-tfn");
+        if (tfnWrap && typeof E.syncListeningExamTfnRows === "function") {
+          E.syncListeningExamTfnRows(tfnWrap);
+        }
+        if (revealed) E.hideScoreFeedback(taskId);
+        else E.showScoreFeedback(taskId, etCorrect, etMax);
+        if (etCorrect === etMax && etMax > 0) {
+          E.setListeningExamTfnPassed(taskId, true);
+          E.syncListeningExamTfnFooterUI(taskId);
+          E.syncListeningProgressUI(taskId);
+        }
+        return;
+      }
+
       E.getActiveListeningGaps(task).forEach(function (gap) {
         var input = document.getElementById(prefix + "_gap_" + gap.num);
         if (!input) return;
-        var val = E.normalize(input.value);
-        var valid = E.buildAcceptedAnswers(gap.answer, gap.alt);
-        var ok = valid.indexOf(val) !== -1;
+        var val = E.normalizeAnswer(input.value);
+        var valid = E.buildAcceptedAnswers(gap.answer, gap.alt).map(E.normalizeAnswer);
+        var ok = val && valid.indexOf(val) !== -1;
         E.applyGapCheckClasses(input, ok, !!input.value);
         E.markListeningGap(taskId, gap.num, ok, !!input.value);
         if (ok) correct += 1;
         else if (input.value) input.title = "Correct answer: " + gap.answer;
       });
+
+      if (task.examMatch) {
+        var emAnswersAll = task.examMatch.answers || {};
+        (task.examMatch.speakers || []).forEach(function (speaker) {
+          var val = E.getCheckedValue(prefix + "_em_" + speaker);
+          if (E.scoreShortAnswer(val, String(emAnswersAll[speaker] || ""))) correct += 1;
+        });
+      }
+
+      if (task.examTfn) {
+        var etAnswersAll = task.examTfn.answers || {};
+        (task.examTfn.statements || []).forEach(function (item) {
+          var val = E.getCheckedValue(prefix + "_etfn_" + item.letter);
+          if (E.scoreShortAnswer(val, String(etAnswersAll[item.letter] || ""))) correct += 1;
+        });
+      }
 
       if (stepKind === "mc") {
         (task.questions || []).forEach(function (question, index) {
@@ -322,6 +401,24 @@ E.fillActiveCorrectAnswers = function fillActiveCorrectAnswers() {
         return;
       }
 
+      if (stepKind === "exam-match" && task.examMatch) {
+        var emReveal = task.examMatch.answers || {};
+        (task.examMatch.speakers || []).forEach(function (speaker) {
+          E.setRadioValue(prefix + "_em_" + speaker, String(emReveal[speaker] || ""));
+        });
+        E.checkTask(taskId);
+        return;
+      }
+
+      if (stepKind === "exam-tfn" && task.examTfn) {
+        var etReveal = task.examTfn.answers || {};
+        (task.examTfn.statements || []).forEach(function (item) {
+          E.setRadioValue(prefix + "_etfn_" + item.letter, String(etReveal[item.letter] || ""));
+        });
+        E.checkTask(taskId);
+        return;
+      }
+
       E.getActiveListeningGaps(task).forEach(function (gap) {
         var input = document.getElementById(prefix + "_gap_" + gap.num);
         if (!input) return;
@@ -349,6 +446,7 @@ E.markListeningReveal = function markListeningReveal(taskId) {
   }
 
 E.revealTask = function revealTask(taskId) {
+    if (typeof E.hidesShowAnswers === "function" && E.hidesShowAnswers()) return;
     var task = E.findTask(taskId);
     if (!task) return;
 
@@ -504,7 +602,15 @@ E.revealTask = function revealTask(taskId) {
     E.showToast("Answers shown.");
   }
 
-E.resetTask = function resetTask(taskId) {
+E.resetTask = function resetTask(taskId, options) {
+    options = options || {};
+    if (
+      !options.force &&
+      typeof E.hidesPracticeControls === "function" &&
+      E.hidesPracticeControls()
+    ) {
+      return;
+    }
     var task = E.findTask(taskId);
     if (!task) return;
 
@@ -554,9 +660,15 @@ E.resetTask = function resetTask(taskId) {
       if (board) {
         if (board.syncUsedState) board.syncUsedState();
         if (board.setActiveGap) board.setActiveGap("");
+        if (board.syncNumberRow) board.syncNumberRow();
       }
       var gapResetEl = document.getElementById("task-" + taskId);
-      if (gapResetEl) delete gapResetEl.dataset.answersRevealed;
+      if (gapResetEl) {
+        delete gapResetEl.dataset.answersRevealed;
+        gapResetEl.querySelectorAll(".ege-ref__list li.is-selected").forEach(function (li) {
+          li.classList.remove("is-selected");
+        });
+      }
       E.syncCheckButton(taskId);
     }
 
@@ -576,13 +688,22 @@ E.resetTask = function resetTask(taskId) {
           if (textSpan) textSpan.textContent = "";
         }
       });
-      if (vocabBoard && vocabBoard.setActiveGap) vocabBoard.setActiveGap("");
+      if (vocabBoard) {
+        if (vocabBoard.setActiveGap) vocabBoard.setActiveGap("");
+        if (vocabBoard.syncInserts) vocabBoard.syncInserts();
+      }
       E.syncCheckButton(taskId);
     } else if (task.type === "mc") {
       var taskEl = document.getElementById("task-" + taskId);
       if (taskEl) {
         delete taskEl.dataset.answersRevealed;
         delete taskEl.dataset.hasAttempt;
+        taskEl.querySelectorAll(".ege-mc-card.is-active").forEach(function (card) {
+          card.classList.remove("is-active");
+        });
+        taskEl.querySelectorAll(".ege-pill.is-selected").forEach(function (pill) {
+          pill.classList.remove("is-selected");
+        });
       }
       task.questions.forEach(function (_question, index) {
         E.clearChoiceGroup(prefix + "_q_" + index);
@@ -661,8 +782,52 @@ E.resetTask = function resetTask(taskId) {
       (task.questions || []).forEach(function (_question, index) {
         E.clearChoiceGroup(prefix + "_q_" + index);
       });
+      var listeningMcRoot = document.querySelector(
+        "#task-" + taskId + " .ege-listening-exam-mc, #task-" + taskId + " .ege-panel--listening-mc, #task-" + taskId + " .ege-mc-stack"
+      );
+      if (listeningMcRoot) {
+        listeningMcRoot.querySelectorAll(".is-selected, .is-active, .is-answered, .is-filled").forEach(function (el) {
+          el.classList.remove("is-selected", "is-active", "is-answered", "is-filled");
+        });
+        listeningMcRoot.querySelectorAll(".ege-answer-track__val").forEach(function (valEl) {
+          valEl.textContent = "";
+        });
+        if (typeof listeningMcRoot.setActiveLetter === "function") listeningMcRoot.setActiveLetter("");
+        if (typeof E.syncListeningExamMcRows === "function") {
+          var examMcWrap = document.querySelector("#task-" + taskId + " .ege-listening-exam-mc");
+          if (examMcWrap) E.syncListeningExamMcRows(examMcWrap);
+        } else if (typeof listeningMcRoot.syncListeningExamMc === "function") {
+          listeningMcRoot.syncListeningExamMc();
+        }
+      }
+      if (task.examMatch) {
+        (task.examMatch.speakers || []).forEach(function (speaker) {
+          E.clearChoiceGroup(prefix + "_em_" + speaker);
+        });
+        var matchWrap = document.querySelector("#task-" + taskId + " .ege-listening-exam-match");
+        if (matchWrap) {
+          if (typeof matchWrap.setActiveLetter === "function") matchWrap.setActiveLetter("");
+          if (typeof E.syncListeningExamMatchTable === "function") {
+            E.syncListeningExamMatchTable(matchWrap);
+          }
+        }
+      }
+      if (task.examTfn) {
+        (task.examTfn.statements || []).forEach(function (item) {
+          E.clearChoiceGroup(prefix + "_etfn_" + item.letter);
+        });
+        var tfnWrapReset = document.querySelector("#task-" + taskId + " .ege-listening-exam-tfn");
+        if (tfnWrapReset) {
+          if (typeof tfnWrapReset.setActiveLetter === "function") tfnWrapReset.setActiveLetter("");
+          if (typeof E.syncListeningExamTfnRows === "function") {
+            E.syncListeningExamTfnRows(tfnWrapReset);
+          }
+        }
+      }
       E.setListeningGapsPassed(taskId, false);
       E.setListeningMcPassed(taskId, false);
+      E.setListeningExamMatchPassed(taskId, false);
+      E.setListeningExamTfnPassed(taskId, false);
       var taskElReset = document.getElementById("task-" + taskId);
       if (taskElReset) {
         delete taskElReset.dataset.hasAttempt;

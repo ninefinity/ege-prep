@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matching Headings layout check</title>
+  <link rel="stylesheet" href="../css/shell.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #f4f3fb;
+      font-family: var(--ege-font-text);
+    }
+
+    .layout-check__note {
+      max-width: 52rem;
+      margin: 0 0 12px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--ege-line);
+      font-size: var(--ege-text-sm);
+      line-height: 1.5;
+      color: var(--ege-muted);
+    }
+
+    .layout-check__viewport {
+      border: 2px dashed color-mix(in srgb, var(--yap-royal) 35%, var(--ege-line));
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      resize: horizontal;
+      width: min(100%, 1440px);
+      min-width: 320px;
+      max-width: 1440px;
+      margin: 0 auto 24px;
+    }
+
+    .layout-check__viewport[data-width="390"] {
+      width: 390px;
+    }
+
+    .layout-check__label {
+      margin: 0 0 6px;
+      font-family: var(--ege-font-ui);
+      font-size: var(--ege-text-sm);
+      font-weight: 700;
+      color: var(--ege-primary);
+    }
+
+    .layout-check__toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .layout-check__toolbar button {
+      border: 1px solid var(--ege-line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fff;
+      font-family: var(--ege-font-ui);
+      font-size: var(--ege-text-sm);
+      cursor: pointer;
+    }
+
+    .layout-check__toolbar button.is-active {
+      border-color: var(--yap-royal);
+      color: var(--yap-royal);
+      background: var(--ege-wrong-pick-bg);
+    }
+
+    .layout-check__pass {
+      margin-top: 8px;
+      font-size: var(--ege-text-sm);
+      font-weight: 700;
+      color: var(--ege-ok);
+    }
+
+    .layout-check__fail {
+      color: var(--ege-bad);
+    }
+  </style>
+</head>
+<body>
+  <p class="layout-check__note">
+    Visual check for Matching Headings: paragraph G and the answer track must stay inside the read card,
+    with page scroll (desktop) or stacked layout (mobile). Resize to 1440px and 390px using the buttons.
+  </p>
+
+  <div class="layout-check__toolbar">
+    <button type="button" data-width="1440" class="is-active">1440px desktop</button>
+    <button type="button" data-width="900">900px tablet</button>
+    <button type="button" data-width="390">390px mobile</button>
+    <button type="button" id="runLayoutCheck">Run layout check</button>
+  </div>
+
+  <p class="layout-check__label">Viewport shell</p>
+  <div class="layout-check__viewport ege-page ege-page--topic-layout" id="viewport" data-width="1440">
+    <div class="ege-workspace" style="min-height: 70vh; display: flex; flex-direction: column;">
+      <div id="egePanels" style="flex: 1 1 auto; min-height: 0; overflow: hidden; display: flex; flex-direction: column;">
+        <section class="ege-task-panel is-active" id="panel-demo" style="flex: 1 1 auto; min-height: 0; overflow: hidden; display: flex; flex-direction: column;">
+          <div class="ege-task-intro">
+            <div class="ege-task-intro__lead">
+              <p class="ege-instructions" lang="ru">Layout fixture — seven texts A–G, eight headings.</p>
+            </div>
+          </div>
+          <article class="ege-task ege-task--matching" id="task-demo" style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column;">
+            <div class="ege-split ege-split--panels">
+              <div class="ege-split__read">
+                <section class="ege-panel ege-panel--read">
+                  <div class="ege-read-scroll">
+                    <div class="ege-match-texts">
+                      <div class="ege-text-block" data-letter="A"><strong>A.</strong> The magnificent lion is the symbol of Africa. Powerful and beautiful, the king of the beasts has no natural enemies.</div>
+                      <div class="ege-text-block" data-letter="B"><strong>B.</strong> Lions are mammals and the most sociable of all big cats. They live in groups called prides, which usually consist of related females and their cubs.</div>
+                      <div class="ege-text-block" data-letter="C"><strong>C.</strong> Today, lions are not at risk of extinction in Africa. However, three-quarters of their populations are in decline. The main threats to African lions are conflicts with people and the loss of living space, as well as climate change and wildlife trade.</div>
+                      <div class="ege-text-block" data-letter="D"><strong>D.</strong> African lions are highly adaptable animals and can be found in a wide variety of habitats, including desert areas. They prefer open woodland and thick bush.</div>
+                      <div class="ege-text-block" data-letter="E"><strong>E.</strong> Lions are top hunters in their environments, whether that is grassland, desert, or open woodland. It means they play an important role in keeping a healthy balance of numbers among other animals.</div>
+                      <div class="ege-text-block" data-letter="F"><strong>F.</strong> Lions do most of their hunting at night as their eyes have adapted to the dark. This gives them a huge advantage over the animals they hunt for.</div>
+                      <div class="ege-text-block" data-letter="G"><strong>G.</strong> To save lions, new protected areas of habitat in east Africa are organised. There is a special conservation programme in Kenya that monitors and protects lions. The programme educates local people on lion conservation, too.</div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="ege-split__work">
+                <div class="ege-work-col">
+                  <div class="ege-work-scroll">
+                    <section class="ege-panel ege-panel--work">
+                      <div class="ege-match-read">
+                        <div class="ege-ref-strip">
+                          <p class="ege-panel__label">Headings</p>
+                          <ol class="ege-ref__list ege-ref__list--pickable">
+                            <li data-value="1">Clever strategies for food</li>
+                            <li data-value="2">Appearance matters</li>
+                            <li data-value="3">Problems of family life</li>
+                            <li data-value="4">Necessary for nature</li>
+                            <li data-value="5">Lions' home</li>
+                            <li data-value="6">Giving a helping hand</li>
+                            <li data-value="7">Looking after their young</li>
+                            <li data-value="8">Lions in danger</li>
+                          </ol>
+                        </div>
+                        <div class="ege-answer-track">
+                          <div class="ege-answer-track__row">
+                            <button type="button" class="ege-answer-track__cell" data-slot="A"><span class="ege-answer-track__slot">A</span><span class="ege-answer-track__val"></span></button>
+                            <button type="button" class="ege-answer-track__cell" data-slot="B"><span class="ege-answer-track__slot">B</span><span class="ege-answer-track__val"></span></button>
+                            <button type="button" class="ege-answer-track__cell" data-slot="C"><span class="ege-answer-track__slot">C</span><span class="ege-answer-track__val"></span></button>
+                            <button type="button" class="ege-answer-track__cell" data-slot="D"><span class="ege-answer-track__slot">D</span><span class="ege-answer-track__val"></span></button>
+                            <button type="button" class="ege-answer-track__cell" data-slot="E"><span class="ege-answer-track__slot">E</span><span class="ege-answer-track__val"></span></button>
+                            <button type="button" class="ege-answer-track__cell" data-slot="F"><span class="ege-answer-track__slot">F</span><span class="ege-answer-track__val"></span></button>
+                            <button type="button" class="ege-answer-track__cell" data-slot="G"><span class="ege-answer-track__slot">G</span><span class="ege-answer-track__val"></span></button>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <p id="layoutResult" class="layout-check__pass" aria-live="polite"></p>
+
+  <script>
+    var viewport = document.getElementById("viewport");
+    var result = document.getElementById("layoutResult");
+    var panel = document.querySelector(".ege-panel--read");
+    var blockG = document.querySelector('[data-letter="G"]');
+    var trackG = document.querySelector('[data-slot="G"]');
+
+    document.querySelectorAll(".layout-check__toolbar button[data-width]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        document.querySelectorAll(".layout-check__toolbar button[data-width]").forEach(function (b) {
+          b.classList.remove("is-active");
+        });
+        btn.classList.add("is-active");
+        viewport.style.width = btn.dataset.width + "px";
+        viewport.dataset.width = btn.dataset.width;
+        runLayoutCheck();
+      });
+    });
+
+    function runLayoutCheck() {
+      var panelRect = panel.getBoundingClientRect();
+      var gRect = blockG.getBoundingClientRect();
+      var trackRect = trackG.getBoundingClientRect();
+      var readScroll = document.querySelector(".ege-read-scroll");
+      var styles = window.getComputedStyle(readScroll);
+      var clipped = gRect.bottom > panelRect.bottom + 1;
+      var trackVisible = trackRect.bottom <= window.innerHeight + 2;
+      var pageScroll = styles.overflowY === "visible" || styles.overflowY === "clip";
+
+      result.className = clipped ? "layout-check__pass layout-check__fail" : "layout-check__pass";
+      result.textContent =
+        (clipped
+          ? "FAIL: paragraph G extends below the read card (bottom " + Math.round(gRect.bottom - panelRect.bottom) + "px past frame)."
+          : "PASS: paragraph G stays inside the read card at " + viewport.dataset.width + "px.") +
+        (pageScroll ? " Article uses page scroll." : " Article panel scrolls internally.") +
+        (trackVisible ? " Answer G is reachable." : " Scroll to reach answer G.");
+    }
+
+    document.getElementById("runLayoutCheck").addEventListener("click", runLayoutCheck);
+    window.addEventListener("load", runLayoutCheck);
+    window.addEventListener("resize", runLayoutCheck);
+  </script>
+</body>
+</html>

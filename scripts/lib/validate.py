@@ -164,6 +164,52 @@ def _validate_listening(report: Report, base: str, task: dict) -> None:
         if not t_path.is_file():
             report.warn(base, f"transcript file not found: {transcript}")
 
+    exam_match = task.get("examMatch") or {}
+    if exam_match:
+        speakers = exam_match.get("speakers") or []
+        statements = exam_match.get("statements") or []
+        answers = exam_match.get("answers") or {}
+        if not speakers:
+            report.error(base, "examMatch missing speakers")
+        if not statements:
+            report.error(base, "examMatch missing statements")
+        for speaker in speakers:
+            if str(speaker) not in answers:
+                report.error(base, f"examMatch missing answer for speaker {speaker}")
+
+    exam_tfn = task.get("examTfn") or {}
+    if exam_tfn:
+        statements = exam_tfn.get("statements") or []
+        if not statements:
+            report.error(base, "examTfn missing statements")
+        for item in statements:
+            letter = item.get("letter")
+            if letter and letter not in (exam_tfn.get("answers") or {}):
+                report.warn(base, f"examTfn missing answer for {letter}")
+
+
+def _validate_writing(report: Report, base: str, task: dict) -> None:
+    if not task.get("promptHtml") and not task.get("prompt"):
+        report.error(base, "writing task missing prompt")
+    if task.get("examNum") not in (37, 38):
+        report.warn(base, f"writing examNum is {task.get('examNum')!r}, expected 37 or 38")
+    rubric = task.get("rubric") or []
+    if rubric:
+        for i, criterion in enumerate(rubric):
+            if not criterion.get("id"):
+                report.error(base, f"rubric {i}: missing id")
+            if not criterion.get("levels"):
+                report.error(base, f"rubric {i}: missing levels")
+
+
+def _validate_speaking_aloud(report: Report, base: str, task: dict) -> None:
+    if not task.get("text"):
+        report.error(base, "speaking-aloud task missing text")
+    if not task.get("prepSeconds"):
+        report.warn(base, "speaking-aloud task missing prepSeconds")
+    if not task.get("speakSeconds"):
+        report.warn(base, "speaking-aloud task missing speakSeconds")
+
 
 def _validate_speaking(report: Report, base: str, task: dict) -> None:
     images = task.get("images") or []

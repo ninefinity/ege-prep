@@ -25,6 +25,7 @@ from lib.io import load_json, save_json
 from lib.paths import DRAFTS, SECTIONS, TOPIC_FILES
 from lib.scaffold import scaffold
 from lib.demo_2027 import import_demo_2027
+from lib.codifier import import_codifier
 from lib.validate import validate_all
 
 

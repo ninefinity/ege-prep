@@ -6,14 +6,22 @@ import re
 from pathlib import Path
 
 from .io import load_json, save_json
-from .paths import DATA, ROOT, TOPIC_FILES
+from .paths import DATA, ROOT, SECTIONS, TOPIC_FILES
 
 DEMO_DIR = ROOT / "2027"
+DEMO_DATA = DEMO_DIR / "data"
 WRITTEN = DEMO_DIR / "written_demo.json"
 ORAL = DEMO_DIR / "oral_demo.json"
 VARIANT_PATH = DATA / "variants" / "2027-demo.json"
 AUDIO_SRC_PCH = DEMO_DIR / "АЯ ПЧ.mp3"
 AUDIO_DST_PCH = ROOT / "audio" / "Demo2027-PCh.mp3"
+AUDIO_DST_DEMO = DEMO_DIR / "audio" / "Demo2027-PCh.mp3"
+VARIANT_TIMES = {
+    "2027-demo": 190,
+    "2027-demo-reading": 30,
+    "2027-demo-language": 40,
+    "2027-demo-speaking": 17,
+}
 
 GRAMMAR_INSTRUCTIONS = (
     "Прочитайте приведённые ниже тексты. Преобразуйте, если необходимо, слова, "
@@ -47,18 +55,59 @@ LISTENING_INSTRUCTIONS = (
     "соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."
 )
 
+LISTENING_EXAM1_INSTRUCTIONS = (
+    "Вы услышите 6 высказываний. Установите соответствие между высказываниями "
+    "каждого говорящего A–F и утверждениями, данными в списке 1–7. "
+    "Используйте каждое утверждение, обозначенное соответствующей цифрой, "
+    "только один раз. В задании есть одно лишнее утверждение. "
+    "Вы услышите запись дважды."
+)
+LISTENING_EXAM2_INSTRUCTIONS = (
+    "Вы услышите диалог. Определите, какие из приведённых утверждений A–G "
+    "соответствуют содержанию текста (1 – True), какие не соответствуют "
+    "(2 – False) и о чём в тексте не сказано (3 – Not stated). "
+    "Вы услышите запись дважды."
+)
+
 VARIANT_ENTRIES = [
-    ("listening", "demo2027-mike-watson"),
+    ("listening", "demo2027-listening-1"),
+    ("listening", "demo2027-listening-2"),
+    ("listening", "demo2027-listening-3-9"),
     ("matching-headings", "demo2027-lions"),
     ("gap-fill", "demo2027-amur-river"),
     ("reading-comprehension", "demo2027-ai-education"),
     ("grammar-transformations", "demo2027-yaroslavl-sweaters"),
     ("word-formation", "demo2027-hermitage"),
     ("vocabulary-cloze", "demo2027-sunday"),
+    ("writing", "demo2027-victory-day-email"),
+    ("writing", "demo2027-zetland-essay"),
+    ("speaking-aloud", "demo2027-land-pollution"),
     ("speaking-questions", "demo2027-cooking-class"),
     ("speaking-interview", "demo2027-online-shopping"),
     ("speaking", "demo2027-solo-or-company"),
 ]
+
+DEMO_SECTION_OVERRIDES = {
+    "listening": {"examFrom": 1, "examTo": 9, "title": "Listening", "taskCount": 3},
+    "writing": {
+        "id": "writing",
+        "group": "Writing",
+        "examFrom": 37,
+        "examTo": 38,
+        "title": "Writing",
+        "taskCount": 2,
+        "available": True,
+    },
+    "speaking-aloud": {
+        "id": "speaking-aloud",
+        "group": "Speaking",
+        "examFrom": 39,
+        "examTo": 39,
+        "title": "Reading Aloud",
+        "taskCount": 1,
+        "available": True,
+    },
+}
 
 VARIANT_BLOCKS = [
     (
@@ -83,6 +132,7 @@ VARIANT_BLOCKS = [
         "2027-demo-speaking",
         "ЕГЭ 2027 Demo — Speaking",
         [
+            ("speaking-aloud", "demo2027-land-pollution"),
             ("speaking-questions", "demo2027-cooking-class"),
             ("speaking-interview", "demo2027-online-shopping"),
             ("speaking", "demo2027-solo-or-company"),
@@ -157,10 +207,46 @@ def _vocab_passage(text: str) -> str:
     return re.sub(r"(\d+)___", r"[\1]", text)
 
 
-def convert_listening(written: dict) -> dict:
+_RUBRIC_TITLES = {
+    "K1_content": "K1 — Содержание",
+    "K2_organization": "K2 — Организация",
+    "K3_language": "K3 — Языковое оформление",
+    "K3_lexis": "K3 — Лексика",
+    "K4_grammar": "K4 — Грамматика",
+    "K5_spelling_punctuation": "K5 — Орфография и пунктуация",
+}
+
+
+def _normalize_rubric(scoring_criteria: dict | None) -> list[dict]:
+    rubric: list[dict] = []
+    for key, crit in (scoring_criteria or {}).items():
+        levels = crit.get("levels") or {}
+        criterion_id = key.split("_")[0] if key.startswith("K") else key
+        title = _RUBRIC_TITLES.get(key, criterion_id)
+        level_list = [
+            {"score": int(score), "text": text}
+            for score, text in sorted(levels.items(), key=lambda x: int(x[0]), reverse=True)
+        ]
+        rubric.append(
+            {
+                "id": criterion_id,
+                "title": title,
+                "maxScore": crit.get("max_score")
+                or (max(int(s) for s in levels) if levels else 0),
+                "levels": level_list,
+                "zeroAll": key.startswith("K1"),
+            }
+        )
+    return rubric
+
+
+def convert_listening_tasks(written: dict) -> list[dict]:
     tasks = _section_tasks(written, "listening")
+    task1 = next(t for t in tasks if t.get("id") == 1)
+    task2 = next(t for t in tasks if t.get("id") == 2)
     mc_tasks = [t for t in tasks if t.get("type") == "multiple_choice"]
     transcript = mc_tasks[-1].get("shared_audio_transcript_for_tasks_3_9") or []
+    audio = "audio/Demo2027-PCh.mp3"
     questions = []
     for task in mc_tasks:
         questions.append(
@@ -170,16 +256,77 @@ def convert_listening(written: dict) -> dict:
                 "correct": int(task.get("correct_answer", 1)) - 1,
             }
         )
-    return {
-        "id": "demo2027-mike-watson",
-        "nav": "Mike Watson",
-        "title": "Five Minutes with a Star — Mike Watson",
-        "type": "listening",
-        "audio": "audio/Demo2027-PCh.mp3",
-        "instructions": LISTENING_INSTRUCTIONS,
-        "transcript": _transcript_lines(transcript),
-        "questions": questions,
-    }
+    mc_instructions = (
+        "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, "
+        "соответствующую выбранному Вами варианту ответа. Вы услышите запись дважды."
+    )
+    return [
+        {
+            "id": "demo2027-listening-1",
+            "nav": "Listening for main idea",
+            "title": "Listening for main idea",
+            "type": "listening",
+            "audio": audio,
+            "examFrom": 1,
+            "examTo": 1,
+            "examSinglePage": True,
+            "instructions": task1.get("instructions_ru") or LISTENING_EXAM1_INSTRUCTIONS,
+            "examMatch": {
+                "instructions": task1.get("instructions_ru") or LISTENING_EXAM1_INSTRUCTIONS,
+                "statements": [item["text"] for item in task1.get("statements") or []],
+                "speakers": task1.get("speakers") or [],
+                "answers": {k: str(v) for k, v in (task1.get("correct_answer") or {}).items()},
+            },
+        },
+        {
+            "id": "demo2027-listening-2",
+            "nav": "Listening for specific information",
+            "title": "Listening for specific information",
+            "type": "listening",
+            "audio": audio,
+            "examFrom": 2,
+            "examTo": 2,
+            "examSinglePage": True,
+            "instructions": task2.get("instructions_ru") or LISTENING_EXAM2_INSTRUCTIONS,
+            "examTfn": {
+                "instructions": task2.get("instructions_ru") or LISTENING_EXAM2_INSTRUCTIONS,
+                "statements": [
+                    {"letter": item["letter"], "text": item["text"]}
+                    for item in task2.get("statements") or []
+                ],
+                "answers": {k: str(v) for k, v in (task2.get("correct_answer") or {}).items()},
+                "labels": ["True", "False", "Not stated"],
+            },
+        },
+        {
+            "id": "demo2027-listening-3-9",
+            "nav": "Full listening comprehension",
+            "title": "Full listening comprehension",
+            "type": "listening",
+            "audio": audio,
+            "examFrom": 3,
+            "examTo": 9,
+            "examSinglePage": True,
+            "examMc": True,
+            "instructions": mc_instructions,
+            "transcript": _transcript_lines(transcript),
+            "questions": questions,
+            "mcInstructions": mc_instructions,
+        },
+    ]
+
+
+def purge_listening_tasks(task_ids: list[str]) -> None:
+    for path in (TOPIC_FILES["listening"], DEMO_DATA / "listening.json"):
+        if not path.is_file():
+            continue
+        topic = load_json(path)
+        tasks = topic.get("tasks") or []
+        drop = set(task_ids)
+        filtered = [task for task in tasks if task.get("id") not in drop]
+        if len(filtered) != len(tasks):
+            topic["tasks"] = filtered
+            save_json(path, topic)
 
 
 def convert_matching(written: dict) -> dict:
@@ -303,6 +450,98 @@ def convert_vocab(written: dict) -> dict:
     }
 
 
+def convert_writing_email(written: dict) -> dict:
+    section = next(s for s in written["sections"] if s.get("id") == "writing")
+    task = next(t for t in section["tasks"] if t.get("id") == 37)
+    email = task.get("prompt_email") or {}
+    body = (email.get("body") or "").replace("\n", "<br>")
+    prompt_html = (
+        "<p><strong>From:</strong> "
+        + email.get("from", "")
+        + "<br><strong>To:</strong> "
+        + email.get("to", "")
+        + "<br><strong>Subject:</strong> "
+        + email.get("subject", "")
+        + "</p><p>"
+        + body
+        + "</p><p>"
+        + task.get("task_instructions", "")
+        + "</p>"
+    )
+    return {
+        "id": "demo2027-victory-day-email",
+        "nav": "Personal email",
+        "title": "Personal email",
+        "type": "writing",
+        "examNum": 37,
+        "instructions": task.get("instructions_ru", ""),
+        "promptHtml": prompt_html,
+        "wordMin": 90,
+        "wordMax": 154,
+        "maxScore": 6,
+        "rubric": _normalize_rubric(task.get("scoring_criteria")),
+        "rubricNote": task.get("notes", ""),
+    }
+
+
+def convert_writing_essay(written: dict) -> dict:
+    section = next(s for s in written["sections"] if s.get("id") == "writing")
+    task = next(t for t in section["tasks"] if t.get("id") == 38)
+    variant = (task.get("variants") or [{}])[0]
+    rows = "".join(
+        "<tr><td>"
+        + row.get("option", "")
+        + "</td><td>"
+        + str(row.get("percent", ""))
+        + "%</td></tr>"
+        for row in variant.get("data_table") or []
+    )
+    prompt_html = (
+        "<p>"
+        + variant.get("prompt", "")
+        + "</p>"
+        + "<p><strong>"
+        + variant.get("survey_question", "")
+        + "</strong></p>"
+        + "<table class='ege-writing-table'><tbody>"
+        + rows
+        + "</tbody></table>"
+        + "<p>"
+        + task.get("instructions_ru", "")
+        + "</p>"
+    )
+    return {
+        "id": "demo2027-zetland-essay",
+        "nav": "Opinion essay",
+        "title": variant.get("topic") or "Opinion essay",
+        "type": "writing",
+        "examNum": 38,
+        "instructions": task.get("instructions_ru", ""),
+        "promptHtml": prompt_html,
+        "plan": task.get("plan") or [],
+        "wordMin": 180,
+        "wordMax": 275,
+        "maxScore": 14,
+        "rubric": _normalize_rubric(task.get("scoring_criteria")),
+        "rubricNote": task.get("notes", ""),
+    }
+
+
+def convert_speaking_aloud(oral: dict) -> dict:
+    task = next(t for t in oral["tasks"] if t.get("type") == "reading_aloud")
+    return {
+        "id": "demo2027-land-pollution",
+        "nav": "Reading aloud",
+        "title": task.get("text_title") or "Reading aloud",
+        "type": "speaking-aloud",
+        "instructions": task.get("instructions_ru", ""),
+        "textTitle": task.get("text_title", ""),
+        "text": task.get("text", ""),
+        "prepSeconds": task.get("preparation_time_seconds", 90),
+        "speakSeconds": task.get("max_response_time_seconds", 90),
+    }
+
+
 def convert_speaking_questions(oral: dict) -> dict:
     task = next(t for t in oral["tasks"] if t.get("type") == "questions_about_advertisement")
     topics = task["advertisement"]["required_question_topics"]
@@ -374,17 +613,102 @@ def upsert_task(topic_id: str, task: dict) -> None:
     save_json(path, topic)
 
 
+def write_demo_topic(topic_id: str, task: dict) -> None:
+    dest = DEMO_DATA / f"{topic_id}.json"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.is_file():
+        out = load_json(dest)
+    else:
+        src_path = TOPIC_FILES.get(topic_id)
+        if src_path and src_path.is_file():
+            src = load_json(src_path)
+        else:
+            src = {
+                "id": topic_id,
+                "title": topic_id.replace("-", " ").title(),
+                "tasks": [],
+            }
+        out = {k: v for k, v in src.items() if k != "tasks"}
+        out["tasks"] = []
+    tasks = out.setdefault("tasks", [])
+    for i, existing in enumerate(tasks):
+        if existing.get("id") == task["id"]:
+            tasks[i] = task
+            save_json(dest, out)
+            return
+    tasks.append(task)
+    save_json(dest, out)
+
+
+def write_demo_sections() -> None:
+    catalog = load_json(SECTIONS)
+    wanted = {section_id for section_id, _task_id in VARIANT_ENTRIES}
+    sections = []
+    seen = set()
+    for section in catalog.get("sections") or []:
+        if section.get("id") not in wanted:
+            continue
+        entry = dict(section)
+        override = DEMO_SECTION_OVERRIDES.get(entry["id"])
+        if override:
+            entry.update(override)
+        override_count = (override or {}).get("taskCount")
+        entry["taskCount"] = override_count if override_count else 1
+        entry["available"] = True
+        sections.append(entry)
+        seen.add(entry["id"])
+    for section_id, override in DEMO_SECTION_OVERRIDES.items():
+        if section_id in wanted and section_id not in seen:
+            sections.append(dict(override))
+    sections.sort(key=lambda s: (s.get("examFrom") or 0, s.get("id") or ""))
+    save_json(DEMO_DIR / "sections.json", {"title": "ЕГЭ 2027 Demo", "sections": sections})
+    sync_root_demo_sections()
+
+
+def sync_root_demo_sections() -> None:
+    catalog = load_json(SECTIONS)
+    root_sections = {s["id"]: dict(s) for s in catalog.get("sections") or []}
+    for section_id, override in DEMO_SECTION_OVERRIDES.items():
+        entry = dict(root_sections.get(section_id, {}))
+        entry.update(override)
+        entry.setdefault("available", True)
+        root_sections[section_id] = entry
+    merged = list(root_sections.values())
+    merged.sort(key=lambda s: (s.get("examFrom") or 0, s.get("id") or ""))
+    catalog["sections"] = merged
+    save_json(SECTIONS, catalog)
+
+
+def write_variant(path: Path, variant_id: str, title: str, entries: list[tuple[str, str]]) -> None:
+    payload = {
+        "id": variant_id,
+        "title": title,
+        "entries": [{"section": section, "task": task} for section, task in entries],
+    }
+    minutes = VARIANT_TIMES.get(variant_id)
+    if minutes:
+        payload["timeMinutes"] = minutes
+    path.parent.mkdir(parents=True, exist_ok=True)
+    save_json(path, payload)
+
+
 def import_demo_2027(*, dry_run: bool = False) -> list[str]:
     written = load_json(WRITTEN)
     oral = load_json(ORAL)
     converted = [
-        ("listening", convert_listening(written)),
+        *[
+            ("listening", task)
+            for task in convert_listening_tasks(written)
+        ],
         ("matching-headings", convert_matching(written)),
         ("gap-fill", convert_gap_fill(written)),
         ("reading-comprehension", convert_reading(written)),
         ("grammar-transformations", convert_grammar(written)),
         ("word-formation", convert_word_formation(written)),
         ("vocabulary-cloze", convert_vocab(written)),
+        ("writing", convert_writing_email(written)),
+        ("writing", convert_writing_essay(written)),
+        ("speaking-aloud", convert_speaking_aloud(oral)),
         ("speaking-questions", convert_speaking_questions(oral)),
         ("speaking-interview", convert_speaking_interview(oral)),
         ("speaking", convert_speaking(oral)),
@@ -394,25 +718,28 @@ def import_demo_2027(*, dry_run: bool = False) -> list[str]:
         if AUDIO_SRC_PCH.is_file():
             AUDIO_DST_PCH.write_bytes(AUDIO_SRC_PCH.read_bytes())
             log.append(f"Copied audio → {AUDIO_DST_PCH.name}")
+            AUDIO_DST_DEMO.parent.mkdir(parents=True, exist_ok=True)
+            if AUDIO_DST_DEMO.is_symlink() or AUDIO_DST_DEMO.exists():
+                AUDIO_DST_DEMO.unlink()
+            AUDIO_DST_DEMO.symlink_to(Path("..") / AUDIO_SRC_PCH.name)
+            log.append(f"Linked {AUDIO_DST_DEMO.relative_to(ROOT)}")
         for topic_id, task in converted:
             upsert_task(topic_id, task)
-            log.append(f"Upserted {task['id']} → {topic_id}")
-        variants_dir = VARIANT_PATH.parent
-        variants_dir.mkdir(parents=True, exist_ok=True)
+            write_demo_topic(topic_id, task)
+            log.append(f"Upserted {task['id']} → {topic_id} and 2027/data")
+        purge_listening_tasks(["demo2027-mike-watson"])
+        write_demo_sections()
+        log.append("Wrote 2027/sections.json")
         all_variants = [("2027-demo", "ЕГЭ 2027 Demo", VARIANT_ENTRIES)] + [
             (block_id, title, entries) for block_id, title, entries in VARIANT_BLOCKS
         ]
         for variant_id, title, entries in all_variants:
-            path = variants_dir / f"{variant_id}.json"
-            save_json(
-                path,
-                {
-                    "id": variant_id,
-                    "title": title,
-                    "entries": [{"section": s, "task": t} for s, t in entries],
-                },
-            )
-            log.append(f"Wrote {path.relative_to(ROOT)}")
+            for dest in (
+                VARIANT_PATH.parent / f"{variant_id}.json",
+                DEMO_DATA / "variants" / f"{variant_id}.json",
+            ):
+                write_variant(dest, variant_id, title, entries)
+                log.append(f"Wrote {dest.relative_to(ROOT)}")
     else:
         for topic_id, task in converted:
             log.append(f"(dry run) {task['id']} → {topic_id}")

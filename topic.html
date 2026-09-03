@@ -14,13 +14,6 @@
   <main class="ege-page" id="egePage">
     <div class="ege-topics">
       <aside class="ege-rail">
-        <div class="ege-rail__head" id="egeRailHead">
-          <div class="ege-rail__logo">
-            <img class="ege-rail__mark" src="assets/timetoege.png" alt="" aria-hidden="true" />
-          </div>
-          <h1 class="ege-rail__title" id="egeRailTitle" hidden>Loading…</h1>
-          <p class="ege-rail__exam" id="egeRailExam" hidden></p>
-        </div>
         <div class="ege-topic-sidebar" id="egeTopicSidebar">
           <div class="ege-topic-sidebar__head">
             <div class="ege-topic-sidebar__logo">
@@ -29,10 +22,6 @@
             <a href="index.html" class="ege-back ege-topic-sidebar__back">← Sections</a>
           </div>
           <div class="ege-topic-nav" id="egeTopicNav">
-            <label class="ege-nav-filter">
-              <input type="checkbox" id="egeHideCompleted" />
-              Hide completed
-            </label>
             <nav class="ege-nav" id="egeNav" aria-label="Tasks"></nav>
           </div>
         </div>
@@ -40,28 +29,34 @@
     </div>
 
     <div class="ege-workspace">
-      <div class="ege-main" id="egeMain">
-        <div id="egeListeningChrome" aria-hidden="true"></div>
-        <p class="ege-instructions" id="egeInstructions" hidden></p>
-        <div id="egePanels" aria-live="polite" aria-busy="true">
-          <p class="ege-loading" id="egeTopicLoading">Loading…</p>
-        </div>
-        <nav class="ege-task-flow" id="egeTaskFlow" aria-label="Task navigation" hidden>
-          <button type="button" class="ege-task-flow__btn" id="egeFlowPrev" aria-label="Previous task" hidden>‹</button>
-          <button type="button" class="ege-task-flow__current" id="egeFlowCurrent" aria-expanded="false" aria-controls="egeNav">
-            <span class="ege-task-flow__position" id="egeFlowPosition"></span>
-            <span class="ege-task-flow__label" id="egeFlowLabel"></span>
-          </button>
-          <button type="button" class="ege-task-flow__btn" id="egeFlowNext" aria-label="Next task" hidden>›</button>
-        </nav>
+      <div id="egeListeningChrome" aria-hidden="true"></div>
+      <p class="ege-instructions" id="egeInstructions" hidden></p>
+      <div id="egePanels" aria-live="polite" aria-busy="true">
+        <p class="ege-loading" id="egeTopicLoading">Loading…</p>
       </div>
+      <nav class="ege-task-flow" id="egeTaskFlow" aria-label="Task navigation" hidden>
+        <button type="button" class="ege-task-flow__btn" id="egeFlowPrev" aria-label="Previous task" hidden>‹</button>
+        <button type="button" class="ege-task-flow__current" id="egeFlowCurrent" aria-expanded="false" aria-controls="egeNav">
+          <span class="ege-task-flow__position" id="egeFlowPosition"></span>
+          <span class="ege-task-flow__label" id="egeFlowLabel"></span>
+        </button>
+        <button type="button" class="ege-task-flow__btn" id="egeFlowNext" aria-label="Next task" hidden>›</button>
+      </nav>
     </div>
   </main>
 
   <script src="js/highlight.js"></script>
   <script type="module">
-    import "./js/engine.js";
-    EgePrep.initTopicPage();
+    var params = new URLSearchParams(location.search);
+    var variant = params.get("variant") || "";
+    var task = params.get("task") || "";
+    if (variant.indexOf("2027") === 0 || task.indexOf("demo2027-") === 0) {
+      location.replace("2027/topic.html" + location.search);
+    } else {
+      import("./js/engine.js").then(function () {
+        EgePrep.initTopicPage();
+      });
+    }
   </script>
   <script src="shared/site-footer.js"></script>
 </body>

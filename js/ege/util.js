@@ -1,5 +1,15 @@
 import { E } from "./runtime.js";
 
+E.clamp = function clamp(value, min, max) {
+  var n = Number(value);
+  if (!isFinite(n)) n = 0;
+  return Math.max(min, Math.min(n, max));
+};
+
+E.limitScore = function limitScore(score, maximum) {
+  return E.clamp(score, 0, maximum);
+};
+
 E.normalize = function normalize(value) {
     return String(value || "")
       .trim()
@@ -78,7 +88,10 @@ E.buildAcceptedAnswers = function buildAcceptedAnswers(answer, alt) {
     }
 
     add(answer);
-    (alt || []).forEach(add);
+    var altList = [];
+    if (Array.isArray(alt)) altList = alt;
+    else if (alt != null && alt !== "") altList = [alt];
+    altList.forEach(add);
 
     for (var i = 0; i < queue.length; i += 1) {
       E.generateSpellingVariants(queue[i]).forEach(add);
@@ -95,8 +108,20 @@ E.taskMaxScore = function taskMaxScore(task) {
     if (task.type === "listening") {
       var gapCount = E.getActiveListeningGaps(task).length;
       var questionCount = task.questions ? task.questions.length : 0;
-      return gapCount + questionCount;
+      var examMatchCount = task.examMatch ? (task.examMatch.speakers || []).length : 0;
+      var examTfnCount = task.examTfn ? (task.examTfn.statements || []).length : 0;
+      return gapCount + questionCount + examMatchCount + examTfnCount;
     }
-    if (task.type === "speaking" || task.type === "speaking-questions") return 1;
+    if (
+      task.type === "speaking" ||
+      task.type === "speaking-questions" ||
+      task.type === "speaking-interview" ||
+      task.type === "speaking-aloud"
+    ) {
+      return 1;
+    }
+    if (task.type === "writing") {
+      return task.maxScore || 6;
+    }
     return 0;
   }

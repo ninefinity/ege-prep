@@ -1,7 +1,6 @@
 {
   "id": "2027-demo-reading",
   "title": "ЕГЭ 2027 Demo — Reading",
-  "timeMinutes": 30,
   "entries": [
     {
       "section": "matching-headings",
@@ -15,5 +14,6 @@
       "section": "reading-comprehension",
       "task": "demo2027-ai-education"
     }
-  ]
+  ],
+  "timeMinutes": 30
 }

@@ -94,24 +94,98 @@ E.taskHasSplitPrep = function taskHasSplitPrep(task) {
     return !!(gapItems && gapItems.length && matchItems && matchItems.length);
   }
 
-E.getListeningStepKind = function getListeningStepKind(task, step) {
-    if (!task) return null;
+E.taskHasExamListening = function taskHasExamListening(task) {
+    return !!(
+      task &&
+      task.type === "listening" &&
+      (task.examMatch || task.examTfn || task.examMc)
+    );
+  }
+
+E.taskUsesExamSinglePage = function taskUsesExamSinglePage(task) {
+    return !!(task && task.examSinglePage && E.taskHasExamListening(task));
+  }
+
+E.showsListeningTranscript = function showsListeningTranscript() {
+    return !(typeof E.isPlacementExam === "function" && E.isPlacementExam());
+  }
+
+E.listeningHasStageNav = function listeningHasStageNav(task) {
+    if (E.taskUsesExamSinglePage(task)) return false;
+    return E.listeningStagePlan(task).length > 1;
+  }
+
+E.listeningStagePlan = function listeningStagePlan(task) {
+    if (!task || task.type !== "listening") return [];
+    if (task.examMc) return ["mc"];
     if (E.taskHasSplitPrep(task)) {
-      if (step === 1) return "prep-gap";
-      if (step === 2) return "prep-match";
-      if (step === 3) return "listening";
-      if (step === 4) return "mc";
-      return null;
+      var split = ["prep-gap", "prep-match", "listening"];
+      if (E.listeningMcMax(task) > 0) split.push("mc");
+      return split;
+    }
+    if (E.taskHasExamListening(task)) {
+      var exam = [];
+      if (task.examMatch) exam.push("exam-match");
+      if (task.examTfn) exam.push("exam-tfn");
+      if (E.listeningMcMax(task) > 0) exam.push("mc");
+      return exam;
     }
     if (task.prep) {
-      if (step === 1) return "prep";
-      if (step === 2) return "listening";
-      if (step === 3) return "mc";
-      return null;
+      var prep = ["prep", "listening"];
+      if (E.listeningMcMax(task) > 0) prep.push("mc");
+      return prep;
     }
-    if (step === 1) return "listening";
-    if (step === 2) return "mc";
-    return null;
+    var basic = ["listening"];
+    if (E.listeningMcMax(task) > 0) basic.push("mc");
+    return basic;
+  }
+
+E.getListeningStepKind = function getListeningStepKind(task, step) {
+    if (!task) return null;
+    var plan = E.listeningStagePlan(task);
+    return plan[step - 1] || null;
+  }
+
+E.isListeningExamMatchComplete = function isListeningExamMatchComplete(taskId) {
+    var task = E.findTask(taskId);
+    if (!task || !task.examMatch) return true;
+    var prefix = E.taskPrefix(taskId);
+    return (task.examMatch.speakers || []).every(function (speaker) {
+      return !!E.getListeningExamMatchValue(prefix, speaker);
+    });
+  }
+
+E.isListeningExamTfnComplete = function isListeningExamTfnComplete(taskId) {
+    var task = E.findTask(taskId);
+    if (!task || !task.examTfn) return true;
+    var prefix = E.taskPrefix(taskId);
+    return (task.examTfn.statements || []).every(function (item) {
+      return !!E.getCheckedValue(prefix + "_etfn_" + item.letter);
+    });
+  }
+
+E.isListeningExamMatchPassed = function isListeningExamMatchPassed(taskId) {
+    var taskEl = document.getElementById("task-" + taskId);
+    return !!(taskEl && taskEl.dataset.examMatchPassed === "1");
+  }
+
+E.setListeningExamMatchPassed = function setListeningExamMatchPassed(taskId, passed) {
+    var taskEl = document.getElementById("task-" + taskId);
+    if (!taskEl) return;
+    if (passed) taskEl.dataset.examMatchPassed = "1";
+    else delete taskEl.dataset.examMatchPassed;
+  }
+
+E.isListeningExamTfnPassed = function isListeningExamTfnPassed(taskId) {
+    var taskEl = document.getElementById("task-" + taskId);
+    return !!(taskEl && taskEl.dataset.examTfnPassed === "1");
+  }
+
+E.setListeningExamTfnPassed = function setListeningExamTfnPassed(taskId, passed) {
+    var taskEl = document.getElementById("task-" + taskId);
+    if (!taskEl) return;
+    if (passed) taskEl.dataset.examTfnPassed = "1";
+    else delete taskEl.dataset.examTfnPassed;
   }
 
 E.isPrepMatchingComplete = function isPrepMatchingComplete(taskId) {
@@ -137,8 +211,12 @@ E.isListeningStepComplete = function isListeningStepComplete(taskId, step) {
     if (kind === "prep") return E.isListeningPrepComplete(taskId);
 
     if (kind === "listening") {
+      if (!E.getActiveListeningGaps(task).length) return true;
       return E.isListeningGapsPassed(taskId);
     }
+
+    if (kind === "exam-match") return E.isListeningExamMatchPassed(taskId);
+    if (kind === "exam-tfn") return E.isListeningExamTfnPassed(taskId);
 
     if (kind === "mc") {
       return (task.questions || []).every(function (_question, index) {
@@ -178,6 +256,12 @@ E.listeningMcMax = function listeningMcMax(task) {
 
 E.listeningStepInstructions = function listeningStepInstructions(task, step) {
     var kind = E.getListeningStepKind(task, step);
+    if (kind === "exam-match" && task.examMatch) {
+      return task.examMatch.instructions || "";
+    }
+    if (kind === "exam-tfn" && task.examTfn) {
+      return task.examTfn.instructions || "";
+    }
     if (kind === "mc") {
       return (
         "Вы услышите интервью. В заданиях 3–9 запишите в поле ответа цифру 1, 2 или 3, " +
@@ -233,15 +317,30 @@ E.syncListeningStepUI = function syncListeningStepUI(taskId) {
     var taskEl = document.getElementById("task-" + taskId);
     if (!taskEl) return;
 
+    if (typeof E.syncListeningNotesToggle === "function") E.syncListeningNotesToggle(taskId);
+
+    if (E.taskUsesExamSinglePage(task)) {
+      var examPageStep = taskEl.querySelector(".ege-listening-step--exam-page");
+      if (examPageStep) examPageStep.hidden = false;
+      taskEl.dataset.listeningStep = "1";
+      taskEl.dataset.listeningKind = "exam-page";
+      E.syncListeningExamSinglePageFooterUI(taskId);
+      return;
+    }
+
     var step = E.getListeningStep(taskId);
     var kind = E.getListeningStepKind(task, step);
     E.hideScoreFeedback(taskId);
     var prepStep = taskEl.querySelector(".ege-listening-step--prep");
+    var examMatchStep = taskEl.querySelector(".ege-listening-step--exam-match");
+    var examTfnStep = taskEl.querySelector(".ege-listening-step--exam-tfn");
     var gapsStep = taskEl.querySelector(".ege-listening-step--gaps");
     var mcStep = taskEl.querySelector(".ege-listening-step--mc");
     if (prepStep) {
       prepStep.hidden = kind !== "prep-gap" && kind !== "prep-match" && kind !== "prep";
     }
+    if (examMatchStep) examMatchStep.hidden = kind !== "exam-match";
+    if (examTfnStep) examTfnStep.hidden = kind !== "exam-tfn";
     if (gapsStep) gapsStep.hidden = kind !== "listening";
     if (mcStep) mcStep.hidden = kind !== "mc";
 
@@ -277,6 +376,12 @@ E.syncListeningStepUI = function syncListeningStepUI(taskId) {
       if (kind === "listening") {
         E.hideListeningFinishButtons(taskId);
         E.syncListeningGapsFooterUI(taskId);
+      } else if (kind === "exam-match") {
+        E.hidePrepNextButton(taskId);
+        E.syncListeningExamMatchFooterUI(taskId);
+      } else if (kind === "exam-tfn") {
+        E.hidePrepNextButton(taskId);
+        E.syncListeningExamTfnFooterUI(taskId);
       } else if (kind === "mc") {
         E.hidePrepNextButton(taskId);
         E.syncListeningMcFooterUI(taskId);
@@ -515,6 +620,32 @@ E.parseListeningTime = function parseListeningTime(value) {
     return null;
   }
 
+E.getListeningSegmentBounds = function getListeningSegmentBounds(task) {
+    if (!task) return { start: 0, end: null };
+    var start =
+      task.audioStart != null ? E.parseListeningTime(task.audioStart) : null;
+    var end = task.audioEnd != null ? E.parseListeningTime(task.audioEnd) : null;
+    return {
+      start: start != null ? start : 0,
+      end: end != null ? end : null,
+    };
+  };
+
+E.getActiveListeningSegmentBounds = function getActiveListeningSegmentBounds() {
+    if (!E.state.activeTaskId || typeof E.findTask !== "function") {
+      return { start: 0, end: null };
+    }
+    return E.getListeningSegmentBounds(E.findTask(E.state.activeTaskId));
+  };
+
+E.syncSharedListeningSegment = function syncSharedListeningSegment(task) {
+    if (!task || !sharedListeningState.audio) return;
+    var bounds = E.getListeningSegmentBounds(task);
+    var audio = sharedListeningState.audio;
+    audio.pause();
+    audio.currentTime = bounds.start;
+  };
+
 E.getListeningPlaythroughStarts = function getListeningPlaythroughStarts(task) {
     var raw = task && (task.playthroughStarts || task.audioMarks);
     if (!raw || !raw.length) return [];
@@ -536,11 +667,135 @@ E.getListeningPlaythroughStarts = function getListeningPlaythroughStarts(task) {
     return starts;
   }
 
-E.buildListeningAudio = function buildListeningAudio(task, topicId) {
+E.listeningUsesSharedAudio = function listeningUsesSharedAudio(task) {
+    if (!task || task.type !== "listening" || !task.audio) return false;
+    if (typeof E.isFullWrittenExam !== "function" || !E.isFullWrittenExam()) return false;
+    return String(task.audio).indexOf("Demo2027-PCh") !== -1;
+  };
+
+E.getVariantListeningMarks = function getVariantListeningMarks(task) {
+    if (!E.state.topic || !E.state.topic.tasks) return E.getListeningPlaythroughStarts(task);
+    var marks = [];
+    var seen = {};
+    E.state.topic.tasks.forEach(function (entry) {
+      if (entry.type !== "listening" || !E.listeningUsesSharedAudio(entry)) return;
+      var raw = entry.audioMarks || entry.playthroughStarts || [];
+      raw.forEach(function (item) {
+        var at =
+          typeof item === "object" && item
+            ? E.parseListeningTime(item.at != null ? item.at : item.time)
+            : E.parseListeningTime(item);
+        if (at == null) return;
+        var label = String((typeof item === "object" && item && item.label) || "");
+        var key = at + ":" + label;
+        if (seen[key]) return;
+        seen[key] = true;
+        marks.push({ at: at, label: label || String(marks.length + 1) });
+      });
+    });
+    marks.sort(function (a, b) {
+      return a.at - b.at;
+    });
+    return marks.length ? marks : E.getListeningPlaythroughStarts(task);
+  };
+
+E.getVariantListeningSegments = function getVariantListeningSegments(task) {
+    var segments = [];
+    var audioRef = task && task.audio ? String(task.audio) : "";
+
+    function pushSegment(entry) {
+      if (!entry || entry.type !== "listening") return;
+      if (audioRef && entry.audio !== audioRef) return;
+      if (String(entry.audio || "").indexOf("Demo2027-PCh") === -1) return;
+      var bounds = E.getListeningSegmentBounds(entry);
+      var label =
+        entry.examFrom != null && entry.examTo != null && entry.examFrom !== entry.examTo
+          ? entry.examFrom + "–" + entry.examTo
+          : String(entry.examFrom != null ? entry.examFrom : segments.length + 1);
+      segments.push({
+        taskId: entry.id,
+        label: label,
+        start: bounds.start,
+        end: bounds.end,
+      });
+    }
+
+    if (E.state.topic && E.state.topic.tasks) {
+      E.state.topic.tasks.forEach(pushSegment);
+    } else if (task) {
+      pushSegment(task);
+    }
+
+    segments.sort(function (a, b) {
+      return a.start - b.start;
+    });
+    return segments;
+  };
+
+E.listeningUsesExamSegments = function listeningUsesExamSegments(task) {
+    if (!task || task.type !== "listening" || !task.audio) return false;
+    if (String(task.audio).indexOf("Demo2027-PCh") === -1) return false;
+    return E.getVariantListeningSegments(task).length >= 2;
+  };
+
+var sharedListeningState = {
+  audio: null,
+  bar: null,
+  src: "",
+  playFromStartCounts: {},
+};
+
+E.pauseSharedListeningAudio = function pauseSharedListeningAudio() {
+    if (sharedListeningState.audio) sharedListeningState.audio.pause();
+  };
+
+E.attachSharedListeningBar = function attachSharedListeningBar(task, topicId) {
+    if (!sharedListeningState.audio || sharedListeningState.src !== task.audio) {
+      sharedListeningState.src = task.audio;
+      sharedListeningState.playFromStartCounts = {};
+      sharedListeningState.bar = E.buildListeningAudio(task, topicId, { shared: true });
+    } else if (!sharedListeningState.bar) {
+      sharedListeningState.bar = E.buildListeningAudio(task, topicId, { shared: true });
+    }
+    return sharedListeningState.bar;
+  };
+
+E.mountListeningNotesToPlayerSlot = function mountListeningNotesToPlayerSlot(root, taskId) {
+    if (!root || !taskId) return;
+    var slot = root.querySelector(".ege-listening-player__notes-slot");
+    if (!slot) return;
+    var existing =
+      document.getElementById("listening-notes-" + taskId) ||
+      root.querySelector(".ege-listening-notes-toggle");
+    if (existing) {
+      if (existing.parentNode !== slot) slot.appendChild(existing);
+      return;
+    }
+    if (typeof E.buildListeningNotesToggle === "function") {
+      slot.appendChild(E.buildListeningNotesToggle(taskId));
+    }
+  };
+
+E.buildListeningAudio = function buildListeningAudio(task, topicId, options) {
+    var shared = options && options.shared;
+    var workspaceMarks = !!(options && options.workspaceMarks);
+    var usePlayerLayout =
+      workspaceMarks || (shared && E.listeningUsesExamSegments(task));
+    if (E.listeningUsesSharedAudio(task) && !shared) {
+      return E.attachSharedListeningBar(task, topicId);
+    }
+
     var bar = document.createElement("div");
     bar.className = "ege-listening-audio";
+    if (workspaceMarks || usePlayerLayout) bar.dataset.workspaceMarks = "true";
 
-    var audio = document.createElement("audio");
+    var audio;
+    if (shared && sharedListeningState.audio) {
+      audio = sharedListeningState.audio;
+    } else {
+      audio = document.createElement("audio");
+      if (shared) sharedListeningState.audio = audio;
+    }
     audio.id = topicId + "_" + task.id + "_audio";
     audio.preload = "auto";
     audio.playbackRate = 1;
@@ -558,6 +813,10 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId) {
     var track = document.createElement("div");
     track.className = "ege-listening-seek__track";
 
+    var segmentsEl = document.createElement("div");
+    segmentsEl.className = "ege-listening-seek__segments";
+    segmentsEl.setAttribute("aria-hidden", "true");
+
     var marks = document.createElement("div");
     marks.className = "ege-listening-seek__marks";
 
@@ -565,9 +824,57 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId) {
     thumb.className = "ege-listening-seek__thumb";
     thumb.setAttribute("aria-hidden", "true");
 
+    var timeEl = document.createElement("span");
+    timeEl.className = "ege-listening-seek__time";
+    timeEl.setAttribute("aria-hidden", "true");
+
+    var useExamSegments =
+      (shared || workspaceMarks) && E.listeningUsesExamSegments(task);
+
+    var dividersEl = document.createElement("div");
+    dividersEl.className = "ege-listening-seek__dividers";
+    dividersEl.setAttribute("aria-hidden", "true");
+    dividersEl.hidden = true;
+    var dividerOne = document.createElement("div");
+    dividerOne.className = "ege-listening-seek__divider ege-listening-seek__divider--one";
+    var dividerTwo = document.createElement("div");
+    dividerTwo.className = "ege-listening-seek__divider ege-listening-seek__divider--two";
+    dividersEl.appendChild(dividerOne);
+    dividersEl.appendChild(dividerTwo);
+
+    track.appendChild(segmentsEl);
+    track.appendChild(dividersEl);
     track.appendChild(marks);
     track.appendChild(thumb);
     seek.appendChild(track);
+
+    var player = null;
+    var playerContent = null;
+    var labelsEl = null;
+    var notesSlot = null;
+    var actionsStart = null;
+
+    if (usePlayerLayout) {
+      player = document.createElement("div");
+      player.className = "ege-listening-player";
+
+      playerContent = document.createElement("div");
+      playerContent.className = "ege-listening-player__content";
+
+      var header = document.createElement("div");
+      header.className = "ege-listening-player__header";
+
+      labelsEl = document.createElement("div");
+      labelsEl.className = "ege-listening-player__labels";
+      labelsEl.hidden = true;
+      header.appendChild(labelsEl);
+
+      playerContent.appendChild(header);
+    }
+
+    if (!usePlayerLayout) {
+      seek.appendChild(timeEl);
+    }
 
     var controls = document.createElement("div");
     controls.className = "ege-listening-audio__controls";
@@ -610,8 +917,175 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId) {
       playBtn.setAttribute("aria-label", isPlaying ? "Pause recording" : "Play recording");
     }
 
+    function segmentBoundsForTask(activeTask) {
+      return E.getListeningSegmentBounds(activeTask || task);
+    }
+
+    function isAtSegmentStart(activeTask) {
+      var bounds = segmentBoundsForTask(activeTask);
+      return (audio.currentTime || 0) < bounds.start + 0.5;
+    }
+
+    function playFromStartCount(activeTask) {
+      var active = activeTask || task;
+      var key = active && active.id ? active.id : task.id;
+      return sharedListeningState.playFromStartCounts[key] || 0;
+    }
+
+    function incrementPlayFromStartCount(activeTask) {
+      var active = activeTask || task;
+      var key = active && active.id ? active.id : task.id;
+      sharedListeningState.playFromStartCounts[key] = playFromStartCount(active) + 1;
+    }
+
+    function clampToSegment(activeTask) {
+      var bounds = segmentBoundsForTask(activeTask);
+      var t = audio.currentTime || 0;
+      if (t < bounds.start - 0.05) {
+        audio.currentTime = bounds.start;
+        return;
+      }
+      if (bounds.end != null && t >= bounds.end) {
+        audio.pause();
+        audio.currentTime = bounds.end;
+      }
+    }
+
+    function ensureSegmentStart(activeTask) {
+      var bounds = segmentBoundsForTask(activeTask);
+      var t = audio.currentTime || 0;
+      if (t < bounds.start - 0.05 || (bounds.end != null && t >= bounds.end - 0.05)) {
+        audio.currentTime = bounds.start;
+      }
+    }
+
+    function updateExamSegmentsUI() {
+      if (!useExamSegments || !segmentsEl) return;
+      var dur = duration();
+      var segments = E.getVariantListeningSegments(task);
+      if (!dur || segments.length < 2) return;
+
+      var t = audio.currentTime || 0;
+      var activeId = E.state.activeTaskId || task.id;
+      var activeIdx = -1;
+      segments.forEach(function (seg, index) {
+        if (seg.taskId === activeId) activeIdx = index;
+      });
+
+      segmentsEl.querySelectorAll(".ege-listening-seek__segment").forEach(function (el, index) {
+        var seg = segments[index];
+        if (!seg) return;
+        var segEnd = seg.end != null ? seg.end : dur;
+        el.classList.remove("is-done", "is-current", "is-upcoming");
+        el.style.removeProperty("--segment-progress");
+
+        if (activeIdx >= 0) {
+          if (index < activeIdx) {
+            el.classList.add("is-done");
+          } else if (index === activeIdx) {
+            el.classList.add("is-current");
+            var segDur = Math.max(0.001, segEnd - seg.start);
+            var progress = Math.min(100, Math.max(0, ((t - seg.start) / segDur) * 100));
+            el.style.setProperty("--segment-progress", progress + "%");
+          } else {
+            el.classList.add("is-upcoming");
+          }
+          return;
+        }
+
+        if (t >= segEnd - 0.05) el.classList.add("is-done");
+        else if (t >= seg.start) {
+          el.classList.add("is-current");
+          var fallbackDur = Math.max(0.001, segEnd - seg.start);
+          var fallbackProgress = Math.min(
+            100,
+            Math.max(0, ((t - seg.start) / fallbackDur) * 100)
+          );
+          el.style.setProperty("--segment-progress", fallbackProgress + "%");
+        } else el.classList.add("is-upcoming");
+      });
+    }
+
+    function setSegmentLayoutVars(dur, segments) {
+      var layoutRoot = playerContent || seek;
+      if (!layoutRoot || !dur || !segments || segments.length < 2) return;
+      var boundaryOne =
+        segments[0].end != null
+          ? segments[0].end
+          : segments[1]
+            ? segments[1].start
+            : dur;
+      var boundaryTwo =
+        segments.length >= 3
+          ? segments[1].end != null
+            ? segments[1].end
+            : segments[2].start
+          : dur;
+      var pctOne = Math.min(100, Math.max(0, (boundaryOne / dur) * 100));
+      var pctTwo = Math.min(100, Math.max(0, (boundaryTwo / dur) * 100));
+      layoutRoot.style.setProperty("--segment-one", pctOne + "%");
+      layoutRoot.style.setProperty("--segment-two", pctTwo + "%");
+    }
+
+    function renderWorkspaceLabels(dur, segments) {
+      if (!labelsEl || !usePlayerLayout) return;
+      if (!dur || !segments || segments.length < 2 || !useExamSegments) {
+        labelsEl.hidden = true;
+        seek.classList.remove("ege-listening-seek--has-label-row");
+        return;
+      }
+      labelsEl.hidden = false;
+      seek.classList.add("ege-listening-seek--has-label-row");
+      labelsEl.textContent = "";
+      segments.forEach(function (seg) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "ege-listening-player__label";
+        btn.textContent = seg.label;
+        btn.setAttribute("aria-label", "Jump to task " + seg.label);
+        btn.title = "Task " + seg.label + " · " + formatTime(seg.start);
+        btn.addEventListener("click", function (event) {
+          event.stopPropagation();
+          seekTo(seg.start);
+        });
+        labelsEl.appendChild(btn);
+      });
+    }
+
+    function renderExamSegments() {
+      if (!useExamSegments || !segmentsEl) return;
+      var dur = duration();
+      var segments = E.getVariantListeningSegments(task);
+      if (!dur || segments.length < 2) {
+        segmentsEl.hidden = true;
+        if (dividersEl) dividersEl.hidden = true;
+        seek.classList.remove("ege-listening-seek--exam");
+        renderWorkspaceLabels(dur, segments);
+        return;
+      }
+
+      seek.classList.add("ege-listening-seek--exam");
+      segmentsEl.hidden = false;
+      if (dividersEl) dividersEl.hidden = false;
+      segmentsEl.textContent = "";
+      segments.forEach(function (seg) {
+        var segEnd = seg.end != null ? seg.end : dur;
+        var widthPct = Math.max(0, ((segEnd - seg.start) / dur) * 100);
+        var segment = document.createElement("div");
+        segment.className = "ege-listening-seek__segment";
+        segment.style.flexBasis = widthPct + "%";
+        segment.dataset.taskId = seg.taskId;
+        segment.dataset.label = seg.label;
+        segmentsEl.appendChild(segment);
+      });
+      setSegmentLayoutVars(dur, segments);
+      renderWorkspaceLabels(dur, segments);
+      updateExamSegmentsUI();
+    }
+
     function updateSeekUI() {
       var dur = duration();
+      clampToSegment(typeof E.findTask === "function" ? E.findTask(E.state.activeTaskId) : null);
       var t = audio.currentTime || 0;
       var pct = dur ? Math.min(100, Math.max(0, (t / dur) * 100)) : 0;
       thumb.style.left = pct + "%";
@@ -619,6 +1093,10 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId) {
       seek.setAttribute("aria-valuemax", String(Math.round(dur)));
       seek.setAttribute("aria-valuenow", String(Math.round(t)));
       seek.setAttribute("aria-valuetext", formatTime(t) + " / " + formatTime(dur));
+      if (timeEl && timeEl.isConnected) {
+        timeEl.textContent = formatTime(t) + " / " + formatTime(dur);
+      }
+      updateExamSegmentsUI();
     }
 
     function seekTo(time) {
@@ -640,16 +1118,23 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId) {
     function renderPlaythroughMarks() {
       marks.textContent = "";
       var dur = duration();
-      var starts = E.getListeningPlaythroughStarts(task);
+      var starts = shared ? E.getVariantListeningMarks(task) : E.getListeningPlaythroughStarts(task);
       if (!dur || !starts.length) return;
+      var labeledMarks =
+        !usePlayerLayout &&
+        (bar.dataset.workspaceMarks === "true" ||
+          !!(bar.closest && bar.closest(".ege-listening-bar")));
+      if (usePlayerLayout && useExamSegments) return;
       starts.forEach(function (mark) {
         if (mark.at > dur) return;
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "ege-listening-seek__mark";
+        if (labeledMarks) btn.classList.add("ege-listening-seek__mark--labeled");
         btn.style.left = (mark.at / dur) * 100 + "%";
         btn.setAttribute("aria-label", "Jump to playthrough " + mark.label);
         btn.title = "Playthrough " + mark.label + " · " + formatTime(mark.at);
+        if (labeledMarks) btn.textContent = mark.label;
         btn.addEventListener("click", function (event) {
           event.stopPropagation();
           seekTo(mark.at);
@@ -701,10 +1186,22 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId) {
 
     playBtn.addEventListener("click", function () {
       if (audio.paused) {
+        var activeTask =
+          typeof E.findTask === "function" ? E.findTask(E.state.activeTaskId) : null;
+        if (
+          typeof E.isPlacementExam === "function" &&
+          E.isPlacementExam() &&
+          isAtSegmentStart(activeTask) &&
+          playFromStartCount(activeTask) >= 2
+        ) {
+          E.showToast("Запись можно прослушать только дважды.");
+          return;
+        }
+        ensureSegmentStart(activeTask);
         var playPromise = audio.play();
         if (playPromise && playPromise.catch) {
           playPromise.catch(function () {
-            E.showToast("Could not play audio.");
+            E.showListeningAudioError(bar, task, topicId);
           });
         }
       } else {
@@ -713,6 +1210,15 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId) {
     });
 
     audio.addEventListener("play", function () {
+      var activeTask =
+        typeof E.findTask === "function" ? E.findTask(E.state.activeTaskId) : null;
+      if (
+        typeof E.isPlacementExam === "function" &&
+        E.isPlacementExam() &&
+        isAtSegmentStart(activeTask)
+      ) {
+        incrementPlayFromStartCount(activeTask);
+      }
       setPlaying(true);
     });
     audio.addEventListener("pause", function () {
@@ -725,14 +1231,18 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId) {
     audio.addEventListener("timeupdate", updateSeekUI);
     audio.addEventListener("loadedmetadata", function () {
       updateSeekUI();
+      renderExamSegments();
       renderPlaythroughMarks();
     });
     audio.addEventListener("durationchange", function () {
       updateSeekUI();
+      renderExamSegments();
       renderPlaythroughMarks();
     });
 
     var speeds = [0.85, 1, 1.25, 1.5, 2];
+    var showSpeed =
+      !(typeof E.isPlacementExam === "function" && E.isPlacementExam());
     var speedGroup = document.createElement("div");
     speedGroup.className = "ege-listening-speed";
     speedGroup.setAttribute("role", "group");
@@ -747,30 +1257,82 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId) {
       });
     }
 
-    speeds.forEach(function (rate) {
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "ege-listening-speed__btn";
-      btn.dataset.rate = String(rate);
-      btn.textContent = rate === 1 ? "1×" : rate + "×";
-      btn.setAttribute("aria-label", "Play at " + rate + "× speed");
-      btn.setAttribute("aria-pressed", rate === 1 ? "true" : "false");
-      if (rate === 1) btn.classList.add("is-active");
-      btn.addEventListener("click", function () {
-        setSpeed(rate);
+    if (showSpeed) {
+      speeds.forEach(function (rate) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "ege-listening-speed__btn";
+        btn.dataset.rate = String(rate);
+        btn.textContent = rate === 1 ? "1×" : rate + "×";
+        btn.setAttribute("aria-label", "Play at " + rate + "× speed");
+        btn.setAttribute("aria-pressed", rate === 1 ? "true" : "false");
+        if (rate === 1) btn.classList.add("is-active");
+        btn.addEventListener("click", function () {
+          setSpeed(rate);
+        });
+        speedGroup.appendChild(btn);
       });
-      speedGroup.appendChild(btn);
-    });
+    }
 
     controls.appendChild(playBtn);
-    controls.appendChild(speedGroup);
-    controls.appendChild(audio);
+    if (showSpeed) controls.appendChild(speedGroup);
+    if (!usePlayerLayout) controls.appendChild(audio);
 
-    bar.appendChild(seek);
-    bar.appendChild(controls);
+    if (usePlayerLayout) {
+      var actions = document.createElement("div");
+      actions.className = "ege-listening-player__actions";
+
+      actionsStart = document.createElement("div");
+      actionsStart.className = "ege-listening-player__actions-start";
+      actionsStart.appendChild(playBtn);
+      if (showSpeed) actionsStart.appendChild(speedGroup);
+
+      notesSlot = document.createElement("div");
+      notesSlot.className = "ege-listening-player__notes-slot";
+
+      actions.appendChild(actionsStart);
+      actions.appendChild(notesSlot);
+
+      playerContent.appendChild(seek);
+      playerContent.appendChild(actions);
+      player.appendChild(playerContent);
+      bar.appendChild(player);
+      bar.appendChild(audio);
+    } else {
+      bar.appendChild(seek);
+      bar.appendChild(controls);
+    }
     updateSeekUI();
+    renderExamSegments();
+    bar._refreshSeekUI = updateSeekUI;
+    if (shared) sharedListeningState.bar = bar;
     return bar;
-  }
+  };
+
+E.showListeningAudioError = function showListeningAudioError(bar, task, topicId) {
+    if (!bar || bar.querySelector(".ege-listening-audio__error")) return;
+    var msg = document.createElement("p");
+    msg.className = "ege-listening-audio__error";
+    msg.textContent = "Не удалось воспроизвести запись.";
+    var retry = document.createElement("button");
+    retry.type = "button";
+    retry.className = "ege-btn ege-btn--ghost ege-btn--small";
+    retry.textContent = "Повторить";
+    retry.addEventListener("click", function () {
+      msg.remove();
+      var audio = bar.querySelector("audio");
+      if (audio) {
+        var playPromise = audio.play();
+        if (playPromise && playPromise.catch) {
+          playPromise.catch(function () {
+            E.showListeningAudioError(bar, task, topicId);
+          });
+        }
+      }
+    });
+    msg.appendChild(retry);
+    bar.appendChild(msg);
+  };
 
 E.attachListeningGapLinks = function attachListeningGapLinks(transcript, topicId, taskId) {
     if (!transcript) return;
@@ -836,15 +1398,13 @@ E.buildListeningMcStack = function buildListeningMcStack(task, topicId) {
     (task.questions || []).forEach(function (question, index) {
       var block = document.createElement("div");
       block.className = "ege-mc-card";
-      var label = question.q.replace(/^\d+\./, String(3 + index) + ".");
+      block.id = topicId + "_" + task.id + "_q_" + index;
+      var promptText = E.formatMcPrompt(task, question, index);
 
-      var prompt = document.createElement("p");
-      prompt.className = "ege-mc__prompt";
-      prompt.textContent = label;
-      block.appendChild(prompt);
+      block.appendChild(E.buildMcPrompt(task, question, index));
 
       block.appendChild(
-        E.buildMcChoiceGroup(topicId + "_" + task.id + "_q_" + index, question.opts, label)
+        E.buildMcChoiceGroup(topicId + "_" + task.id + "_q_" + index, question.opts, promptText)
       );
       work.appendChild(block);
     });
@@ -852,9 +1412,945 @@ E.buildListeningMcStack = function buildListeningMcStack(task, topicId) {
     return work;
   }
 
+E.migrateListeningExamMcAnswers = function migrateListeningExamMcAnswers(task, radios) {
+    if (!task || !task.examMc || !task.questions || !radios) return radios;
+    var prefix = E.taskPrefix(task.id);
+    var names = task.questions.map(function (_question, index) {
+      return prefix + "_q_" + index;
+    });
+    var values = names.map(function (name) {
+      return radios[name] || "";
+    });
+    if (values.some(function (value) { return value === "0"; })) return radios;
+    var looksLegacy = values.some(Boolean) && values.every(function (value) {
+      return !value || value === "1" || value === "2" || value === "3";
+    });
+    if (!looksLegacy) return radios;
+    names.forEach(function (name, index) {
+      var val = radios[name];
+      if (!val) return;
+      var n = Number(val);
+      var max = (task.questions[index].opts || []).length;
+      if (n >= 1 && n <= max) radios[name] = String(n - 1);
+    });
+    return radios;
+  };
+
+E.listeningExamMatchRadioName = function listeningExamMatchRadioName(prefix, speaker) {
+    return prefix + "_em_" + speaker;
+  }
+
+E.getListeningExamMatchValue = function getListeningExamMatchValue(prefix, speaker) {
+    return E.getCheckedValue(E.listeningExamMatchRadioName(prefix, speaker));
+  }
+
+E.listeningExamTfnRadioName = function listeningExamTfnRadioName(prefix, letter) {
+    return prefix + "_etfn_" + letter;
+  }
+
+E.getListeningExamTfnValue = function getListeningExamTfnValue(prefix, letter) {
+    return E.getCheckedValue(E.listeningExamTfnRadioName(prefix, letter));
+  }
+
+E.listeningExamTfnDisplayLabel = function listeningExamTfnDisplayLabel(value) {
+    if (!value) return "";
+    return String(value);
+  }
+
+E.listeningExamTfnLabelsFromWrap = function listeningExamTfnLabelsFromWrap(wrap) {
+    var raw = wrap && wrap.dataset.tfnLabels;
+    if (!raw) return ["True", "False", "Not stated"];
+    return raw.split("|");
+  }
+
+E.buildListeningExamMatch = function buildListeningExamMatch(task, topicId) {
+    var exam = task.examMatch;
+    var prefix = topicId + "_" + task.id;
+    var wrap = document.createElement("div");
+    wrap.className = "ege-listening-exam-match";
+    wrap.dataset.examPrefix = prefix;
+    wrap.dataset.taskId = task.id;
+
+    var speakers = exam.speakers || [];
+    var statements = exam.statements || [];
+
+    var body = document.createElement("div");
+    body.className = "ege-listening-exam-match__body";
+
+    var stmtList = document.createElement("div");
+    stmtList.className = "ege-listening-exam-match__statements";
+    statements.forEach(function (text, index) {
+      var item = document.createElement("div");
+      item.className = "ege-text-block ege-listening-exam-match__stmt";
+      item.dataset.stmt = String(index + 1);
+      item.innerHTML = "<strong>" + (index + 1) + ".</strong> " + text;
+      stmtList.appendChild(item);
+    });
+    body.appendChild(stmtList);
+
+    var assign = document.createElement("div");
+    assign.className = "ege-listening-exam-match__answers";
+
+    var track = E.buildAnswerTrack(
+      speakers.map(function (speaker) {
+        return { id: speaker, label: speaker };
+      }),
+      null
+    );
+    assign.appendChild(track);
+
+    var hidden = document.createElement("div");
+    hidden.className = "ege-match-hidden";
+
+    var live = document.createElement("div");
+    live.className = "ege-sr-live";
+    live.setAttribute("aria-live", "polite");
+    live.setAttribute("aria-atomic", "true");
+    assign.appendChild(live);
+
+    var activeSpeaker = "";
+    var pendingStatement = "";
+
+    function radioName(speaker) {
+      return E.listeningExamMatchRadioName(prefix, speaker);
+    }
+
+    function announce(text) {
+      if (live) live.textContent = text || "";
+    }
+
+    function syncFooter() {
+      E.syncListeningExamMatchFooterUI(task.id);
+      if (typeof E.syncFinishWrittenButton === "function") E.syncFinishWrittenButton();
+    }
+
+    function findSpeakerWithValue(numStr) {
+      var owner = "";
+      speakers.forEach(function (sp) {
+        if (E.getListeningExamMatchValue(prefix, sp) === numStr) owner = sp;
+      });
+      return owner;
+    }
+
+    function clearSpeakerMarks(speaker) {
+      var cell = track.querySelector('[data-slot="' + speaker + '"]');
+      if (cell) cell.classList.remove("is-correct", "is-wrong", "is-empty");
+      wrap.querySelectorAll(".ege-listening-exam-match__stmt").forEach(function (stmt) {
+        stmt.classList.remove("is-correct", "is-wrong");
+      });
+    }
+
+    function syncActiveSpeakerUI() {
+      track.querySelectorAll(".ege-answer-track__cell").forEach(function (cell) {
+        cell.classList.toggle("is-active", cell.dataset.slot === activeSpeaker);
+      });
+    }
+
+    function syncStatementRow() {
+      var value = activeSpeaker ? E.getListeningExamMatchValue(prefix, activeSpeaker) : "";
+      wrap.querySelectorAll(".ege-listening-exam-match__stmt").forEach(function (stmt) {
+        stmt.classList.toggle("is-selected", stmt.dataset.stmt === value);
+        stmt.classList.remove("is-correct", "is-wrong");
+      });
+    }
+
+    function syncPendingStatementUI() {
+      wrap.querySelectorAll(".ege-listening-exam-match__stmt").forEach(function (stmt) {
+        if (!activeSpeaker) {
+          stmt.classList.toggle("is-selected", stmt.dataset.stmt === pendingStatement);
+        }
+      });
+    }
+
+    function syncUsedState() {
+      var used = {};
+      speakers.forEach(function (sp) {
+        var val = E.getListeningExamMatchValue(prefix, sp);
+        if (val) used[val] = true;
+      });
+
+      wrap.querySelectorAll(".ege-listening-exam-match__stmt").forEach(function (stmt) {
+        stmt.classList.toggle("is-used", !!used[stmt.dataset.stmt]);
+      });
+
+      track.querySelectorAll(".ege-answer-track__cell").forEach(function (cell) {
+        var sp = cell.dataset.slot;
+        var val = E.getListeningExamMatchValue(prefix, sp);
+        var valEl = cell.querySelector(".ege-answer-track__val");
+        if (valEl) valEl.textContent = val || "";
+        cell.classList.toggle("is-filled", !!val);
+      });
+
+      var filledCount = speakers.filter(function (sp) {
+        return !!E.getListeningExamMatchValue(prefix, sp);
+      }).length;
+      var allFilled = filledCount === speakers.length && speakers.length > 0;
+      wrap.querySelectorAll(".ege-listening-exam-match__stmt").forEach(function (stmt) {
+        var num = stmt.dataset.stmt;
+        var isExtra = allFilled && num && !used[num];
+        stmt.classList.toggle("ege-listening-exam-match__stmt--extra", !!isExtra);
+      });
+    }
+
+    function syncScoreMarks() {
+      speakers.forEach(function (sp) {
+        var name = radioName(sp);
+        var checked = document.querySelector('input[name="' + name + '"]:checked');
+        var pill = checked ? checked.closest(".ege-pill") : null;
+        var cell = track.querySelector('[data-slot="' + sp + '"]');
+        var isCorrect = !!(pill && pill.classList.contains("is-correct"));
+        var isWrong = !!(pill && pill.classList.contains("is-wrong"));
+        if (cell) {
+          cell.classList.toggle("is-correct", isCorrect);
+          cell.classList.toggle("is-wrong", isWrong);
+        }
+      });
+    }
+
+    function syncAll() {
+      syncActiveSpeakerUI();
+      syncStatementRow();
+      syncPendingStatementUI();
+      syncUsedState();
+      syncScoreMarks();
+    }
+
+    function clearSpeaker(speaker) {
+      E.clearChoiceGroup(radioName(speaker));
+      clearSpeakerMarks(speaker);
+      if (speaker === activeSpeaker) syncStatementRow();
+      pendingStatement = "";
+      E.hideScoreFeedback(task.id);
+      syncAll();
+      syncFooter();
+    }
+
+    function assignStatement(num) {
+      var numStr = String(num);
+
+      if (!activeSpeaker) {
+        // Statement-first: click selects, click again deselects, click other changes pending.
+        // Do not clear table cells from statement clicks when no speaker is active.
+        pendingStatement = pendingStatement === numStr ? "" : numStr;
+        syncPendingStatementUI();
+        if (pendingStatement) announce("Statement " + pendingStatement + " selected");
+        else announce("");
+        return;
+      }
+
+      var current = E.getListeningExamMatchValue(prefix, activeSpeaker);
+      if (current === numStr) {
+        clearSpeaker(activeSpeaker);
+        announce("Speaker " + activeSpeaker + " cleared");
+        return;
+      }
+
+      // Change answer: steal statement from another speaker if needed, then assign.
+      var ownerSpeaker = findSpeakerWithValue(numStr);
+      if (ownerSpeaker && ownerSpeaker !== activeSpeaker) clearSpeaker(ownerSpeaker);
+
+      E.setRadioValue(radioName(activeSpeaker), numStr);
+      clearSpeakerMarks(activeSpeaker);
+      pendingStatement = "";
+      E.hideScoreFeedback(task.id);
+      syncStatementRow();
+      syncAll();
+      syncFooter();
+      announce("Speaker " + activeSpeaker + " matched to statement " + numStr);
+    }
+
+    function setActiveSpeaker(speaker) {
+      activeSpeaker = speaker || "";
+      pendingStatement = "";
+      syncAll();
+    }
+
+    function activateSpeaker(speaker) {
+      if (pendingStatement) {
+        var stmtNum = pendingStatement;
+        pendingStatement = "";
+        activeSpeaker = speaker;
+
+        var numStr = String(stmtNum);
+        var ownerSpeaker = findSpeakerWithValue(numStr);
+        if (ownerSpeaker && ownerSpeaker !== speaker) clearSpeaker(ownerSpeaker);
+
+        var current = E.getListeningExamMatchValue(prefix, speaker);
+        if (current === numStr) {
+          clearSpeaker(speaker);
+          announce("Speaker " + speaker + " cleared");
+          return;
+        }
+
+        E.setRadioValue(radioName(speaker), numStr);
+        clearSpeakerMarks(speaker);
+        E.hideScoreFeedback(task.id);
+        syncAll();
+        syncFooter();
+        announce("Speaker " + speaker + " matched to statement " + numStr);
+        return;
+      }
+
+      if (speaker === activeSpeaker) {
+        if (E.getListeningExamMatchValue(prefix, speaker)) clearSpeaker(speaker);
+        else setActiveSpeaker("");
+        return;
+      }
+      setActiveSpeaker(speaker);
+      announce("Speaker " + speaker + " selected");
+    }
+
+    speakers.forEach(function (speaker) {
+      hidden.appendChild(
+        E.buildChoiceGroup(radioName(speaker), statements.length, {
+          label: "Statement for speaker " + speaker,
+        })
+      );
+    });
+
+    speakers.forEach(function (speaker) {
+      var cell = track.querySelector('[data-slot="' + speaker + '"]');
+      if (!cell) return;
+      cell.setAttribute("role", "button");
+      cell.tabIndex = 0;
+      cell.setAttribute("aria-label", "Select speaker " + speaker);
+      cell.addEventListener("click", function () {
+        activateSpeaker(speaker);
+      });
+      cell.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        activateSpeaker(speaker);
+      });
+    });
+
+    assign.appendChild(hidden);
+    body.appendChild(assign);
+    wrap.appendChild(body);
+
+    wrap.querySelectorAll(".ege-listening-exam-match__stmt").forEach(function (stmt) {
+      stmt.setAttribute("role", "button");
+      stmt.tabIndex = 0;
+      stmt.setAttribute("aria-label", "Select statement " + stmt.dataset.stmt);
+      stmt.addEventListener("click", function (event) {
+        if (event.detail > 1) return;
+        var sel = window.getSelection();
+        if (sel && !sel.isCollapsed && sel.anchorNode && stmt.contains(sel.anchorNode)) return;
+        assignStatement(Number(stmt.dataset.stmt));
+      });
+      stmt.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        assignStatement(Number(stmt.dataset.stmt));
+      });
+    });
+
+    wrap.syncListeningExamMatch = syncAll;
+
+    wrap.classList.add("ege-picks-controller");
+    wrap._pickSlots = speakers.slice();
+    wrap._pickMaxOption = statements.length;
+    wrap.assignNumber = function (num) {
+      assignStatement(num);
+    };
+    wrap.setActiveLetter = function (letter) {
+      setActiveSpeaker(letter);
+      if (letter) announce("Speaker " + letter + " selected");
+    };
+    wrap.activateLetter = function (letter) {
+      activateSpeaker(letter);
+    };
+    wrap.getActiveLetter = function () {
+      return activeSpeaker;
+    };
+
+    syncAll();
+    return wrap;
+  }
+
+E.syncListeningExamMatchTable = function syncListeningExamMatchTable(wrap) {
+    if (!wrap) return;
+    if (typeof wrap.syncListeningExamMatch === "function") {
+      wrap.syncListeningExamMatch();
+      return;
+    }
+
+    var prefix = wrap.dataset.examPrefix;
+    if (!prefix) return;
+
+    var used = {};
+    wrap.querySelectorAll(".ege-answer-track__cell").forEach(function (cell) {
+      var speaker = cell.dataset.slot;
+      var val = E.getListeningExamMatchValue(prefix, speaker);
+      var valEl = cell.querySelector(".ege-answer-track__val");
+      if (valEl) valEl.textContent = val || "";
+      cell.classList.toggle("is-filled", !!val);
+    });
+
+    wrap.querySelectorAll(".ege-listening-exam-match__stmt").forEach(function (stmt) {
+      var num = stmt.dataset.stmt;
+      stmt.classList.toggle("is-used", !!(num && used[num]));
+    });
+  }
+
+E.buildListeningExamTfn = function buildListeningExamTfn(task, topicId) {
+    var exam = task.examTfn;
+    var prefix = topicId + "_" + task.id;
+    var labels = exam.labels || ["True", "False", "Not stated"];
+    var statements = exam.statements || [];
+    var letters = statements.map(function (item) {
+      return item.letter;
+    });
+    var wrap = document.createElement("div");
+    wrap.className = "ege-listening-exam-tfn";
+    wrap.dataset.examPrefix = prefix;
+    wrap.dataset.taskId = task.id;
+    wrap.dataset.tfnLabels = labels.join("|");
+
+    var body = document.createElement("div");
+    body.className = "ege-listening-exam-tfn__body";
+
+    var stmtList = document.createElement("div");
+    stmtList.className = "ege-listening-exam-tfn__statements";
+    statements.forEach(function (item) {
+      var stmt = document.createElement("div");
+      stmt.className = "ege-text-block ege-listening-exam-tfn__stmt";
+      stmt.dataset.letter = item.letter;
+      stmt.innerHTML = "<strong>" + item.letter + ".</strong> " + item.text;
+      stmtList.appendChild(stmt);
+    });
+    body.appendChild(stmtList);
+
+    var assign = document.createElement("div");
+    assign.className = "ege-listening-exam-tfn__answers";
+
+    var picker = document.createElement("div");
+    picker.className = "ege-listening-exam-tfn__picker";
+
+    var choices = document.createElement("div");
+    choices.className = "ege-listening-exam-tfn__choices";
+    choices.setAttribute("role", "group");
+    choices.setAttribute("aria-label", "1 True, 2 False, 3 Not stated");
+    labels.forEach(function (label, index) {
+      var num = String(index + 1);
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "ege-pill ege-pill--option ege-pill--text";
+      btn.dataset.value = num;
+      btn.textContent = num + " " + label;
+      btn.setAttribute("aria-label", num + " " + label);
+      choices.appendChild(btn);
+    });
+    picker.appendChild(choices);
+    assign.appendChild(picker);
+
+    var track = E.buildAnswerTrack(
+      letters.map(function (letter) {
+        return { id: letter, label: letter };
+      }),
+      null
+    );
+    assign.appendChild(track);
+
+    var hidden = document.createElement("div");
+    hidden.className = "ege-match-hidden";
+
+    var live = document.createElement("div");
+    live.className = "ege-sr-live";
+    live.setAttribute("aria-live", "polite");
+    live.setAttribute("aria-atomic", "true");
+    assign.appendChild(live);
+
+    var activeLetter = "";
+
+    function radioName(letter) {
+      return E.listeningExamTfnRadioName(prefix, letter);
+    }
+
+    function announce(text) {
+      if (live) live.textContent = text || "";
+    }
+
+    function syncFooter() {
+      E.syncListeningExamTfnFooterUI(task.id);
+      if (typeof E.syncFinishWrittenButton === "function") E.syncFinishWrittenButton();
+    }
+
+    function clearLetterMarks(letter) {
+      var cell = track.querySelector('[data-slot="' + letter + '"]');
+      if (cell) cell.classList.remove("is-correct", "is-wrong", "is-empty");
+      var stmt = wrap.querySelector('.ege-listening-exam-tfn__stmt[data-letter="' + letter + '"]');
+      if (stmt) stmt.classList.remove("is-correct", "is-wrong");
+    }
+
+    function syncActiveLetterUI() {
+      track.querySelectorAll(".ege-answer-track__cell").forEach(function (cell) {
+        cell.classList.toggle("is-active", cell.dataset.slot === activeLetter);
+      });
+      wrap.querySelectorAll(".ege-listening-exam-tfn__stmt").forEach(function (stmt) {
+        stmt.classList.toggle("is-selected", stmt.dataset.letter === activeLetter);
+        stmt.classList.remove("is-correct", "is-wrong");
+      });
+    }
+
+    function syncPickerUI() {
+      var value = activeLetter ? E.getListeningExamTfnValue(prefix, activeLetter) : "";
+      choices.querySelectorAll("[data-value]").forEach(function (btn) {
+        btn.classList.toggle("is-selected", !!activeLetter && btn.dataset.value === value);
+        btn.classList.remove("is-correct", "is-wrong");
+      });
+      if (!activeLetter || !value) return;
+      var name = radioName(activeLetter);
+      var checked = document.querySelector('input[name="' + name + '"]:checked');
+      var pill = checked ? checked.closest(".ege-pill") : null;
+      var activeBtn = choices.querySelector('[data-value="' + value + '"]');
+      if (activeBtn && pill) {
+        activeBtn.classList.toggle("is-correct", pill.classList.contains("is-correct"));
+        activeBtn.classList.toggle("is-wrong", pill.classList.contains("is-wrong"));
+      }
+    }
+
+    function syncFilledState() {
+      letters.forEach(function (letter) {
+        var val = E.getListeningExamTfnValue(prefix, letter);
+        var cell = track.querySelector('[data-slot="' + letter + '"]');
+        if (cell) {
+          var valEl = cell.querySelector(".ege-answer-track__val");
+          if (valEl) {
+            valEl.textContent = E.listeningExamTfnDisplayLabel(val, labels);
+          }
+          cell.classList.toggle("is-filled", !!val);
+        }
+        var stmt = wrap.querySelector('.ege-listening-exam-tfn__stmt[data-letter="' + letter + '"]');
+        if (stmt) stmt.classList.toggle("is-answered", !!val);
+      });
+    }
+
+    function syncScoreMarks() {
+      letters.forEach(function (letter) {
+        var name = radioName(letter);
+        var checked = document.querySelector('input[name="' + name + '"]:checked');
+        var pill = checked ? checked.closest(".ege-pill") : null;
+        var cell = track.querySelector('[data-slot="' + letter + '"]');
+        var stmt = wrap.querySelector('.ege-listening-exam-tfn__stmt[data-letter="' + letter + '"]');
+        var isCorrect = !!(pill && pill.classList.contains("is-correct"));
+        var isWrong = !!(pill && pill.classList.contains("is-wrong"));
+        [cell, stmt].forEach(function (el) {
+          if (!el) return;
+          el.classList.toggle("is-correct", isCorrect);
+          el.classList.toggle("is-wrong", isWrong);
+        });
+      });
+    }
+
+    function syncAll() {
+      syncActiveLetterUI();
+      syncPickerUI();
+      syncFilledState();
+      syncScoreMarks();
+    }
+
+    function nextEmptyLetter(fromLetter) {
+      var start = letters.indexOf(fromLetter);
+      if (start < 0) start = 0;
+      for (var i = 1; i <= letters.length; i += 1) {
+        var letter = letters[(start + i) % letters.length];
+        if (!E.getListeningExamTfnValue(prefix, letter)) return letter;
+      }
+      return fromLetter;
+    }
+
+    function clearLetter(letter) {
+      E.clearChoiceGroup(radioName(letter));
+      clearLetterMarks(letter);
+      E.hideScoreFeedback(task.id);
+      syncAll();
+      syncFooter();
+    }
+
+    function assignTfn(num) {
+      var numStr = String(num);
+      if (!activeLetter) {
+        var first = nextEmptyLetter("");
+        if (!first && letters.length) first = letters[0];
+        if (first) activeLetter = first;
+      }
+      if (!activeLetter) return;
+      var current = E.getListeningExamTfnValue(prefix, activeLetter);
+      if (current === numStr) {
+        clearLetter(activeLetter);
+        announce("Statement " + activeLetter + " cleared");
+        return;
+      }
+      E.setRadioValue(radioName(activeLetter), numStr);
+      clearLetterMarks(activeLetter);
+      E.hideScoreFeedback(task.id);
+      syncAll();
+      syncFooter();
+      announce("Statement " + activeLetter + ": " + labels[num - 1]);
+    }
+
+    function activateLetter(letter) {
+      if (letter === activeLetter) {
+        if (E.getListeningExamTfnValue(prefix, letter)) {
+          clearLetter(letter);
+          announce("Statement " + letter + " cleared");
+        } else {
+          activeLetter = "";
+          syncAll();
+          announce("");
+        }
+        return;
+      }
+      activeLetter = letter || "";
+      syncAll();
+      if (activeLetter) announce("Statement " + activeLetter + " selected");
+    }
+
+    letters.forEach(function (letter) {
+      hidden.appendChild(
+        E.buildChoiceGroup(radioName(letter), 3, {
+          label: "Answer for statement " + letter,
+          text: labels,
+        })
+      );
+    });
+
+    letters.forEach(function (letter) {
+      var cell = track.querySelector('[data-slot="' + letter + '"]');
+      if (!cell) return;
+      cell.setAttribute("role", "button");
+      cell.tabIndex = 0;
+      cell.setAttribute("aria-label", "Select statement " + letter);
+      cell.addEventListener("click", function () {
+        activateLetter(letter);
+      });
+      cell.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        activateLetter(letter);
+      });
+    });
+
+    choices.querySelectorAll("[data-value]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        assignTfn(Number(btn.dataset.value));
+      });
+    });
+
+    assign.appendChild(hidden);
+    body.appendChild(assign);
+    wrap.appendChild(body);
+
+    wrap.querySelectorAll(".ege-listening-exam-tfn__stmt").forEach(function (stmt) {
+      stmt.setAttribute("role", "button");
+      stmt.tabIndex = 0;
+      stmt.setAttribute("aria-label", "Select statement " + stmt.dataset.letter);
+      stmt.addEventListener("click", function (event) {
+        if (event.detail > 1) return;
+        var sel = window.getSelection();
+        if (sel && !sel.isCollapsed && sel.anchorNode && stmt.contains(sel.anchorNode)) return;
+        activateLetter(stmt.dataset.letter);
+      });
+      stmt.addEventListener("keydown", function (event) {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        activateLetter(stmt.dataset.letter);
+      });
+    });
+
+    wrap.syncListeningExamTfn = syncAll;
+
+    wrap.classList.add("ege-picks-controller");
+    wrap._pickSlots = letters.slice();
+    wrap._pickMaxOption = labels.length;
+    wrap.assignNumber = function (num) {
+      assignTfn(num);
+    };
+    wrap.setActiveLetter = function (letter) {
+      activeLetter = letter || "";
+      syncAll();
+      if (activeLetter) announce("Statement " + activeLetter + " selected");
+      else announce("");
+    };
+    wrap.activateLetter = function (letter) {
+      activateLetter(letter);
+    };
+    wrap.getActiveLetter = function () {
+      return activeLetter;
+    };
+
+    if (letters.length) activeLetter = letters[0];
+    syncAll();
+    return wrap;
+  }
+
+E.syncListeningExamTfnRows = function syncListeningExamTfnRows(wrap) {
+    if (!wrap) return;
+    if (typeof wrap.syncListeningExamTfn === "function") {
+      wrap.syncListeningExamTfn();
+      return;
+    }
+
+    var prefix = wrap.dataset.examPrefix;
+    if (!prefix) return;
+
+    var labels = E.listeningExamTfnLabelsFromWrap(wrap);
+
+    wrap.querySelectorAll(".ege-answer-track__cell").forEach(function (cell) {
+      var letter = cell.dataset.slot;
+      var val = E.getListeningExamTfnValue(prefix, letter);
+      var valEl = cell.querySelector(".ege-answer-track__val");
+      if (valEl) valEl.textContent = E.listeningExamTfnDisplayLabel(val, labels);
+      cell.classList.toggle("is-filled", !!val);
+      var name = E.listeningExamTfnRadioName(prefix, letter);
+      var checked = document.querySelector('input[name="' + name + '"]:checked');
+      var pill = checked ? checked.closest(".ege-pill") : null;
+      cell.classList.toggle("is-correct", !!(pill && pill.classList.contains("is-correct")));
+      cell.classList.toggle("is-wrong", !!(pill && pill.classList.contains("is-wrong")));
+    });
+
+    wrap.querySelectorAll(".ege-listening-exam-tfn__stmt").forEach(function (stmt) {
+      var letter = stmt.dataset.letter;
+      var val = E.getListeningExamTfnValue(prefix, letter);
+      stmt.classList.toggle("is-answered", !!val);
+    });
+  }
+
+E.syncListeningExamSinglePageFooterUI = function syncListeningExamSinglePageFooterUI(taskId) {
+    var checkBtn = document.getElementById("check-" + taskId);
+    if (checkBtn) checkBtn.hidden = true;
+    E.hidePrepNextButton(taskId);
+    E.syncResetButton(taskId);
+    if (typeof E.syncSaveAnswersButton === "function") E.syncSaveAnswersButton(taskId);
+  }
+
+E.buildListeningExamPageBlock = function buildListeningExamPageBlock(label, instructions, content) {
+    var block = document.createElement("section");
+    block.className = "ege-listening-exam-page__block";
+
+    if (instructions) {
+      var instr = document.createElement("p");
+      instr.className = "ege-instructions";
+      instr.lang = "ru";
+      instr.textContent = instructions;
+      block.appendChild(instr);
+    }
+
+    block.appendChild(content);
+    return block;
+  }
+
+E.buildListeningExamSinglePageWork = function buildListeningExamSinglePageWork(task, topicId) {
+    var stack = document.createElement("div");
+    stack.className = "ege-listening-exam-page";
+    var parts = [];
+
+    if (task.examMatch) {
+      parts.push({
+        label: "Listening for main idea",
+        instructions: task.examMatch.instructions || "",
+        content: E.buildListeningExamMatch(task, topicId),
+      });
+    }
+
+    if (task.examTfn) {
+      parts.push({
+        label: "Listening for specific information",
+        instructions: task.examTfn.instructions || "",
+        content: E.buildListeningExamTfn(task, topicId),
+      });
+    }
+
+    if (task.questions && task.questions.length) {
+      parts.push({
+        label: "Full listening comprehension",
+        instructions: task.mcInstructions || "",
+        content: E.buildWorkPanel(
+          "questions",
+          E.buildListeningMcStack(task, topicId),
+          "ege-panel--listening-mc"
+        ),
+      });
+    }
+
+    var singlePart = parts.length === 1;
+    parts.forEach(function (part) {
+      stack.appendChild(
+        E.buildListeningExamPageBlock(
+          singlePart ? "" : part.label,
+          singlePart ? "" : part.instructions,
+          part.content
+        )
+      );
+    });
+
+    return stack;
+  }
+
+E.syncSharedListeningMount = function syncSharedListeningMount(taskId) {
+    var task = E.findTask(taskId);
+    if (!task || !E.listeningUsesSharedAudio(task)) return;
+    var panel = document.getElementById("panel-" + taskId);
+    if (!panel) return;
+    var wrap = panel.querySelector(".ege-listening-bar__audio, .ege-task-intro__audio");
+    if (!wrap) {
+      E.mountListeningExamAudio(task, E.state.topicId, panel);
+      wrap = panel.querySelector(".ege-listening-bar__audio, .ege-task-intro__audio");
+    }
+    if (!wrap || !sharedListeningState.bar) return;
+    if (wrap.closest(".ege-listening-bar")) {
+      sharedListeningState.bar.dataset.workspaceMarks = "true";
+    }
+    if (sharedListeningState.bar.parentNode !== wrap) {
+      if (sharedListeningState.bar.parentNode) {
+        sharedListeningState.bar.parentNode.removeChild(sharedListeningState.bar);
+      }
+      wrap.appendChild(sharedListeningState.bar);
+    }
+    E.syncSharedListeningSegment(task);
+    if (sharedListeningState.bar && sharedListeningState.bar._refreshSeekUI) {
+      sharedListeningState.bar._refreshSeekUI();
+    }
+    if (typeof E.syncExamTimerPlacement === "function") E.syncExamTimerPlacement();
+    var listeningBar = wrap && wrap.closest(".ege-listening-bar");
+    if (listeningBar) E.mountListeningNotesToPlayerSlot(listeningBar, task.id);
+  };
+
+E.mountListeningExamAudio = function mountListeningExamAudio(task, topicId, panel) {
+    if (!panel || !task) return;
+    var intro = panel.querySelector(".ege-task-intro");
+    if (!intro || intro.querySelector(".ege-listening-bar")) return;
+
+    var bar = document.createElement("div");
+    bar.className = "ege-listening-bar ege-listening-bar--workspace";
+
+    var audioSlot = document.createElement("div");
+    audioSlot.className = "ege-listening-bar__audio";
+    if (E.listeningUsesSharedAudio(task)) {
+      var sharedBar = E.attachSharedListeningBar(task, topicId);
+      sharedBar.dataset.workspaceMarks = "true";
+      if (sharedBar.parentNode) sharedBar.parentNode.removeChild(sharedBar);
+      audioSlot.appendChild(sharedBar);
+      var sharedAudio = sharedBar.querySelector("audio");
+      if (sharedAudio) sharedAudio.dispatchEvent(new Event("durationchange"));
+    } else {
+      audioSlot.appendChild(E.buildListeningAudio(task, topicId, { workspaceMarks: true }));
+    }
+    bar.appendChild(audioSlot);
+    E.mountListeningNotesToPlayerSlot(bar, task.id);
+
+    intro.appendChild(bar);
+
+    if (typeof E.syncExamTimerPlacement === "function") E.syncExamTimerPlacement();
+
+    if (E.showsListeningTranscript() && task.transcript) {
+      var lead = intro.querySelector(".ege-task-intro__lead");
+      if (lead && !lead.querySelector(".ege-listening-transcript")) {
+        lead.appendChild(E.buildListeningTranscript(task));
+      }
+    }
+  }
+
+E.renderListeningExamSinglePage = function renderListeningExamSinglePage(task, topicId, wrap) {
+    wrap.classList.add("ege-task--listening-exam-page");
+
+    var step = document.createElement("div");
+    step.className = "ege-listening-step ege-listening-step--exam-page";
+    step.appendChild(E.buildListeningExamSinglePageWork(task, topicId));
+    wrap.appendChild(step);
+    wrap.appendChild(E.buildListeningFooter(task));
+
+    var syncAll = function () {
+      E.syncListeningExamSinglePageFooterUI(task.id);
+      wrap.querySelectorAll(".ege-listening-exam-match").forEach(function (matchWrap) {
+        E.syncListeningExamMatchTable(matchWrap);
+      });
+      wrap.querySelectorAll(".ege-listening-exam-tfn").forEach(function (tfnWrap) {
+        E.syncListeningExamTfnRows(tfnWrap);
+      });
+      if (typeof E.isPlacementExam === "function" && E.isPlacementExam() && typeof E.syncExamPoints === "function") {
+        E.syncExamPoints();
+      }
+      if (typeof E.scheduleTopicNavAlign === "function") E.scheduleTopicNavAlign(task.id);
+    };
+    wrap.addEventListener("input", syncAll);
+    wrap.addEventListener("change", syncAll);
+    E.syncListeningExamSinglePageFooterUI(task.id);
+    return E.wrapListeningRoot(task, wrap);
+  }
+
+E.syncListeningExamMatchFooterUI = function syncListeningExamMatchFooterUI(taskId) {
+    var task = E.findTask(taskId);
+    if (!task || task.type !== "listening") return;
+    if (E.getListeningStepKind(task, E.getListeningStep(taskId)) !== "exam-match") return;
+
+    var checkBtn = document.getElementById("check-" + taskId);
+    var placement =
+      typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls();
+    var complete = E.isListeningExamMatchComplete(taskId);
+
+    if (placement && complete) {
+      if (checkBtn) checkBtn.hidden = true;
+      E.syncResetButton(taskId);
+      E.setListeningRevealVisible(taskId, false);
+      E.showPrepNextButton(taskId);
+      return;
+    }
+
+    if (E.isListeningExamMatchPassed(taskId)) {
+      if (checkBtn) checkBtn.hidden = true;
+      E.syncResetButton(taskId);
+      E.setListeningRevealVisible(taskId, false);
+      E.showPrepNextButton(taskId);
+      return;
+    }
+
+    E.hidePrepNextButton(taskId);
+    if (checkBtn) checkBtn.hidden = !complete;
+    E.syncResetButton(taskId);
+    E.setListeningRevealVisible(taskId, complete);
+    if (typeof E.syncSaveAnswersButton === "function") E.syncSaveAnswersButton(taskId);
+  }
+
+E.syncListeningExamTfnFooterUI = function syncListeningExamTfnFooterUI(taskId) {
+    var task = E.findTask(taskId);
+    if (!task || task.type !== "listening") return;
+    if (E.getListeningStepKind(task, E.getListeningStep(taskId)) !== "exam-tfn") return;
+
+    var checkBtn = document.getElementById("check-" + taskId);
+    var placement =
+      typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls();
+    var complete = E.isListeningExamTfnComplete(taskId);
+
+    if (placement && complete) {
+      if (checkBtn) checkBtn.hidden = true;
+      E.syncResetButton(taskId);
+      E.setListeningRevealVisible(taskId, false);
+      if (E.listeningMcMax(task) > 0) E.showPrepNextButton(taskId);
+      else E.hidePrepNextButton(taskId);
+      return;
+    }
+
+    if (E.isListeningExamTfnPassed(taskId)) {
+      if (checkBtn) checkBtn.hidden = true;
+      E.syncResetButton(taskId);
+      E.setListeningRevealVisible(taskId, false);
+      if (E.listeningMcMax(task) > 0) E.showPrepNextButton(taskId);
+      else E.hidePrepNextButton(taskId);
+      return;
+    }
+
+    E.hidePrepNextButton(taskId);
+    if (checkBtn) checkBtn.hidden = !complete;
+    E.syncResetButton(taskId);
+    E.setListeningRevealVisible(taskId, complete);
+    if (typeof E.syncSaveAnswersButton === "function") E.syncSaveAnswersButton(taskId);
+  }
+
 E.buildListeningProgress = function buildListeningProgress(task) {
+    if (!E.listeningHasStageNav(task)) return null;
     var taskId = task.id;
-    var hasMc = E.listeningMcMax(task) > 0;
     var nav = document.createElement("nav");
     nav.className = "ege-listening-progress";
     nav.id = "listening-progress-" + taskId;
@@ -863,17 +2359,18 @@ E.buildListeningProgress = function buildListeningProgress(task) {
     var track = document.createElement("div");
     track.className = "ege-listening-progress__track";
 
-    var stages = [];
-    if (E.taskHasSplitPrep(task)) {
-      stages.push({ num: 1, label: "Gap fill" });
-      stages.push({ num: 2, label: "Matching" });
-      stages.push({ num: 3, label: "Listening" });
-      if (hasMc) stages.push({ num: 4, label: "Questions" });
-    } else {
-      if (task.prep) stages.push({ num: 1, label: "Pre-listening" });
-      stages.push({ num: task.prep ? 2 : 1, label: "Listening" });
-      if (hasMc) stages.push({ num: task.prep ? 3 : 2, label: "Questions" });
-    }
+    var labelMap = {
+      "prep-gap": "Gap fill",
+      "prep-match": "Matching",
+      prep: "Pre-listening",
+      listening: "Listening",
+      "exam-match": "Listening for main idea",
+      "exam-tfn": "Listening for specific information",
+      mc: "Full listening comprehension",
+    };
+    var stages = E.listeningStagePlan(task).map(function (kind, index) {
+      return { num: index + 1, label: labelMap[kind] || kind };
+    });
 
     stages.forEach(function (stage, index) {
       if (index > 0) {
@@ -990,7 +2487,7 @@ E.buildPrepGapFillReviewLine = function buildPrepGapFillReviewLine(item, display
     line.className = "ege-prep-gapfill__item ege-prep-gapfill__item--review";
 
     var num = document.createElement("span");
-    num.className = "ege-prep-gapfill__num";
+    num.className = "ege-prep-gapfill__num ege-exam-num";
     num.textContent = displayNum + ".";
     line.appendChild(num);
 
@@ -1044,7 +2541,12 @@ E.setPrepGapReviewMode = function setPrepGapReviewMode(taskId, enabled) {
 
 E.setListeningRevealVisible = function setListeningRevealVisible(taskId, visible) {
     var showBtn = document.getElementById("show-" + taskId);
-    if (showBtn) showBtn.hidden = !visible;
+    if (!showBtn) return;
+    if (typeof E.hidesShowAnswers === "function" && E.hidesShowAnswers()) {
+      showBtn.hidden = true;
+      return;
+    }
+    showBtn.hidden = !visible;
   }
 
 E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
@@ -1055,6 +2557,8 @@ E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
     var checkBtn = document.getElementById("check-" + taskId);
     var progressEl = document.getElementById("prep-fill-" + taskId);
     var gapItems = task.prep.gapFill && task.prep.gapFill.items;
+    var placement =
+      typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls();
 
     if (kind !== "prep-gap" && kind !== "prep-match" && kind !== "prep") {
       E.hidePrepNextButton(taskId);
@@ -1067,14 +2571,16 @@ E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
       if (E.isPrepMatchingComplete(taskId)) {
         if (!E.isPrepMatchPassed(taskId)) {
           E.setPrepMatchPassed(taskId, true);
-          var matchCount =
-            (task.prep.matching && task.prep.matching.expressions
-              ? task.prep.matching.expressions.length
-              : 0) || 0;
-          if (matchCount) {
-            var taskElMatch = document.getElementById("task-" + taskId);
-            if (!(taskElMatch && taskElMatch.dataset.revealedStep === "1")) {
-              E.showScoreFeedback(taskId, matchCount, matchCount);
+          if (!placement) {
+            var matchCount =
+              (task.prep.matching && task.prep.matching.expressions
+                ? task.prep.matching.expressions.length
+                : 0) || 0;
+            if (matchCount) {
+              var taskElMatch = document.getElementById("task-" + taskId);
+              if (!(taskElMatch && taskElMatch.dataset.revealedStep === "1")) {
+                E.showScoreFeedback(taskId, matchCount, matchCount);
+              }
             }
           }
           E.syncListeningProgressUI(taskId);
@@ -1085,7 +2591,7 @@ E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
         E.showPrepNextButton(taskId);
         return;
       }
-      if (checkBtn) checkBtn.hidden = true;
+      if (checkBtn) checkBtn.hidden = placement || true;
       E.hidePrepNextButton(taskId);
       E.syncResetButton(taskId);
       E.setListeningRevealVisible(taskId, true);
@@ -1097,14 +2603,16 @@ E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
       if (E.isPrepMatchingComplete(taskId)) {
         if (!E.isPrepMatchPassed(taskId)) {
           E.setPrepMatchPassed(taskId, true);
-          var prepMatchCount =
-            (task.prep.matching && task.prep.matching.expressions
-              ? task.prep.matching.expressions.length
-              : 0) || 0;
-          if (prepMatchCount) {
-            var taskElPrepMatch = document.getElementById("task-" + taskId);
-            if (!(taskElPrepMatch && taskElPrepMatch.dataset.revealedStep === "1")) {
-              E.showScoreFeedback(taskId, prepMatchCount, prepMatchCount);
+          if (!placement) {
+            var prepMatchCount =
+              (task.prep.matching && task.prep.matching.expressions
+                ? task.prep.matching.expressions.length
+                : 0) || 0;
+            if (prepMatchCount) {
+              var taskElPrepMatch = document.getElementById("task-" + taskId);
+              if (!(taskElPrepMatch && taskElPrepMatch.dataset.revealedStep === "1")) {
+                E.showScoreFeedback(taskId, prepMatchCount, prepMatchCount);
+              }
             }
           }
           E.syncListeningProgressUI(taskId);
@@ -1115,7 +2623,7 @@ E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
         E.showPrepNextButton(taskId);
         return;
       }
-      if (checkBtn) checkBtn.hidden = true;
+      if (checkBtn) checkBtn.hidden = placement || true;
       E.hidePrepNextButton(taskId);
       E.syncResetButton(taskId);
       E.setListeningRevealVisible(taskId, true);
@@ -1147,12 +2655,21 @@ E.syncListeningPrepFooterUI = function syncListeningPrepFooterUI(taskId) {
     var filled = E.countPrepGapFilled(prefix, gapItems);
     var gapReady = filled === total;
 
+    if (placement && kind === "prep-gap" && gapReady) {
+      if (progressEl) progressEl.hidden = true;
+      if (checkBtn) checkBtn.hidden = true;
+      E.syncResetButton(taskId);
+      E.setListeningRevealVisible(taskId, false);
+      E.showPrepNextButton(taskId);
+      return;
+    }
+
     if (progressEl) {
       progressEl.textContent = filled + " / " + total;
       progressEl.hidden = gapReady;
     }
 
-    if (checkBtn) checkBtn.hidden = !gapReady;
+    if (checkBtn) checkBtn.hidden = placement || !gapReady;
   }
 
 E.syncListeningGapsFooterUI = function syncListeningGapsFooterUI(taskId) {
@@ -1161,6 +2678,25 @@ E.syncListeningGapsFooterUI = function syncListeningGapsFooterUI(taskId) {
     if (E.getListeningStepKind(task, E.getListeningStep(taskId)) !== "listening") return;
 
     var checkBtn = document.getElementById("check-" + taskId);
+    var placement =
+      typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls();
+    var prefix = E.taskPrefix(taskId);
+    var gaps = E.getActiveListeningGaps(task);
+    var gapsFilled =
+      !gaps.length ||
+      gaps.every(function (gap) {
+        var input = document.getElementById(prefix + "_gap_" + gap.num);
+        return input && E.normalize(input.value);
+      });
+
+    if (placement && gapsFilled) {
+      if (checkBtn) checkBtn.hidden = true;
+      E.syncResetButton(taskId);
+      E.setListeningRevealVisible(taskId, false);
+      if (E.listeningMcMax(task) > 0) E.showPrepNextButton(taskId);
+      else E.hidePrepNextButton(taskId);
+      return;
+    }
 
     if (E.isListeningGapsPassed(taskId)) {
       if (checkBtn) checkBtn.hidden = true;
@@ -1216,8 +2752,22 @@ E.syncListeningMcFooterUI = function syncListeningMcFooterUI(taskId) {
     var checkBtn = document.getElementById("check-" + taskId);
     var showBtn = document.getElementById("show-" + taskId);
     var nextInterviewBtn = document.getElementById("next-interview-" + taskId);
+    var placement =
+      typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls();
 
     E.hidePrepNextButton(taskId);
+
+    if (placement && E.isListeningMcComplete(taskId)) {
+      if (checkBtn) checkBtn.hidden = true;
+      E.syncResetButton(taskId);
+      if (showBtn) showBtn.hidden = true;
+      if (nextInterviewBtn) {
+        var canNextPlacement = E.hasNextInterview(taskId);
+        nextInterviewBtn.hidden = !canNextPlacement;
+      }
+      if (typeof E.syncSaveAnswersButton === "function") E.syncSaveAnswersButton(taskId);
+      return;
+    }
 
     if (E.isListeningMcPassed(taskId)) {
       if (checkBtn) checkBtn.hidden = true;
@@ -1238,13 +2788,18 @@ E.syncListeningMcFooterUI = function syncListeningMcFooterUI(taskId) {
           }, 2000);
         }
       }
+      if (typeof E.syncSaveAnswersButton === "function") E.syncSaveAnswersButton(taskId);
       return;
     }
 
     E.hideListeningFinishButtons(taskId);
     E.syncResetButton(taskId);
     if (checkBtn) checkBtn.hidden = !E.isListeningMcComplete(taskId);
-    if (showBtn) showBtn.hidden = false;
+    if (showBtn) {
+      showBtn.hidden =
+        typeof E.hidesShowAnswers === "function" && E.hidesShowAnswers();
+    }
+    if (typeof E.syncSaveAnswersButton === "function") E.syncSaveAnswersButton(taskId);
   }
 
 E.isListeningPrepGapFillComplete = function isListeningPrepGapFillComplete(taskId) {
@@ -1301,6 +2856,7 @@ E.attachListeningPrepGapFill = function attachListeningPrepGapFill(wrap) {
 
     var pickedChip = null;
     var dragWord = null;
+    var activeDrop = null;
     var live = wrap.querySelector(".ege-prep-gapfill-live");
 
     function prepTaskId() {
@@ -1327,7 +2883,12 @@ E.attachListeningPrepGapFill = function attachListeningPrepGapFill(wrap) {
     function updateProgress() {
       notifyChange();
       var taskId = prepTaskId();
-      if (taskId) E.syncListeningPrepFooterUI(taskId);
+      if (taskId) {
+        E.syncListeningPrepFooterUI(taskId);
+        if (typeof E.isPlacementExam === "function" && E.isPlacementExam() && typeof E.syncExamPoints === "function") {
+          E.syncExamPoints();
+        }
+      }
     }
 
     function chipIsAvailable(chip) {
@@ -1428,18 +2989,51 @@ E.attachListeningPrepGapFill = function attachListeningPrepGapFill(wrap) {
       chip.setAttribute("aria-pressed", "true");
     }
 
+    function syncActiveDropUI() {
+      getDrops().forEach(function (drop) {
+        drop.classList.toggle("is-active", drop === activeDrop);
+      });
+    }
+
+    function setActiveDrop(numStr) {
+      var idx = parseInt(numStr, 10) - 1;
+      var drops = getDrops();
+      if (idx < 0 || idx >= drops.length) return;
+      activeDrop = drops[idx];
+      syncActiveDropUI();
+      activeDrop.focus();
+      announce("Sentence " + numStr + " selected");
+    }
+
+    function refreshPickSlots() {
+      wrap._pickSlots = getDrops().map(function (_drop, index) {
+        return String(index + 1);
+      });
+      wrap._pickMaxOption = Math.max(
+        (wrap._prepGapFillConfig && wrap._prepGapFillConfig.wordBank
+          ? wrap._prepGapFillConfig.wordBank.length
+          : 0),
+        wrap._pickSlots.length
+      );
+    }
+
     function activateDrop(drop) {
       if (pickedChip) {
         assignWord(drop, pickedChip.dataset.word);
         pickedChip.classList.remove("is-selected");
         pickedChip.setAttribute("aria-pressed", "false");
         pickedChip = null;
+        activeDrop = null;
+        syncActiveDropUI();
         return;
       }
+      activeDrop = drop;
+      syncActiveDropUI();
       if (E.prepGapSlotValue(drop)) clearDrop(drop);
     }
 
     wrap.resetPrepGapFill = function () {
+      activeDrop = null;
       getDrops().forEach(function (drop) {
         var word = E.prepGapSlotValue(drop);
         if (word) releaseWord(word);
@@ -1560,6 +3154,41 @@ E.attachListeningPrepGapFill = function attachListeningPrepGapFill(wrap) {
       if (chip && wrap.contains(chip)) selectChip(chip);
       else if (drop && wrap.contains(drop)) activateDrop(drop);
     });
+
+    wrap.classList.add("ege-picks-controller");
+    wrap.refreshPickSlots = refreshPickSlots;
+    wrap.getActiveGap = function () {
+      if (!activeDrop) return "";
+      var drops = getDrops();
+      var idx = drops.indexOf(activeDrop);
+      return idx >= 0 ? String(idx + 1) : "";
+    };
+    wrap.setActiveGap = setActiveDrop;
+    wrap.activateGap = setActiveDrop;
+    wrap.assignNumber = function (num) {
+      refreshPickSlots();
+      var drops = getDrops();
+      if (!activeDrop) {
+        if (num <= drops.length) setActiveDrop(String(num));
+        return;
+      }
+      if (pickedChip) {
+        assignWord(activeDrop, pickedChip.dataset.word);
+        pickedChip.classList.remove("is-selected");
+        pickedChip.setAttribute("aria-pressed", "false");
+        pickedChip = null;
+        activeDrop = null;
+        syncActiveDropUI();
+        return;
+      }
+      var available = getChips().filter(chipIsAvailable);
+      if (num > 0 && num <= available.length) {
+        assignWord(activeDrop, available[num - 1].dataset.word);
+        activeDrop = null;
+        syncActiveDropUI();
+      }
+    };
+    refreshPickSlots();
 
     updateProgress();
   }
@@ -1740,7 +3369,7 @@ E.buildPrepGapFillLine = function buildPrepGapFillLine(item, prefix, displayNum)
     line.className = "ege-prep-gapfill__item";
 
     var num = document.createElement("span");
-    num.className = "ege-prep-gapfill__num";
+    num.className = "ege-prep-gapfill__num ege-exam-num";
     num.textContent = displayNum + ".";
     line.appendChild(num);
 
@@ -2081,6 +3710,25 @@ E.attachListeningPrepPairing = function attachListeningPrepPairing(wrap, config)
       alignMatchedColumns();
     };
 
+    wrap.classList.add("ege-picks-controller");
+    wrap._pickSlots = meanings.map(function (meaning) {
+      return meaning.id;
+    });
+    wrap._pickMaxOption = expressions.length;
+    wrap.activateLetter = function (letter) {
+      var card = wrap.querySelector('.ege-prep-pair-card[data-mean-id="' + letter + '"]');
+      if (card && !card.disabled) selectMean(card);
+    };
+    wrap.assignNumber = function (num) {
+      var card = wrap.querySelector('.ege-prep-pair-card[data-expr-id="' + num + '"]');
+      if (card && !card.disabled) selectExpr(card);
+    };
+    wrap.getActiveLetter = function () {
+      if (selectedMean) return selectedMean.dataset.meanId;
+      if (selectedExpr) return selectedExpr.dataset.exprId;
+      return "";
+    };
+
     updateProgress();
   }
 
@@ -2155,7 +3803,9 @@ E.buildListeningPrepGapInstruction = function buildListeningPrepGapInstruction(t
     if (!gapFill || !gapFill.instruction) return null;
 
     var instr = document.createElement("p");
-    instr.className = "ege-listening-prep-instr";
+    instr.className =
+      E.usesTopicLayoutForTask(task) ? "ege-instructions" : "ege-listening-prep-instr";
+    instr.lang = E.usesTopicLayoutForTask(task) ? "ru" : "";
     instr.id = "prep-gap-instr-" + task.id;
     instr.textContent = gapFill.instruction;
     return instr;
@@ -2208,32 +3858,15 @@ E.buildListeningPrepStep = function buildListeningPrepStep(task, topicId) {
 E.buildListeningFooter = function buildListeningFooter(task) {
     var taskId = task.id;
     var max = E.taskMaxScore(task);
-
-    var footer = document.createElement("div");
-    footer.className = "ege-task__footer ege-listening-footer";
-
-    var actions = document.createElement("div");
-    actions.className = "ege-task__actions";
-
-    var checkBtn = document.createElement("button");
-    checkBtn.type = "button";
-    checkBtn.className = "ege-btn ege-btn--primary";
-    checkBtn.id = "check-" + taskId;
-    checkBtn.textContent = "Check answers";
-    checkBtn.hidden = true;
-    checkBtn.addEventListener("click", function () {
-      E.checkTask(taskId);
-    });
+    var extrasBefore = [];
 
     if (task.prep && task.prep.gapFill && task.prep.gapFill.items && task.prep.gapFill.items.length) {
       var prepFill = document.createElement("p");
       prepFill.className = "ege-listening-prep-fill";
       prepFill.id = "prep-fill-" + taskId;
       prepFill.textContent = "0 / " + task.prep.gapFill.items.length;
-      actions.appendChild(prepFill);
+      extrasBefore.push(prepFill);
     }
-
-    actions.appendChild(checkBtn);
 
     var nextBtn = document.createElement("button");
     nextBtn.type = "button";
@@ -2247,67 +3880,102 @@ E.buildListeningFooter = function buildListeningFooter(task) {
       var current = E.findTask(taskId);
       if (!current) return;
       var kind = E.getListeningStepKind(current, E.getListeningStep(taskId));
+      var placement =
+        typeof E.isPlacementExam === "function" &&
+        E.isPlacementExam() &&
+        !E.state.placementFinalized;
       E.hideScoreFeedback(taskId);
       E.hidePrepNextButton(taskId);
-      if (kind === "prep-gap" && E.isPrepMatchingUnlocked(taskId)) {
-        E.setListeningStep(taskId, 2);
-        return;
+      if (kind === "prep-gap") {
+        if (placement || E.isPrepMatchingUnlocked(taskId)) {
+          if (placement && !E.isPrepMatchingUnlocked(taskId)) {
+            E.setPrepMatchingUnlocked(taskId, true);
+          }
+          E.setListeningStep(taskId, 2);
+          return;
+        }
       }
-      if (kind === "prep-match" && E.isPrepMatchPassed(taskId)) {
+      if (kind === "prep-match" && (placement ? E.isPrepMatchingComplete(taskId) : E.isPrepMatchPassed(taskId))) {
+        if (placement && !E.isPrepMatchPassed(taskId)) E.setPrepMatchPassed(taskId, true);
         E.setListeningStep(taskId, 3);
         return;
       }
-      if (kind === "listening" && E.isListeningGapsPassed(taskId) && E.listeningMcMax(current) > 0) {
-        var mcStep = E.taskHasSplitPrep(current) ? 4 : current.prep ? 3 : 2;
-        E.setListeningStep(taskId, mcStep);
+      if (kind === "prep" && E.isPrepMatchingUnlocked(taskId)) {
+        if (placement ? E.isPrepMatchingComplete(taskId) : E.isPrepMatchPassed(taskId)) {
+          if (placement && !E.isPrepMatchPassed(taskId)) E.setPrepMatchPassed(taskId, true);
+          E.setListeningStep(taskId, E.taskHasSplitPrep(current) ? 3 : 2);
+          return;
+        }
+      }
+      if (kind === "listening") {
+        var prefix = E.taskPrefix(taskId);
+        var gaps = E.getActiveListeningGaps(current);
+        var gapsFilled =
+          !gaps.length ||
+          gaps.every(function (gap) {
+            var input = document.getElementById(prefix + "_gap_" + gap.num);
+            return input && E.normalize(input.value);
+          });
+        if ((placement && gapsFilled) || E.isListeningGapsPassed(taskId)) {
+          if (placement && !E.isListeningGapsPassed(taskId)) E.setListeningGapsPassed(taskId, true);
+          if (E.listeningMcMax(current) > 0) {
+            var mcStep = E.listeningStagePlan(current).indexOf("mc") + 1;
+            if (mcStep > 0) E.setListeningStep(taskId, mcStep);
+          }
+        }
+        return;
+      }
+      if (kind === "exam-match") {
+        if (
+          (placement && E.isListeningExamMatchComplete(taskId)) ||
+          E.isListeningExamMatchPassed(taskId)
+        ) {
+          if (placement && !E.isListeningExamMatchPassed(taskId)) {
+            E.setListeningExamMatchPassed(taskId, true);
+          }
+          var matchPlan = E.listeningStagePlan(current);
+          var tfnStep = matchPlan.indexOf("exam-tfn") + 1;
+          if (tfnStep > 0) E.setListeningStep(taskId, tfnStep);
+        }
+        return;
+      }
+      if (kind === "exam-tfn") {
+        if (
+          (placement && E.isListeningExamTfnComplete(taskId)) ||
+          E.isListeningExamTfnPassed(taskId)
+        ) {
+          if (placement && !E.isListeningExamTfnPassed(taskId)) {
+            E.setListeningExamTfnPassed(taskId, true);
+          }
+          if (E.listeningMcMax(current) > 0) {
+            var tfnPlan = E.listeningStagePlan(current);
+            var mcAfterTfn = tfnPlan.indexOf("mc") + 1;
+            if (mcAfterTfn > 0) E.setListeningStep(taskId, mcAfterTfn);
+          }
+        }
+        return;
       }
     });
-    actions.appendChild(nextBtn);
-
-    var resetBtn = document.createElement("button");
-    resetBtn.type = "button";
-    resetBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
-    resetBtn.id = "reset-" + taskId;
-    resetBtn.textContent = "Reset";
-    resetBtn.hidden = true;
-    E.bindResetButton(resetBtn, taskId);
-    actions.appendChild(resetBtn);
-
-    var showBtn = document.createElement("button");
-    showBtn.type = "button";
-    showBtn.className = "ege-btn ege-btn--ghost";
-    showBtn.id = "show-" + taskId;
-    showBtn.textContent = "Show answers";
-    showBtn.hidden = true;
-    showBtn.addEventListener("click", function () {
-      E.revealTask(taskId);
-    });
-    actions.appendChild(showBtn);
 
     var nextInterviewBtn = document.createElement("button");
     nextInterviewBtn.type = "button";
     nextInterviewBtn.className = "ege-btn ege-btn--primary";
     nextInterviewBtn.id = "next-interview-" + taskId;
-    nextInterviewBtn.textContent = "Next interview";
+    nextInterviewBtn.textContent = "Next task";
     nextInterviewBtn.hidden = true;
-    nextInterviewBtn.title = "Next interview (Enter)";
+    nextInterviewBtn.title = "Next task (Enter)";
     nextInterviewBtn.setAttribute("aria-keyshortcuts", "Enter");
     nextInterviewBtn.addEventListener("click", function () {
       E.showAdjacentTask(1);
     });
-    actions.appendChild(nextInterviewBtn);
 
-    footer.appendChild(actions);
-
-    var score = document.createElement("p");
-    score.className = "ege-task__score";
-    score.id = "score-" + taskId;
-    score.hidden = true;
-    score.setAttribute("aria-live", "polite");
-    footer.insertBefore(score, actions);
-    footer.dataset.max = String(max);
-    E.syncResetButton(taskId);
-    return footer;
+    return E.buildTaskFooter(taskId, max, {
+      showAnswers: true,
+      checkHidden: true,
+      scoreBeforeActions: true,
+      extrasBefore: extrasBefore,
+      extrasAfter: [nextBtn, nextInterviewBtn],
+    });
   }
 
 E.restoreAllListeningChromes = function restoreAllListeningChromes() {
@@ -2328,11 +3996,20 @@ E.mountListeningChrome = function mountListeningChrome(taskId) {
       host.classList.remove("is-mounted");
       host.replaceChildren();
       host.setAttribute("aria-hidden", "true");
+      if (typeof E.clearListeningNotesPlacing === "function") E.clearListeningNotesPlacing();
       return;
     }
 
     var task = E.findTask(taskId);
     if (!task || task.type !== "listening") {
+      host.classList.remove("is-mounted");
+      host.replaceChildren();
+      host.setAttribute("aria-hidden", "true");
+      if (typeof E.clearListeningNotesPlacing === "function") E.clearListeningNotesPlacing();
+      return;
+    }
+
+    if (E.usesTopicLayoutForTask(task)) {
       host.classList.remove("is-mounted");
       host.replaceChildren();
       host.setAttribute("aria-hidden", "true");
@@ -2354,6 +4031,8 @@ E.mountListeningChrome = function mountListeningChrome(taskId) {
 
 E.syncListeningChromeAlign = function syncListeningChromeAlign() {
     if (!E.isListeningMode()) return;
+    var task = E.findTask(E.state.activeTaskId);
+    if (task && E.usesTopicLayoutForTask(task)) return;
     if (window.matchMedia("(max-width: 860px)").matches) return;
 
     var host = document.getElementById("egeListeningChrome");
@@ -2393,11 +4072,12 @@ E.syncListeningNavAlign = function syncListeningNavAlign(taskId) {
     if (!E.isListeningMode()) return;
     if (window.matchMedia("(max-width: 860px)").matches) return;
 
-    var nav = document.getElementById("egeNav");
+    var scroller = document.querySelector(".ege-page--topic-layout > .ege-topics");
     var btn = document.getElementById("nav-" + taskId);
-    if (!nav || !btn) return;
+    if (!scroller || !btn) return;
 
-    nav.style.paddingTop = "";
+    var nav = document.getElementById("egeNav");
+    if (nav) nav.style.paddingTop = "";
 
     var wordBank = null;
     var taskForAlign = E.findTask(taskId);
@@ -2408,15 +4088,15 @@ E.syncListeningNavAlign = function syncListeningNavAlign(taskId) {
     }
 
     if (!wordBank) {
-      nav.scrollTop = 0;
+      scroller.scrollTop = 0;
       return;
     }
 
-    nav.scrollTop = 0;
+    scroller.scrollTop = 0;
 
     var delta = btn.getBoundingClientRect().top - wordBank.getBoundingClientRect().top;
     if (Math.abs(delta) >= 1) {
-      nav.scrollTop = Math.max(0, nav.scrollTop + delta);
+      scroller.scrollTop = Math.max(0, scroller.scrollTop + delta);
     }
   }
 
@@ -2444,11 +4124,19 @@ E.getTopicExercisePanel = function getTopicExercisePanel(taskId) {
 E.scrollActiveNavIntoView = function scrollActiveNavIntoView(taskId) {
     if (window.matchMedia("(max-width: 860px)").matches) return;
 
-    var nav = document.getElementById("egeNav");
     var btn = document.getElementById("nav-" + taskId);
-    if (!nav || !btn) return;
+    if (!btn) return;
 
-    btn.scrollIntoView({ block: "nearest" });
+    var scroller = document.querySelector(".ege-page--topic-layout > .ege-topics");
+    if (!scroller) return;
+
+    var scrollerRect = scroller.getBoundingClientRect();
+    var btnRect = btn.getBoundingClientRect();
+    if (btnRect.top < scrollerRect.top + 8) {
+      scroller.scrollTop += btnRect.top - scrollerRect.top - 8;
+    } else if (btnRect.bottom > scrollerRect.bottom - 8) {
+      scroller.scrollTop += btnRect.bottom - scrollerRect.bottom + 8;
+    }
   }
 
 E.isScrollAtEnd = function isScrollAtEnd(el) {
@@ -2463,35 +4151,17 @@ E.syncScrollFadeState = function syncScrollFadeState(shell, scroller) {
     shell.classList.toggle("is-at-end", !canScroll || E.isScrollAtEnd(scroller));
   }
 
-E.syncTopicNavAlign = function syncTopicNavAlign(taskId) {
+E.syncTopicNavAlign = function syncTopicNavAlign() {
     if (!E.usesTopicLayout(E.state.topicId)) return;
+    if (window.matchMedia("(max-width: 860px)").matches) return;
 
     var navShell = document.getElementById("egeTopicNav");
     var nav = document.getElementById("egeNav");
     if (!navShell || !nav) return;
 
-    if (window.matchMedia("(max-width: 860px)").matches) {
-      navShell.style.maxHeight = "";
-      nav.style.maxHeight = "";
-      navShell.classList.remove("is-scrollable", "is-at-end");
-      return;
-    }
-
-    var exercisePanel = E.getTopicExercisePanel(taskId || E.state.activeTaskId);
-    if (!exercisePanel) {
-      navShell.style.maxHeight = "";
-      nav.style.maxHeight = "";
-      navShell.classList.remove("is-scrollable", "is-at-end");
-      return;
-    }
-
-    var height = Math.round(exercisePanel.getBoundingClientRect().height);
-    if (height > 0) {
-      navShell.style.maxHeight = height + "px";
-      nav.style.maxHeight = "";
-    }
-
-    E.syncScrollFadeState(navShell, nav);
+    navShell.style.maxHeight = "";
+    nav.style.maxHeight = "";
+    navShell.classList.remove("is-scrollable", "is-at-end");
   }
 
 E.observeTopicExercisePanel = function observeTopicExercisePanel(taskId) {
@@ -2516,13 +4186,15 @@ E.scheduleTopicNavAlign = function scheduleTopicNavAlign(taskId) {
   }
 
 E.syncReadingMcScrollState = function syncReadingMcScrollState(taskId) {
-    if (window.matchMedia("(max-width: 860px)").matches) return;
+    if (!E.usesTopicLayout(E.state.topicId)) return;
+    var panel = document.getElementById("panel-" + (taskId || E.state.activeTaskId));
+    if (!panel) return;
 
-    var taskEl = document.getElementById("task-" + taskId);
-    if (!taskEl || !taskEl.classList.contains("ege-task--reading-mc")) return;
-
-    taskEl.querySelectorAll(".ege-work-scroll").forEach(function (el) {
-      E.syncScrollFadeState(el, el);
+    panel.querySelectorAll(".ege-read-scroll, .ege-work-scroll").forEach(function (scroller) {
+      var shell =
+        scroller.closest(".ege-panel--read, .ege-panel--work, .ege-work-col") ||
+        scroller.parentElement;
+      E.syncScrollFadeState(shell, scroller);
     });
   }
 
@@ -2549,14 +4221,14 @@ E.bindTopicNavAlign = function bindTopicNavAlign() {
         var target = event.target;
         if (!target || !target.classList) return;
 
-        if (target.id === "egeNav") {
-          var navShell = document.getElementById("egeTopicNav");
-          E.syncScrollFadeState(navShell, target);
-          return;
-        }
-
-        if (target.classList.contains("ege-work-scroll")) {
-          E.syncScrollFadeState(target, target);
+        if (
+          target.classList.contains("ege-read-scroll") ||
+          target.classList.contains("ege-work-scroll")
+        ) {
+          var shell =
+            target.closest(".ege-panel--read, .ege-panel--work, .ege-work-col") ||
+            target.parentElement;
+          E.syncScrollFadeState(shell, target);
         }
       },
       true
@@ -2570,10 +4242,11 @@ E.wrapListeningRoot = function wrapListeningRoot(task, article) {
     var chrome = document.createElement("div");
     chrome.className = "ege-listening-chrome";
     chrome.dataset.homePanel = "panel-" + task.id;
-    chrome.appendChild(E.buildListeningProgress(task));
+    var progress = E.buildListeningProgress(task);
+    if (progress) chrome.appendChild(progress);
     var prepGapInstr = E.buildListeningPrepGapInstruction(task);
     if (prepGapInstr) chrome.appendChild(prepGapInstr);
-    root.appendChild(chrome);
+    if (chrome.childElementCount) root.appendChild(chrome);
     root.appendChild(article);
 
     return root;
@@ -2595,12 +4268,90 @@ E.renderListening = function renderListening(task, topicId) {
       if (gaps.length) E.attachListeningGapLinks(transcript, topicId, task.id);
     }
 
+    if (E.taskHasExamListening(task)) {
+      if (E.taskUsesExamSinglePage(task)) {
+        return E.renderListeningExamSinglePage(task, topicId, wrap);
+      }
+
+      if (task.examMatch) {
+        var examMatchStep = document.createElement("div");
+        examMatchStep.className = "ege-listening-step ege-listening-step--exam-match";
+        examMatchStep.hidden = true;
+        var matchRead = document.createElement("div");
+        matchRead.className = "ege-listening-read";
+        matchRead.appendChild(E.buildListeningAudio(task, topicId));
+        var matchStack = document.createElement("div");
+        matchStack.className = "ege-listening-exam-match-stack";
+        matchStack.appendChild(matchRead);
+        matchStack.appendChild(E.buildListeningExamMatch(task, topicId));
+        examMatchStep.appendChild(matchStack);
+        wrap.appendChild(examMatchStep);
+      }
+
+      if (task.examTfn) {
+        var examTfnStep = document.createElement("div");
+        examTfnStep.className = "ege-listening-step ege-listening-step--exam-tfn";
+        examTfnStep.hidden = true;
+        var tfnRead = document.createElement("div");
+        tfnRead.className = "ege-listening-read";
+        tfnRead.appendChild(E.buildListeningAudio(task, topicId));
+        var tfnStack = document.createElement("div");
+        tfnStack.className = "ege-listening-exam-match-stack";
+        tfnStack.appendChild(tfnRead);
+        tfnStack.appendChild(E.buildListeningExamTfn(task, topicId));
+        examTfnStep.appendChild(tfnStack);
+        wrap.appendChild(examTfnStep);
+      }
+
+      if (task.questions && task.questions.length) {
+        var soloMcStep = document.createElement("div");
+        soloMcStep.className = "ege-listening-step ege-listening-step--mc";
+        soloMcStep.hidden = true;
+        var mcRead = document.createElement("div");
+        mcRead.className = "ege-listening-read";
+        mcRead.appendChild(E.buildListeningAudio(task, topicId));
+        if (E.showsListeningTranscript() && task.transcript) {
+          mcRead.appendChild(E.buildListeningTranscript(task));
+        }
+        soloMcStep.appendChild(
+          E.buildLongreadSplit(mcRead, E.buildListeningMcStack(task, topicId), {
+            workLabelKind: "questions",
+            workClass: "ege-panel--work ege-panel--listening-mc",
+          })
+        );
+        wrap.appendChild(soloMcStep);
+      }
+
+      wrap.appendChild(E.buildListeningFooter(task));
+      wrap.addEventListener("input", function () {
+        E.syncListeningProgressUI(task.id);
+        E.syncListeningExamMatchFooterUI(task.id);
+        E.syncListeningExamTfnFooterUI(task.id);
+        E.syncListeningMcFooterUI(task.id);
+        if (typeof E.isPlacementExam === "function" && E.isPlacementExam() && typeof E.syncExamPoints === "function") {
+          E.syncExamPoints();
+        }
+      });
+      wrap.addEventListener("change", function () {
+        E.syncListeningProgressUI(task.id);
+        E.syncListeningExamMatchFooterUI(task.id);
+        E.syncListeningExamTfnFooterUI(task.id);
+        E.syncListeningMcFooterUI(task.id);
+        if (typeof E.isPlacementExam === "function" && E.isPlacementExam() && typeof E.syncExamPoints === "function") {
+          E.syncExamPoints();
+        }
+      });
+      E.syncListeningPrepFooterUI(task.id);
+      E.syncListeningPrepGapInstructionUI(task.id);
+      return E.wrapListeningRoot(task, wrap);
+    }
+
     if (!gaps.length) {
       if (task.transcript) {
         var soloGapsStep = document.createElement("div");
         soloGapsStep.className = "ege-listening-step ege-listening-step--gaps";
         soloGapsStep.hidden = true;
-        soloGapsStep.appendChild(E.buildPanel("Recording", readContent, "ege-panel--solo"));
+        soloGapsStep.appendChild(E.buildPanel("", readContent, "ege-panel--solo"));
         wrap.appendChild(soloGapsStep);
       }
       if (task.questions && task.questions.length) {
@@ -2608,18 +4359,26 @@ E.renderListening = function renderListening(task, topicId) {
         soloMcStep.className = "ege-listening-step ege-listening-step--mc";
         soloMcStep.hidden = true;
         soloMcStep.appendChild(
-          E.buildPanel("", E.buildListeningMcStack(task, topicId), "ege-panel--listening-mc")
+          E.buildWorkPanel("questions", E.buildListeningMcStack(task, topicId), "ege-panel--listening-mc")
         );
         wrap.appendChild(soloMcStep);
       }
       wrap.appendChild(E.buildListeningFooter(task));
       wrap.addEventListener("input", function () {
         E.syncListeningProgressUI(task.id);
+        E.syncListeningGapsFooterUI(task.id);
         E.syncListeningMcFooterUI(task.id);
+        if (typeof E.isPlacementExam === "function" && E.isPlacementExam() && typeof E.syncExamPoints === "function") {
+          E.syncExamPoints();
+        }
       });
       wrap.addEventListener("change", function () {
         E.syncListeningProgressUI(task.id);
+        E.syncListeningGapsFooterUI(task.id);
         E.syncListeningMcFooterUI(task.id);
+        if (typeof E.isPlacementExam === "function" && E.isPlacementExam() && typeof E.syncExamPoints === "function") {
+          E.syncExamPoints();
+        }
       });
       E.syncListeningPrepFooterUI(task.id);
       E.syncListeningPrepGapInstructionUI(task.id);
@@ -2639,7 +4398,7 @@ E.renderListening = function renderListening(task, topicId) {
       var inputId = topicId + "_" + task.id + "_gap_" + gap.num;
 
       var label = document.createElement("label");
-      label.className = "ege-listening-row__label";
+      label.className = "ege-listening-row__label ege-exam-num";
       label.htmlFor = inputId;
       label.textContent = gap.num + ".";
 
@@ -2663,6 +4422,10 @@ E.renderListening = function renderListening(task, topicId) {
         input.classList.toggle("is-filled", !!value);
         E.hideScoreFeedback(task.id);
         E.syncResetButton(task.id);
+        E.syncListeningGapsFooterUI(task.id);
+        if (typeof E.isPlacementExam === "function" && E.isPlacementExam() && typeof E.syncExamPoints === "function") {
+          E.syncExamPoints();
+        }
       });
 
       input.addEventListener("keydown", function (event) {
@@ -2683,23 +4446,14 @@ E.renderListening = function renderListening(task, topicId) {
       work.appendChild(row);
     });
 
-    var workPanel = E.buildPanel("Answers", work, "ege-panel--work ege-panel--listening-work");
-    var workCol = document.createElement("div");
-    workCol.className = "ege-work-col";
-    var scrollWrap = document.createElement("div");
-    scrollWrap.className = "ege-work-scroll";
-    scrollWrap.appendChild(workPanel);
-    workCol.appendChild(scrollWrap);
-
     var gapsStep = document.createElement("div");
     gapsStep.className = "ege-listening-step ege-listening-step--gaps";
     gapsStep.hidden = true;
     gapsStep.appendChild(
-      E.buildSplit(
-        E.buildPanel("Recording", readContent, "ege-panel--read"),
-        workCol,
-        "ege-split--panels"
-      )
+      E.buildLongreadSplit(readContent, work, {
+        workLabelKind: "answers",
+        workClass: "ege-panel--work ege-panel--listening-work",
+      })
     );
     wrap.appendChild(gapsStep);
 
@@ -2708,7 +4462,7 @@ E.renderListening = function renderListening(task, topicId) {
       mcStep.className = "ege-listening-step ege-listening-step--mc";
       mcStep.hidden = true;
       mcStep.appendChild(
-        E.buildPanel("", E.buildListeningMcStack(task, topicId), "ege-panel--listening-mc")
+        E.buildWorkPanel("questions", E.buildListeningMcStack(task, topicId), "ege-panel--listening-mc")
       );
       wrap.appendChild(mcStep);
     }
@@ -2717,11 +4471,19 @@ E.renderListening = function renderListening(task, topicId) {
 
     wrap.addEventListener("input", function () {
       E.syncListeningProgressUI(task.id);
+      E.syncListeningGapsFooterUI(task.id);
       E.syncListeningMcFooterUI(task.id);
+      if (typeof E.isPlacementExam === "function" && E.isPlacementExam() && typeof E.syncExamPoints === "function") {
+        E.syncExamPoints();
+      }
     });
     wrap.addEventListener("change", function () {
       E.syncListeningProgressUI(task.id);
+      E.syncListeningGapsFooterUI(task.id);
       E.syncListeningMcFooterUI(task.id);
+      if (typeof E.isPlacementExam === "function" && E.isPlacementExam() && typeof E.syncExamPoints === "function") {
+        E.syncExamPoints();
+      }
     });
 
     E.syncListeningPrepFooterUI(task.id);

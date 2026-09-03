@@ -8,10 +8,19 @@ python3 -m http.server 8080
 
 Then visit http://localhost:8080
 
+The 2027 demo is its own mini-site. From the repo root, open http://localhost:8080/2027/ — or serve just that folder:
+
+```bash
+cd 2027 && python3 -m http.server 8080
+```
+
+Then visit http://localhost:8080
+
 ## Structure
 
 ```
-index.html, topic.html, sections.json   # entry points
+index.html, topic.html, sections.json   # practice-bank entry points
+2027/                                   # 2027 demo (own index.html + player + data)
 css/                                    # shell + catalog styles
 js/                                     # engine + highlight tools
 assets/                                 # logos, icons, images

@@ -135,7 +135,7 @@
   <script>
     (function () {
       var catalog = document.getElementById("egeCatalog");
-      var DEMO_2027_HREF = "topic.html?variant=2027-demo";
+      var DEMO_2027_HREF = "2027/topic.html?variant=2027-demo";
       var DEFAULT_EGE = new Date(2027, 5, 16, 10, 0, 0).getTime();
       var STORAGE_KEY = "ege-prep:countdown-date";
       var EGE_AT = DEFAULT_EGE;
@@ -305,24 +305,27 @@
       setInterval(tickCountdown, 1000);
       wireCountdownEdit();
 
-      var groupOrder = ["Listening", "Reading", "Grammar & Vocabulary", "Speaking"];
+      var groupOrder = ["Listening", "Reading", "Grammar & Vocabulary", "Writing", "Speaking"];
       var groupIcons = {
         Listening: "headphones",
         Reading: "book",
         "Grammar & Vocabulary": "pencil",
+        Writing: "pen",
         Speaking: "bubble"
       };
       var groupRanges = {
         Listening: { from: 1, to: 9 },
         Reading: { from: 10, to: 18 },
         "Grammar & Vocabulary": { from: 19, to: 36 },
-        Speaking: { from: 40, to: 42 }
+        Writing: { from: 37, to: 38 },
+        Speaking: { from: 39, to: 42 }
       };
       var groupKeywords = {
         Listening: "listening аудирование audio hear",
         Reading: "reading чтение text passage",
         "Grammar & Vocabulary": "grammar vocabulary грамматика лексика words lexico",
-        Speaking: "speaking говорение oral talk"
+        Writing: "writing письмо email essay письменная речь",
+        Speaking: "speaking говорение oral talk устная речь"
       };
       var sectionKeywords = {
         "listening-main": "main idea gist основная мысль",
@@ -334,6 +337,8 @@
         "grammar-transformations": "grammar transformations verb forms tense грамматика",
         "word-formation": "word formation словообразование suffixes prefixes",
         "vocabulary-cloze": "vocabulary in context cloze multiple choice лексика",
+        writing: "writing personal email opinion essay письмо эссе",
+        "speaking-aloud": "reading aloud чтение вслух pronunciation",
         "speaking-questions": "direct questions advertisement ask вопросы объявление",
         "speaking-interview": "interview questions examiner интервью",
         speaking: "photo monologue compare pictures фото монолог"
@@ -344,7 +349,7 @@
       var resultsList = null;
       var emptyEl = null;
       var MAX_RESULTS = 40;
-      var BOOK_LEFT = ["Listening", "Reading"];
+      var BOOK_LEFT = ["Listening", "Reading", "Writing"];
       var BOOK_RIGHT = ["Grammar & Vocabulary", "Speaking"];
 
       function formatExamNum(from, to) {
@@ -798,7 +803,8 @@
 
             var promoLink = document.createElement("p");
             promoLink.className = "ege-catalog-promo";
-            promoLink.innerHTML = '<a href="promo.html">2027 demo</a>';
+            promoLink.innerHTML =
+              '<a href="2027/">2027 demo</a> · <a href="codifier.html">Кодификатор 2027</a>';
             catalog.appendChild(promoLink);
 
             searchWrap = document.createElement("div");

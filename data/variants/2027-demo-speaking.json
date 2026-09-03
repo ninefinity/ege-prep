@@ -1,8 +1,11 @@
 {
   "id": "2027-demo-speaking",
   "title": "ЕГЭ 2027 Demo — Speaking",
-  "timeMinutes": 17,
   "entries": [
+    {
+      "section": "speaking-aloud",
+      "task": "demo2027-land-pollution"
+    },
     {
       "section": "speaking-questions",
       "task": "demo2027-cooking-class"
@@ -15,5 +18,6 @@
       "section": "speaking",
       "task": "demo2027-solo-or-company"
     }
-  ]
+  ],
+  "timeMinutes": 17
 }

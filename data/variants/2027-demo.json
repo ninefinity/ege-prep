@@ -1,11 +1,18 @@
 {
   "id": "2027-demo",
   "title": "ЕГЭ 2027 Demo",
-  "timeMinutes": 190,
   "entries": [
     {
       "section": "listening",
-      "task": "demo2027-mike-watson"
+      "task": "demo2027-listening-1"
+    },
+    {
+      "section": "listening",
+      "task": "demo2027-listening-2"
+    },
+    {
+      "section": "listening",
+      "task": "demo2027-listening-3-9"
     },
     {
       "section": "matching-headings",
@@ -32,6 +39,18 @@
       "task": "demo2027-sunday"
     },
     {
+      "section": "writing",
+      "task": "demo2027-victory-day-email"
+    },
+    {
+      "section": "writing",
+      "task": "demo2027-zetland-essay"
+    },
+    {
+      "section": "speaking-aloud",
+      "task": "demo2027-land-pollution"
+    },
+    {
       "section": "speaking-questions",
       "task": "demo2027-cooking-class"
     },
@@ -43,5 +62,6 @@
       "section": "speaking",
       "task": "demo2027-solo-or-company"
     }
-  ]
+  ],
+  "timeMinutes": 190
 }

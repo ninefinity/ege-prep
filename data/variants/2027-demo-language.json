@@ -1,7 +1,6 @@
 {
   "id": "2027-demo-language",
   "title": "ЕГЭ 2027 Demo — Grammar & Vocabulary",
-  "timeMinutes": 40,
   "entries": [
     {
       "section": "grammar-transformations",
@@ -15,5 +14,6 @@
       "section": "vocabulary-cloze",
       "task": "demo2027-sunday"
     }
-  ]
+  ],
+  "timeMinutes": 40
 }

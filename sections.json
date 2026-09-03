@@ -2,6 +2,15 @@
   "title": "Time to ЕГЭ",
   "sections": [
     {
+      "id": "listening",
+      "group": "Listening",
+      "examFrom": 1,
+      "examTo": 9,
+      "title": "Listening",
+      "taskCount": 3,
+      "available": true
+    },
+    {
       "id": "listening-main",
       "group": "Listening",
       "examFrom": 1,
@@ -16,15 +25,6 @@
       "examTo": 2,
       "title": "Key details",
       "available": false
-    },
-    {
-      "id": "listening",
-      "group": "Listening",
-      "examFrom": 3,
-      "examTo": 9,
-      "title": "Interview",
-      "taskCount": 6,
-      "available": true
     },
     {
       "id": "matching-headings",
@@ -78,6 +78,24 @@
       "examTo": 36,
       "title": "Vocabulary in Context",
       "taskCount": 64,
+      "available": true
+    },
+    {
+      "id": "writing",
+      "group": "Writing",
+      "examFrom": 37,
+      "examTo": 38,
+      "title": "Writing",
+      "taskCount": 2,
+      "available": true
+    },
+    {
+      "id": "speaking-aloud",
+      "group": "Speaking",
+      "examFrom": 39,
+      "examTo": 39,
+      "title": "Reading Aloud",
+      "taskCount": 1,
       "available": true
     },
     {

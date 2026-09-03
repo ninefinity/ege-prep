@@ -1,0 +1,9 @@
+{
+  "id": "2027-demo-writing",
+  "title": "ЕГЭ 2027 Demo — Writing",
+  "entries": [
+    { "section": "writing", "task": "demo2027-victory-day-email" },
+    { "section": "writing", "task": "demo2027-zetland-essay" }
+  ],
+  "timeMinutes": 80
+}

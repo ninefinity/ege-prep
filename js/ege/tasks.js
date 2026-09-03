@@ -1,5 +1,34 @@
 import { E } from "./runtime.js";
 
+E.buildInlineGapNav = function buildInlineGapNav(slots, onSelect, opts) {
+  opts = opts || {};
+  var nav = document.createElement("nav");
+  nav.className = "ege-gap-nav";
+  nav.setAttribute("aria-label", opts.label || E.PANEL_LABELS.workAnswers);
+
+  slots.forEach(function (slot) {
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "ege-gap-nav__cell";
+    btn.dataset.slot = String(slot);
+    btn.textContent = String(slot);
+    btn.addEventListener("click", function () {
+      onSelect(String(slot));
+    });
+    nav.appendChild(btn);
+  });
+
+  nav.sync = function sync(activeSlot, answeredSet) {
+    nav.querySelectorAll(".ege-gap-nav__cell").forEach(function (cell) {
+      var slot = cell.dataset.slot;
+      cell.classList.toggle("is-active", slot === activeSlot);
+      cell.classList.toggle("is-answered", !!(answeredSet && answeredSet.has(slot)));
+    });
+  };
+
+  return nav;
+};
+
 E.buildMatchingRead = function buildMatchingRead(task, topicId, textsRoot) {
     var prefix = topicId + "_" + task.id;
     var read = document.createElement("div");
@@ -106,7 +135,7 @@ E.buildMatchingRead = function buildMatchingRead(task, topicId, textsRoot) {
       clearLetterMarks(letter);
       if (letter === activeLetter) syncNumberRow();
       syncUsedState();
-      E.clearGradedCheckState(task.id);
+      E.hideScoreFeedback(task.id);
       syncCheckGate();
     }
 
@@ -153,7 +182,7 @@ E.buildMatchingRead = function buildMatchingRead(task, topicId, textsRoot) {
 
       E.setRadioValue(radioName(activeLetter), numStr);
       clearLetterMarks(activeLetter);
-      E.clearGradedCheckState(task.id);
+      E.hideScoreFeedback(task.id);
       syncNumberRow();
       syncUsedState();
       syncCheckGate();
@@ -243,6 +272,10 @@ E.buildMatchingRead = function buildMatchingRead(task, topicId, textsRoot) {
     picks.getActiveLetter = function () {
       return activeLetter;
     };
+    picks._pickSlots = task.texts.map(function (item) {
+      return item.letter;
+    });
+    picks._pickMaxOption = task.headings.length;
 
     picks.appendChild(hidden);
     read.appendChild(picks);
@@ -309,6 +342,13 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
     hidden.className = "ege-match-hidden";
 
     var activeGap = "";
+    var pendingPhrase = "";
+
+    var live = document.createElement("div");
+    live.className = "ege-sr-live";
+    live.setAttribute("aria-live", "polite");
+    live.setAttribute("aria-atomic", "true");
+    picks.appendChild(live);
 
     function radioName(gap) {
       return prefix + "_gap_" + gap;
@@ -326,12 +366,113 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
         insert.appendChild(textSpan);
       }
       if (num) {
-        textSpan.textContent = task.options[parseInt(num, 10) - 1] || "";
+        var phrase = task.options[parseInt(num, 10) - 1] || "";
+        textSpan.textContent = phrase;
         insert.classList.add("is-filled");
+        insert.setAttribute(
+          "aria-label",
+          "Gap " +
+            gap +
+            ", phrase " +
+            num +
+            (phrase ? ": " + phrase : "") +
+            ". Press to change or clear."
+        );
       } else {
         textSpan.textContent = "";
         insert.classList.remove("is-filled");
+        insert.setAttribute("aria-label", "Select gap " + gap);
       }
+    }
+
+    function findOwnerGap(numStr) {
+      var ownerGap = "";
+      task.gaps.forEach(function (gap) {
+        if (E.getCheckedValue(radioName(gap)) === numStr) ownerGap = gap;
+      });
+      return ownerGap;
+    }
+
+    function announce(text) {
+      if (live) live.textContent = text || "";
+    }
+
+    function syncPendingPhraseUI() {
+      if (!refList) return;
+      refList.querySelectorAll("li").forEach(function (li) {
+        if (!activeGap) {
+          li.classList.toggle("is-selected", li.dataset.value === pendingPhrase);
+        }
+      });
+    }
+
+    function syncPhraseMarks() {
+      if (!refList) return;
+      refList.querySelectorAll("li").forEach(function (li) {
+        li.classList.remove("is-correct", "is-wrong");
+        var num = li.dataset.value;
+        var ownerGap = findOwnerGap(num);
+        if (!ownerGap) return;
+        var checked = document.querySelector(
+          'input[name="' + radioName(ownerGap) + '"]:checked'
+        );
+        var pill = checked ? checked.closest(".ege-pill") : null;
+        if (pill) {
+          li.classList.toggle("is-correct", pill.classList.contains("is-correct"));
+          li.classList.toggle("is-wrong", pill.classList.contains("is-wrong"));
+        }
+      });
+    }
+
+    function syncPhraseChips() {
+      if (!refList) return;
+      var usedNumbers = {};
+      task.gaps.forEach(function (gap) {
+        var val = E.getCheckedValue(radioName(gap));
+        if (val) usedNumbers[val] = gap;
+      });
+      var allFilled = task.gaps.every(function (gap) {
+        return !!E.getCheckedValue(radioName(gap));
+      });
+
+      refList.querySelectorAll("li").forEach(function (li) {
+        var num = li.dataset.value;
+        var ownerGap = usedNumbers[num] || "";
+        var chip = li.querySelector(".ege-gapfill-phrase-chip");
+        if (ownerGap) {
+          if (!chip) {
+            chip = document.createElement("span");
+            chip.className = "ege-gapfill-phrase-chip";
+            li.appendChild(chip);
+          }
+          chip.textContent = ownerGap;
+        } else if (chip) {
+          chip.remove();
+        }
+
+        var isExtra = allFilled && num && !usedNumbers[num];
+        li.classList.toggle("ege-gapfill-phrase--extra", !!isExtra);
+        var badge = li.querySelector(".ege-gapfill-phrase-extra");
+        if (isExtra) {
+          if (!badge) {
+            badge = document.createElement("span");
+            badge.className = "ege-gapfill-phrase-extra";
+            badge.textContent = "Лишняя";
+            li.appendChild(badge);
+          }
+        } else if (badge) {
+          badge.remove();
+        }
+      });
+    }
+
+    function syncAll() {
+      syncActiveGap();
+      syncNumberRow();
+      syncPendingPhraseUI();
+      syncTrack();
+      syncPhraseChips();
+      syncPhraseMarks();
     }
 
     function syncActiveGap() {
@@ -361,22 +502,6 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
       });
     }
 
-    function syncUsedState() {
-      var usedNumbers = {};
-      task.gaps.forEach(function (gap) {
-        var val = E.getCheckedValue(radioName(gap));
-        if (val) usedNumbers[val] = true;
-      });
-
-      if (refList) {
-        refList.querySelectorAll("li").forEach(function (li) {
-          li.classList.toggle("is-used", !!usedNumbers[li.dataset.value]);
-        });
-      }
-
-      syncTrack();
-    }
-
     function clearGapMarks(gap) {
       var insert = E.getGapInsert(task.id, gap) || inserts[gap];
       if (insert) insert.classList.remove("is-correct", "is-wrong");
@@ -389,70 +514,84 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
       if (cell) cell.classList.remove("is-correct", "is-wrong", "is-empty");
     }
 
-    function clearGap(gap) {
+    function clearGapValue(gap) {
       E.clearChoiceGroup(radioName(gap));
       updateInsert(gap, null);
       clearGapMarks(gap);
-      if (gap === activeGap) syncNumberRow();
-      syncUsedState();
-      E.clearGradedCheckState(task.id);
+    }
+
+    function clearGap(gap) {
+      clearGapValue(gap);
+      pendingPhrase = "";
+      E.hideScoreFeedback(task.id);
+      syncAll();
       E.updateAnsweredCount(task.id);
     }
 
-    function nextEmptyGap(fromGap) {
-      var start = task.gaps.indexOf(fromGap);
-      if (start < 0) start = 0;
-      for (var i = 1; i <= task.gaps.length; i += 1) {
-        var gap = task.gaps[(start + i) % task.gaps.length];
-        if (!E.getCheckedValue(radioName(gap))) return gap;
-      }
-      return fromGap || task.gaps[0];
-    }
-
     function assignNumber(num) {
-      if (!activeGap) {
-        var first = nextEmptyGap("");
-        if (first) setActiveGap(first);
-      }
-      if (!activeGap) return;
-
       var numStr = String(num);
+
+      if (!activeGap) {
+        pendingPhrase = pendingPhrase === numStr ? "" : numStr;
+        syncPendingPhraseUI();
+        announce(pendingPhrase ? "Phrase " + pendingPhrase + " selected" : "");
+        return;
+      }
+
       var current = E.getCheckedValue(radioName(activeGap));
       if (current === numStr) {
         clearGap(activeGap);
+        announce("Gap " + activeGap + " cleared");
         return;
       }
 
-      var ownerGap = "";
-      task.gaps.forEach(function (gap) {
-        if (E.getCheckedValue(radioName(gap)) === numStr) {
-          ownerGap = gap;
-        }
-      });
-
-      if (ownerGap) {
-        clearGap(ownerGap);
-        syncNumberRow();
-        return;
+      var ownerGap = findOwnerGap(numStr);
+      if (ownerGap && ownerGap !== activeGap) {
+        clearGapValue(ownerGap);
       }
 
       E.setRadioValue(radioName(activeGap), numStr);
       updateInsert(activeGap, numStr);
       clearGapMarks(activeGap);
-      syncNumberRow();
-      syncUsedState();
-      E.clearGradedCheckState(task.id);
+      pendingPhrase = "";
+      E.hideScoreFeedback(task.id);
+      syncAll();
       E.updateAnsweredCount(task.id);
+      announce("Gap " + activeGap + " matched to phrase " + numStr);
     }
 
     function setActiveGap(gap) {
       activeGap = gap || "";
-      syncActiveGap();
-      syncNumberRow();
-      syncTrack();
+      pendingPhrase = "";
+      syncAll();
     }
 
     function activateGapInsert(gap) {
+      if (pendingPhrase) {
+        var numStr = pendingPhrase;
+        pendingPhrase = "";
+        activeGap = gap;
+
+        var ownerGap = findOwnerGap(numStr);
+        if (ownerGap && ownerGap !== gap) clearGapValue(ownerGap);
+
+        var current = E.getCheckedValue(radioName(gap));
+        if (current === numStr) {
+          clearGap(gap);
+          announce("Gap " + gap + " cleared");
+          return;
+        }
+
+        E.setRadioValue(radioName(gap), numStr);
+        updateInsert(gap, numStr);
+        clearGapMarks(gap);
+        E.hideScoreFeedback(task.id);
+        syncAll();
+        E.updateAnsweredCount(task.id);
+        announce("Gap " + gap + " matched to phrase " + numStr);
+        return;
+      }
+
       if (gap === activeGap) {
         if (E.getCheckedValue(radioName(gap))) {
           clearGap(gap);
@@ -462,6 +601,7 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
         return;
       }
       setActiveGap(gap);
+      announce("Gap " + gap + " selected");
     }
 
     task.gaps.forEach(function (gap) {
@@ -506,7 +646,7 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
 
     picks.appendChild(hidden);
     picks.dataset.taskId = task.id;
-    picks.syncUsedState = syncUsedState;
+    picks.syncUsedState = syncAll;
     picks.syncNumberRow = syncNumberRow;
     picks.updateInsert = updateInsert;
     picks.clearGap = clearGap;
@@ -517,9 +657,10 @@ E.buildGapfillPicker = function buildGapfillPicker(task, topicId, inserts, refLi
     picks.getActiveGap = function () {
       return activeGap;
     };
+    picks._pickSlots = task.gaps.slice();
+    picks._pickMaxOption = task.options.length;
     picks.inserts = inserts;
-    syncUsedState();
-    syncActiveGap();
+    syncAll();
 
     return { picks: picks, track: track };
   }
@@ -591,7 +732,19 @@ E.buildVocabClozePicker = function buildVocabClozePicker(task, topicId, inserts)
       syncActiveCard();
       if (!activeGapNum) return;
       var card = picks.querySelector('[data-gap="' + activeGapNum + '"]');
-      if (card) card.scrollIntoView({ block: "nearest" });
+      if (!card) return;
+      var scroller = card.closest(".ege-work-scroll") || card.closest(".ege-panel--work");
+      if (!scroller) {
+        card.scrollIntoView({ block: "nearest", inline: "nearest" });
+        return;
+      }
+      var scrollerRect = scroller.getBoundingClientRect();
+      var cardRect = card.getBoundingClientRect();
+      if (cardRect.top < scrollerRect.top) {
+        scroller.scrollTop -= scrollerRect.top - cardRect.top;
+      } else if (cardRect.bottom > scrollerRect.bottom) {
+        scroller.scrollTop += cardRect.bottom - scrollerRect.bottom;
+      }
     }
 
     function clearGapAnswer(gapNum) {
@@ -669,23 +822,6 @@ E.buildVocabClozePicker = function buildVocabClozePicker(task, topicId, inserts)
     return picks;
   }
 
-E.buildSplit = function buildSplit(readEl, workEl, modifier) {
-    var split = document.createElement("div");
-    split.className = "ege-split" + (modifier ? " " + modifier : "");
-
-    var read = document.createElement("div");
-    read.className = "ege-split__read";
-    read.appendChild(readEl);
-
-    var work = document.createElement("div");
-    work.className = "ege-split__work";
-    work.appendChild(workEl);
-
-    split.appendChild(read);
-    split.appendChild(work);
-    return split;
-  }
-
 E.getCheckedValue = function getCheckedValue(name) {
     var checked = document.querySelector('input[name="' + name + '"]:checked');
     return checked ? checked.value : "";
@@ -696,7 +832,7 @@ E.clearChoiceGroup = function clearChoiceGroup(name) {
       radio.checked = false;
       radio.dataset.wasChecked = "0";
       var pill = radio.closest(".ege-pill");
-      if (pill) pill.classList.remove("is-correct", "is-wrong");
+      if (pill) pill.classList.remove("is-correct", "is-wrong", "is-selected");
     });
   }
 
@@ -710,7 +846,9 @@ E.markChoiceGroup = function markChoiceGroup(name, value, correctValue) {
       }
     });
 
-    var ok = value === correctValue;
+    var ok =
+      value === correctValue ||
+      (typeof E.scoreShortAnswer === "function" && E.scoreShortAnswer(value, correctValue));
     pills.forEach(function (item) {
       if (item.checked) {
         item.pill.classList.add(ok ? "is-correct" : "is-wrong");
@@ -737,10 +875,10 @@ E.renderMatching = function renderMatching(task, topicId) {
     });
 
     wrap.appendChild(
-      E.buildSplit(
-        E.buildPanel("", texts, "ege-panel--read"),
-        E.buildPanel("", E.buildMatchingRead(task, topicId, texts), "ege-panel--work"),
-        "ege-split--panels"
+      E.buildLongreadSplit(
+        texts,
+        E.buildMatchingRead(task, topicId, texts),
+        { workLabelKind: "questions" }
       )
     );
     wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));
@@ -766,20 +904,19 @@ E.renderGapfill = function renderGapfill(task, topicId) {
     var refStrip = E.buildRefStrip("Sentence parts", task.options);
     var refList = refStrip.querySelector(".ege-ref__list");
 
-    var side = document.createElement("div");
-    side.className = "ege-sidebar-work";
     var picker = E.buildGapfillPicker(task, topicId, inserts, refList);
+
+    var side = document.createElement("div");
+    side.className = "ege-gapfill-work ege-match-read";
     side.appendChild(refStrip);
-    side.appendChild(picker.track);
+
+    var trackWrap = document.createElement("div");
+    trackWrap.className = "ege-gapfill-track";
+    trackWrap.appendChild(picker.track);
+    side.appendChild(trackWrap);
     side.appendChild(picker.picks);
 
-    wrap.appendChild(
-      E.buildSplit(
-        E.buildPanel("", text, "ege-panel--read"),
-        E.buildPanel("", side, "ege-panel--work"),
-        "ege-split--panels"
-      )
-    );
+    wrap.appendChild(E.buildLongreadSplit(text, side, { workLabelKind: "answers" }));
     wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));
     return wrap;
   }
@@ -835,13 +972,11 @@ E.renderMc = function renderMc(task, topicId) {
       block.className = "ege-mc-card";
       block.id = topicId + "_" + task.id + "_q_" + index;
 
-      var prompt = document.createElement("p");
-      prompt.className = "ege-mc__prompt";
-      prompt.textContent = question.q;
-      block.appendChild(prompt);
+      var promptText = E.formatMcPrompt(task, question, index);
+      block.appendChild(E.buildMcPrompt(task, question, index));
 
       block.appendChild(
-        E.buildMcChoiceGroup(topicId + "_" + task.id + "_q_" + index, question.opts, question.q)
+        E.buildMcChoiceGroup(topicId + "_" + task.id + "_q_" + index, question.opts, promptText)
       );
       work.appendChild(block);
     });
@@ -851,30 +986,13 @@ E.renderMc = function renderMc(task, topicId) {
       passage.className = "ege-passage";
       passage.innerHTML = task.passage;
 
-      var readScroll = document.createElement("div");
-      readScroll.className = "ege-read-scroll";
-      readScroll.appendChild(passage);
-
-      var scrollWrap = document.createElement("div");
-      scrollWrap.className = "ege-work-scroll";
-      scrollWrap.appendChild(work);
-
-      var workPanel = E.buildPanel("Questions", scrollWrap, "ege-panel--work");
-      var workCol = document.createElement("div");
-      workCol.className = "ege-work-col";
-      workCol.appendChild(workPanel);
-
-      var body = document.createElement("div");
-      body.className = "ege-reading-mc-body";
-
       wrap.classList.add("ege-task--reading-mc");
-      body.appendChild(
-        E.buildSplit(E.buildPanel("Text", readScroll, "ege-panel--read"), workCol, "ege-split--panels")
+      wrap.appendChild(
+        E.buildLongreadSplit(passage, work, { workLabelKind: "questions" })
       );
-      body.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));
-      wrap.appendChild(body);
+      wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));
     } else {
-      wrap.appendChild(E.buildPanel("Questions", work, "ege-panel--solo"));
+      wrap.appendChild(E.buildWorkPanel("questions", work, "ege-panel--solo"));
       wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));
     }
     return wrap;

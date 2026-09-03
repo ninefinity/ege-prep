@@ -32,8 +32,12 @@ E.clearTaskScore = function clearTaskScore(taskId) {
   }
 
 E.taskSectionMeta = function taskSectionMeta(task) {
-    if (task && task._sectionMeta) return task._sectionMeta;
-    return E.state.sectionMeta;
+    var base = (task && task._sectionMeta) || E.state.sectionMeta || null;
+    if (!task || task.examFrom == null) return base;
+    var meta = base ? Object.assign({}, base) : {};
+    meta.examFrom = task.examFrom;
+    meta.examTo = task.examTo != null ? task.examTo : task.examFrom;
+    return meta;
   }
 
 E.isListeningTask = function isListeningTask(task) {
@@ -73,21 +77,37 @@ E.taskInstructionsText = function taskInstructionsText(task) {
     return text;
   }
 
-  /* Topic runner: one sidebar + main column for every task type (incl. listening). */
+  /* Shared topic layout (topic.html): matching-headings, gap-fill, reading-comprehension,
+     grammar-transformations, word-formation, vocabulary-cloze. Standalone listening uses
+     ege-page--listening; listening inside a variant playlist uses topic layout like other tasks. */
+E.usesTopicLayoutForTask = function usesTopicLayoutForTask(task) {
+    if (!task) return false;
+    if (!E.isListeningTask(task)) return true;
+    return !!(E.state.topicId && String(E.state.topicId).indexOf("variant:") === 0);
+  }
+
 E.usesTopicLayout = function usesTopicLayout(topicId) {
-    if (E.state.topic && E.state.topic.tasks && E.state.topic.tasks.length) return true;
+    var task = E.findTask(E.state.activeTaskId);
+    if (task) return E.usesTopicLayoutForTask(task);
     var id = topicId != null ? topicId : E.state.topicId;
-    return !!id;
+    if (!id) return false;
+    if (id === "listening") return false;
+    if (id.indexOf("group-Listening") === 0) return false;
+    if (id === "parts-listening") return false;
+    return true;
   }
 
 E.syncPageModeForTask = function syncPageModeForTask(taskId) {
     var page = document.getElementById("egePage");
     if (!page) return;
     var task = E.findTask(taskId);
-    page.classList.toggle("ege-page--topic-layout", !!task);
-    page.classList.toggle("ege-page--listening-task", E.isListeningTask(task));
-    var main = document.getElementById("egeMain");
-    if (main) main.classList.toggle("ege-main--listening", E.isListeningTask(task));
+    var topicLayout = task && E.usesTopicLayoutForTask(task);
+    page.classList.toggle("ege-page--listening", !!(task && E.isListeningTask(task) && !topicLayout));
+    page.classList.toggle("ege-page--topic-layout", !!(topicLayout || (task && !E.isListeningTask(task))));
+    page.classList.toggle(
+      "ege-page--active-listening",
+      !!(topicLayout && task && E.isListeningTask(task))
+    );
   }
 
 E.prefersReducedMotion = function prefersReducedMotion() {
@@ -115,9 +135,32 @@ E.numberedTopicLabel = function numberedTopicLabel(taskId, label) {
     return num ? num + ") " + text : text;
   }
 
+E.isVariantPlaylist = function isVariantPlaylist(topicId) {
+    var id = topicId != null ? topicId : E.state.topicId;
+    return String(id || "").indexOf("variant:") === 0;
+  }
+
+E.sectionTaskCount = function sectionTaskCount(task) {
+    if (!task || !task._sectionId || !E.state.topic || !E.state.topic.tasks) return 1;
+    var n = 0;
+    E.state.topic.tasks.forEach(function (entry) {
+      if (entry._sectionId === task._sectionId) n += 1;
+    });
+    return n || 1;
+  }
+
 E.navItemLabel = function navItemLabel(task) {
     if (!task) return "";
+    if (E.isVariantPlaylist()) {
+      var meta = task._sectionMeta;
+      if (meta && E.sectionTaskCount(task) === 1) {
+        return String(meta.title || task.nav || task.title || "").trim();
+      }
+      return String(task.nav || task.title || "").trim();
+    }
     if (E.state.playlist && task._sectionMeta) {
+      var taskLabel = String(task.nav || task.title || "").trim();
+      if (taskLabel) return taskLabel;
       return String(task._sectionMeta.title || task._sectionId || "").trim();
     }
     return E.numberedTopicLabel(task.id, task.nav || task.title);
@@ -127,8 +170,110 @@ E.foldExamLabel = function foldExamLabel(text) {
     return String(text || "").replace(/[–—−]/g, "-");
   }
 
+E.PANEL_LABELS = {
+  read: "",
+  workQuestions: "Questions",
+  workAnswers: "Answers",
+};
+
+E.resolveWorkLabel = function resolveWorkLabel(kind) {
+  if (kind === "questions") return E.PANEL_LABELS.workQuestions;
+  if (kind === "answers") return E.PANEL_LABELS.workAnswers;
+  return "";
+};
+
+E.buildWorkPanel = function buildWorkPanel(kind, inner, extraClass) {
+  return E.buildPanel(E.resolveWorkLabel(kind), inner, extraClass || "ege-panel--work");
+};
+
+E.mcQuestionExamNum = function mcQuestionExamNum(task, index) {
+  if (task.examFrom != null) return task.examFrom + index;
+  var section = E.taskSectionMeta(task);
+  if (section && section.examFrom != null) return section.examFrom + index;
+  var q = task.questions && task.questions[index];
+  if (q && q.num != null) return q.num;
+  return index + 1;
+};
+
+E.formatMcPrompt = function formatMcPrompt(task, question, index) {
+  var text = String(question.q || question.text || "")
+    .trim()
+    .replace(/^\d+\.\s*/, "");
+  return E.mcQuestionExamNum(task, index) + ". " + text;
+};
+
+E.buildMcPrompt = function buildMcPrompt(task, question, index) {
+  var num = E.mcQuestionExamNum(task, index);
+  var text = String(question.q || question.text || "")
+    .trim()
+    .replace(/^\d+\.\s*/, "");
+  var prompt = document.createElement("p");
+  prompt.className = "ege-mc__prompt";
+  var numEl = document.createElement("span");
+  numEl.className = "ege-exam-num";
+  numEl.textContent = num + ".";
+  prompt.appendChild(numEl);
+  if (text) prompt.appendChild(document.createTextNode(" " + text));
+  return prompt;
+};
+
+E.buildSplit = function buildSplit(readEl, workEl, modifier) {
+  var split = document.createElement("div");
+  split.className = "ege-split" + (modifier ? " " + modifier : "");
+
+  var read = document.createElement("div");
+  read.className = "ege-split__read";
+  read.appendChild(readEl);
+
+  var work = document.createElement("div");
+  work.className = "ege-split__work";
+  work.appendChild(workEl);
+
+  split.appendChild(read);
+  split.appendChild(work);
+  return split;
+};
+
+E.buildLongreadSplit = function buildLongreadSplit(readInner, workInner, opts) {
+  opts = opts || {};
+
+  var readScroll = document.createElement("div");
+  readScroll.className = "ege-read-scroll";
+  readScroll.appendChild(readInner);
+
+  var readLabel = opts.readLabel != null ? opts.readLabel : E.PANEL_LABELS.read;
+  var readPanel = E.buildPanel(readLabel, readScroll, "ege-panel--read");
+
+  var workCol = document.createElement("div");
+  workCol.className = "ege-work-col";
+  var workScroll = document.createElement("div");
+  workScroll.className = "ege-work-scroll";
+
+  var workLabel = opts.workLabel;
+  if (workLabel == null && opts.workLabelKind) {
+    workLabel = E.resolveWorkLabel(opts.workLabelKind);
+  }
+  if (workLabel == null) workLabel = "";
+
+  var workPanel =
+    workInner && workInner.classList && workInner.classList.contains("ege-panel")
+      ? workInner
+      : E.buildPanel(workLabel, workInner, opts.workClass || "ege-panel--work");
+  workScroll.appendChild(workPanel);
+  workCol.appendChild(workScroll);
+
+  return E.buildSplit(readPanel, workCol, "ege-split--panels");
+};
+
+E.buildTaskShell = function buildTaskShell(task, body, footer) {
+  var wrap = E.buildTaskArticle(task);
+  wrap.appendChild(body);
+  if (footer) wrap.appendChild(footer);
+  return wrap;
+};
+
 E.buildTaskIntro = function buildTaskIntro(task) {
-    if (task.type === "listening") return null;
+    if (task.type === "listening" && !E.usesTopicLayoutForTask(task)) return null;
 
     var intro = document.createElement("div");
     intro.className = "ege-task-intro";
@@ -173,7 +318,19 @@ E.buildTaskIntro = function buildTaskIntro(task) {
     }
 
     var titleText = String(task.title || task.nav || "").trim();
-    if (titleText && task.type !== "wordform") {
+    var skipTitle =
+      task.type === "listening" &&
+      E.usesTopicLayoutForTask(task) &&
+      typeof E.taskUsesExamSinglePage === "function" &&
+      E.taskUsesExamSinglePage(task);
+    if (titleText && section && section.title) {
+      if (
+        E.foldExamLabel(titleText).toLowerCase() === E.foldExamLabel(section.title).toLowerCase()
+      ) {
+        titleText = "";
+      }
+    }
+    if (titleText && task.type !== "wordform" && !skipTitle) {
       var head = document.createElement("div");
       head.className = "ege-task-intro__head";
 
@@ -224,7 +381,8 @@ E.gradeMcQuestion = function gradeMcQuestion(name, correctVal) {
 
     if (!checked) return false;
 
-    if (value === correctVal) {
+    var ok = E.scoreShortAnswer ? E.scoreShortAnswer(value, correctVal) : value === correctVal;
+    if (ok) {
       checked.closest(".ege-pill").classList.add("is-correct");
       return true;
     }
@@ -260,6 +418,20 @@ E.showScoreFeedback = function showScoreFeedback(taskId, correct, max, options) 
       return;
     }
 
+    if (typeof E.isExamInProgress === "function" && E.isExamInProgress()) {
+      var taskEl = document.getElementById("task-" + taskId);
+      if (taskEl) taskEl.dataset.hasAttempt = "1";
+      scoreEl.hidden = true;
+      scoreEl.textContent = "";
+      return;
+    }
+
+    if (typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls()) {
+      scoreEl.hidden = true;
+      scoreEl.textContent = "";
+      return;
+    }
+
     var lines = [
       "Score: " +
         correct +
@@ -284,6 +456,15 @@ E.hideScoreFeedback = function hideScoreFeedback(taskId) {
   }
 
 E.hasGradedScore = function hasGradedScore(taskId) {
+    var taskEl = document.getElementById("task-" + taskId);
+    if (
+      typeof E.isExamInProgress === "function" &&
+      E.isExamInProgress() &&
+      taskEl &&
+      taskEl.dataset.hasAttempt === "1"
+    ) {
+      return true;
+    }
     var scoreEl = document.getElementById("score-" + taskId);
     if (!scoreEl || scoreEl.hidden) return false;
     return /^Score:\s/.test(String(scoreEl.textContent || "").trim());
@@ -468,7 +649,19 @@ E.setActiveReadingMcQuestion = function setActiveReadingMcQuestion(taskId, index
       card.classList.toggle("is-active", i === index);
     });
     var card = cards[index];
-    if (card) card.scrollIntoView({ block: "nearest" });
+    if (!card) return;
+    var scrollParent = card.closest(".ege-work-scroll");
+    if (scrollParent) {
+      var cardRect = card.getBoundingClientRect();
+      var scrollRect = scrollParent.getBoundingClientRect();
+      if (cardRect.bottom > scrollRect.bottom - 4) {
+        scrollParent.scrollTop += cardRect.bottom - scrollRect.bottom + 12;
+      } else if (cardRect.top < scrollRect.top + 4) {
+        scrollParent.scrollTop += cardRect.top - scrollRect.top - 8;
+      }
+      return;
+    }
+    card.scrollIntoView({ block: "nearest" });
   }
 
 E.resolvePickSlotLetter = function resolvePickSlotLetter(slots, letter) {
@@ -507,17 +700,20 @@ E.handlePickAssignKeyboard = function handlePickAssignKeyboard(event, board, slo
     var letter = E.parseLetterKey(event);
     if (letter) {
       var slot = E.resolvePickSlotLetter(slots, letter);
-      var activate = board.activateLetter || board.activateGap;
-      if (slot && activate) {
-        event.preventDefault();
-        E.resetTaskDigitBuffer();
-        activate.call(board, slot);
-      }
+      if (!slot) return false;
+      event.preventDefault();
+      E.resetTaskDigitBuffer();
+      // Prefer setActive* so typing A6 selects then assigns; activate* toggles/clears on re-press.
+      if (board.setActiveLetter) board.setActiveLetter(slot);
+      else if (board.setActiveGap) board.setActiveGap(slot);
+      else if (board.activateLetter) board.activateLetter(slot);
+      else if (board.activateGap) board.activateGap(slot);
+      else return false;
       return true;
     }
 
     var num = E.parseDigitKey(event);
-    if (num != null && num <= maxOption && board.assignNumber) {
+    if (num != null && maxOption > 0 && num <= maxOption && board.assignNumber) {
       event.preventDefault();
       E.resetTaskDigitBuffer();
       board.assignNumber(num);
@@ -525,6 +721,130 @@ E.handlePickAssignKeyboard = function handlePickAssignKeyboard(event, board, slo
     }
 
     return false;
+  }
+
+E.isPickBoardVisible = function isPickBoardVisible(board) {
+    if (!board || board.hidden) return false;
+    if (board.closest("[hidden]")) return false;
+    return board.getClientRects().length > 0;
+  }
+
+E.resolveActivePickBoard = function resolveActivePickBoard(taskEl) {
+    if (!taskEl) return null;
+    var boards = Array.prototype.slice.call(taskEl.querySelectorAll(".ege-picks-controller")).filter(
+      E.isPickBoardVisible
+    );
+    if (!boards.length) return null;
+
+    var focused = boards.find(function (board) {
+      return board.contains(document.activeElement);
+    });
+    if (focused) return focused;
+
+    var selected = boards.find(function (board) {
+      return (
+        (board.getActiveLetter && board.getActiveLetter()) ||
+        (board.getActiveGap && board.getActiveGap())
+      );
+    });
+    if (selected) return selected;
+
+    return boards[0];
+  }
+
+E.handleTaskPickBoards = function handleTaskPickBoards(event, taskId) {
+    var taskEl = document.getElementById("task-" + taskId);
+    var board = E.resolveActivePickBoard(taskEl);
+    if (!board) return false;
+    if (typeof board.refreshPickSlots === "function") board.refreshPickSlots();
+    return E.handlePickAssignKeyboard(
+      event,
+      board,
+      board._pickSlots || [],
+      board._pickMaxOption || 0
+    );
+  }
+
+E.mcQuestionKeyboardLabel = function mcQuestionKeyboardLabel(task, index) {
+    if (task.type === "listening" && task.examFrom != null) {
+      return String(task.examFrom + index);
+    }
+    var parsed = parseInt(String(task.questions[index].q || "").trim(), 10);
+    return isFinite(parsed) ? String(parsed) : String(index + 1);
+  }
+
+E.handleMcStackKeyboard = function handleMcStackKeyboard(event, task, taskId) {
+    var digit = E.parseDigitKey(event);
+    if (digit == null) return false;
+
+    var prefix = E.taskPrefix(taskId);
+    var questions = task.questions || [];
+
+    if (
+      E.mcKeyboardState.taskId === taskId &&
+      E.mcKeyboardState.questionIndex >= 0 &&
+      questions[E.mcKeyboardState.questionIndex]
+    ) {
+      var activeQuestion = questions[E.mcKeyboardState.questionIndex];
+      if (digit <= activeQuestion.opts.length) {
+        event.preventDefault();
+        E.setRadioValue(
+          prefix + "_q_" + E.mcKeyboardState.questionIndex,
+          String(digit - 1)
+        );
+        E.updateAnsweredCount(taskId);
+        if (typeof E.syncCheckButton === "function") E.syncCheckButton(taskId);
+        if (typeof E.syncFinishWrittenButton === "function") E.syncFinishWrittenButton();
+        return true;
+      }
+    }
+
+    var questionCandidates = questions.map(function (_question, index) {
+      return E.mcQuestionKeyboardLabel(task, index);
+    });
+    var questionResult = E.pushTaskDigitBuffer(taskId, digit, questionCandidates, function (num) {
+      var index = questionCandidates.indexOf(String(num));
+      if (index >= 0) E.setActiveReadingMcQuestion(taskId, index);
+    });
+    if (questionResult !== "none") event.preventDefault();
+    return questionResult !== "none";
+  }
+
+E.handleWordformKeyboard = function handleWordformKeyboard(event, task, taskId) {
+    var taskEl = document.getElementById("task-" + taskId);
+    var picks = taskEl && taskEl.querySelector(".ege-wordform-picks");
+    if (!picks || !task.items) return false;
+
+    var slots = picks._pickSlots || task.items.map(function (_item, index) {
+      return String(E.wordformExamNum(task, index));
+    });
+
+    if (
+      event.key === "ArrowDown" ||
+      event.key === "ArrowRight" ||
+      event.key === "ArrowUp" ||
+      event.key === "ArrowLeft"
+    ) {
+      event.preventDefault();
+      E.resetTaskDigitBuffer();
+      var delta = event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1;
+      var current = picks.getActiveGap ? picks.getActiveGap() : "";
+      var idx = slots.indexOf(current);
+      var next;
+      if (idx < 0) next = delta > 0 ? slots[0] : slots[slots.length - 1];
+      else next = slots[(idx + delta + slots.length) % slots.length];
+      if (picks.setActiveGap) picks.setActiveGap(next);
+      return true;
+    }
+
+    var digit = E.parseDigitKey(event);
+    if (digit == null) return false;
+
+    var result = E.pushTaskDigitBuffer(taskId, digit, slots, function (examNum) {
+      if (picks.setActiveGap) picks.setActiveGap(String(examNum));
+    });
+    if (result !== "none") event.preventDefault();
+    return result !== "none";
   }
 
 E.handleTaskKeyboard = function handleTaskKeyboard(event) {
@@ -537,78 +857,37 @@ E.handleTaskKeyboard = function handleTaskKeyboard(event) {
     var panel = document.getElementById("panel-" + taskId);
     if (panel && !panel.classList.contains("is-active")) return;
 
-    if (task.type === "matching") {
-      var matchBoard = document.querySelector("#task-" + taskId + " .ege-match-picks");
-      E.handlePickAssignKeyboard(
-        event,
-        matchBoard,
-        task.texts.map(function (item) {
-          return item.letter;
-        }),
-        task.headings.length
-      );
+    if (typeof E.isTaskAnswersSaved === "function" && E.isTaskAnswersSaved(taskId)) return;
+
+    if (
+      (event.key === "ArrowUp" || event.key === "ArrowDown") &&
+      typeof E.handleTaskArrowNav === "function" &&
+      E.handleTaskArrowNav(event)
+    ) {
       return;
     }
 
-    if (task.type === "gapfill") {
-      var gapBoard = document.querySelector("#task-" + taskId + " .ege-gap-picks");
-      E.handlePickAssignKeyboard(event, gapBoard, task.gaps, task.options.length);
+    if (task.type === "matching" || task.type === "gapfill") {
+      if (E.handleTaskPickBoards(event, taskId)) return;
+    }
+
+    if (task.type === "wordform") {
+      if (E.handleWordformKeyboard(event, task, taskId)) return;
+    }
+
+    if (task.type === "listening") {
+      if (E.handleTaskPickBoards(event, taskId)) return;
+      if (E.handleMcStackKeyboard(event, task, taskId)) return;
       return;
     }
 
     if (task.type === "mc" && E.isVocabCloze(task)) {
-      var vocabBoard = document.querySelector("#task-" + taskId + " .ege-vocab-picks");
-      if (!vocabBoard) return;
-
-      var digit = E.parseDigitKey(event);
-      if (digit == null) return;
-
-      var activeGap = vocabBoard.getActiveGap ? vocabBoard.getActiveGap() : "";
-      if (activeGap) {
-        var activeIndex = task.questions.findIndex(function (question) {
-          return E.vocabGapNum(question) === activeGap;
-        });
-        if (activeIndex >= 0 && digit <= task.questions[activeIndex].opts.length) {
-          event.preventDefault();
-          E.setRadioValue(E.taskPrefix(taskId) + "_q_" + activeIndex, String(digit - 1));
-          if (vocabBoard.syncInserts) vocabBoard.syncInserts();
-          return;
-        }
-      }
-
-      var gapCandidates = task.questions.map(vocabGapNum);
-      var gapResult = E.pushTaskDigitBuffer(taskId, digit, gapCandidates, function (gapNum) {
-        if (vocabBoard.setActiveGap) vocabBoard.setActiveGap(gapNum);
-      });
-      if (gapResult !== "none") event.preventDefault();
+      if (E.handleTaskPickBoards(event, taskId)) return;
       return;
     }
 
-    if (task.type === "mc" && task.passage) {
-      digit = E.parseDigitKey(event);
-      if (digit == null) return;
-
-      var prefix = E.taskPrefix(taskId);
-      if (
-        E.mcKeyboardState.taskId === taskId &&
-        E.mcKeyboardState.questionIndex >= 0 &&
-        digit <= task.questions[E.mcKeyboardState.questionIndex].opts.length
-      ) {
-        event.preventDefault();
-        E.setRadioValue(prefix + "_q_" + E.mcKeyboardState.questionIndex, String(digit - 1));
-        E.updateAnsweredCount(taskId);
-        E.syncCheckButton(taskId);
-        return;
-      }
-
-      var questionCandidates = task.questions.map(function (question) {
-        return String(parseInt(String(question.q).trim(), 10));
-      });
-      var questionResult = E.pushTaskDigitBuffer(taskId, digit, questionCandidates, function (_num) {
-        var index = questionCandidates.indexOf(String(_num));
-        if (index >= 0) E.setActiveReadingMcQuestion(taskId, index);
-      });
-      if (questionResult !== "none") event.preventDefault();
+    if (task.type === "mc") {
+      E.handleMcStackKeyboard(event, task, taskId);
     }
   }
 
@@ -658,24 +937,31 @@ E.optionRange = function optionRange(count) {
 E.buildChoiceGroup = function buildChoiceGroup(name, count, opts) {
     opts = opts || {};
     var group = document.createElement("div");
-    group.className = "ege-choice-group";
+    group.className = "ege-choice-group" + (opts.text ? " ege-choice-group--mc" : "");
     group.setAttribute("role", "radiogroup");
     if (opts.label) group.setAttribute("aria-label", opts.label);
 
     E.optionRange(count).forEach(function (num) {
       var label = document.createElement("label");
-      label.className = "ege-pill" + (opts.text ? " ege-pill--text" : "");
+      label.className =
+        "ege-pill" + (opts.text ? " ege-pill--text ege-pill--option" : "");
       var input = document.createElement("input");
       input.type = "radio";
       input.name = name;
       input.value = String(num);
       label.appendChild(input);
       if (opts.text && opts.text[num - 1]) {
-        label.appendChild(document.createTextNode((num) + ") " + opts.text[num - 1]));
+        label.appendChild(document.createTextNode(opts.text[num - 1]));
       } else {
         label.appendChild(document.createTextNode(String(num)));
       }
       group.appendChild(label);
+    });
+
+    group.addEventListener("change", function () {
+      group.querySelectorAll(".ege-pill").forEach(function (pill) {
+        pill.classList.remove("is-correct", "is-wrong");
+      });
     });
 
     return group;
@@ -772,7 +1058,9 @@ E.syncShowAnswersButton = function syncShowAnswersButton(taskId) {
 
     var taskEl = document.getElementById("task-" + taskId);
     var revealed = taskEl && taskEl.dataset.answersRevealed === "1";
-    showBtn.hidden = revealed || E.isTaskAllCorrect(taskId);
+    var examLocked =
+      typeof E.hidesShowAnswers === "function" && E.hidesShowAnswers();
+    showBtn.hidden = revealed || E.isTaskAllCorrect(taskId) || examLocked;
   };
 
 E.taskHasProgress = function taskHasProgress(taskId) {
@@ -837,6 +1125,11 @@ E.taskHasProgress = function taskHasProgress(taskId) {
       });
     }
 
+    if (task.type === "writing") {
+      var draft = document.getElementById("writing-draft-" + taskId);
+      return !!(draft && E.normalize(draft.value));
+    }
+
     if (task.type === "listening") {
       if (E.getListeningStep(taskId) > 1) return true;
       if (E.isPrepMatchingUnlocked(taskId) || E.isPrepMatchPassed(taskId)) return true;
@@ -867,6 +1160,10 @@ E.taskHasProgress = function taskHasProgress(taskId) {
 E.syncResetButton = function syncResetButton(taskId) {
     var resetBtn = document.getElementById("reset-" + taskId);
     if (!resetBtn) return;
+    if (typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls()) {
+      resetBtn.hidden = true;
+      return;
+    }
     resetBtn.hidden = !E.taskHasProgress(taskId);
     resetBtn.disabled = false;
   };
@@ -874,6 +1171,11 @@ E.syncResetButton = function syncResetButton(taskId) {
 E.syncCheckButton = function syncCheckButton(taskId) {
     var checkBtn = document.getElementById("check-" + taskId);
     if (!checkBtn) return;
+    if (typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls()) {
+      checkBtn.hidden = true;
+      checkBtn.disabled = true;
+      return;
+    }
     var task = E.findTask(taskId);
     if (!task || task.type === "listening") return;
 
@@ -897,6 +1199,14 @@ E.updateAnsweredCount = function updateAnsweredCount(taskId) {
     E.syncCheckButton(taskId);
     E.syncResetButton(taskId);
     E.syncShowAnswersButton(taskId);
+    if (typeof E.syncSaveAnswersButton === "function") E.syncSaveAnswersButton(taskId);
+    if (
+      typeof E.isPlacementExam === "function" &&
+      E.isPlacementExam() &&
+      typeof E.syncExamPoints === "function"
+    ) {
+      E.syncExamPoints();
+    }
   }
 
 E.syncMcChoiceGroup = function syncMcChoiceGroup(group) {
@@ -1065,6 +1375,55 @@ E.buildPanel = function buildPanel(label, content, extraClass) {
     return panel;
   }
 
+E.appendStandardTaskActions = function appendStandardTaskActions(actions, taskId, options) {
+    var opts = options || {};
+    var placement =
+      typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls();
+
+    if (!opts.omitCheck && !placement) {
+      var checkBtn = document.createElement("button");
+      checkBtn.type = "button";
+      checkBtn.className = "ege-btn ege-btn--primary";
+      checkBtn.id = "check-" + taskId;
+      checkBtn.textContent = "Check answers";
+      checkBtn.disabled = true;
+      checkBtn.title = "Answer all questions first";
+      if (opts.checkHidden) checkBtn.hidden = true;
+      checkBtn.addEventListener("click", function () {
+        E.checkTask(taskId);
+      });
+      actions.appendChild(checkBtn);
+    }
+
+    if (!opts.omitReset && !placement) {
+      var resetBtn = document.createElement("button");
+      resetBtn.type = "button";
+      resetBtn.className = "ege-btn ege-btn--ghost";
+      resetBtn.id = "reset-" + taskId;
+      resetBtn.textContent = "Reset";
+      resetBtn.hidden = true;
+      E.bindResetButton(resetBtn, taskId);
+      actions.appendChild(resetBtn);
+    }
+
+    if (opts.showAnswers && !(typeof E.hidesShowAnswers === "function" && E.hidesShowAnswers())) {
+      var showBtn = document.createElement("button");
+      showBtn.type = "button";
+      showBtn.className = "ege-btn ege-btn--ghost";
+      showBtn.id = "show-" + taskId;
+      showBtn.textContent = "Show answers";
+      if (opts.showHidden) showBtn.hidden = true;
+      showBtn.addEventListener("click", function () {
+        E.revealTask(taskId);
+      });
+      actions.appendChild(showBtn);
+    }
+
+    if (typeof E.appendSaveAnswersAction === "function") {
+      E.appendSaveAnswersAction(actions, taskId);
+    }
+  }
+
 E.bindResetButton = function bindResetButton(btn, taskId) {
     var armed = false;
     var timer = 0;
@@ -1093,49 +1452,47 @@ E.bindResetButton = function bindResetButton(btn, taskId) {
   }
 
 E.buildTaskFooter = function buildTaskFooter(taskId, max, options) {
+    options = options || {};
     var footer = document.createElement("div");
     footer.className = "ege-task__footer";
+    if (options.scoreBeforeActions) footer.classList.add("ege-task__footer--score-first");
 
     var actions = document.createElement("div");
     actions.className = "ege-task__actions";
 
-    var checkBtn = document.createElement("button");
-    checkBtn.type = "button";
-    checkBtn.className = "ege-btn ege-btn--primary";
-    checkBtn.id = "check-" + taskId;
-    checkBtn.textContent = "Check answers";
-    checkBtn.disabled = true;
-    checkBtn.title = "Answer all questions first";
-    checkBtn.addEventListener("click", function () {
-      E.checkTask(taskId);
+    (options.extrasBefore || []).forEach(function (el) {
+      actions.appendChild(el);
     });
 
-    actions.appendChild(checkBtn);
-
-    if (!(options && options.omitReset)) {
-      var resetBtn = document.createElement("button");
-      resetBtn.type = "button";
-      resetBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
-      resetBtn.id = "reset-" + taskId;
-      resetBtn.textContent = "Reset";
-      resetBtn.hidden = true;
-      E.bindResetButton(resetBtn, taskId);
-      actions.appendChild(resetBtn);
-    }
-
-    if (options && options.showAnswers) {
-      var showBtn = document.createElement("button");
-      showBtn.type = "button";
-      showBtn.className = "ege-btn ege-btn--ghost";
-      showBtn.id = "show-" + taskId;
-      showBtn.textContent = "Show answers";
-      showBtn.addEventListener("click", function () {
-        E.revealTask(taskId);
+    if (options.doneButton) {
+      var completeBtn = document.createElement("button");
+      completeBtn.type = "button";
+      completeBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
+      completeBtn.id = "complete-" + taskId;
+      completeBtn.textContent = options.doneLabel || "Done";
+      completeBtn.addEventListener("click", function () {
+        if (typeof options.onDone === "function") options.onDone(taskId);
+        else if (typeof E.markSpeakingComplete === "function") E.markSpeakingComplete(taskId);
       });
-      actions.appendChild(showBtn);
+      actions.appendChild(completeBtn);
+
+      if (!options.omitReset) {
+        var doneResetBtn = document.createElement("button");
+        doneResetBtn.type = "button";
+        doneResetBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
+        doneResetBtn.id = "reset-" + taskId;
+        doneResetBtn.textContent = "Reset";
+        doneResetBtn.hidden = true;
+        E.bindResetButton(doneResetBtn, taskId);
+        actions.appendChild(doneResetBtn);
+      }
+    } else {
+      E.appendStandardTaskActions(actions, taskId, options);
     }
 
-    footer.appendChild(actions);
+    (options.extras || options.extrasAfter || []).forEach(function (el) {
+      actions.appendChild(el);
+    });
 
     var score = document.createElement("p");
     score.className = "ege-task__score";
@@ -1143,10 +1500,21 @@ E.buildTaskFooter = function buildTaskFooter(taskId, max, options) {
     score.hidden = true;
     score.setAttribute("aria-live", "polite");
 
-    footer.appendChild(score);
+    if (options.scoreBeforeActions) {
+      footer.appendChild(score);
+      footer.appendChild(actions);
+    } else {
+      footer.appendChild(actions);
+      footer.appendChild(score);
+    }
+
     footer.dataset.max = String(max);
-    E.syncCheckButton(taskId);
-    E.syncResetButton(taskId);
-    E.syncShowAnswersButton(taskId);
+    if (!options.doneButton) {
+      E.syncCheckButton(taskId);
+      E.syncResetButton(taskId);
+      E.syncShowAnswersButton(taskId);
+    } else {
+      E.syncResetButton(taskId);
+    }
     return footer;
   }
