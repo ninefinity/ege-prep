@@ -495,6 +495,7 @@ E.buildWritingTextarea = function buildWritingTextarea(task, opts) {
   textarea.className = "ege-writing-textarea";
   textarea.id = "writing-draft-" + task.id;
   textarea.setAttribute("aria-label", task.title || "Writing draft");
+  textarea.placeholder = "Write your answer here…";
   textarea.spellcheck = true;
 
   var choiceId = opts.choiceId || "";

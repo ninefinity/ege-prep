@@ -6489,6 +6489,31 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
   height: 100%;
 }
 
+/* The answer is what you're actually working in -- put it first/bigger,
+   with the read-only prompt as the smaller reference panel on the side,
+   rather than the inverted "prompt is the whole left column, answer is
+   a narrow strip on the right" default the shared read/work split gives
+   every other task type. order swaps which grid track each side lands
+   in, not just paint order, since neither has an explicit grid-column
+   of its own -- grid auto-placement follows order. Scoped to the same
+   min-width:861px the 2-column layout itself is scoped to (css/shell.css
+   ~1727) -- below that everything stacks to one column and this grid-
+   template-columns override (with its 18-22rem minimum) would otherwise
+   starve the other track to 0 width instead of letting it stack. */
+@media (min-width: 861px) {
+  .ege-writing-shell.ege-split--panels {
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 22rem);
+  }
+
+  .ege-writing-shell .ege-split__read {
+    order: 2;
+  }
+
+  .ege-writing-shell .ege-split__work {
+    order: 1;
+  }
+}
+
 .ege-writing-work-col {
   display: flex;
   flex-direction: column;
