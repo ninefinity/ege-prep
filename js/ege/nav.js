@@ -458,7 +458,7 @@ E.showTask = function showTask(taskId) {
     if (task && (task.type === "mc" || task.type === "gapfill")) E.syncCheckButton(taskId);
     if (typeof E.syncSaveAnswersButton === "function") E.syncSaveAnswersButton(taskId);
     var panel = document.getElementById("panel-" + taskId);
-    if (panel && window.EgeHighlight && task && task.type !== "listening" && (task.type === "writing" || !E.isSpeakingPractice(task))) {
+    if (panel && window.EgeHighlight && task && task.type !== "listening" && task.type !== "writing" && !E.isSpeakingPractice(task)) {
       var hl = E.highlightStoreIds(task, taskId);
       EgeHighlight.attachAll(panel, hl.topicId, hl.taskId);
     }
@@ -1135,7 +1135,7 @@ E.mountTopic = function mountTopic(topic, topicId) {
       ) {
         E.mountListeningExamAudio(task, E.state.topicId, shell);
       }
-      if (window.EgeHighlight && (task.type === "writing" || !E.isSpeakingPractice(task))) {
+      if (window.EgeHighlight && task.type !== "writing" && !E.isSpeakingPractice(task)) {
         var hl = E.highlightStoreIds(task, task.id);
         EgeHighlight.attachAll(shell, hl.topicId, hl.taskId);
       }

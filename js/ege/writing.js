@@ -1092,11 +1092,6 @@ E.syncWriting38Workspace = function syncWriting38Workspace(taskId) {
 
   if (!hasChoice) {
     if (typeof E.syncMobileReadWorkTabs === "function") E.syncMobileReadWorkTabs(taskId);
-    var emptyPanel = document.getElementById("panel-" + taskId);
-    if (emptyPanel && window.EgeHighlight) {
-      var emptyHl = E.highlightStoreIds(task, taskId);
-      EgeHighlight.attachAll(emptyPanel, emptyHl.topicId, emptyHl.taskId);
-    }
     return;
   }
 
@@ -1110,12 +1105,6 @@ E.syncWriting38Workspace = function syncWriting38Workspace(taskId) {
   if (typeof E.syncResetButton === "function") E.syncResetButton(taskId);
   E.syncWriting38OverflowMenu(taskId);
   if (typeof E.syncMobileReadWorkTabs === "function") E.syncMobileReadWorkTabs(taskId);
-
-  var panel = document.getElementById("panel-" + taskId);
-  if (panel && window.EgeHighlight) {
-    var hl = E.highlightStoreIds(task, taskId);
-    EgeHighlight.attachAll(panel, hl.topicId, hl.taskId);
-  }
 };
 
 E.renderWriting38 = function renderWriting38(task, wrap) {

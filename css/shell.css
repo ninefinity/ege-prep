@@ -692,17 +692,38 @@ a {
      it means short wordform content collapses .ege-workspace far below
      every other task's height, so the flow strip after it lands at a
      noticeably different screen position depending on which task is open.
-     min-height alone doesn't fix it: with height:auto, a flex item's
-     margin-top: auto (used below to pin the flow strip to the bottom)
-     only distributes free space when the flex container's own size is
-     "definite" -- min-height on an auto-height box doesn't count, even
-     though the box visibly renders at the floor height. Giving it a
-     definite height instead does, and this still doesn't clip long
-     wordform content: overflow stays visible per the :has(...wordform)
-     rule below (unchanged), so tall content still grows past this height
-     and the page (not this box) scrolls, same as before. */
+     A definite `height` here (tried first) fixes the short-content case
+     but breaks long content: overflow stays visible, so a passage taller
+     than that fixed height spills past .ege-workspace's bottom edge --
+     right into the flow strip, which sticks to *that* box's bottom edge,
+     not the true content end. min-height avoids that (the box still grows
+     for tall content) but doesn't help short content by itself, since
+     #egePanels below has flex: 0 1 auto (no grow) for this task type and
+     so doesn't expand to claim the extra floor space -- it just leaves a
+     gap between short content and the flow strip. Fix both: min-height as
+     the floor, and let #egePanels actually grow to fill it (see below). */
   #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) {
-    height: var(--ege-sticky-panel-max);
+    min-height: var(--ege-sticky-panel-max);
+  }
+
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) > #egePanels {
+    flex: 1 1 auto;
+  }
+
+  /* min-height + flex-grow gets short wordform content close to the same
+     baseline as every other task type, but sticky positioning still isn't
+     safe here: it pins the flow strip at a fixed offset from the *box's*
+     edge, and wordform content can still end up slightly taller than that
+     box even after growing it, overlapping the strip by a few pixels
+     (confirmed live, not just in theory). Every other task type's content
+     is properly height-bounded with internal scrolling, so sticky can't
+     overrun it -- wordform's isn't, by design (that's the whole reason it
+     gets this separate treatment), so pin it in normal flow instead. It
+     lands lower for genuinely long content, but it will never sit on top
+     of text, which matters more than perfect vertical alignment. */
+  #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) .ege-task-flow {
+    position: static;
+    bottom: auto;
   }
 
   /* Opening the list reflows the sidebar column back to full width instead
@@ -738,7 +759,7 @@ a {
      part of the page -- give it the same card treatment instead. Also
      slimmer than mobile's 48px touch targets, which desktop doesn't need. */
   #egePage.is-locked-nav .ege-task-flow {
-    margin-top: auto;
+    margin-top: 14px;
     padding: 6px 8px;
     gap: 8px;
     border: 1px solid var(--ege-line);
