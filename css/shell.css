@@ -711,6 +711,23 @@ a {
   #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--gapfill),
   #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--writing-essay) {
     min-height: var(--ege-sticky-panel-max);
+    /* Practice mode adds its own bottom padding here (40px for wordform,
+       32px for the essay -- see their :has() rules further down/in the
+       @media(min-width:861px) essay block) so the page has breathing room
+       before it ends. In locked-nav mode .ege-workspace's height is fixed
+       to match every other task type instead, and that padding was eating
+       straight into it -- #egePanels grew 32-40px short of the floor, so
+       the strip landed that much higher than the sticky tasks' strip. */
+    padding-bottom: 0;
+    /* Practice mode also gives gapfill's .ege-workspace its own
+       overflow-y:auto (an internal scroll container, unlike wordform/essay
+       which leave it visible and let the page scroll instead) -- confirmed
+       live: with min-height forcing this box to the same floor as every
+       other task type but content taller than that floor, the flow strip
+       (the box's own last child) ends up scrolled inside it and clipped
+       instead of pushed into the page's normal flow below. Force it back
+       to visible here, same as the other two exceptions. */
+    overflow: visible;
   }
 
   #egePage.is-locked-nav.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) > #egePanels,
@@ -800,6 +817,20 @@ a {
 
   #egePage.is-locked-nav .ege-task-flow__label {
     font-size: var(--ege-text-sm);
+  }
+
+  /* Vocabulary in Context (and any other task using this same sticky
+     side-by-side layout) sticks its questions column to within
+     --ege-sticky-panel-max, tall enough to reach the bottom of the
+     viewport -- but the flow strip is *also* pinned to that same bottom
+     edge, on top of it (confirmed live: the last question ends up
+     partway behind the strip once scrolled to the end). Pad the inner
+     scroll areas so their content clears the strip's footprint
+     (14px margin-top + 48px height + a little slack) before running out
+     of scroll room. */
+  #egePage.is-locked-nav .ege-task--vocab .ege-read-scroll,
+  #egePage.is-locked-nav .ege-task--vocab .ege-work-scroll {
+    padding-bottom: 80px;
   }
 }
 
@@ -1881,9 +1912,11 @@ button.ege-prep-pair-card {
 
   .ege-page--topic-layout .ege-task--vocab .ege-split--panels {
     width: 100%;
-    grid-template-columns:
-      minmax(0, var(--ege-topic-read-col-vocab))
-      minmax(var(--ege-split-work-min-vocab), 1fr);
+    /* Passage flexible, questions column fixed-ish -- same proportions as
+       gapfill (minmax(0,1fr) 290px) and wordform (minmax(0,1fr) 280px) so
+       the passage reads at the same width across all three tasks instead
+       of being capped narrow while the questions column ate the rest. */
+    grid-template-columns: minmax(0, 1fr) minmax(var(--ege-split-work-min-vocab), 300px);
     gap: 24px;
     align-items: start;
   }
@@ -1896,7 +1929,7 @@ button.ege-prep-pair-card {
   }
 
   .ege-page--topic-layout .ege-task--vocab .ege-split__read {
-    max-width: var(--ege-topic-read-col-vocab);
+    max-width: none;
     width: 100%;
     min-width: 0;
     align-self: start;
@@ -2070,16 +2103,14 @@ button.ege-prep-pair-card {
 
   .ege-page--topic-layout .ege-task--vocab .ege-split--panels {
     width: 100%;
-    grid-template-columns:
-      minmax(0, var(--ege-topic-read-col-vocab))
-      minmax(var(--ege-split-work-min-vocab), 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(var(--ege-split-work-min-vocab), 300px);
     align-items: start;
     height: auto;
     gap: 24px;
   }
 
   .ege-page--topic-layout .ege-task--vocab .ege-split__read {
-    max-width: var(--ege-topic-read-col-vocab);
+    max-width: none;
     width: 100%;
     min-width: 0;
     align-self: stretch;
@@ -3771,7 +3802,7 @@ button.ege-prep-pair-card {
 }
 
 .ege-wordform-line {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
 }
 
 .ege-wordform-line:last-child {
@@ -3779,8 +3810,8 @@ button.ege-prep-pair-card {
 }
 
 .ege-wordform-break {
-  margin: 18px 0 10px;
-  padding-top: 14px;
+  margin: 14px 0 8px;
+  padding-top: 10px;
   border-top: 1px solid var(--ege-line);
   font-family: var(--ege-font-text);
   font-size: var(--ege-text-md);
@@ -4106,10 +4137,6 @@ button.ege-prep-pair-card {
   min-width: 0;
   position: relative;
   background: var(--yap-ink);
-}
-
-.ege-listening-seek__segment + .ege-listening-seek__segment {
-  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.85);
 }
 
 .ege-listening-seek__segment.is-done {
@@ -5983,10 +6010,27 @@ body.yap-brand .site-author__promo a:hover {
   display: none;
 }
 
+.ege-listening-player__toprow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.ege-listening-player__toprow .ege-listening-play {
+  flex: 0 0 auto;
+}
+
+.ege-listening-player__toprow .ege-listening-seek {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+}
+
 .ege-listening-player__actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 10px;
   width: 100%;
   min-height: 40px;
@@ -6012,52 +6056,73 @@ body.yap-brand .site-author__promo a:hover {
   gap: 10px;
 }
 
+/* A pill with a "Listen"/"Pause" label reads as just another button next
+   to Notes -- a round, filled play/pause glyph is the convention every
+   audio player already uses, so it doesn't need a label to be understood
+   as the transport control. Text stays for screen readers only. */
 .ege-listening-bar .ege-listening-play {
-  gap: 8px;
-  min-width: 40px;
-  height: 40px;
-  min-height: 40px;
-  padding: 0 14px;
+  gap: 0;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
   justify-content: center;
-  border-radius: 999px;
-  font-size: var(--ege-text-sm);
-  border-color: color-mix(in srgb, var(--yap-royal) 20%, var(--ege-line));
-  background: #fff;
+  border-radius: 50%;
+  border-color: var(--yap-royal);
+  background: var(--yap-royal);
 }
 
 .ege-listening-bar .ege-listening-play:hover {
-  transform: none;
+  transform: scale(1.06);
+  border-color: var(--yap-royal);
 }
 
 .ege-listening-bar .ege-listening-play__label {
-  display: inline;
-  font-size: var(--ege-text-sm);
-  font-weight: 700;
-  line-height: 1;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .ege-listening-bar .ege-listening-play__icon {
-  font-size: 0.72rem;
+  font-size: 1rem;
   line-height: 1;
+  color: #fff;
+  /* The ▶ glyph's own weight leans left of its box -- nudge right so it
+     reads as centered in the round button. ❚❚ is symmetric already. */
+  margin-left: 2px;
+}
+
+.ege-listening-bar .ege-listening-play.is-playing .ege-listening-play__icon {
+  margin-left: 0;
 }
 
 .ege-listening-bar .ege-listening-play.is-playing {
-  border-color: var(--yap-royal);
-  background: color-mix(in srgb, var(--yap-royal) 8%, #fff);
-  color: var(--yap-royal);
+  border-color: color-mix(in srgb, var(--yap-royal) 85%, #000);
+  background: color-mix(in srgb, var(--yap-royal) 85%, #000);
 }
 
+/* Matches the round play/pause transport control -- an outline instead of
+   a fill marks it as the secondary action. Icon-only like play; the label
+   stays for screen readers. */
 .ege-listening-notes-toggle {
   flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  min-height: 40px;
-  padding: 0 14px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
   border: 1px solid var(--ege-line);
-  border-radius: 999px;
+  border-radius: 50%;
   background: #fff;
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
@@ -6068,8 +6133,21 @@ body.yap-brand .site-author__promo a:hover {
   transition: border-color 0.12s, color 0.12s, background 0.12s;
 }
 
+.ege-listening-notes-toggle__icon {
+  width: 20px;
+  height: 20px;
+}
+
 .ege-listening-notes-toggle__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
+  border: 0;
 }
 
 .ege-listening-notes-toggle.is-active {
@@ -6490,6 +6568,13 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
   min-width: 0;
 }
 
+.ege-writing-export {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
 .ege-writing-toolbar__variant {
   font-size: var(--ege-text-sm);
   color: var(--ege-muted);
@@ -6554,11 +6639,19 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
 .ege-writing-footer {
   flex: 0 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 4px 12px;
   margin-top: 2px;
   padding: 10px 4px 0;
   border-top: 1px solid var(--ege-line);
+}
+
+.ege-writing-footer__tolerance {
+  font-size: var(--ege-text-sm);
+  color: var(--ege-muted);
+  text-align: center;
 }
 
 .ege-writing-footer__count {
@@ -6568,7 +6661,16 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
   text-align: center;
 }
 
-.ege-writing-footer__count.is-under,
+.ege-writing-footer__count.is-under {
+  color: var(--yap-royal);
+  font-weight: 700;
+}
+
+.ege-writing-footer__count.is-ok {
+  color: var(--ege-ok);
+  font-weight: 700;
+}
+
 .ege-writing-footer__count.is-over {
   color: var(--ege-bad);
   font-weight: 700;
@@ -6962,22 +7064,22 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-writing38-picker {
   width: 100%;
-  max-width: 36rem;
+  max-width: var(--ege-locked-nav-max, 68rem);
   margin: 0 auto;
   padding: 8px 0 16px;
 }
 
-.ege-writing38-picker__title {
-  margin: 0 0 14px;
-  font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-lg);
-  font-weight: 700;
-  color: var(--ege-ink);
-}
-
 .ege-writing38-picker__cards {
   display: grid;
-  gap: 10px;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .ege-writing38-picker__cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .ege-writing38-picker__card {
@@ -6986,7 +7088,18 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   border-radius: 12px;
   background: #fff;
   cursor: pointer;
-  transition: border-color 0.12s, box-shadow 0.12s;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.ege-writing38-picker__card:hover {
+  border-color: color-mix(in srgb, var(--yap-royal) 35%, var(--ege-line));
+  box-shadow: 0 6px 16px -8px color-mix(in srgb, var(--yap-royal) 40%, transparent);
+  transform: translateY(-2px);
+}
+
+.ege-writing38-picker__card:has(input:checked):hover {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--yap-royal) 18%, transparent),
+    0 6px 16px -8px color-mix(in srgb, var(--yap-royal) 40%, transparent);
 }
 
 .ege-writing38-picker__card:has(input:checked) {
@@ -7003,8 +7116,15 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-writing38-picker__card-body {
   display: grid;
-  gap: 4px;
-  padding: 14px 16px;
+  gap: 10px;
+  padding: 14px 16px 16px;
+}
+
+.ege-writing38-picker__card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .ege-writing38-picker__card-id {
@@ -7019,6 +7139,46 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   font-size: var(--ege-text-md);
   line-height: 1.45;
   color: var(--ege-ink);
+  font-weight: 700;
+}
+
+/* The full brief embedded per-card is normally a standalone .ege-passage
+   panel with its own border/shadow (see buildWriting38BriefRail) -- here
+   it's already inside a bordered picker card, so flatten it to avoid a
+   card-in-a-card look. */
+.ege-writing38-picker__card-body > .ege-writing38-brief {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  background: transparent;
+}
+
+.ege-writing38-picker__card-choose {
+  justify-self: start;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--ege-line);
+  color: var(--ege-ink);
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  opacity: 0;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+}
+
+.ege-writing38-picker__card:hover .ege-writing38-picker__card-choose,
+.ege-writing38-picker__card:focus-within .ege-writing38-picker__card-choose {
+  opacity: 1;
+}
+
+.ege-writing38-picker__card:hover .ege-writing38-picker__card-choose {
+  background: color-mix(in srgb, var(--yap-royal) 16%, var(--ege-line));
+}
+
+.ege-writing38-picker__card:has(input:checked) .ege-writing38-picker__card-choose {
+  opacity: 1;
+  background: var(--yap-royal);
+  color: #fff;
 }
 
 .ege-writing38-workspace {
@@ -7049,15 +7209,6 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-writing38-header__titles {
   min-width: 0;
   flex: 1 1 16rem;
-}
-
-.ege-writing38-header__kicker {
-  margin: 0 0 4px;
-  font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-sm);
-  font-weight: 600;
-  color: var(--ege-muted);
-  letter-spacing: 0.01em;
 }
 
 .ege-writing38-header__variant {
@@ -7296,16 +7447,8 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 8px 14px;
-}
-
-.ege-writing38-editor__title {
-  margin: 0;
-  font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-md);
-  font-weight: 700;
-  color: var(--ege-ink);
 }
 
 .ege-writing38-editor__meta {
@@ -7323,8 +7466,18 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 .ege-writing38-editor__count.is-under,
+.ege-writing38-actionbar__count.is-under {
+  color: var(--yap-royal);
+  font-weight: 700;
+}
+
+.ege-writing38-editor__count.is-ok,
+.ege-writing38-actionbar__count.is-ok {
+  color: var(--ege-ok);
+  font-weight: 700;
+}
+
 .ege-writing38-editor__count.is-over,
-.ege-writing38-actionbar__count.is-under,
 .ege-writing38-actionbar__count.is-over {
   color: var(--ege-bad);
   font-weight: 700;
@@ -7479,6 +7632,14 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
     height: auto;
     flex: 0 1 auto;
     min-height: 0;
+  }
+
+  /* Sticky-bottom word count is a mobile pattern (see the max-width:860px
+     rule below) -- on desktop the same count already sits in the editor
+     panel's own head, right above the textarea, so this bar was just a
+     duplicate "0 / 200-250 слов" floating under the card. */
+  .ege-writing38-actionbar {
+    display: none;
   }
 }
 

@@ -513,22 +513,30 @@ E.syncExamManageActions = function syncExamManageActions() {
   }
 
   var phase = E.getExamPhase();
+  // A freshly opened exam has nothing to reset or restart yet -- both
+  // controls stay off the toolbar until at least one task has an answer.
+  // Once the written part is submitted there's no more "yet" to wait for,
+  // so they're unconditional from there on.
+  var activeWithProgress =
+    phase === E.EXAM_PHASES.WRITTEN_ACTIVE &&
+    typeof E.countWrittenAnswered === "function" &&
+    E.countWrittenAnswered().answered > 0;
   var showReset =
-    phase === E.EXAM_PHASES.WRITTEN_ACTIVE ||
+    activeWithProgress ||
     phase === E.EXAM_PHASES.WRITTEN_SUBMITTED ||
     phase === E.EXAM_PHASES.COMPLETE;
   var showRestart =
-    phase === E.EXAM_PHASES.WRITTEN_ACTIVE ||
+    activeWithProgress ||
     phase === E.EXAM_PHASES.WRITTEN_SUBMITTED ||
     phase === E.EXAM_PHASES.ORAL_READY ||
     phase === E.EXAM_PHASES.ORAL_ACTIVE ||
     phase === E.EXAM_PHASES.COMPLETE;
 
-  if (!showReset && !showRestart) {
-    E.syncExamSideRail();
-    return;
-  }
-
+  // The sidebar/task-list toggle below is unconditional -- it's
+  // navigation, not a destructive action, so it doesn't wait on progress
+  // the way reset/restart do. actions stays visible whenever it has
+  // anything in it, which (since we're inside isFullWrittenExam() here)
+  // is always at least that toggle.
   actions.hidden = false;
 
   if (showReset) {

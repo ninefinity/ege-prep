@@ -284,6 +284,7 @@ E.bindAutosave = function bindAutosave() {
       if (!target || !target.closest(".ege-task")) return;
       E.scheduleAutosave();
       if (typeof E.syncFinishWrittenButton === "function") E.syncFinishWrittenButton();
+      if (typeof E.syncExamManageActions === "function") E.syncExamManageActions();
     },
     true
   );
@@ -296,6 +297,7 @@ E.bindAutosave = function bindAutosave() {
       if (!target || !target.closest(".ege-task")) return;
       E.scheduleAutosave();
       if (typeof E.syncFinishWrittenButton === "function") E.syncFinishWrittenButton();
+      if (typeof E.syncExamManageActions === "function") E.syncExamManageActions();
     },
     true
   );
@@ -303,6 +305,23 @@ E.bindAutosave = function bindAutosave() {
   document.addEventListener("visibilitychange", function () {
     if (document.visibilityState === "hidden") E.flushAutosave();
   });
+
+  // Exam answers should be typed, not pasted in from elsewhere -- copying
+  // a finished answer out is still fine (that's what the export buttons on
+  // the writing tasks are for once submitted), this only blocks bringing
+  // outside text in.
+  document.addEventListener(
+    "paste",
+    function (event) {
+      if (!(typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam())) return;
+      var target = event.target;
+      if (!target || !target.closest(".ege-task")) return;
+      var tag = (target.tagName || "").toLowerCase();
+      if (tag !== "textarea" && tag !== "input") return;
+      event.preventDefault();
+    },
+    true
+  );
 };
 
 E.restoreVariantSavedAnswers = function restoreVariantSavedAnswers() {

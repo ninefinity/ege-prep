@@ -33,10 +33,17 @@ E.clearTaskScore = function clearTaskScore(taskId) {
 
 E.taskSectionMeta = function taskSectionMeta(task) {
     var base = (task && task._sectionMeta) || E.state.sectionMeta || null;
-    if (!task || task.examFrom == null) return base;
+    if (!task) return base;
+    // A section's examFrom/examTo covers every task in it (e.g. word-formation
+    // 25-29 is one task with five gaps), but writing bundles two unrelated
+    // tasks -- the email (37) and the essay (38) -- under one "37-38" range.
+    // Those set their own examNum, so prefer it over the section's range,
+    // same as E.taskExamFrom/taskExamTo already do.
+    var from = task.examFrom != null ? task.examFrom : task.examNum;
+    if (from == null) return base;
     var meta = base ? Object.assign({}, base) : {};
-    meta.examFrom = task.examFrom;
-    meta.examTo = task.examTo != null ? task.examTo : task.examFrom;
+    meta.examFrom = from;
+    meta.examTo = task.examTo != null ? task.examTo : from;
     return meta;
   }
 
@@ -1127,7 +1134,15 @@ E.taskHasProgress = function taskHasProgress(taskId) {
 
     if (task.type === "writing") {
       var draft = document.getElementById("writing-draft-" + taskId);
-      return !!(draft && E.normalize(draft.value));
+      if (!draft) return false;
+      // Task 37 starts pre-filled with "Dear <name>," (see
+      // E.writing37GreetingStarter) -- that's not progress on its own, only
+      // whatever the student adds beyond it is.
+      if (task.examNum === 37 && typeof E.writing37GreetingStarter === "function") {
+        var starter = E.writing37GreetingStarter(task);
+        if (starter && draft.value === starter) return false;
+      }
+      return !!E.normalize(draft.value);
     }
 
     if (task.type === "listening") {

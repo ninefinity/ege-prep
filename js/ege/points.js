@@ -241,7 +241,14 @@ E.isPlacementTaskFilled = function isPlacementTaskFilled(taskId) {
 
   if (task.type === "writing") {
     var textarea = document.getElementById("writing-draft-" + taskId);
-    return !!(textarea && E.normalize(textarea.value));
+    if (!textarea) return false;
+    // Task 37 starts pre-filled with "Dear <name>," (see
+    // E.writing37GreetingStarter) -- untouched, that's not an answer.
+    if (task.examNum === 37 && typeof E.writing37GreetingStarter === "function") {
+      var starter = E.writing37GreetingStarter(task);
+      if (starter && textarea.value === starter) return false;
+    }
+    return !!E.normalize(textarea.value);
   }
 
   return typeof E.isTaskFullyAnswered === "function" && E.isTaskFullyAnswered(taskId);

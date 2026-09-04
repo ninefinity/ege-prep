@@ -212,6 +212,14 @@ E.buildListeningNotesToggle = function buildListeningNotesToggle(taskId) {
   btn.setAttribute("aria-pressed", "false");
   btn.title = "Notes";
 
+  var icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  icon.setAttribute("class", "ege-listening-notes-toggle__icon");
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("aria-hidden", "true");
+  icon.innerHTML =
+    '<path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>';
+  btn.appendChild(icon);
+
   var label = document.createElement("span");
   label.className = "ege-listening-notes-toggle__label";
   label.textContent = "Notes";

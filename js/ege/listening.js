@@ -1037,7 +1037,12 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId, options) {
       labelsEl.hidden = false;
       seek.classList.add("ege-listening-seek--has-label-row");
       labelsEl.textContent = "";
+      // No pill for the segment already playing -- there's nothing to jump
+      // to there, so it was just a label sitting on top of its own
+      // progress with no function.
+      var activeId = E.state.activeTaskId || task.id;
       segments.forEach(function (seg) {
+        if (seg.taskId === activeId) return;
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "ege-listening-player__label";
@@ -1279,12 +1284,20 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId, options) {
     if (!usePlayerLayout) controls.appendChild(audio);
 
     if (usePlayerLayout) {
+      // Play/pause sits directly against the seek bar it controls instead
+      // of floating in a row underneath it; Notes (a separate, secondary
+      // tool) gets its own row below so it doesn't compete for space next
+      // to the transport control.
+      var topRow = document.createElement("div");
+      topRow.className = "ege-listening-player__toprow";
+      topRow.appendChild(playBtn);
+      topRow.appendChild(seek);
+
       var actions = document.createElement("div");
       actions.className = "ege-listening-player__actions";
 
       actionsStart = document.createElement("div");
       actionsStart.className = "ege-listening-player__actions-start";
-      actionsStart.appendChild(playBtn);
       if (showSpeed) actionsStart.appendChild(speedGroup);
 
       notesSlot = document.createElement("div");
@@ -1293,7 +1306,7 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId, options) {
       actions.appendChild(actionsStart);
       actions.appendChild(notesSlot);
 
-      playerContent.appendChild(seek);
+      playerContent.appendChild(topRow);
       playerContent.appendChild(actions);
       player.appendChild(playerContent);
       bar.appendChild(player);

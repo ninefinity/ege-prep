@@ -124,7 +124,7 @@ E.syncWriting38ChoiceUI = function syncWriting38ChoiceUI(taskId) {
 
 E.confirmWriting38VariantChange = function confirmWriting38VariantChange(taskId) {
   var task = E.findTask(taskId);
-  if (!task) return;
+  if (!task || !task.choices || task.choices.length < 2) return;
   var choiceId = E.getWriting38Choice(task);
   var textarea = document.getElementById("writing-draft-" + taskId);
   var hasDraft = !!(textarea && E.normalize(textarea.value));
@@ -135,7 +135,13 @@ E.confirmWriting38VariantChange = function confirmWriting38VariantChange(taskId)
     if (!ok) return;
     if (choiceId) E.saveWritingDraft(taskId, textarea.value, choiceId);
   }
-  E.state.writing38Choice = "";
+  // "Сменить вариант" toggles straight to the other topic (38.1 <-> 38.2)
+  // instead of dropping back to the picker -- with only two options,
+  // picking again is a pointless extra click.
+  var other = task.choices.find(function (c) {
+    return c.id !== choiceId;
+  });
+  E.state.writing38Choice = other ? other.id : "";
   E.syncWriting38Workspace(taskId);
   if (typeof E.scheduleAutosave === "function") E.scheduleAutosave();
 };
@@ -174,6 +180,7 @@ E.syncWritingWordCount = function syncWritingWordCount(taskId) {
   var count = E.countWritingWords(textarea.value);
   var warnUnder = task.wordMin && count > 0 && count < task.wordMin;
   var warnOver = task.wordMax && count > task.wordMax;
+  var inRange = !!(task.wordMin && task.wordMax && count >= task.wordMin && count <= task.wordMax);
 
   document.querySelectorAll('[data-writing-count="' + taskId + '"]').forEach(function (el) {
     var ru = el.dataset.writingCountLang === "ru";
@@ -183,7 +190,11 @@ E.syncWritingWordCount = function syncWritingWordCount(taskId) {
         ? count + " / " + task.wordMin + "–" + task.wordMax + " " + unit
         : count + " " + unit;
     el.textContent = rangeText;
+    // Still under the minimum reads as "keep going" (blue), not an error --
+    // only over the maximum is an actual problem (red). Inside the range
+    // is the target state (green).
     el.classList.toggle("is-under", warnUnder);
+    el.classList.toggle("is-ok", inRange);
     el.classList.toggle("is-over", warnOver);
   });
 };
@@ -382,6 +393,103 @@ E.writingCriteriaIcon = function writingCriteriaIcon() {
   return svg;
 };
 
+// With criteria off the table during the mock exam (see below), a student
+// has no way to get feedback on the email/essay except sending it to a
+// tutor themselves -- so once written answers are locked in, let them pull
+// the text back out as a .txt or straight to the clipboard.
+E.writingExportText = function writingExportText(task) {
+  var textarea = document.getElementById("writing-draft-" + task.id);
+  var text = textarea ? textarea.value : "";
+  var heading = task.nav || task.title || "";
+  if (task.examNum === 38 && task.choices && task.choices.length) {
+    var choice = E.getWriting38ChoiceData(task, E.getWriting38Choice(task));
+    if (choice) heading = E.writing38ChoiceLabel(choice);
+  }
+  return (heading ? heading + "\n\n" : "") + text;
+};
+
+E.writingExportFilename = function writingExportFilename(task) {
+  var slug = String(task.nav || task.title || task.id)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return (slug || "writing") + ".txt";
+};
+
+E.downloadWritingText = function downloadWritingText(task) {
+  var blob = new Blob([E.writingExportText(task)], { type: "text/plain;charset=utf-8" });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement("a");
+  link.href = url;
+  link.download = E.writingExportFilename(task);
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+};
+
+E.copyWritingText = function copyWritingText(task) {
+  var text = E.writingExportText(task);
+  var done = function () {
+    E.showToast("Скопировано");
+  };
+  var fail = function () {
+    E.showToast("Не удалось скопировать");
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, fail);
+    return;
+  }
+  var scratch = document.createElement("textarea");
+  scratch.value = text;
+  scratch.style.position = "fixed";
+  scratch.style.opacity = "0";
+  document.body.appendChild(scratch);
+  scratch.select();
+  try {
+    document.execCommand("copy") ? done() : fail();
+  } catch (err) {
+    fail();
+  }
+  scratch.remove();
+};
+
+E.buildWritingExportButtons = function buildWritingExportButtons(task) {
+  var wrap = document.createElement("span");
+  wrap.className = "ege-writing-export";
+
+  var downloadBtn = document.createElement("button");
+  downloadBtn.type = "button";
+  downloadBtn.className = "ege-btn ege-btn--ghost";
+  downloadBtn.textContent = "Скачать .txt";
+  downloadBtn.setAttribute("aria-label", "Скачать текст в формате .txt");
+  downloadBtn.addEventListener("click", function () {
+    E.downloadWritingText(task);
+  });
+  wrap.appendChild(downloadBtn);
+
+  var copyBtn = document.createElement("button");
+  copyBtn.type = "button";
+  copyBtn.className = "ege-btn ege-btn--ghost";
+  copyBtn.textContent = "Копировать";
+  copyBtn.setAttribute("aria-label", "Копировать текст в буфер обмена");
+  copyBtn.addEventListener("click", function () {
+    E.copyWritingText(task);
+  });
+  wrap.appendChild(copyBtn);
+
+  return wrap;
+};
+
+// Grading criteria are a self-assessment tool for practice -- during the
+// mock exam itself they don't belong on screen (a real exam doesn't hand
+// you the rubric mid-write), and the criteria drawer's layout also breaks
+// against the essay's picker/workspace split there. Gate button + drawer
+// together so neither gets built in that mode.
+E.shouldShowWritingCriteria = function shouldShowWritingCriteria() {
+  return !(typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam());
+};
+
 E.buildWritingCriteriaButton = function buildWritingCriteriaButton(task) {
   var trigger = document.createElement("button");
   trigger.type = "button";
@@ -435,13 +543,6 @@ E.buildWriting37Read = function buildWriting37Read(task) {
     read.appendChild(plan);
   }
 
-  if (task.wordToleranceNote) {
-    var tol = document.createElement("p");
-    tol.className = "ege-writing-tolerance";
-    tol.textContent = task.wordToleranceNote;
-    read.appendChild(tol);
-  }
-
   return read;
 };
 
@@ -453,8 +554,12 @@ E.buildWritingEditorToolbar = function buildWritingEditorToolbar(task, opts) {
   var start = document.createElement("div");
   start.className = "ege-writing-toolbar__start";
 
-  if (task.rubric && task.rubric.length) {
+  if (task.rubric && task.rubric.length && E.shouldShowWritingCriteria()) {
     start.appendChild(E.buildWritingCriteriaButton(task));
+  }
+
+  if (typeof E.isWrittenSubmitted === "function" && E.isWrittenSubmitted()) {
+    start.appendChild(E.buildWritingExportButtons(task));
   }
 
   if (opts.showVariantChange) {
@@ -489,6 +594,25 @@ E.buildWritingEditorToolbar = function buildWritingEditorToolbar(task, opts) {
   return toolbar;
 };
 
+// The personal email (task 37) always replies to the pen pal named in its
+// own prompt ("From: Sophia@mail.uk" etc.) -- pull that name out so a
+// fresh draft can start "Dear Sophia," instead of a blank box, since the
+// greeting is the same every time and free-typing it wastes the student's
+// attempt.
+E.writing37SenderName = function writing37SenderName(task) {
+  var match = String(task.promptHtml || "").match(/From:<\/strong>\s*([^<]+)/i);
+  if (!match) return "";
+  var raw = match[1].trim();
+  var name = raw.indexOf("@") !== -1 ? raw.slice(0, raw.indexOf("@")) : raw;
+  name = name.replace(/[._]+/g, " ").trim();
+  return name ? name.charAt(0).toUpperCase() + name.slice(1) : "";
+};
+
+E.writing37GreetingStarter = function writing37GreetingStarter(task) {
+  var name = E.writing37SenderName(task);
+  return name ? "Dear " + name + ",\n\n" : "";
+};
+
 E.buildWritingTextarea = function buildWritingTextarea(task, opts) {
   opts = opts || {};
   var textarea = document.createElement("textarea");
@@ -499,7 +623,9 @@ E.buildWritingTextarea = function buildWritingTextarea(task, opts) {
   textarea.spellcheck = true;
 
   var choiceId = opts.choiceId || "";
-  textarea.value = E.loadWritingDraft(task.id, choiceId || undefined);
+  var draft = E.loadWritingDraft(task.id, choiceId || undefined);
+  if (!draft && task.examNum === 37) draft = E.writing37GreetingStarter(task);
+  textarea.value = draft;
 
   textarea.addEventListener("input", function () {
     var cid =
@@ -526,6 +652,13 @@ E.buildWritingStickyFooter = function buildWritingStickyFooter(task) {
   count.dataset.writingCount = task.id;
   count.dataset.writingCountMode = "range";
   footer.appendChild(count);
+
+  if (task.wordToleranceNote) {
+    var tolerance = document.createElement("span");
+    tolerance.className = "ege-writing-footer__tolerance";
+    tolerance.textContent = task.wordToleranceNote;
+    footer.appendChild(tolerance);
+  }
 
   return footer;
 };
@@ -773,7 +906,16 @@ E.buildWritingCriteriaDrawer = function buildWritingCriteriaDrawer(task) {
   return root;
 };
 
-E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice) {
+E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice, opts) {
+  // The picker card (see buildWriting38ChoicePicker) reuses this to preview
+  // each option, but only wants задание + вопрос to compare -- the survey
+  // chart, the answer checklist, and the word-count note are read *after*
+  // picking, not while choosing between two topics.
+  var full = !opts || opts.full !== false;
+  // Once a choice is made, syncWriting38Workspace swaps the task's own
+  // instructions line for this same задание text (see below), so showing
+  // it again here would just duplicate it -- only the picker card wants it.
+  var showContext = !opts || opts.context !== false;
   var rail = document.createElement("aside");
   rail.className = "ege-writing38-brief ege-passage";
   rail.id = "writing38-brief-" + task.id;
@@ -781,7 +923,7 @@ E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice) {
 
   var parsed = E.parseWriting38Prompt(choice.promptHtml || "");
 
-  if (parsed.context) {
+  if (parsed.context && showContext) {
     var taskBlock = document.createElement("section");
     taskBlock.className = "ege-writing38-brief__section";
     var taskHead = document.createElement("h3");
@@ -809,7 +951,7 @@ E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice) {
     rail.appendChild(qBlock);
   }
 
-  if (parsed.survey.length) {
+  if (parsed.survey.length && full) {
     var surveyBlock = document.createElement("section");
     surveyBlock.className = "ege-writing38-brief__section";
     var surveyHead = document.createElement("h3");
@@ -849,7 +991,7 @@ E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice) {
     rail.appendChild(surveyBlock);
   }
 
-  if (task.plan && task.plan.length) {
+  if (task.plan && task.plan.length && full) {
     var planDetails = document.createElement("details");
     planDetails.className = "ege-writing38-checklist";
     planDetails.open = true;
@@ -871,13 +1013,6 @@ E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice) {
     rail.appendChild(planDetails);
   }
 
-  if (task.wordToleranceNote) {
-    var tol = document.createElement("p");
-    tol.className = "ege-writing-tolerance";
-    tol.textContent = task.wordToleranceNote;
-    rail.appendChild(tol);
-  }
-
   return rail;
 };
 
@@ -888,11 +1023,8 @@ E.buildWriting38WorkspaceHeader = function buildWriting38WorkspaceHeader(task, c
   var titles = document.createElement("div");
   titles.className = "ege-writing38-header__titles";
 
-  var kicker = document.createElement("p");
-  kicker.className = "ege-writing38-header__kicker";
-  kicker.textContent = "Opinion essay";
-  titles.appendChild(kicker);
-
+  // No "Opinion essay" kicker here -- the task list/nav already says that;
+  // repeating it above every variant title was just noise.
   var variant = document.createElement("h2");
   variant.className = "ege-writing38-header__variant";
   variant.id = "writing38-variant-" + task.id;
@@ -904,8 +1036,12 @@ E.buildWriting38WorkspaceHeader = function buildWriting38WorkspaceHeader(task, c
   var actions = document.createElement("div");
   actions.className = "ege-writing38-header__actions";
 
-  if (task.rubric && task.rubric.length) {
+  if (task.rubric && task.rubric.length && E.shouldShowWritingCriteria()) {
     actions.appendChild(E.buildWritingCriteriaButton(task));
+  }
+
+  if (typeof E.isWrittenSubmitted === "function" && E.isWrittenSubmitted()) {
+    actions.appendChild(E.buildWritingExportButtons(task));
   }
 
   var changeBtn = document.createElement("button");
@@ -951,11 +1087,8 @@ E.buildWriting38EditorPanel = function buildWriting38EditorPanel(task, choiceId)
   var head = document.createElement("div");
   head.className = "ege-writing38-editor__head";
 
-  var title = document.createElement("h3");
-  title.className = "ege-writing38-editor__title";
-  title.textContent = "Ваше эссе";
-  head.appendChild(title);
-
+  // No "Ваше эссе" title here -- the textarea's own placeholder already
+  // says as much, and this panel is the only thing in its column.
   var meta = document.createElement("div");
   meta.className = "ege-writing38-editor__meta";
 
@@ -964,6 +1097,13 @@ E.buildWriting38EditorPanel = function buildWriting38EditorPanel(task, choiceId)
   count.dataset.writingCount = task.id;
   count.dataset.writingCountLang = "ru";
   meta.appendChild(count);
+
+  if (task.wordToleranceNote) {
+    var tolerance = document.createElement("span");
+    tolerance.className = "ege-writing38-editor__tolerance";
+    tolerance.textContent = task.wordToleranceNote;
+    meta.appendChild(tolerance);
+  }
 
   var saved = document.createElement("span");
   saved.className = "ege-writing38-editor__saved";
@@ -1015,7 +1155,7 @@ E.buildWriting38Workspace = function buildWriting38Workspace(task, choice) {
 
   var grid = document.createElement("div");
   grid.className = "ege-writing38-grid";
-  grid.appendChild(E.buildWriting38BriefRail(task, choice));
+  grid.appendChild(E.buildWriting38BriefRail(task, choice, { context: false }));
   grid.appendChild(E.buildWriting38EditorPanel(task, choice.id));
   root.appendChild(grid);
 
@@ -1035,11 +1175,9 @@ E.buildWriting38ChoicePicker = function buildWriting38ChoicePicker(task) {
   shell.className = "ege-writing38-picker";
   shell.id = "writing38-picker-" + task.id;
 
-  var heading = document.createElement("h2");
-  heading.className = "ege-writing38-picker__title";
-  heading.textContent = "Выберите один вариант";
-  shell.appendChild(heading);
-
+  // No "Выберите один вариант" heading here -- the task's own instructions
+  // line right above ("Выберите только ОДНО из двух предложенных заданий")
+  // already says it.
   var cards = document.createElement("div");
   cards.className = "ege-writing38-picker__cards";
   cards.setAttribute("role", "radiogroup");
@@ -1061,14 +1199,32 @@ E.buildWriting38ChoicePicker = function buildWriting38ChoicePicker(task) {
 
     var body = document.createElement("span");
     body.className = "ege-writing38-picker__card-body";
+    var head = document.createElement("span");
+    head.className = "ege-writing38-picker__card-head";
     var idEl = document.createElement("span");
     idEl.className = "ege-writing38-picker__card-id";
     idEl.textContent = choice.id;
     var titleEl = document.createElement("span");
     titleEl.className = "ege-writing38-picker__card-title";
     titleEl.textContent = E.writing38ChoiceLabel(choice).replace(/^[^·]+·\s*/, "");
-    body.appendChild(idEl);
-    body.appendChild(titleEl);
+    head.appendChild(idEl);
+    head.appendChild(titleEl);
+    body.appendChild(head);
+
+    // Full brief right on the card -- reusing the same builder the chosen
+    // side uses further down -- so both options can be read and compared
+    // before picking, instead of choosing blind then discovering the task.
+    // buildWriting38BriefRail always ids its root "writing38-brief-" +
+    // task.id regardless of choice; give each picker copy a distinct id
+    // (choice.id appended) so two cards don't collide on the same id.
+    var preview = E.buildWriting38BriefRail(task, choice, { full: false });
+    preview.id = "writing38-picker-brief-" + task.id + "-" + choice.id;
+    body.appendChild(preview);
+
+    var choose = document.createElement("span");
+    choose.className = "ege-writing38-picker__card-choose";
+    choose.textContent = "Выбрать этот вариант";
+    body.appendChild(choose);
 
     card.appendChild(input);
     card.appendChild(body);
@@ -1141,7 +1297,9 @@ E.renderWriting38 = function renderWriting38(task, wrap) {
   shell.appendChild(workspace);
 
   wrap.appendChild(shell);
-  if (task.rubric && task.rubric.length) wrap.appendChild(E.buildWritingCriteriaDrawer(task));
+  if (task.rubric && task.rubric.length && E.shouldShowWritingCriteria()) {
+    wrap.appendChild(E.buildWritingCriteriaDrawer(task));
+  }
 
   E.syncWriting38Workspace(task.id);
   if (E.isWritingSelfAssessmentVisible(task.id)) E.syncWritingRubricUI(task.id);
@@ -1159,7 +1317,7 @@ E.renderWriting = function renderWriting(task) {
   var split = E.buildWritingShell(task, E.buildWriting37Read(task), {});
   wrap.appendChild(split);
 
-  if (task.rubric && task.rubric.length) {
+  if (task.rubric && task.rubric.length && E.shouldShowWritingCriteria()) {
     wrap.appendChild(E.buildWritingCriteriaDrawer(task));
   }
 

@@ -463,6 +463,7 @@ E.showTask = function showTask(taskId) {
       EgeHighlight.attachAll(panel, hl.topicId, hl.taskId);
     }
     E.syncTopicLayout(taskId);
+    if (typeof E.syncStickyPanelClearance === "function") E.syncStickyPanelClearance(taskId);
     E.syncTaskFlowControls();
 
     var afterLayout = function () {
@@ -826,6 +827,33 @@ E.runExamTimer = function runExamTimer(startedAt) {
 E.syncTopicLayout = function syncTopicLayout() {
     E.restoreTopicLayoutIntros();
     E.restoreTopicLayoutTools();
+  }
+
+  // The sticky read/questions columns cap themselves at
+  // --ege-sticky-panel-max (~100vh), sized as if they start right at the
+  // top of the viewport. They don't -- how far down they land depends on
+  // that task's own exam-bar/title/instructions block, which varies task
+  // to task. On a task with a taller intro (confirmed live on Vocabulary
+  // in Context) the panel's own bottom edge lands past the viewport with
+  // no page scroll to reach it, permanently hiding its last content. Give
+  // it a max-height based on where it actually sits instead of assuming
+  // it starts at the top.
+E.syncStickyPanelClearance = function syncStickyPanelClearance(taskId) {
+    if (typeof E.isFullWrittenExam !== "function" || !E.isFullWrittenExam()) return;
+    var panel = document.getElementById("panel-" + taskId);
+    if (!panel) return;
+    var targets = panel.querySelectorAll(".ege-split__work, .ege-split__read");
+    if (!targets.length) return;
+    var bottomLimit = window.innerHeight - 76;
+    targets.forEach(function (el) {
+      var top = el.getBoundingClientRect().top;
+      if (top <= 0) {
+        el.style.maxHeight = "";
+        return;
+      }
+      var available = Math.max(240, bottomLimit - top);
+      el.style.maxHeight = available + "px";
+    });
   }
 
 E.setRailHeadVisible = function setRailHeadVisible(visible) {
@@ -1232,6 +1260,9 @@ E.mountTopic = function mountTopic(topic, topicId) {
       window._egeTopicLayoutResizeBound = true;
       window.addEventListener("resize", function () {
         if (E.state.activeTaskId) E.syncTopicLayout(E.state.activeTaskId);
+        if (E.state.activeTaskId && typeof E.syncStickyPanelClearance === "function") {
+          E.syncStickyPanelClearance(E.state.activeTaskId);
+        }
         if (E.usesTopicLayout(E.state.topicId)) {
           E.observeTopicExercisePanel(E.state.activeTaskId);
           E.scheduleTopicNavAlign(E.state.activeTaskId);
