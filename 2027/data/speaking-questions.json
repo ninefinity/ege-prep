@@ -12,7 +12,7 @@
       "image": {
         "src": "demo2027-cooking-ad.jpg"
       },
-      "prompt": "Вы участвуете в проекте по изучению рекламы в разных странах. Рассмотрите рекламное объявление и в течение 1,5 минут задайте 4 прямых вопроса в соответствии с содержанием рекламы, а именно, узнайте: 1) какие виды блюд там готовят; 2) сколько человек может быть в группе; 3) сколько длится курс; 4) сколько стоит обучение.",
+      "prompt": "You are considering going to the cooking masterclass and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
       "questions": [
         "kinds of dishes taught at the masterclass",
         "size of the group (number of people)",

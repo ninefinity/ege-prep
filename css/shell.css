@@ -145,10 +145,16 @@ a {
   max-height: none;
 }
 
-.ege-page--topic-layout .ege-rail {
-  display: flex;
-  flex-direction: column;
-  max-height: none;
+/* Desktop only: on mobile the rail is hidden by default and toggled via
+   .is-nav-open (see the @media (max-width: 860px) block further down) --
+   this rule used to apply unscoped and always beat that with higher
+   specificity, so the mobile task-list drawer never actually closed. */
+@media (min-width: 861px) {
+  .ege-page--topic-layout .ege-rail {
+    display: flex;
+    flex-direction: column;
+    max-height: none;
+  }
 }
 
 .ege-page--topic-layout .ege-nav {
@@ -1330,6 +1336,23 @@ a {
   border: none;
   border-top: 1px solid var(--ege-line);
   background: color-mix(in srgb, var(--ege-card) 92%, transparent);
+}
+
+/* Word Formation/Grammar (task--wordform), Complete the Sentences
+   (task--gapfill), and the essay (task--writing-essay) use a height:auto,
+   page-scrolls container in *every* mode, not just the locked-nav mock
+   exam -- the min-width:861px #egePage.is-locked-nav block further down
+   only pins this strip to normal flow for that one mode/width, so plain
+   practice-mode browsing of these task types (no is-locked-nav class at
+   all, any width) kept the base sticky-to-viewport-bottom position and
+   the strip floated over passage text while scrolling, same failure mode
+   that was already fixed for the exam. Applies unconditionally so it
+   covers practice mode at any width, not just the exam's desktop case. */
+.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--wordform) .ege-task-flow,
+.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--gapfill) .ege-task-flow,
+.ege-page--topic-layout > .ege-workspace:has(#egePanels > .ege-task-panel.is-active > .ege-task--writing-essay) .ege-task-flow {
+  position: static;
+  bottom: auto;
 }
 
 .ege-task-flow[hidden] {
@@ -5464,6 +5487,7 @@ body.yap-brand .site-author__promo a:hover {
   display: block;
   width: 100%;
   aspect-ratio: 2 / 3;
+  max-height: min(46vh, 320px);
   object-fit: cover;
   object-position: center;
   border-radius: var(--ege-radius-sm, 8px);
@@ -5507,6 +5531,7 @@ body.yap-brand .site-author__promo a:hover {
 
 .ege-speaking-timers {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 28px;
   width: auto;
@@ -5554,8 +5579,62 @@ body.yap-brand .site-author__promo a:hover {
 }
 
 .ege-speaking-timer {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+
+.ege-speaking-timer__rec {
+  display: none;
+  position: absolute;
+  top: -6px;
+  right: 6px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--ege-bad);
+  color: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  z-index: 2;
+}
+
+.ege-speaking-timer__rec:not([hidden]) {
+  display: inline-flex;
+}
+
+.ege-speaking-timer.is-recording .ege-speaking-timer__rec {
+  animation: ege-speaking-rec-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes ege-speaking-rec-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.ege-speaking-recording {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ege-line);
+  text-align: center;
+}
+
+.ege-speaking-recording__label {
+  margin: 0 0 6px;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ege-muted);
+}
+
+.ege-speaking-recording__player {
+  width: 100%;
+  height: 32px;
 }
 
 .ege-speaking-timer__clock {
@@ -5773,7 +5852,7 @@ body.yap-brand .site-author__promo a:hover {
   flex: 0 0 auto;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 480px) {
   .ege-speaking-questions-media .ege-speaking-timers-col--media {
     position: sticky;
     top: var(--ege-sticky-top);
@@ -5788,7 +5867,7 @@ body.yap-brand .site-author__promo a:hover {
   }
 }
 
-@media (max-width: 719px) {
+@media (max-width: 479px) {
   .ege-speaking-questions-media {
     flex-direction: column;
     align-items: stretch;
@@ -5848,16 +5927,40 @@ body.yap-brand .site-author__promo a:hover {
   margin-left: -4px;
 }
 
+/* The interviewer asks one question at a time -- each question is
+   revealed (not shown from the start) the moment its own answer window
+   begins, and stays visible afterwards like a running transcript of the
+   interview so far. Questions not reached yet stay hidden entirely. */
+.ege-task--speaking-interview .ege-speaking-points {
+  padding-left: 0;
+}
+
+.ege-task--speaking-interview .ege-speaking-points li {
+  display: none;
+  list-style: none;
+}
+
+.ege-task--speaking-interview .ege-speaking-points li.is-revealed {
+  display: list-item;
+}
+
+.ege-task--speaking-interview .ege-speaking-points li.is-active {
+  font-size: var(--ege-text-xl);
+  font-weight: 600;
+  color: var(--ege-ink);
+  background: none;
+  padding: 0;
+  margin-left: 0;
+}
+
 /* 2027 listening: full-width bar + notes + exam layouts */
 .ege-listening-bar {
   display: block;
   width: 100%;
   margin: 10px 0 0;
-  padding: 14px 16px;
+  padding: 6px 0;
   border: none;
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--yap-royal) 5%, #fff);
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--yap-royal) 10%, var(--ege-line));
+  background: transparent;
   position: sticky;
   top: var(--ege-sticky-top);
   z-index: 4;
@@ -5865,7 +5968,7 @@ body.yap-brand .site-author__promo a:hover {
 
 .ege-listening-bar--workspace {
   margin-bottom: 4px;
-  padding: 10px 14px;
+  padding: 4px 0;
 }
 
 .ege-listening-bar__audio {
@@ -6027,20 +6130,11 @@ body.yap-brand .site-author__promo a:hover {
   width: auto;
 }
 
-.ege-listening-player__actions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  width: 100%;
-  min-height: 40px;
-}
-
 .ege-listening-player__actions-start {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-width: 0;
 }
 
@@ -6062,10 +6156,10 @@ body.yap-brand .site-author__promo a:hover {
    as the transport control. Text stays for screen readers only. */
 .ege-listening-bar .ege-listening-play {
   gap: 0;
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
+  width: 37px;
+  height: 37px;
+  min-width: 37px;
+  min-height: 37px;
   padding: 0;
   justify-content: center;
   border-radius: 50%;
@@ -6392,10 +6486,6 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
     font-size: 0.62rem;
     padding: 2px 4px;
     min-width: 1.4rem;
-  }
-
-  .ege-listening-player__actions {
-    min-height: 36px;
   }
 
   .ege-listening-bar .ege-listening-play,
@@ -7522,8 +7612,45 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 .ege-speaking-aloud-text {
+  position: relative;
   font-size: var(--ege-text-xl);
   line-height: 1.85;
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  background: var(--ege-card);
+  padding: 16px;
+  transition: filter 0.3s ease;
+}
+
+.ege-speaking-aloud-text.is-speaking-done,
+.ege-speaking-aloud-text.is-speaking-hidden {
+  filter: blur(6px);
+  user-select: none;
+}
+
+.ege-speaking-aloud-text.is-speaking-done::after,
+.ege-speaking-aloud-text.is-speaking-hidden::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: none;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ege-muted);
+  text-align: center;
+  padding: 16px;
+}
+
+.ege-speaking-aloud-text.is-speaking-done::after {
+  content: "Готово — время вышло";
+}
+
+.ege-speaking-aloud-text.is-speaking-hidden::after {
+  content: "Нажмите на таймер, чтобы начать подготовку";
 }
 
 .ege-task--speaking-aloud .ege-speaking-body {
@@ -7534,11 +7661,54 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   min-width: 7rem;
 }
 
-.ege-speaking-questions-media {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 16px;
-  align-items: start;
+@media (min-width: 480px) {
+  /* Matches the mobile stacking fix's breakpoint above -- this used to
+     apply unconditionally, which beat that fix (same specificity, later
+     in the file always wins) and kept the ad image + timers side by side
+     in a two-column grid too narrow to fit both, collapsing the image to
+     ~0 width and pushing the Answer timer off-screen. The minmax(0, 1fr)
+     column below is what actually prevents that collapse, so this can
+     safely kick in well before desktop widths. */
+  /* The interview task's media block (.ege-speaking-questions-media--solo)
+     has no ad image -- just the timers column -- so it never gets this
+     2-column treatment: with only one grid item, it would land in the
+     "1fr" track and stretch to fill the whole row's width instead of
+     sitting at its own compact size. */
+  .ege-speaking-questions-media:not(.ege-speaking-questions-media--solo) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 16px;
+    align-items: start;
+  }
+
+  /* .ege-speaking-timers-col (shared with the task 39/42 shell, which
+     places it via grid-template-areas: "main timers") also carries
+     grid-area: timers -- a name this grid never defines. With no matching
+     area, the browser was implicitly generating extra columns/rows to
+     satisfy that placement instead of using the explicit 2-column track
+     list above, which is what pushed the timers well below the image
+     instead of beside it. Cancel the inherited placement in this context. */
+  .ege-speaking-questions-media .ege-speaking-timers-col--media {
+    grid-area: auto;
+  }
+
+  /* .ege-speaking-ad-figure's width:var(--ege-speaking-ad-col) (72.9%) is
+     left over from the old flex layout, where it kept the image narrower
+     than the row so a flex-basis:auto timers column had room beside it.
+     In this grid layout the timers already get their own "auto" column,
+     so the image should just fill its own "1fr" column -- 72.9% of that
+     was left in place and shrank the image into the corner, leaving the
+     rest of the column visibly empty. It still needs *some* cap, though:
+     on a wide "1fr" column an uncapped image can render tall enough to
+     push the Answer timer down past the viewport, off-screen behind the
+     sticky bottom nav. Capped narrower than the 42rem used for the task
+     42 comparison photos (.ege-speaking-images) -- this ad only needs to
+     be legible, not full-bleed, and the header text above it already
+     eats into the same vertical budget the timers need. */
+  .ege-speaking-questions-media .ege-speaking-ad-figure {
+    width: 100%;
+    max-width: min(100%, 27rem);
+  }
 }
 
 .ege-speaking-ad-figure__img {
@@ -7558,18 +7728,45 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   }
 }
 
-@media (max-width: 1000px) {
-  .ege-writing38-grid {
+/* .ege-writing38-grid's two columns have a combined hard minimum of
+   980px (420px + 560px) + 24px gap = 1004px. That's wider than the
+   *workspace* column often is well above 1000px of viewport -- the
+   sidebar eats into what's left before the single-column fallback ever
+   kicked in (confirmed live: 1087px viewport, locked-nav's 116px sidebar
+   -> 907px workspace, need 1004px). The overhead differs by context, so
+   this is split in two: locked-nav's sidebar is narrower (~116-180px incl.
+   gap/padding -> collapse under ~1190px) than practice mode's fixed 220px
+   one (~280px incl. gap/padding -> collapse under ~1290px). A single
+   threshold sized for practice mode's wider overhead was killing the
+   2-column layout in the exam needlessly at viewports in between. */
+@media (max-width: 1190px) {
+  #egePage.is-locked-nav .ege-writing38-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
   }
 
-  .ege-writing38-brief {
+  #egePage.is-locked-nav .ege-writing38-brief {
     position: static;
   }
 
-  .ege-writing38-editor__textarea.ege-writing-textarea,
-  .ege-writing38-editor .ege-writing-textarea {
+  #egePage.is-locked-nav .ege-writing38-editor__textarea.ege-writing-textarea,
+  #egePage.is-locked-nav .ege-writing38-editor .ege-writing-textarea {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 1290px) {
+  #egePage:not(.is-locked-nav) .ege-writing38-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  #egePage:not(.is-locked-nav) .ege-writing38-brief {
+    position: static;
+  }
+
+  #egePage:not(.is-locked-nav) .ege-writing38-editor__textarea.ege-writing-textarea,
+  #egePage:not(.is-locked-nav) .ege-writing38-editor .ege-writing-textarea {
     min-height: 420px;
   }
 }
@@ -7825,6 +8022,12 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   gap: 0.75rem;
 }
 
+.ege-results-export {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ege-line);
+}
+
 .ege-exam-phase__panel--results .ege-btn,
 .ege-exam-phase__panel--results a.ege-btn,
 .ege-exam-phase__panel .ege-btn {
@@ -7976,7 +8179,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 .ege-speaking-plan__heading {
-  margin: 1rem 0 0.5rem;
+  margin: 0.35rem 0 0.15rem;
   font-size: 0.95rem;
 }
 
@@ -8029,4 +8232,38 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   .ege-page--topic-layout .ege-split--panels[data-mobile-pane="work"] .ege-split__read {
     display: none;
   }
+}
+
+.ege-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(11, 7, 46, 0.45);
+}
+
+.ege-confirm-box {
+  width: 100%;
+  max-width: 22rem;
+  padding: 20px;
+  border-radius: var(--ege-radius);
+  background: var(--ege-card, #fff);
+  box-shadow: var(--ege-shadow, 0 8px 30px rgba(0, 0, 0, 0.2));
+}
+
+.ege-confirm-message {
+  margin: 0 0 16px;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-md);
+  line-height: 1.5;
+  color: var(--ege-ink);
+}
+
+.ege-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
 }

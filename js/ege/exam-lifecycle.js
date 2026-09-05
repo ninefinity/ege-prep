@@ -153,13 +153,18 @@ E.getPhaseTasks = function getPhaseTasks() {
 
 E.isNavTaskVisible = function isNavTaskVisible(task) {
   if (!task || !E.isFullWrittenExam()) return true;
-  if (!E.isOralTask(task)) return true;
   var phase = E.getExamPhase();
-  return (
-    phase === E.EXAM_PHASES.ORAL_READY ||
-    phase === E.EXAM_PHASES.ORAL_ACTIVE ||
-    phase === E.EXAM_PHASES.COMPLETE
-  );
+  // COMPLETE is review mode (see E.enterExamReview, reached by clicking a
+  // mistake on the results screen) -- both parts should be reachable there.
+  if (phase === E.EXAM_PHASES.COMPLETE) return true;
+  var oralPhaseActive =
+    phase === E.EXAM_PHASES.ORAL_READY || phase === E.EXAM_PHASES.ORAL_ACTIVE;
+  // This used to only gate oral tasks (hidden until the oral phase starts)
+  // and never the reverse -- written tasks stayed visible/reachable via
+  // the flow nav and task list for the entire oral part too, real exams
+  // don't let you go back to a submitted section once you've moved on.
+  if (E.isOralTask(task)) return oralPhaseActive;
+  return !oralPhaseActive;
 };
 
 E.getNavVisibleTasks = function getNavVisibleTasks() {
@@ -299,14 +304,61 @@ E.renderWrittenReadyScreen = function renderWrittenReadyScreen() {
   );
 };
 
-E.appendExamPhaseButton = function appendExamPhaseButton(actions, label, primary, onClick) {
+E.renderOralReadyScreen = function renderOralReadyScreen() {
+  return (
+    '<div class="ege-exam-phase__panel ege-exam-phase__panel--ready" role="region" aria-labelledby="egeOralReadyTitle">' +
+    '<h2 class="ege-exam-phase__title" id="egeOralReadyTitle">Устная часть</h2>' +
+    '<p class="ege-exam-phase__lead">Задания 39–42 · 4 задания</p>' +
+    '<p class="ege-exam-phase__note">Общее время ответа одного экзаменуемого (включая время ' +
+    "на подготовку) – 17 минут. Каждое последующее задание выдаётся после окончания выполнения " +
+    "предыдущего задания. Всё время ответа ведётся аудиозапись. Постарайтесь полностью выполнить " +
+    "поставленные задачи, старайтесь говорить ясно и чётко, не отходить от темы и следовать " +
+    "предложенному плану ответа. Так Вы сможете набрать наибольшее количество баллов.</p>" +
+    '<p class="ege-exam-phase__timer-note">Таймер начнётся после старта</p>' +
+    '<div class="ege-exam-phase__actions ege-exam-phase__actions--ready">' +
+    '<button type="button" class="ege-exam-timer__start" id="egeStartOralExam">Start</button>' +
+    "</div></div>"
+  );
+};
+
+E.appendExamPhaseButton = function appendExamPhaseButton(actions, label, primary, onClick, options) {
+  options = options || {};
   var btn = document.createElement("button");
   btn.type = "button";
   btn.className =
     "ege-btn ege-exam-phase-actions__btn " + (primary ? "ege-btn--primary" : "ege-btn--ghost");
+  if (options.extraClass) btn.classList.add(options.extraClass);
   btn.textContent = label;
+  if (options.ariaLabel) {
+    btn.setAttribute("aria-label", options.ariaLabel);
+    btn.title = options.ariaLabel;
+  }
   btn.addEventListener("click", onClick);
   actions.appendChild(btn);
+};
+
+E.resetOralExamState = function resetOralExamState() {
+  if (!E.state.topic || !E.state.topic.tasks) return;
+  E.state.topic.tasks.filter(E.isOralTask).forEach(function (task) {
+    var taskId = task.id;
+    delete E.state.scores[taskId];
+    if (typeof E.clearTaskScore === "function") E.clearTaskScore(taskId);
+    if (E.state.speakingTimerTouched) delete E.state.speakingTimerTouched[taskId];
+    if (typeof E.resetSpeakingTimers === "function") E.resetSpeakingTimers(taskId);
+    if (E.speakingRecordings && E.speakingRecordings[taskId]) {
+      URL.revokeObjectURL(E.speakingRecordings[taskId].url);
+      delete E.speakingRecordings[taskId];
+      if (typeof E.syncSpeakingRecordingPlayback === "function") {
+        E.syncSpeakingRecordingPlayback(taskId);
+      }
+    }
+    if (typeof E.setNavStatus === "function") E.setNavStatus(taskId, 0, E.taskMaxScore(task));
+    if (typeof E.syncSpeakingCompleteButton === "function") E.syncSpeakingCompleteButton(taskId);
+    if (typeof E.syncResetButton === "function") E.syncResetButton(taskId);
+    var taskEl = document.getElementById("task-" + taskId);
+    var passage = taskEl && taskEl.querySelector(".ege-speaking-aloud-text");
+    if (passage) passage.classList.remove("is-speaking-done");
+  });
 };
 
 E.resetWrittenTasksInDom = function resetWrittenTasksInDom() {
@@ -329,7 +381,10 @@ E.resetWrittenExamAnswers = function resetWrittenExamAnswers(force) {
   if (!E.isFullWrittenExam()) return;
   if (!force) {
     var msg = "Сбросить все ответы письменной части? Таймер продолжит идти.";
-    if (!window.confirm(msg)) return;
+    E.showConfirmDialog(msg, function () {
+      E.resetWrittenExamAnswers(true);
+    });
+    return;
   }
   if (typeof E.cancelAutosave === "function") E.cancelAutosave();
   E.stopAllListeningAudio();
@@ -358,7 +413,10 @@ E.restartWrittenExam = function restartWrittenExam(force) {
   if (!force) {
     var msg =
       "Начать экзамен заново? Все ответы и прогресс будут удалены, таймер сбросится.";
-    if (!window.confirm(msg)) return;
+    E.showConfirmDialog(msg, function () {
+      E.restartWrittenExam(true);
+    });
+    return;
   }
   var mins = E.state.examMinutes;
   var key = E.state.examTimerKey || E.answersSaveVariantKey();
@@ -376,6 +434,7 @@ E.restartWrittenExam = function restartWrittenExam(force) {
   E.state.examReviewing = false;
   E.state.placementFinalized = false;
   E.resetWrittenTasksInDom();
+  E.resetOralExamState();
   E.ensureWorkspaceInteractive();
   E.persistExamPhase(E.EXAM_PHASES.WRITTEN_READY, { skipSync: true });
   if (mins && key) {
@@ -453,10 +512,20 @@ E.syncExamBarControlsLayout = function syncExamBarControlsLayout() {
   var manage = document.getElementById("egeExamManageActions");
   var timer = document.getElementById("egeExamTimer");
   var finish = document.getElementById("egeFinishWritten");
-  [manage, timer, finish].forEach(function (el) {
+  // egeExamPhaseActions holds the "Устная часть" / "Готов(а)" / "Готово"
+  // buttons that carry the exam from written-submitted through to
+  // oral-active (built by E.syncExamPhaseActions). useExamSidebarControls()
+  // is hardcoded false, so the sidebar-rail branch in
+  // syncExamControlsLayout that used to mount it never runs -- without
+  // adding it here too, that element is built but never attached to the
+  // document, so the whole phase-transition flow has no visible button
+  // (confirmed live: written-submitted has nothing on screen to move on
+  // with).
+  var phase = document.getElementById("egeExamPhaseActions");
+  [manage, timer, finish, phase].forEach(function (el) {
     if (el && el.parentNode !== end) end.appendChild(el);
   });
-  [manage, timer, finish].forEach(function (el) {
+  [manage, timer, finish, phase].forEach(function (el) {
     if (el && el.parentNode === end) end.appendChild(el);
   });
 };
@@ -521,10 +590,11 @@ E.syncExamManageActions = function syncExamManageActions() {
     phase === E.EXAM_PHASES.WRITTEN_ACTIVE &&
     typeof E.countWrittenAnswered === "function" &&
     E.countWrittenAnswered().answered > 0;
+  // The results screen (COMPLETE) only offers "start over" -- resetting
+  // just the written answers, or jumping to a task list, don't make sense
+  // once the whole exam is already finished and scored.
   var showReset =
-    activeWithProgress ||
-    phase === E.EXAM_PHASES.WRITTEN_SUBMITTED ||
-    phase === E.EXAM_PHASES.COMPLETE;
+    activeWithProgress || phase === E.EXAM_PHASES.WRITTEN_SUBMITTED;
   var showRestart =
     activeWithProgress ||
     phase === E.EXAM_PHASES.WRITTEN_SUBMITTED ||
@@ -564,7 +634,11 @@ E.syncExamManageActions = function syncExamManageActions() {
     actions.appendChild(restartBtn);
   }
 
-  if (typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam()) {
+  if (
+    phase !== E.EXAM_PHASES.COMPLETE &&
+    typeof E.isFullWrittenExam === "function" &&
+    E.isFullWrittenExam()
+  ) {
     var jumpBtn = document.createElement("button");
     jumpBtn.type = "button";
     jumpBtn.className = "ege-btn ege-btn--ghost ege-exam-restart-btn";
@@ -589,6 +663,13 @@ E.syncExamPhaseActions = function syncExamPhaseActions() {
     actions.id = "egeExamPhaseActions";
     actions.className = "ege-exam-phase-actions";
   }
+  // Unlike egeExamManageActions (mounted the moment it's created, in its
+  // own ensure* helper), this element was only ever created here and left
+  // detached -- later lookups by id (in syncExamControlsLayout) found
+  // nothing to move, so the "Устная часть"/"Готов(а)"/"Готово" buttons it
+  // holds never made it on screen (confirmed live: written-submitted had
+  // no visible way to move on to the oral part). Mount it immediately.
+  if (typeof E.mountExamBarControl === "function") E.mountExamBarControl(actions);
   actions.textContent = "";
   actions.hidden = true;
 
@@ -608,16 +689,16 @@ E.syncExamPhaseActions = function syncExamPhaseActions() {
     return;
   }
 
-  if (phase === E.EXAM_PHASES.ORAL_READY) {
-    actions.hidden = false;
-    E.appendExamPhaseButton(actions, "Готов(а)", true, E.startOralExam);
-    E.syncExamControlsLayout();
-    return;
-  }
+  // ORAL_READY has no exam-bar button of its own -- like WRITTEN_READY, its
+  // "Start" lives on the dedicated ready screen (see E.showOralReadyScreen)
+  // instead.
 
   if (phase === E.EXAM_PHASES.ORAL_ACTIVE) {
     actions.hidden = false;
-    E.appendExamPhaseButton(actions, "Готово", true, E.confirmOralResults);
+    E.appendExamPhaseButton(actions, "✓", true, E.confirmOralResults, {
+      extraClass: "ege-exam-finish",
+      ariaLabel: "Завершить устную часть",
+    });
   }
 
   E.syncExamManageActions();
@@ -680,6 +761,22 @@ E.showWrittenReadyScreen = function showWrittenReadyScreen() {
   }
 };
 
+E.showOralReadyScreen = function showOralReadyScreen() {
+  E.syncWrittenReadyChrome();
+  E.showExamPhaseScreen(E.renderOralReadyScreen());
+  // The instructions on this screen say the whole oral part is recorded,
+  // so ask for the mic here -- while the student is reading and before
+  // Start is even clicked -- rather than waiting for the first Answer
+  // phase to request it mid-task, which would eat into that task's timer.
+  if (typeof E.ensureMicStream === "function") E.ensureMicStream();
+  var start = document.getElementById("egeStartOralExam");
+  if (start) {
+    start.addEventListener("click", function () {
+      E.startOralExam();
+    });
+  }
+};
+
 E.initExamPhase = function initExamPhase() {
   if (!E.isFullWrittenExam()) {
     E.state.examPhase = "";
@@ -730,10 +827,9 @@ E.syncExamPhaseUI = function syncExamPhaseUI() {
   }
 
   if (phase === E.EXAM_PHASES.ORAL_READY) {
-    E.showTaskWorkspace();
+    E.showOralReadyScreen();
     if (typeof E.syncExamPoints === "function") E.syncExamPoints();
     E.syncExamPhaseActions();
-    E.ensureActivePhaseTask();
     return;
   }
 
@@ -797,7 +893,12 @@ E.submitWrittenExam = function submitWrittenExam(force) {
   E.stopExamTimer();
   if (typeof E.finalizePlacementExam === "function") E.finalizePlacementExam();
   E.lockWrittenAnswers();
-  E.persistExamPhase(E.EXAM_PHASES.WRITTEN_SUBMITTED);
+  // Go straight to the oral instructions screen instead of stopping at an
+  // intermediate WRITTEN_SUBMITTED screen that just shows the (now locked)
+  // written answers with a single "Устная часть" button to click through --
+  // isWrittenSubmitted() already treats ORAL_READY as submitted too, so
+  // nothing downstream depends on actually landing on WRITTEN_SUBMITTED.
+  E.persistExamPhase(E.EXAM_PHASES.ORAL_READY);
   E.syncExamPhaseUI();
   if (typeof E.syncExamPracticeUI === "function") E.syncExamPracticeUI();
 };
@@ -813,7 +914,9 @@ E.confirmSubmitWrittenExam = function confirmSubmitWrittenExam() {
         counts.total +
         ". Всё равно сдать письменную часть?"
       : "Сдать письменную часть? После сдачи ответы нельзя изменить.";
-  if (window.confirm(msg)) E.submitWrittenExam(true);
+  E.showConfirmDialog(msg, function () {
+    E.submitWrittenExam(true);
+  });
 };
 
 E.startOralExam = function startOralExam() {

@@ -337,7 +337,20 @@ E.buildTaskIntro = function buildTaskIntro(task) {
         titleText = "";
       }
     }
-    if (titleText && task.type !== "wordform" && task.type !== "writing" && !skipTitle) {
+    if (
+      titleText &&
+      task.type !== "wordform" &&
+      task.type !== "writing" &&
+      // speaking-aloud renders its own title (task.textTitle, the same
+      // text here) right above the passage -- this generic one just
+      // duplicated it in plain black text above that.
+      task.type !== "speaking-aloud" &&
+      // speaking-questions' nav label (e.g. "Cooking Masterclass") is an
+      // internal task-list name, not part of the actual exam prompt --
+      // the ad's own title (task.adTitle) is what the real task shows.
+      task.type !== "speaking-questions" &&
+      !skipTitle
+    ) {
       var head = document.createElement("div");
       head.className = "ege-task-intro__head";
 
@@ -1482,16 +1495,18 @@ E.buildTaskFooter = function buildTaskFooter(taskId, max, options) {
     });
 
     if (options.doneButton) {
-      var completeBtn = document.createElement("button");
-      completeBtn.type = "button";
-      completeBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
-      completeBtn.id = "complete-" + taskId;
-      completeBtn.textContent = options.doneLabel || "Done";
-      completeBtn.addEventListener("click", function () {
-        if (typeof options.onDone === "function") options.onDone(taskId);
-        else if (typeof E.markSpeakingComplete === "function") E.markSpeakingComplete(taskId);
-      });
-      actions.appendChild(completeBtn);
+      if (!options.omitDoneButton) {
+        var completeBtn = document.createElement("button");
+        completeBtn.type = "button";
+        completeBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
+        completeBtn.id = "complete-" + taskId;
+        completeBtn.textContent = options.doneLabel || "Done";
+        completeBtn.addEventListener("click", function () {
+          if (typeof options.onDone === "function") options.onDone(taskId);
+          else if (typeof E.markSpeakingComplete === "function") E.markSpeakingComplete(taskId);
+        });
+        actions.appendChild(completeBtn);
+      }
 
       if (!options.omitReset) {
         var doneResetBtn = document.createElement("button");
@@ -1534,4 +1549,67 @@ E.buildTaskFooter = function buildTaskFooter(taskId, max, options) {
       E.syncResetButton(taskId);
     }
     return footer;
+  }
+
+// Native window.confirm() is unreliable for destructive actions here: some
+// embedded/automated browser contexts auto-resolve it without ever showing
+// a dialog, and real Chrome silently suppresses repeat confirm() calls on
+// a page after the user has seen a few (the "prevent this page from
+// creating additional dialogs" checkbox) -- either way the calling code's
+// "if (!window.confirm(...)) return" sees a plain false and just quietly
+// does nothing, which reads as "the button doesn't work". An in-page
+// dialog can't be silently suppressed by the browser this way.
+E.showConfirmDialog = function showConfirmDialog(message, onConfirm, options) {
+    options = options || {};
+    var overlay = document.createElement("div");
+    overlay.className = "ege-confirm-overlay";
+
+    var box = document.createElement("div");
+    box.className = "ege-confirm-box";
+    box.setAttribute("role", "alertdialog");
+    box.setAttribute("aria-modal", "true");
+
+    var p = document.createElement("p");
+    p.className = "ege-confirm-message";
+    p.textContent = message;
+    box.appendChild(p);
+
+    var actions = document.createElement("div");
+    actions.className = "ege-confirm-actions";
+
+    var cancelBtn = document.createElement("button");
+    cancelBtn.type = "button";
+    cancelBtn.className = "ege-btn ege-btn--ghost";
+    cancelBtn.textContent = options.cancelLabel || "Отмена";
+
+    var okBtn = document.createElement("button");
+    okBtn.type = "button";
+    okBtn.className = "ege-btn ege-btn--primary";
+    okBtn.textContent = options.confirmLabel || "Да";
+
+    function close() {
+      overlay.remove();
+      document.removeEventListener("keydown", onKeydown);
+    }
+
+    function onKeydown(event) {
+      if (event.key === "Escape") close();
+    }
+
+    cancelBtn.addEventListener("click", close);
+    okBtn.addEventListener("click", function () {
+      close();
+      onConfirm();
+    });
+    overlay.addEventListener("click", function (event) {
+      if (event.target === overlay) close();
+    });
+    document.addEventListener("keydown", onKeydown);
+
+    actions.appendChild(cancelBtn);
+    actions.appendChild(okBtn);
+    box.appendChild(actions);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+    okBtn.focus();
   }

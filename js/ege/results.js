@@ -455,6 +455,10 @@ E.renderMistakesBySection = function renderMistakesBySection(mistakes) {
 
 E.renderSectionBreakdown = function renderSectionBreakdown(result) {
   var max = result.sectionMax || E.EXAM_SCORING_CONFIG.sections;
+  // Writing/speaking aren't auto-checked (see calculatePrimaryScore), so
+  // they don't get folded into a percentage of the headline score here --
+  // that would imply they were graded against it like the auto sections.
+  var ungraded = { writing: true, speaking: true };
   var breakdown = '<div class="ege-exam-phase__breakdown ege-results-sections">';
   ["listening", "reading", "useOfEnglish", "writing", "speaking"].forEach(function (key) {
     var score = result.sections[key] || 0;
@@ -468,9 +472,10 @@ E.renderSectionBreakdown = function renderSectionBreakdown(result) {
       score +
       " / " +
       sectionMax +
-      ' <span class="ege-results-sections__pct">(' +
-      pct(score, sectionMax) +
-      "%)</span></span>" +
+      (ungraded[key]
+        ? ' <span class="ege-results-sections__pct">(не в тестовом балле)</span>'
+        : ' <span class="ege-results-sections__pct">(' + pct(score, sectionMax) + "%)</span>") +
+      "</span>" +
       "</div>";
   });
   breakdown += "</div>";
@@ -509,6 +514,73 @@ E.renderPendingNotes = function renderPendingNotes(writingNotes, speakingNotes) 
   return pendingHtml;
 };
 
+E.buildExamResultsText = function buildExamResultsText(report) {
+  var data = report || E.buildExamResultsReport();
+  var result = data.result;
+  var lines = [];
+  lines.push("Результаты — Time to ЕГЭ 2027");
+  lines.push("");
+  lines.push("Тестовый балл (автопроверяемые задания): " + result.testScore + " / 100");
+  lines.push("Первичный балл (автопроверяемые задания): " + result.primaryScore + " / " + result.maxPrimaryScore);
+  lines.push(result.status.label);
+  lines.push("");
+  lines.push("По разделам:");
+  var max = result.sectionMax || {};
+  var ungraded = { writing: true, speaking: true };
+  ["listening", "reading", "useOfEnglish", "writing", "speaking"].forEach(function (key) {
+    var score = result.sections[key] || 0;
+    var sectionMax = max[key] || 0;
+    var suffix = ungraded[key] ? " (не в тестовом балле)" : " (" + pct(score, sectionMax) + "%)";
+    lines.push("- " + sectionLabel(key) + ": " + score + " / " + sectionMax + suffix);
+  });
+  if (data.mistakes && data.mistakes.length) {
+    lines.push("");
+    lines.push("Ошибки (" + data.mistakes.length + "):");
+    data.mistakes.forEach(function (item) {
+      lines.push("- " + mistakeDisplayTitle(item) + ": " + (item.explanation || ""));
+    });
+  }
+  return lines.join("\n");
+};
+
+E.downloadExamResultsText = function downloadExamResultsText() {
+  var text = E.buildExamResultsText();
+  var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = "ege-2027-results.txt";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+};
+
+E.copyExamResultsText = function copyExamResultsText(btn) {
+  var text = E.buildExamResultsText();
+  function done(ok) {
+    if (!btn) return;
+    var original = btn.dataset.originalLabel || btn.textContent;
+    btn.dataset.originalLabel = original;
+    btn.textContent = ok ? "Скопировано" : "Не удалось скопировать";
+    window.setTimeout(function () {
+      btn.textContent = original;
+    }, 1500);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(
+      function () {
+        done(true);
+      },
+      function () {
+        done(false);
+      }
+    );
+  } else {
+    done(false);
+  }
+};
+
 E.renderExamResultsScreen = function renderExamResultsScreen(report) {
   var data = report || E.buildExamResultsReport();
   var result = data.result;
@@ -519,13 +591,13 @@ E.renderExamResultsScreen = function renderExamResultsScreen(report) {
     '<p class="ege-exam-phase__score ege-exam-phase__score--test">' +
     result.testScore +
     " / 100</p>" +
-    '<p class="ege-exam-phase__lead">Тестовый балл</p>' +
+    '<p class="ege-exam-phase__lead">Тестовый балл (автопроверяемые задания)</p>' +
     '<p class="ege-exam-phase__score ege-exam-phase__score--primary">' +
     result.primaryScore +
     " / " +
     result.maxPrimaryScore +
     "</p>" +
-    '<p class="ege-exam-phase__lead">Первичный балл</p>' +
+    '<p class="ege-exam-phase__lead">Первичный балл (автопроверяемые задания)</p>' +
     '<p class="result-status result-status--' +
     esc(result.status.level) +
     '">' +
@@ -538,24 +610,15 @@ E.renderExamResultsScreen = function renderExamResultsScreen(report) {
     E.renderGrowthBlock(data.growth) +
     E.renderPendingNotes(data.writingNotes, data.speakingNotes) +
     E.renderMistakesBySection(data.mistakes) +
-    '<div class="ege-exam-phase__actions">' +
-    '<button type="button" class="ege-btn ege-btn--primary" id="egeResultsReviewTasks">К заданиям</button>' +
-    '<a class="ege-btn ege-btn--ghost" href="index.html">На главную</a>' +
+    '<div class="ege-exam-phase__actions ege-results-export">' +
+    '<button type="button" class="ege-btn ege-btn--ghost" id="egeResultsDownload">Скачать .txt</button>' +
+    '<button type="button" class="ege-btn ege-btn--ghost" id="egeResultsCopy">Копировать</button>' +
     "</div>" +
     "</div>"
   );
 };
 
 E.bindExamResultsScreen = function bindExamResultsScreen() {
-  var review = document.getElementById("egeResultsReviewTasks");
-  if (review) {
-    review.addEventListener("click", function () {
-      if (typeof E.enterExamReview === "function") E.enterExamReview();
-      var first = E.writtenExamTasks()[0];
-      if (first) E.showTask(first.id);
-    });
-  }
-
   document.querySelectorAll("[data-results-task]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var taskId = btn.getAttribute("data-results-task");
@@ -564,6 +627,20 @@ E.bindExamResultsScreen = function bindExamResultsScreen() {
       E.showTask(taskId);
     });
   });
+
+  var downloadBtn = document.getElementById("egeResultsDownload");
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", function () {
+      E.downloadExamResultsText();
+    });
+  }
+
+  var copyBtn = document.getElementById("egeResultsCopy");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      E.copyExamResultsText(copyBtn);
+    });
+  }
 };
 
 E.showExamResultsScreen = function showExamResultsScreen() {

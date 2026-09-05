@@ -1154,8 +1154,43 @@ E.mountTopic = function mountTopic(topic, topicId) {
       if (task._sectionId) shell.dataset.sectionId = task._sectionId;
 
       var intro = E.buildTaskIntro(task);
+      var panelContent = E.renderTaskPanel(task);
+      // Most speaking tasks have no section/task "instructions" string, so
+      // buildTaskIntro's paragraph ends up holding only the exam number
+      // (e.g. "40") with nothing else -- that's still enough for the
+      // `if (instrText || examLabel)` check to build the paragraph, so it
+      // rendered as its own line, stacked above the task's own title/lead
+      // line instead of reading as "40 Study the advertisement." on one
+      // line the way every instruction-bearing task type does. Fold it
+      // into that first line instead of leaving it stacked above.
+      if (intro && E.isSpeakingPractice(task)) {
+        var instrP = intro.querySelector(".ege-instructions");
+        var examSpan = instrP && instrP.querySelector(".ege-task-intro__exam");
+        var numberOnly = examSpan && instrP.textContent.trim() === examSpan.textContent.trim();
+        // A combined selector list here would match by DOM position, not
+        // by this priority order -- task 40's caption used to be the
+        // first paragraph in the DOM, but moving the image+timers above
+        // it (they render first now) meant a plain "p" match landed on
+        // the timer's own phase label ("PREPARATION") instead. Check each
+        // specific class first and only fall back to a bare "p" -- scoped
+        // away from the timers column -- if none of them exist.
+        var firstLine = numberOnly
+          ? panelContent.querySelector(".ege-speaking-ad-lead") ||
+            panelContent.querySelector(".ege-speaking-ad-title") ||
+            panelContent.querySelector(".ege-task-title") ||
+            panelContent.querySelector(".ege-speaking-questions-header") ||
+            panelContent.querySelector(
+              ".ege-speaking-main p, .ege-speaking-brief p, .ege-speaking-prompt p"
+            )
+          : null;
+        if (firstLine) {
+          firstLine.insertBefore(document.createTextNode(" "), firstLine.firstChild);
+          firstLine.insertBefore(examSpan, firstLine.firstChild);
+          intro = null;
+        }
+      }
       if (intro) shell.appendChild(intro);
-      shell.appendChild(E.renderTaskPanel(task));
+      shell.appendChild(panelContent);
       if (
         task.type === "listening" &&
         typeof E.taskUsesExamSinglePage === "function" &&

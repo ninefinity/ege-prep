@@ -556,6 +556,12 @@
 
     var tools = buildTaskToolbar(containers);
     tools.dataset.taskId = taskId;
+    // Every task type keeps this toolbar in the same spot: the top-right
+    // corner of the passage column itself, not beside the task title.
+    // Gapfill/wordform briefly mounted it in .ege-task-intro__head instead
+    // (to line it up with the title) but that made it the only task type
+    // where the toolbar's position shifted from one task to the next --
+    // consistency across task types wins over that one alignment tweak.
     if (!mountOnPassageColumn(task, tools)) {
       mountToolsFallback(panel, task, tools);
     }

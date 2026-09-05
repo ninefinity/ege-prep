@@ -52,8 +52,19 @@ E.calculatePrimaryScore = function calculatePrimaryScore(results) {
   var writing = E.clamp(results.writing, 0, cfg.writing);
   var speaking = E.clamp(results.speaking, 0, cfg.speaking);
 
+  // Listening/reading/use-of-English are objectively auto-checked against
+  // an answer key. Writing and speaking need a human (or at least a
+  // careful self-review against the criteria) to judge, which this app
+  // doesn't do -- so the headline primary/test score only ever reflects
+  // the auto-checked sections, never a 0 standing in for "not graded".
+  // Section-level writing/speaking numbers still exist for the breakdown
+  // list below, just not folded into the headline.
+  var autoScore = listening + reading + useOfEnglish;
+  var autoMax = cfg.listening + cfg.reading + cfg.useOfEnglish;
+
   return {
-    primaryScore: listening + reading + useOfEnglish + writing + speaking,
+    primaryScore: autoScore,
+    maxPrimaryScore: autoMax,
     sections: {
       listening: listening,
       reading: reading,
@@ -62,7 +73,6 @@ E.calculatePrimaryScore = function calculatePrimaryScore(results) {
       speaking: speaking,
     },
     sectionMax: cfg,
-    maxPrimaryScore: E.EXAM_SCORING_CONFIG.maxPrimaryScore,
   };
 };
 

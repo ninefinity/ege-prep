@@ -43,6 +43,16 @@ E.syncListeningNotesLayerSize = function syncListeningNotesLayerSize(taskId) {
   var layer = surface.querySelector(".ege-listening-notes-layer");
   if (!layer) return;
   layer.style.height = Math.max(surface.scrollHeight, surface.clientHeight) + "px";
+  // The surface this size is tracking is also what existing notes were
+  // clamped against -- a resize (window resize, mobile layout switch)
+  // can leave notes placed near the old edge outside the new one.
+  layer.querySelectorAll(".ege-listening-note").forEach(function (el) {
+    var notes = E.loadListeningNotes(taskId);
+    var note = notes.find(function (n) {
+      return n.id === el.dataset.noteId;
+    });
+    if (note) E.clampListeningNoteToSurface(taskId, surface, el, note);
+  });
 };
 
 E.bindListeningNotesResize = function bindListeningNotesResize(taskId, surface) {
@@ -76,11 +86,38 @@ E.ensureListeningNotesLayer = function ensureListeningNotesLayer(taskId) {
   return layer;
 };
 
+// A note's stored x/y is only ever valid for the surface size it was
+// placed at -- a click near the right/bottom edge, or the surface
+// shrinking later (window resize, mobile layout), can leave it rendered
+// partly or fully outside the surface. Its delete button is part of the
+// note itself, so an out-of-bounds note isn't just visually clipped --
+// there is no other way to reach it. Pull it back to the nearest in-
+// bounds position (using its own rendered size, not a guessed constant)
+// and persist the correction so it stays reachable next time too.
+E.clampListeningNoteToSurface = function clampListeningNoteToSurface(taskId, surface, el, note) {
+  if (!surface || !el) return;
+  var surfaceRect = surface.getBoundingClientRect();
+  var elRect = el.getBoundingClientRect();
+  var maxX = Math.max(0, surfaceRect.width - elRect.width);
+  var maxY = Math.max(0, surfaceRect.height - elRect.height);
+  var x = Math.min(Math.max(0, note.x || 0), maxX);
+  var y = Math.min(Math.max(0, note.y || 0), maxY);
+  if (x === note.x && y === note.y) return;
+  note.x = x;
+  note.y = y;
+  el.style.left = x + "px";
+  el.style.top = y + "px";
+  E.updateListeningNote(taskId, note.id, { x: x, y: y });
+};
+
 E.renderListeningNotes = function renderListeningNotes(taskId, layer) {
   if (!layer) return;
   layer.textContent = "";
+  var surface = E.getListeningNotesSurface(taskId);
   E.loadListeningNotes(taskId).forEach(function (note) {
-    layer.appendChild(E.createListeningNoteEl(taskId, note));
+    var el = E.createListeningNoteEl(taskId, note);
+    layer.appendChild(el);
+    E.clampListeningNoteToSurface(taskId, surface, el, note);
   });
 };
 
@@ -147,7 +184,9 @@ E.addListeningNote = function addListeningNote(taskId, layer, x, y) {
   var notes = E.loadListeningNotes(taskId);
   notes.push(note);
   E.saveListeningNotes(taskId, notes);
-  layer.appendChild(E.createListeningNoteEl(taskId, note));
+  var el = E.createListeningNoteEl(taskId, note);
+  layer.appendChild(el);
+  E.clampListeningNoteToSurface(taskId, E.getListeningNotesSurface(taskId), el, note);
   var textarea = layer.querySelector('.ege-listening-note[data-note-id="' + note.id + '"] textarea');
   if (textarea) textarea.focus();
   E.syncListeningNotesLayerSize(taskId);

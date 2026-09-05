@@ -128,22 +128,28 @@ E.confirmWriting38VariantChange = function confirmWriting38VariantChange(taskId)
   var choiceId = E.getWriting38Choice(task);
   var textarea = document.getElementById("writing-draft-" + taskId);
   var hasDraft = !!(textarea && E.normalize(textarea.value));
-  if (hasDraft) {
-    var ok = window.confirm(
-      "Сменить вариант? Текущий черновик останется сохранён для этого варианта."
-    );
-    if (!ok) return;
-    if (choiceId) E.saveWritingDraft(taskId, textarea.value, choiceId);
+
+  function applyChange() {
+    if (hasDraft && choiceId) E.saveWritingDraft(taskId, textarea.value, choiceId);
+    // "Сменить вариант" toggles straight to the other topic (38.1 <-> 38.2)
+    // instead of dropping back to the picker -- with only two options,
+    // picking again is a pointless extra click.
+    var other = task.choices.find(function (c) {
+      return c.id !== choiceId;
+    });
+    E.state.writing38Choice = other ? other.id : "";
+    E.syncWriting38Workspace(taskId);
+    if (typeof E.scheduleAutosave === "function") E.scheduleAutosave();
   }
-  // "Сменить вариант" toggles straight to the other topic (38.1 <-> 38.2)
-  // instead of dropping back to the picker -- with only two options,
-  // picking again is a pointless extra click.
-  var other = task.choices.find(function (c) {
-    return c.id !== choiceId;
-  });
-  E.state.writing38Choice = other ? other.id : "";
-  E.syncWriting38Workspace(taskId);
-  if (typeof E.scheduleAutosave === "function") E.scheduleAutosave();
+
+  if (hasDraft) {
+    E.showConfirmDialog(
+      "Сменить вариант? Текущий черновик останется сохранён для этого варианта.",
+      applyChange
+    );
+    return;
+  }
+  applyChange();
 };
 
 E.writingRubricKey = function writingRubricKey(taskId) {

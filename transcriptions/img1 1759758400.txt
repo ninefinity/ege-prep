@@ -33,3 +33,8 @@ Direct questions: make all content visible with no internal scrolling.
 localStorage.clear();
 sessionStorage.clear();
 location.reload();
+
+
+Сдать - tick Ui - hover text: Завершить и сдать все
+Сбросить - cross - hover text: Сбросить данное задание
+Restart (revert) - round arrow UI - hover text: Начать заново

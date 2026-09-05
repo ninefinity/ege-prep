@@ -1,0 +1,637 @@
+{
+  "exam": "ЕГЭ 2027 — Демонстрационный вариант, Английский язык",
+  "note": "Each item has two explanation fields: 'explanation' is a short, student-facing note (a few sentences) meant to be shown right after a student misses that one item in the interactive mock exam. 'full_explanation' is a longer, more detailed teacher-style walkthrough (with more context and reasoning about why other options are wrong) for deeper review.",
+  "writing_scoring_criteria": {
+    "note": "Official ЕГЭ scoring rubrics (Приложение 3) for the two writing tasks. Tasks 37 and 38 are graded on content/aspects, organization, and language — not marked simply 'right' or 'wrong' — so use these criteria to self-assess a written response rather than a single correct answer.",
+    "word_count_rules": {
+      "source": "Приложение 5 — Порядок подсчёта слов в заданиях раздела «Письменная речь»",
+      "target_word_count": {
+        "task_37": "100–140 words (this is the instruction printed on the exam paper: 'Write 100–140 words')",
+        "task_38": "200–250 words (this is the instruction printed on the exam paper: 'Write 200–250 words')"
+      },
+      "tolerance": "A ±10% deviation from the target is allowed before any penalty.",
+      "gradable_range_before_zero": {
+        "task_37": "90–154 words. Below 90 words, the response is NOT checked at all and is scored 0. Above 154 words, only the first 140 words (counted from the start) are checked — anything after that is ignored.",
+        "task_38": "180–275 words. Below 180 words, the response is NOT checked at all and is scored 0. Above 275 words, only the first 250 words (counted from the start) are checked — anything after that is ignored."
+      },
+      "how_words_are_counted": [
+        "Every word from the first to the last is counted, including auxiliary verbs, prepositions, articles, and particles.",
+        "In an email, the greeting and the signature are also counted.",
+        "Contracted forms (can't, didn't, isn't, I'm, etc.) count as ONE word.",
+        "Numbers written as digits (1, 25, 2009, 126 204, etc.) count as ONE word.",
+        "Numbers written as digits together with a percent sign (25%, 100%, etc.) count as ONE word.",
+        "Numbers written out in words count as separate words (e.g. 'twenty five' as two words, unless hyphenated — see below).",
+        "Compound/hyphenated words (good-looking, well-bred, English-speaking, twenty-five) count as ONE word.",
+        "Abbreviations (USA, e-mail, TV, CD-rom, etc.) count as ONE word."
+      ],
+      "practical_tip_for_students": "Both model answers in this file (task 37: 133 words; task 38.1: ~235 words; task 38.2: ~240 words) fall inside the target ranges printed on the exam paper, well within the tolerance for full marks."
+    },
+    "plagiarism_rule": {
+      "source": "Приложение 4 — Порядок определения процента текстуальных совпадений в задании 38",
+      "rule": "In task 38, if more than 30% of the response is 'unproductive' — i.e. copied word-for-word from a published source — the response gets 0 points on K1 (Решение коммуникативной задачи), and therefore 0 points on ALL criteria for that task.",
+      "what_counts_as_a_match": "A verbatim (word-for-word) match of a stretch of at least 10 consecutive words with a published source counts as a textual coincidence.",
+      "how_it_is_calculated": "All detected textual coincidences are added together; if their combined length exceeds 30% of the total word count of the response, the work is scored 0.",
+      "practical_tip_for_students": "This mainly matters for task 38, where students often work from the printed survey/chart question itself — copying more than a short phrase of the question verbatim (10+ words in a row) risks being flagged, so instructions and question text should be paraphrased in your own words, not copied."
+    },
+    "task_37": {
+      "title": "Task 37 — personal email (basic level, max 6 points total: K1 + K2 + K3, 2 points each)",
+      "required_length_words": "90–154",
+      "general_note": "If a student scores 0 on K1 (Решение коммуникативной задачи), the whole task is scored 0 on ALL criteria, regardless of K2/K3 quality.",
+      "criteria": {
+        "K1_content": {
+          "name": "Решение коммуникативной задачи (Content / task fulfilment)",
+          "max_points": 2,
+          "levels": [
+            {"points": 2, "description": "Task fully completed: content covers all required aspects (full, accurate answers to all 3 of the pen-friend's questions; 3 relevant questions asked back on the given topic); style suits the purpose and addressee; politeness norms observed. 1 incomplete/inaccurate aspect is allowed."},
+            {"points": 1, "description": "Task not fully completed: content misses some required aspects (any case not covered by the 2-point or 0-point descriptions)."},
+            {"points": 0, "description": "Task not completed: 3 or more content aspects missing, OR the response does not meet the required word count."}
+          ]
+        },
+        "K2_organization": {
+          "name": "Организация текста (Text organization)",
+          "max_points": 2,
+          "levels": [
+            {"points": 2, "description": "The email is logical; linking words are used correctly; text is correctly divided into paragraphs; format matches the accepted conventions of an informal email in the target language (1 organization error allowed)."},
+            {"points": 1, "description": "2–3 organization errors."},
+            {"points": 0, "description": "4 or more organization errors."}
+          ]
+        },
+        "K3_language": {
+          "name": "Языковое оформление текста (Language: vocabulary, grammar, spelling & punctuation)",
+          "max_points": 2,
+          "levels": [
+            {"points": 2, "description": "Vocabulary and grammar match the basic level of the task; almost no spelling/punctuation errors (1–2 lexical/grammar errors AND/OR 1–2 spelling/punctuation errors allowed)."},
+            {"points": 1, "description": "3–4 lexical/grammar errors AND/OR 3–4 spelling/punctuation errors."},
+            {"points": 0, "description": "5 or more lexical/grammar errors, AND/OR 5 or more spelling/punctuation errors."}
+          ]
+        }
+      },
+      "content_aspects_checklist": [
+        "Aspect 1 — Answered what event Victory Day commemorates.",
+        "Aspect 2 — Answered what official events are held on this day.",
+        "Aspect 3 — Answered what the writer and their family usually do on this day.",
+        "Aspect 4 — Asked 3 questions about Sophia's volunteer group.",
+        "Aspect 5 — Politeness norms observed: thanks for/reacts positively to Sophia's letter, and expresses hope for further contact.",
+        "Aspect 6 — Informal style used correctly: opening greeting, closing phrase, and signature all on their own lines and in an informal register."
+      ],
+      "format_checklist": ["Opening greeting on its own line", "Logical flow / paragraphing", "Correct use of linking words", "Closing phrase on its own line", "Signature on its own line"]
+    },
+    "task_38_general": {
+      "title": "Task 38 (38.1 or 38.2) — opinion essay based on data (high level, max 14 points total: K1(3) + K2(3) + K3(3) + K4(3) + K5(2))",
+      "required_length_words": "180–275",
+      "general_notes": [
+        "If a student scores 0 on K1 (Решение коммуникативной задачи), the whole task is scored 0 on ALL criteria.",
+        "Correct use of linking words requires logical transitions between ALL parts of the essay, not just some.",
+        "The maximum possible score for K5 (Орфография и пунктуация) is 2 points, not 3.",
+        "If a student writes answers to BOTH 38.1 and 38.2 without crossing one out, only the SECOND of the two answers is checked — even if it is unfinished or doesn't meet the word count."
+      ],
+      "criteria": {
+        "K1_content": {
+          "name": "Решение коммуникативной задачи (Content / task fulfilment)",
+          "max_points": 3,
+          "levels": [
+            {"points": 3, "description": "Task fully completed: content covers all required aspects fully and accurately; style chosen correctly (1 incomplete/inaccurate aspect and 1 neutral-style violation allowed)."},
+            {"points": 2, "description": "Task mostly completed: 1 aspect not covered (others covered fully), OR 1 aspect not covered and 1 covered incompletely/inaccurately, OR 2–3 aspects covered incompletely/inaccurately; style mostly correct (2–3 neutral-style violations allowed)."},
+            {"points": 1, "description": "Task not fully completed: 1 aspect not covered and 2–3 covered incompletely/inaccurately, OR 2 aspects not covered (others covered fully), OR 2 aspects not covered and 1 covered incompletely/inaccurately, OR 4–5 aspects covered incompletely/inaccurately; style errors present (up to 4 neutral-style violations allowed)."},
+            {"points": 0, "description": "Task not completed: any case worse than the 1-point level, OR the response doesn't meet the required word count, OR more than 30% of the response is unoriginal (i.e. copied word-for-word from a published source)."}
+          ]
+        },
+        "K2_organization": {
+          "name": "Организация текста (Text organization)",
+          "max_points": 3,
+          "levels": [
+            {"points": 3, "description": "Logical essay; structure matches the given plan; text correctly divided into paragraphs; linking words used correctly throughout."},
+            {"points": 2, "description": "Logical essay; structure matches the given plan; text correctly divided into paragraphs; linking words used (1–3 errors allowed)."},
+            {"points": 1, "description": "4–5 organization errors, AND/OR introduction or conclusion is missing."},
+            {"points": 0, "description": "6 or more organization errors, AND/OR both introduction and conclusion are missing, AND/OR the given plan is not followed at all, AND/OR there is no paragraphing."}
+          ]
+        },
+        "K3_vocabulary": {
+          "name": "Лексика (Vocabulary)",
+          "max_points": 3,
+          "levels": [
+            {"points": 3, "description": "Vocabulary matches the high level of the task; practically no misuse of vocabulary (1 lexical error allowed)."},
+            {"points": 2, "description": "Vocabulary matches the high level but has 2–3 lexical errors, OR vocabulary range is limited but used correctly."},
+            {"points": 1, "description": "Vocabulary doesn't fully match the high level of the task; 4 lexical errors."},
+            {"points": 0, "description": "Vocabulary doesn't match the high level of the task; 5 or more lexical errors."}
+          ]
+        },
+        "K4_grammar": {
+          "name": "Грамматика (Grammar)",
+          "max_points": 3,
+          "levels": [
+            {"points": 3, "description": "Grammar matches the high level of the task; practically no errors (1–2 repeated grammar errors allowed)."},
+            {"points": 2, "description": "Grammar matches the high level of the task; 3–4 grammar errors."},
+            {"points": 1, "description": "Grammar doesn't fully match the high level of the task; 5–7 grammar errors."},
+            {"points": 0, "description": "Grammar doesn't match the high level of the task; 8 or more grammar errors."}
+          ]
+        },
+        "K5_spelling_punctuation": {
+          "name": "Орфография и пунктуация (Spelling & punctuation)",
+          "max_points": 2,
+          "levels": [
+            {"points": 3, "description": "(Table shows this row aligned with K3/K4's '3' level, but K5's own maximum is capped at 2 — see general_notes.) Practically no spelling errors; text correctly divided into sentences with correct punctuation (1 spelling AND/OR 1 punctuation error allowed)."},
+            {"points": 2, "description": "2–4 spelling AND/OR punctuation errors."},
+            {"points": 1, "description": "5–7 spelling AND/OR punctuation errors."},
+            {"points": 0, "description": "8 or more spelling AND/OR punctuation errors."}
+          ]
+        }
+      }
+    },
+    "task_38.1_aspects_checklist": [
+      "Aspect 1 — Opening statement matches the given project topic.",
+      "Aspect 2 — 2–3 facts from the table are given.",
+      "Aspect 3 — 1–2 meaningful comparisons are made and commented on.",
+      "Aspect 4 — A possible problem related to living in the countryside is identified, with a solution suggested.",
+      "Aspect 5 — Conclusion expresses and justifies the writer's opinion on how to improve rural living conditions.",
+      "Aspect 6 — Neutral style used correctly throughout."
+    ],
+    "task_38.2_aspects_checklist": [
+      "Aspect 1 — Opening statement matches the given project topic.",
+      "Aspect 2 — 2–3 facts from the pie chart are given.",
+      "Aspect 3 — 1–2 meaningful comparisons are made and commented on.",
+      "Aspect 4 — A possible problem young professionals can face when job-hunting is identified, with a solution suggested.",
+      "Aspect 5 — Conclusion expresses and justifies the writer's opinion on whether it's easy for a young professional to find a job.",
+      "Aspect 6 — Neutral style used correctly throughout."
+    ]
+  },
+  "oral_part": {
+    "note": "The Oral Part (Устная часть) has 4 speaking tasks, worth 20 points total, all audio/video recorded. There's no single 'correct answer' here — use the official scoring criteria below plus the model responses to self-assess a recording. Preparation and speaking times are fixed and shown per task; the next task is only given once the previous one is finished.",
+    "general_instructions": {
+      "total_tasks": 4,
+      "total_response_time_per_examinee_minutes": "17 minutes (including all preparation time)",
+      "max_points": 20,
+      "task_overview": [
+        "Task 1 — read a short popular-science text aloud. Prep time: 1.5 minutes.",
+        "Task 2 — study an advertisement and ask 4 questions based on given key points. Prep time: 1.5 minutes.",
+        "Task 3 — give an interview on a topical subject: answer 5 questions fully and precisely.",
+        "Task 4 — problem-based project topic with 2 photos: justify your choice of photos as illustrations and give your opinion on the project's topic. Prep time: 2.5 minutes."
+      ]
+    },
+    "task_1": {
+      "title": "Task 1 — Reading aloud (max 1 point)",
+      "prompt": "Imagine that you are preparing a project with your friend. You have found some interesting material for the presentation and you want to read this text to your friend. You have 1.5 minutes to read the text silently, then be ready to read it out loud. You will not have more than 1.5 minutes to read it.",
+      "text_to_read": "Land pollution has its effect on people, animals and plants. That is why it is very important to stop land pollution as quickly as possible. Fortunately, there are several possible solutions to the land pollution problem, including conservation.\n\nFor instance, we can leave old trees in a forest to naturally die instead of cutting them down. We must also process waste and dispose of it in the safest manner possible to not create huge landfills with tons of plastic. We should stop using so much plastic. Even if you stop buying plastic shopping bags each time you go shopping for food, and get a cloth bag instead, this simple step will make a difference. Instead of throwing something away, think about a way to reuse or recycle it. You can turn to organic gardening practices as well and stop using dangerous chemicals in your garden. Fighting land pollution needs everyone's effort.",
+      "scoring": {
+        "criterion": "Фонетическая сторона речи (Pronunciation/phonetics)",
+        "max_points": 1,
+        "levels": [
+          {"points": 1, "description": "Speech is easy to understand: no unjustified pauses; correct sentence stress, intonation patterns, and word pronunciation; up to 5 phonetic errors allowed, including 1–2 errors that distort meaning."},
+          {"points": 0, "description": "Speech is hard to understand due to many unnatural pauses, hesitations, wrong word stress, and pronunciation errors, OR more than 5 phonetic errors are made, OR 3 or more meaning-distorting phonetic errors are made."}
+        ]
+      },
+      "self_check_tips": [
+        "Read the silent-reading time seriously — use it to spot unfamiliar words (e.g. 'conservation', 'landfills', 'organic gardening') and rehearse their stress mentally before reading aloud.",
+        "Keep a natural pace: rushing causes skipped words and wrong pauses, which counts against you just as much as reading too slowly.",
+        "Watch sentence stress on key content words (pollution, plastic, recycle, effort) rather than function words (the, a, to)."
+      ]
+    },
+    "task_2": {
+      "title": "Task 2 — Asking questions based on an advertisement (max 4 points, 1 point per question)",
+      "prompt": "Study the advertisement 'Let's teach everyone how to cook!' You are considering going to the cooking masterclass and now you'd like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following. You have 20 seconds to ask each question.",
+      "advertisement_summary": "An ad for a cooking masterclass, 'Let's teach everyone how to cook!', showing a group (including children and adults) cooking together with a chef.",
+      "required_question_topics": [
+        "1) kinds of dishes",
+        "2) number of people in the group",
+        "3) the duration of the masterclass",
+        "4) tuition fee"
+      ],
+      "model_questions": [
+        "What kinds of dishes will we learn to cook during the masterclass?",
+        "How many people are usually in a group?",
+        "How long does the masterclass last?",
+        "How much does the masterclass cost?"
+      ],
+      "scoring": {
+        "criterion": "Each of the 4 questions is scored separately (max 1 point each)",
+        "max_points": 4,
+        "levels": [
+          {"points": 1, "description": "The question matches the required topic and has the correct grammatical form of a direct question; minor phonetic/lexical slips that don't hinder understanding are allowed."},
+          {"points": 0, "description": "No question asked, OR the question doesn't match the required topic, OR it doesn't have the correct grammatical form of a direct question, OR phonetic/lexical errors block communication."}
+        ]
+      },
+      "self_check_tips": [
+        "Each question must be a genuine direct question with correct word order/auxiliary verb (e.g. 'How much does it cost?', NOT 'How much it cost?' or a statement with rising intonation).",
+        "Stick to exactly the 4 required topics, in any order — asking about something else instead of one of them scores 0 for that question even if it's a perfectly grammatical question.",
+        "One clear question per topic is enough — you don't need extra follow-up questions, and rambling can eat into your 20 seconds per question."
+      ]
+    },
+    "task_3": {
+      "title": "Task 3 — Interview (max 5 points, 1 point per answer)",
+      "prompt": "You are going to give an interview. You have to answer five questions. Give full answers to the questions (2–3 sentences). Remember that you have 40 seconds to answer each question.",
+      "context": "Teenagers Round the World Channel interviews a teenager from Russia about teenagers' attitude to online shopping.",
+      "questions_and_model_answers": [
+        {
+          "question": "Have you ever bought anything online?",
+          "model_answer": "Yes, I have. I've bought books, clothes and even a pair of headphones online. I find it really convenient because I can compare prices from different shops without leaving my house."
+        },
+        {
+          "question": "Why do you think some people enjoy shopping online?",
+          "model_answer": "I think people enjoy it because it saves a lot of time and effort. You can shop at any hour of the day without having to travel to a store or stand in long queues."
+        },
+        {
+          "question": "What are some of the disadvantages of shopping online?",
+          "model_answer": "One big disadvantage is that you can't try things on or see them in person before buying, so the size or colour might not be what you expected. There's also a risk of your personal data being stolen."
+        },
+        {
+          "question": "Do you think it is a good idea to buy food online? Why or why not?",
+          "model_answer": "I think it can be a good idea for packaged goods, but I'm not so sure about fresh produce, because you can't check the quality yourself. Personally, I prefer buying fresh food in person."
+        },
+        {
+          "question": "What would you recommend to a teenager who is going to buy some clothes online?",
+          "model_answer": "I'd recommend checking the size chart carefully and reading other customers' reviews first. It's also a good idea to buy from a well-known website that offers free returns."
+        }
+      ],
+      "scoring": {
+        "criterion": "Each of the 5 answers is scored separately (max 1 point each)",
+        "max_points": 5,
+        "levels": [
+          {"points": 1, "description": "Full and precise answer to the information request: 2–3 communicatively appropriate phrases, free of elementary lexical/grammatical and/or phonetic errors."},
+          {"points": 0, "description": "No answer given, OR the content doesn't match what was asked, OR the answer is fewer than 2 phrases, OR the answer contains elementary lexical/grammatical AND/OR phonetic errors (including an answer that is just a string of disconnected words)."}
+        ]
+      },
+      "self_check_tips": [
+        "Give 2–3 full sentences per answer, not a one-word or one-phrase reply — a very short answer loses the point even if it's grammatically correct.",
+        "Answer the actual question asked — e.g. for 'Why do you think...' give a reason, not just a yes/no.",
+        "Avoid elementary mistakes (wrong verb tense, missing articles/subject-verb agreement) — these are penalized even if the overall meaning is clear."
+      ],
+      "elementary_grammar_checklist": {
+        "source": "Приложение 1 — Список элементов содержания, уверенное владение которыми должен продемонстрировать участник экзамена при выполнении задания 3",
+        "note": "This is the official list of 'elementary' grammar points a student is expected to have fully mastered for Task 3. Per the Task 3 scoring criteria, if an answer contains an error involving ANY of these points, it counts as an 'elementary lexical/grammatical error' and that answer is scored 0, even if the overall meaning is understandable. Use this list to check exactly which grammar area caused a lost point.",
+        "topics": [
+          "Adjectives: comparative and superlative degrees",
+          "Adjectives and adverbs",
+          "Articles (when they change the meaning of the sentence)",
+          "Future actions (will, going to, Present Continuous)",
+          "Imperatives",
+          "Linking verbs (to be, to look, to feel, to seem)",
+          "Means of expressing preference: I prefer … / I'd prefer",
+          "Modals – can/could",
+          "Modals – have to",
+          "Modals – should",
+          "Modals – must",
+          "Nouns: countable and uncountable nouns; regular plural, irregular plural, no plural; noun and verb agreement; much/many with nouns",
+          "Passive voice (Present and Past Simple)",
+          "Present and Past Continuous",
+          "Present and Past Simple",
+          "Possessive case of nouns",
+          "Prepositions of place, time, direction",
+          "Present Perfect",
+          "Pronouns",
+          "There + to be / It + to be",
+          "Verb + -ing: enjoy/like/hate/love doing",
+          "Verb + to-infinitive: like/hate/love/want to do",
+          "Word order in statements and questions"
+        ]
+      }
+    },
+    "task_4": {
+      "title": "Task 4 — Comparing two photos for a project + giving an opinion (max 10 points: content 4 + organization 3 + language 3)",
+      "prompt": "Imagine that you and your friend are doing a school project 'Solo or in company'. You have found some photos to illustrate it but for technical reasons you cannot send them now. Leave a voice message to your friend explaining your choice of the photos and sharing some ideas about the project. In 2.5 minutes be ready to: (1) explain the choice of the illustrations for the project by briefly describing them and noting the differences; (2) mention the advantages (1–2) of the two ways of travelling; (3) mention the disadvantages (1–2) of the two ways of travelling; (4) express your opinion on the subject of the project — say which way of travelling presented in the pictures you'd prefer or why. You will speak for not more than 3 minutes (12–15 sentences). You have to talk continuously.",
+      "photos_summary": "Photo 1: a group of people travelling together on a bus/tram, chatting. Photo 2: a young woman travelling alone with a backpack, walking near old European buildings.",
+      "required_points_checklist": [
+        "Briefly describe both photos and point out the differences between them.",
+        "Give 1–2 advantages of the two ways of travelling.",
+        "Give 1–2 disadvantages of the two ways of travelling.",
+        "Give and justify your own opinion on which way of travelling you'd prefer."
+      ],
+      "content_aspects_checklist": [
+        "Aspect 1 — The choice of illustrations for the project is explained: a brief description of the photos is given, the difference between them is pointed out, and the connection between the photos and the project's topic is made clear.",
+        "Aspect 2 — 1–2 advantages of the two ways of travelling are named.",
+        "Aspect 3 — 1–2 disadvantages of the two ways of travelling are named.",
+        "Aspect 4 — The speaker's own opinion on the project's topic is given: which way of travelling shown in the photos they would prefer, and why."
+      ],
+      "model_answer": "Hi! I hope you're doing well. I've found two great photos for our 'Solo or in Company' project, and I wanted to explain my choice before we put the presentation together.\n\nThe first photo shows a group of people travelling together on a bus, chatting and clearly enjoying each other's company. The second photo shows a young woman travelling alone with just a backpack, looking relaxed and independent. I chose these two pictures because they clearly represent the two different styles of travelling our project is about.\n\nThere are several advantages to travelling in a group. Firstly, it's usually safer, since you always have someone to help you if something goes wrong. Secondly, sharing costs like transport and accommodation can make the trip much cheaper for everyone involved.\n\nOn the other hand, travelling solo also has its benefits. You have complete freedom to plan your own schedule without compromising with anyone else, and it can be a great way to build confidence and independence.\n\nOf course, there are downsides too. Group travel can involve conflicts if people have different interests or paces, while travelling alone can sometimes feel lonely or a bit risky in unfamiliar places.\n\nAs for my own opinion, I'd probably choose to travel in company, at least for my first big trip, because I'd feel more confident knowing I'm not completely on my own. That said, I can definitely see the appeal of solo travel for someone more experienced.\n\nLet me know what you think, and we can finalize our project together. Talk soon!",
+      "scoring": {
+        "general_note": "If a student scores 0 on 'Решение коммуникативной задачи' (content), the WHOLE task is scored 0 on all three criteria.",
+        "K_content": {
+          "name": "Решение коммуникативной задачи (Content)",
+          "max_points": 4,
+          "levels": [
+            {"points": 4, "description": "Task fully completed: content fully, accurately and extensively covers all required aspects (12–15 phrases)."},
+            {"points": 3, "description": "Task mostly completed: 1 aspect not covered (others covered fully), OR 1–2 aspects covered incompletely/inaccurately (12–15 phrases)."},
+            {"points": 2, "description": "Task not fully completed: 1 aspect not covered and 1 covered incompletely/inaccurately, OR 3 aspects covered incompletely/inaccurately (10–11 phrases)."},
+            {"points": 1, "description": "Task partly completed: 1 aspect not covered and 2 covered incompletely/inaccurately, OR 2 aspects not covered (others covered fully), OR all aspects covered incompletely/inaccurately (8–9 phrases)."},
+            {"points": 0, "description": "Task completed less than 50%: 3 or more aspects not covered, OR 2 aspects not covered and 1+ covered incompletely/inaccurately, OR 1 aspect not covered and the rest covered incompletely/inaccurately, OR the response is 7 phrases or fewer."}
+          ]
+        },
+        "K_organization": {
+          "name": "Организация высказывания (Organization)",
+          "max_points": 3,
+          "levels": [
+            {"points": 3, "description": "Logical, complete-sounding response (has an opening phrase addressing the friend AND a closing phrase); linking words used correctly; up to 1 logic/linking error allowed."},
+            {"points": 2, "description": "Mostly logical and reasonably complete (has an opening phrase addressing the friend AND a closing phrase); 2–3 logic/linking errors."},
+            {"points": 1, "description": "Response isn't fully 'complete': missing an opening and/or closing phrase, OR 4–5 logic/linking errors."},
+            {"points": 0, "description": "Response isn't complete: missing BOTH opening and closing phrases, AND/OR 6 or more logic/linking errors."}
+          ]
+        },
+        "K_language": {
+          "name": "Языковое оформление высказывания (Language: vocabulary, grammar, pronunciation)",
+          "max_points": 3,
+          "levels": [
+            {"points": 3, "description": "Vocabulary, grammar, and pronunciation match the task (up to 3 minor lexical/grammar errors AND/OR up to 3 minor phonetic errors allowed)."},
+            {"points": 2, "description": "Vocabulary, grammar, and pronunciation mostly match the task (up to 4–5 lexical/grammar errors, of which no more than 2 are serious)."},
+            {"points": 1, "description": "Language only partly matches the task (up to 6–7 lexical/grammar errors, of which no more than 3 are serious, AND/OR up to 6–7 phonetic errors, of which no more than 3 are serious)."},
+            {"points": 0, "description": "Understanding is hindered by numerous errors (8+ lexical/grammar errors, OR 4+ serious lexical/grammar errors, AND/OR 8+ phonetic errors, OR 4+ serious phonetic errors), OR the response is just a string of disconnected words."}
+          ]
+        }
+      },
+      "self_check_tips": [
+        "Open with a line addressing your friend (e.g. 'Hi, I hope you're doing well...') and close with a sign-off — missing either one caps your organization score.",
+        "Hit all 4 required content points explicitly: describe + compare the photos, 1–2 advantages, 1–2 disadvantages, and your own justified opinion — skipping or only vaguely touching one aspect loses content points fast.",
+        "Aim for 12–15 sentences and keep talking continuously — stopping early (7 or fewer phrases) caps content at 0 regardless of quality.",
+        "'Serious' (грубые) errors are elementary-level mistakes or ones that break communication — these are penalized more heavily than minor slips, so prioritize getting basic grammar (verb tense, subject-verb agreement) right over using fancy vocabulary."
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "1",
+      "section": "Listening",
+      "task_type": "speaker_matching",
+      "title": "Task 1 — Match speakers A–F to statements 1–7 (one statement is extra)",
+      "extra_option": {
+        "value": 4,
+        "text": "Teachers enjoy classroom projects more than students.",
+        "explanation": "Never used — none of the six speakers talks about how teachers feel about projects.",
+        "full_explanation": "This statement is the deliberate distractor in Task 1. All six speakers (A–F) talk exclusively about the student experience of classroom projects — benefits, drawbacks, group conflicts, scheduling, variety, and collaboration. Not one of them discusses the teacher's perspective or compares how much teachers versus students enjoy projects, so statement 4 has no matching speaker and is the one left over."
+      },
+      "items": [
+        {"part": "A", "correct_answer": 2, "correct_text": "Classroom projects have several advantages.", "explanation": "Speaker A lists several benefits in a row: working together, saving time, and classmates helping explain concepts. That's a list of general advantages, not one narrow point.", "full_explanation": "Speaker A says: \"projects allow students to work together to show what they have learned. We work on too many solo activities throughout the day, and giving us a chance to collaborate is a nice change. Working together helps us to complete more work in a shorter amount of time. Plus, if we are confused about a concept, it is likely that our classmates will help explain concepts to us.\" This is a cumulative list of benefits (variety from solo work, efficiency, peer help), which matches the general statement \"Classroom projects have several advantages\" rather than a single specific claim like collaboration alone (statement 7) or conflict (statement 1)."},
+        {"part": "B", "correct_answer": 6, "correct_text": "Classroom projects should not be the same all the time.", "explanation": "Speaker B is annoyed that teachers always assign the same format (presentations) and asks for variety instead.", "full_explanation": "Speaker B says classroom projects are \"more interesting than traditional paper-and-pencil tests\" but complains: \"Our teachers always ask us to make presentations as classroom projects. I'm an introvert, and I find frequent presentations hard. My grades suffer because of them. If our teachers plan a variety of projects, or even let students choose what kind of project they'll do, it will be much better.\" The core complaint is the lack of variety — projects are always presentations — so the matching statement is about projects not staying the same, not about projects being generally inconvenient (statement 5) or advantageous (statement 2)."},
+        {"part": "C", "correct_answer": 3, "correct_text": "It's bad when people don't do their share of a project.", "explanation": "Speaker C's whole example is about a groupmate not finishing their part before the deadline.", "full_explanation": "Speaker C says: \"we've all been there. It's 11:50 p.m. and your project is due at midnight. And there's one person who hasn't done their part yet, so you quickly scramble to do it yourself. Or when you have a presentation, you have no idea whether or not people in your group actually know what they are presenting on.\" This describes a groupmate failing to contribute, matching statement 3 exactly. It's not about interpersonal conflict over leadership (statement 1) or scheduling (statement 5) — the issue is specifically someone not pulling their weight."},
+        {"part": "D", "correct_answer": 1, "correct_text": "Classroom projects can cause some conflicts in a group.", "explanation": "Speaker D describes disagreement when two people both want to lead, and says compromise isn't always possible.", "full_explanation": "Speaker D says: \"Even if you know your group members well enough, some of them may not be able to work well together, especially if there are two people in a group who both want to be the leader. Compromise is certainly the key to getting through group projects, but it's not always possible in my opinion.\" This directly describes interpersonal friction/conflict within a group over leadership, which matches statement 1. It's different from statement 3 (someone not doing their share) because here the issue is disagreement/rivalry, not laziness."},
+        {"part": "E", "correct_answer": 5, "correct_text": "Classroom projects can be inconvenient for students.", "explanation": "Speaker E's issue is that students in a group often have clashing schedules (classes, activities, jobs).", "full_explanation": "Speaker E says: \"there can be a huge problem connected with doing a project in a group. Sometimes students are put together in groups by their professors, but these students can have conflicting schedules. Every college student has a different schedule. There are extracurricular activities and even part-time jobs that we have, too.\" This is about the practical difficulty of coordinating around different schedules — an inconvenience — rather than personal conflict between group members (statement 1)."},
+        {"part": "F", "correct_answer": 7, "correct_text": "Classroom projects encourage collaboration.", "explanation": "Speaker F lists benefits, and the one that stands out (not already used for Speaker A) is the explicit mention of collaborating with groupmates.", "full_explanation": "Speaker F lists three points: more control over their education, better understanding of material, and \"a great chance to improve your communication skills, as you have to collaborate with your groupmates to complete a classroom project.\" Since statement 2 (\"several advantages\", a general list) is already used for Speaker A, the distinguishing feature of Speaker F's answer is the explicit emphasis on collaborating with groupmates, which matches statement 7 specifically."}
+      ]
+    },
+    {
+      "task_id": "2",
+      "section": "Listening",
+      "task_type": "true_false_not_stated",
+      "title": "Task 2 — Dialogue between Ben and Sophie: True (1) / False (2) / Not stated (3)",
+      "items": [
+        {"part": "A", "statement": "Ben worked hard during the academic year.", "correct_answer": 3, "correct_text": "Not stated", "explanation": "Ben only says exams/studying are over — he never says he worked hard.", "full_explanation": "Ben says: \"it's summer vacation at last! I'm so happy all the tests and studying are over, at least for a couple of months.\" This confirms the school year (with tests and studying) has ended, but it says nothing about the effort level or how hard Ben worked. Since the dialogue neither confirms nor denies this, and there's no basis to infer it either way, the correct answer is Not stated, not True."},
+        {"part": "B", "statement": "Ben and Sophie study at the same school.", "correct_answer": 3, "correct_text": "Not stated", "explanation": "No mention anywhere of where either of them studies.", "full_explanation": "The dialogue never refers to a school, university, or shared place of study for Ben and Sophie at all. Because there's zero information given on this point in either direction, the answer must be Not stated rather than True or False — there's nothing in the text to confirm or contradict it."},
+        {"part": "C", "statement": "Sophie wants to be a school teacher.", "correct_answer": 3, "correct_text": "Not stated", "explanation": "Sophie talks about wanting to be a camp counsellor because she loves working with kids — teaching is never mentioned.", "full_explanation": "Sophie says: \"I'm planning to look for a summer job, maybe as a camp counsellor. As you know, I love working with kids, and it seems like a fun way to spend the summer.\" A camp counsellor position is a summer job working with children, which is not the same as being a school teacher, and the dialogue never mentions teaching as a long-term career goal for Sophie. Since this specific career aspiration is never raised, the correct answer is Not stated (it isn't directly contradicted either, so it isn't False)."},
+        {"part": "D", "statement": "Sophie has already found a summer job.", "correct_answer": 2, "correct_text": "False", "explanation": "Sophie explicitly says she hasn't applied yet and is going to a job fair tomorrow.", "full_explanation": "Ben asks, \"Have you applied yet?\" and Sophie answers, \"Not yet. I'm going to a job fair tomorrow to see what's available.\" This is a direct, explicit contradiction of the statement that she has \"already found\" a job — she hasn't even applied yet — so the answer is False, not Not stated."},
+        {"part": "E", "statement": "Ben is thinking of a career in medicine.", "correct_answer": 1, "correct_text": "True", "explanation": "Ben states this directly.", "full_explanation": "Ben says: \"I'm thinking about studying medicine in the future, so I want to see if it's really for me. Plus, I want to help people.\" This is an explicit, unambiguous statement matching the claim, so the answer is clearly True."},
+        {"part": "F", "statement": "Ben disapproves of Sophie's summer plans.", "correct_answer": 2, "correct_text": "False", "explanation": "Ben reacts positively (\"That's awesome!\") to Sophie's plan.", "full_explanation": "When Sophie describes her plan to look for a summer job as a camp counsellor, Ben responds: \"That's awesome!\" and later says, \"Good luck! I hope you'll find something you like. I believe it's important to enjoy what you do.\" These are clearly approving, supportive reactions, which directly contradicts \"Ben disapproves,\" making the answer False."},
+        {"part": "G", "statement": "Sophie hasn't had a rest by the sea for some time.", "correct_answer": 1, "correct_text": "True", "explanation": "Sophie says exactly this near the end of the dialogue.", "full_explanation": "When Ben suggests going to the beach, Sophie says: \"I'd love to! Let's do it. It's been a while since I relaxed by the sea.\" This is a near word-for-word match for the statement, confirming it as True."}
+      ]
+    },
+    {
+      "task_id": "3",
+      "section": "Listening",
+      "task_type": "multiple_choice",
+      "title": "Task 3 — Interview with Mike Watson",
+      "question": "What do we learn about Mike Watson at the beginning of the interview?",
+      "items": [
+        {"correct_answer": 1, "correct_text": "He's worked in several spheres.", "explanation": "The introduction calls him both a \"comedy actor and film director\" and a multi-award winner, so option 3 is wrong and option 1 (several spheres: acting + directing) fits best.", "full_explanation": "The presenter introduces him as \"the famous comedy actor and film director, as well as the winner of numerous awards.\" This immediately rules out option 3 (\"he has never won any awards\") since he's explicitly said to have won \"numerous awards.\" Option 2 (\"internationally famous\") adds a detail — \"internationally\" — that the text doesn't actually state; it only says \"famous.\" Option 1 is the best supported: being both an actor and a director already shows he's worked in more than one professional sphere, which the introduction directly establishes."}
+      ]
+    },
+    {
+      "task_id": "4",
+      "section": "Listening",
+      "task_type": "multiple_choice",
+      "title": "Task 4 — Interview with Mike Watson",
+      "question": "Mike is worried that the film industry has become too …",
+      "items": [
+        {"correct_answer": 3, "correct_text": "commercialized", "explanation": "He's bothered by power being \"abused to make money\" and compares bad films to a cheap \"Roman circus.\"", "full_explanation": "Mike says: \"it bothers me to see that power abused. It appalls me when that power is abused to make money, to show irresponsible acts or violence, and essentially give people a Roman circus in a movie theater for 10 dollars.\" The focus is specifically on money-driven exploitation of film's influence — that is what \"too commercialized\" describes. He's not complaining that film is boring (he clearly thinks it's powerful) or that it has too much power in general (he values that power when used responsibly) — his worry is how that power gets abused for profit."}
+      ]
+    },
+    {
+      "task_id": "5",
+      "section": "Listening",
+      "task_type": "multiple_choice",
+      "title": "Task 5 — Interview with Mike Watson",
+      "question": "Mike uses Chaplin to stress the fact that …",
+      "items": [
+        {"correct_answer": 1, "correct_text": "people understand films without knowing the words", "explanation": "He says Chaplin made the world laugh \"with no words,\" calling film a universal language.", "full_explanation": "Mike says: \"Chaplin made the whole world laugh for the very first time at the same time, and with no words. Film is truly a universal language.\" The key phrase is \"with no words\" combined with \"universal language\" — the point of the Chaplin example is that films can be understood across language barriers without dialogue, matching option 1. Option 2 (about laughter) mistakes a detail (Chaplin was a comedian) for the main point, and option 3 (black-and-white films) is never discussed at all."}
+      ]
+    },
+    {
+      "task_id": "6",
+      "section": "Listening",
+      "task_type": "multiple_choice",
+      "title": "Task 6 — Interview with Mike Watson",
+      "question": "After Mike went to Stanford, he wanted to …",
+      "items": [
+        {"correct_answer": 2, "correct_text": "attend a film school", "explanation": "He says he wasn't yet thinking of being a director — he wanted to go to film school first.", "full_explanation": "Mike says: \"I've been a genuine film fan for about as long as I can remember... And then I was at Stanford and was considering which graduate school to apply to. And I wasn't even thinking that I wanted to be a film director, I was thinking that I wanted to go to a film school. I just wanted to see what film was, and see if my love of watching films would translate into loving making them.\" This explicitly separates his goal at that time (film school, option 2) from becoming a director (option 3), which he says came later. Option 1 (worldwide fame) is never mentioned as a motivation at all."}
+      ]
+    },
+    {
+      "task_id": "7",
+      "section": "Listening",
+      "task_type": "multiple_choice",
+      "title": "Task 7 — Interview with Mike Watson",
+      "question": "Mike thinks one needs to be very … to become a film director.",
+      "items": [
+        {"correct_answer": 3, "correct_text": "hard-working", "explanation": "He emphasizes dedication and time, and says he wasn't even the most talented student — so talent (option 2) isn't the point he's making.", "full_explanation": "Mike says: \"One does not know the dedication it requires and how time-consuming it is to make a movie until you do it. And I liked it. I was certainly not the most talented student in my group, and I still found I had just enough talent to be able to build on.\" By explicitly downplaying his own talent relative to peers while stressing \"dedication\" and how \"time-consuming\" filmmaking is, he's making the case that hard work/dedication matters more than raw talent — which rules out option 2 and supports option 3. Self-confidence (option 1) is never discussed as a requirement."}
+      ]
+    },
+    {
+      "task_id": "8",
+      "section": "Listening",
+      "task_type": "multiple_choice",
+      "title": "Task 8 — Interview with Mike Watson",
+      "question": "Mike Watson finds his education to be beneficial for his career because he …",
+      "items": [
+        {"correct_answer": 3, "correct_text": "learnt how to tell stories well", "explanation": "He credits literature and history for teaching him narrative — how to present characters, events, and motivations.", "full_explanation": "Mike says: \"I do have to credit my education in literature and history. You study the human story of what people do, and try to get at why they do things – a sense of narrative. History is narrative; and literature is obviously narrative – presenting characters, selecting events from their lives, and getting at motivations. The great historians write with the same urgency and flourish as great novelists do.\" The recurring word is \"narrative\" — the skill he says he gained is understanding and constructing stories, which is exactly what option 3 describes. He never says he became a novelist himself (option 2), and \"motivated by literature\" (option 1) misses the actual skill he names (storytelling ability)."}
+      ]
+    },
+    {
+      "task_id": "9",
+      "section": "Listening",
+      "task_type": "multiple_choice",
+      "title": "Task 9 — Interview with Mike Watson",
+      "question": "What surprises Mike about life today?",
+      "items": [
+        {"correct_answer": 2, "correct_text": "Availability of equipment.", "explanation": "He marvels that a smartphone in your pocket can now film a feature, no huge budget needed.", "full_explanation": "Mike says: \"You don't need 20 million dollars to make a feature film. We live in an age where there are no excuses. The means of production are readily accessible. You can make a feature film with your smartphone. It's amazing – the age we live in. You have a movie camera in your pocket, and it's even with sync-sound.\" His amazement is directed at how accessible/available filmmaking equipment has become (a smartphone can do what once needed expensive gear), not at its price dropping (option 3) or its quality improving (option 1) as such — accessibility is the specific idea he keeps repeating."}
+      ]
+    },
+    {
+      "task_id": "10",
+      "section": "Reading",
+      "task_type": "heading_matching",
+      "title": "Task 10 — Match headings 1–8 to texts A–G (one heading is extra)",
+      "extra_option": {
+        "value": 7,
+        "text": "Looking after the young",
+        "explanation": "No text is really about adults caring for cubs — text B is about young males leaving the pride, which is different.",
+        "full_explanation": "This heading is never used because no paragraph focuses on adult lions caring for or raising cubs as its main theme. Text B does mention young lions and the pride, but its focus is on young males being pushed out once they compete with dominant males for the pride — that's about family conflict/independence (heading 3), not about parental care of the young, so heading 7 is left over as the distractor."
+      },
+      "items": [
+        {"part": "A", "correct_answer": 2, "correct_text": "Appearance matters", "explanation": "Text A focuses on lions' bodies, teeth, and especially mane colour/length linked to age, genetics, and hormones.", "full_explanation": "Text A opens by calling the lion \"magnificent\" and \"beautiful,\" then details physical traits: \"strong compact bodies, powerful forelegs, teeth, and jaws,\" and manes \"ranging in colour from blond, to reddish-brown and black,\" with length and colour \"likely determined by age, genetics, and hormones.\" It even mentions light spots on cubs' coats disappearing as they age. This is entirely about physical appearance, matching heading 2 exactly."},
+        {"part": "B", "correct_answer": 3, "correct_text": "Problems of family life", "explanation": "It describes tension in the pride: young males are eventually pushed out once they're old enough to compete with dominant males.", "full_explanation": "Text B explains pride structure: prides consist of \"related females and their cubs,\" and \"males often fight to maintain dominance.\" Crucially, \"young males usually stay in their mothers' pride for life, unless food shortage forces them out,\" and are driven out \"when they grow large enough to compete with the dominant males,\" typically between ages 2 and 4. This internal tension and eventual conflict within the family group is what \"problems of family life\" refers to."},
+        {"part": "C", "correct_answer": 8, "correct_text": "Lions in danger", "explanation": "It covers population decline, threats (habitat loss, conflict, wildlife trade), and the \"vulnerable\" classification.", "full_explanation": "Text C says: \"three-quarters of their populations are in decline. The main threats to African lions are conflicts with people and the loss of living space, as well as climate change and wildlife trade... around 23,000 lions left in the wild, they are now officially classified as 'vulnerable'.\" This directly matches \"Lions in danger,\" describing the threats lions face and their at-risk status, even though the text opens by noting they're not fully extinct yet."},
+        {"part": "D", "correct_answer": 5, "correct_text": "Lions' home", "explanation": "It's about the habitats lions live in and where across Africa their range now is.", "full_explanation": "Text D describes lion habitats: \"a wide variety of habitats, including desert areas... prefer open woodland and thick bush,\" and explains how their range has shrunk: \"African lions used to be spread across most of the continent. But now they are only found in sub-Saharan Africa, with 80% in eastern or southern Africa.\" This is squarely about where lions live — their \"home\" — matching heading 5."},
+        {"part": "E", "correct_answer": 4, "correct_text": "Necessary for nature", "explanation": "It explains lions' ecological role in balancing prey populations and benefiting the whole landscape.", "full_explanation": "Text E states: \"Lions are top hunters in their environments... they play an important role in keeping a balance of numbers among other animals, especially plant-eating ones, like zebra and wildebeest. This influences the condition of grasslands and forests. By protecting a lion's landscape, people are helping the whole area to grow and develop, not just benefit wildlife, but the people who rely on natural resources, too.\" This is explicitly about why lions are ecologically necessary, matching heading 4."},
+        {"part": "F", "correct_answer": 1, "correct_text": "Clever strategies for food", "explanation": "It describes hunting tactics: hunting at night, using bad weather as cover, and females taking on specific chasing roles.", "full_explanation": "Text F explains: \"Lions do most of their hunting at night... This gives them a huge advantage... lions also hunt during storms. The noise, rain, and wind make it harder for other animals to see and hear lions, increasing their chances of a successful hunt. Females are the primary hunters... When hunting, females have specific roles. Some chase the animals towards the centre.\" These are all tactics/strategies used to successfully catch food, matching heading 1."},
+        {"part": "G", "correct_answer": 6, "correct_text": "Giving a helping hand", "explanation": "It's about human conservation efforts: protected areas, education, anti-poaching, and school programmes.", "full_explanation": "Text G describes human intervention to protect lions: \"new protected areas of habitat in east Africa are organised... a special conservation programme in Kenya that monitors and protects lions... educates local people on lion conservation... anti-poaching agents... better fenced areas for farm animals... Taking school children on trips to see the wild animals they are saving is one more action to support wildlife.\" This is entirely about people helping lions, matching heading 6, \"Giving a helping hand.\""}
+      ]
+    },
+    {
+      "task_id": "11",
+      "section": "Reading",
+      "task_type": "gap_fill",
+      "title": "Task 11 — Amur River region: fill gaps A–F with parts 1–7 (one part is extra)",
+      "extra_option": {
+        "value": 1,
+        "text": "which is endangered and should be",
+        "explanation": "It doesn't fit grammatically into any gap, and the \"endangered\" idea is already used by part 7 in gap D.",
+        "full_explanation": "Part 1 is the deliberate distractor: it doesn't complete any sentence in the passage grammatically, and its content (species being endangered) is already covered by part 7, which correctly fills gap D about the Amur leopard's critical status. Because ЕГЭ gap-fill tasks always include one unused option, part 1 is left over here."
+      },
+      "items": [
+        {"part": "A", "correct_answer": 3, "correct_text": "forming the border between north-east", "explanation": "The river running through Russia, China, and Mongolia \"forms the border\" between north-east China and south-east Russia.", "full_explanation": "The full sentence reads: \"The river covers parts of Russia, China, and Mongolia, forming the border between north-east [China and south-east Russia].\" The -ing participle clause (\"forming...\") naturally continues from the main clause about the river's course, explaining a consequence of where the river runs — namely, that it creates a border. This is the only option that logically and grammatically continues that sentence."},
+        {"part": "B", "correct_answer": 4, "correct_text": "that receives rather heavy rainfall", "explanation": "It's a relative clause describing the singular \"climate area,\" matching the singular verb \"receives.\"", "full_explanation": "The sentence reads: \"These are forests of a rather mild climate area that receives rather heavy rainfall.\" Grammatically, this requires a defining relative clause modifying \"area\" (singular), and \"that receives\" (singular verb) agrees correctly. This also sets up the next sentence's contrast (\"Although the region here experiences very cold winters, it still supports a varied wildlife\") — establishing the area's climate details before the \"Although\" clause responds to them."},
+        {"part": "C", "correct_answer": 5, "correct_text": "which is a traditional medicinal plant", "explanation": "It's an added fact describing wild ginseng.", "full_explanation": "The sentence reads: \"...trees like the Korean pine, and wild ginseng, which is a traditional medicinal plant.\" This is a simple non-defining relative clause adding extra information about ginseng — that it's used medicinally — which fits naturally after naming it as one of the rare plants in the forest."},
+        {"part": "D", "correct_answer": 7, "correct_text": "as there may be about 120 in the wild", "explanation": "\"As\" introduces the reason the leopards are critically endangered — very few remain.", "full_explanation": "The sentence reads: \"Amur leopards are critically endangered, as there may be about 120 in the wild.\" The conjunction \"as\" here means \"because/since,\" introducing a cause-and-effect relationship: the population is so small (around 120) that the species is classified as critically endangered. This is the only remaining option that provides both the right grammar (a full clause starting with \"as\") and the right logical connection."},
+        {"part": "E", "correct_answer": 2, "correct_text": "but they are coming under pressure from", "explanation": "\"But\" signals the contrast between forests staying unchanged so far and now facing new development pressure.", "full_explanation": "The sentence reads: \"Many of the forest areas in the Amur region remain largely unchanged, but they are coming under pressure from increasing development and the need for resources.\" The conjunction \"but\" is essential here to mark the shift from \"unchanged\" (so far) to a new, opposing trend (development pressure). Only this option supplies that contrastive link plus a grammatically complete continuous verb phrase (\"are coming under pressure from\") leading into \"increasing development.\""},
+        {"part": "F", "correct_answer": 6, "correct_text": "to deal with the causes and effects of", "explanation": "It provides the infinitive of purpose needed after \"should be working... locally.\"", "full_explanation": "The sentence reads: \"So, people should be working globally and locally to deal with the causes and effects of climate change.\" After describing that people \"should be working... globally and locally,\" the sentence needs an infinitive of purpose explaining what that work is for — \"to deal with the causes and effects of climate change.\" This is the only option offering a complete to-infinitive phrase that fits both the grammar and the topic (which is explicitly introduced by the previous sentences about fires and changing rainfall patterns)."}
+      ]
+    },
+    {
+      "task_id": "12",
+      "section": "Reading",
+      "task_type": "multiple_choice",
+      "title": "Task 12 — AI and student experience",
+      "question": "What feeling does the spread of AI in education bring up?",
+      "items": [
+        {"correct_answer": 2, "correct_text": "Doubt", "explanation": "The text opens by saying people \"have probably faced uncertainty\" about AI in education — closest to \"Doubt.\"", "full_explanation": "Paragraph 1 says: \"No matter what your occupation is, you have probably faced uncertainty over the last few years... Teachers and students alike feel strongly about the upcoming changes.\" Among the four options, \"uncertainty\" maps most closely onto \"Doubt\" — it implies not being sure how to feel or what to expect. \"Excitement\" and \"Curiosity\" are too positive/neutral for what's described as uncertainty, and \"Opposition\" is too strong and one-directional, since the text goes on to show mixed feelings (both concerns and benefits), not outright rejection."}
+      ]
+    },
+    {
+      "task_id": "13",
+      "section": "Reading",
+      "task_type": "multiple_choice",
+      "title": "Task 13 — AI and student experience",
+      "question": "\"This growing problem\" in paragraph 2 refers to …",
+      "items": [
+        {"correct_answer": 3, "correct_text": "academic dishonesty", "explanation": "The preceding sentences are specifically about students using AI \"to cheat and plagiarise work.\"", "full_explanation": "Paragraph 2 reads: \"this potent tool is also available to students who may use it to cheat and plagiarise work. Over the last several months, teachers from elementary schools to universities have been trying to address this growing problem.\" The phrase \"this growing problem\" refers back to the immediately preceding idea — cheating and plagiarism — which is academic dishonesty. It isn't about productivity, teacher shortages, or general access to AI, which are separate topics not raised in this sentence."}
+      ]
+    },
+    {
+      "task_id": "14",
+      "section": "Reading",
+      "task_type": "multiple_choice",
+      "title": "Task 14 — AI and student experience",
+      "question": "What is the problem with the systems that spot the use of AI?",
+      "items": [
+        {"correct_answer": 1, "correct_text": "They are quite unreliable.", "explanation": "None of the detection tools have \"fully cracked the code,\" leaving teachers to guess.", "full_explanation": "The text says: \"there is, as yet, no silver-bullet solution for teachers. While some software has claimed to be able to detect the presence of AI-generated content, none of these have fully cracked the code. Teachers are now left to guess whether students are using this software to complete assignments.\" This is entirely about the tools failing to work reliably/accurately — nothing is said about their cost (option 2) or how hard they are to access or use (options 3/4)."}
+      ]
+    },
+    {
+      "task_id": "15",
+      "section": "Reading",
+      "task_type": "multiple_choice",
+      "title": "Task 15 — AI and student experience",
+      "question": "How can the use of AI in education be described, according to the text?",
+      "items": [
+        {"correct_answer": 2, "correct_text": "Controversial", "explanation": "The article presents strong feelings on both a negative side (cheating) and a positive side (personalisation, access).", "full_explanation": "Throughout the passage, AI in education is shown creating real problems (cheating, unreliable detection tools) while also offering real benefits (personalised learning, free tutoring, more equitable access). The opening line — \"Teachers and students alike feel strongly about the upcoming changes\" — signals that opinions are split and passionate on both sides. That combination of opposing, strongly-held views is precisely what \"controversial\" describes. \"Successful\" and \"unregulated\" are never claimed, and \"ineffective\" contradicts the many benefits discussed."}
+      ]
+    },
+    {
+      "task_id": "16",
+      "section": "Reading",
+      "task_type": "multiple_choice",
+      "title": "Task 16 — AI and student experience",
+      "question": "\"Tweak\" in paragraph 5 most probably means …",
+      "items": [
+        {"correct_answer": 4, "correct_text": "adjust", "explanation": "\"Tweak their lessons to fit each student's needs\" means make a small adjustment, not a full replacement.", "full_explanation": "The sentence is: \"This means teachers can tweak their lessons to fit each student's needs, helping everyone do their best.\" In everyday English, \"tweak\" means to make a small, fine adjustment to something that already exists — it doesn't mean replacing it entirely (option 2) or upgrading it to something better/more advanced (option 3). \"Simplify\" (option 1) is too specific and not implied — the change could make a lesson harder or easier depending on the student. \"Adjust\" is the closest general match."}
+      ]
+    },
+    {
+      "task_id": "17",
+      "section": "Reading",
+      "task_type": "multiple_choice",
+      "title": "Task 17 — AI and student experience",
+      "question": "Which fact about AI in education is NOT mentioned in the text?",
+      "items": [
+        {"correct_answer": 3, "correct_text": "AI makes students dependent on it.", "explanation": "Assessment, accessibility, and individualisation are all discussed — dependency never is.", "full_explanation": "The text discusses: (1) AI impacting assessment — detecting/failing to detect AI-generated work; (2) AI making education more accessible — \"Free AI tutors are becoming available to help students with their schoolwork anytime they need it\"; (4) AI helping individualise learning — teachers can \"tweak their lessons to fit each student's needs.\" There is no discussion anywhere in the passage about students becoming dependent on AI as a tool, which is why option 3 is the one NOT mentioned."}
+      ]
+    },
+    {
+      "task_id": "18",
+      "section": "Reading",
+      "task_type": "multiple_choice",
+      "title": "Task 18 — AI and student experience",
+      "question": "The author concludes by suggesting that …",
+      "items": [
+        {"correct_answer": 2, "correct_text": "a balanced use of AI will benefit education.", "explanation": "The final paragraph calls for using AI \"wisely – as a tool to support learning, not replace it.\"", "full_explanation": "The concluding paragraph says: \"Thus, AI can have a wide variety of impacts on the student experience. While it is creating new problems, like cheating, it is also offering new ways to make learning more personal and giving new opportunities to excel... The key will be learning how to use this technology wisely – as a tool to support learning, not replace it.\" This is a direct call for balanced, thoughtful use of AI (option 2), not a claim purely about productivity (option 1), regulation (option 3), or teaching methods needing to be reconsidered (option 4) — those aren't the actual conclusion drawn."}
+      ]
+    },
+    {
+      "task_id": "19-24-corinth",
+      "section": "Grammar and Vocabulary",
+      "task_type": "word_formation",
+      "title": "Tasks 19–24 — Ancient Corinth (word formation)",
+      "items": [
+        {"part": "19", "stem_word": "SITUATE", "correct_answer": "was situated", "explanation": "Passive, past simple: the city \"was situated\" (located) in southern Greece.", "full_explanation": "The sentence \"Corinth was an ancient Greek city state. It ___ in the southern part of Greece\" needs a passive verb because Corinth doesn't situate itself — it \"was situated\" there, i.e. it was located there. The tense is past simple (matching \"was an ancient... city state\") since we're describing a historical fact about the city."},
+        {"part": "20", "stem_word": "ONE", "correct_answer": "first", "explanation": "The number \"one\" becomes the ordinal \"first\": \"the first naval battle on record.\"", "full_explanation": "This is a classic ЕГЭ transformation where a cardinal number given as the stem word must become an ordinal number to fit the sentence: \"It is even considered to have fought the first naval battle on record.\" \"One\" → \"first,\" just as \"two\" → \"second,\" \"five\" → \"fifth,\" etc. Only the ordinal form fits grammatically before a noun like \"naval battle.\""},
+        {"part": "21", "stem_word": "FOUND", "correct_answer": "was founded", "explanation": "Passive, past simple: the city \"was founded\" by someone, around the 8th century BC.", "full_explanation": "\"The city ___ around the 8th century BC and became famous...\" needs a passive verb, since a city is founded by people, it doesn't found itself. \"Was founded\" is past simple passive, matching \"became famous\" later in the same sentence, which is also past simple."},
+        {"part": "22", "stem_word": "BECOME", "correct_answer": "became", "explanation": "Simple past of the irregular verb \"become.\"", "full_explanation": "\"The Corinthian Order quickly ___ a distinctive feature of the Greek architectural style...\" This needs an active verb (the Corinthian Order itself became something, it wasn't \"become to\" by someone else), in the simple past to match the historical narrative tense used throughout the passage: \"became.\""},
+        {"part": "23", "stem_word": "WORK", "correct_answer": "have been working", "explanation": "\"Since 1896\" + an action still happening (\"finding... each year\") signals Present Perfect Continuous.", "full_explanation": "\"Since 1896 archeologists ___ there, finding various elements of ancient buildings and constructions each year.\" The phrase \"since 1896\" marks the starting point of an action that continues up to now, and \"finding... each year\" confirms it's still ongoing — this combination is the textbook signal for the Present Perfect Continuous tense: \"have been working.\""},
+        {"part": "24", "stem_word": "LOOK", "correct_answer": "looking", "explanation": "\"Enjoy\" is always followed by a gerund (-ing), never a to-infinitive.", "full_explanation": "\"Tourists enjoy ___ at what is left of once a beautiful ancient city state.\" The verb \"enjoy\" is one of a fixed group of verbs (enjoy, avoid, finish, mind, suggest, etc.) that must be followed by a gerund, never \"to + infinitive.\" So the correct form is \"looking\" — \"enjoy looking at.\""}
+      ]
+    },
+    {
+      "task_id": "19-24-yaroslavl",
+      "section": "Grammar and Vocabulary",
+      "task_type": "word_formation",
+      "title": "Tasks 19–24 — Yaroslavl / From the history of sweaters (word formation)",
+      "items": [
+        {"part": "19", "stem_word": "LOCATE", "correct_answer": "is located", "explanation": "General present-tense geography fact, so passive present simple.", "full_explanation": "\"It ___ on the Volga River and has a lot of old churches...\" This is a statement of a general, ongoing fact about Yaroslavl's geography, so it needs the present simple passive: \"is located.\" A city doesn't locate itself, so the passive is required, and present tense fits because this is still true today."},
+        {"part": "20", "stem_word": "WALK", "correct_answer": "walking", "explanation": "Gerund after \"enjoy,\" same rule as in the Corinth version.", "full_explanation": "\"Tourists also enjoy ___ along its wonderful embankment...\" As with any object of \"enjoy,\" the verb must be in the -ing (gerund) form: \"walking.\" \"To walk\" would be grammatically incorrect after \"enjoy.\""},
+        {"part": "21", "stem_word": "VISIT", "correct_answer": "have visited", "explanation": "\"So far\" is a strong Present Perfect signal.", "full_explanation": "\"Millions of tourists ___ Yaroslavl so far.\" The phrase \"so far\" signals an action that started in the past and continues to be relevant now, with no specific finished time given — the hallmark of the Present Perfect tense: \"have visited.\""},
+        {"part": "22", "stem_word": "CHILD", "correct_answer": "children", "explanation": "Irregular plural: child → children.", "full_explanation": "\"It is a very popular item of clothing now, especially for ___, who don't like buttons and zips.\" This needs the plural form of \"child.\" English forms this irregularly (not by adding -s): child → children. \"Childs\" would be incorrect."},
+        {"part": "23", "stem_word": "CREATE", "correct_answer": "was created", "explanation": "Passive, past simple: the sweater \"was created\" by someone in the 19th century.", "full_explanation": "\"...a knitted woolen sweater as we know it today ___ in Europe in the 19th century.\" Since the sweater was created by people (it didn't create itself), and this is a specific historical event with a stated time (\"in the 19th century\"), the correct form is the past simple passive: \"was created.\""},
+        {"part": "24", "stem_word": "WEAR", "correct_answer": "wore", "explanation": "Must match the past tense \"sweated\" in the next sentence.", "full_explanation": "\"Overweight people ___ sweaters in order to lose some weight. They sweated profusely in warm sweaters, that is why this item of clothing got such a name.\" Since the following sentence uses the simple past \"sweated\" to describe the same habitual past behaviour, this verb needs to match in tense: \"wore\" (simple past of \"wear\"), not \"wear\" or \"were wearing.\""}
+      ]
+    },
+    {
+      "task_id": "25-29",
+      "section": "Grammar and Vocabulary",
+      "task_type": "word_formation",
+      "title": "Tasks 25–29 — The State Hermitage Museum (word formation)",
+      "items": [
+        {"part": "25", "stem_word": "CERTAIN", "correct_answer": "certainly", "explanation": "An adverb is needed to modify the verb \"is.\"", "full_explanation": "\"It is ___ one of the greatest and most visited museums of the world.\" The gap sits between \"is\" and \"one of...\", modifying the whole statement — this calls for the adverb form \"certainly,\" not the adjective \"certain,\" which wouldn't fit grammatically in this position."},
+        {"part": "26", "stem_word": "COLLECT", "correct_answer": "collection", "explanation": "A noun is needed after \"a huge.\"", "full_explanation": "\"Now it can boast a huge ___ of three million works of art.\" After the adjective \"huge,\" a noun is required to complete the noun phrase — \"collection,\" meaning a group of items gathered together (here, artworks)."},
+        {"part": "27", "stem_word": "POSSIBLE", "correct_answer": "impossible", "explanation": "The negative prefix im- is needed: seeing every masterpiece in a minute each is unrealistic.", "full_explanation": "\"It may be an ___ task to see all the masterpieces kept in the museum – it would take a person at each of the museum's exhibits for just one minute.\" The described scenario (spending only one minute per exhibit yet trying to see everything) suggests it is not possible, hence the negative prefix im- turning \"possible\" into \"impossible.\" Without the negative prefix, the sentence would say the opposite of what's intended."},
+        {"part": "28", "stem_word": "PRICE", "correct_answer": "priceless", "explanation": "The suffix -less gives \"having no price,\" i.e. extremely valuable — matching \"not only because of.\"", "full_explanation": "\"However, the Hermitage is interesting not only because of the ___ paintings kept there.\" The suffix \"-less\" added to \"price\" creates \"priceless,\" meaning so valuable that no price could be put on it — this fits the context of a world-famous museum's artworks. A form like \"pricey\" (expensive) would carry a different, less fitting meaning here."},
+        {"part": "29", "stem_word": "RESIDE", "correct_answer": "residence", "explanation": "A noun is needed after \"official.\"", "full_explanation": "\"The Winter Palace used to be the official ___ for the Romanov Tsars...\" After the adjective \"official,\" a noun is required: \"residence,\" meaning the place where someone (here, the Tsars) officially lived."}
+      ]
+    },
+    {
+      "task_id": "30-36",
+      "section": "Grammar and Vocabulary",
+      "task_type": "multiple_choice",
+      "title": "Tasks 30–36 — text \"Sunday\"",
+      "items": [
+        {"part": "30", "correct_answer": 3, "correct_text": "admit", "explanation": "\"Admit that...\" is the natural collocation for acknowledging a fact about yourself.", "full_explanation": "\"She had to ___ that she was tired today.\" Only \"admit\" naturally combines with \"that + clause\" to mean acknowledging something (often something slightly unwelcome, like being tired). \"Approve\" typically takes \"of,\" \"approach\" means to come near something (doesn't fit with \"that\"), and \"allow\" would need a different structure (allow someone to do something), so none of the other options fit this exact grammar and meaning."},
+        {"part": "31", "correct_answer": 2, "correct_text": "repaired", "explanation": "Things around a home usually \"need to be repaired,\" not received/remained/repeated.", "full_explanation": "\"She made lists of what she had noticed needed to be ___ around the apartment...\" Household items or fixtures typically \"need repairing\" when something is broken or worn — \"repaired\" fits both the meaning and the passive construction (\"needed to be repaired\"). \"Received,\" \"remained,\" and \"repeated\" don't make logical sense with things noticed \"around the apartment.\""},
+        {"part": "32", "correct_answer": 4, "correct_text": "Moreover", "explanation": "The new sentence adds another duty (signalled by \"also\"), continuing the previous idea rather than contrasting it.", "full_explanation": "The previous sentence describes her tedious weekly chores, done \"for years, even before she'd begun to run the business.\" The next sentence begins a new point: \"[32], once she'd taken over from her husband, she had also spent her Sundays attending to the household.\" The word \"also\" inside this sentence is the key clue — it shows the idea is being added to (she did this chore before AND continued after taking over the business), not contrasted. \"Moreover\" (meaning \"in addition\") fits an additive relationship, while \"However,\" \"Nevertheless,\" and \"Although\" all signal contrast, which doesn't match the logic here."},
+        {"part": "33", "correct_answer": 3, "correct_text": "attending", "explanation": "\"Attend to\" is the fixed phrase for taking care of/dealing with something.", "full_explanation": "\"...she had also spent her Sundays ___ to the household.\" \"Attend to\" is an established phrasal verb meaning to take care of or deal with something. \"Concentrating on\" and \"focusing on\" would require the preposition \"on,\" not \"to,\" so they're grammatically wrong here, and \"visiting\" doesn't make sense with an abstract noun like \"the household\" in this context."},
+        {"part": "34", "correct_answer": 1, "correct_text": "taking", "explanation": "\"Take care of\" is the fixed expression.", "full_explanation": "\"She was also ___ care of her grandson on the nurse's day off.\" \"Take care of\" is a fixed collocation in English. \"Keeping care,\" \"holding care,\" and \"making care\" are not standard English phrases, so \"taking\" is the only option that forms a correct, natural expression."},
+        {"part": "35", "correct_answer": 4, "correct_text": "remembered", "explanation": "The next sentence (a tear in her eye) shows she's fondly recalling those days.", "full_explanation": "\"Those Sundays had been precious... She ___ those days. A tiny bright tear crept into her lashes.\" The emotional reaction described right after (a tear, clearly nostalgic) shows she is looking back on and cherishing the memory of those days — \"remembered\" fits this reflective, sentimental tone. \"Recorded\" (wrote down), \"reminded\" (which would need \"reminded her of...\"), and \"recognized\" (identified) don't match this meaning."},
+        {"part": "36", "correct_answer": 1, "correct_text": "managed", "explanation": "\"Managed to maintain\" is the correct grammar — \"succeed/accomplish/achieve\" don't take a plain to-infinitive like this.", "full_explanation": "\"She ___ maintain the family business empire for him, and carried the legacy from one generation to the next.\" The verb \"manage\" is regularly followed directly by a to-infinitive: \"managed to maintain.\" \"Succeed\" would require a different structure (\"succeeded in maintaining,\" using a gerund after \"in\"), while \"accomplish\" and \"achieve\" normally take a noun object (accomplish a goal, achieve a result) rather than a to-infinitive, so grammatically only \"managed\" completes the sentence correctly."}
+      ]
+    },
+    {
+      "task_id": "37",
+      "section": "Writing",
+      "task_type": "open_response_sample",
+      "title": "Task 37 — Email reply to Sophia",
+      "note": "This task is not machine-graded with a single correct answer; below is a model answer showing what a full-mark response looks like (answers all 3 of Sophia's questions, asks 3 questions back about the volunteer group, 100–140 words, correct email format).",
+      "model_answer": "Subject: Re: Victory Day\n\nHi Sophia,\n\nThanks a lot for your email, it's always great to hear from you! I'd be happy to help with your project.\n\nVictory Day is celebrated on May 9th and it commemorates the Soviet Union's victory over Nazi Germany in 1945, which ended the Great Patriotic War. On this day there's a huge military parade on Red Square, fireworks in the evening, and the \"Immortal Regiment\" march, where people carry photos of relatives who fought in the war. As for my family, we usually watch the parade on TV in the morning, join our neighbours for the Immortal Regiment march, and then watch the fireworks together in the evening.\n\nBy the way, congratulations on joining a volunteer group! What exactly does the group do? How often do you meet up? Would you recommend volunteering to someone my age?\n\nWrite back soon!\nBest wishes,\nAlex"
+    },
+    {
+      "task_id": "38.1",
+      "section": "Writing",
+      "task_type": "open_response_sample",
+      "title": "Task 38.1 — Opinion essay based on a table (living conditions in rural areas)",
+      "note": "This task is not machine-graded with a single correct answer; below is a model answer following the required plan (opening statement, 2-3 facts, 1-2 comparisons, a problem + solution, and a concluding opinion), 200–250 words.",
+      "model_answer": "These days, more and more people are discussing how life in the countryside could be improved, and I have decided to look into what school students themselves think should be done.\n\nAccording to a survey of Zetland school students, when asked what should be done to improve living conditions in rural areas, 48% of respondents said hospitals and schools should be built, making this by far the most popular option. Improving internet access came second with 20%, while 18% chose organising more cultural events. Only 9% wanted new sports facilities to be built, and developing public transport was the least popular choice, with just 5% of the vote.\n\nIt is worth comparing the two most popular answers: almost half of the students prioritised hospitals and schools, nearly two and a half times more than those who chose better internet access. This shows that young people see access to essential services, such as healthcare and education, as far more urgent than entertainment or transport links.\n\nOne problem that can arise when living in the countryside is the lack of qualified doctors and teachers, since fewer professionals are willing to work far from cities. A possible solution would be to offer financial incentives, such as higher salaries or housing support, to specialists who choose to work in rural areas.\n\nIn my opinion, rural living conditions could be significantly improved by investing in public services first, while gradually developing infrastructure like transport and internet access. A combination of government funding and support for professionals willing to relocate would make the greatest difference to people's everyday lives in the countryside."
+    }
+  ]
+}
