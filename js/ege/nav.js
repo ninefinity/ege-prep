@@ -415,6 +415,7 @@ E.showTask = function showTask(taskId) {
     }
     E.state.activeTaskId = taskId;
     if (typeof E.persistActiveTask === "function") E.persistActiveTask(taskId);
+    if (typeof E.syncExamBarStartControls === "function") E.syncExamBarStartControls();
     E.resetTaskDigitBuffer();
     E.resetMcKeyboardState(taskId);
     E.setActiveTaskPanel(taskId);
@@ -623,6 +624,7 @@ E.ensureExamBar = function ensureExamBar() {
     bar.className = "ege-exam-bar";
     bar.hidden = true;
     bar.innerHTML =
+      '<div class="ege-exam-bar__start" id="egeExamBarStart"></div>' +
       '<div class="ege-exam-bar__end" id="egeExamBarEnd">' +
       '<div class="ege-exam-timer" id="egeExamTimer" hidden>' +
       '<button type="button" class="ege-exam-timer__start" id="egeExamTimerStart" hidden>Start</button>' +

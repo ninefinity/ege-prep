@@ -10,7 +10,7 @@
       "type": "writing",
       "examNum": 37,
       "instructions": "Укажите номер задания 37 в БЛАНКЕ ОТВЕТОВ № 2 и напишите текст своего ответного электронного письма зарубежному другу по переписке.",
-      "promptHtml": "<p><strong>From:</strong> Sophia@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Victory Day</p><p>…I'm doing a project on \"Holidays in Different Countries of the World.\" I've learnt that in Russia, Victory Day is celebrated on May 9th. What event does this holiday commemorate? What official events are held on this day? What do you and your family usually do on this day?<br>…I've joined a local volunteer group…</p><p>Write an email to Sophia. In your message: answer her questions; ask 3 questions about the volunteer group.</p>",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Sophia who writes:</p><p><strong>From:</strong> Sophia@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Victory Day</p><p>…I'm doing a project on \"Holidays in Different Countries of the World.\" I've learnt that in Russia, Victory Day is celebrated on May 9th. What event does this holiday commemorate? What official events are held on this day? What do you and your family usually do on this day?<br>…I've joined a local volunteer group…</p><p>Write an email to Sophia.<br>In your message:<br>– answer her questions;<br>– ask 3 questions about the volunteer group.</p><p>Remember the rules of email writing.</p>",
       "wordMin": 100,
       "wordMax": 140,
       "wordToleranceNote": "Допустимое отклонение ±10%: 90–154 слова.",
@@ -110,23 +110,30 @@
           ]
         }
       ],
-      "plan": [
-        "make an opening statement on the subject of the project",
-        "select and report 2-3 facts",
-        "make 1-2 comparisons where relevant and give your comments",
-        "outline a possible problem and suggest a way of solving it",
-        "conclude by giving and explaining your opinion"
-      ],
       "choices": [
         {
           "id": "38.1",
           "title": "Living conditions in rural areas in Zetland",
-          "promptHtml": "<p>Imagine that you are doing a project on living conditions in rural areas in Zetland. You have found some data on the subject – the results of a survey conducted among Zetland school students (see the table below). Comment on the survey data and give your opinion on the subject of the project.</p><p><strong>What do you think should be done to improve living conditions in the countryside? Choose one option</strong></p><table class='ege-writing-table'><tbody><tr><td>Build hospitals and schools</td><td>48%</td></tr><tr><td>Improve internet access</td><td>20%</td></tr><tr><td>Organize more cultural events</td><td>18%</td></tr><tr><td>Build sports facilities</td><td>9%</td></tr><tr><td>Develop public transport</td><td>5%</td></tr></tbody></table><p>conclude by giving and explaining your opinion on how to improve rural living conditions</p>"
+          "promptHtml": "<p>Imagine that you are doing a project on living conditions in rural areas in Zetland. You have found some data on the subject – the results of a survey conducted among Zetland school students (see the table below). Comment on the survey data and give your opinion on the subject of the project.</p><p><strong>What do you think should be done to improve living conditions in the countryside? Choose one option</strong></p><table class='ege-writing-table'><tbody><tr><td>Build hospitals and schools</td><td>48%</td></tr><tr><td>Improve internet access</td><td>20%</td></tr><tr><td>Organize more cultural events</td><td>18%</td></tr><tr><td>Build sports facilities</td><td>9%</td></tr><tr><td>Develop public transport</td><td>5%</td></tr></tbody></table><p>conclude by giving and explaining your opinion on how to improve rural living conditions</p>",
+          "plan": [
+            "make an opening statement on the subject of the project;",
+            "select and report 2–3 facts;",
+            "make 1–2 comparisons where relevant and give your comments;",
+            "outline a possible problem that can arise when living in the countryside and suggest a way of solving it;",
+            "conclude by giving and explaining your opinion on how to improve rural living conditions."
+          ]
         },
         {
           "id": "38.2",
           "title": "Jobs for young professionals in Zetland",
-          "promptHtml": "<p>Imagine that you are doing a project on jobs for young professionals in Zetland. You have found some data on the subject – the results of a survey conducted among young Zetlanders (see the pie chart below). Comment on the survey data and give your opinion on the subject of the project.</p><p><strong>What is the main reason why it is difficult for you as a young professional to find a job? Choose one option</strong></p><table class='ege-writing-table'><tbody><tr><td>Little professional experience</td><td>30%</td></tr><tr><td>Low foreign language proficiency</td><td>28%</td></tr><tr><td>Lack of qualifications</td><td>24%</td></tr><tr><td>Salary expectations are too high</td><td>10%</td></tr><tr><td>High competition</td><td>8%</td></tr></tbody></table><p>conclude by giving and explaining your opinion on whether it is easy for a young professional to find a job</p>"
+          "promptHtml": "<p>Imagine that you are doing a project on jobs for young professionals in Zetland. You have found some data on the subject – the results of a survey conducted among young Zetlanders (see the pie chart below). Comment on the survey data and give your opinion on the subject of the project.</p><p><strong>What is the main reason why it is difficult for you as a young professional to find a job? Choose one option</strong></p><table class='ege-writing-table'><tbody><tr><td>Little professional experience</td><td>30%</td></tr><tr><td>Low foreign language proficiency</td><td>28%</td></tr><tr><td>Lack of qualifications</td><td>24%</td></tr><tr><td>Salary expectations are too high</td><td>10%</td></tr><tr><td>High competition</td><td>8%</td></tr></tbody></table><p>conclude by giving and explaining your opinion on whether it is easy for a young professional to find a job</p>",
+          "plan": [
+            "make an opening statement on the subject of the project;",
+            "select and report 2–3 facts;",
+            "make 1–2 comparisons where relevant and give your comments;",
+            "outline a problem related to job search that young professionals can face and suggest a way of solving it;",
+            "conclude by giving and explaining your opinion on whether it is easy for a young professional to find a job."
+          ]
         }
       ]
     }

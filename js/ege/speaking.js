@@ -228,7 +228,8 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
         E.speakingMicStream = stream;
         return stream;
       })
-      .catch(function () {
+      .catch(function (err) {
+        console.warn("[ege] mic access failed:", err && err.name, err && err.message);
         return null;
       })
       .then(function (result) {
@@ -293,12 +294,19 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
   };
 
   E.startSpeakingRecording = function startSpeakingRecording(taskId, wrap) {
-    if (typeof MediaRecorder === "undefined") return;
+    if (typeof MediaRecorder === "undefined") {
+      console.warn("[ege] MediaRecorder unsupported in this browser");
+      E.syncSpeakingRecordingUI(taskId, wrap, "denied");
+      return;
+    }
     E.ensureMicStream().then(function (stream) {
       // The timer (and thus the exam) doesn't wait on mic permission --
       // if the student's already moved past this Answer window by the
       // time the prompt resolves, don't start recording into it.
-      if (!wrap.classList.contains("is-running")) return;
+      if (!wrap.classList.contains("is-running")) {
+        console.warn("[ege] mic prompt resolved after Answer phase ended, taskId=" + taskId);
+        return;
+      }
       if (!stream) {
         E.syncSpeakingRecordingUI(taskId, wrap, "denied");
         return;
@@ -307,6 +315,7 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       try {
         recorder = new MediaRecorder(stream);
       } catch (err) {
+        console.warn("[ege] MediaRecorder construction failed:", err && err.message);
         E.syncSpeakingRecordingUI(taskId, wrap, "denied");
         return;
       }
@@ -315,7 +324,10 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
         if (event.data && event.data.size) chunks.push(event.data);
       });
       recorder.addEventListener("stop", function () {
-        if (!chunks.length) return;
+        if (!chunks.length) {
+          console.warn("[ege] recording stopped with no audio data, taskId=" + taskId);
+          return;
+        }
         var blob = new Blob(chunks, { type: recorder.mimeType || "audio/webm" });
         var prev = E.speakingRecordings[taskId];
         if (prev) URL.revokeObjectURL(prev.url);

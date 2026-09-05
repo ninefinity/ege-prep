@@ -203,6 +203,10 @@ E.syncWritingWordCount = function syncWritingWordCount(taskId) {
     el.classList.toggle("is-ok", inRange);
     el.classList.toggle("is-over", warnOver);
   });
+
+  if (typeof E.syncWritingOverflowHighlight === "function") {
+    E.syncWritingOverflowHighlight(taskId);
+  }
 };
 
 E.markWritingDraftSaved = function markWritingDraftSaved(taskId) {
@@ -619,19 +623,78 @@ E.writing37GreetingStarter = function writing37GreetingStarter(task) {
   return name ? "Dear " + name + ",\n\n" : "";
 };
 
+// Splits raw textarea text into (before, from) at the character offset where
+// the (wordMax+1)-th word starts, so E.syncWritingWordCount can mark that
+// word and everything after it as over the limit. Returns null when the
+// task has no max or the draft doesn't reach it.
+E.findWritingOverflowSplit = function findWritingOverflowSplit(text, wordMax) {
+  if (!wordMax) return null;
+  var re = /\S+/g;
+  var match;
+  var index = 0;
+  var wordCount = 0;
+  while ((match = re.exec(text))) {
+    wordCount++;
+    if (wordCount === wordMax + 1) {
+      index = match.index;
+      break;
+    }
+  }
+  if (wordCount <= wordMax) return null;
+  return { before: text.slice(0, index), from: text.slice(index) };
+};
+
+E.syncWritingOverflowHighlight = function syncWritingOverflowHighlight(taskId) {
+  var task = E.findTask(taskId);
+  var overlay = document.getElementById("writing-overflow-" + taskId);
+  var textarea = document.getElementById("writing-draft-" + taskId);
+  if (!task || !overlay || !textarea) return;
+  var split = E.findWritingOverflowSplit(textarea.value, task.wordMax);
+  overlay.textContent = "";
+  if (!split) {
+    overlay.appendChild(document.createTextNode(textarea.value));
+  } else {
+    overlay.appendChild(document.createTextNode(split.before));
+    var mark = document.createElement("span");
+    mark.className = "ege-writing-textarea__overflow";
+    mark.textContent = split.from;
+    overlay.appendChild(mark);
+  }
+  overlay.scrollTop = textarea.scrollTop;
+  overlay.scrollLeft = textarea.scrollLeft;
+};
+
 E.buildWritingTextarea = function buildWritingTextarea(task, opts) {
   opts = opts || {};
+  var wrap = document.createElement("div");
+  wrap.className = "ege-writing-textarea";
+
+  // Sits behind the real textarea (see below) and mirrors its text so the
+  // word that pushes a draft past wordMax, and everything after it, can be
+  // shown in red -- a plain <textarea> can't style individual words itself.
+  var overlay = document.createElement("div");
+  overlay.className = "ege-writing-textarea__overlay";
+  overlay.id = "writing-overflow-" + task.id;
+  overlay.setAttribute("aria-hidden", "true");
+  wrap.appendChild(overlay);
+
   var textarea = document.createElement("textarea");
-  textarea.className = "ege-writing-textarea";
+  textarea.className = "ege-writing-textarea__input";
   textarea.id = "writing-draft-" + task.id;
   textarea.setAttribute("aria-label", task.title || "Writing draft");
   textarea.placeholder = "Write your answer here…";
   textarea.spellcheck = true;
+  wrap.appendChild(textarea);
 
   var choiceId = opts.choiceId || "";
   var draft = E.loadWritingDraft(task.id, choiceId || undefined);
   if (!draft && task.examNum === 37) draft = E.writing37GreetingStarter(task);
   textarea.value = draft;
+
+  textarea.addEventListener("scroll", function () {
+    overlay.scrollTop = textarea.scrollTop;
+    overlay.scrollLeft = textarea.scrollLeft;
+  });
 
   textarea.addEventListener("input", function () {
     var cid =
@@ -646,7 +709,9 @@ E.buildWritingTextarea = function buildWritingTextarea(task, opts) {
     if (typeof E.scheduleAutosave === "function") E.scheduleAutosave();
   });
 
-  return textarea;
+  E.syncWritingOverflowHighlight(task.id);
+
+  return wrap;
 };
 
 E.buildWritingStickyFooter = function buildWritingStickyFooter(task) {
@@ -912,12 +977,22 @@ E.buildWritingCriteriaDrawer = function buildWritingCriteriaDrawer(task) {
   return root;
 };
 
+E.buildWriting38QuestionBlock = function buildWriting38QuestionBlock(parsed) {
+  if (!parsed.question) return null;
+  var qBlock = document.createElement("section");
+  qBlock.className = "ege-writing38-brief__section ege-writing38-brief__section--question";
+  var question = document.createElement("div");
+  question.className = "ege-writing38-brief__question";
+  question.innerHTML = parsed.question;
+  qBlock.appendChild(question);
+  return qBlock;
+};
+
 E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice, opts) {
-  // The picker card (see buildWriting38ChoicePicker) reuses this to preview
-  // each option, but only wants задание + вопрос to compare -- the survey
-  // chart, the answer checklist, and the word-count note are read *after*
-  // picking, not while choosing between two topics.
-  var full = !opts || opts.full !== false;
+  // Only the picker card (see buildWriting38ChoicePicker) uses this now, to
+  // preview задание + вопрос for both options before picking -- once a
+  // choice is made, buildWriting38WorkspaceHeader/EditorPanel place those
+  // pieces (plus the survey/checklist) directly in the workspace instead.
   // Once a choice is made, syncWriting38Workspace swaps the task's own
   // instructions line for this same задание text (see below), so showing
   // it again here would just duplicate it -- only the picker card wants it.
@@ -943,88 +1018,83 @@ E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice, opts)
     rail.appendChild(taskBlock);
   }
 
-  if (parsed.question) {
-    var qBlock = document.createElement("section");
-    qBlock.className = "ege-writing38-brief__section ege-writing38-brief__section--question";
-    var qHead = document.createElement("h3");
-    qHead.className = "ege-writing38-brief__heading";
-    qHead.textContent = "Вопрос";
-    qBlock.appendChild(qHead);
-    var question = document.createElement("div");
-    question.className = "ege-writing38-brief__question";
-    question.innerHTML = parsed.question;
-    qBlock.appendChild(question);
-    rail.appendChild(qBlock);
-  }
-
-  if (parsed.survey.length && full) {
-    var surveyBlock = document.createElement("section");
-    surveyBlock.className = "ege-writing38-brief__section";
-    var surveyHead = document.createElement("h3");
-    surveyHead.className = "ege-writing38-brief__heading";
-    surveyHead.textContent = "Результаты опроса";
-    surveyBlock.appendChild(surveyHead);
-
-    var surveyCard = document.createElement("div");
-    surveyCard.className = "ege-writing38-survey";
-    parsed.survey.forEach(function (row) {
-      var item = document.createElement("div");
-      item.className = "ege-writing38-survey__row";
-
-      var label = document.createElement("span");
-      label.className = "ege-writing38-survey__label";
-      label.textContent = row.label;
-
-      var pct = document.createElement("span");
-      pct.className = "ege-writing38-survey__pct";
-      pct.textContent = row.percentText;
-
-      var bar = document.createElement("span");
-      bar.className = "ege-writing38-survey__bar";
-      bar.setAttribute("aria-hidden", "true");
-      var fill = document.createElement("span");
-      fill.className = "ege-writing38-survey__bar-fill";
-      var width = Math.max(0, Math.min(100, (row.percent / (parsed.maxPercent || 100)) * 100));
-      fill.style.width = width + "%";
-      bar.appendChild(fill);
-
-      item.appendChild(label);
-      item.appendChild(pct);
-      item.appendChild(bar);
-      surveyCard.appendChild(item);
-    });
-    surveyBlock.appendChild(surveyCard);
-    rail.appendChild(surveyBlock);
-  }
-
-  if (task.plan && task.plan.length && full) {
-    var planDetails = document.createElement("details");
-    planDetails.className = "ege-writing38-checklist";
-    planDetails.open = true;
-
-    var planSummary = document.createElement("summary");
-    planSummary.className = "ege-writing38-checklist__summary";
-    planSummary.textContent = "Что включить в ответ";
-    planDetails.appendChild(planSummary);
-
-    var plan = document.createElement("ol");
-    plan.className = "ege-writing38-checklist__list";
-    plan.setAttribute("aria-label", "Plan");
-    task.plan.forEach(function (item) {
-      var li = document.createElement("li");
-      li.textContent = item;
-      plan.appendChild(li);
-    });
-    planDetails.appendChild(plan);
-    rail.appendChild(planDetails);
-  }
+  var qBlock = E.buildWriting38QuestionBlock(parsed);
+  if (qBlock) rail.appendChild(qBlock);
 
   return rail;
 };
 
-E.buildWriting38WorkspaceHeader = function buildWriting38WorkspaceHeader(task, choice) {
+E.buildWriting38SurveyBlock = function buildWriting38SurveyBlock(parsed) {
+  var surveyBlock = document.createElement("section");
+  surveyBlock.className = "ege-writing38-brief__section";
+  var surveyHead = document.createElement("h3");
+  surveyHead.className = "ege-writing38-brief__heading";
+  surveyHead.textContent = "Survey results";
+  surveyBlock.appendChild(surveyHead);
+
+  var surveyCard = document.createElement("div");
+  surveyCard.className = "ege-writing38-survey";
+  parsed.survey.forEach(function (row) {
+    var item = document.createElement("div");
+    item.className = "ege-writing38-survey__row";
+
+    var label = document.createElement("span");
+    label.className = "ege-writing38-survey__label";
+    label.textContent = row.label;
+
+    var pct = document.createElement("span");
+    pct.className = "ege-writing38-survey__pct";
+    pct.textContent = row.percentText;
+
+    var bar = document.createElement("span");
+    bar.className = "ege-writing38-survey__bar";
+    bar.setAttribute("aria-hidden", "true");
+    var fill = document.createElement("span");
+    fill.className = "ege-writing38-survey__bar-fill";
+    var width = Math.max(0, Math.min(100, (row.percent / (parsed.maxPercent || 100)) * 100));
+    fill.style.width = width + "%";
+    bar.appendChild(fill);
+
+    item.appendChild(label);
+    item.appendChild(pct);
+    item.appendChild(bar);
+    surveyCard.appendChild(item);
+  });
+  surveyBlock.appendChild(surveyCard);
+  return surveyBlock;
+};
+
+E.buildWriting38ChecklistBlock = function buildWriting38ChecklistBlock(task, choice) {
+  // Always shown, not collapsible -- this is the rubric a student is
+  // writing against, not optional/supplementary reading to tuck away.
+  var planWrap = document.createElement("div");
+  planWrap.className = "ege-writing38-checklist";
+
+  var planHeading = document.createElement("h3");
+  planHeading.className = "ege-writing38-checklist__summary";
+  planHeading.textContent = "Use the following plan:";
+  planWrap.appendChild(planHeading);
+
+  var plan = document.createElement("ul");
+  plan.className = "ege-writing38-checklist__list";
+  plan.setAttribute("aria-label", "Plan");
+  choice.plan.forEach(function (item) {
+    var li = document.createElement("li");
+    li.textContent = item;
+    plan.appendChild(li);
+  });
+  planWrap.appendChild(plan);
+  return planWrap;
+};
+
+E.buildWriting38WorkspaceHeader = function buildWriting38WorkspaceHeader(task, choice, parsed) {
   var header = document.createElement("header");
   header.className = "ege-writing38-header";
+
+  var fullExam = typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam();
+  if (fullExam && typeof E.clearExamBarStartControlsForTask === "function") {
+    E.clearExamBarStartControlsForTask(task.id);
+  }
 
   var titles = document.createElement("div");
   titles.className = "ege-writing38-header__titles";
@@ -1035,7 +1105,21 @@ E.buildWriting38WorkspaceHeader = function buildWriting38WorkspaceHeader(task, c
   variant.className = "ege-writing38-header__variant";
   variant.id = "writing38-variant-" + task.id;
   variant.textContent = E.writing38ChoiceLabel(choice).replace(/\s+in Zetland$/i, "");
-  titles.appendChild(variant);
+  // During the full mock exam the title rides the exam bar (top-left, next
+  // to the switch-variant control below) instead of repeating here --
+  // practice mode has no such bar, so it stays put there.
+  if (fullExam && typeof E.mountExamBarStartControl === "function") {
+    variant.classList.add("ege-exam-bar__writing38-title");
+    E.mountExamBarStartControl(variant, task.id);
+  } else {
+    titles.appendChild(variant);
+  }
+
+  // The question sits right under the title/number instead of buried in the
+  // brief rail (see buildWriting38QuestionBlock) -- it's what the student is
+  // actually answering, so it belongs next to what задание they picked.
+  var qBlock = E.buildWriting38QuestionBlock(parsed);
+  if (qBlock) titles.appendChild(qBlock);
 
   header.appendChild(titles);
 
@@ -1050,15 +1134,33 @@ E.buildWriting38WorkspaceHeader = function buildWriting38WorkspaceHeader(task, c
     actions.appendChild(E.buildWritingExportButtons(task));
   }
 
+  // Labeled with the OTHER variant's own number (e.g. "38.2" while 38.1 is
+  // open) instead of a generic "Сменить вариант" -- with only two choices,
+  // the button already tells you exactly what you'll switch to.
+  var otherChoice =
+    task.choices && task.choices.find(function (c) {
+      return c.id !== choice.id;
+    });
   var changeBtn = document.createElement("button");
   changeBtn.type = "button";
   changeBtn.className = "ege-btn ege-btn--ghost ege-writing38-header__change";
-  changeBtn.textContent = "Сменить вариант";
-  changeBtn.setAttribute("aria-label", "Сменить вариант");
+  changeBtn.textContent = otherChoice ? otherChoice.id : "Сменить вариант";
+  changeBtn.setAttribute(
+    "aria-label",
+    otherChoice ? "Сменить на вариант " + otherChoice.id : "Сменить вариант"
+  );
   changeBtn.addEventListener("click", function () {
     E.confirmWriting38VariantChange(task.id);
   });
-  actions.appendChild(changeBtn);
+  // During the full mock exam this rides on the same line as the exam
+  // timer/menu (top-left of #egeExamBar) instead of the task's own header,
+  // since that's the toolbar students already look at -- practice mode has
+  // no such bar, so it stays in the header there.
+  if (fullExam && typeof E.mountExamBarStartControl === "function") {
+    E.mountExamBarStartControl(changeBtn, task.id);
+  } else {
+    actions.appendChild(changeBtn);
+  }
 
   var more = document.createElement("details");
   more.className = "ege-writing38-more";
@@ -1083,6 +1185,22 @@ E.buildWriting38WorkspaceHeader = function buildWriting38WorkspaceHeader(task, c
 
   header.appendChild(actions);
   return header;
+};
+
+E.buildWriting38DataRail = function buildWriting38DataRail(task, choice, parsed) {
+  var rail = document.createElement("aside");
+  rail.className = "ege-writing38-brief ege-passage";
+  rail.id = "writing38-brief-" + task.id;
+  rail.setAttribute("aria-label", "Survey data / plan");
+
+  if (parsed.survey.length) {
+    rail.appendChild(E.buildWriting38SurveyBlock(parsed));
+  }
+  if (choice.plan && choice.plan.length) {
+    rail.appendChild(E.buildWriting38ChecklistBlock(task, choice));
+  }
+
+  return rail;
 };
 
 E.buildWriting38EditorPanel = function buildWriting38EditorPanel(task, choiceId) {
@@ -1120,10 +1238,11 @@ E.buildWriting38EditorPanel = function buildWriting38EditorPanel(task, choiceId)
   head.appendChild(meta);
   panel.appendChild(head);
 
-  var textarea = E.buildWritingTextarea(task, { choiceId: choiceId });
-  textarea.classList.add("ege-writing38-editor__textarea");
-  textarea.placeholder = "Write your essay here…";
-  panel.appendChild(textarea);
+  var textareaWrap = E.buildWritingTextarea(task, { choiceId: choiceId });
+  textareaWrap.classList.add("ege-writing38-editor__textarea");
+  var textareaInput = textareaWrap.querySelector(".ege-writing-textarea__input");
+  if (textareaInput) textareaInput.placeholder = "Write your essay here…";
+  panel.appendChild(textareaWrap);
 
   return panel;
 };
@@ -1157,11 +1276,13 @@ E.buildWriting38Workspace = function buildWriting38Workspace(task, choice) {
   root.className = "ege-writing38-split";
   root.id = "writing38-split-" + task.id;
 
-  root.appendChild(E.buildWriting38WorkspaceHeader(task, choice));
+  var parsed = E.parseWriting38Prompt(choice.promptHtml || "");
+
+  root.appendChild(E.buildWriting38WorkspaceHeader(task, choice, parsed));
 
   var grid = document.createElement("div");
   grid.className = "ege-writing38-grid";
-  grid.appendChild(E.buildWriting38BriefRail(task, choice, { context: false }));
+  grid.appendChild(E.buildWriting38DataRail(task, choice, parsed));
   grid.appendChild(E.buildWriting38EditorPanel(task, choice.id));
   root.appendChild(grid);
 
@@ -1223,7 +1344,7 @@ E.buildWriting38ChoicePicker = function buildWriting38ChoicePicker(task) {
     // buildWriting38BriefRail always ids its root "writing38-brief-" +
     // task.id regardless of choice; give each picker copy a distinct id
     // (choice.id appended) so two cards don't collide on the same id.
-    var preview = E.buildWriting38BriefRail(task, choice, { full: false });
+    var preview = E.buildWriting38BriefRail(task, choice);
     preview.id = "writing38-picker-brief-" + task.id + "-" + choice.id;
     body.appendChild(preview);
 

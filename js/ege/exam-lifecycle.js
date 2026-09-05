@@ -616,6 +616,38 @@ E.mountExamBarControl = function mountExamBarControl(el, beforeId) {
   else end.appendChild(el);
 };
 
+// For controls that belong to whichever task is currently active (e.g. the
+// writing-38 title and "switch variant" button) rather than the exam as a
+// whole -- the bar is global/sticky and outlives task switches, so each
+// control is tagged with the task it belongs to and
+// E.syncExamBarStartControls (called from E.showTask) hides it again once
+// that task isn't the active one.
+E.clearExamBarStartControlsForTask = function clearExamBarStartControlsForTask(taskId) {
+  var start = document.getElementById("egeExamBarStart");
+  if (!start) return;
+  Array.prototype.slice.call(start.children).forEach(function (existing) {
+    if (existing.dataset.examBarForTask === taskId) existing.remove();
+  });
+};
+
+E.mountExamBarStartControl = function mountExamBarStartControl(el, taskId) {
+  E.ensureExamBar();
+  var start = document.getElementById("egeExamBarStart");
+  if (!start) return;
+  el.dataset.examBarForTask = taskId;
+  start.appendChild(el);
+  E.syncExamBarStartControls();
+};
+
+E.syncExamBarStartControls = function syncExamBarStartControls() {
+  var start = document.getElementById("egeExamBarStart");
+  if (!start) return;
+  var activeTaskId = E.state.activeTaskId;
+  Array.prototype.forEach.call(start.children, function (el) {
+    el.hidden = el.dataset.examBarForTask !== activeTaskId;
+  });
+};
+
 E.useExamSidebarControls = function useExamSidebarControls() {
   return false;
 };
