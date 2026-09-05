@@ -1662,6 +1662,18 @@ button.ege-prep-pair-card {
   color: var(--ege-muted);
 }
 
+.ege-panel--work {
+  position: relative;
+}
+
+.ege-panel__reset {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  font-size: var(--ege-text-sm);
+}
+
 .ege-ref-strip {
   margin: 0;
 }
@@ -7368,7 +7380,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-writing38-grid {
   display: grid;
-  grid-template-columns: minmax(420px, 0.82fr) minmax(560px, 1.18fr);
+  grid-template-columns: minmax(300px, 0.82fr) minmax(380px, 1.18fr);
   gap: 24px;
   align-items: start;
   min-width: 0;
@@ -7729,17 +7741,15 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 /* .ege-writing38-grid's two columns have a combined hard minimum of
-   980px (420px + 560px) + 24px gap = 1004px. That's wider than the
-   *workspace* column often is well above 1000px of viewport -- the
-   sidebar eats into what's left before the single-column fallback ever
-   kicked in (confirmed live: 1087px viewport, locked-nav's 116px sidebar
-   -> 907px workspace, need 1004px). The overhead differs by context, so
+   680px (300px + 380px) + 24px gap = 704px (was 1004px, which collapsed
+   to one column at a lot of perfectly normal window widths -- confirmed
+   live at a common 1087px viewport). The overhead differs by context, so
    this is split in two: locked-nav's sidebar is narrower (~116-180px incl.
-   gap/padding -> collapse under ~1190px) than practice mode's fixed 220px
-   one (~280px incl. gap/padding -> collapse under ~1290px). A single
+   gap/padding -> collapse under ~900px) than practice mode's fixed 220px
+   one (~280px incl. gap/padding -> collapse under ~1000px). A single
    threshold sized for practice mode's wider overhead was killing the
    2-column layout in the exam needlessly at viewports in between. */
-@media (max-width: 1190px) {
+@media (max-width: 900px) {
   #egePage.is-locked-nav .ege-writing38-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
@@ -7755,7 +7765,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   }
 }
 
-@media (max-width: 1290px) {
+@media (max-width: 1000px) {
   #egePage:not(.is-locked-nav) .ege-writing38-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
@@ -7990,6 +8000,51 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   font-size: 1.35rem;
 }
 
+.ege-exam-mode-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 1rem;
+}
+
+.ege-exam-mode-picker__option {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 600;
+  color: var(--ege-ink);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.ege-exam-mode-picker__option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ege-exam-mode-picker__option:hover {
+  border-color: var(--yap-royal);
+}
+
+.ege-exam-mode-picker__option:has(input:checked) {
+  background: var(--yap-royal);
+  border-color: var(--yap-royal);
+  color: #fff;
+}
+
 .ege-exam-phase__lead,
 .ege-exam-phase__note,
 .ege-exam-phase__meta {
@@ -8026,6 +8081,19 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid var(--ege-line);
+}
+
+.ege-results-recordings {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ege-line);
+}
+
+.ege-results-recordings__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 8px;
 }
 
 .ege-exam-phase__panel--results .ege-btn,
@@ -8076,12 +8144,44 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   font-size: 0.9em;
 }
 
-.ege-results-growth {
-  margin: 0 0 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  background: rgba(8, 27, 92, 0.06);
+.ege-results-sections__row--ungraded {
+  color: var(--ege-muted);
+}
+
+.ege-results-sections__edit {
+  border: 0;
+  background: none;
+  color: var(--ege-accent, #081b5c);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.5rem;
+  font: inherit;
+  font-size: 0.85em;
+}
+
+.ege-results-sections__editor {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ege-results-sections__input {
+  width: 3.5rem;
+  padding: 2px 6px;
+  border: 1px solid var(--ege-line);
+  border-radius: 0.35rem;
+  font: inherit;
   color: var(--ege-ink);
+}
+
+.ege-results-mistakes-entry {
+  margin: 1.25rem 0 0;
+}
+
+.ege-exam-phase__back {
+  margin: 0 0 1rem;
+  align-self: flex-start;
 }
 
 .ege-results-mistakes {
@@ -8136,6 +8236,17 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   margin: 0.35rem 0 0.5rem;
   color: var(--ege-muted);
   font-size: 0.92rem;
+}
+
+.ege-results-mistakes__explain summary {
+  cursor: pointer;
+  color: var(--ege-accent, #081b5c);
+  text-decoration: underline;
+}
+
+.ege-results-mistakes__explain p {
+  margin: 0.5rem 0 0;
+  color: var(--ege-ink);
 }
 
 .ege-results-mistakes__review {

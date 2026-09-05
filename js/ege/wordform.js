@@ -195,10 +195,12 @@ E.renderWordform = function renderWordform(task, topicId) {
     var examNum = E.wordformExamNum(task, index);
     var breakTitle = E.wordformPassageBreakTitle(task, item, index);
     if (breakTitle) {
+      // Grammar-transformations' two source passages used to get a
+      // printed "1) Yaroslavl" / "2) From the history of sweaters"
+      // heading here -- just the divider stays now, no subtitle text.
       passagePart += 1;
       var breakEl = document.createElement("h3");
       breakEl.className = "ege-wordform-break";
-      breakEl.textContent = passagePart + ") " + breakTitle;
       passage.appendChild(breakEl);
     }
 

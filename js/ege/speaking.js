@@ -138,6 +138,84 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
   E.speakingRecordings = E.speakingRecordings || {};
   E.speakingActiveRecorders = E.speakingActiveRecorders || {};
 
+  // MediaRecorder only ever gives back webm/opus (no browser encodes mp3
+  // natively), so turning a take into a real .mp3 means decoding it back
+  // to raw PCM via the Web Audio API and re-encoding with lamejs (vendored
+  // in js/vendor/lame.min.js -- pure JS, no server round-trip needed).
+  E.encodeAudioBlobToMp3 = function encodeAudioBlobToMp3(blob) {
+    var AudioCtx = window.AudioContext || window.webkitAudioContext;
+    var ctx = new AudioCtx();
+    return blob
+      .arrayBuffer()
+      .then(function (buf) {
+        return ctx.decodeAudioData(buf);
+      })
+      .then(function (audioBuffer) {
+        var sampleRate = audioBuffer.sampleRate;
+        var samples = audioBuffer.getChannelData(0);
+        var int16 = new Int16Array(samples.length);
+        for (var i = 0; i < samples.length; i++) {
+          var s = Math.max(-1, Math.min(1, samples[i]));
+          int16[i] = s < 0 ? s * 0x8000 : s * 0x7fff;
+        }
+        var encoder = new window.lamejs.Mp3Encoder(1, sampleRate, 128);
+        var blockSize = 1152;
+        var chunks = [];
+        for (var offset = 0; offset < int16.length; offset += blockSize) {
+          var chunk = encoder.encodeBuffer(int16.subarray(offset, offset + blockSize));
+          if (chunk.length > 0) chunks.push(chunk);
+        }
+        var tail = encoder.flush();
+        if (tail.length > 0) chunks.push(tail);
+        return new Blob(chunks, { type: "audio/mpeg" });
+      })
+      .finally(function () {
+        ctx.close();
+      });
+  };
+
+  E.downloadBlob = function downloadBlob(blob, filename) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () {
+      URL.revokeObjectURL(url);
+    }, 1000);
+  };
+
+  E.getRecordedOralTasks = function getRecordedOralTasks() {
+    if (!E.state.topic || !E.state.topic.tasks) return [];
+    return E.state.topic.tasks.filter(function (task) {
+      return (
+        E.isOralTask(task) &&
+        E.speakingRecordings[task.id] &&
+        E.speakingRecordings[task.id].blob
+      );
+    });
+  };
+
+  E.exportSpeakingRecording = function exportSpeakingRecording(taskId, onSettled) {
+    var rec = E.speakingRecordings[taskId];
+    var task = E.findTask(taskId);
+    if (!rec || !task) {
+      if (onSettled) onSettled(false);
+      return;
+    }
+    var examNum = E.taskExamFrom(task) || task.id;
+    E.encodeAudioBlobToMp3(rec.blob)
+      .then(function (mp3Blob) {
+        E.downloadBlob(mp3Blob, examNum + ".mp3");
+        if (onSettled) onSettled(true);
+      })
+      .catch(function () {
+        if (onSettled) onSettled(false);
+      });
+  };
+
   E.ensureMicStream = function ensureMicStream() {
     if (E.speakingMicStream) return Promise.resolve(E.speakingMicStream);
     if (E.speakingMicStreamPromise) return E.speakingMicStreamPromise;
@@ -355,8 +433,12 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
         if (event.animationName === "ege-speaking-timer-finish-shake") clearFinishShake();
       });
       clock.addEventListener("click", function () {
+        // Pausing your own prep/answer timer would let you buy extra
+        // thinking time mid mock exam -- fine in practice, not here.
+        var canPause =
+          !(typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam());
         if (running) {
-          pause();
+          if (canPause) pause();
           return;
         }
         if (remaining === 0) {
@@ -506,8 +588,10 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
         if (event.animationName === "ege-speaking-timer-finish-shake") clearFinishShake();
       });
       clock.addEventListener("click", function () {
+        var canPause =
+          !(typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam());
         if (running) {
-          pause();
+          if (canPause) pause();
           return;
         }
         if (phaseIndex === phases.length - 1 && remaining === 0) {

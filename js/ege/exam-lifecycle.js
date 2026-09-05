@@ -3,6 +3,8 @@ import { clearPromoUnlock } from "../promo-unlock.js";
 
 var PHASE_KEY_PREFIX = "ege-prep:exam-phase:";
 var ACTIVE_TASK_KEY_PREFIX = "ege-prep:exam-active-task:";
+var MODE_KEY_PREFIX = "ege-prep:exam-mode:";
+var ORAL_PROGRESS_KEY_PREFIX = "ege-prep:oral-progress:";
 var ORAL_EXAM_FROM = 39;
 
 E.EXAM_PHASES = {
@@ -14,6 +16,16 @@ E.EXAM_PHASES = {
   COMPLETE: "complete",
 };
 
+// Which half(s) of the exam this run includes -- lets a student practice
+// just the written or just the oral part instead of always both. Chosen
+// on the written-ready screen (see E.renderWrittenReadyScreen); "both" is
+// the default and matches the exam's real structure.
+E.EXAM_MODES = {
+  BOTH: "both",
+  WRITTEN: "written",
+  ORAL: "oral",
+};
+
 E.examPhaseStorageKey = function examPhaseStorageKey() {
   var key = E.state.examTimerKey || E.answersSaveVariantKey();
   return PHASE_KEY_PREFIX + String(key || "demo");
@@ -22,6 +34,32 @@ E.examPhaseStorageKey = function examPhaseStorageKey() {
 E.activeTaskStorageKey = function activeTaskStorageKey() {
   var key = E.state.examTimerKey || E.answersSaveVariantKey();
   return ACTIVE_TASK_KEY_PREFIX + String(key || "demo");
+};
+
+E.examModeStorageKey = function examModeStorageKey() {
+  var key = E.state.examTimerKey || E.answersSaveVariantKey();
+  return MODE_KEY_PREFIX + String(key || "demo");
+};
+
+// Mode is meaningless outside a full written+oral variant (isNavTaskVisible/
+// getPhaseTasks never consult it, only phase does), so it's gated the same
+// way loadPersistedExamPhase/getExamPhase are -- always "both" there.
+E.getExamMode = function getExamMode() {
+  if (!E.isFullWrittenExam()) return E.EXAM_MODES.BOTH;
+  try {
+    return localStorage.getItem(E.examModeStorageKey()) || E.EXAM_MODES.BOTH;
+  } catch (_err) {
+    return E.EXAM_MODES.BOTH;
+  }
+};
+
+E.persistExamMode = function persistExamMode(mode) {
+  if (!E.isFullWrittenExam()) return;
+  try {
+    localStorage.setItem(E.examModeStorageKey(), mode || E.EXAM_MODES.BOTH);
+  } catch (_err) {
+    /* ignore */
+  }
 };
 
 E.loadPersistedExamPhase = function loadPersistedExamPhase() {
@@ -132,6 +170,61 @@ E.isWrittenTask = function isWrittenTask(task) {
   return !!task && !E.isOralTask(task);
 };
 
+// Real oral exams are strictly sequential -- audio prompts play once, in
+// order, no going back. This tracks how far into the ordered oral task list
+// the student has moved so isNavTaskVisible can lock out earlier tasks
+// while still letting them step forward (there's no auto-advance -- see
+// speaking.js's onAllDone handlers -- so "current or immediate next" must
+// stay reachable, just never anything before "current").
+E.oralOrderedTasks = function oralOrderedTasks() {
+  if (!E.state.topic || !E.state.topic.tasks) return [];
+  return E.state.topic.tasks
+    .filter(E.isOralTask)
+    .slice()
+    .sort(function (a, b) {
+      return (E.taskExamFrom(a) || 0) - (E.taskExamFrom(b) || 0);
+    });
+};
+
+E.oralProgressStorageKey = function oralProgressStorageKey() {
+  var key = E.state.examTimerKey || E.answersSaveVariantKey();
+  return ORAL_PROGRESS_KEY_PREFIX + String(key || "demo");
+};
+
+E.getOralProgressIndex = function getOralProgressIndex() {
+  try {
+    var raw = localStorage.getItem(E.oralProgressStorageKey());
+    var num = raw == null ? 0 : parseInt(raw, 10);
+    return isNaN(num) || num < 0 ? 0 : num;
+  } catch (_err) {
+    return 0;
+  }
+};
+
+E.persistOralProgressIndex = function persistOralProgressIndex(index) {
+  try {
+    localStorage.setItem(E.oralProgressStorageKey(), String(index || 0));
+  } catch (_err) {
+    /* ignore */
+  }
+};
+
+E.resetOralProgressIndex = function resetOralProgressIndex() {
+  try {
+    localStorage.removeItem(E.oralProgressStorageKey());
+  } catch (_err) {
+    /* ignore */
+  }
+};
+
+E.noteOralTaskVisited = function noteOralTaskVisited(task) {
+  if (!task || !E.isOralTask(task)) return;
+  var ordered = E.oralOrderedTasks();
+  var index = ordered.indexOf(task);
+  if (index < 0) return;
+  if (index > E.getOralProgressIndex()) E.persistOralProgressIndex(index);
+};
+
 E.getPhaseTasks = function getPhaseTasks() {
   if (!E.state.topic || !E.state.topic.tasks) return [];
   if (!E.isFullWrittenExam()) return E.state.topic.tasks;
@@ -163,7 +256,18 @@ E.isNavTaskVisible = function isNavTaskVisible(task) {
   // and never the reverse -- written tasks stayed visible/reachable via
   // the flow nav and task list for the entire oral part too, real exams
   // don't let you go back to a submitted section once you've moved on.
-  if (E.isOralTask(task)) return oralPhaseActive;
+  if (E.isOralTask(task)) {
+    if (!oralPhaseActive) return false;
+    // The oral part is strictly sequential in the real exam -- no manual
+    // back-and-forth. Only the furthest task reached so far, or the one
+    // immediately after it (so the student can still step forward), stay
+    // reachable; everything earlier is locked out once passed.
+    var ordered = E.oralOrderedTasks();
+    var taskIndex = ordered.indexOf(task);
+    if (taskIndex < 0) return true;
+    var progressIndex = E.getOralProgressIndex();
+    return taskIndex >= progressIndex && taskIndex <= progressIndex + 1;
+  }
   return !oralPhaseActive;
 };
 
@@ -288,15 +392,70 @@ E.enterExamReview = function enterExamReview() {
   E.syncExamPhaseActions();
 };
 
+E.examModeOptions = function examModeOptions() {
+  return [
+    { value: E.EXAM_MODES.BOTH, label: "Обе части" },
+    { value: E.EXAM_MODES.WRITTEN, label: "Только письменная часть" },
+    { value: E.EXAM_MODES.ORAL, label: "Только устная часть" },
+  ];
+};
+
+E.renderExamModePicker = function renderExamModePicker() {
+  var current = E.getExamMode();
+  var options = E.examModeOptions()
+    .map(function (opt) {
+      var checked = opt.value === current ? " checked" : "";
+      return (
+        '<label class="ege-exam-mode-picker__option">' +
+        '<input type="radio" name="egeExamMode" value="' +
+        opt.value +
+        '"' +
+        checked +
+        ">" +
+        "<span>" +
+        opt.label +
+        "</span></label>"
+      );
+    })
+    .join("");
+  return (
+    '<div class="ege-exam-mode-picker" id="egeExamModePicker" role="radiogroup" aria-label="Что проходить">' +
+    options +
+    "</div>"
+  );
+};
+
 E.renderWrittenReadyScreen = function renderWrittenReadyScreen() {
   var mins = E.state.examMinutes || 190;
+  var mode = E.getExamMode();
+
+  var title;
+  var lead;
+  var note;
+  if (mode === E.EXAM_MODES.ORAL) {
+    title = "Устная часть";
+    lead = "Задания 39–42 · 4 задания";
+    note = "Письменная часть выполняться не будет — сразу после старта откроется устная часть.";
+  } else if (mode === E.EXAM_MODES.WRITTEN) {
+    title = "Письменная часть";
+    lead = "Задания 1–38 · " + mins + " минут";
+    note = "Экзамен завершится сразу после сдачи письменной части — устная часть выполняться не будет.";
+  } else {
+    title = "Письменная часть";
+    lead = "Задания 1–38 · " + mins + " минут";
+    note = "Ответы сохраняются автоматически. Устная часть отдельно, после сдачи письменной.";
+  }
+
   return (
     '<div class="ege-exam-phase__panel ege-exam-phase__panel--ready" role="region" aria-labelledby="egeWrittenReadyTitle">' +
-    '<h2 class="ege-exam-phase__title" id="egeWrittenReadyTitle">Письменная часть</h2>' +
-    '<p class="ege-exam-phase__lead">Задания 1–38 · ' +
-    mins +
-    " минут</p>" +
-    '<p class="ege-exam-phase__note">Ответы сохраняются автоматически. Устная часть отдельно, после сдачи письменной.</p>' +
+    '<h2 class="ege-exam-phase__title" id="egeWrittenReadyTitle">' + title + "</h2>" +
+    E.renderExamModePicker() +
+    '<p class="ege-exam-phase__lead">' +
+    lead +
+    "</p>" +
+    '<p class="ege-exam-phase__note">' +
+    note +
+    "</p>" +
     '<p class="ege-exam-phase__timer-note">Таймер начнётся после старта</p>' +
     '<div class="ege-exam-phase__actions ege-exam-phase__actions--ready">' +
     '<button type="button" class="ege-exam-timer__start" id="egeStartWrittenExam">Start</button>' +
@@ -359,6 +518,7 @@ E.resetOralExamState = function resetOralExamState() {
     var passage = taskEl && taskEl.querySelector(".ege-speaking-aloud-text");
     if (passage) passage.classList.remove("is-speaking-done");
   });
+  E.resetOralProgressIndex();
 };
 
 E.resetWrittenTasksInDom = function resetWrittenTasksInDom() {
@@ -436,6 +596,9 @@ E.restartWrittenExam = function restartWrittenExam(force) {
   E.resetWrittenTasksInDom();
   E.resetOralExamState();
   E.ensureWorkspaceInteractive();
+  // A full restart shouldn't silently carry over a prior "only written"/
+  // "only oral" choice -- back to the default so the student re-picks.
+  E.persistExamMode(E.EXAM_MODES.BOTH);
   E.persistExamPhase(E.EXAM_PHASES.WRITTEN_READY, { skipSync: true });
   if (mins && key) {
     E.state.examMinutes = mins;
@@ -753,10 +916,27 @@ E.syncWrittenReadyChrome = function syncWrittenReadyChrome() {
 E.showWrittenReadyScreen = function showWrittenReadyScreen() {
   E.syncWrittenReadyChrome();
   E.showExamPhaseScreen(E.renderWrittenReadyScreen());
+  var picker = document.getElementById("egeExamModePicker");
+  if (picker) {
+    picker.querySelectorAll('input[name="egeExamMode"]').forEach(function (input) {
+      input.addEventListener("change", function () {
+        if (!input.checked) return;
+        E.persistExamMode(input.value);
+        // Full re-render: the lead/note copy and Start button behavior
+        // both depend on the chosen mode, not just which pill looks
+        // selected.
+        E.showWrittenReadyScreen();
+      });
+    });
+  }
   var start = document.getElementById("egeStartWrittenExam");
   if (start) {
     start.addEventListener("click", function () {
-      E.startWrittenExam();
+      if (E.getExamMode() === E.EXAM_MODES.ORAL) {
+        E.startOralOnlyExam();
+      } else {
+        E.startWrittenExam();
+      }
     });
   }
 };
@@ -884,6 +1064,17 @@ E.lockWrittenAnswers = function lockWrittenAnswers() {
   });
 };
 
+// "Only oral" mode: the written part is never started at all, so there's
+// nothing to flush/stop (no autosave bound, no timer armed) -- just lock
+// the written tasks (defensive, in case review mode ever reaches them) and
+// silently score them at 0 so the results screen sees them as done rather
+// than pending, then jump straight to the oral instructions screen.
+E.startOralOnlyExam = function startOralOnlyExam() {
+  E.lockWrittenAnswers();
+  if (typeof E.finalizePlacementExam === "function") E.finalizePlacementExam();
+  E.persistExamPhase(E.EXAM_PHASES.ORAL_READY);
+};
+
 E.submitWrittenExam = function submitWrittenExam(force) {
   if (!E.isFullWrittenExam() || E.isWrittenSubmitted()) return;
   if (!force && E.getExamPhase() !== E.EXAM_PHASES.WRITTEN_ACTIVE) return;
@@ -898,7 +1089,12 @@ E.submitWrittenExam = function submitWrittenExam(force) {
   // written answers with a single "Устная часть" button to click through --
   // isWrittenSubmitted() already treats ORAL_READY as submitted too, so
   // nothing downstream depends on actually landing on WRITTEN_SUBMITTED.
-  E.persistExamPhase(E.EXAM_PHASES.ORAL_READY);
+  // "Only written" mode skips the oral part entirely instead.
+  if (E.getExamMode() === E.EXAM_MODES.WRITTEN) {
+    E.persistExamPhase(E.EXAM_PHASES.COMPLETE);
+  } else {
+    E.persistExamPhase(E.EXAM_PHASES.ORAL_READY);
+  }
   E.syncExamPhaseUI();
   if (typeof E.syncExamPracticeUI === "function") E.syncExamPracticeUI();
 };
@@ -1081,6 +1277,8 @@ E.abandonExamSession = function abandonExamSession() {
 
   E.state.examMinutes = mins;
   E.state.examTimerKey = timerKey;
+  E.persistExamMode(E.EXAM_MODES.BOTH);
+  E.resetOralProgressIndex();
   E.persistExamPhase(E.EXAM_PHASES.WRITTEN_READY, { skipSync: true });
 };
 

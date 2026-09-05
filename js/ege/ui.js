@@ -1185,13 +1185,25 @@ E.taskHasProgress = function taskHasProgress(taskId) {
     return false;
   };
 
+// Sat next to the whole-exam reset/restart icons and the countdown timer,
+// a per-task "Reset" read as one more exam-wide control instead of what it
+// actually does -- clear just this task. Living on the answers panel
+// itself (right next to what it clears) makes that obvious instead.
+E.relocateResetButtonToAnswers = function relocateResetButtonToAnswers(taskId, resetBtn) {
+  if (!resetBtn || resetBtn.dataset.relocatedToAnswers) return;
+  var taskEl = document.getElementById("task-" + taskId);
+  if (!taskEl) return;
+  var label = taskEl.querySelector(".ege-panel--work .ege-panel__label");
+  if (!label) return;
+  resetBtn.classList.add("ege-panel__reset");
+  label.insertAdjacentElement("afterend", resetBtn);
+  resetBtn.dataset.relocatedToAnswers = "1";
+};
+
 E.syncResetButton = function syncResetButton(taskId) {
     var resetBtn = document.getElementById("reset-" + taskId);
     if (!resetBtn) return;
-    if (typeof E.hidesPracticeControls === "function" && E.hidesPracticeControls()) {
-      resetBtn.hidden = true;
-      return;
-    }
+    E.relocateResetButtonToAnswers(taskId, resetBtn);
     resetBtn.hidden = !E.taskHasProgress(taskId);
     resetBtn.disabled = false;
   };
@@ -1423,7 +1435,12 @@ E.appendStandardTaskActions = function appendStandardTaskActions(actions, taskId
       actions.appendChild(checkBtn);
     }
 
-    if (!opts.omitReset && !placement) {
+    if (!opts.omitReset) {
+      // Unlike Check/Show (which would leak correctness feedback mid
+      // exam), clearing your own answer on this one task doesn't give
+      // anything away -- it stays available in placement/exam mode too,
+      // just relocated onto the answers panel there (see
+      // E.relocateResetButtonToAnswers).
       var resetBtn = document.createElement("button");
       resetBtn.type = "button";
       resetBtn.className = "ege-btn ege-btn--ghost";

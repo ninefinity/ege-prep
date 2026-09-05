@@ -398,10 +398,13 @@ E.showTask = function showTask(taskId) {
       typeof E.isFullWrittenExam === "function" &&
       E.isFullWrittenExam()
     ) {
-      var blocked = E.findTask(taskId);
-      if (blocked && !E.isNavTaskVisible(blocked)) {
+      var targetTask = E.findTask(taskId);
+      if (targetTask && !E.isNavTaskVisible(targetTask)) {
         if (typeof E.ensureActivePhaseTask === "function") E.ensureActivePhaseTask();
         return;
+      }
+      if (targetTask && typeof E.noteOralTaskVisited === "function") {
+        E.noteOralTaskVisited(targetTask);
       }
     }
     if (typeof E.prepareMockExamNavigation === "function") E.prepareMockExamNavigation(taskId);
@@ -467,6 +470,16 @@ E.showTask = function showTask(taskId) {
     E.syncTaskFlowControls();
 
     var afterLayout = function () {
+      // Re-measure now that the browser has actually painted the newly
+      // shown panel -- the synchronous call above (right after toggling
+      // panel.hidden) can catch a layout that hasn't fully settled yet
+      // (fonts/reflow), caching a max-height that's slightly off for the
+      // rest of this task's lifetime: too short (content clipped behind
+      // the flow-nav strip) or too tall (dead space at the panel's own
+      // bottom). This second pass corrects it either way.
+      if (typeof E.syncStickyPanelClearance === "function") {
+        E.syncStickyPanelClearance(taskId);
+      }
       if (task && E.usesTopicLayout(E.state.topicId)) {
         E.observeTopicExercisePanel(taskId);
         E.scheduleTopicNavAlign(taskId);

@@ -31,6 +31,72 @@ function pct(score, max) {
   return Math.round((score / max) * 100);
 }
 
+// Writing/speaking are never auto-graded (see calculatePrimaryScore), but a
+// teacher may have graded the printed/recorded work by hand -- this just
+// remembers whatever number they were given so it shows on the results
+// screen instead of a permanent "0/20". Display-only: it never feeds back
+// into primaryScore/testScore, which stay auto-only by design.
+E.manualScoreKey = function manualScoreKey(section) {
+  return "ege-prep:manual-score:" + String(section || "");
+};
+
+E.getManualSectionScore = function getManualSectionScore(section) {
+  try {
+    var raw = localStorage.getItem(E.manualScoreKey(section));
+    if (raw == null || raw === "") return null;
+    var n = Number(raw);
+    return isFinite(n) ? n : null;
+  } catch (_err) {
+    return null;
+  }
+};
+
+E.setManualSectionScore = function setManualSectionScore(section, value) {
+  try {
+    localStorage.setItem(E.manualScoreKey(section), String(value));
+  } catch (_err) {
+    /* ignore */
+  }
+};
+
+E.promptManualSectionScore = function promptManualSectionScore(section) {
+  var btn = document.querySelector('[data-add-score="' + section + '"]');
+  if (!btn) return;
+  var max = (E.EXAM_SCORING_CONFIG.sections || {})[section] || 0;
+  var current = E.getManualSectionScore(section);
+
+  var wrap = document.createElement("span");
+  wrap.className = "ege-results-sections__editor";
+
+  var input = document.createElement("input");
+  input.type = "number";
+  input.min = "0";
+  input.max = String(max);
+  input.value = current != null ? String(current) : "";
+  input.className = "ege-results-sections__input";
+  input.setAttribute("aria-label", "Балл из " + max);
+
+  var save = document.createElement("button");
+  save.type = "button";
+  save.className = "ege-btn ege-btn--ghost ege-btn--small";
+  save.textContent = "Сохранить";
+
+  wrap.appendChild(input);
+  wrap.appendChild(save);
+  btn.replaceWith(wrap);
+  input.focus();
+
+  function commit() {
+    var value = Math.max(0, Math.min(max, Math.round(Number(input.value) || 0)));
+    E.setManualSectionScore(section, value);
+    E.showExamResultsScreen();
+  }
+  save.addEventListener("click", commit);
+  input.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") commit();
+  });
+};
+
 E.examItemNumber = function examItemNumber(task, index) {
   var from = E.taskExamFrom(task);
   if (from == null) return "";
@@ -358,6 +424,21 @@ E.buildExamResultsReport = function buildExamResultsReport() {
   var bundle = E.calculateExamResultFromStateWithInputs();
   var result = bundle.result;
   var inputs = bundle.inputs;
+
+  // "Only oral" mode never touches listening/reading/grammar -- those are
+  // the only sections behind testScore/primaryScore, so left alone this
+  // reads as a 0/100 "below threshold" fail instead of a deliberate skip.
+  // getResultStatus stays mode-agnostic; this is the one place to say so.
+  // Only .label actually renders (see renderExamResultsScreen) -- .message
+  // is kept only for shape parity with getResultStatus's return value,
+  // same as everywhere else that's unused today.
+  if (typeof E.getExamMode === "function" && E.getExamMode() === E.EXAM_MODES.ORAL) {
+    result.status = {
+      level: "written-skipped",
+      label: "Письменная часть не выполнялась — баллы её не учитывают",
+      message: "Экзамен был выбран в режиме «только устная часть».",
+    };
+  }
   var mistakes = [];
   var writingNotes = [];
 
@@ -399,9 +480,52 @@ E.buildExamResultsReport = function buildExamResultsReport() {
   };
 };
 
-E.renderMistakesBySection = function renderMistakesBySection(mistakes) {
+// Letter-suffixed labels ("Text A", "Gap B", "Speaker D", "Statement A")
+// map to an explanations entry via its "part" field; a bare task_id match
+// with a single unpartitioned item (most listening/reading MC questions)
+// is used directly instead.
+function explanationLetterFromLabel(label) {
+  var m = /([A-Za-z])\s*$/.exec(String(label || "").trim());
+  return m ? m[1].toUpperCase() : null;
+}
+
+E.findMistakeExplanationData = function findMistakeExplanationData(item, doc) {
+  if (!doc || !item) return null;
+  var tasks = doc.tasks || [];
+  var key = String(item.examNum);
+  var byId = null;
+  for (var i = 0; i < tasks.length; i++) {
+    if (tasks[i].task_id === key) {
+      byId = tasks[i];
+      break;
+    }
+  }
+  if (byId) {
+    var items = byId.items || [];
+    if (items.length === 1 && items[0].part == null) return items[0];
+    var letter = explanationLetterFromLabel(item.label);
+    if (letter) {
+      for (var j = 0; j < items.length; j++) {
+        if (String(items[j].part).toUpperCase() === letter) return items[j];
+      }
+    }
+  }
+  // Composite task groups (wordform 19-24/25-29, grammar mc 30-36) have no
+  // single task_id matching an individual item's exam number -- their
+  // items carry the real absolute number in "part" instead, so search by
+  // that across every task's items rather than by task_id.
+  for (var k = 0; k < tasks.length; k++) {
+    var arr = tasks[k].items || [];
+    for (var n = 0; n < arr.length; n++) {
+      if (String(arr[n].part) === key) return arr[n];
+    }
+  }
+  return null;
+};
+
+E.renderMistakesBySection = function renderMistakesBySection(mistakes, explanationsDoc) {
   if (!mistakes.length) {
-    return '<p class="ege-results-mistakes__empty">Нет ошибок в автопроверяемых заданиях.</p>';
+    return '<p class="ege-results-mistakes__empty">Ошибок в автопроверяемых заданиях нет.</p>';
   }
 
   var groups = {};
@@ -412,11 +536,7 @@ E.renderMistakesBySection = function renderMistakesBySection(mistakes) {
   });
 
   var order = ["listening", "reading", "useOfEnglish"];
-  var html =
-    '<section class="ege-results-mistakes" aria-labelledby="egeResultsMistakesTitle">' +
-    '<h3 class="ege-results-mistakes__title" id="egeResultsMistakesTitle">Ошибки (' +
-    mistakes.length +
-    ")</h3>";
+  var html = '<section class="ege-results-mistakes" aria-label="Ошибки">';
 
   order.forEach(function (key) {
     var items = groups[key];
@@ -427,6 +547,8 @@ E.renderMistakesBySection = function renderMistakesBySection(mistakes) {
       esc(sectionLabel(key)) +
       "</h4><ol class=\"ege-results-mistakes__list\">";
     items.forEach(function (item) {
+      var found = E.findMistakeExplanationData(item, explanationsDoc);
+      var explanationText = (found && found.full_explanation) || item.explanation || "";
       html +=
         '<li class="ege-results-mistakes__item">' +
         '<p class="ege-results-mistakes__head"><span class="ege-results-mistakes__num">' +
@@ -438,9 +560,11 @@ E.renderMistakesBySection = function renderMistakesBySection(mistakes) {
         '<p class="ege-results-mistakes__answer ege-results-mistakes__answer--correct"><span>Верно</span> ' +
         esc(item.correct) +
         "</p>" +
-        '<p class="ege-results-mistakes__explain">' +
-        esc(item.explanation) +
-        "</p>" +
+        (explanationText
+          ? "<details class=\"ege-results-mistakes__explain\"><summary>Показать объяснение</summary><p>" +
+            esc(explanationText) +
+            "</p></details>"
+          : "") +
         '<button type="button" class="ege-results-mistakes__review" data-results-task="' +
         esc(item.taskId) +
         '">Открыть задание</button>' +
@@ -453,16 +577,100 @@ E.renderMistakesBySection = function renderMistakesBySection(mistakes) {
   return html;
 };
 
+E.renderMistakesEntryPoint = function renderMistakesEntryPoint(mistakes) {
+  if (!mistakes || !mistakes.length) {
+    return '<p class="ege-exam-phase__note">Ошибок в автопроверяемых заданиях нет.</p>';
+  }
+  return (
+    '<div class="ege-exam-phase__actions ege-results-mistakes-entry">' +
+    '<button type="button" class="ege-btn ege-btn--primary" id="egeGotoMistakes">' +
+    "Перейти к работе над ошибками (" +
+    mistakes.length +
+    ")</button>" +
+    "</div>"
+  );
+};
+
+E.renderMistakesReviewScreen = function renderMistakesReviewScreen(mistakes, explanationsDoc) {
+  return (
+    '<div class="ege-exam-phase__panel ege-exam-phase__panel--mistakes" role="region" aria-labelledby="egeMistakesTitle">' +
+    '<button type="button" class="ege-btn ege-btn--ghost ege-exam-phase__back" id="egeMistakesBack">← Назад к результатам</button>' +
+    '<h2 class="ege-exam-phase__title" id="egeMistakesTitle">Работа над ошибками</h2>' +
+    E.renderMistakesBySection(mistakes, explanationsDoc) +
+    "</div>"
+  );
+};
+
+E.loadAnswerExplanations = function loadAnswerExplanations() {
+  if (!E._answerExplanationsPromise) {
+    E._answerExplanationsPromise = fetch("ege_2027_answer_explanations.json")
+      .then(function (res) {
+        return res.ok ? res.json() : null;
+      })
+      .catch(function () {
+        return null;
+      });
+  }
+  return E._answerExplanationsPromise;
+};
+
+E.showMistakesReviewScreen = function showMistakesReviewScreen() {
+  var report = E.buildExamResultsReport();
+  E.loadAnswerExplanations().then(function (doc) {
+    E.showExamPhaseScreen(E.renderMistakesReviewScreen(report.mistakes, doc));
+    E.bindMistakesReviewScreen();
+  });
+};
+
+E.bindMistakesReviewScreen = function bindMistakesReviewScreen() {
+  var backBtn = document.getElementById("egeMistakesBack");
+  if (backBtn) {
+    backBtn.addEventListener("click", function () {
+      E.showExamResultsScreen();
+    });
+  }
+  document.querySelectorAll("[data-results-task]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var taskId = btn.getAttribute("data-results-task");
+      if (!taskId) return;
+      if (typeof E.enterExamReview === "function") E.enterExamReview();
+      E.showTask(taskId);
+    });
+  });
+};
+
 E.renderSectionBreakdown = function renderSectionBreakdown(result) {
   var max = result.sectionMax || E.EXAM_SCORING_CONFIG.sections;
   // Writing/speaking aren't auto-checked (see calculatePrimaryScore), so
-  // they don't get folded into a percentage of the headline score here --
-  // that would imply they were graded against it like the auto sections.
+  // they never show a computed score here -- only whatever a teacher
+  // entered by hand (see E.getManualSectionScore), or an "Добавить балл"
+  // prompt if nothing's been entered yet.
   var ungraded = { writing: true, speaking: true };
   var breakdown = '<div class="ege-exam-phase__breakdown ege-results-sections">';
   ["listening", "reading", "useOfEnglish", "writing", "speaking"].forEach(function (key) {
-    var score = result.sections[key] || 0;
     var sectionMax = max[key] || 0;
+    if (ungraded[key]) {
+      var manual = E.getManualSectionScore(key);
+      breakdown +=
+        '<div class="ege-exam-phase__row ege-results-sections__row ege-results-sections__row--ungraded">' +
+        "<span>" +
+        esc(sectionLabel(key)) +
+        "</span>" +
+        (manual == null
+          ? '<button type="button" class="ege-btn ege-btn--ghost ege-btn--small" data-add-score="' +
+            key +
+            '">Добавить балл</button>'
+          : "<span>" +
+            manual +
+            " / " +
+            sectionMax +
+            ' <button type="button" class="ege-results-sections__edit" data-add-score="' +
+            key +
+            '">изменить</button></span>') +
+        "</div>";
+      return;
+    }
+    var score = result.sections[key] || 0;
     breakdown +=
       '<div class="ege-exam-phase__row ege-results-sections__row">' +
       "<span>" +
@@ -472,46 +680,12 @@ E.renderSectionBreakdown = function renderSectionBreakdown(result) {
       score +
       " / " +
       sectionMax +
-      (ungraded[key]
-        ? ' <span class="ege-results-sections__pct">(не в тестовом балле)</span>'
-        : ' <span class="ege-results-sections__pct">(' + pct(score, sectionMax) + "%)</span>") +
+      ' <span class="ege-results-sections__pct">(' + pct(score, sectionMax) + "%)</span>" +
       "</span>" +
       "</div>";
   });
   breakdown += "</div>";
   return breakdown;
-};
-
-E.renderGrowthBlock = function renderGrowthBlock(growth) {
-  if (!growth || growth.recoverablePrimary <= 0) return "";
-  return (
-    '<p class="ege-results-growth">Потенциал роста: ~' +
-    growth.potentialTestGain +
-    " тестовых баллов при восстановлении " +
-    growth.recoverablePrimary +
-    " первичных баллов в автопроверяемых разделах.</p>"
-  );
-};
-
-E.renderPendingNotes = function renderPendingNotes(writingNotes, speakingNotes) {
-  var pendingHtml = "";
-  if (writingNotes && writingNotes.length) {
-    pendingHtml =
-      '<p class="ege-exam-phase__meta">Письменные задания ' +
-      writingNotes
-        .map(function (note) {
-          return String(note.examNum);
-        })
-        .join(", ") +
-      ": ожидают оценки по критериям.</p>";
-  }
-  if (speakingNotes && speakingNotes.length) {
-    pendingHtml +=
-      '<p class="ege-exam-phase__meta">Устная часть: ' +
-      esc(speakingNotes.join("; ")) +
-      ".</p>";
-  }
-  return pendingHtml;
 };
 
 E.buildExamResultsText = function buildExamResultsText(report) {
@@ -520,18 +694,25 @@ E.buildExamResultsText = function buildExamResultsText(report) {
   var lines = [];
   lines.push("Результаты — Time to ЕГЭ 2027");
   lines.push("");
-  lines.push("Тестовый балл (автопроверяемые задания): " + result.testScore + " / 100");
-  lines.push("Первичный балл (автопроверяемые задания): " + result.primaryScore + " / " + result.maxPrimaryScore);
+  lines.push("Тестовый балл (автопроверка): " + result.testScore + " / 100");
+  lines.push("Первичный балл (автопроверка): " + result.primaryScore + " / " + result.maxPrimaryScore);
   lines.push(result.status.label);
   lines.push("");
   lines.push("По разделам:");
   var max = result.sectionMax || {};
   var ungraded = { writing: true, speaking: true };
   ["listening", "reading", "useOfEnglish", "writing", "speaking"].forEach(function (key) {
-    var score = result.sections[key] || 0;
     var sectionMax = max[key] || 0;
-    var suffix = ungraded[key] ? " (не в тестовом балле)" : " (" + pct(score, sectionMax) + "%)";
-    lines.push("- " + sectionLabel(key) + ": " + score + " / " + sectionMax + suffix);
+    if (ungraded[key]) {
+      var manual = E.getManualSectionScore(key);
+      var suffix = manual == null ? " (нет балла от учителя)" : " (балл добавлен учителем)";
+      lines.push(
+        "- " + sectionLabel(key) + ": " + (manual == null ? "—" : manual) + " / " + sectionMax + suffix
+      );
+      return;
+    }
+    var score = result.sections[key] || 0;
+    lines.push("- " + sectionLabel(key) + ": " + score + " / " + sectionMax + " (" + pct(score, sectionMax) + "%)");
   });
   if (data.mistakes && data.mistakes.length) {
     lines.push("");
@@ -581,6 +762,34 @@ E.copyExamResultsText = function copyExamResultsText(btn) {
   }
 };
 
+E.renderRecordingsSection = function renderRecordingsSection() {
+  var tasks =
+    typeof E.getRecordedOralTasks === "function" ? E.getRecordedOralTasks() : [];
+  if (!tasks.length) return "";
+
+  var items = tasks
+    .map(function (task) {
+      var examNum = E.taskExamFrom(task) || task.id;
+      return (
+        '<button type="button" class="ege-btn ege-btn--ghost ege-btn--small" data-download-recording="' +
+        esc(task.id) +
+        '">Задание ' +
+        esc(String(examNum)) +
+        " (.mp3)</button>"
+      );
+    })
+    .join("");
+
+  return (
+    '<div class="ege-exam-phase__block ege-results-recordings">' +
+    '<p class="ege-panel__label">Записи устной части</p>' +
+    '<div class="ege-results-recordings__list">' +
+    items +
+    "</div>" +
+    "</div>"
+  );
+};
+
 E.renderExamResultsScreen = function renderExamResultsScreen(report) {
   var data = report || E.buildExamResultsReport();
   var result = data.result;
@@ -591,40 +800,40 @@ E.renderExamResultsScreen = function renderExamResultsScreen(report) {
     '<p class="ege-exam-phase__score ege-exam-phase__score--test">' +
     result.testScore +
     " / 100</p>" +
-    '<p class="ege-exam-phase__lead">Тестовый балл (автопроверяемые задания)</p>' +
+    '<p class="ege-exam-phase__lead">Тестовый балл (автопроверка)</p>' +
     '<p class="ege-exam-phase__score ege-exam-phase__score--primary">' +
     result.primaryScore +
     " / " +
     result.maxPrimaryScore +
     "</p>" +
-    '<p class="ege-exam-phase__lead">Первичный балл (автопроверяемые задания)</p>' +
+    '<p class="ege-exam-phase__lead">Первичный балл (автопроверка)</p>' +
     '<p class="result-status result-status--' +
     esc(result.status.level) +
     '">' +
     esc(result.status.label) +
     "</p>" +
-    '<p class="ege-exam-phase__note">' +
-    esc(result.status.message) +
-    "</p>" +
     E.renderSectionBreakdown(result) +
-    E.renderGrowthBlock(data.growth) +
-    E.renderPendingNotes(data.writingNotes, data.speakingNotes) +
-    E.renderMistakesBySection(data.mistakes) +
+    E.renderRecordingsSection() +
     '<div class="ege-exam-phase__actions ege-results-export">' +
     '<button type="button" class="ege-btn ege-btn--ghost" id="egeResultsDownload">Скачать .txt</button>' +
     '<button type="button" class="ege-btn ege-btn--ghost" id="egeResultsCopy">Копировать</button>' +
     "</div>" +
+    E.renderMistakesEntryPoint(data.mistakes) +
     "</div>"
   );
 };
 
 E.bindExamResultsScreen = function bindExamResultsScreen() {
-  document.querySelectorAll("[data-results-task]").forEach(function (btn) {
+  var gotoMistakesBtn = document.getElementById("egeGotoMistakes");
+  if (gotoMistakesBtn) {
+    gotoMistakesBtn.addEventListener("click", function () {
+      E.showMistakesReviewScreen();
+    });
+  }
+
+  document.querySelectorAll("[data-add-score]").forEach(function (btn) {
     btn.addEventListener("click", function () {
-      var taskId = btn.getAttribute("data-results-task");
-      if (!taskId) return;
-      if (typeof E.enterExamReview === "function") E.enterExamReview();
-      E.showTask(taskId);
+      E.promptManualSectionScore(btn.getAttribute("data-add-score"));
     });
   });
 
@@ -641,6 +850,20 @@ E.bindExamResultsScreen = function bindExamResultsScreen() {
       E.copyExamResultsText(copyBtn);
     });
   }
+
+  document.querySelectorAll("[data-download-recording]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var taskId = btn.getAttribute("data-download-recording");
+      if (!taskId || btn.disabled) return;
+      var originalLabel = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Кодирование…";
+      E.exportSpeakingRecording(taskId, function () {
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+      });
+    });
+  });
 };
 
 E.showExamResultsScreen = function showExamResultsScreen() {
