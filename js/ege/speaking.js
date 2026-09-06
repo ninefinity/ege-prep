@@ -132,9 +132,11 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
 
   // Records the mic while the "Answer" timer runs, so a student can play
   // back what they actually said -- there's no server, so this all stays
-  // client-side (blob URLs), one take per task (askCycle tasks like
-  // Direct Questions keep only the latest question's take, since each
-  // restart of the answer timer is a fresh recording).
+  // client-side (blob URLs). E.speakingRecordings[taskId] is a map of take
+  // index -> {blob, url}: single-take tasks (Reading Aloud, task 42) only
+  // ever use index 0, but ask-cycle tasks (Direct Questions, Interview)
+  // keep one take per question instead of the latest one overwriting the
+  // rest, since each is really a separate answer.
   E.speakingRecordings = E.speakingRecordings || {};
   E.speakingActiveRecorders = E.speakingActiveRecorders || {};
 
@@ -187,28 +189,45 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
     }, 1000);
   };
 
+  // Sorted [{index, blob, url}, ...] for one task's recorded takes.
+  E.getSpeakingRecordingTakes = function getSpeakingRecordingTakes(taskId) {
+    var takes = E.speakingRecordings[taskId];
+    if (!takes) return [];
+    return Object.keys(takes)
+      .map(Number)
+      .sort(function (a, b) {
+        return a - b;
+      })
+      .map(function (index) {
+        return { index: index, blob: takes[index].blob, url: takes[index].url };
+      });
+  };
+
   E.getRecordedOralTasks = function getRecordedOralTasks() {
     if (!E.state.topic || !E.state.topic.tasks) return [];
     return E.state.topic.tasks.filter(function (task) {
-      return (
-        E.isOralTask(task) &&
-        E.speakingRecordings[task.id] &&
-        E.speakingRecordings[task.id].blob
-      );
+      return E.isOralTask(task) && E.getSpeakingRecordingTakes(task.id).length > 0;
     });
   };
 
-  E.exportSpeakingRecording = function exportSpeakingRecording(taskId, onSettled) {
-    var rec = E.speakingRecordings[taskId];
+  E.exportSpeakingRecording = function exportSpeakingRecording(taskId, takeIndex, onSettled) {
+    var takes = E.getSpeakingRecordingTakes(taskId);
+    var take = takes.filter(function (t) {
+      return t.index === takeIndex;
+    })[0];
     var task = E.findTask(taskId);
-    if (!rec || !task) {
+    if (!take || !task) {
       if (onSettled) onSettled(false);
       return;
     }
     var examNum = E.taskExamFrom(task) || task.id;
-    E.encodeAudioBlobToMp3(rec.blob)
+    // Only ask-cycle tasks (Direct Questions, Interview) ever have more
+    // than one take -- name those per question, keep the single-take
+    // tasks' filenames exactly as before.
+    var filename = takes.length > 1 ? examNum + "-" + (take.index + 1) + ".mp3" : examNum + ".mp3";
+    E.encodeAudioBlobToMp3(take.blob)
       .then(function (mp3Blob) {
-        E.downloadBlob(mp3Blob, examNum + ".mp3");
+        E.downloadBlob(mp3Blob, filename);
         if (onSettled) onSettled(true);
       })
       .catch(function () {
@@ -266,34 +285,37 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
     var taskEl = E.getSpeakingTaskEl(taskId);
     if (!taskEl) return;
     var slot = taskEl.querySelector(".ege-speaking-recording");
-    var rec = E.speakingRecordings[taskId];
+    var takes = E.getSpeakingRecordingTakes(taskId);
     if (!slot) {
-      if (!rec) return;
+      if (!takes.length) return;
       var timersCol = taskEl.querySelector(".ege-speaking-timers-col");
       if (!timersCol) return;
       slot = document.createElement("div");
       slot.className = "ege-speaking-recording";
       timersCol.appendChild(slot);
     }
-    if (!rec) {
+    if (!takes.length) {
       slot.hidden = true;
       slot.textContent = "";
       return;
     }
     slot.hidden = false;
     slot.textContent = "";
-    var label = document.createElement("p");
-    label.className = "ege-speaking-recording__label";
-    label.textContent = "Ваша запись";
-    var audio = document.createElement("audio");
-    audio.className = "ege-speaking-recording__player";
-    audio.controls = true;
-    audio.src = rec.url;
-    slot.appendChild(label);
-    slot.appendChild(audio);
+    var multi = takes.length > 1;
+    takes.forEach(function (take) {
+      var label = document.createElement("p");
+      label.className = "ege-speaking-recording__label";
+      label.textContent = multi ? "Вопрос " + (take.index + 1) : "Ваша запись";
+      var audio = document.createElement("audio");
+      audio.className = "ege-speaking-recording__player";
+      audio.controls = true;
+      audio.src = take.url;
+      slot.appendChild(label);
+      slot.appendChild(audio);
+    });
   };
 
-  E.startSpeakingRecording = function startSpeakingRecording(taskId, wrap) {
+  E.startSpeakingRecording = function startSpeakingRecording(taskId, wrap, takeIndex) {
     if (typeof MediaRecorder === "undefined") {
       console.warn("[ege] MediaRecorder unsupported in this browser");
       E.syncSpeakingRecordingUI(taskId, wrap, "denied");
@@ -329,9 +351,11 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
           return;
         }
         var blob = new Blob(chunks, { type: recorder.mimeType || "audio/webm" });
-        var prev = E.speakingRecordings[taskId];
+        var slot = takeIndex || 0;
+        E.speakingRecordings[taskId] = E.speakingRecordings[taskId] || {};
+        var prev = E.speakingRecordings[taskId][slot];
         if (prev) URL.revokeObjectURL(prev.url);
-        E.speakingRecordings[taskId] = { blob: blob, url: URL.createObjectURL(blob) };
+        E.speakingRecordings[taskId][slot] = { blob: blob, url: URL.createObjectURL(blob) };
         E.syncSpeakingRecordingPlayback(taskId);
       });
       E.speakingActiveRecorders[taskId] = recorder;
@@ -427,7 +451,10 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       render();
       E.stopSpeakingTimerHandle(key);
       E.speakingTimerHandles[key] = window.setInterval(tick, 1000);
-      if (wrap.dataset.phase === "Answer") E.startSpeakingRecording(taskId, wrap);
+      if (wrap.dataset.phase === "Answer") {
+        var takeIndex = hooks && typeof hooks.recordingIndex === "function" ? hooks.recordingIndex() : 0;
+        E.startSpeakingRecording(taskId, wrap, takeIndex);
+      }
     }
 
     function reset() {
@@ -595,6 +622,30 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       if (typeof reset.onReset === "function") reset.onReset();
     }
 
+    // Skips straight to the end of the current phase -- during Preparation
+    // this starts the Answer/recording phase with no prep time at all;
+    // during Answer it ends the recording right now, same as the clock
+    // running out naturally.
+    function skip() {
+      if (phaseIndex < phases.length - 1) {
+        if (currentPhase().label === "Answer") E.stopSpeakingRecording(taskId, wrap);
+        E.stopSpeakingTimerHandle(key);
+        running = false;
+        phaseIndex += 1;
+        remaining = currentPhase().seconds;
+        render();
+        start();
+        return;
+      }
+      E.stopSpeakingTimerHandle(key);
+      running = false;
+      remaining = 0;
+      render();
+      pause();
+      playFinishShake();
+      if (typeof onAllDone === "function") onAllDone();
+    }
+
     if (clock) {
       clock.addEventListener("animationend", function (event) {
         if (event.animationName === "ege-speaking-timer-finish-shake") clearFinishShake();
@@ -621,6 +672,7 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       stop: pause,
       pause: pause,
       reset: reset,
+      skip: skip,
     };
     E.speakingTimerControllers[key] = api;
     return api;
@@ -802,6 +854,9 @@ E.bindSpeakingQuestionsTimers = function bindSpeakingQuestionsTimers(taskId, pre
         startAskRound(0);
         return false;
       },
+      recordingIndex: function () {
+        return askIndex;
+      },
     });
 
     if (prepWrap) {
@@ -855,11 +910,30 @@ E.buildSpeakingTimers = function buildSpeakingTimers(taskId, durations, options)
         { seconds: secondsList[0], label: "Preparation" },
         { seconds: secondsList[1], label: "Answer" },
       ];
+      var seqSlot = document.createElement("div");
+      seqSlot.className = "ege-speaking-ask-slot";
       var seqWrap = E.createSpeakingTimerWrap(phases[0].seconds, phases[0].label);
-      row.appendChild(seqWrap);
+      seqSlot.appendChild(seqWrap);
+
+      // Lets a student who doesn't need the full prep time (or is done
+      // reading before the answer clock runs out) skip straight to the
+      // next phase instead of waiting it out -- during prep this means
+      // starting the recording with no prep time at all.
+      var seqSkipBtn = document.createElement("button");
+      seqSkipBtn.type = "button";
+      seqSkipBtn.className = "ege-speaking-ask-next";
+      seqSkipBtn.textContent = ">>";
+      seqSkipBtn.setAttribute("aria-label", "Skip to next phase");
+      seqSkipBtn.title = "Skip to next phase";
+      seqSlot.appendChild(seqSkipBtn);
+      row.appendChild(seqSlot);
+
       var seqApi = E.bindSpeakingSequentialTimer(seqWrap, taskId, phases, options.onAllDone);
       if (typeof options.onReset === "function") seqApi.reset.onReset = options.onReset;
       if (typeof options.onStart === "function") seqApi.start.onStart = options.onStart;
+      seqSkipBtn.addEventListener("click", function () {
+        seqApi.skip();
+      });
       return row;
     }
 

@@ -505,7 +505,9 @@ E.resetOralExamState = function resetOralExamState() {
     if (E.state.speakingTimerTouched) delete E.state.speakingTimerTouched[taskId];
     if (typeof E.resetSpeakingTimers === "function") E.resetSpeakingTimers(taskId);
     if (E.speakingRecordings && E.speakingRecordings[taskId]) {
-      URL.revokeObjectURL(E.speakingRecordings[taskId].url);
+      Object.keys(E.speakingRecordings[taskId]).forEach(function (slot) {
+        URL.revokeObjectURL(E.speakingRecordings[taskId][slot].url);
+      });
       delete E.speakingRecordings[taskId];
       if (typeof E.syncSpeakingRecordingPlayback === "function") {
         E.syncSpeakingRecordingPlayback(taskId);

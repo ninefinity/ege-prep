@@ -770,13 +770,22 @@ E.renderRecordingsSection = function renderRecordingsSection() {
   var items = tasks
     .map(function (task) {
       var examNum = E.taskExamFrom(task) || task.id;
-      return (
-        '<button type="button" class="ege-btn ege-btn--ghost ege-btn--small" data-download-recording="' +
-        esc(task.id) +
-        '">Задание ' +
-        esc(String(examNum)) +
-        " (.mp3)</button>"
-      );
+      var takes = E.getSpeakingRecordingTakes(task.id);
+      var multi = takes.length > 1;
+      return takes
+        .map(function (take) {
+          var label = "Задание " + esc(String(examNum)) + (multi ? ", вопрос " + (take.index + 1) : "");
+          return (
+            '<button type="button" class="ege-btn ege-btn--ghost ege-btn--small" data-download-recording="' +
+            esc(task.id) +
+            '" data-download-recording-take="' +
+            take.index +
+            '">' +
+            label +
+            " (.mp3)</button>"
+          );
+        })
+        .join("");
     })
     .join("");
 
@@ -854,11 +863,12 @@ E.bindExamResultsScreen = function bindExamResultsScreen() {
   document.querySelectorAll("[data-download-recording]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var taskId = btn.getAttribute("data-download-recording");
+      var takeIndex = parseInt(btn.getAttribute("data-download-recording-take"), 10) || 0;
       if (!taskId || btn.disabled) return;
       var originalLabel = btn.textContent;
       btn.disabled = true;
       btn.textContent = "Кодирование…";
-      E.exportSpeakingRecording(taskId, function () {
+      E.exportSpeakingRecording(taskId, takeIndex, function () {
         btn.disabled = false;
         btn.textContent = originalLabel;
       });

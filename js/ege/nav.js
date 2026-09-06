@@ -210,7 +210,20 @@ E.syncTaskFlowControls = function syncTaskFlowControls() {
     var labelEl = document.getElementById("egeFlowLabel");
     var positionEl = document.getElementById("egeFlowPosition");
     var positionText = "";
-    if (tasks.length > 1 && idx >= 0) positionText = idx + 1 + " / " + tasks.length;
+    // Position/total reads against the section's full task list, not the
+    // nav-visible one -- during the oral part's forward-only lock (see
+    // E.isNavTaskVisible) that list only ever contains the current task
+    // plus the next one, which showed as "1 / 2" the whole way through
+    // instead of "1 / 4", "2 / 4", etc.
+    var allTasks =
+      typeof E.getPhaseTasks === "function" ? E.getPhaseTasks() : tasks;
+    var allIds = allTasks.map(function (t) {
+      return t.id;
+    });
+    var allIdx = allIds.indexOf(E.state.activeTaskId);
+    if (allTasks.length > 1 && allIdx >= 0) {
+      positionText = allIdx + 1 + " / " + allTasks.length;
+    }
     if (labelEl && task) {
       labelEl.textContent = E.navItemLabel(task) || "Task";
     }
