@@ -1132,6 +1132,31 @@ E.mountTopic = function mountTopic(topic, topicId) {
     }
 
     var variantNav = E.isVariantPlaylist(topicId);
+
+    // Drills carry no title of their own on the page, so the nav names what
+    // the variants below it are: the kind when they all share one, the
+    // section otherwise.
+    if (
+      !variantNav &&
+      !E.state.playlist &&
+      topic.tasks.length &&
+      E.SKILLS_TASK_TYPES.indexOf(topic.tasks[0].type) !== -1
+    ) {
+      var kinds = topic.tasks.map(function (task) {
+        return task.drill || "";
+      });
+      var oneKind = kinds.every(function (kind) {
+        return kind && kind === kinds[0];
+      });
+      var navHeadingText = oneKind ? kinds[0] : E.sectionDisplayTitle(topic);
+      if (navHeadingText) {
+        var navHeading = document.createElement("p");
+        navHeading.className = "ege-nav__section";
+        navHeading.textContent = navHeadingText;
+        nav.appendChild(navHeading);
+      }
+    }
+
     var lastSectionId = "";
     topic.tasks.forEach(function (task, index) {
       var max = E.taskMaxScore(task);

@@ -360,6 +360,9 @@ E.buildTaskIntro = function buildTaskIntro(task) {
       // internal task-list name, not part of the actual exam prompt --
       // the ad's own title (task.adTitle) is what the real task shows.
       task.type !== "speaking-questions" &&
+      // A drill's title names the kind of drill, which the nav already says
+      // above its variants.
+      E.SKILLS_TASK_TYPES.indexOf(task.type) === -1 &&
       !skipTitle
     ) {
       var head = document.createElement("div");
