@@ -192,20 +192,13 @@ E.renderJudge = function renderJudge(task, topicId) {
     });
     card.appendChild(group);
 
-    // Populated on check; the tag names the trap so a wrong answer teaches
-    // the category, not just the verdict.
+    // Populated on check. The item's `tag` names the trap for authoring; it
+    // is not rendered, because on screen it would sit under exactly the
+    // invalid items and hand over the answer.
     var note = document.createElement("p");
     note.className = "ege-judge__feedback";
     note.hidden = true;
     card.appendChild(note);
-
-    if (item.tag) {
-      var tag = document.createElement("span");
-      tag.className = "ege-judge__tag";
-      tag.textContent = item.tag;
-      tag.hidden = true;
-      card.appendChild(tag);
-    }
 
     work.appendChild(card);
   });

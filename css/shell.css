@@ -8549,17 +8549,6 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   line-height: 1.45;
 }
 
-.ege-judge__tag {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  background: var(--ege-bad);
-  color: #fff;
-  font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-xs, 0.72rem);
-  font-weight: 700;
-}
 
 /* Survey tables in task 38 prompts and in judge contexts. Referenced by
    data/writing.json's essay prompts, which had no styling until now. */
@@ -8917,6 +8906,12 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-ordering__work {
   margin-top: 14px;
+}
+
+/* `hidden` is set on a chip once its sentence is placed; a class rule with a
+   display of its own would outrank the attribute's default style. */
+.ege-ordering__chip[hidden] {
+  display: none;
 }
 
 .ege-ordering__chip {

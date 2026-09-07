@@ -10,9 +10,9 @@
       "title": "Question classification",
       "type": "judge",
       "examNum": 37,
-      "instructions": "Classify each question according to state exam criteria. Decide whether an examiner would accept it as Valid or reject it as Invalid. The exact distribution is undisclosed.",
-      "contextTitle": "From: Patrick@mail.uk · Subject: A lesson to remember",
-      "contextHtml": "<p>… At school we talked about the events in the history of our country that we can be proud of. What is the event in the history of Russia that you are most proud of? What historical person do you think best represents the values of your country? Why is it important to know the history of your country?</p><p class=\"ege-judge__trigger\">During the holidays my friends and I always help our local environment protection organizations …</p><p><em>Write an email to Patrick. In your message: answer his questions; <strong>ask 3 questions about the local environment protection organizations.</strong></em></p>",
+      "instructions": "Ask 3 questions about the local environment protection organizations. Decide which of these an examiner would accept as Valid and which it would reject as Invalid.",
+      "contextTitle": "Patrick writes:",
+      "contextHtml": "<p class=\"ege-judge__trigger\">During the holidays my friends and I always help our local environment protection organizations …</p>",
       "labels": {
         "yes": "Valid",
         "no": "Invalid"
@@ -55,7 +55,7 @@
           "text": "What event in British history are you most proud of?",
           "correct": false,
           "tag": "Wrong Sentence Trigger",
-          "feedback": "Exam Trap (Wrong Paragraph Trigger): Targets history from paragraph 1 instead of the final trigger sentence."
+          "feedback": "Exam Trap (Wrong Target): Asks about history rather than the organizations."
         },
         {
           "id": "q7",
@@ -93,9 +93,9 @@
       "title": "Question classification",
       "type": "judge",
       "examNum": 37,
-      "instructions": "Classify each question according to state exam criteria. Decide whether an examiner would accept it as Valid or reject it as Invalid.",
+      "instructions": "Ask 3 questions about the film. Decide which of these an examiner would accept as Valid and which it would reject as Invalid.",
       "contextTitle": "Kevin writes:",
-      "contextHtml": "<p>… Last week I went to a book festival. It was fantastic! We spent two hours looking through new books and talking to authors. What is the last book you've read? What books do you have to read for your literature classes? How often do you spend time reading a book for pleasure?</p><p class=\"ege-judge__trigger\">I saw an interesting film in Spanish last week …</p><p><em>Write an email to Kevin. In your message: answer his questions; <strong>ask 3 questions about the film.</strong></em></p>",
+      "contextHtml": "<p class=\"ege-judge__trigger\">I saw an interesting film in Spanish last week …</p>",
       "labels": {
         "yes": "Valid",
         "no": "Invalid"
@@ -138,7 +138,7 @@
           "text": "Why did you go to the book festival?",
           "correct": false,
           "tag": "Wrong Sentence Trigger",
-          "feedback": "Exam Trap (Wrong Target): Inquires about the book festival from paragraph 1 instead of the film."
+          "feedback": "Exam Trap (Wrong Target): Inquires about the book festival rather than the film."
         },
         {
           "id": "q7",
