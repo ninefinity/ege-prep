@@ -138,8 +138,6 @@ E.renderJudge = function renderJudge(task, topicId) {
   var progress = document.createElement("p");
   progress.className = "ege-judge__progress";
   progress.textContent = "0 / " + (task.items || []).length + " classified";
-  work.appendChild(progress);
-
   var labels = E.judgeLabels(task);
   var aria = E.judgeAriaLabels(task);
 
@@ -179,6 +177,10 @@ E.renderJudge = function renderJudge(task, topicId) {
 
     work.appendChild(card);
   });
+  // The count sits under the items: it reports on them, so it reads as a
+  // footer rather than a heading.
+  work.appendChild(progress);
+
 
   if (chart) {
     // The questions are the work, so they take the main column; the graph is

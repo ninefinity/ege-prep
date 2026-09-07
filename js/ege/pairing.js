@@ -282,8 +282,6 @@ E.renderPairing = function renderPairing(task, topicId) {
   var progress = document.createElement("p");
   progress.className = "ege-pairing__progress";
   progress.textContent = "0 / " + (task.left || []).length + " paired";
-  work.appendChild(progress);
-
   var board = document.createElement("div");
   // Photographs need room for detail, so they take the full width in a row of
   // their own with the descriptions beneath, rather than half the board.
@@ -293,6 +291,10 @@ E.renderPairing = function renderPairing(task, topicId) {
   board.appendChild(buildColumn(task, task.id, "left", task.leftTitle || "Problems"));
   board.appendChild(buildColumn(task, task.id, "right", task.rightTitle || "Solutions"));
   work.appendChild(board);
+  // The count sits under the items: it reports on them, so it reads as a
+  // footer rather than a heading.
+  work.appendChild(progress);
+
 
   // The board is two columns of its own, so it needs the full width either
   // way. A context block stacks above it rather than taking a column.

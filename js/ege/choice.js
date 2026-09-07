@@ -130,8 +130,6 @@ E.renderChoice = function renderChoice(task, topicId) {
   var progress = document.createElement("p");
   progress.className = "ege-choice__progress";
   progress.textContent = "0 / " + (task.questions || []).length + " answered";
-  work.appendChild(progress);
-
   (task.questions || []).forEach(function (question, index) {
     var card = document.createElement("div");
     card.className = "ege-choice__item";
@@ -171,6 +169,10 @@ E.renderChoice = function renderChoice(task, topicId) {
 
     work.appendChild(card);
   });
+  // The count sits under the items: it reports on them, so it reads as a
+  // footer rather than a heading.
+  work.appendChild(progress);
+
 
   if (chart) {
     // The questions are the work, so they take the main column; the graph is

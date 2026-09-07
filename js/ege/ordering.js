@@ -212,8 +212,6 @@ E.renderOrdering = function renderOrdering(task, topicId) {
   var progress = document.createElement("p");
   progress.className = "ege-ordering__progress";
   progress.textContent = "0 / " + E.orderingSlots(task).length + " placed";
-  work.appendChild(progress);
-
   // The email is the work surface: every position is a gap in the running
   // text, so placing a sentence writes it into the paragraph.
   if (task.preview) {
@@ -253,6 +251,10 @@ E.renderOrdering = function renderOrdering(task, topicId) {
     email.appendChild(gap);
   });
   work.appendChild(email);
+  // The count sits under the items: it reports on them, so it reads as a
+  // footer rather than a heading.
+  work.appendChild(progress);
+
 
   read.appendChild(work);
 

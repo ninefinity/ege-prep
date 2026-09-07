@@ -8530,7 +8530,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 .ege-judge__progress {
-  margin: 0 0 0.6rem;
+  margin: 0.7rem 0 0;
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
   font-weight: 700;
@@ -8640,7 +8640,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 .ege-choice__progress {
-  margin: 0 0 0.6rem;
+  margin: 0.7rem 0 0;
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
   font-weight: 700;
@@ -8867,7 +8867,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-pairing__progress,
 .ege-ordering__progress {
-  margin: 0 0 0.6rem;
+  margin: 0.7rem 0 0;
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
   font-weight: 700;
