@@ -203,9 +203,20 @@ E.renderJudge = function renderJudge(task, topicId) {
     work.appendChild(card);
   });
 
-  wrap.appendChild(
-    E.buildLongreadSplit(read, work, { workLabelKind: "questions" })
-  );
+  if (task.chart) {
+    wrap.appendChild(
+      E.buildLongreadSplit(read, work, { workLabelKind: "questions" })
+    );
+  } else {
+    // Without a chart the context is a single quoted sentence, so a reading
+    // column beside the questions would be mostly empty. Stack instead: the
+    // quote hugs its own text and the questions run full width below it.
+    var stack = document.createElement("div");
+    stack.className = "ege-stack";
+    stack.appendChild(E.buildPanel("", read, "ege-panel--read ege-panel--quote"));
+    stack.appendChild(E.buildWorkPanel("questions", work, "ege-panel--work ege-panel--solo"));
+    wrap.appendChild(stack);
+  }
   wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));
   return wrap;
 };

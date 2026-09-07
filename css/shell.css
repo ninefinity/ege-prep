@@ -8461,6 +8461,17 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
    revealed on check, so the card carries its verdict inline rather than in
    the shared score panel. */
 
+/* Judge drills with no chart stack instead of splitting: the quote sits in a
+   box that wraps its own text, with the questions full width underneath. */
+.ege-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.ege-panel--quote {
+  align-self: start;
+}
+
 .ege-judge__context-meta {
   margin: 0 0 0.6rem;
   font-family: var(--ege-font-ui);

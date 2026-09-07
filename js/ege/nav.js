@@ -1503,6 +1503,24 @@ E.getTaskIdFromUrl = function getTaskIdFromUrl() {
     return params.get("task") || "";
   }
 
+// A drill kind is one row in the catalog; its variants -- a second pen-friend,
+// another set of photos -- are switched from the nav in here. So landing on a
+// kind scopes the section to that kind, and the nav offers its variants
+// instead of a mix of every kind the section holds. Entering the section
+// itself (no task in the URL) still lists everything.
+E.scopeTopicToDrill = function scopeTopicToDrill(topic, taskId) {
+    if (!topic || !topic.tasks || !taskId) return topic;
+    var landed = topic.tasks.find(function (task) {
+      return task.id === taskId;
+    });
+    if (!landed || !landed.drill) return topic;
+    var tasks = topic.tasks.filter(function (task) {
+      return task.drill === landed.drill;
+    });
+    if (!tasks.length || tasks.length === topic.tasks.length) return topic;
+    return Object.assign({}, topic, { tasks: tasks });
+  }
+
 E.parseTopicRoute = function parseTopicRoute() {
     var params = new URLSearchParams(window.location.search);
     var variant = params.get("variant");
@@ -1635,8 +1653,9 @@ E.initTopicPage = function initTopicPage() {
           }
           return E.fetchTopicJson(route.id).then(function (topic) {
             E.applySectionMeta(section);
-            return E.loadTaskTranscripts(topic).then(function () {
-              E.mountTopic(topic, route.id);
+            var scoped = E.scopeTopicToDrill(topic, E.getTaskIdFromUrl());
+            return E.loadTaskTranscripts(scoped).then(function () {
+              E.mountTopic(scoped, route.id);
             });
           });
         }
