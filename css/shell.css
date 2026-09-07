@@ -8880,6 +8880,27 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   .ege-pairing__board {
     grid-template-columns: 1fr 1fr;
   }
+
+  /* A photo board stacks instead: the pictures get the whole width. The
+     descriptions go two-up underneath so both halves still fit on a screen. */
+  .ege-pairing__board--stacked {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ege-pairing__board--stacked .ege-pairing__col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-content: start;
+  }
+
+  .ege-pairing__board--stacked .ege-pairing__col > .ege-pairing__col-title {
+    grid-column: 1 / -1;
+  }
+
+  .ege-pairing__board--stacked .ege-pairing__card {
+    margin-bottom: 0;
+  }
 }
 
 .ege-pairing__col-title {
@@ -9117,8 +9138,10 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-pairing__image {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  /* The task turns on small details, so show the whole frame -- cropping to a
+     common ratio would cut some of them away. */
+  object-fit: contain;
   margin-top: 8px;
   border-radius: 8px;
   background: var(--ege-card-alt, #f4f5fb);

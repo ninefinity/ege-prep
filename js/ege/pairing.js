@@ -285,7 +285,11 @@ E.renderPairing = function renderPairing(task, topicId) {
   work.appendChild(progress);
 
   var board = document.createElement("div");
-  board.className = "ege-pairing__board";
+  // Photographs need room for detail, so they take the full width in a row of
+  // their own with the descriptions beneath, rather than half the board.
+  board.className =
+    "ege-pairing__board" +
+    (task.leftLayout === "grid" ? " ege-pairing__board--stacked" : "");
   board.appendChild(buildColumn(task, task.id, "left", task.leftTitle || "Problems"));
   board.appendChild(buildColumn(task, task.id, "right", task.rightTitle || "Solutions"));
   work.appendChild(board);
