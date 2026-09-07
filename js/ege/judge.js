@@ -97,29 +97,6 @@ E.clearJudgeItemFeedback = function clearJudgeItemFeedback(taskId, itemId) {
   }
 };
 
-E.buildJudgeScoreLines = function buildJudgeScoreLines(taskId, task, opts) {
-  var lines = [];
-  if (!task || !task.items) return lines;
-  var keyOnly = opts && opts.keyOnly;
-  var labels = E.judgeAriaLabels(task);
-  task.items.forEach(function (item, index) {
-    var expected = item.correct ? labels[0] : labels[1];
-    var num = index + 1;
-    if (keyOnly) {
-      lines.push(num + " → " + expected);
-      return;
-    }
-    var value = E.getCheckedValue(E.judgeItemName(taskId, item.id));
-    if (!value) {
-      lines.push(num + ": —");
-    } else if (value === E.judgeExpectedValue(item)) {
-      lines.push(num + ": " + expected + " ✓");
-    } else {
-      lines.push(num + ": " + expected + " ✗");
-    }
-  });
-  return lines;
-};
 
 E.renderJudge = function renderJudge(task, topicId) {
   var max = E.taskMaxScore(task);

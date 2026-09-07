@@ -181,30 +181,6 @@ E.markOrdering = function markOrdering(taskId, revealed) {
   return correct;
 };
 
-E.buildOrderingScoreLines = function buildOrderingScoreLines(taskId, task, opts) {
-  var lines = [];
-  if (!task) return lines;
-  var keyOnly = opts && opts.keyOnly;
-  var state = E.orderingState(taskId);
-  var index = 0;
-  (task.groups || []).forEach(function (group) {
-    (group.slots || []).forEach(function (slot) {
-      index += 1;
-      var expected = ((task.pool || []).filter(function (item) {
-        return item.slot === slot.id;
-      })[0] || {}).id;
-      if (keyOnly) {
-        lines.push(index + " → " + expected);
-        return;
-      }
-      var placed = state.slots[slot.id];
-      if (!placed) lines.push(index + ": —");
-      else if (placed === expected) lines.push(index + ": " + placed + " ✓");
-      else lines.push(index + ": " + placed + " ✗");
-    });
-  });
-  return lines;
-};
 
 E.renderOrdering = function renderOrdering(task, topicId) {
   var max = E.taskMaxScore(task);

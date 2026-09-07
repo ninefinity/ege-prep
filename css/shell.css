@@ -1509,6 +1509,24 @@ a {
   line-height: var(--ege-line-ui);
 }
 
+/* Drills are new formats, so their instructions lead rather than sit in the
+   margin the way an exam task's do. */
+.ege-task-intro--skills .ege-instructions {
+  margin-bottom: 14px;
+  padding: 12px 16px;
+  border-left: 4px solid var(--yap-royal);
+  border-radius: 0 12px 12px 0;
+  background: color-mix(in srgb, var(--yap-royal) 6%, #fff);
+  color: var(--ege-ink);
+  font-size: var(--ege-text-xl);
+  font-weight: 500;
+  line-height: var(--ege-line-body);
+}
+
+.ege-task-intro--skills .ege-task-intro__exam {
+  font-size: inherit;
+}
+
 .ege-instructions[hidden],
 .ege-workspace > .ege-instructions:empty {
   display: none;
@@ -8480,7 +8498,8 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   color: var(--yap-dust);
 }
 
-.ege-judge__trigger {
+.ege-judge__trigger,
+.ege-choice__trigger {
   border-left: 3px solid var(--yap-hot);
   padding-left: 0.7rem;
   font-weight: 600;

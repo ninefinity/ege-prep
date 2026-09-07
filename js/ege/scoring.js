@@ -423,22 +423,10 @@ E.checkTask = function checkTask(taskId) {
       E.showScoreFeedback(taskId, correct, max, {
         lines: E.buildWordformScoreLines(taskId, task, { revealKey: correct === max }),
       });
-    } else if (task.type === "judge") {
-      E.showScoreFeedback(taskId, correct, max, {
-        lines: E.buildJudgeScoreLines(taskId, task),
-      });
-    } else if (task.type === "choice") {
-      E.showScoreFeedback(taskId, correct, max, {
-        lines: E.buildChoiceScoreLines(taskId, task),
-      });
-    } else if (task.type === "pairing") {
-      E.showScoreFeedback(taskId, correct, max, {
-        lines: E.buildPairingScoreLines(taskId, task),
-      });
-    } else if (task.type === "ordering") {
-      E.showScoreFeedback(taskId, correct, max, {
-        lines: E.buildOrderingScoreLines(taskId, task),
-      });
+    } else if (E.SKILLS_TASK_TYPES.indexOf(task.type) !== -1) {
+      // Every drill item already carries its own verdict and note, so a
+      // per-item list under the score would say all of it twice.
+      E.showScoreFeedback(taskId, correct, max);
     } else {
       E.showScoreFeedback(taskId, correct, max);
     }
@@ -579,10 +567,9 @@ E.revealTask = function revealTask(taskId) {
       E.markPairing(taskId, true);
       var pairEl = document.getElementById("task-" + taskId);
       if (pairEl) pairEl.dataset.answersRevealed = "1";
-      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), {
-        revealed: true,
-        lines: E.buildPairingScoreLines(taskId, task, { keyOnly: true }),
-      });
+      // Reveal fills the board in, so the panel only has to say it was
+      // revealed rather than list the key a second time.
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), { revealed: true });
       E.syncPairingCheckEnabled(taskId);
       E.showToast("Answers shown.");
       return;
@@ -597,10 +584,9 @@ E.revealTask = function revealTask(taskId) {
       E.markOrdering(taskId, true);
       var orderEl = document.getElementById("task-" + taskId);
       if (orderEl) orderEl.dataset.answersRevealed = "1";
-      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), {
-        revealed: true,
-        lines: E.buildOrderingScoreLines(taskId, task, { keyOnly: true }),
-      });
+      // Reveal fills the board in, so the panel only has to say it was
+      // revealed rather than list the key a second time.
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), { revealed: true });
       E.syncOrderingCheckEnabled(taskId);
       E.showToast("Answers shown.");
       return;
@@ -614,10 +600,9 @@ E.revealTask = function revealTask(taskId) {
       });
       var choiceEl = document.getElementById("task-" + taskId);
       if (choiceEl) choiceEl.dataset.answersRevealed = "1";
-      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), {
-        revealed: true,
-        lines: E.buildChoiceScoreLines(taskId, task, { keyOnly: true }),
-      });
+      // Reveal fills the board in, so the panel only has to say it was
+      // revealed rather than list the key a second time.
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), { revealed: true });
       E.syncChoiceCheckEnabled(taskId);
       E.showToast("Answers shown.");
       return;
@@ -628,16 +613,12 @@ E.revealTask = function revealTask(taskId) {
         E.setRadioValue(name, expected);
         E.markChoiceGroupRevealed(name, expected);
         E.setJudgeItemFeedback(taskId, item, "revealed");
-        var card = E.getJudgeCard(taskId, item.id);
-        var tag = card && card.querySelector(".ege-judge__tag");
-        if (tag) tag.hidden = false;
       });
       var judgeEl = document.getElementById("task-" + taskId);
       if (judgeEl) judgeEl.dataset.answersRevealed = "1";
-      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), {
-        revealed: true,
-        lines: E.buildJudgeScoreLines(taskId, task, { keyOnly: true }),
-      });
+      // Reveal fills the board in, so the panel only has to say it was
+      // revealed rather than list the key a second time.
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), { revealed: true });
       E.syncJudgeCheckEnabled(taskId);
       E.showToast("Answers shown.");
       return;

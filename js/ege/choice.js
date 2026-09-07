@@ -93,24 +93,6 @@ E.clearChoiceQuestion = function clearChoiceQuestion(taskId, questionId) {
   });
 };
 
-E.buildChoiceScoreLines = function buildChoiceScoreLines(taskId, task, opts) {
-  var lines = [];
-  if (!task || !task.questions) return lines;
-  var keyOnly = opts && opts.keyOnly;
-  task.questions.forEach(function (question, index) {
-    var num = index + 1;
-    var expected = E.choiceExpectedValue(question);
-    if (keyOnly) {
-      lines.push(num + " → " + expected);
-      return;
-    }
-    var value = E.getCheckedValue(E.choiceQuestionName(taskId, question.id));
-    if (!value) lines.push(num + ": —");
-    else if (value === expected) lines.push(num + ": " + value + " ✓");
-    else lines.push(num + ": " + value + " ✗");
-  });
-  return lines;
-};
 
 E.renderChoice = function renderChoice(task, topicId) {
   var max = E.taskMaxScore(task);
@@ -190,7 +172,17 @@ E.renderChoice = function renderChoice(task, topicId) {
     work.appendChild(card);
   });
 
-  wrap.appendChild(E.buildLongreadSplit(read, work, { workLabelKind: "questions" }));
+  if (task.chart) {
+    wrap.appendChild(E.buildLongreadSplit(read, work, { workLabelKind: "questions" }));
+  } else {
+    // Without a chart the context is a short quote, so a reading column beside
+    // the questions would be mostly empty. Stack, as the judge drills do.
+    var stack = document.createElement("div");
+    stack.className = "ege-stack";
+    stack.appendChild(E.buildPanel("", read, "ege-panel--read ege-panel--quote"));
+    stack.appendChild(E.buildWorkPanel("questions", work, "ege-panel--work ege-panel--solo"));
+    wrap.appendChild(stack);
+  }
   wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));
   return wrap;
 };

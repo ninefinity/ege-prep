@@ -177,7 +177,7 @@
       "examNum": 37,
       "instructions": "For each of the pen-friend's questions, choose the one grammatically correct answer.",
       "contextTitle": "Patrick asked:",
-      "contextHtml": "<p>… At school we talked about the events in the history of our country that we can be proud of. What is the event in the history of Russia that you are most proud of? What historical person do you think best represents the values of your country? Why is it important to know the history of your country?</p>",
+      "contextHtml": "<p class=\"ege-choice__trigger\">… At school we talked about the events in the history of our country that we can be proud of. What is the event in the history of Russia that you are most proud of? What historical person do you think best represents the values of your country? Why is it important to know the history of your country?</p>",
       "questions": [
         {
           "id": "q1_history_event",
@@ -253,7 +253,7 @@
       "examNum": 37,
       "instructions": "For each of the pen-friend's questions, choose the one grammatically correct answer.",
       "contextTitle": "Mike asked:",
-      "contextHtml": "<p>… Have you ever participated in any volunteer projects? What are you ready to do to help the local community, if at all? Do you consider volunteer work important for teenagers, and why or why not?</p>",
+      "contextHtml": "<p class=\"ege-choice__trigger\">… Have you ever participated in any volunteer projects? What are you ready to do to help the local community, if at all? Do you consider volunteer work important for teenagers, and why or why not?</p>",
       "questions": [
         {
           "id": "q1_participate",

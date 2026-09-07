@@ -184,28 +184,6 @@ E.markPairing = function markPairing(taskId, revealed) {
   return correct;
 };
 
-E.buildPairingScoreLines = function buildPairingScoreLines(taskId, task, opts) {
-  var lines = [];
-  if (!task || !task.left) return lines;
-  var keyOnly = opts && opts.keyOnly;
-  var state = E.pairingState(taskId);
-  task.left.forEach(function (item) {
-    var expected = (item.code || "") + " → " + E.pairingRightCode(task, item.match);
-    if (keyOnly) {
-      lines.push(expected);
-      return;
-    }
-    var chosen = state.pairs[item.id];
-    if (!chosen) lines.push((item.code || "") + ": —");
-    else if (chosen === item.match) lines.push(expected + " ✓");
-    else {
-      lines.push(
-        (item.code || "") + " → " + E.pairingRightCode(task, chosen) + " ✗"
-      );
-    }
-  });
-  return lines;
-};
 
 function buildColumn(task, taskId, side, title) {
   var col = document.createElement("div");

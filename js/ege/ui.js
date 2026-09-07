@@ -286,6 +286,11 @@ E.buildTaskIntro = function buildTaskIntro(task) {
 
     var intro = document.createElement("div");
     intro.className = "ege-task-intro";
+    // A drill is a format the student has never sat, so its instructions lead
+    // rather than sit in the margin the way an exam task's do.
+    if (E.SKILLS_TASK_TYPES.indexOf(task.type) !== -1) {
+      intro.classList.add("ege-task-intro--skills");
+    }
 
     var lead = document.createElement("div");
     lead.className = "ege-task-intro__lead";
