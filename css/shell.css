@@ -8847,6 +8847,12 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   justify-content: flex-end;
   gap: 6px;
   margin-bottom: 0.4rem;
+  /* The notes layer covers the whole task at z-index 40 once notes are armed,
+     and a note dropped near the corner would sit over this toolbar -- so the
+     click meant to switch notes off landed on the surface and placed another
+     one. Keep the toolbar above the layer. */
+  position: relative;
+  z-index: 41;
 }
 
 /* ── Writing skills: pairing (problem ↔ solution) ─────────────────────────
