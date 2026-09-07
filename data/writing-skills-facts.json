@@ -1,0 +1,351 @@
+{
+  "id": "writing-skills-facts",
+  "title": "Report skills",
+  "subtitle": "Задание 38 — факты и сравнения.",
+  "tasks": [
+    {
+      "id": "skills38-zetland-facts",
+      "drill": "Reporting facts",
+      "nav": "Zetland: reporting facts",
+      "title": "Fact reporting",
+      "type": "judge",
+      "examNum": 38,
+      "instructions": "Read the candidate sentences written for Paragraph 2. Decide which ones state facts accurately according to the graph. Watch for distorted numbers, misattributed categories and logical inversions.",
+      "contextTitle": "Plan requirement: select and report 2–3 facts",
+      "labels": {
+        "yes": "✓",
+        "no": "✗",
+        "yesAria": "Accurate",
+        "noAria": "Inaccurate"
+      },
+      "items": [
+        {
+          "id": "f1",
+          "text": "According to the graph, the most popular way to stay healthy in Zetland is not eating fast food, cited by 42% of the respondents.",
+          "correct": true,
+          "feedback": "✓ Accurately reported: 42% is the top choice (most popular), correctly named and matched with the exact figure."
+        },
+        {
+          "id": "f2",
+          "text": "Almost a quarter of the surveyed adolescents (24%) choose doing sports as their primary method to stay fit.",
+          "correct": false,
+          "feedback": "✕ Inaccurate: 24% chose 'Having a balanced diet', NOT 'doing sports' (which is 22%). Mixing category figures is penalized under criteria K1/K2."
+        },
+        {
+          "id": "f3",
+          "text": "Only 10% of those polled consider doing morning exercises to be their main habit for staying healthy.",
+          "correct": false,
+          "feedback": "✕ Inaccurate: 10% corresponds to 'Getting to bed early'. 'Doing morning exercises' was chosen by only 2%."
+        },
+        {
+          "id": "f4",
+          "text": "Having a balanced diet ranks second in popularity, with nearly a quarter of those surveyed (24%) choosing this option.",
+          "correct": true,
+          "feedback": "✓ Accurately reported: 'Having a balanced diet' is 2nd in ranking and correctly cited with 24%."
+        },
+        {
+          "id": "f5",
+          "text": "Doing morning exercises was selected by one-fifth of the respondents in Zetland.",
+          "correct": false,
+          "feedback": "✕ Inaccurate: One-fifth means 20%. Morning exercises received a mere 2% (one-fiftieth)."
+        }
+      ],
+      "chart": {
+        "kind": "bar",
+        "title": "Staying healthy in Zetland",
+        "unit": "%",
+        "data": [
+          {
+            "label": "Not eating fast food",
+            "value": 42
+          },
+          {
+            "label": "Having a balanced diet",
+            "value": 24
+          },
+          {
+            "label": "Doing sports",
+            "value": 22
+          },
+          {
+            "label": "Getting to bed early",
+            "value": 10
+          },
+          {
+            "label": "Doing morning exercises",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "skills38-rural-deduction",
+      "drill": "Comparing data",
+      "nav": "Zetland: comparing data",
+      "title": "Comparative language",
+      "type": "choice",
+      "examNum": 38,
+      "instructions": "Each sentence comes from a high-scoring essay. Use the survey data to work out which option completes the blank.",
+      "contextTitle": "What should be done to improve living conditions in the countryside?",
+      "chart": {
+        "kind": "pie",
+        "title": "Improving rural living conditions in Zetland",
+        "unit": "%",
+        "data": [
+          {
+            "label": "Build hospitals and schools",
+            "value": 48
+          },
+          {
+            "label": "Improve internet access",
+            "value": 20
+          },
+          {
+            "label": "Organize more cultural events",
+            "value": 18
+          },
+          {
+            "label": "Build sports facilities",
+            "value": 9
+          },
+          {
+            "label": "Develop public transport",
+            "value": 5
+          }
+        ]
+      },
+      "questions": [
+        {
+          "id": "d1",
+          "stem": "The proportion of respondents who prioritize improving internet access is roughly double that of those who cite [ … ].",
+          "options": [
+            {
+              "text": "Building sports facilities",
+              "correct": true,
+              "feedback": "Correct deduction! Internet access is 20%. Half of 20% is 10%, which is roughly 9% (sports facilities). None of the other options fit (cultural events is 18%, public transport is 5%)."
+            },
+            {
+              "text": "Organizing more cultural events",
+              "correct": false,
+              "feedback": "Incorrect. 18% is nearly equal to 20%, not half of it."
+            },
+            {
+              "text": "Developing public transport",
+              "correct": false,
+              "feedback": "Incorrect. 20% is four times larger than 5% (quadruple), not double."
+            },
+            {
+              "text": "Building hospitals and schools",
+              "correct": false,
+              "feedback": "Incorrect. 48% is more than double 20%, meaning internet access would be half, not double."
+            }
+          ]
+        },
+        {
+          "id": "d2",
+          "stem": "Surprisingly, support for organizing cultural events exceeds that for [ … ] by a factor of two.",
+          "options": [
+            {
+              "text": "Building sports facilities",
+              "correct": true,
+              "feedback": "Correct deduction! Cultural events is 18%. 18% divided by 2 is exactly 9% (sports facilities)."
+            },
+            {
+              "text": "Developing public transport",
+              "correct": false,
+              "feedback": "Incorrect. 18% divided by 5% is ~3.6, not a factor of two."
+            },
+            {
+              "text": "Improving internet access",
+              "correct": false,
+              "feedback": "Incorrect. 20% is higher than 18%."
+            },
+            {
+              "text": "Building hospitals and schools",
+              "correct": false,
+              "feedback": "Incorrect. 48% is much higher than 18%."
+            }
+          ]
+        },
+        {
+          "id": "d3",
+          "stem": "A significant gap of 28 percentage points is observed between building hospitals and schools and [ … ].",
+          "options": [
+            {
+              "text": "Improving internet access",
+              "correct": true,
+              "feedback": "Correct deduction! Hospitals and schools is 48%. 48% minus 28 percentage points = exactly 20% (improving internet access)."
+            },
+            {
+              "text": "Organizing more cultural events",
+              "correct": false,
+              "feedback": "Incorrect. 48% - 18% = 30 percentage points, not 28."
+            },
+            {
+              "text": "Building sports facilities",
+              "correct": false,
+              "feedback": "Incorrect. 48% - 9% = 39 percentage points."
+            },
+            {
+              "text": "Developing public transport",
+              "correct": false,
+              "feedback": "Incorrect. 48% - 5% = 43 percentage points."
+            }
+          ]
+        },
+        {
+          "id": "d4",
+          "stem": "While almost half the participants chose building hospitals and schools, support for [ … ] drops to roughly a tenth of that figure.",
+          "options": [
+            {
+              "text": "Organizing more cultural events",
+              "correct": false,
+              "feedback": "Incorrect. 18% is well over a third of 48%, nowhere near a tenth."
+            },
+            {
+              "text": "Building sports facilities",
+              "correct": false,
+              "feedback": "Incorrect, but close. 9% is about a fifth of 48%; a tenth would be roughly 5%."
+            },
+            {
+              "text": "Developing public transport",
+              "correct": true,
+              "feedback": "Correct. Almost half is 48%, and a tenth of 48% is about 4.8% — which matches developing public transport at 5%."
+            },
+            {
+              "text": "Improving internet access",
+              "correct": false,
+              "feedback": "Incorrect. 20% is over 40% of 48% — closer to a half than a tenth."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills38-rural-problems",
+      "drill": "Problem and solution",
+      "nav": "Countryside: problem & solution",
+      "title": "Problem and solution",
+      "type": "pairing",
+      "examNum": 38,
+      "instructions": "Pair each problem with the one solution that resolves it. One solution is an off-target distractor.",
+      "contextTitle": "Outline a possible problem that can arise when living in the countryside and suggest a way of solving it.",
+      "contextHtml": "<p><em>A solution only counts if it resolves that problem's root cause.</em></p>",
+      "leftTitle": "Problems",
+      "rightTitle": "Proposed solutions",
+      "left": [
+        {
+          "id": "p1",
+          "code": "P1",
+          "text": "Rural residents often face acute isolation and delays in emergency care due to a severe shortage of local medical clinics.",
+          "match": "s1",
+          "feedback": "Matches medical clinics shortage with mobile health units and telemedicine consultations."
+        },
+        {
+          "id": "p2",
+          "code": "P2",
+          "text": "Public transport schedules are infrequent, making daily commuting to regional schools and workplaces unreliable.",
+          "match": "s2",
+          "feedback": "Matches transit deficit with subsidized community shuttle buses and flexible micro-transit routes."
+        },
+        {
+          "id": "p3",
+          "code": "P3",
+          "text": "Unreliable or slow broadband connections hinder remote learning and distance working opportunities for villagers.",
+          "match": "s3",
+          "feedback": "Matches connectivity issues with government subsidies to expand high-speed fiber-optic and satellite coverage."
+        }
+      ],
+      "right": [
+        {
+          "id": "s2",
+          "code": "S1",
+          "text": "Local authorities can introduce subsidized commuter shuttles and on-demand micro-transit vans during peak morning and evening hours.",
+          "feedback": "Solves the transport & commuting deficit directly."
+        },
+        {
+          "id": "s4_distractor",
+          "code": "S2",
+          "text": "Village councils should organize weekend fairs and agricultural exhibitions with traditional folk music.",
+          "feedback": "Distractor: Entertaining, but does not address infrastructure, healthcare, or connectivity problems.",
+          "distractor": true
+        },
+        {
+          "id": "s1",
+          "code": "S3",
+          "text": "Regional governments can deploy mobile medical vans staffed with general practitioners and establish telemedicine booths in village centers.",
+          "feedback": "Directly solves the lack of medical infrastructure."
+        },
+        {
+          "id": "s3",
+          "code": "S4",
+          "text": "Telecommunication providers should receive government grants to roll out fiber-optic cabling and subsidized satellite internet access.",
+          "feedback": "Directly solves slow broadband and digital exclusion."
+        }
+      ]
+    },
+    {
+      "id": "skills38-agro-problems",
+      "drill": "Problem and solution",
+      "nav": "Agriculture: problem & solution",
+      "title": "Problem and solution",
+      "type": "pairing",
+      "examNum": 38,
+      "instructions": "Pair each problem with the one solution that resolves it. One solution is an off-target distractor.",
+      "contextTitle": "Outline a problem that can arise with studying agricultural sciences and suggest a way of solving it.",
+      "contextHtml": "<p><em>The problem must target the academic study or field training of students, not generic farming issues.</em></p>",
+      "leftTitle": "Problems",
+      "rightTitle": "Proposed solutions",
+      "left": [
+        {
+          "id": "p1",
+          "code": "P1",
+          "text": "Students often struggle because university programs focus excessively on abstract bio-chemistry theory, offering very limited hands-on fieldwork and practical farm equipment training.",
+          "match": "s1",
+          "feedback": "Matches theoretical disconnect with mandatory paid internships on commercial agro-farms and modern lab equipment."
+        },
+        {
+          "id": "p2",
+          "code": "P2",
+          "text": "Many undergraduates find the course unexpectedly challenging due to the heavy combination of demanding hard sciences like genetic engineering, organic chemistry, and microbiology.",
+          "match": "s2",
+          "feedback": "Matches academic course difficulty with university peer-tutoring centers and preparatory STEM foundation modules."
+        },
+        {
+          "id": "p3",
+          "code": "P3",
+          "text": "Agricultural research projects require expensive modern lab equipment and field testing plots that many state colleges cannot afford, limiting students' research prospects.",
+          "match": "s3",
+          "feedback": "Matches research funding barriers with state-backed public-private partnerships between agro-corporations and universities."
+        }
+      ],
+      "right": [
+        {
+          "id": "s2",
+          "code": "S1",
+          "text": "Faculties should establish peer-mentoring schemes and free introductory bridge seminars in chemistry and genetics for incoming freshmen.",
+          "feedback": "Directly solves academic syllabus difficulty."
+        },
+        {
+          "id": "s4_distractor",
+          "code": "S2",
+          "text": "Supermarkets should reduce retail prices on organically grown fruits and vegetables to encourage sustainable consumer consumption.",
+          "feedback": "Distractor: Focuses on food retail and consumers, completely missing university education and student training.",
+          "distractor": true
+        },
+        {
+          "id": "s1",
+          "code": "S3",
+          "text": "Universities should partner with local agricultural holdings to integrate compulsory seasonal apprenticeships and machinery workshops into the curriculum.",
+          "feedback": "Directly bridges the theory-versus-practice divide."
+        },
+        {
+          "id": "s3",
+          "code": "S4",
+          "text": "Governments can provide targeted scientific research grants and encourage agricultural corporations to co-sponsor state-of-the-art university laboratories.",
+          "feedback": "Directly resolves high equipment and laboratory research costs."
+        }
+      ]
+    }
+  ]
+}

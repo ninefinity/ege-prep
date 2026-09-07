@@ -26,6 +26,41 @@ E.swapWholeWord = function swapWholeWord(input, fromWord, toWord) {
     return input.replace(pattern, toWord);
   }
 
+// Words where -ise is part of the stem rather than the verb-forming suffix,
+// so they have no -ize twin. Without this, "otherwise" would accept
+// "otherwize" and "surprise" would accept "surprize" as correct spellings.
+var ISE_NOT_IZE = {};
+[
+  "advertise", "advise", "apprise", "arise", "chastise", "comprise",
+  "compromise", "demise", "despise", "devise", "disguise", "enterprise",
+  "excise", "exercise", "franchise", "improvise", "incise", "merchandise",
+  "otherwise", "paradise", "precise", "premise", "promise", "revise", "rise",
+  "supervise", "surmise", "surprise", "televise", "treatise", "wise",
+].forEach(function (word) {
+  ISE_NOT_IZE[word] = true;
+});
+
+// The -size compounds: their -ize is the noun "size", not the suffix.
+var IZE_NOT_ISE = {};
+["capsize", "downsize", "midsize", "oversize", "resize", "upsize"].forEach(
+  function (word) {
+    IZE_NOT_ISE[word] = true;
+  }
+);
+
+var ISE_SUFFIX_RE = /\b([a-z]{3,})(ise|ised|ises|ising|isation|isations)\b/g;
+var IZE_SUFFIX_RE = /\b([a-z]{3,})(ize|ized|izes|izing|ization|izations)\b/g;
+
+// Swap the -ise/-ize spelling of every eligible word in `input`. `lemmaSuffix`
+// rebuilds the dictionary form ("real" + "ised" -> "realise") so inflected
+// inputs are checked against the exclusion list too.
+function swapSuffixSpelling(input, pattern, lemmaSuffix, excluded, from, to) {
+  return input.replace(pattern, function (match, stem, suffix) {
+    if (excluded[stem + lemmaSuffix]) return match;
+    return stem + to + suffix.slice(from.length);
+  });
+}
+
 E.generateSpellingVariants = function generateSpellingVariants(value) {
     var out = [];
 
@@ -34,18 +69,12 @@ E.generateSpellingVariants = function generateSpellingVariants(value) {
     }
 
     // -ise/-ize family (realise/realize, organised/organized, etc.)
-    pushVariant(value.replace(/([a-z]{3,})ise\b/g, "$1ize"));
-    pushVariant(value.replace(/([a-z]{3,})ised\b/g, "$1ized"));
-    pushVariant(value.replace(/([a-z]{3,})ises\b/g, "$1izes"));
-    pushVariant(value.replace(/([a-z]{3,})ising\b/g, "$1izing"));
-    pushVariant(value.replace(/([a-z]{3,})isation\b/g, "$1ization"));
-    pushVariant(value.replace(/([a-z]{3,})isations\b/g, "$1izations"));
-    pushVariant(value.replace(/([a-z]{3,})ize\b/g, "$1ise"));
-    pushVariant(value.replace(/([a-z]{3,})ized\b/g, "$1ised"));
-    pushVariant(value.replace(/([a-z]{3,})izes\b/g, "$1ises"));
-    pushVariant(value.replace(/([a-z]{3,})izing\b/g, "$1ising"));
-    pushVariant(value.replace(/([a-z]{3,})ization\b/g, "$1isation"));
-    pushVariant(value.replace(/([a-z]{3,})izations\b/g, "$1isations"));
+    pushVariant(
+      swapSuffixSpelling(value, ISE_SUFFIX_RE, "ise", ISE_NOT_IZE, "is", "iz")
+    );
+    pushVariant(
+      swapSuffixSpelling(value, IZE_SUFFIX_RE, "ize", IZE_NOT_ISE, "iz", "is")
+    );
 
     // High-frequency BrE/AmE lexical pairs.
     [
@@ -105,6 +134,10 @@ E.taskMaxScore = function taskMaxScore(task) {
     if (task.type === "gapfill") return task.gaps.length;
     if (task.type === "mc") return task.questions.length;
     if (task.type === "wordform") return task.items.length;
+    if (task.type === "judge") return (task.items || []).length;
+    if (task.type === "choice") return (task.questions || []).length;
+    if (task.type === "pairing") return (task.left || []).length;
+    if (task.type === "ordering") return E.orderingSlots(task).length;
     if (task.type === "listening") {
       var gapCount = E.getActiveListeningGaps(task).length;
       var questionCount = task.questions ? task.questions.length : 0;

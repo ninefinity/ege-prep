@@ -54,7 +54,9 @@ E.isListeningTask = function isListeningTask(task) {
 E.isListeningMode = function isListeningMode() {
     var task = E.findTask(E.state.activeTaskId);
     if (task) return E.isListeningTask(task);
-    if (E.state.topicId === "listening") return true;
+    // "listening" split into listening-main / listening-select / listening,
+    // so match the family the way results.js already does.
+    if (E.state.topicId && E.state.topicId.indexOf("listening") === 0) return true;
     if (E.state.topicId && E.state.topicId.indexOf("group-Listening") === 0) return true;
     if (E.state.topicId === "parts-listening") return true;
     return false;
@@ -98,7 +100,7 @@ E.usesTopicLayout = function usesTopicLayout(topicId) {
     if (task) return E.usesTopicLayoutForTask(task);
     var id = topicId != null ? topicId : E.state.topicId;
     if (!id) return false;
-    if (id === "listening") return false;
+    if (id.indexOf("listening") === 0) return false;
     if (id.indexOf("group-Listening") === 0) return false;
     if (id === "parts-listening") return false;
     return true;
@@ -1025,6 +1027,14 @@ E.isTaskFullyAnswered = function isTaskFullyAnswered(taskId) {
 
     if (task.type === "wordform") return E.allWordformFilled(taskId);
 
+    if (task.type === "judge") return E.allJudgeAnswered(taskId);
+
+    if (task.type === "choice") return E.allChoiceAnswered(taskId);
+
+    if (task.type === "pairing") return E.allPairingBound(taskId);
+
+    if (task.type === "ordering") return E.allOrderingPlaced(taskId);
+
     return false;
   }
 
@@ -1143,6 +1153,26 @@ E.taskHasProgress = function taskHasProgress(taskId) {
         var input = document.getElementById(prefix + "_wf_" + index);
         return !!(input && E.normalize(input.value));
       });
+    }
+
+    if (task.type === "judge") {
+      return (task.items || []).some(function (item) {
+        return E.getCheckedValue(E.judgeItemName(taskId, item.id)) !== "";
+      });
+    }
+
+    if (task.type === "choice") {
+      return (task.questions || []).some(function (question) {
+        return E.getCheckedValue(E.choiceQuestionName(taskId, question.id)) !== "";
+      });
+    }
+
+    if (task.type === "pairing") {
+      return Object.keys(E.pairingState(taskId).pairs).length > 0;
+    }
+
+    if (task.type === "ordering") {
+      return Object.keys(E.orderingState(taskId).slots).length > 0;
     }
 
     if (task.type === "writing") {

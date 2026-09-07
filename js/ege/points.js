@@ -359,6 +359,41 @@ E.computeTaskScoreSilent = function computeTaskScoreSilent(taskId) {
     return correct;
   }
 
+  if (task.type === "pairing") {
+    var pairs = E.pairingState(taskId).pairs;
+    (task.left || []).forEach(function (item) {
+      if (pairs[item.id] === item.match) correct += 1;
+    });
+    return correct;
+  }
+
+  if (task.type === "ordering") {
+    var placed = E.orderingState(taskId).slots;
+    E.orderingSlots(task).forEach(function (slot) {
+      var expected = ((task.pool || []).filter(function (p) {
+        return p.slot === slot.id;
+      })[0] || {}).id;
+      if (placed[slot.id] && placed[slot.id] === expected) correct += 1;
+    });
+    return correct;
+  }
+
+  if (task.type === "choice") {
+    (task.questions || []).forEach(function (question) {
+      var value = radioAnswer(E.choiceQuestionName(taskId, question.id));
+      if (value && value === E.choiceExpectedValue(question)) correct += 1;
+    });
+    return correct;
+  }
+
+  if (task.type === "judge") {
+    (task.items || []).forEach(function (item) {
+      var value = radioAnswer(E.judgeItemName(taskId, item.id));
+      if (value && value === E.judgeExpectedValue(item)) correct += 1;
+    });
+    return correct;
+  }
+
   if (task.type === "wordform") {
     task.items.forEach(function (item, index) {
       var fieldId = prefix + "_wf_" + index;

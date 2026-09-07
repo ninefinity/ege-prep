@@ -1649,7 +1649,7 @@ a {
 }
 
 .ege-page--topic-layout .ege-task--panels .ege-task__footer {
-  background: color-mix(in srgb, var(--ege-card) 92%, transparent);
+  background: transparent;
 }
 
 .ege-page--topic-layout .ege-task-intro {
@@ -3546,6 +3546,13 @@ button.ege-prep-pair-card {
   color: var(--ege-wrong-pick);
 }
 
+.ege-pill.is-revealed,
+.ege-pill.is-revealed:has(input:checked) {
+  background: var(--ege-wrong-pick-bg);
+  border-color: var(--yap-royal);
+  color: var(--yap-royal);
+}
+
 .ege-pill.is-correct,
 .ege-pill.is-correct:has(input:checked) {
   background: var(--ege-ok-bg);
@@ -5222,7 +5229,7 @@ button.ege-listening-mark:focus-visible {
   margin: 10px 0 0;
   padding: 8px 12px;
   border-radius: 8px;
-  font-family: var(--ege-font-ui);
+  font-family: var(--ege-font-text);
   font-weight: 700;
   font-size: var(--ege-text-md);
   white-space: pre-line;
@@ -5610,6 +5617,15 @@ body.yap-brand .site-author__promo a:hover {
 
 .ege-speaking-ask-next[hidden] {
   display: none;
+}
+
+.ege-speaking-ask-next__label {
+  margin: 0;
+  max-width: 6.5rem;
+  text-align: center;
+  font-size: var(--ege-text-xs);
+  line-height: 1.3;
+  color: var(--ege-muted);
 }
 
 .ege-speaking-timer {
@@ -8339,6 +8355,17 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   color: var(--ege-muted);
 }
 
+.ege-speaking-timer__hint {
+  margin: 0.4rem 0 0;
+  text-align: center;
+  font-size: var(--ege-text-xs);
+  color: var(--yap-royal);
+}
+
+.ege-speaking-timer__hint[hidden] {
+  display: none;
+}
+
 .ege-speaking-plan__heading {
   margin: 0.35rem 0 0.15rem;
   font-size: 0.95rem;
@@ -8427,4 +8454,642 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
+}
+
+/* ── Writing skills: "judge" drills ───────────────────────────────────────
+   One candidate sentence per card, judged against a criterion. Feedback is
+   revealed on check, so the card carries its verdict inline rather than in
+   the shared score panel. */
+
+.ege-judge__context-meta {
+  margin: 0 0 0.6rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
+.ege-judge__trigger {
+  border-left: 3px solid var(--yap-hot);
+  padding-left: 0.7rem;
+  font-weight: 600;
+}
+
+.ege-judge__table-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+}
+
+.ege-judge__progress {
+  margin: 0 0 0.6rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
+.ege-judge__item {
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: #fff;
+  font-family: var(--ege-font-text);
+}
+
+.ege-judge__item:last-child {
+  margin-bottom: 0;
+}
+
+.ege-judge__item.is-correct {
+  border-color: var(--ege-ok);
+  background: var(--ege-ok-bg);
+}
+
+.ege-judge__item.is-wrong {
+  border-color: var(--ege-bad);
+  background: var(--ege-bad-bg);
+}
+
+/* Show answers reveals the key without crediting it -- green is reserved for
+   answers the student actually got right. */
+.ege-judge__item.is-revealed,
+.ege-choice__item.is-revealed {
+  border-color: var(--yap-royal);
+  background: var(--ege-wrong-pick-bg);
+}
+
+.ege-judge__text {
+  margin: 0 0 0.6rem;
+}
+
+/* buildChoiceGroup's text mode is built for MC answer options, which stack
+   full width. A two-way verdict reads better as a compact segmented pair. */
+.ege-judge__item .ege-choice-group--mc {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.ege-judge__item .ege-pill--option {
+  width: auto;
+  min-height: 34px;
+  min-width: 5.5rem;
+  padding: 6px 14px;
+  justify-content: center;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+}
+
+.ege-judge__feedback {
+  margin: 0.6rem 0 0;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  line-height: 1.45;
+}
+
+.ege-judge__tag {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--ege-bad);
+  color: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 700;
+}
+
+/* Survey tables in task 38 prompts and in judge contexts. Referenced by
+   data/writing.json's essay prompts, which had no styling until now. */
+.ege-writing-table {
+  width: 100%;
+  margin: 0.7rem 0;
+  border-collapse: collapse;
+  font-family: var(--ege-font-text);
+}
+
+.ege-writing-table th,
+.ege-writing-table td {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--ege-line);
+  text-align: left;
+}
+
+.ege-writing-table th {
+  background: var(--ege-card-alt, #f4f5fb);
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+}
+
+.ege-writing-table td + td,
+.ege-writing-table th + th {
+  width: 6.5rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Writing skills: "choice" drills ──────────────────────────────────────
+   Pick the one option that works. Feedback is per option, so a wrong pick
+   explains itself and the right answer is explained beside it. */
+
+.ege-choice__context-meta {
+  margin: 0 0 0.6rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
+.ege-choice__progress {
+  margin: 0 0 0.6rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
+.ege-choice__item {
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: #fff;
+  font-family: var(--ege-font-text);
+}
+
+.ege-choice__item:last-child {
+  margin-bottom: 0;
+}
+
+.ege-choice__item.is-correct {
+  border-color: var(--ege-ok);
+}
+
+.ege-choice__item.is-wrong {
+  border-color: var(--ege-bad);
+}
+
+.ege-choice__stem {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+}
+
+.ege-choice__feedback {
+  margin: 0.5rem 0 0;
+  padding-left: 0.7rem;
+  border-left: 3px solid var(--ege-bad);
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  line-height: 1.45;
+}
+
+.ege-choice__feedback.is-correct {
+  border-left-color: var(--ege-ok);
+}
+
+.ege-choice__feedback.is-revealed {
+  border-left-color: var(--yap-royal);
+}
+
+/* ── Survey charts (task 38) ──────────────────────────────────────────────
+   Categorical slots are a validated set (adjacent-pair CVD and normal-vision
+   separation both clear); the lighter hues sit on a light surface only
+   because every slice carries a direct label. */
+
+/* One hue stepped light-to-dark by share -- the data is magnitude, so a
+   sequential ramp reads it better than five unrelated hues, and it keeps the
+   chart in the brand. Steps are monotonic in lightness (dL 0.09-0.15); the
+   palest sits at 1.65 contrast on white, which the white slice stroke and the
+   direct labels carry. `--ege-chart-accent` highlights one slice. */
+.ege-chart {
+  --ege-series-1: #01089e;
+  --ege-series-2: #2b35b4;
+  --ege-series-3: #5d66c9;
+  --ege-series-4: #9198dc;
+  --ege-series-5: #c3c7ec;
+  --ege-chart-accent: var(--yap-hot);
+  --ege-chart-bar: var(--yap-royal);
+  margin: 0.8rem 0 0;
+}
+
+
+/* Hover (or keyboard focus) lifts one slice out of the ramp and links it to
+   its callout, so a student can pick a share out of the chart while reading a
+   sentence about it. */
+.ege-chart__group {
+  cursor: pointer;
+}
+
+.ege-chart__group:focus {
+  outline: none;
+}
+
+.ege-chart__group:hover .ege-chart__slice,
+.ege-chart__group:focus-visible .ege-chart__slice {
+  fill: var(--ege-chart-accent);
+}
+
+.ege-chart__group:hover .ege-chart__leader,
+.ege-chart__group:focus-visible .ege-chart__leader {
+  stroke: var(--ege-chart-accent);
+  stroke-width: 2;
+}
+
+.ege-chart__group:hover .ege-chart__callout-label,
+.ege-chart__group:focus-visible .ege-chart__callout-label,
+.ege-chart__group:hover .ege-chart__callout-value,
+.ege-chart__group:focus-visible .ege-chart__callout-value {
+  fill: var(--ege-chart-accent);
+}
+
+.ege-chart__group:focus-visible .ege-chart__slice {
+  stroke: var(--ege-ink);
+  stroke-width: 2;
+}
+
+.ege-chart__title {
+  margin: 0 0 0.4rem;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+}
+
+.ege-chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.ege-chart__grid {
+  stroke: var(--ege-line);
+  stroke-dasharray: 3 3;
+}
+
+.ege-chart__axis {
+  stroke: var(--ege-line);
+  stroke-width: 1.5;
+}
+
+.ege-chart__bar {
+  fill: var(--ege-chart-bar);
+}
+
+.ege-chart__slice {
+  stroke: var(--ege-card, #fff);
+  stroke-width: 2;
+}
+
+.ege-chart__leader {
+  fill: none;
+  stroke: var(--ege-line);
+  stroke-width: 1.5;
+}
+
+/* Fredoka carries the numbers, Montserrat the words. */
+.ege-chart__tick,
+.ege-chart__value,
+.ege-chart__callout-value {
+  font-family: var(--ege-font-ui);
+  fill: var(--ege-ink);
+}
+
+.ege-chart__row-label,
+.ege-chart__callout-label {
+  font-family: var(--ege-font-text);
+  fill: var(--ege-ink);
+}
+
+.ege-chart__tick {
+  font-size: 13px;
+  fill: var(--ege-muted);
+  text-anchor: middle;
+}
+
+.ege-chart__row-label {
+  font-size: 17px;
+}
+
+.ege-chart__value,
+.ege-chart__callout-value {
+  font-size: 17px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.ege-chart__callout-label {
+  font-size: 16px;
+}
+
+.ege-chart__callout-value {
+  fill: var(--ege-muted);
+}
+
+/* Same numbers as a table, for assistive tech and for copying out. */
+.ege-chart__table {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Notes toggle on the writing-skills drills, where the marker/eraser used to
+   sit. */
+.ege-skills-tools {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-bottom: 0.4rem;
+}
+
+/* ── Writing skills: pairing (problem ↔ solution) ─────────────────────────
+   Two columns of cards bound two-click. The badge carries the pairing, so a
+   bound pair is readable without relying on colour alone. */
+
+.ege-pairing__context-meta,
+.ege-ordering__context-meta {
+  margin: 0 0 0.6rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
+.ege-pairing__progress,
+.ege-ordering__progress {
+  margin: 0 0 0.6rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
+.ege-pairing__board {
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 900px) {
+  .ege-pairing__board {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ege-pairing__col-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--yap-dust);
+}
+
+.ege-pairing__card {
+  display: block;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: #fff;
+  font-family: var(--ege-font-text);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.ege-pairing__card:hover {
+  border-color: var(--yap-royal);
+}
+
+.ege-pairing__card.is-active {
+  border-color: var(--yap-royal);
+  box-shadow: 0 0 0 2px var(--yap-royal);
+}
+
+.ege-pairing__card.is-paired {
+  background: var(--ege-wrong-pick-bg);
+}
+
+.ege-pairing__card.is-correct {
+  border-color: var(--ege-ok);
+  background: var(--ege-ok-bg);
+}
+
+.ege-pairing__card.is-wrong {
+  border-color: var(--ege-bad);
+  background: var(--ege-bad-bg);
+}
+
+.ege-pairing__card.is-revealed {
+  border-color: var(--yap-royal);
+  background: var(--ege-wrong-pick-bg);
+}
+
+.ege-pairing__badge {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px solid var(--ege-line);
+  background: var(--ege-card-alt, #f4f5fb);
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 800;
+  color: var(--yap-royal);
+}
+
+.ege-pairing__feedback,
+.ege-ordering__feedback {
+  margin: 0.6rem 0 0;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  line-height: 1.45;
+}
+
+/* ── Writing skills: ordering (answer + extension) ────────────────────────*/
+
+.ege-ordering__work {
+  margin-top: 14px;
+}
+
+.ege-ordering__chip {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: #fff;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-sm);
+  text-align: left;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.ege-ordering__chip:last-child {
+  margin-bottom: 0;
+}
+
+.ege-ordering__chip:hover {
+  border-color: var(--yap-royal);
+}
+
+.ege-ordering__chip.is-active {
+  border-color: var(--yap-royal);
+  box-shadow: 0 0 0 2px var(--yap-royal);
+}
+
+.ege-ordering__group {
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.ege-ordering__group-title {
+  margin: 0 0 0.6rem;
+  font-family: var(--ege-font-text);
+  font-weight: 700;
+}
+
+.ege-ordering__slot {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border: 1.5px dashed var(--ege-line);
+  border-radius: 10px;
+  background: var(--ege-card-alt, #f4f5fb);
+  cursor: pointer;
+}
+
+.ege-ordering__slot:last-child {
+  margin-bottom: 0;
+}
+
+.ege-ordering__slot:hover {
+  border-color: var(--yap-royal);
+}
+
+.ege-ordering__slot.is-filled {
+  border-style: solid;
+  background: #fff;
+}
+
+.ege-ordering__slot.is-correct {
+  border-color: var(--ege-ok);
+  background: var(--ege-ok-bg);
+}
+
+.ege-ordering__slot.is-wrong {
+  border-color: var(--ege-bad);
+  background: var(--ege-bad-bg);
+}
+
+.ege-ordering__slot.is-revealed {
+  border-color: var(--yap-royal);
+  background: var(--ege-wrong-pick-bg);
+}
+
+.ege-ordering__slot-role {
+  display: block;
+  margin-bottom: 3px;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--yap-dust);
+}
+
+.ege-ordering__slot-text {
+  display: block;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-sm);
+  line-height: 1.4;
+}
+
+.ege-ordering__slot-text.is-empty {
+  color: var(--ege-muted);
+  font-style: italic;
+}
+
+/* A pairing column of photographs tiles rather than stacks. */
+.ege-pairing__col--grid .ege-pairing__card {
+  margin-bottom: 0;
+}
+
+.ege-pairing__col--grid {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.ege-pairing__col--grid > .ege-pairing__col-title {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 560px) {
+  .ege-pairing__col--grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.ege-pairing__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: var(--ege-card-alt, #f4f5fb);
+}
+
+/* The assembled answer, read back as prose while it is being built. */
+.ege-ordering__preview {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  background: var(--ege-card-alt, #f4f5fb);
+}
+
+.ege-ordering__preview-title {
+  margin: 0 0 0.4rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--yap-dust);
+}
+
+.ege-ordering__preview-body {
+  margin: 0;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-sm);
+  line-height: 1.55;
+}
+
+.ege-ordering__preview-gap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 999px;
+  border: 1px dashed var(--ege-line);
+  background: var(--ege-card);
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 700;
+  color: var(--ege-muted);
 }

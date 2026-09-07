@@ -1024,13 +1024,24 @@ E.buildWriting38BriefRail = function buildWriting38BriefRail(task, choice, opts)
   return rail;
 };
 
-E.buildWriting38SurveyBlock = function buildWriting38SurveyBlock(parsed) {
+E.buildWriting38SurveyBlock = function buildWriting38SurveyBlock(parsed, choice) {
   var surveyBlock = document.createElement("section");
   surveyBlock.className = "ege-writing38-brief__section";
   var surveyHead = document.createElement("h3");
   surveyHead.className = "ege-writing38-brief__heading";
   surveyHead.textContent = "Survey results";
   surveyBlock.appendChild(surveyHead);
+
+  // A topic whose prompt shows a chart gets one here, so the student reads the
+  // same form the exam paper puts in front of them.
+  var chartSpec = choice && choice.chart;
+  if (chartSpec && typeof E.buildSurveyChart === "function") {
+    var chart = E.buildSurveyChart(chartSpec);
+    if (chart) {
+      surveyBlock.appendChild(chart);
+      return surveyBlock;
+    }
+  }
 
   var surveyCard = document.createElement("div");
   surveyCard.className = "ege-writing38-survey";
@@ -1194,7 +1205,7 @@ E.buildWriting38DataRail = function buildWriting38DataRail(task, choice, parsed)
   rail.setAttribute("aria-label", "Survey data / plan");
 
   if (parsed.survey.length) {
-    rail.appendChild(E.buildWriting38SurveyBlock(parsed));
+    rail.appendChild(E.buildWriting38SurveyBlock(parsed, choice));
   }
   if (choice.plan && choice.plan.length) {
     rail.appendChild(E.buildWriting38ChecklistBlock(task, choice));

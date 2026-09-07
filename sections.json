@@ -2,21 +2,13 @@
   "title": "Time to ЕГЭ",
   "sections": [
     {
-      "id": "listening",
-      "group": "Listening",
-      "examFrom": 1,
-      "examTo": 9,
-      "title": "Listening",
-      "taskCount": 3,
-      "available": true
-    },
-    {
       "id": "listening-main",
       "group": "Listening",
       "examFrom": 1,
       "examTo": 1,
       "title": "Main idea",
-      "available": false
+      "taskCount": 1,
+      "available": true
     },
     {
       "id": "listening-select",
@@ -24,7 +16,17 @@
       "examFrom": 2,
       "examTo": 2,
       "title": "Key details",
-      "available": false
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "listening",
+      "group": "Listening",
+      "examFrom": 3,
+      "examTo": 9,
+      "title": "Comprehension",
+      "taskCount": 6,
+      "available": true
     },
     {
       "id": "matching-headings",
@@ -81,12 +83,39 @@
       "available": true
     },
     {
-      "id": "writing",
+      "id": "writing-email",
       "group": "Writing",
       "examFrom": 37,
+      "examTo": 37,
+      "title": "Personal email",
+      "taskCount": 4,
+      "available": true
+    },
+    {
+      "id": "writing-essay",
+      "group": "Writing",
+      "examFrom": 38,
       "examTo": 38,
-      "title": "Writing",
-      "taskCount": 2,
+      "title": "Opinion essay",
+      "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "writing-skills-questions",
+      "group": "Writing",
+      "examFrom": 37,
+      "examTo": 37,
+      "title": "Email skills",
+      "taskCount": 5,
+      "available": true
+    },
+    {
+      "id": "writing-skills-facts",
+      "group": "Writing",
+      "examFrom": 38,
+      "examTo": 38,
+      "title": "Report skills",
+      "taskCount": 4,
       "available": true
     },
     {
@@ -114,6 +143,15 @@
       "examTo": 41,
       "title": "Interview",
       "taskCount": 1,
+      "available": true
+    },
+    {
+      "id": "speaking-skills",
+      "group": "Speaking",
+      "examFrom": 42,
+      "examTo": 42,
+      "title": "Photo skills",
+      "taskCount": 4,
       "available": true
     },
     {

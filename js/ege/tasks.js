@@ -823,6 +823,17 @@ E.clearChoiceGroup = function clearChoiceGroup(name) {
     });
   }
 
+/* Show answers puts the key on screen without crediting it: the pill reads as
+   revealed, not as an answer the student got right. */
+E.markChoiceGroupRevealed = function markChoiceGroupRevealed(name, value) {
+  document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {
+    var pill = radio.closest(".ege-pill");
+    if (!pill) return;
+    pill.classList.remove("is-correct", "is-wrong", "is-revealed");
+    if (radio.value === String(value)) pill.classList.add("is-revealed");
+  });
+};
+
 E.markChoiceGroup = function markChoiceGroup(name, value, correctValue) {
     var pills = [];
     document.querySelectorAll('input[name="' + name + '"]').forEach(function (radio) {

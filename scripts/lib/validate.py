@@ -189,7 +189,18 @@ def _validate_listening(report: Report, base: str, task: dict) -> None:
 
 
 def _validate_writing(report: Report, base: str, task: dict) -> None:
-    if not task.get("promptHtml") and not task.get("prompt"):
+    # Task 38 offers two topics to choose between, so its prompt lives on each
+    # entry in "choices" rather than on the task (see E.buildWriting38Choices).
+    choices = task.get("choices") or []
+    if choices:
+        for i, choice in enumerate(choices):
+            if not choice.get("id"):
+                report.error(base, f"choice {i}: missing id")
+            if not choice.get("title"):
+                report.warn(base, f"choice {i}: missing title")
+            if not choice.get("promptHtml") and not choice.get("prompt"):
+                report.error(base, f"choice {i}: missing prompt")
+    elif not task.get("promptHtml") and not task.get("prompt"):
         report.error(base, "writing task missing prompt")
     if task.get("examNum") not in (37, 38):
         report.warn(base, f"writing examNum is {task.get('examNum')!r}, expected 37 or 38")
@@ -200,6 +211,192 @@ def _validate_writing(report: Report, base: str, task: dict) -> None:
                 report.error(base, f"rubric {i}: missing id")
             if not criterion.get("levels"):
                 report.error(base, f"rubric {i}: missing levels")
+
+
+def _validate_chart(report: Report, base: str, task: dict) -> None:
+    chart = task.get("chart")
+    if not chart:
+        return
+    if chart.get("kind") not in ("bar", "pie"):
+        report.error(base, f"chart kind {chart.get('kind')!r} must be 'bar' or 'pie'")
+    rows = chart.get("data") or []
+    if len(rows) < 2:
+        report.error(base, "chart needs at least 2 data rows")
+    for i, row in enumerate(rows):
+        if not row.get("label"):
+            report.error(base, f"chart row {i}: missing label")
+        if not isinstance(row.get("value"), (int, float)):
+            report.error(base, f"chart row {i}: value must be a number")
+    total = sum(r.get("value") or 0 for r in rows if isinstance(r.get("value"), (int, float)))
+    # These are shares of one survey; a pie that does not add up misleads.
+    if chart.get("kind") == "pie" and rows and abs(total - 100) > 1:
+        report.warn(base, f"pie chart shares total {total}, not 100")
+
+
+def _validate_choice(report: Report, base: str, task: dict) -> None:
+    questions = task.get("questions") or []
+    if not questions:
+        report.error(base, "choice task has no questions")
+        return
+
+    seen: set[str] = set()
+    for i, question in enumerate(questions):
+        qid = question.get("id")
+        if not qid:
+            report.error(base, f"question {i}: missing id")
+        elif qid in seen:
+            report.error(base, f"question {i}: duplicate id {qid!r}")
+        else:
+            seen.add(qid)
+        if not question.get("stem"):
+            report.error(base, f"question {i}: missing stem")
+
+        options = question.get("options") or []
+        if len(options) < 2:
+            report.error(base, f"question {i}: needs at least 2 options")
+        correct = [o for o in options if o.get("correct")]
+        # The source trainer shipped an item with no correct option at all,
+        # which is unanswerable -- never let that through again.
+        if len(correct) != 1:
+            report.error(
+                base, f"question {i}: expected exactly 1 correct option, got {len(correct)}"
+            )
+        for j, option in enumerate(options):
+            if not option.get("text"):
+                report.error(base, f"question {i} option {j}: missing text")
+            if not option.get("feedback"):
+                report.warn(base, f"question {i} option {j}: missing feedback")
+
+    _validate_chart(report, base, task)
+
+
+def _validate_pairing(report: Report, base: str, task: dict) -> None:
+    left = task.get("left") or []
+    right = task.get("right") or []
+    # Columns are problems/solutions by default but photographs/descriptions
+    # in the speaking drill, so report against whatever the task calls them.
+    lname = (task.get("leftTitle") or "problem").rstrip("s").lower()
+    rname = (task.get("rightTitle") or "solution").rstrip("s").lower()
+    if len(left) < 2:
+        report.error(base, f"pairing task needs at least 2 {lname}s")
+    if len(right) < len(left):
+        report.error(base, "fewer options than items to match")
+
+    right_ids = {item.get("id") for item in right}
+    used: set[str] = set()
+    for i, item in enumerate(left):
+        if not item.get("id"):
+            report.error(base, f"{lname} {i}: missing id")
+        image = item.get("image") or {}
+        # An item is either prose or a picture; a picture needs alt text.
+        if not item.get("text") and not image.get("src"):
+            report.error(base, f"{lname} {i}: needs text or an image")
+        if image.get("src"):
+            if not (ROOT / image["src"]).is_file():
+                report.error(base, f"{lname} {i}: image not found: {image['src']}")
+            if not image.get("alt"):
+                report.warn(base, f"{lname} {i}: image missing alt text")
+        match = item.get("match")
+        if match not in right_ids:
+            report.error(base, f"{lname} {i}: match {match!r} is not a {rname} id")
+        elif match in used:
+            # Two problems sharing a solution cannot both be satisfied 1:1.
+            report.error(base, f"{lname} {i}: {rname} {match!r} already claimed")
+        else:
+            used.add(match)
+        if not item.get("feedback"):
+            report.warn(base, f"{lname} {i}: missing feedback")
+
+    for i, item in enumerate(right):
+        if not item.get("id") or not item.get("text"):
+            report.error(base, f"{rname} {i}: missing id or text")
+        if item.get("distractor") and item.get("id") in used:
+            report.error(base, f"{rname} {i}: marked distractor but a {lname} matches it")
+        if not item.get("distractor") and item.get("id") not in used:
+            report.warn(base, f"{rname} {i}: unused but not marked as a distractor")
+
+    if len(right) == len(left):
+        # A straight 1:1 set is fine; only say so when a spare was expected.
+        pass
+
+
+def _validate_ordering(report: Report, base: str, task: dict) -> None:
+    groups = task.get("groups") or []
+    pool = task.get("pool") or []
+    if not groups:
+        report.error(base, "ordering task has no question groups")
+        return
+
+    slot_ids: list[str] = []
+    for group in groups:
+        if not group.get("title"):
+            report.warn(base, f"group {group.get('id')!r}: missing title")
+        for slot in group.get("slots") or []:
+            if not slot.get("id"):
+                report.error(base, f"group {group.get('id')!r}: slot missing id")
+            else:
+                slot_ids.append(slot["id"])
+
+    if len(set(slot_ids)) != len(slot_ids):
+        report.error(base, "duplicate slot ids")
+    if len(pool) != len(slot_ids):
+        report.error(base, f"{len(pool)} sentences for {len(slot_ids)} slots")
+
+    filled: set[str] = set()
+    for i, item in enumerate(pool):
+        if not item.get("id") or not item.get("text"):
+            report.error(base, f"sentence {i}: missing id or text")
+        slot = item.get("slot")
+        if slot not in slot_ids:
+            report.error(base, f"sentence {i}: slot {slot!r} does not exist")
+        elif slot in filled:
+            report.error(base, f"sentence {i}: slot {slot!r} already taken")
+        else:
+            filled.add(slot)
+        if not item.get("feedback"):
+            report.warn(base, f"sentence {i}: missing feedback")
+
+    for slot_id in slot_ids:
+        if slot_id not in filled:
+            report.error(base, f"slot {slot_id!r} has no sentence")
+
+
+def _validate_judge(report: Report, base: str, task: dict) -> None:
+    items = task.get("items") or []
+    if not items:
+        report.error(base, "judge task has no items")
+        return
+
+    seen: set[str] = set()
+    for i, item in enumerate(items):
+        item_id = item.get("id")
+        if not item_id:
+            report.error(base, f"item {i}: missing id")
+        elif item_id in seen:
+            report.error(base, f"item {i}: duplicate id {item_id!r}")
+        else:
+            seen.add(item_id)
+        if not item.get("text"):
+            report.error(base, f"item {i}: missing text")
+        if not isinstance(item.get("correct"), bool):
+            report.error(base, f"item {i}: 'correct' must be true/false")
+        if not item.get("feedback"):
+            report.warn(base, f"item {i}: missing feedback")
+
+    # A drill with every item on one side teaches nothing to discriminate.
+    verdicts = {bool(item.get("correct")) for item in items}
+    if len(verdicts) < 2:
+        report.warn(base, "every item has the same verdict")
+
+    labels = task.get("labels") or {}
+    for key in ("yes", "no"):
+        if not labels.get(key):
+            report.warn(base, f"labels.{key} missing, falling back to the default")
+
+    if not task.get("contextHtml") and not task.get("chart"):
+        report.warn(base, "judge task has no context to judge against")
+
+    _validate_chart(report, base, task)
 
 
 def _validate_speaking_aloud(report: Report, base: str, task: dict) -> None:
@@ -277,7 +474,13 @@ def validate_topic(report: Report, topic_id: str, topic: dict) -> int:
             "mc": _validate_mc,
             "wordform": _validate_wordform,
             "listening": _validate_listening,
+            "writing": _validate_writing,
+            "judge": _validate_judge,
+            "choice": _validate_choice,
+            "pairing": _validate_pairing,
+            "ordering": _validate_ordering,
             "speaking": _validate_speaking,
+            "speaking-aloud": _validate_speaking_aloud,
             "speaking-questions": _validate_speaking_questions,
             "speaking-interview": _validate_speaking_interview,
         }

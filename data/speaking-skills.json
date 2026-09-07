@@ -1,0 +1,327 @@
+{
+  "id": "speaking-skills",
+  "title": "Photo skills",
+  "subtitle": "Задание 42 — описание фотографий.",
+  "tasks": [
+    {
+      "id": "skills42-photo-match",
+      "drill": "Description matching",
+      "nav": "Travel photos",
+      "title": "Description matching",
+      "type": "pairing",
+      "examNum": 42,
+      "instructions": "Match each description to the photograph it describes.",
+      "leftLayout": "grid",
+      "leftTitle": "Photographs",
+      "rightTitle": "Descriptions",
+      "left": [
+        {
+          "id": "img1",
+          "code": "A",
+          "image": {
+            "src": "skill-drill/tourists-1.jpg",
+            "alt": "Three women sitting on a pavement, looking at their phones, with other tourists behind them"
+          },
+          "match": "d1",
+          "feedback": ""
+        },
+        {
+          "id": "img2",
+          "code": "B",
+          "image": {
+            "src": "skill-drill/tourists-2.jpg",
+            "alt": "A group of tourists sitting arm in arm by the sea at sunset, facing mountains, with a cable car in the distance"
+          },
+          "match": "d2",
+          "feedback": ""
+        },
+        {
+          "id": "img3",
+          "code": "C",
+          "image": {
+            "src": "skill-drill/tourists-3.jpg",
+            "alt": "Four friends in hiking backpacks smiling in front of large mountains"
+          },
+          "match": "d3",
+          "feedback": ""
+        },
+        {
+          "id": "img4",
+          "code": "D",
+          "image": {
+            "src": "skill-drill/tourists-4.jpg",
+            "alt": "Two women looking at a map together, one in a striped shirt with a blue backpack, the other in a plaid shirt"
+          },
+          "match": "d4",
+          "feedback": ""
+        }
+      ],
+      "right": [
+        {
+          "id": "d3",
+          "code": "1",
+          "text": "In the image, four friends are standing in front of big mountains. They are all wearing hiking backpacks. They are smiling and look very happy.",
+          "feedback": ""
+        },
+        {
+          "id": "d1",
+          "code": "2",
+          "text": "In the image, three women are sitting on the pavement and looking at their phones, probably planning their trip. They are wearing casual summer clothes and sunglasses. There are other tourists standing behind them.",
+          "feedback": ""
+        },
+        {
+          "id": "d4",
+          "code": "3",
+          "text": "In the image, there are two women looking at a map. The woman on the left is wearing a striped shirt and a blue backpack. The other woman is wearing a plaid shirt. They both look happy and excited.",
+          "feedback": ""
+        },
+        {
+          "id": "d2",
+          "code": "4",
+          "text": "In the image, a group of tourists are sitting together with their arms around each other by the sea. They are looking at the mountain landscape in front of them at sunset. There is a cable car in the distance.",
+          "feedback": ""
+        }
+      ]
+    },
+    {
+      "id": "skills42-cooking-match",
+      "drill": "Description matching",
+      "nav": "Cooking photos",
+      "title": "Description matching",
+      "type": "pairing",
+      "examNum": 42,
+      "instructions": "Match each description to the photograph it describes.",
+      "leftLayout": "grid",
+      "leftTitle": "Photographs",
+      "rightTitle": "Descriptions",
+      "left": [
+        {
+          "id": "img1",
+          "code": "A",
+          "image": {
+            "src": "skill-drill/cooking-1.jpg",
+            "alt": "A mother and daughter smiling at a kitchen table while the mother chops tomatoes"
+          },
+          "match": "d1",
+          "feedback": ""
+        },
+        {
+          "id": "img2",
+          "code": "B",
+          "image": {
+            "src": "skill-drill/cooking-2.jpg",
+            "alt": "A grandmother standing in a kitchen, focused as she cuts a fish"
+          },
+          "match": "d2",
+          "feedback": ""
+        },
+        {
+          "id": "img3",
+          "code": "C",
+          "image": {
+            "src": "skill-drill/cooking-3.jpg",
+            "alt": "A mother and son at a table baking cookies, the son cutting out shapes from the dough"
+          },
+          "match": "d3",
+          "feedback": ""
+        },
+        {
+          "id": "img4",
+          "code": "D",
+          "image": {
+            "src": "skill-drill/cooking-4.jpg",
+            "alt": "A mother and son cooking at a stove, the boy pouring sauce into a pan while she helps"
+          },
+          "match": "d4",
+          "feedback": ""
+        }
+      ],
+      "right": [
+        {
+          "id": "d2",
+          "code": "1",
+          "text": "In the image, there is a grandma standing in the kitchen and cutting a fish. She looks very focused.",
+          "feedback": ""
+        },
+        {
+          "id": "d4",
+          "code": "2",
+          "text": "In the image, a mother and her son are cooking together in the kitchen. The boy is pouring sauce into a pan on the stove. The mother is helping him. They are both happy and smiling while cooking.",
+          "feedback": ""
+        },
+        {
+          "id": "d1",
+          "code": "3",
+          "text": "In the image, a mother and her daughter are sitting at a kitchen table. They are both smiling. The mother is chopping tomatoes. There are some other vegetables on the table and in the background.",
+          "feedback": ""
+        },
+        {
+          "id": "d3",
+          "code": "4",
+          "text": "In the image, a mother and her son are sitting at a table. They are baking cookies together. The son is helping his mum cut out shapes from the dough.",
+          "feedback": ""
+        }
+      ]
+    },
+    {
+      "id": "skills42-sports-match",
+      "drill": "Description matching",
+      "nav": "Sports photos",
+      "title": "Description matching",
+      "type": "pairing",
+      "examNum": 42,
+      "instructions": "Match each description to the photograph it describes.",
+      "leftLayout": "grid",
+      "leftTitle": "Photographs",
+      "rightTitle": "Descriptions",
+      "left": [
+        {
+          "id": "img1",
+          "code": "A",
+          "image": {
+            "src": "skill-drill/sports-1.jpg",
+            "alt": "A tight group of racing cyclists on a road, all in helmets and sunglasses"
+          },
+          "match": "d1",
+          "feedback": ""
+        },
+        {
+          "id": "img2",
+          "code": "B",
+          "image": {
+            "src": "skill-drill/sports-2.jpg",
+            "alt": "Two female footballers sprinting after the ball, one in red and one in light blue"
+          },
+          "match": "d2",
+          "feedback": ""
+        },
+        {
+          "id": "img3",
+          "code": "C",
+          "image": {
+            "src": "skill-drill/sports-3.jpg",
+            "alt": "A baseball batter in a red number 5 shirt at the plate, the catcher crouching behind and team-mates by the fence"
+          },
+          "match": "d3",
+          "feedback": ""
+        },
+        {
+          "id": "img4",
+          "code": "D",
+          "image": {
+            "src": "skill-drill/sports-4.jpg",
+            "alt": "A golfer in a bright green shirt following through on a swing, hills and trees behind"
+          },
+          "match": "d4",
+          "feedback": ""
+        }
+      ],
+      "right": [
+        {
+          "id": "d2",
+          "code": "1",
+          "text": "In the image, there are two female football players from opposite teams chasing the ball. One is wearing a red uniform, while the other is in blue. They are both running very fast.",
+          "feedback": ""
+        },
+        {
+          "id": "d3",
+          "code": "2",
+          "text": "In the image, a baseball player is standing and holding a bat. He is wearing a red shirt with number 5. Behind him, the catcher is crouching and waiting. In the background, other team members are watching from the bench.",
+          "feedback": ""
+        },
+        {
+          "id": "d4",
+          "code": "3",
+          "text": "In the image, a golfer is standing on a golf course and swinging his club. He is wearing a bright green shirt. There are mountains and trees in the background.",
+          "feedback": ""
+        },
+        {
+          "id": "d1",
+          "code": "4",
+          "text": "In the image, a group of cyclists are riding together. They are riding fast and racing each other. They are all wearing helmets and glasses.",
+          "feedback": ""
+        }
+      ]
+    },
+    {
+      "id": "skills42-swimming-match",
+      "drill": "Description matching",
+      "nav": "Swimming photos",
+      "title": "Description matching",
+      "type": "pairing",
+      "examNum": 42,
+      "instructions": "Match each description to the photograph it describes.",
+      "leftLayout": "grid",
+      "leftTitle": "Photographs",
+      "rightTitle": "Descriptions",
+      "left": [
+        {
+          "id": "img1",
+          "code": "A",
+          "image": {
+            "src": "skill-drill/swim-1.jpg",
+            "alt": "Young swimmers diving off the blocks into a lane pool at the start of a race"
+          },
+          "match": "d1",
+          "feedback": ""
+        },
+        {
+          "id": "img2",
+          "code": "B",
+          "image": {
+            "src": "skill-drill/swim-2.jpg",
+            "alt": "Two snorkellers underwater in clear blue water, facing the camera in wetsuits"
+          },
+          "match": "d2",
+          "feedback": ""
+        },
+        {
+          "id": "img3",
+          "code": "C",
+          "image": {
+            "src": "skill-drill/swim-3.jpg",
+            "alt": "A child on an inflatable ring in a pool while two adults throw a beach ball"
+          },
+          "match": "d3",
+          "feedback": ""
+        },
+        {
+          "id": "img4",
+          "code": "D",
+          "image": {
+            "src": "skill-drill/swim-4.jpg",
+            "alt": "A line of people running from a sandy beach into the sea, mountains behind"
+          },
+          "match": "d4",
+          "feedback": ""
+        }
+      ],
+      "right": [
+        {
+          "id": "d4",
+          "code": "1",
+          "text": "In the image, a large group of people are running into the sea together. The beach is beautiful with clear water. There are mountains and a rocky coastline in the background. It is a sunny day.",
+          "feedback": ""
+        },
+        {
+          "id": "d3",
+          "code": "2",
+          "text": "In the image, a family is playing in a swimming pool. The child is sitting on a white floatie ring. His parents are playing with a ball. They are all having fun together.",
+          "feedback": ""
+        },
+        {
+          "id": "d1",
+          "code": "3",
+          "text": "In the image, several young swimmers are diving into a swimming pool. They are taking part in a professional competition.",
+          "feedback": ""
+        },
+        {
+          "id": "d2",
+          "code": "4",
+          "text": "In the image, two people are snorkeling underwater. They are wearing bright yellow snorkels and goggles. The water is very clear and blue. They are looking at the camera and taking a selfie together.",
+          "feedback": ""
+        }
+      ]
+    }
+  ]
+}

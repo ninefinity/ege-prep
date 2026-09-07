@@ -70,8 +70,8 @@ LISTENING_EXAM2_INSTRUCTIONS = (
 )
 
 VARIANT_ENTRIES = [
-    ("listening", "demo2027-listening-1"),
-    ("listening", "demo2027-listening-2"),
+    ("listening-main", "demo2027-listening-1"),
+    ("listening-select", "demo2027-listening-2"),
     ("listening", "demo2027-listening-3-9"),
     ("matching-headings", "demo2027-lions"),
     ("gap-fill", "demo2027-amur-river"),
@@ -79,8 +79,8 @@ VARIANT_ENTRIES = [
     ("grammar-transformations", "demo2027-yaroslavl-sweaters"),
     ("word-formation", "demo2027-hermitage"),
     ("vocabulary-cloze", "demo2027-sunday"),
-    ("writing", "demo2027-victory-day-email"),
-    ("writing", "demo2027-zetland-essay"),
+    ("writing-email", "demo2027-victory-day-email"),
+    ("writing-essay", "demo2027-zetland-essay"),
     ("speaking-aloud", "demo2027-land-pollution"),
     ("speaking-questions", "demo2027-cooking-class"),
     ("speaking-interview", "demo2027-online-shopping"),
@@ -88,14 +88,25 @@ VARIANT_ENTRIES = [
 ]
 
 DEMO_SECTION_OVERRIDES = {
-    "listening": {"examFrom": 1, "examTo": 9, "title": "Listening", "taskCount": 3},
-    "writing": {
-        "id": "writing",
+    "listening-main": {"examFrom": 1, "examTo": 1, "title": "Main idea", "taskCount": 1},
+    "listening-select": {"examFrom": 2, "examTo": 2, "title": "Key details", "taskCount": 1},
+    "listening": {"examFrom": 3, "examTo": 9, "title": "Comprehension", "taskCount": 1},
+    "writing-email": {
+        "id": "writing-email",
         "group": "Writing",
         "examFrom": 37,
+        "examTo": 37,
+        "title": "Personal email",
+        "taskCount": 1,
+        "available": True,
+    },
+    "writing-essay": {
+        "id": "writing-essay",
+        "group": "Writing",
+        "examFrom": 38,
         "examTo": 38,
-        "title": "Writing",
-        "taskCount": 2,
+        "title": "Opinion essay",
+        "taskCount": 1,
         "available": True,
     },
     "speaking-aloud": {
@@ -316,8 +327,23 @@ def convert_listening_tasks(written: dict) -> list[dict]:
     ]
 
 
+def _listening_topic_id(task: dict) -> str:
+    """Route a converted listening task to its own section (1, 2 or 3-9)."""
+    exam_from = task.get("examFrom")
+    if exam_from == 1:
+        return "listening-main"
+    if exam_from == 2:
+        return "listening-select"
+    return "listening"
+
+
+LISTENING_TOPIC_IDS = ("listening-main", "listening-select", "listening")
+
+
 def purge_listening_tasks(task_ids: list[str]) -> None:
-    for path in (TOPIC_FILES["listening"], DEMO_DATA / "listening.json"):
+    paths = [TOPIC_FILES[topic_id] for topic_id in LISTENING_TOPIC_IDS]
+    paths += [DEMO_DATA / f"{topic_id}.json" for topic_id in LISTENING_TOPIC_IDS]
+    for path in paths:
         if not path.is_file():
             continue
         topic = load_json(path)
@@ -697,7 +723,7 @@ def import_demo_2027(*, dry_run: bool = False) -> list[str]:
     oral = load_json(ORAL)
     converted = [
         *[
-            ("listening", task)
+            (_listening_topic_id(task), task)
             for task in convert_listening_tasks(written)
         ],
         ("matching-headings", convert_matching(written)),
@@ -706,8 +732,8 @@ def import_demo_2027(*, dry_run: bool = False) -> list[str]:
         ("grammar-transformations", convert_grammar(written)),
         ("word-formation", convert_word_formation(written)),
         ("vocabulary-cloze", convert_vocab(written)),
-        ("writing", convert_writing_email(written)),
-        ("writing", convert_writing_essay(written)),
+        ("writing-email", convert_writing_email(written)),
+        ("writing-essay", convert_writing_essay(written)),
         ("speaking-aloud", convert_speaking_aloud(oral)),
         ("speaking-questions", convert_speaking_questions(oral)),
         ("speaking-interview", convert_speaking_interview(oral)),

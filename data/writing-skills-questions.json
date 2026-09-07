@@ -1,0 +1,400 @@
+{
+  "id": "writing-skills-questions",
+  "title": "Email skills",
+  "subtitle": "Задание 37 — вопросы и ответы другу.",
+  "tasks": [
+    {
+      "id": "skills37-patrick-questions",
+      "drill": "Questions",
+      "nav": "Patrick: your 3 questions",
+      "title": "Question classification",
+      "type": "judge",
+      "examNum": 37,
+      "instructions": "Classify each question according to state exam criteria. Decide whether an examiner would accept it as Valid or reject it as Invalid. The exact distribution is undisclosed.",
+      "contextTitle": "From: Patrick@mail.uk · Subject: A lesson to remember",
+      "contextHtml": "<p>… At school we talked about the events in the history of our country that we can be proud of. What is the event in the history of Russia that you are most proud of? What historical person do you think best represents the values of your country? Why is it important to know the history of your country?</p><p class=\"ege-judge__trigger\">During the holidays my friends and I always help our local environment protection organizations …</p><p><em>Write an email to Patrick. In your message: answer his questions; <strong>ask 3 questions about the local environment protection organizations.</strong></em></p>",
+      "labels": {
+        "yes": "Valid",
+        "no": "Invalid"
+      },
+      "items": [
+        {
+          "id": "q1",
+          "text": "What are the names of these local environmental organizations?",
+          "correct": true,
+          "feedback": "Valid! Directly inquires about an essential identity feature (names) of the organizations."
+        },
+        {
+          "id": "q2",
+          "text": "When do you and your friends help them?",
+          "correct": false,
+          "tag": "Already Known",
+          "feedback": "Exam Trap (Fact Already Given): Patrick explicitly wrote they help 'during the holidays'."
+        },
+        {
+          "id": "q3",
+          "text": "What projects or initiatives do these organizations run?",
+          "correct": true,
+          "feedback": "Valid! Directly targets the activities, scope, and projects of the organizations."
+        },
+        {
+          "id": "q4",
+          "text": "Do you think protecting the environment is important?",
+          "correct": false,
+          "tag": "General Attitude",
+          "feedback": "Exam Trap (General Opinion): Asks about Patrick's broad worldview rather than the organizations."
+        },
+        {
+          "id": "q5",
+          "text": "Are these organizations funded by the local government or charity donations?",
+          "correct": true,
+          "feedback": "Valid! Targets the structure and funding of the organizations."
+        },
+        {
+          "id": "q6",
+          "text": "What event in British history are you most proud of?",
+          "correct": false,
+          "tag": "Wrong Sentence Trigger",
+          "feedback": "Exam Trap (Wrong Paragraph Trigger): Targets history from paragraph 1 instead of the final trigger sentence."
+        },
+        {
+          "id": "q7",
+          "text": "How many members do these organizations have?",
+          "correct": true,
+          "feedback": "Valid! Directly addresses the size, staff, or membership of the organizations."
+        },
+        {
+          "id": "q8",
+          "text": "What do you and your friends specifically do to help them?",
+          "correct": false,
+          "tag": "About Patrick's Actions, Not the Organizations",
+          "feedback": "Exam Trap (Wrong Grammatical Target): The prompt requires questions about 'the organizations', not about 'Patrick's volunteer tasks'."
+        },
+        {
+          "id": "q9",
+          "text": "Are there any endangered wild animals in your area?",
+          "correct": false,
+          "tag": "Too Broad / Ecology in General",
+          "feedback": "Exam Trap (General Ecology): Inquires about regional wildlife rather than the environmental organizations."
+        },
+        {
+          "id": "q10",
+          "text": "How often do you go on holiday with your friends?",
+          "correct": false,
+          "tag": "Irrelevant Leisure Routine",
+          "feedback": "Exam Trap (Holiday Routine): Shifts the topic to holiday habits rather than the organizations."
+        }
+      ]
+    },
+    {
+      "id": "skills37-kevin-questions",
+      "drill": "Questions",
+      "nav": "Kevin: your 3 questions",
+      "title": "Question classification",
+      "type": "judge",
+      "examNum": 37,
+      "instructions": "Classify each question according to state exam criteria. Decide whether an examiner would accept it as Valid or reject it as Invalid.",
+      "contextTitle": "Kevin writes:",
+      "contextHtml": "<p>… Last week I went to a book festival. It was fantastic! We spent two hours looking through new books and talking to authors. What is the last book you've read? What books do you have to read for your literature classes? How often do you spend time reading a book for pleasure?</p><p class=\"ege-judge__trigger\">I saw an interesting film in Spanish last week …</p><p><em>Write an email to Kevin. In your message: answer his questions; <strong>ask 3 questions about the film.</strong></em></p>",
+      "labels": {
+        "yes": "Valid",
+        "no": "Invalid"
+      },
+      "items": [
+        {
+          "id": "q1",
+          "text": "Did you see this Spanish film at the cinema or at home?",
+          "correct": true,
+          "feedback": "Valid! Inquires about the viewing venue of that specific film."
+        },
+        {
+          "id": "q2",
+          "text": "What language was the film in?",
+          "correct": false,
+          "tag": "Already Known",
+          "feedback": "Exam Trap (Fact Already Given): Kevin explicitly wrote the film was 'in Spanish'."
+        },
+        {
+          "id": "q3",
+          "text": "Did you watch the film with subtitles or dubbed?",
+          "correct": true,
+          "feedback": "Valid! Asks about the specific viewing format of this foreign-language film."
+        },
+        {
+          "id": "q4",
+          "text": "Do you like foreign films in general?",
+          "correct": false,
+          "tag": "Broader Topic / Preference",
+          "feedback": "Exam Trap (General Taste): Inquires about Kevin's general cinematic taste, not this specific film."
+        },
+        {
+          "id": "q5",
+          "text": "What was the genre of the film?",
+          "correct": true,
+          "feedback": "Valid! Directly asks about an essential feature (genre/type) of the movie."
+        },
+        {
+          "id": "q6",
+          "text": "Why did you go to the book festival?",
+          "correct": false,
+          "tag": "Wrong Sentence Trigger",
+          "feedback": "Exam Trap (Wrong Target): Inquires about the book festival from paragraph 1 instead of the film."
+        },
+        {
+          "id": "q7",
+          "text": "Who starred in the main role?",
+          "correct": true,
+          "feedback": "Valid! Targets the actors/cast of that specific film."
+        },
+        {
+          "id": "q8",
+          "text": "Are you learning Spanish?",
+          "correct": false,
+          "tag": "About Kevin, Not the Film",
+          "feedback": "Exam Trap (Author's Life): Questions Kevin's language studies rather than the film itself."
+        },
+        {
+          "id": "q9",
+          "text": "Was the film based on a book?",
+          "correct": true,
+          "feedback": "Valid! Relates directly to the plot source of the specific movie."
+        },
+        {
+          "id": "q10",
+          "text": "How often do you usually watch movies?",
+          "correct": false,
+          "tag": "General Habit",
+          "feedback": "Exam Trap (Habit / Routine): Asks about general lifestyle habits rather than the specific film seen last week."
+        }
+      ]
+    },
+    {
+      "id": "skills37-patrick-answers",
+      "drill": "Answers",
+      "nav": "Patrick: your answers",
+      "title": "Answering Patrick",
+      "type": "choice",
+      "examNum": 37,
+      "instructions": "For each of the pen-friend's questions, choose the one grammatically correct answer.",
+      "contextTitle": "Patrick asked:",
+      "contextHtml": "<p>… At school we talked about the events in the history of our country that we can be proud of. What is the event in the history of Russia that you are most proud of? What historical person do you think best represents the values of your country? Why is it important to know the history of your country?</p>",
+      "questions": [
+        {
+          "id": "q1_history_event",
+          "stem": "What is the event in the history of Russia that you are most proud of?",
+          "options": [
+            {
+              "text": "As for your first question, I am most proud of Yuri Gagarin's first flight into space.",
+              "correct": true,
+              "feedback": "Correct! The adjective 'proud' strictly collocates with the preposition 'of' (to be proud of something)."
+            },
+            {
+              "text": "As for your first question, I am most proud by Yuri Gagarin's first flight into space.",
+              "correct": false,
+              "feedback": "Incorrect. 'Proud by' is an error (likely confused with the passive construction 'inspired by')."
+            },
+            {
+              "text": "As for your first question, I am most proud in Yuri Gagarin's first flight into space.",
+              "correct": false,
+              "feedback": "Incorrect. 'Proud in' is a direct calque/transfer error (confused with 'take pride in')."
+            }
+          ]
+        },
+        {
+          "id": "q2_historical_person",
+          "stem": "What historical person do you think best represents the values of your country?",
+          "options": [
+            {
+              "text": "Personally, I think Peter the Great represents the values of your country.",
+              "correct": false,
+              "feedback": "Incorrect communicative error: writing 'your country' refers to Patrick's country (the UK), not Russia!"
+            },
+            {
+              "text": "Personally, I think Peter the Great represents the values of my country.",
+              "correct": true,
+              "feedback": "Correct! Uses the appropriate 1st-person pronoun 'my country' and correct 3rd-person singular agreement 'represents'."
+            },
+            {
+              "text": "Personally, I think Peter the Great represent the values of my country.",
+              "correct": false,
+              "feedback": "Incorrect. 'Peter the Great' is singular, so it requires 'represents' (missing -s agreement)."
+            }
+          ]
+        },
+        {
+          "id": "q3_importance_history",
+          "stem": "Why is it important to know the history of your country?",
+          "options": [
+            {
+              "text": "For me, it is important to know history of my country because it helps us understand our roots.",
+              "correct": false,
+              "feedback": "Incorrect article error: 'history' when qualified by an 'of'-phrase requires the definite article ('the history of...')."
+            },
+            {
+              "text": "For me, it is important to know the history of my country because it helps us understand our roots.",
+              "correct": true,
+              "feedback": "Correct! Uses the dummy subject 'it is important + infinitive' and the correct definite article 'the history of my country'."
+            },
+            {
+              "text": "For me, it is important knowing history of my country because it helps us understand our roots.",
+              "correct": false,
+              "feedback": "Incorrect syntax: the impersonal pattern requires an infinitive ('it is important to know'), not a gerund, plus the article 'the' is missing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills37-mike-answers",
+      "drill": "Answers",
+      "nav": "Mike: your answers",
+      "title": "Answering Mike",
+      "type": "choice",
+      "examNum": 37,
+      "instructions": "For each of the pen-friend's questions, choose the one grammatically correct answer.",
+      "contextTitle": "Mike asked:",
+      "contextHtml": "<p>… Have you ever participated in any volunteer projects? What are you ready to do to help the local community, if at all? Do you consider volunteer work important for teenagers, and why or why not?</p>",
+      "questions": [
+        {
+          "id": "q1_participate",
+          "stem": "Have you ever participated in any volunteer projects?",
+          "options": [
+            {
+              "text": "To start with, I have never participated at any volunteer projects before.",
+              "correct": false,
+              "feedback": "Incorrect. 'Participate' does not collocate with 'at'."
+            },
+            {
+              "text": "To start with, I have never participated in any volunteer projects before.",
+              "correct": true,
+              "feedback": "Correct! The verb 'participate' strictly takes the preposition 'in' (to participate in something)."
+            },
+            {
+              "text": "To start with, I have never participated on any volunteer projects before.",
+              "correct": false,
+              "feedback": "Incorrect. 'Participated on' is an ungrammatical prepositional substitution."
+            }
+          ]
+        },
+        {
+          "id": "q2_ready_to_do",
+          "stem": "What are you ready to do to help the local community, if at all?",
+          "options": [
+            {
+              "text": "As for your second question, I am ready doing my best to clean local parks.",
+              "correct": false,
+              "feedback": "Incorrect syntax: the adjective 'ready' requires a to-infinitive ('ready to do'), not a gerund ('ready doing')."
+            },
+            {
+              "text": "As for your second question, I am ready to do my best to clean local parks.",
+              "correct": true,
+              "feedback": "Correct! Uses the proper construction 'ready + to-infinitive' ('ready to do my best')."
+            },
+            {
+              "text": "As for your second question, I am ready for do my best to clean local parks.",
+              "correct": false,
+              "feedback": "Incorrect. 'Ready for do' is an ungrammatical construction; prepositions take gerunds, but here the adjective needs the infinitive marker 'to'."
+            }
+          ]
+        },
+        {
+          "id": "q3_consider",
+          "stem": "Do you consider volunteer work important for teenagers, and why or why not?",
+          "options": [
+            {
+              "text": "I consider volunteer work as important for teenagers because it teaches responsibility.",
+              "correct": false,
+              "feedback": "Redundant preposition: in standard exam English, 'consider' takes a direct complex object ('consider X Y'), without the redundant 'as' (often confused with 'regard X as Y')."
+            },
+            {
+              "text": "I consider volunteer work important for teenagers because it teaches responsibility.",
+              "correct": true,
+              "feedback": "Correct! Accurately uses the clean structure 'consider + object + adjective' ('consider volunteer work important')."
+            },
+            {
+              "text": "I consider volunteer work being important for teenagers because it teaches responsibility.",
+              "correct": false,
+              "feedback": "Awkward/Incorrect phrasing: adding the participle 'being' is unnatural and stylistically redundant."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills37-lily-ordering",
+      "drill": "Build an email",
+      "nav": "Lily: build the email",
+      "title": "Sentence order",
+      "type": "ordering",
+      "examNum": 37,
+      "instructions": "Put the six sentences in order so the reply reads as one email. Pick a sentence, then pick its place.",
+      "contextTitle": "Lily writes:",
+      "contextHtml": "<p>… School is over! Holidays are looming on the horizon, hurrah! Where do Russian teenagers spend their summer holidays? What entertainment is popular among them? How do you prefer to spend your free time? I took all my final exams last week …</p>",
+      "groups": [
+        {
+          "id": "body",
+          "title": "Your reply to Lily",
+          "slots": [
+            {
+              "id": "p1"
+            },
+            {
+              "id": "p2"
+            },
+            {
+              "id": "p3"
+            },
+            {
+              "id": "p4"
+            },
+            {
+              "id": "p5"
+            },
+            {
+              "id": "p6"
+            }
+          ]
+        }
+      ],
+      "pool": [
+        {
+          "id": "s4",
+          "text": "Those who are more energetic and active often spend their afternoons playing football or cycling in local parks.",
+          "slot": "p4",
+          "feedback": "Adds a natural second category of entertainment ('Those who are more energetic...') to Q2."
+        },
+        {
+          "id": "s6",
+          "text": "As well as that, I always make time to meet up with my best friends for long walks and board game nights.",
+          "slot": "p6",
+          "feedback": "Adds secondary personal activities using the cohesive linker 'As well as that' to finish Q3."
+        },
+        {
+          "id": "s1",
+          "text": "Usually, Russian teenagers spend their summer holidays visiting their grandparents in the countryside or staying at summer camps.",
+          "slot": "p1",
+          "feedback": "Directly opens with the main location answer to Q1."
+        },
+        {
+          "id": "s5",
+          "text": "As for my own preferences, I really enjoy reading fantasy novels and watching thought-provoking films in the evenings.",
+          "slot": "p5",
+          "feedback": "Uses the linking transition 'As for my own preferences' to introduce the personal answer to Q3."
+        },
+        {
+          "id": "s3",
+          "text": "I would say that the most popular entertainment among teenagers today is playing video games and hanging out in shopping malls.",
+          "slot": "p3",
+          "feedback": "Directly identifies popular teen leisure activities in response to Q2."
+        },
+        {
+          "id": "s2",
+          "text": "However, quite a few prefer to travel to seaside resorts with their families or simply relax in the city.",
+          "slot": "p2",
+          "feedback": "Contrasting expansion ('However, quite a few...') completing the location answer for Q1."
+        }
+      ],
+      "preview": "Your email"
+    }
+  ]
+}

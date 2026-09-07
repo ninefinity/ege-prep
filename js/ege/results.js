@@ -401,11 +401,51 @@ function collectListeningMistakes(task) {
   return mistakes;
 }
 
+function collectChoiceMistakes(task) {
+  var mistakes = [];
+  (task.questions || []).forEach(function (question, index) {
+    var name = E.choiceQuestionName(task.id, question.id);
+    var user = E.getTaskRadioAnswer ? E.getTaskRadioAnswer(task.id, name) : E.getCheckedValue(name);
+    var expected = E.choiceExpectedValue(question);
+    if (user === expected) return;
+    var options = question.options || [];
+    var picked = user ? options[Number(user) - 1] : null;
+    var right = options[E.choiceCorrectIndex(question)];
+    mistakes.push({
+      label: String(index + 1),
+      user: picked ? picked.text : "—",
+      correct: right ? right.text : "",
+      explanation: (picked && picked.feedback) || (right && right.feedback) || "",
+    });
+  });
+  return mistakes;
+}
+
+function collectJudgeMistakes(task) {
+  var mistakes = [];
+  var labels = E.judgeAriaLabels(task);
+  (task.items || []).forEach(function (item, index) {
+    var name = E.judgeItemName(task.id, item.id);
+    var user = E.getTaskRadioAnswer ? E.getTaskRadioAnswer(task.id, name) : E.getCheckedValue(name);
+    var expected = E.judgeExpectedValue(item);
+    if (user === expected) return;
+    mistakes.push({
+      label: String(index + 1),
+      user: user === E.JUDGE_YES ? labels[0] : user === E.JUDGE_NO ? labels[1] : "—",
+      correct: item.correct ? labels[0] : labels[1],
+      explanation: item.feedback || "",
+    });
+  });
+  return mistakes;
+}
+
 E.collectTaskMistakes = function collectTaskMistakes(task) {
   if (!task || E.isOralTask(task) || task.type === "writing") return [];
   if (task.type === "gapfill") return collectGapfillMistakes(task);
   if (task.type === "matching") return collectMatchingMistakes(task);
   if (task.type === "mc") return collectMcMistakes(task);
+  if (task.type === "choice") return collectChoiceMistakes(task);
+  if (task.type === "judge") return collectJudgeMistakes(task);
   if (task.type === "wordform") return collectWordformMistakes(task);
   if (task.type === "listening") return collectListeningMistakes(task);
   return [];
@@ -799,9 +839,28 @@ E.renderRecordingsSection = function renderRecordingsSection() {
   );
 };
 
+// "Only oral" mode never touched the written part, so the normal screen's
+// test/primary scores, section breakdown, .txt export, and mistakes review
+// are all meaningless zeros here -- the only real output of this run is
+// the recordings themselves.
+E.renderOralOnlyResultsScreen = function renderOralOnlyResultsScreen() {
+  var recordings = E.renderRecordingsSection();
+  return (
+    '<div class="ege-exam-phase__panel ege-exam-phase__panel--results" role="region" aria-labelledby="egeResultsTitle">' +
+    '<h2 class="ege-exam-phase__title" id="egeResultsTitle">Устная часть завершена</h2>' +
+    '<p class="ege-exam-phase__lead">Экзамен был выбран в режиме «только устная часть» — баллы не подсчитываются, доступны только записи ответов.</p>' +
+    (recordings || '<p class="ege-exam-phase__lead">Записи не найдены.</p>') +
+    "</div>"
+  );
+};
+
 E.renderExamResultsScreen = function renderExamResultsScreen(report) {
   var data = report || E.buildExamResultsReport();
   var result = data.result;
+
+  if (typeof E.getExamMode === "function" && E.getExamMode() === E.EXAM_MODES.ORAL) {
+    return E.renderOralOnlyResultsScreen();
+  }
 
   return (
     '<div class="ege-exam-phase__panel ege-exam-phase__panel--results" role="region" aria-labelledby="egeResultsTitle">' +
@@ -888,6 +947,31 @@ E.viewExamResults = function viewExamResults() {
   E.persistExamPhase(E.EXAM_PHASES.COMPLETE);
 };
 
+E.countOralCompleted = function countOralCompleted() {
+  var oral =
+    E.state.topic && E.state.topic.tasks ? E.state.topic.tasks.filter(E.isOralTask) : [];
+  var completed = oral.filter(function (task) {
+    return E.state.scores && E.state.scores[task.id] != null;
+  }).length;
+  return { completed: completed, total: oral.length };
+};
+
+// This used to jump straight to results with no warning -- the ✓ is live
+// the entire oral phase, so one stray/early click ended the whole thing
+// with no way back (same risk the written "Сдать" button already guards
+// against, just missing here).
 E.confirmOralResults = function confirmOralResults() {
-  E.viewExamResults();
+  var counts = E.countOralCompleted();
+  var remaining = counts.total - counts.completed;
+  var msg =
+    remaining > 0
+      ? "Вы ещё не всё сделали: не завершено " +
+        remaining +
+        " из " +
+        counts.total +
+        " заданий устной части. Всё равно завершить и перейти к результатам?"
+      : "Завершить устную часть и перейти к результатам? Вернуться назад будет нельзя.";
+  E.showConfirmDialog(msg, function () {
+    E.viewExamResults();
+  });
 };

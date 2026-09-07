@@ -410,6 +410,8 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       if (remaining !== 0) clearFinishShake();
       E.syncSpeakingTimerMotion(wrap, remaining, duration);
       syncLabel();
+      var hint = wrap.querySelector(".ege-speaking-timer__hint");
+      if (hint) hint.hidden = running || remaining !== duration;
       E.syncSpeakingCompleteButton(taskId);
       E.syncResetButton(taskId);
     }
@@ -505,7 +507,7 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
   // visual clutter -- one clock runs both phases back to back, relabeling
   // itself as it goes, the same way a real oral exam has one shared timer
   // rather than a separate physical clock per phase.
-  E.bindSpeakingSequentialTimer = function bindSpeakingSequentialTimer(wrap, taskId, phases, onAllDone) {
+  E.bindSpeakingSequentialTimer = function bindSpeakingSequentialTimer(wrap, taskId, phases, onAllDone, skipBtn, skipLabel) {
     var display = wrap.querySelector(".ege-speaking-timer__display");
     var clock = wrap.querySelector(".ege-speaking-timer__clock");
     var phaseEl = wrap.querySelector(".ege-speaking-timer__phase");
@@ -554,6 +556,15 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       if (remaining !== 0) clearFinishShake();
       E.syncSpeakingTimerMotion(wrap, remaining, phase.seconds);
       syncLabel();
+      var hint = wrap.querySelector(".ege-speaking-timer__hint");
+      if (hint) hint.hidden = started;
+      if (skipBtn) {
+        var skipText =
+          phase.label === "Answer" ? "End recording now" : "Skip preparation time";
+        skipBtn.setAttribute("aria-label", skipText);
+        skipBtn.title = skipText;
+        if (skipLabel) skipLabel.textContent = skipText;
+      }
       E.syncSpeakingCompleteButton(taskId);
       E.syncResetButton(taskId);
     }
@@ -673,6 +684,9 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       pause: pause,
       reset: reset,
       skip: skip,
+      isFinalPhase: function () {
+        return phaseIndex === phases.length - 1;
+      },
     };
     E.speakingTimerControllers[key] = api;
     return api;
@@ -748,6 +762,17 @@ E.isSpeakingPractice = function isSpeakingPractice(task) {
     clock.appendChild(display);
     wrap.appendChild(phase);
     wrap.appendChild(clock);
+
+    // The clock face alone isn't an obvious "click me" control -- students
+    // couldn't tell how to get the timer (and for Reading Aloud, the
+    // blurred passage) going. Spelled out in text, hidden again once the
+    // timer's actually been touched (see the render() calls in
+    // bindSpeakingTimer/bindSpeakingSequentialTimer).
+    var hint = document.createElement("p");
+    hint.className = "ege-speaking-timer__hint";
+    hint.textContent = "Tap the clock to start";
+    wrap.appendChild(hint);
+
     E.syncSpeakingTimerMotion(wrap, seconds, seconds);
     return wrap;
   }
@@ -923,15 +948,43 @@ E.buildSpeakingTimers = function buildSpeakingTimers(taskId, durations, options)
       seqSkipBtn.type = "button";
       seqSkipBtn.className = "ege-speaking-ask-next";
       seqSkipBtn.textContent = ">>";
-      seqSkipBtn.setAttribute("aria-label", "Skip to next phase");
-      seqSkipBtn.title = "Skip to next phase";
+      seqSkipBtn.setAttribute("aria-label", "Skip preparation time");
+      seqSkipBtn.title = "Skip preparation time";
       seqSlot.appendChild(seqSkipBtn);
+
+      // A bare ">>" doesn't say what it does -- spell it out visibly
+      // (title/aria-label alone only surface on hover), updated as the
+      // phase changes (see bindSpeakingSequentialTimer's render()).
+      var seqSkipLabel = document.createElement("p");
+      seqSkipLabel.className = "ege-speaking-ask-next__label";
+      seqSkipLabel.textContent = "Skip preparation time";
+      seqSlot.appendChild(seqSkipLabel);
       row.appendChild(seqSlot);
 
-      var seqApi = E.bindSpeakingSequentialTimer(seqWrap, taskId, phases, options.onAllDone);
+      var seqApi = E.bindSpeakingSequentialTimer(
+        seqWrap,
+        taskId,
+        phases,
+        options.onAllDone,
+        seqSkipBtn,
+        seqSkipLabel
+      );
       if (typeof options.onReset === "function") seqApi.reset.onReset = options.onReset;
       if (typeof options.onStart === "function") seqApi.start.onStart = options.onStart;
       seqSkipBtn.addEventListener("click", function () {
+        // Skipping prep early is low-stakes (you just start answering
+        // sooner) but ending the Answer phase early throws away whatever
+        // time was left and finalizes the take -- confirm that one so a
+        // stray click can't cut a recording short with no way back.
+        if (seqApi.isFinalPhase()) {
+          E.showConfirmDialog(
+            "Закончить ответ сейчас? Оставшееся время пропадёт, отменить нельзя.",
+            function () {
+              seqApi.skip();
+            }
+          );
+          return;
+        }
         seqApi.skip();
       });
       return row;

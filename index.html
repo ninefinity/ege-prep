@@ -349,8 +349,34 @@
       var resultsList = null;
       var emptyEl = null;
       var MAX_RESULTS = 40;
-      var BOOK_LEFT = ["Listening", "Reading", "Writing"];
+      var BOOK_LEFT = ["Listening", "Reading"];
       var BOOK_RIGHT = ["Grammar & Vocabulary", "Speaking"];
+      // A whole column of its own left the two book pages lopsided, so the
+      // Writing group runs full-width under both instead. Each line pairs the
+      // task 37 section with its task 38 counterpart.
+      // Sections that share one split row inside a page column, so the two
+      // book pages end up with the same number of rows.
+      var PAIRED_ROWS = [["speaking-questions", "speaking-interview"]];
+      // Half-width cells, so a couple of titles need a shorter display form.
+      var PAIRED_LABELS = {
+        "speaking-questions": "Ask",
+        "speaking-interview": "Answer"
+      };
+
+      var BOOK_WIDE = {
+        group: "Writing",
+        labels: { "writing-email": "Email", "writing-essay": "Essay" },
+        rows: [["writing-email", "writing-essay"]]
+      };
+
+      // Drills are practice for a task, never the exam task itself. They are
+      // kept out of the exam-task pages entirely and listed in their own block
+      // so the two are never mistaken for each other.
+      var SKILLS_SECTIONS = [
+        "writing-skills-questions",
+        "writing-skills-facts",
+        "speaking-skills"
+      ];
 
       function formatExamNum(from, to) {
         if (from == null) return "";
@@ -507,10 +533,13 @@
       }
 
       function appendRow(list, options) {
-        var item = document.createElement("li");
-        item.className =
-          "ege-catalog-list__item" +
-          (options.itemClass ? " " + options.itemClass : "");
+        // A paired row (e.g. 40 | 41) hands in the <li> so two rows share it.
+        var item = options.item || document.createElement("li");
+        if (!options.item) {
+          item.className =
+            "ege-catalog-list__item" +
+            (options.itemClass ? " " + options.itemClass : "");
+        }
 
         var available = options.available !== false;
         var useCheckbox = !!(available && options.checkbox);
@@ -609,7 +638,7 @@
         }
 
         item.appendChild(row);
-        list.appendChild(item);
+        if (!options.item) list.appendChild(item);
         return item;
       }
 
@@ -621,11 +650,11 @@
           href: DEMO_2027_HREF,
           available: true,
           num: formatExamNum(1, 42),
-          label: "2027 Demo",
-          meta: "Full variant",
-          bits: ["2027 demo", "mock exam", "full variant", "exam", "демо 2027", "полный вариант"],
+          label: "Official 2027 Demo",
+          meta: "Full exam",
+          bits: ["official 2027 demo", "mock exam", "full exam", "exam", "демо 2027", "полный вариант", "фипи"],
           search: normalizeSearch(
-            "2027 demo mock exam full variant exam 1-42 1 42 демо 2027 полный вариант"
+            "official 2027 demo mock exam full exam variant 1-42 1 42 демо 2027 полный вариант фипи"
           )
         });
 
@@ -801,12 +830,6 @@
 
             catalog.textContent = "";
 
-            var promoLink = document.createElement("p");
-            promoLink.className = "ege-catalog-promo";
-            promoLink.innerHTML =
-              '<a href="2027/">2027 demo</a> · <a href="codifier.html">Кодификатор 2027</a>';
-            catalog.appendChild(promoLink);
-
             searchWrap = document.createElement("div");
             searchWrap.className = "ege-catalog-search";
             var searchInput = document.createElement("input");
@@ -831,25 +854,36 @@
 
             searchWrap.appendChild(resultsList);
             searchWrap.appendChild(emptyEl);
-            catalog.appendChild(searchWrap);
+            // Lives in the header's top-right corner, so the catalog below
+            // starts with the mock exam rather than a search box.
+            var topbarRow = document.querySelector(".ege-catalog-header .ege-topbar__row");
+            if (topbarRow) topbarRow.appendChild(searchWrap);
+            else catalog.appendChild(searchWrap);
 
             menuWrap = document.createElement("div");
             menuWrap.className = "ege-catalog-menu";
             menuWrap.id = "egeCatalogMenu";
+
+            var variantHook = document.createElement("p");
+            variantHook.className = "ege-catalog-hook";
+            variantHook.textContent = "How ready are you? Find out:";
+            menuWrap.appendChild(variantHook);
 
             var variantList = document.createElement("ul");
             variantList.className =
               "ege-catalog-list ege-catalog-list--menu ege-catalog-list--variant";
             appendRow(variantList, {
               num: formatExamNum(1, 42),
-              label: "2027 Demo",
+              label: "Official 2027 Demo",
               available: true,
               href: DEMO_2027_HREF,
-              meta: "Full variant",
-              ariaLabel: "2027 Demo, tasks 1 to 42",
+              meta: "Full exam",
+              ariaLabel: "Official 2027 Demo, tasks 1 to 42",
               rowClass: "ege-catalog-row--section ege-catalog-row--variant",
               itemClass: "ege-catalog-list__item--section"
             });
+            var variantRow = variantList.querySelector(".ege-catalog-row");
+            if (variantRow) setRowStartLabel(variantRow, "Start");
             menuWrap.appendChild(variantList);
 
             var book = document.createElement("div");
@@ -1034,16 +1068,67 @@
               });
               var groupNames = Object.keys(groupsSelected);
 
-              if (groupNames.length === 1) {
+              // The full-width row (Writing) has no group header to take over,
+              // so it falls through to the playlist bar like a mixed selection.
+              var soleHeader =
+                groupNames.length === 1 ? groupHeaders[groupNames[0]] : null;
+              if (soleHeader) {
                 syncPlaylistBar([]);
-                activateGroupHeader(groupHeaders[groupNames[0]], ids);
+                activateGroupHeader(soleHeader, ids);
               } else {
                 syncPlaylistBar(ids);
               }
             }
 
+            function appendPairedRow(list, group, members) {
+              var item = document.createElement("li");
+              item.className =
+                "ege-catalog-list__item ege-catalog-list__item--task ege-catalog-list__item--pair";
+
+              members.forEach(function (entry) {
+                var section = entry.sections[0];
+                var title = PAIRED_LABELS[section.id] || section.title || "";
+                if (title === group.name) title = "";
+                var num = formatExamNum(section.examFrom, section.examTo);
+                var ariaTitle = section.title || title || group.name;
+
+                appendRow(list, {
+                  item: item,
+                  num: num,
+                  label: title,
+                  available: true,
+                  href: "topic.html?t=" + encodeURIComponent(section.id),
+                  ariaLabel: (num + (ariaTitle ? ". " + ariaTitle : "")).trim(),
+                  rowClass: "ege-catalog-row--task",
+                  checkbox: {
+                    sectionId: section.id,
+                    label: ariaTitle,
+                    onChange: syncPlaylist
+                  }
+                });
+
+                var check = item.querySelectorAll(".ege-catalog-row__check");
+                check = check[check.length - 1];
+                if (check) {
+                  playlistChecks.push({
+                    input: check,
+                    sectionId: section.id,
+                    groupName: group.name
+                  });
+                }
+              });
+
+              list.appendChild(item);
+            }
+
             function appendGroupToList(list, group) {
               if (!group) return;
+              group = Object.assign({}, group, {
+                sections: group.sections.filter(function (section) {
+                  return SKILLS_SECTIONS.indexOf(section.id) === -1;
+                })
+              });
+              if (!group.sections.length) return;
 
               var range = groupRanges[group.name] || {};
               var lead = firstAvailableSection(group.sections);
@@ -1076,11 +1161,63 @@
                 };
               }
 
+              // A section that is not live yet has no link and no checkbox, so a
+              // run of them reads better as one line than as one dead row per
+              // exam number: 1 "Main idea" + 2 "Key details" -> 1-2 "Main idea,
+              // Key details".
+              var entries = [];
               group.sections.forEach(function (section) {
-                var available = section.available !== false;
-                var title = section.title || "";
-                if (title === group.name) title = "";
-                var num = formatExamNum(section.examFrom, section.examTo);
+                var pending = section.available === false;
+                var previous = entries[entries.length - 1];
+                if (pending && previous && previous.pending) {
+                  previous.sections.push(section);
+                  return;
+                }
+                entries.push({ pending: pending, sections: [section] });
+              });
+
+              // Pull configured pairs onto a single split row.
+              var paired = [];
+              PAIRED_ROWS.forEach(function (ids) {
+                var members = ids
+                  .map(function (id) {
+                    return entries.find(function (entry) {
+                      return (
+                        !entry.pending &&
+                        entry.sections.length === 1 &&
+                        entry.sections[0].id === id
+                      );
+                    });
+                  })
+                  .filter(Boolean);
+                if (members.length !== ids.length) return;
+                paired.push(members);
+              });
+
+              entries.forEach(function (entry) {
+                var pair = paired.find(function (members) {
+                  return members.indexOf(entry) !== -1;
+                });
+                if (pair) {
+                  if (pair[0] !== entry) return; // rendered with its partner
+                  appendPairedRow(list, group, pair);
+                  return;
+                }
+
+                var sections = entry.sections;
+                var section = sections[0];
+                var available = !entry.pending;
+                var title = sections
+                  .map(function (item) {
+                    var name = item.title || "";
+                    return name === group.name ? "" : name;
+                  })
+                  .filter(Boolean)
+                  .join(", ");
+                var num = formatExamNum(
+                  section.examFrom,
+                  sections[sections.length - 1].examTo
+                );
                 var ariaTitle = title || group.name;
 
                 var taskItem = appendRow(list, {
@@ -1115,6 +1252,190 @@
               });
             }
 
+            function appendWideRows(book, config) {
+              if (!config || !config.rows) return;
+
+              var head = document.createElement("ul");
+              head.className =
+                "ege-catalog-list ege-catalog-list--menu ege-catalog-book__wide-head";
+              head.setAttribute("aria-label", config.group);
+              appendRow(head, {
+                num: "",
+                label: config.group,
+                available: true,
+                rowClass: "ege-catalog-row--section ege-catalog-row--wide-head",
+                itemClass: "ege-catalog-list__item--section"
+              });
+              book.appendChild(head);
+
+              // One card per book column rather than one card spanning both, so
+              // the halves line up with the pages above instead of splitting
+              // the full width (which shifted them by half the gutter). Each
+              // card stacks its own rows, keeping the skills drills attached to
+              // the task they belong to.
+              var columns = ["left", "right"].map(function (side) {
+                var list = document.createElement("ul");
+                list.className =
+                  "ege-catalog-list ege-catalog-list--menu ege-catalog-book__wide" +
+                  " ege-catalog-book__wide--" +
+                  side;
+                list.setAttribute("aria-label", config.group);
+                return list;
+              });
+
+              config.rows.forEach(function (ids) {
+                ids.forEach(function (id, column) {
+                  var section = sectionById[id];
+                  if (!section || section.available === false) return;
+
+                  var list = columns[Math.min(column, columns.length - 1)];
+                  var label =
+                    (config.labels && config.labels[section.id]) ||
+                    section.title ||
+                    section.id;
+                  var num = formatExamNum(section.examFrom, section.examTo);
+
+                  var item = appendRow(list, {
+                    num: num,
+                    label: label,
+                    available: true,
+                    href: "topic.html?t=" + encodeURIComponent(section.id),
+                    ariaLabel: (num ? num + ". " + label : label).trim(),
+                    rowClass: "ege-catalog-row--task",
+                    itemClass: "ege-catalog-list__item--task",
+                    checkbox: {
+                      sectionId: section.id,
+                      label: label,
+                      onChange: syncPlaylist
+                    }
+                  });
+
+                  var check = item.querySelector(".ege-catalog-row__check");
+                  if (check) {
+                    playlistChecks.push({
+                      input: check,
+                      sectionId: section.id,
+                      groupName: config.group
+                    });
+                  }
+
+                });
+              });
+
+              columns.forEach(function (list) {
+                if (list.children.length) book.appendChild(list);
+              });
+            }
+
+            // One row per kind of drill. Variants of the same kind (a second
+            // set of photos, a second pen-friend) are switched from the nav
+            // inside the section, not listed here. A section with a single
+            // kind gets no rows at all -- its own row already says it.
+            function drillKinds(topic) {
+              var seen = {};
+              var kinds = [];
+              ((topic && topic.tasks) || []).forEach(function (task) {
+                var name = task.drill || task.nav || task.title || task.id;
+                if (seen[name]) return;
+                seen[name] = true;
+                kinds.push({ label: name, taskId: task.id });
+              });
+              return kinds.length > 1 ? kinds : [];
+            }
+
+            function appendSkillsBlock(book, ids) {
+              var sections = ids
+                .map(function (id) {
+                  return sectionById[id];
+                })
+                .filter(function (section) {
+                  return section && section.available !== false;
+                });
+              if (!sections.length) return;
+
+              var head = document.createElement("ul");
+              head.className =
+                "ege-catalog-list ege-catalog-list--menu ege-catalog-book__skills-head";
+              head.setAttribute("aria-label", "Skill drills");
+              appendRow(head, {
+                num: "",
+                label: "Skill drills",
+                available: true,
+                rowClass: "ege-catalog-row--section ege-catalog-row--skills-head",
+                itemClass: "ege-catalog-list__item--section"
+              });
+              book.appendChild(head);
+
+              // Two lists rather than one grid: a grid flows row-wise, which
+              // split each section away from the drills beneath it.
+              var columns = ["left", "right"].map(function (side) {
+                var col = document.createElement("ul");
+                col.className =
+                  "ege-catalog-list ege-catalog-list--menu ege-catalog-book__skills" +
+                  " ege-catalog-book__skills--" +
+                  side;
+                col.setAttribute("aria-label", "Skill drills");
+                return col;
+              });
+              var rowCount = [0, 0];
+
+              sections.forEach(function (section) {
+                var kinds = drillKinds(topicsById[section.id]);
+                var target = rowCount[0] <= rowCount[1] ? 0 : 1;
+                var list = columns[target];
+                rowCount[target] += 1 + kinds.length;
+
+                var num = formatExamNum(section.examFrom, section.examTo);
+                var label = section.title || section.id;
+
+                var item = appendRow(list, {
+                  num: num,
+                  label: label,
+                  available: true,
+                  href: "topic.html?t=" + encodeURIComponent(section.id),
+                  ariaLabel: (num + ". " + label).trim(),
+                  rowClass: "ege-catalog-row--task",
+                  itemClass: "ege-catalog-list__item--task",
+                  checkbox: {
+                    sectionId: section.id,
+                    label: label,
+                    onChange: syncPlaylist
+                  }
+                });
+
+                var check = item.querySelector(".ege-catalog-row__check");
+                if (check) {
+                  playlistChecks.push({
+                    input: check,
+                    sectionId: section.id,
+                    groupName: section.group || ""
+                  });
+                }
+
+                kinds.forEach(function (kind) {
+                  // Deep links only -- the playlist selects whole sections, so
+                  // a drill carries no checkbox of its own.
+                  appendRow(list, {
+                    num: "",
+                    label: kind.label,
+                    available: true,
+                    href:
+                      "topic.html?t=" +
+                      encodeURIComponent(section.id) +
+                      "&task=" +
+                      encodeURIComponent(kind.taskId),
+                    ariaLabel: label + ": " + kind.label,
+                    rowClass: "ege-catalog-row--task ege-catalog-row--drill",
+                    itemClass: "ege-catalog-list__item--task"
+                  });
+                });
+              });
+
+              columns.forEach(function (col) {
+                if (col.children.length) book.appendChild(col);
+              });
+            }
+
             function buildPage(sideClass, names, label) {
               var page = document.createElement("div");
               page.className = "ege-catalog-book__page " + sideClass;
@@ -1142,6 +1463,9 @@
                 "Grammar and Speaking"
               )
             );
+            appendWideRows(book, BOOK_WIDE);
+            appendSkillsBlock(book, SKILLS_SECTIONS);
+
             menuWrap.appendChild(playlistList);
             menuWrap.appendChild(book);
 

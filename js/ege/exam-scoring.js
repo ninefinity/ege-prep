@@ -11,7 +11,12 @@ E.normalizeAnswer = function normalizeAnswer(value) {
 
 E.scoreShortAnswer = function scoreShortAnswer(userAnswer, correctAnswer, points) {
   var pts = points == null ? 1 : points;
-  return E.normalizeAnswer(userAnswer) === E.normalizeAnswer(correctAnswer) ? pts : 0;
+  // An absent key normalizes to "" and so does a blank answer, which would
+  // otherwise score a skipped question as correct. A task with no answer key
+  // is ungradeable, not free marks -- scripts/ege.py validate flags those.
+  var expected = E.normalizeAnswer(correctAnswer);
+  if (!expected) return 0;
+  return E.normalizeAnswer(userAnswer) === expected ? pts : 0;
 };
 
 E.sumCriteria = function sumCriteria(criteria) {

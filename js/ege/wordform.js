@@ -107,8 +107,8 @@ E.buildWordformScoreLines = function buildWordformScoreLines(taskId, task, opts)
   task.items.forEach(function (item, index) {
     var input = document.getElementById(prefix + "_wf_" + index);
     var raw = input ? input.value : "";
-    var val = E.normalize(raw);
-    var valid = E.buildAcceptedAnswers(item.answer, item.alt);
+    var val = E.normalizeAnswer(raw);
+    var valid = E.buildAcceptedAnswers(item.answer, item.alt).map(E.normalizeAnswer);
     var ok = valid.indexOf(val) !== -1;
     var num = E.wordformExamNum(task, index);
     if (keyOnly) {

@@ -1,0 +1,194 @@
+{
+  "id": "writing-email",
+  "title": "Personal email",
+  "subtitle": "Задание 37 — электронное письмо личного характера.",
+  "tasks": [
+    {
+      "id": "demo2027-victory-day-email",
+      "nav": "Personal email",
+      "title": "Personal email",
+      "type": "writing",
+      "examNum": 37,
+      "instructions": "Укажите номер задания 37 в БЛАНКЕ ОТВЕТОВ № 2 и напишите текст своего ответного электронного письма зарубежному другу по переписке.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Sophia who writes:</p><p><strong>From:</strong> Sophia@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Victory Day</p><p>…I'm doing a project on \"Holidays in Different Countries of the World.\" I've learnt that in Russia, Victory Day is celebrated on May 9th. What event does this holiday commemorate? What official events are held on this day? What do you and your family usually do on this day?<br>…I've joined a local volunteer group…</p><p>Write an email to Sophia.<br>In your message:<br>– answer her questions;<br>– ask 3 questions about the volunteer group.</p><p>Remember the rules of email writing.</p>",
+      "wordMin": 100,
+      "wordMax": 140,
+      "wordToleranceNote": "Допустимое отклонение ±10%: 90–154 слова.",
+      "maxScore": 6,
+      "rubricNote": "Оцените свой ответ по критериям (макс. 6 баллов).",
+      "rubric": [
+        {
+          "id": "k1",
+          "title": "Решение коммуникативной задачи",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Задание не выполнено или ответ не по теме." },
+            { "score": 1, "text": "Ответы и вопросы частично соответствуют заданию." },
+            { "score": 2, "text": "Все пункты задания раскрыты, заданы 3 вопроса о волонтёрской группе." }
+          ]
+        },
+        {
+          "id": "k2",
+          "title": "Организация текста",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Текст не оформлен как email или логика нарушена." },
+            { "score": 1, "text": "Есть приветствие/прощание, но абзацы или связность слабые." },
+            { "score": 2, "text": "Письмо логично, есть приветствие, основная часть и завершение." }
+          ]
+        },
+        {
+          "id": "k3",
+          "title": "Языковое оформление",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Много ошибок, смысл часто затруднён." },
+            { "score": 1, "text": "Ошибки есть, но смысл в целом понятен." },
+            { "score": 2, "text": "Лексика и грамматика соответствуют уровню, ошибки не мешают пониманию." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "harry-animal-protection-email",
+      "nav": "Animal protection",
+      "title": "Personal email",
+      "type": "writing",
+      "examNum": 37,
+      "sourceCode": "4D39E5",
+      "instructions": "Укажите номер задания 37 в БЛАНКЕ ОТВЕТОВ № 2 и напишите текст своего ответного электронного письма зарубежному другу по переписке.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Harry:</p><p><strong>From:</strong> Harry@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Animal protection</p><p>… Last month our class went to the zoo to find out about the animal conservation programme. Are there any endangered animals in Russia and what are these? Do you consider helping animals important, why or why not? What can people do to help endangered species?<br>I've just finished reading an interesting novel …</p><p>Write an email to Harry.<br>In your message:<br>– answer his questions;<br>– ask 3 questions about the novel.</p><p>Remember the rules of email writing.</p>",
+      "wordMin": 100,
+      "wordMax": 140,
+      "wordToleranceNote": "Допустимое отклонение ±10%: 90–154 слова.",
+      "maxScore": 6,
+      "rubricNote": "Оцените свой ответ по критериям (макс. 6 баллов).",
+      "rubric": [
+        {
+          "id": "k1",
+          "title": "Решение коммуникативной задачи",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Задание не выполнено или ответ не по теме." },
+            { "score": 1, "text": "Ответы и вопросы частично соответствуют заданию." },
+            { "score": 2, "text": "Все пункты задания раскрыты, заданы 3 вопроса о романе." }
+          ]
+        },
+        {
+          "id": "k2",
+          "title": "Организация текста",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Текст не оформлен как email или логика нарушена." },
+            { "score": 1, "text": "Есть приветствие/прощание, но абзацы или связность слабые." },
+            { "score": 2, "text": "Письмо логично, есть приветствие, основная часть и завершение." }
+          ]
+        },
+        {
+          "id": "k3",
+          "title": "Языковое оформление",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Много ошибок, смысл часто затруднён." },
+            { "score": 1, "text": "Ошибки есть, но смысл в целом понятен." },
+            { "score": 2, "text": "Лексика и грамматика соответствуют уровню, ошибки не мешают пониманию." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oscar-japanese-email",
+      "nav": "Japanese",
+      "title": "Personal email",
+      "type": "writing",
+      "examNum": 37,
+      "sourceCode": "328E52",
+      "instructions": "Укажите номер задания 37 в БЛАНКЕ ОТВЕТОВ № 2 и напишите текст своего ответного электронного письма зарубежному другу по переписке.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Oscar who writes:</p><p><strong>From:</strong> Oscar@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Japanese</p><p>… I want to speak Japanese and I've joined an online language course. Do many Russian teenagers learn foreign languages online? Why or why not? What foreign languages are popular among them today? What foreign language besides English would you like to study and why?<br>Yesterday I had my first lesson of Japanese …</p><p>Write an email to Oscar.<br>In your message:<br>– answer his questions;<br>– ask 3 questions about the Japanese lesson.</p><p>Remember the rules of email writing.</p>",
+      "wordMin": 100,
+      "wordMax": 140,
+      "wordToleranceNote": "Допустимое отклонение ±10%: 90–154 слова.",
+      "maxScore": 6,
+      "rubricNote": "Оцените свой ответ по критериям (макс. 6 баллов).",
+      "rubric": [
+        {
+          "id": "k1",
+          "title": "Решение коммуникативной задачи",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Задание не выполнено или ответ не по теме." },
+            { "score": 1, "text": "Ответы и вопросы частично соответствуют заданию." },
+            { "score": 2, "text": "Все пункты задания раскрыты, заданы 3 вопроса об уроке японского." }
+          ]
+        },
+        {
+          "id": "k2",
+          "title": "Организация текста",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Текст не оформлен как email или логика нарушена." },
+            { "score": 1, "text": "Есть приветствие/прощание, но абзацы или связность слабые." },
+            { "score": 2, "text": "Письмо логично, есть приветствие, основная часть и завершение." }
+          ]
+        },
+        {
+          "id": "k3",
+          "title": "Языковое оформление",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Много ошибок, смысл часто затруднён." },
+            { "score": 1, "text": "Ошибки есть, но смысл в целом понятен." },
+            { "score": 2, "text": "Лексика и грамматика соответствуют уровню, ошибки не мешают пониманию." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "max-groceries-email",
+      "nav": "Groceries",
+      "title": "Personal email",
+      "type": "writing",
+      "examNum": 37,
+      "sourceCode": "682EEE",
+      "instructions": "Укажите номер задания 37 в БЛАНКЕ ОТВЕТОВ № 2 и напишите текст своего ответного электронного письма зарубежному другу по переписке.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Max who writes:</p><p><strong>From:</strong> Max@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Groceries</p><p>… Last week it was my sister's turn to go to the grocery store. For three days we had nothing to eat but frozen vegetables. Yucky. Who and how often buys food in your family? What kind of food do you usually have at home? What do you think about your local grocery food stores?<br>Our teacher is planning a school trip to the national park …</p><p>Write an email to Max.<br>In your message:<br>– answer his questions;<br>– ask 3 questions about the trip.</p><p>Remember the rules of email writing.</p>",
+      "wordMin": 100,
+      "wordMax": 140,
+      "wordToleranceNote": "Допустимое отклонение ±10%: 90–154 слова.",
+      "maxScore": 6,
+      "rubricNote": "Оцените свой ответ по критериям (макс. 6 баллов).",
+      "rubric": [
+        {
+          "id": "k1",
+          "title": "Решение коммуникативной задачи",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Задание не выполнено или ответ не по теме." },
+            { "score": 1, "text": "Ответы и вопросы частично соответствуют заданию." },
+            { "score": 2, "text": "Все пункты задания раскрыты, заданы 3 вопроса о поездке." }
+          ]
+        },
+        {
+          "id": "k2",
+          "title": "Организация текста",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Текст не оформлен как email или логика нарушена." },
+            { "score": 1, "text": "Есть приветствие/прощание, но абзацы или связность слабые." },
+            { "score": 2, "text": "Письмо логично, есть приветствие, основная часть и завершение." }
+          ]
+        },
+        {
+          "id": "k3",
+          "title": "Языковое оформление",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Много ошибок, смысл часто затруднён." },
+            { "score": 1, "text": "Ошибки есть, но смысл в целом понятен." },
+            { "score": 2, "text": "Лексика и грамматика соответствуют уровню, ошибки не мешают пониманию." }
+          ]
+        }
+      ]
+    }
+  ]
+}

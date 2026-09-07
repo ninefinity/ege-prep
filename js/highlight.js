@@ -130,7 +130,36 @@
         insert.appendChild(span);
       }
     });
+    /* Wordform marks hold whatever the student typed; reset them to the cue
+       word (the same source E.clearWordformMark uses) so a save reflects the
+       passage, not the attempt -- otherwise passageText() below sees the two
+       as different content and throws the highlights away. */
+    clone.querySelectorAll(".ege-wordform-mark").forEach(function (mark) {
+      mark.classList.remove("is-correct", "is-wrong", "is-filled", "is-active");
+      var body = mark.querySelector(".ege-wordform-mark__body");
+      if (body) body.textContent = mark.dataset.cue || "";
+    });
+    /* Same for listening transcript marks, which E.clearListeningMark resets
+       to the gap number. */
+    clone.querySelectorAll(".ege-listening-mark").forEach(function (mark) {
+      mark.classList.remove("is-checked-correct", "is-checked-wrong", "is-filled");
+      mark.textContent = mark.dataset.gap || "";
+    });
     return clone.innerHTML;
+  }
+
+  /* Visible text of a passage, normalized so two renderings of the same
+     content compare equal. */
+  function normalizeText(value) {
+    return String(value == null ? "" : value)
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function passageText(html) {
+    var holder = document.createElement("div");
+    holder.innerHTML = String(html == null ? "" : html);
+    return normalizeText(holder.textContent);
   }
 
   function persistContainer(container) {
@@ -526,9 +555,25 @@
       var savedHasGaps = !!(saved && saved.indexOf("ege-gap-insert") !== -1);
       var savedHasWordform = !!(saved && saved.indexOf("ege-wordform-mark") !== -1);
 
+      /* A save is the passage's whole innerHTML, so restoring one whose text
+         has since been edited would silently put the old wording back on
+         screen forever. Nothing in the key identifies the content, so compare
+         the text itself and drop the save when the passage has moved on.
+         Listening transcripts are exempt: their gap set is resampled every
+         session (E.chooseListeningGaps), so a gap shown as a numbered mark in
+         one run is inlined as its answer word in the next and the text differs
+         legitimately -- checking them would discard every save. */
+      var resampledText = el.classList.contains("ege-listening-transcript");
+      var savedIsStale =
+        !!saved &&
+        !resampledText &&
+        passageText(saved) !== passageText(sanitizePassageHtml(el));
+      if (savedIsStale) saveEntry(id, "");
+
       /* Skip incompatible highlight saves that would wipe interactive shells */
       if (
         saved &&
+        !savedIsStale &&
         (!hasInteractiveGaps || savedHasGaps) &&
         (!hasWordform || savedHasWordform)
       ) {

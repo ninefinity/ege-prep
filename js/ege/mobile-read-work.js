@@ -25,6 +25,13 @@ function getPanes(split) {
   };
 }
 
+/* The read pane holds a chart on the task-38 drills, so name it for what is
+   actually in there. */
+function readTabLabel(taskId) {
+  var task = E.findTask(taskId);
+  return task && task.chart ? "Graph" : "Text";
+}
+
 function workTabLabel(taskId) {
   var taskEl = document.getElementById("task-" + taskId);
   if (taskEl) {
@@ -84,14 +91,17 @@ function ensureTabs(taskId) {
   if (!panel || !split) return null;
 
   var workLabel = workTabLabel(taskId);
+  var readLabel = readTabLabel(taskId);
   var tabs = panel.querySelector(".ege-read-work-tabs");
   if (!tabs) {
     tabs = document.createElement("div");
     tabs.className = "ege-read-work-tabs";
     tabs.setAttribute("role", "tablist");
-    tabs.setAttribute("aria-label", "Text and " + workLabel.toLowerCase());
+    tabs.setAttribute("aria-label", readLabel + " and " + workLabel.toLowerCase());
     tabs.innerHTML =
-      '<button type="button" class="ege-read-work-tabs__btn is-active" role="tab" aria-selected="true" data-pane="read">Text</button>' +
+      '<button type="button" class="ege-read-work-tabs__btn is-active" role="tab" aria-selected="true" data-pane="read">' +
+      readLabel +
+      "</button>" +
       '<button type="button" class="ege-read-work-tabs__btn" role="tab" aria-selected="false" data-pane="work">' +
       workLabel +
       "</button>";
@@ -107,7 +117,9 @@ function ensureTabs(taskId) {
   } else {
     var workBtn = tabs.querySelector('[data-pane="work"]');
     if (workBtn) workBtn.textContent = workLabel;
-    tabs.setAttribute("aria-label", "Text and " + workLabel.toLowerCase());
+    var readBtn = tabs.querySelector('[data-pane="read"]');
+    if (readBtn) readBtn.textContent = readLabel;
+    tabs.setAttribute("aria-label", readLabel + " and " + workLabel.toLowerCase());
   }
   return tabs;
 }

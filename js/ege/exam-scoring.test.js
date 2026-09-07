@@ -11,6 +11,37 @@ test("normalizeAnswer trims, uppercases, strips spaces and hyphens", () => {
   assert.equal(E.normalizeAnswer("New York"), "NEWYORK");
 });
 
+test("scoreShortAnswer does not credit a blank answer against a missing key", () => {
+  assert.equal(E.scoreShortAnswer("", undefined), 0);
+  assert.equal(E.scoreShortAnswer("", ""), 0);
+  assert.equal(E.scoreShortAnswer("anything", ""), 0);
+  // A real key still grades normally, index 0 included.
+  assert.equal(E.scoreShortAnswer("5", "5"), 1);
+  assert.equal(E.scoreShortAnswer(0, 0), 1);
+  assert.equal(E.scoreShortAnswer("", "5"), 0);
+});
+
+test("buildAcceptedAnswers keeps BrE/AmE pairs but not -ise misspellings", () => {
+  const has = (answer, variant) =>
+    E.buildAcceptedAnswers(answer).indexOf(variant) !== -1;
+
+  // -ise is the stem here, not the verb suffix: there is no -ize twin.
+  assert.equal(has("otherwise", "otherwize"), false);
+  assert.equal(has("surprise", "surprize"), false);
+  assert.equal(has("exercise", "exercize"), false);
+  assert.equal(has("promise", "promize"), false);
+  assert.equal(has("capsize", "capsise"), false);
+  // Inflected forms resolve to the same lemma.
+  assert.equal(has("surprised", "surprized"), false);
+
+  // Genuine spelling pairs still accepted, both directions.
+  assert.equal(has("colonise", "colonize"), true);
+  assert.equal(has("energized", "energised"), true);
+  assert.equal(has("empathize", "empathise"), true);
+  assert.equal(has("organisations", "organizations"), true);
+  assert.equal(has("well-organised", "well-organized"), true);
+});
+
 test("convertToTestScore at key boundaries", () => {
   assert.equal(E.convertToTestScore(0), 0);
   assert.equal(E.convertToTestScore(22), 26);

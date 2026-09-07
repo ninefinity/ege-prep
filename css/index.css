@@ -60,7 +60,13 @@
 
 .ege-countdown__board {
   display: block;
-  width: 100%;
+  /* The SVG carries only a viewBox -- with no width/height attributes and a
+     shrink-to-fit header around it, `width: 100%` resolved to the 300px
+     replaced-element default. Pin the size so it is not left to that. The
+     viewport clamp keeps room for the edit control, which is positioned
+     outside the board and would otherwise overflow on a narrow screen. */
+  width: min(24.8rem, calc(100vw - 4.7rem));
+  max-width: 100%;
   height: auto;
   overflow: visible;
 }
@@ -89,7 +95,7 @@
 
 .ege-countdown__tail {
   font-family: var(--ege-font-ui);
-  font-size: 0.72rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--ege-muted);
 }
@@ -297,6 +303,38 @@
   z-index: 3;
 }
 
+/* Stacked under the header on narrow screens; pinned to the top-right corner
+   once there is room beside the centred wordmark and countdown. */
+.ege-catalog-header .ege-topbar__row {
+  flex-wrap: wrap;
+}
+
+.ege-catalog-header .ege-catalog-search {
+  flex: 1 0 100%;
+  width: 100%;
+  margin-top: 0.6rem;
+}
+
+/* Below this the corner slot is too cramped for the placeholder, so the
+   search takes its own full-width line under the header instead. */
+@media (min-width: 1000px) {
+  .ege-catalog-header .ege-topbar__row {
+    position: relative;
+  }
+
+  .ege-catalog-header .ege-catalog-search {
+    position: absolute;
+    top: 0;
+    right: 0;
+    flex: none;
+    /* Narrow enough to clear the centred countdown and the edit control that
+       sits just outside its right edge. */
+    width: min(14rem, 18vw);
+    margin-top: 0;
+    z-index: 5;
+  }
+}
+
 .ege-catalog-search__input {
   display: block;
   width: 100%;
@@ -408,9 +446,52 @@
   position: relative;
 }
 
+/* Writing runs under both book pages rather than as a column of its own,
+   which left the pages lopsided. Each line pairs task 37 with task 38, so the
+   list itself is a two-up grid. Declared after .ege-catalog-list so its
+   `margin: 0` does not win on source order. */
+.ege-catalog-book__wide-head,
+.ege-catalog-book__wide {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 820px) {
+  .ege-catalog-book__wide {
+    grid-column: auto;
+  }
+}
+
+@media (min-width: 820px) {
+  /* Sit in the book's own columns so these line up with the pages above; a
+     card spanning both would split the full width and land half a gutter off.
+     The book's gap collapses to 0 at this width, hence the top margin. */
+  .ege-catalog-book__wide-head {
+    margin-top: 10px;
+  }
+
+  /* Each half keeps its own rounded card, sitting in the book's own columns
+     so the two line up with the pages above. */
+  .ege-catalog-book__wide {
+    margin-top: 0;
+  }
+
+  .ege-catalog-book__wide--left {
+    grid-column: 1;
+  }
+
+  .ege-catalog-book__wide--right {
+    grid-column: 3;
+  }
+}
+
+/* The ruled red margin belongs to the exam-task pages. The 37/38 lines are a
+   two-up grid where it would land inside the left cell rather than ruling the
+   card, and the skill-drill block is not an exam task at all. */
 .ege-catalog-list--menu:not(.ege-catalog-list--variant):not(.ege-catalog-list--playlist):not(
     .ege-catalog-list--results
-  )::before {
+  ):not(.ege-catalog-book__wide):not(.ege-catalog-book__wide-head):not(
+    .ege-catalog-book__skills
+  ):not(.ege-catalog-book__skills-head)::before {
   content: "";
   position: absolute;
   top: 0;
@@ -431,6 +512,28 @@
 
 .ege-catalog-list__item + .ege-catalog-list__item {
   border-top: 1px solid var(--ege-line);
+}
+
+/* Two sections sharing one row (40 | 41), so the book's two pages carry the
+   same number of rows. The ruled red margin belongs to a single-column list,
+   so a pair row gets only the divider between its two cells. */
+.ege-catalog-list__item--pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ege-catalog-list__item--pair > .ege-catalog-row {
+  position: relative;
+}
+
+.ege-catalog-list__item--pair > .ege-catalog-row + .ege-catalog-row {
+  border-left: 1px solid var(--ege-line);
+}
+
+.ege-catalog-list__item--pair .ege-catalog-row__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .ege-catalog-list__item--section + .ege-catalog-list__item--section {
@@ -507,19 +610,145 @@ a.ege-catalog-row:focus-visible {
   text-overflow: ellipsis;
 }
 
+/* Sentence case in the markup, capitals on screen -- screen readers spell out
+   all-caps strings. */
+.ege-catalog-hook {
+  margin: 0 0 0.4rem;
+  padding-left: 0.2rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yap-hot);
+}
+
+/* The mock exam is the one thing on this page worth interrupting for, so it
+   is the only card that carries the brand gradient and a call to action --
+   everything else stays a quiet list. */
+.ege-catalog-list--variant {
+  border: 0;
+  border-radius: 16px;
+  overflow: visible;
+  box-shadow: 0 12px 26px -10px color-mix(in srgb, var(--yap-royal) 55%, transparent);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.ege-catalog-list--variant:hover,
+.ege-catalog-list--variant:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px -10px color-mix(in srgb, var(--yap-royal) 65%, transparent);
+}
+
+.ege-catalog-list--variant .ege-catalog-list__item {
+  border: 0;
+}
+
 .ege-catalog-row--variant {
-  background: color-mix(in srgb, var(--yap-hot) 8%, var(--ege-card));
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 4.5rem;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  border-bottom: 3px solid var(--yap-hot);
+  background: linear-gradient(135deg, var(--yap-navy), var(--yap-royal));
 }
 
 .ege-catalog-row--variant .ege-catalog-row__num {
-  color: var(--ege-accent-deep);
-  font-size: var(--ege-text-lg);
-  text-align: center;
+  justify-self: start;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  background: var(--yap-hot);
+  color: #fff;
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
-.ege-catalog-row--variant .ege-catalog-row__label,
-.ege-catalog-row--variant .ege-catalog-row__num {
-  color: var(--ege-accent-deep);
+.ege-catalog-row--variant .ege-catalog-row__label {
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  /* Section headers clip to one line; this title is the page's headline and
+     would rather wrap than lose the year. */
+  white-space: normal;
+  overflow: visible;
+}
+
+@media (max-width: 560px) {
+  .ege-catalog-row--variant {
+    gap: 0.6rem;
+    padding: 0.85rem 0.9rem;
+  }
+
+  .ege-catalog-row--variant .ege-catalog-row__label {
+    font-size: 1.1rem;
+  }
+
+  .ege-catalog-row--variant .ege-catalog-row__start {
+    padding: 0.45rem 0.85rem;
+    font-size: var(--ege-text-sm);
+  }
+}
+
+.ege-catalog-row--variant .ege-catalog-row__meta {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.ege-catalog-row--variant .ege-catalog-row__start {
+  justify-self: end;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.15rem;
+  border-radius: 999px;
+  background: var(--yap-hot);
+  color: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-md);
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--yap-hot) 60%, transparent);
+  animation: ege-variant-pulse 2.8s ease-out infinite;
+}
+
+.ege-catalog-row--variant .ege-catalog-row__start::after {
+  content: "→";
+  transition: transform 0.18s ease;
+}
+
+.ege-catalog-list--variant:hover .ege-catalog-row__start::after {
+  transform: translateX(3px);
+}
+
+/* A slow halo rather than movement: it catches the eye without the row
+   jittering while someone is trying to read the list below it. */
+@keyframes ege-variant-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--yap-hot) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 12px color-mix(in srgb, var(--yap-hot) 0%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--yap-hot) 0%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ege-catalog-list--variant,
+  .ege-catalog-row--variant .ege-catalog-row__start,
+  .ege-catalog-row--variant .ege-catalog-row__start::after {
+    animation: none;
+    transition: none;
+  }
+
+  .ege-catalog-list--variant:hover,
+  .ege-catalog-list--variant:focus-within {
+    transform: none;
+  }
 }
 
 .ege-catalog-list--playlist {
@@ -777,4 +1006,63 @@ a.ege-catalog-row--section:focus-visible {
   border: 1px dashed var(--ege-line);
   border-radius: var(--ege-radius);
   background: var(--ege-card);
+}
+
+/* Skill drills sit in their own block below the exam tasks, so practice is
+   never mistaken for the paper itself. Two-up on wide screens. */
+.ege-catalog-book__skills-head,
+.ege-catalog-book__skills {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+}
+
+@media (min-width: 820px) {
+  .ege-catalog-book__skills-head {
+    grid-column: 1 / -1;
+  }
+
+  /* Same columns as the pages above, so the block lines up with them. */
+  .ege-catalog-book__skills--left {
+    grid-column: 1;
+    margin-top: 0;
+  }
+
+  .ege-catalog-book__skills--right {
+    grid-column: 3;
+    margin-top: 0;
+  }
+
+  /* The two columns rarely hold the same number of rows, and a stretched
+     card leaves empty space below the last one. */
+  .ege-catalog-book__skills {
+    align-self: start;
+  }
+}
+
+/* Kinds of drill listed under their skills section: indented and quieter
+   than the section row they belong to. */
+.ege-catalog-row--drill {
+  padding-left: calc(var(--ege-catalog-row-pad-x) + 0.9rem);
+}
+
+.ege-catalog-row--drill .ege-catalog-row__label {
+  font-size: var(--ege-text-sm);
+  color: var(--ege-muted);
+}
+
+.ege-catalog-row--drill:hover .ege-catalog-row__label {
+  color: var(--ege-ink);
+}
+
+.ege-catalog-row--wide-head .ege-catalog-row__label {
+  color: var(--yap-royal);
+}
+
+.ege-catalog-row--skills-head .ege-catalog-row__label {
+  color: var(--yap-royal);
+}
+
+.ege-catalog-row--skills-head .ege-catalog-row__soon {
+  text-transform: none;
+  letter-spacing: 0;
 }

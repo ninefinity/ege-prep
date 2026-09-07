@@ -1,0 +1,62 @@
+{
+  "id": "listening-main",
+  "title": "Main idea",
+  "subtitle": "Задание 1 — установление соответствия между говорящими и утверждениями.",
+  "tasks": [
+    {
+      "id": "demo2027-listening-1",
+      "nav": "Listening for main idea",
+      "title": "Listening for main idea",
+      "type": "listening",
+      "audio": "audio/Demo2027-PCh.mp3",
+      "examFrom": 1,
+      "examTo": 1,
+      "examSinglePage": true,
+      "audioStart": "0:00",
+      "audioEnd": "9:33",
+      "audioMarks": [
+        {
+          "at": "0:00",
+          "label": "1"
+        },
+        {
+          "at": "9:34",
+          "label": "2"
+        },
+        {
+          "at": "17:15",
+          "label": "3–9"
+        }
+      ],
+      "instructions": "Вы услышите 6 высказываний. Установите соответствие между высказываниями каждого говорящего A–F и утверждениями, данными в списке 1–7. Используйте каждое утверждение, обозначенное соответствующей цифрой, только один раз. В задании есть одно лишнее утверждение. Вы услышите запись дважды.",
+      "examMatch": {
+        "instructions": "Вы услышите 6 высказываний. Установите соответствие между высказываниями каждого говорящего A–F и утверждениями, данными в списке 1–7. Используйте каждое утверждение, обозначенное соответствующей цифрой, только один раз. В задании есть одно лишнее утверждение. Вы услышите запись дважды.",
+        "statements": [
+          "Classroom projects can cause some conflicts in a group.",
+          "Classroom projects have several advantages.",
+          "It's bad when people don't do their share for a project.",
+          "Teachers enjoy classroom projects more than students.",
+          "Classroom projects can be inconvenient for students.",
+          "Classroom projects should not be the same all the time.",
+          "Classroom projects encourage collaboration."
+        ],
+        "speakers": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "answers": {
+          "A": "7",
+          "B": "6",
+          "C": "3",
+          "D": "1",
+          "E": "5",
+          "F": "2"
+        }
+      }
+    }
+  ]
+}

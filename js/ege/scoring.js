@@ -124,6 +124,59 @@ E.checkTask = function checkTask(taskId) {
       E.updateAnsweredCount(taskId);
     }
 
+    if (task.type === "pairing") {
+      if (!E.allPairingBound(taskId)) {
+        E.syncPairingCheckEnabled(taskId);
+        return;
+      }
+      correct += E.markPairing(taskId, false);
+      E.syncPairingProgress(taskId);
+    }
+
+    if (task.type === "ordering") {
+      if (!E.allOrderingPlaced(taskId)) {
+        E.syncOrderingCheckEnabled(taskId);
+        return;
+      }
+      correct += E.markOrdering(taskId, false);
+    }
+
+    if (task.type === "choice") {
+      if (!E.allChoiceAnswered(taskId)) {
+        E.syncChoiceCheckEnabled(taskId);
+        return;
+      }
+      task.questions.forEach(function (question) {
+        var name = E.choiceQuestionName(taskId, question.id);
+        var expected = E.choiceExpectedValue(question);
+        var value = E.getCheckedValue(name);
+        E.markChoiceGroup(name, value, expected);
+        E.markChoiceQuestion(taskId, question, value);
+        if (value && value === expected) correct += 1;
+      });
+      E.syncChoiceProgress(taskId);
+    }
+
+    if (task.type === "judge") {
+      if (!E.allJudgeAnswered(taskId)) {
+        E.syncJudgeCheckEnabled(taskId);
+        return;
+      }
+      task.items.forEach(function (item) {
+        var name = E.judgeItemName(taskId, item.id);
+        var expected = E.judgeExpectedValue(item);
+        var value = E.getCheckedValue(name);
+        var ok = value === expected;
+        E.markChoiceGroup(name, value, expected);
+        E.setJudgeItemFeedback(taskId, item, ok ? "correct" : "wrong");
+        var tag = E.getJudgeCard(taskId, item.id);
+        tag = tag && tag.querySelector(".ege-judge__tag");
+        if (tag) tag.hidden = ok;
+        if (ok) correct += 1;
+      });
+      E.syncJudgeProgress(taskId);
+    }
+
     if (task.type === "wordform") {
       if (!E.allWordformFilled(taskId)) {
         task.items.forEach(function (_item, index) {
@@ -370,6 +423,22 @@ E.checkTask = function checkTask(taskId) {
       E.showScoreFeedback(taskId, correct, max, {
         lines: E.buildWordformScoreLines(taskId, task, { revealKey: correct === max }),
       });
+    } else if (task.type === "judge") {
+      E.showScoreFeedback(taskId, correct, max, {
+        lines: E.buildJudgeScoreLines(taskId, task),
+      });
+    } else if (task.type === "choice") {
+      E.showScoreFeedback(taskId, correct, max, {
+        lines: E.buildChoiceScoreLines(taskId, task),
+      });
+    } else if (task.type === "pairing") {
+      E.showScoreFeedback(taskId, correct, max, {
+        lines: E.buildPairingScoreLines(taskId, task),
+      });
+    } else if (task.type === "ordering") {
+      E.showScoreFeedback(taskId, correct, max, {
+        lines: E.buildOrderingScoreLines(taskId, task),
+      });
     } else {
       E.showScoreFeedback(taskId, correct, max);
     }
@@ -496,6 +565,80 @@ E.revealTask = function revealTask(taskId) {
         lines: E.buildMatchingScoreLines(taskId, task, { keyOnly: true }),
       });
       E.syncMatchingCheckEnabled(taskId);
+      E.showToast("Answers shown.");
+      return;
+    } else if (task.type === "pairing") {
+      var pairState = E.pairingState(taskId);
+      pairState.pairs = {};
+      (task.left || []).forEach(function (item) {
+        pairState.pairs[item.id] = item.match;
+      });
+      pairState.left = "";
+      pairState.right = "";
+      E.syncPairingBoard(taskId);
+      E.markPairing(taskId, true);
+      var pairEl = document.getElementById("task-" + taskId);
+      if (pairEl) pairEl.dataset.answersRevealed = "1";
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), {
+        revealed: true,
+        lines: E.buildPairingScoreLines(taskId, task, { keyOnly: true }),
+      });
+      E.syncPairingCheckEnabled(taskId);
+      E.showToast("Answers shown.");
+      return;
+    } else if (task.type === "ordering") {
+      var orderState = E.orderingState(taskId);
+      orderState.slots = {};
+      (task.pool || []).forEach(function (item) {
+        orderState.slots[item.slot] = item.id;
+      });
+      orderState.picked = "";
+      E.syncOrderingBoard(taskId);
+      E.markOrdering(taskId, true);
+      var orderEl = document.getElementById("task-" + taskId);
+      if (orderEl) orderEl.dataset.answersRevealed = "1";
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), {
+        revealed: true,
+        lines: E.buildOrderingScoreLines(taskId, task, { keyOnly: true }),
+      });
+      E.syncOrderingCheckEnabled(taskId);
+      E.showToast("Answers shown.");
+      return;
+    } else if (task.type === "choice") {
+      task.questions.forEach(function (question) {
+        var name = E.choiceQuestionName(taskId, question.id);
+        var expected = E.choiceExpectedValue(question);
+        E.setRadioValue(name, expected);
+        E.markChoiceGroupRevealed(name, expected);
+        E.markChoiceQuestion(taskId, question, expected, true);
+      });
+      var choiceEl = document.getElementById("task-" + taskId);
+      if (choiceEl) choiceEl.dataset.answersRevealed = "1";
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), {
+        revealed: true,
+        lines: E.buildChoiceScoreLines(taskId, task, { keyOnly: true }),
+      });
+      E.syncChoiceCheckEnabled(taskId);
+      E.showToast("Answers shown.");
+      return;
+    } else if (task.type === "judge") {
+      task.items.forEach(function (item) {
+        var name = E.judgeItemName(taskId, item.id);
+        var expected = E.judgeExpectedValue(item);
+        E.setRadioValue(name, expected);
+        E.markChoiceGroupRevealed(name, expected);
+        E.setJudgeItemFeedback(taskId, item, "revealed");
+        var card = E.getJudgeCard(taskId, item.id);
+        var tag = card && card.querySelector(".ege-judge__tag");
+        if (tag) tag.hidden = false;
+      });
+      var judgeEl = document.getElementById("task-" + taskId);
+      if (judgeEl) judgeEl.dataset.answersRevealed = "1";
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), {
+        revealed: true,
+        lines: E.buildJudgeScoreLines(taskId, task, { keyOnly: true }),
+      });
+      E.syncJudgeCheckEnabled(taskId);
       E.showToast("Answers shown.");
       return;
     } else if (task.type === "wordform") {
@@ -709,6 +852,45 @@ E.resetTask = function resetTask(taskId, options) {
         E.clearChoiceGroup(prefix + "_q_" + index);
       });
       E.updateAnsweredCount(taskId);
+    }
+
+    if (task.type === "pairing") {
+      var pairResetEl = document.getElementById("task-" + taskId);
+      if (pairResetEl) delete pairResetEl.dataset.answersRevealed;
+      E.resetPairingState(taskId);
+      E.clearPairingFeedback(taskId);
+      E.syncPairingCheckEnabled(taskId);
+    }
+
+    if (task.type === "ordering") {
+      var orderResetEl = document.getElementById("task-" + taskId);
+      if (orderResetEl) delete orderResetEl.dataset.answersRevealed;
+      E.resetOrderingState(taskId);
+      E.clearOrderingFeedback(taskId);
+      E.syncOrderingCheckEnabled(taskId);
+    }
+
+    if (task.type === "choice") {
+      var choiceResetEl = document.getElementById("task-" + taskId);
+      if (choiceResetEl) delete choiceResetEl.dataset.answersRevealed;
+      task.questions.forEach(function (question) {
+        E.clearChoiceGroup(E.choiceQuestionName(taskId, question.id));
+        E.clearChoiceQuestion(taskId, question.id);
+      });
+      E.syncChoiceCheckEnabled(taskId);
+    }
+
+    if (task.type === "judge") {
+      var judgeResetEl = document.getElementById("task-" + taskId);
+      if (judgeResetEl) delete judgeResetEl.dataset.answersRevealed;
+      task.items.forEach(function (item) {
+        E.clearChoiceGroup(E.judgeItemName(taskId, item.id));
+        E.clearJudgeItemFeedback(taskId, item.id);
+        var card = E.getJudgeCard(taskId, item.id);
+        var tag = card && card.querySelector(".ege-judge__tag");
+        if (tag) tag.hidden = true;
+      });
+      E.syncJudgeCheckEnabled(taskId);
     }
 
     if (task.type === "wordform") {

@@ -1,11 +1,24 @@
 import { E } from "./runtime.js";
 
+/* Judge/choice drills use sticky notes instead of the marker -- the work is
+   weighing short candidate sentences, not marking up a long passage. */
+E.taskUsesHighlighter = function taskUsesHighlighter(task) {
+  if (!task) return false;
+  if (task.type === "listening" || task.type === "writing") return false;
+  if (E.SKILLS_TASK_TYPES.indexOf(task.type) !== -1) return false;
+  return !E.isSpeakingPractice(task);
+};
+
 E.renderTaskPanel = function renderTaskPanel(task) {
     if (task.type === "matching") return E.renderMatching(task, E.state.topicId);
     if (task.type === "gapfill") return E.renderGapfill(task, E.state.topicId);
     if (task.type === "mc" && E.isVocabCloze(task)) return E.renderVocabCloze(task, E.state.topicId);
     if (task.type === "mc") return E.renderMc(task, E.state.topicId);
     if (task.type === "wordform") return E.renderWordform(task, E.state.topicId);
+    if (task.type === "judge") return E.renderJudge(task, E.state.topicId);
+    if (task.type === "choice") return E.renderChoice(task, E.state.topicId);
+    if (task.type === "pairing") return E.renderPairing(task, E.state.topicId);
+    if (task.type === "ordering") return E.renderOrdering(task, E.state.topicId);
     if (task.type === "listening") return E.renderListening(task, E.state.topicId);
     if (task.type === "speaking") return E.renderSpeaking(task);
     if (task.type === "speaking-questions") return E.renderSpeakingQuestions(task);
@@ -475,7 +488,7 @@ E.showTask = function showTask(taskId) {
     if (task && (task.type === "mc" || task.type === "gapfill")) E.syncCheckButton(taskId);
     if (typeof E.syncSaveAnswersButton === "function") E.syncSaveAnswersButton(taskId);
     var panel = document.getElementById("panel-" + taskId);
-    if (panel && window.EgeHighlight && task && task.type !== "listening" && task.type !== "writing" && !E.isSpeakingPractice(task)) {
+    if (panel && window.EgeHighlight && task && E.taskUsesHighlighter(task)) {
       var hl = E.highlightStoreIds(task, taskId);
       EgeHighlight.attachAll(panel, hl.topicId, hl.taskId);
     }
@@ -912,7 +925,7 @@ E.applySectionMeta = function applySectionMeta(section) {
     if (railHead) {
       railHead.classList.toggle(
         "ege-rail__head--logo-only",
-        topicLayout || section.id === "listening"
+        topicLayout || String(section.id || "").indexOf("listening") === 0
       );
     }
 
@@ -1226,7 +1239,7 @@ E.mountTopic = function mountTopic(topic, topicId) {
       ) {
         E.mountListeningExamAudio(task, E.state.topicId, shell);
       }
-      if (window.EgeHighlight && task.type !== "writing" && !E.isSpeakingPractice(task)) {
+      if (window.EgeHighlight && E.taskUsesHighlighter(task)) {
         var hl = E.highlightStoreIds(task, task.id);
         EgeHighlight.attachAll(shell, hl.topicId, hl.taskId);
       }

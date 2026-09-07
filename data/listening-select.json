@@ -1,0 +1,81 @@
+{
+  "id": "listening-select",
+  "title": "Key details",
+  "subtitle": "Задание 2 — True / False / Not stated.",
+  "tasks": [
+    {
+      "id": "demo2027-listening-2",
+      "nav": "Listening for specific information",
+      "title": "Listening for specific information",
+      "type": "listening",
+      "audio": "audio/Demo2027-PCh.mp3",
+      "examFrom": 2,
+      "examTo": 2,
+      "examSinglePage": true,
+      "audioStart": "9:34",
+      "audioEnd": "17:14",
+      "audioMarks": [
+        {
+          "at": "0:00",
+          "label": "1"
+        },
+        {
+          "at": "9:34",
+          "label": "2"
+        },
+        {
+          "at": "17:15",
+          "label": "3–9"
+        }
+      ],
+      "instructions": "Вы услышите диалог. Определите, какие из приведённых утверждений А–G соответствуют содержанию текста (1 – True), какие не соответствуют (2 – False) и о чём в тексте не сказано (3 – Not stated). Вы услышите запись дважды.",
+      "examTfn": {
+        "instructions": "Вы услышите диалог. Определите, какие из приведённых утверждений А–G соответствуют содержанию текста (1 – True), какие не соответствуют (2 – False) и о чём в тексте не сказано (3 – Not stated). Вы услышите запись дважды.",
+        "statements": [
+          {
+            "letter": "A",
+            "text": "Ben worked hard during the academic year."
+          },
+          {
+            "letter": "B",
+            "text": "Ben and Sophie study at the same school."
+          },
+          {
+            "letter": "C",
+            "text": "Sophie wants to be a school teacher."
+          },
+          {
+            "letter": "D",
+            "text": "Sophie has already found a summer job."
+          },
+          {
+            "letter": "E",
+            "text": "Ben is thinking of a career in medicine."
+          },
+          {
+            "letter": "F",
+            "text": "Ben disapproves of Sophie's summer plans."
+          },
+          {
+            "letter": "G",
+            "text": "Sophie hasn't had a rest by the sea for some time."
+          }
+        ],
+        "answers": {
+          "A": "3",
+          "B": "3",
+          "C": "3",
+          "D": "2",
+          "E": "1",
+          "F": "2",
+          "G": "1"
+        },
+        "labels": [
+          "True",
+          "False",
+          "Not stated"
+        ]
+      }
+    }
+  ]
+}
