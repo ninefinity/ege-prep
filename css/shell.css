@@ -1512,15 +1512,12 @@ a {
 /* Drills are new formats, so their instructions lead rather than sit in the
    margin the way an exam task's do. */
 .ege-task-intro--skills .ege-instructions {
-  margin-bottom: 14px;
-  padding: 12px 16px;
-  border-left: 4px solid var(--yap-royal);
-  border-radius: 0 12px 12px 0;
-  background: color-mix(in srgb, var(--yap-royal) 6%, #fff);
+  margin-bottom: 10px;
+  padding-left: 0.7rem;
+  border-left: 3px solid var(--yap-royal);
   color: var(--ege-ink);
-  font-size: var(--ege-text-xl);
-  font-weight: 500;
-  line-height: var(--ege-line-body);
+  font-size: var(--ege-text-lg);
+  line-height: var(--ege-line-ui);
 }
 
 .ege-task-intro--skills .ege-task-intro__exam {
