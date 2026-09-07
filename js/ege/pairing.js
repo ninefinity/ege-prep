@@ -290,12 +290,16 @@ E.renderPairing = function renderPairing(task, topicId) {
   board.appendChild(buildColumn(task, task.id, "right", task.rightTitle || "Solutions"));
   work.appendChild(board);
 
-  // Without a context block the split would leave half the width empty, so the
-  // board takes the whole panel -- which is also what the photo grid wants.
+  // The board is two columns of its own, so it needs the full width either
+  // way. A context block stacks above it rather than taking a column.
+  wrap.classList.add("ege-task--pairing-solo");
   if (hasContext) {
-    wrap.appendChild(E.buildLongreadSplit(read, work, { workLabelKind: "questions" }));
+    var stack = document.createElement("div");
+    stack.className = "ege-stack";
+    stack.appendChild(E.buildPanel("", read, "ege-panel--read ege-panel--quote"));
+    stack.appendChild(E.buildWorkPanel("questions", work, "ege-panel--work ege-panel--solo"));
+    wrap.appendChild(stack);
   } else {
-    wrap.classList.add("ege-task--pairing-solo");
     wrap.appendChild(E.buildWorkPanel("questions", work, "ege-panel--solo"));
   }
   wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));

@@ -1851,6 +1851,16 @@ button.ege-prep-pair-card {
     gap: 24px;
   }
 
+  /* Chart drills: the graph has to be read, not glanced at, so it gets the
+     same width as the questions beside it. */
+  .ege-page--topic-layout .ege-split--even {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .ege-split--even .ege-split__read {
+    max-width: none;
+  }
+
   .ege-page--topic-layout .ege-task--reading-mc .ege-split--panels {
     display: grid;
     grid-template-columns:
@@ -8490,6 +8500,17 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   align-self: start;
 }
 
+/* Chart drills: the questions take the main column and the graph the side
+   one, so the two stack inside the main pane rather than sitting apart. */
+.ege-judge__main > .ege-judge__list,
+.ege-choice__main > .ege-choice__list {
+  margin-top: 14px;
+}
+
+.ege-skills-chart {
+  min-width: 0;
+}
+
 .ege-judge__context-meta {
   margin: 0 0 0.6rem;
   font-family: var(--ege-font-ui);
@@ -8924,8 +8945,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   color: var(--yap-royal);
 }
 
-.ege-pairing__feedback,
-.ege-ordering__feedback {
+.ege-pairing__feedback {
   margin: 0.6rem 0 0;
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
@@ -8933,6 +8953,95 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 /* ── Writing skills: ordering (answer + extension) ────────────────────────*/
+
+/* The email is the work surface, as gap-fill's passage is: a position is a
+   numbered gap in the running text until a sentence lands in it. Everything
+   stays `display: inline` so a placed sentence wraps across lines. */
+.ege-ordering__email-title {
+  margin: 14px 0 0.4rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--yap-dust);
+}
+
+.ege-ordering__email {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  background: var(--ege-card-alt, #f4f5fb);
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-lg);
+  line-height: var(--ege-line-body);
+}
+
+.ege-ordering__gap {
+  display: inline;
+  cursor: pointer;
+}
+
+.ege-ordering__gap:not(.is-filled) {
+  padding: 1px 8px;
+  border: 1px dashed color-mix(in srgb, var(--yap-royal) 40%, transparent);
+  border-radius: 6px;
+  background: var(--ege-wrong-pick-bg);
+  font-family: var(--ege-font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--yap-royal);
+}
+
+.ege-ordering__gap:not(.is-filled)::before {
+  content: attr(data-gap);
+}
+
+.ege-ordering__gap:not(.is-filled)::after {
+  content: " ···";
+  font-weight: 600;
+  color: var(--ege-muted);
+}
+
+.ege-ordering__gap.is-filled .ege-ordering__gap-text {
+  padding: var(--ege-text-mark-pad);
+  border-radius: var(--ege-text-mark-radius);
+  background: var(--ege-wrong-pick-bg);
+  color: var(--yap-royal);
+  font-weight: 600;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.ege-ordering__gap:hover:not(.is-filled),
+.ege-ordering__gap:focus-visible:not(.is-filled) {
+  border-color: var(--yap-royal);
+  outline: none;
+}
+
+.ege-ordering__gap.is-filled:hover .ege-ordering__gap-text,
+.ege-ordering__gap.is-filled:focus-visible .ege-ordering__gap-text {
+  box-shadow: inset 0 -2px 0 0 var(--yap-royal);
+  outline: none;
+}
+
+.ege-ordering__gap.is-correct .ege-ordering__gap-text {
+  background: var(--ege-ok-bg);
+  color: var(--ege-ok);
+}
+
+.ege-ordering__gap.is-wrong .ege-ordering__gap-text {
+  background: var(--ege-bad-bg);
+  color: var(--ege-bad);
+}
+
+/* Show answers fills the email in without crediting it. */
+.ege-ordering__gap.is-revealed .ege-ordering__gap-text {
+  background: var(--ege-wrong-pick-bg);
+  color: var(--yap-royal);
+}
+
 
 .ege-ordering__work {
   margin-top: 14px;
@@ -8972,80 +9081,17 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   box-shadow: 0 0 0 2px var(--yap-royal);
 }
 
-.ege-ordering__group {
-  padding: 12px 14px;
-  margin-bottom: 12px;
-  border: 1px solid var(--ege-line);
-  border-radius: 12px;
-  background: #fff;
-}
 
-.ege-ordering__group-title {
-  margin: 0 0 0.6rem;
-  font-family: var(--ege-font-text);
-  font-weight: 700;
-}
 
-.ege-ordering__slot {
-  display: block;
-  padding: 10px 12px;
-  margin-bottom: 8px;
-  border: 1.5px dashed var(--ege-line);
-  border-radius: 10px;
-  background: var(--ege-card-alt, #f4f5fb);
-  cursor: pointer;
-}
 
-.ege-ordering__slot:last-child {
-  margin-bottom: 0;
-}
 
-.ege-ordering__slot:hover {
-  border-color: var(--yap-royal);
-}
 
-.ege-ordering__slot.is-filled {
-  border-style: solid;
-  background: #fff;
-}
 
-.ege-ordering__slot.is-correct {
-  border-color: var(--ege-ok);
-  background: var(--ege-ok-bg);
-}
 
-.ege-ordering__slot.is-wrong {
-  border-color: var(--ege-bad);
-  background: var(--ege-bad-bg);
-}
 
-.ege-ordering__slot.is-revealed {
-  border-color: var(--yap-royal);
-  background: var(--ege-wrong-pick-bg);
-}
 
-.ege-ordering__slot-role {
-  display: block;
-  margin-bottom: 3px;
-  font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-xs, 0.72rem);
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--yap-dust);
-}
 
-.ege-ordering__slot-text {
-  display: block;
-  font-family: var(--ege-font-text);
-  font-size: var(--ege-text-sm);
-  line-height: 1.4;
-}
 
-.ege-ordering__slot-text.is-empty {
-  color: var(--ege-muted);
-  font-style: italic;
-}
 
 /* A pairing column of photographs tiles rather than stacks. */
 .ege-pairing__col--grid .ege-pairing__card {
@@ -9078,43 +9124,6 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   background: var(--ege-card-alt, #f4f5fb);
 }
 
-/* The assembled answer, read back as prose while it is being built. */
-.ege-ordering__preview {
-  margin-top: 12px;
-  padding: 12px 14px;
-  border: 1px solid var(--ege-line);
-  border-radius: 12px;
-  background: var(--ege-card-alt, #f4f5fb);
-}
 
-.ege-ordering__preview-title {
-  margin: 0 0 0.4rem;
-  font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-xs, 0.72rem);
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--yap-dust);
-}
 
-.ege-ordering__preview-body {
-  margin: 0;
-  font-family: var(--ege-font-text);
-  font-size: var(--ege-text-sm);
-  line-height: 1.55;
-}
 
-.ege-ordering__preview-gap {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.4rem;
-  height: 1.4rem;
-  border-radius: 999px;
-  border: 1px dashed var(--ege-line);
-  background: var(--ege-card);
-  font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-xs, 0.72rem);
-  font-weight: 700;
-  color: var(--ege-muted);
-}

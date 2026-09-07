@@ -119,10 +119,10 @@ E.renderChoice = function renderChoice(task, topicId) {
     body.innerHTML = task.contextHtml;
     read.appendChild(body);
   }
-  if (task.chart && typeof E.buildSurveyChart === "function") {
-    var chart = E.buildSurveyChart(task.chart);
-    if (chart) read.appendChild(chart);
-  }
+  var chart =
+    task.chart && typeof E.buildSurveyChart === "function"
+      ? E.buildSurveyChart(task.chart)
+      : null;
 
   var work = document.createElement("div");
   work.className = "ege-choice__list";
@@ -172,8 +172,25 @@ E.renderChoice = function renderChoice(task, topicId) {
     work.appendChild(card);
   });
 
-  if (task.chart) {
-    wrap.appendChild(E.buildLongreadSplit(read, work, { workLabelKind: "questions" }));
+  if (chart) {
+    // The questions are the work, so they take the main column; the graph is
+    // reference material and sits beside them.
+    var main = document.createElement("div");
+    main.className = "ege-choice__main";
+    main.appendChild(read);
+    main.appendChild(work);
+
+    var side = document.createElement("div");
+    side.className = "ege-skills-chart";
+    side.appendChild(chart);
+
+    // Even columns: the graph is unreadable squeezed into a side rail.
+    wrap.appendChild(
+      E.buildLongreadSplit(main, side, {
+        workLabel: "Graph",
+        splitClass: "ege-split--even",
+      })
+    );
   } else {
     // Without a chart the context is a short quote, so a reading column beside
     // the questions would be mostly empty. Stack, as the judge drills do.

@@ -25,11 +25,14 @@ function getPanes(split) {
   };
 }
 
-/* The read pane holds a chart on the task-38 drills, so name it for what is
-   actually in there. */
+/* Name the pane for what is actually in there. On the task-38 drills the
+   graph sits in the side pane, so the read pane is the questions. */
 function readTabLabel(taskId) {
   var task = E.findTask(taskId);
-  return task && task.chart ? "Graph" : "Text";
+  if (!task || !task.chart) return "Text";
+  return E.SKILLS_TASK_TYPES.indexOf(task.type) !== -1
+    ? E.PANEL_LABELS.workQuestions
+    : "Graph";
 }
 
 function workTabLabel(taskId) {

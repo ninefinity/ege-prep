@@ -1,12 +1,12 @@
 import { E } from "./runtime.js";
 
-/* "ordering" tasks drill task 37's answer paragraph: sentences start in a
-   pool and go into numbered positions, and the assembled text is the point --
-   a `preview` label turns on a panel that reads back what has been built so
-   far. Slots may carry a `role` when the positions mean different things;
-   without one they are simply numbered. Scoring is per position, so a
-   sentence one place out still costs a point, which is the discourse skill
-   being taught. */
+/* "ordering" tasks drill task 37's answer paragraph. The paragraph itself is
+   the work surface, the way gap-fill's passage is: positions start as numbered
+   gaps and a placed sentence drops into the running text, so what the student
+   reads back is the email rather than six boxes. Pick a sentence, then a gap;
+   clicking a filled gap returns its sentence to the pool. Scoring is per
+   position, so a sentence one place out still costs a point, which is the
+   discourse skill being taught. */
 
 var selection = {};
 
@@ -60,40 +60,25 @@ E.syncOrderingBoard = function syncOrderingBoard(taskId) {
     chip.classList.toggle("is-active", state.picked === id);
   });
 
-  E.orderingSlots(task).forEach(function (slot) {
-    var el = taskEl.querySelector('.ege-ordering__slot[data-slot-id="' + slot.id + '"]');
+  E.orderingSlots(task).forEach(function (slot, index) {
+    var el = taskEl.querySelector('.ege-ordering__gap[data-slot-id="' + slot.id + '"]');
     if (!el) return;
     var sentence = E.orderingSentence(task, state.slots[slot.id]);
-    var body = el.querySelector(".ege-ordering__slot-text");
-    if (body) {
-      body.textContent = sentence ? sentence.text : "Pick a sentence, then this slot";
-      body.classList.toggle("is-empty", !sentence);
-    }
+    var body = el.querySelector(".ege-ordering__gap-text");
+    if (body) body.textContent = sentence ? sentence.text : "";
     el.classList.toggle("is-filled", !!sentence);
+    el.setAttribute(
+      "aria-label",
+      sentence
+        ? "Position " + (index + 1) + ": " + sentence.text + ". Press to take it back."
+        : "Position " + (index + 1) + ", empty."
+    );
   });
 
   var counter = taskEl.querySelector(".ege-ordering__progress");
   if (counter) {
     counter.textContent =
       used.length + " / " + E.orderingSlots(task).length + " placed";
-  }
-
-  var previewBody = taskEl.querySelector(".ege-ordering__preview-body");
-  if (previewBody) {
-    previewBody.textContent = "";
-    E.orderingSlots(task).forEach(function (slot, index) {
-      var sentence = E.orderingSentence(task, state.slots[slot.id]);
-      if (index) previewBody.appendChild(document.createTextNode(" "));
-      if (sentence) {
-        previewBody.appendChild(document.createTextNode(sentence.text));
-        return;
-      }
-      // An empty position reads as a gap rather than silently closing up.
-      var gap = document.createElement("span");
-      gap.className = "ege-ordering__preview-gap";
-      gap.textContent = index + 1;
-      previewBody.appendChild(gap);
-    });
   }
 };
 
@@ -138,12 +123,8 @@ E.placeOrderingSlot = function placeOrderingSlot(taskId, slotId) {
 E.clearOrderingFeedback = function clearOrderingFeedback(taskId) {
   var taskEl = document.getElementById("task-" + taskId);
   if (!taskEl) return;
-  taskEl.querySelectorAll(".ege-ordering__slot").forEach(function (el) {
+  taskEl.querySelectorAll(".ege-ordering__gap").forEach(function (el) {
     el.classList.remove("is-correct", "is-wrong", "is-revealed");
-  });
-  taskEl.querySelectorAll(".ege-ordering__feedback").forEach(function (note) {
-    note.hidden = true;
-    note.textContent = "";
   });
 };
 
@@ -163,19 +144,13 @@ E.markOrdering = function markOrdering(taskId, revealed) {
     if (ok) correct += 1;
     if (!taskEl) return;
 
-    var el = taskEl.querySelector('.ege-ordering__slot[data-slot-id="' + slot.id + '"]');
+    var el = taskEl.querySelector('.ege-ordering__gap[data-slot-id="' + slot.id + '"]');
     if (!el) return;
     el.classList.remove("is-correct", "is-wrong", "is-revealed");
+    // Like gap-fill, a check marks each position without naming what belongs
+    // there -- that is what Show answers is for.
     if (revealed) el.classList.add("is-revealed");
     else el.classList.add(ok ? "is-correct" : "is-wrong");
-
-    var note = el.querySelector(".ege-ordering__feedback");
-    if (!note) return;
-    var right = E.orderingSentence(task, expected);
-    note.hidden = false;
-    note.textContent = ok || revealed
-      ? (right && right.feedback) || ""
-      : "This slot wants: " + ((right && right.text) || "");
   });
 
   return correct;
@@ -239,86 +214,45 @@ E.renderOrdering = function renderOrdering(task, topicId) {
   progress.textContent = "0 / " + E.orderingSlots(task).length + " placed";
   work.appendChild(progress);
 
-  var slotNumber = 0;
-  (task.groups || []).forEach(function (group, groupIndex) {
-    var card = document.createElement("div");
-    card.className = "ege-ordering__group";
-
-    var head = document.createElement("p");
-    head.className = "ege-ordering__group-title";
-    var num = document.createElement("span");
-    num.className = "ege-exam-num";
-    num.textContent = groupIndex + 1 + ".";
-    head.appendChild(num);
-    head.appendChild(document.createTextNode(" " + group.title));
-    card.appendChild(head);
-
-    (group.slots || []).forEach(function (slot) {
-      slotNumber += 1;
-      var el = document.createElement("div");
-      el.className = "ege-ordering__slot";
-      el.dataset.slotId = slot.id;
-      el.setAttribute("role", "button");
-      el.tabIndex = 0;
-
-      var role = document.createElement("span");
-      role.className = "ege-ordering__slot-role";
-      // A pure sequencing drill has no roles to name, so the position is the
-      // only label the slot needs.
-      role.textContent = slot.role || String(slotNumber);
-      el.appendChild(role);
-
-      var text = document.createElement("span");
-      text.className = "ege-ordering__slot-text is-empty";
-      text.textContent = "Pick a sentence, then this slot";
-      el.appendChild(text);
-
-      var note = document.createElement("p");
-      note.className = "ege-ordering__feedback";
-      note.hidden = true;
-      el.appendChild(note);
-
-      function place() {
-        E.placeOrderingSlot(task.id, slot.id);
-      }
-      el.addEventListener("click", place);
-      el.addEventListener("keydown", function (event) {
-        if (event.key !== "Enter" && event.key !== " ") return;
-        event.preventDefault();
-        place();
-      });
-
-      card.appendChild(el);
-    });
-
-    work.appendChild(card);
-  });
-
-  // The point of the drill is the finished paragraph, so it is on screen and
-  // builds up as sentences are placed rather than waiting for a check.
+  // The email is the work surface: every position is a gap in the running
+  // text, so placing a sentence writes it into the paragraph.
   if (task.preview) {
-    var preview = document.createElement("section");
-    preview.className = "ege-ordering__preview";
-
-    var previewTitle = document.createElement("p");
-    previewTitle.className = "ege-ordering__preview-title";
-    previewTitle.textContent = task.preview;
-    preview.appendChild(previewTitle);
-
-    var previewBody = document.createElement("p");
-    previewBody.className = "ege-ordering__preview-body";
-    // Seeded here because syncOrderingBoard needs the node in the document,
-    // and nothing is placed at build time anyway.
-    E.orderingSlots(task).forEach(function (_slot, index) {
-      if (index) previewBody.appendChild(document.createTextNode(" "));
-      var gap = document.createElement("span");
-      gap.className = "ege-ordering__preview-gap";
-      gap.textContent = index + 1;
-      previewBody.appendChild(gap);
-    });
-    preview.appendChild(previewBody);
-    work.appendChild(preview);
+    var emailTitle = document.createElement("p");
+    emailTitle.className = "ege-ordering__email-title";
+    emailTitle.textContent = task.preview;
+    work.appendChild(emailTitle);
   }
+
+  var email = document.createElement("p");
+  email.className = "ege-ordering__email";
+  E.orderingSlots(task).forEach(function (slot, index) {
+    if (index) email.appendChild(document.createTextNode(" "));
+
+    var gap = document.createElement("span");
+    gap.className = "ege-ordering__gap";
+    gap.dataset.slotId = slot.id;
+    gap.dataset.gap = String(index + 1);
+    gap.setAttribute("role", "button");
+    gap.setAttribute("aria-label", "Position " + (index + 1) + ", empty.");
+    gap.tabIndex = 0;
+
+    var text = document.createElement("span");
+    text.className = "ege-ordering__gap-text";
+    gap.appendChild(text);
+
+    function place() {
+      E.placeOrderingSlot(task.id, slot.id);
+    }
+    gap.addEventListener("click", place);
+    gap.addEventListener("keydown", function (event) {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      place();
+    });
+
+    email.appendChild(gap);
+  });
+  work.appendChild(email);
 
   read.appendChild(work);
 

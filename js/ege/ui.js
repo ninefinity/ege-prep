@@ -271,7 +271,11 @@ E.buildLongreadSplit = function buildLongreadSplit(readInner, workInner, opts) {
   workScroll.appendChild(workPanel);
   workCol.appendChild(workScroll);
 
-  return E.buildSplit(readPanel, workCol, "ege-split--panels");
+  return E.buildSplit(
+    readPanel,
+    workCol,
+    "ege-split--panels" + (opts.splitClass ? " " + opts.splitClass : "")
+  );
 };
 
 E.buildTaskShell = function buildTaskShell(task, body, footer) {
