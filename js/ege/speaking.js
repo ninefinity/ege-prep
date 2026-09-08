@@ -1379,10 +1379,10 @@ E.renderSpeakingAloud = function renderSpeakingAloud(task) {
 
     if (task.text) {
       var passage = document.createElement("div");
-      // Blurred until the student actually starts the prep timer -- no
-      // reading ahead before "time" officially begins, same as the real
-      // exam not showing the passage before the proctor starts the clock.
-      passage.className = "ege-speaking-aloud-text ege-passage is-speaking-hidden";
+      // In mock exams (full written exam), blur the text until timer starts.
+      // In practice mode, show the text immediately for easier reading.
+      var isMockExam = typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam();
+      passage.className = "ege-speaking-aloud-text ege-passage" + (isMockExam ? " is-speaking-hidden" : "");
       task.text.split(/\n\n+/).forEach(function (para) {
         var trimmed = para.trim();
         if (!trimmed) return;
@@ -1395,6 +1395,7 @@ E.renderSpeakingAloud = function renderSpeakingAloud(task) {
 
     var prepSeconds = task.prepSeconds || 90;
     var speakSeconds = task.speakSeconds || 90;
+    var isMockExam = typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam();
     var wrap = E.buildSpeakingShell(
       task,
       "ege-task--speaking-aloud",
@@ -1403,19 +1404,20 @@ E.renderSpeakingAloud = function renderSpeakingAloud(task) {
       {
         sequential: true,
         onStart: function () {
-          if (passage) passage.classList.remove("is-speaking-hidden");
+          if (passage && isMockExam) passage.classList.remove("is-speaking-hidden");
         },
-        // Once the Answer phase runs out, the student is done reading --
-        // blur the passage so it can't just be re-read afterwards, same as
-        // the text disappearing at the end of the real oral exam.
+        // Once the Answer phase runs out, the student is done reading.
+        // In mock exams, blur the passage so it can't just be re-read afterwards,
+        // same as the text disappearing at the end of the real oral exam.
+        // In practice mode, keep it visible.
         onAllDone: function () {
-          if (passage) passage.classList.add("is-speaking-done");
+          if (passage && isMockExam) passage.classList.add("is-speaking-done");
           E.markSpeakingComplete(task.id);
         },
         onReset: function () {
           if (passage) {
             passage.classList.remove("is-speaking-done");
-            passage.classList.add("is-speaking-hidden");
+            if (isMockExam) passage.classList.add("is-speaking-hidden");
           }
         },
       }
