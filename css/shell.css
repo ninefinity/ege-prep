@@ -7808,6 +7808,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-speaking-aloud-text.is-speaking-hidden {
   filter: blur(6px);
   user-select: none;
+  pointer-events: none;
 }
 
 .ege-speaking-aloud-text.is-speaking-done::after,
