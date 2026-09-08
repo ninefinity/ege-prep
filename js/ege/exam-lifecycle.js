@@ -448,13 +448,20 @@ E.renderWrittenReadyScreen = function renderWrittenReadyScreen() {
 
   return (
     '<div class="ege-exam-phase__panel ege-exam-phase__panel--ready" role="region" aria-labelledby="egeWrittenReadyTitle">' +
+    '<div class="ege-phase-lead">' +
+    '<img class="ege-phase-lead__sticker" src="assets/stickers/good-luck.webp" alt="" aria-hidden="true">' +
     '<h2 class="ege-exam-phase__title" id="egeWrittenReadyTitle">' + title + "</h2>" +
+    "</div>" +
     E.renderExamModePicker() +
     '<p class="ege-exam-phase__lead">' +
     lead +
     "</p>" +
     '<p class="ege-exam-phase__note">' +
     note +
+    "</p>" +
+    '<p class="ege-exam-phase__device-note">' +
+    '<img class="ege-exam-phase__device-note-icon" src="assets/stickers/laptop.webp" alt="" aria-hidden="true">' +
+    "Для лучшего результата используйте компьютер." +
     "</p>" +
     '<p class="ege-exam-phase__timer-note">Таймер начнётся после старта</p>' +
     '<div class="ege-exam-phase__actions ege-exam-phase__actions--ready">' +
@@ -466,7 +473,10 @@ E.renderWrittenReadyScreen = function renderWrittenReadyScreen() {
 E.renderOralReadyScreen = function renderOralReadyScreen() {
   return (
     '<div class="ege-exam-phase__panel ege-exam-phase__panel--ready" role="region" aria-labelledby="egeOralReadyTitle">' +
+    '<div class="ege-phase-lead">' +
+    '<img class="ege-phase-lead__sticker" src="assets/stickers/good-luck.webp" alt="" aria-hidden="true">' +
     '<h2 class="ege-exam-phase__title" id="egeOralReadyTitle">Устная часть</h2>' +
+    "</div>" +
     '<p class="ege-exam-phase__lead">Задания 39–42 · 4 задания</p>' +
     '<p class="ege-exam-phase__note">Общее время ответа одного экзаменуемого (включая время ' +
     "на подготовку) – 17 минут. Каждое последующее задание выдаётся после окончания выполнения " +

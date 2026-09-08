@@ -635,7 +635,10 @@ E.renderMistakesReviewScreen = function renderMistakesReviewScreen(mistakes, exp
   return (
     '<div class="ege-exam-phase__panel ege-exam-phase__panel--mistakes" role="region" aria-labelledby="egeMistakesTitle">' +
     '<button type="button" class="ege-btn ege-btn--ghost ege-exam-phase__back" id="egeMistakesBack">← Назад к результатам</button>' +
+    '<div class="ege-phase-lead">' +
+    '<img class="ege-phase-lead__sticker" src="assets/stickers/explain.webp" alt="" aria-hidden="true">' +
     '<h2 class="ege-exam-phase__title" id="egeMistakesTitle">Работа над ошибками</h2>' +
+    "</div>" +
     E.renderMistakesBySection(mistakes, explanationsDoc) +
     "</div>"
   );

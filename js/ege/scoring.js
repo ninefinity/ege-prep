@@ -427,6 +427,21 @@ E.checkTask = function checkTask(taskId) {
       // Every drill item already carries its own verdict and note, so a
       // per-item list under the score would say all of it twice.
       E.showScoreFeedback(taskId, correct, max);
+      if (typeof E.flashMoodSticker === "function") {
+        var moodTaskEl = document.getElementById("task-" + taskId);
+        var moodScoreEl = document.getElementById("score-" + taskId);
+        var prevCorrectRaw = moodTaskEl && moodTaskEl.dataset.prevCorrect;
+        var prevCorrect = prevCorrectRaw != null ? parseInt(prevCorrectRaw, 10) : null;
+        if (moodScoreEl && !moodScoreEl.hidden) {
+          if (max > 0 && correct === max) {
+            E.flashMoodSticker(moodScoreEl, "confetti");
+          } else if (prevCorrect != null && correct > prevCorrect) {
+            // At least one item that was wrong last check is right now.
+            E.flashMoodSticker(moodScoreEl, "like");
+          }
+        }
+        if (moodTaskEl) moodTaskEl.dataset.prevCorrect = String(correct);
+      }
     } else {
       E.showScoreFeedback(taskId, correct, max);
     }
@@ -838,6 +853,7 @@ E.resetTask = function resetTask(taskId, options) {
     if (task.type === "pairing") {
       var pairResetEl = document.getElementById("task-" + taskId);
       if (pairResetEl) delete pairResetEl.dataset.answersRevealed;
+      if (pairResetEl) delete pairResetEl.dataset.prevCorrect;
       E.resetPairingState(taskId);
       E.clearPairingFeedback(taskId);
       E.syncPairingCheckEnabled(taskId);
@@ -846,6 +862,7 @@ E.resetTask = function resetTask(taskId, options) {
     if (task.type === "ordering") {
       var orderResetEl = document.getElementById("task-" + taskId);
       if (orderResetEl) delete orderResetEl.dataset.answersRevealed;
+      if (orderResetEl) delete orderResetEl.dataset.prevCorrect;
       E.resetOrderingState(taskId);
       E.clearOrderingFeedback(taskId);
       E.syncOrderingCheckEnabled(taskId);
@@ -854,6 +871,7 @@ E.resetTask = function resetTask(taskId, options) {
     if (task.type === "choice") {
       var choiceResetEl = document.getElementById("task-" + taskId);
       if (choiceResetEl) delete choiceResetEl.dataset.answersRevealed;
+      if (choiceResetEl) delete choiceResetEl.dataset.prevCorrect;
       task.questions.forEach(function (question) {
         E.clearChoiceGroup(E.choiceQuestionName(taskId, question.id));
         E.clearChoiceQuestion(taskId, question.id);
@@ -864,6 +882,7 @@ E.resetTask = function resetTask(taskId, options) {
     if (task.type === "judge") {
       var judgeResetEl = document.getElementById("task-" + taskId);
       if (judgeResetEl) delete judgeResetEl.dataset.answersRevealed;
+      if (judgeResetEl) delete judgeResetEl.dataset.prevCorrect;
       task.items.forEach(function (item) {
         E.clearChoiceGroup(E.judgeItemName(taskId, item.id));
         E.clearJudgeItemFeedback(taskId, item.id);

@@ -610,15 +610,34 @@ a.ege-catalog-row:focus-visible {
   text-overflow: ellipsis;
 }
 
+.ege-catalog-hook-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+}
+
+.ege-catalog-hook-sticker {
+  flex: 0 0 auto;
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+  margin-bottom: -2px;
+}
+
 /* Sentence case in the markup, capitals on screen -- screen readers spell out
    all-caps strings. */
 .ege-catalog-hook {
-  margin: 0 0 0.4rem;
-  padding-left: 0.2rem;
+  position: relative;
+  margin: 0;
+  padding: 0.45rem 0.8rem;
+  border-radius: 14px 14px 14px 4px;
+  background: #fff;
+  border: 1.5px solid var(--yap-hot);
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--yap-hot);
 }

@@ -864,10 +864,23 @@
             menuWrap.className = "ege-catalog-menu";
             menuWrap.id = "egeCatalogMenu";
 
+            var hookWrap = document.createElement("div");
+            hookWrap.className = "ege-catalog-hook-wrap";
+
+            var hookSticker = document.createElement("img");
+            hookSticker.className = "ege-catalog-hook-sticker";
+            hookSticker.src = "assets/stickers/hmm.webp";
+            hookSticker.alt = "";
+            hookSticker.setAttribute("aria-hidden", "true");
+            hookSticker.loading = "lazy";
+            hookWrap.appendChild(hookSticker);
+
             var variantHook = document.createElement("p");
             variantHook.className = "ege-catalog-hook";
             variantHook.textContent = "How ready are you? Find out:";
-            menuWrap.appendChild(variantHook);
+            hookWrap.appendChild(variantHook);
+
+            menuWrap.appendChild(hookWrap);
 
             var variantList = document.createElement("ul");
             variantList.className =

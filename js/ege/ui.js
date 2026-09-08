@@ -438,6 +438,30 @@ E.markGapInsert = function markGapInsert(taskId, gapId, ok, hasValue) {
     insert.classList.toggle("is-wrong", hasValue && !ok);
   }
 
+// A small celebration for the skill drills only -- confetti on a perfect
+// check, a thumbs-up when a previously-wrong item comes right. Removes
+// itself once the pop animation finishes, so nothing has to track it.
+E.flashMoodSticker = function flashMoodSticker(anchorEl, mood) {
+  if (!anchorEl) return;
+  anchorEl.querySelectorAll(".ege-mood-sticker").forEach(function (old) {
+    old.remove();
+  });
+  var img = document.createElement("img");
+  img.className = "ege-mood-sticker ege-mood-sticker--" + mood;
+  img.src = "assets/stickers/" + mood + ".webp";
+  img.alt = "";
+  img.setAttribute("aria-hidden", "true");
+  img.addEventListener("animationend", function () {
+    img.remove();
+  });
+  // Fallback for prefers-reduced-motion, where the animation (and so
+  // animationend) never runs.
+  setTimeout(function () {
+    img.remove();
+  }, 1800);
+  anchorEl.appendChild(img);
+};
+
 E.showScoreFeedback = function showScoreFeedback(taskId, correct, max, options) {
     var scoreEl = document.getElementById("score-" + taskId);
     if (!scoreEl) return;

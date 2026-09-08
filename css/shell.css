@@ -5251,6 +5251,7 @@ button.ege-listening-mark:focus-visible {
 }
 
 .ege-task__score {
+  position: relative;
   margin: 10px 0 0;
   padding: 8px 12px;
   border-radius: 8px;
@@ -5258,6 +5259,47 @@ button.ege-listening-mark:focus-visible {
   font-weight: 700;
   font-size: var(--ege-text-md);
   white-space: pre-line;
+}
+
+.ege-mood-sticker {
+  position: absolute;
+  top: -18px;
+  right: -8px;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 3;
+  animation: ege-mood-pop 1.7s ease forwards;
+}
+
+@keyframes ege-mood-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) rotate(-10deg);
+  }
+  18% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  28% {
+    transform: scale(1) rotate(0deg);
+  }
+  78% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.85) rotate(0deg) translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ege-mood-sticker {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .ege-task__footer--score-first .ege-task__score {
@@ -6841,6 +6883,18 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
   font-weight: 700;
 }
 
+.ege-writing-footer__count.is-over::before,
+.ege-writing38-editor__count.is-over::before,
+.ege-writing38-actionbar__count.is-over::before {
+  content: "";
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.2em;
+  background: url("../assets/stickers/stop.webp") center / contain no-repeat;
+}
+
 .ege-writing-criteria-trigger {
   display: inline-flex;
   align-items: center;
@@ -8089,6 +8143,41 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-exam-phase__title {
   margin: 0 0 0.75rem;
   font-size: 1.35rem;
+}
+
+/* A sticker beside the panel title on the ready/mistakes screens -- the
+   mascot introducing what comes next rather than a bare heading. */
+.ege-phase-lead {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.ege-phase-lead__sticker {
+  flex: 0 0 auto;
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+}
+
+.ege-phase-lead .ege-exam-phase__title {
+  margin: 0;
+}
+
+.ege-exam-phase__device-note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+  color: var(--ege-muted);
+}
+
+.ege-exam-phase__device-note-icon {
+  flex: 0 0 auto;
+  width: 1.6rem;
+  height: 1.6rem;
+  object-fit: contain;
 }
 
 .ege-exam-mode-picker {
