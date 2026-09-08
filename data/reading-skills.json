@@ -546,6 +546,77 @@
           "note": "Compound noun denoting a state of social, physical, and economic health"
         }
       ]
+    },
+    {
+      "id": "skills39-phonetic-traps",
+      "nav": "Orthographic & phonetic traps",
+      "title": "Tricky words",
+      "type": "pronounce",
+      "examNum": 39,
+      "drill": "Tricky words",
+      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Cupboards",
+          "ipa": "/ˈkʌbərdz/",
+          "note": "Completely silent letter p and reduced unstressed ending"
+        },
+        {
+          "id": "w2",
+          "text": "Wounds",
+          "ipa": "/wuːndz/",
+          "note": "Pronounced with /uː/, easily confused with the past of wind /waʊnd/"
+        },
+        {
+          "id": "w3",
+          "text": "Pyjamas",
+          "ipa": "/pəˈdʒɑːməz/",
+          "note": "Stress on the second syllable; deceptive vowel spelling"
+        },
+        {
+          "id": "w4",
+          "text": "Sphere",
+          "ipa": "/sfɪər/",
+          "note": "Rare and awkward initial consonant cluster /sf-/"
+        },
+        {
+          "id": "w5",
+          "text": "Knowledge",
+          "ipa": "/ˈnɒlɪdʒ/",
+          "note": "Silent initial k and silent w with vowel shortening to /ɒ/"
+        },
+        {
+          "id": "w6",
+          "text": "Weigh",
+          "ipa": "/weɪ/",
+          "note": "Silent digraph gh with the diphthong /eɪ/"
+        },
+        {
+          "id": "w7",
+          "text": "Mechanisms",
+          "ipa": "/ˈmekənɪzəmz/",
+          "note": "Greek digraph ch pronounced as the velar plosive /k/"
+        },
+        {
+          "id": "w8",
+          "text": "Beneath",
+          "ipa": "/bɪˈniːθ/",
+          "note": "Unstressed prefix with a terminal voiceless interdental fricative /θ/"
+        },
+        {
+          "id": "w9",
+          "text": "Savanna",
+          "ipa": "/səˈvænə/",
+          "note": "Lexical stress on the second syllable with reduced schwa endings"
+        },
+        {
+          "id": "w10",
+          "text": "Extinction",
+          "ipa": "/ɪkˈstɪŋkʃən/",
+          "note": "Triple consonant cluster /-ŋkʃ-/ requiring rapid articulation"
+        }
+      ]
     }
   ]
 }
