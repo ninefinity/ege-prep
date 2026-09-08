@@ -9296,6 +9296,191 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   background: var(--ege-card-alt, #f4f5fb);
 }
 
+/* ── Writing skills: deduction (Data Deduction) ────────────────────────────
+   A table of options with a blank slot per row, and a pool of percentage
+   chips below it. Chips are dragged onto a slot (native HTML5 DnD) or
+   tapped -- select a chip, then tap the slot -- for touch and keyboard use. */
+
+.ege-deduction__context-meta {
+  margin: 0 0 0.6rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
+.ege-deduction__table-label,
+.ege-deduction__pool-label {
+  margin: 0 0 0.5rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--yap-dust);
+}
+
+.ege-deduction__pool-label {
+  margin-top: 1.1rem;
+}
+
+.ege-deduction__row {
+  margin-bottom: 10px;
+}
+
+.ege-deduction__row-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--ege-line);
+  border-radius: 10px;
+  background: #fff;
+  border-left: 4px solid color-mix(in srgb, var(--yap-hot) 55%, var(--ege-line));
+}
+
+.ege-deduction__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 6px;
+  border: 1px solid var(--ege-line);
+  background: color-mix(in srgb, var(--yap-hot) 12%, #fff);
+  color: var(--yap-hot);
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 800;
+  flex: none;
+}
+
+.ege-deduction__option-text {
+  flex: 1 1 auto;
+  font-family: var(--ege-font-text);
+}
+
+.ege-deduction__slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1.5px dashed var(--ege-line);
+  border-radius: 8px;
+  background: var(--ege-card-alt, #f4f5fb);
+  cursor: pointer;
+  flex: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.ege-deduction__slot:hover {
+  border-color: var(--yap-royal);
+}
+
+.ege-deduction__slot.is-dragover {
+  border-color: var(--yap-royal);
+  border-style: solid;
+  box-shadow: 0 0 0 2px var(--yap-royal);
+}
+
+.ege-deduction__slot.is-filled {
+  border-style: solid;
+  background: #fff;
+}
+
+.ege-deduction__slot.is-correct {
+  border-color: var(--ege-ok);
+  border-style: solid;
+  background: var(--ege-ok-bg);
+}
+
+.ege-deduction__slot.is-wrong {
+  border-color: var(--ege-bad);
+  border-style: solid;
+  background: var(--ege-bad-bg);
+}
+
+.ege-deduction__slot.is-revealed {
+  border-color: var(--yap-royal);
+  border-style: solid;
+  background: var(--ege-wrong-pick-bg);
+}
+
+.ege-deduction__placeholder {
+  color: var(--yap-dust);
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+}
+
+.ege-deduction__feedback {
+  margin: 0.4rem 0 0 14px;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  line-height: 1.4;
+}
+
+.ege-deduction__pool {
+  margin-top: 0.4rem;
+  padding: 12px 14px;
+  border: 1.5px dashed var(--ege-line);
+  border-radius: 10px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.ege-deduction__pool.is-dragover {
+  border-color: var(--yap-royal);
+  background: color-mix(in srgb, var(--yap-royal) 6%, transparent);
+}
+
+.ege-deduction__pool-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 34px;
+}
+
+.ege-deduction__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--ege-line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--ege-ok) 14%, #fff);
+  color: color-mix(in srgb, var(--ege-ok) 70%, var(--yap-royal));
+  font-family: var(--ege-font-ui);
+  font-weight: 800;
+  cursor: grab;
+  user-select: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.ege-deduction__chip:hover {
+  border-color: var(--yap-royal);
+}
+
+.ege-deduction__chip.is-selected {
+  border-color: var(--yap-royal);
+  box-shadow: 0 0 0 2px var(--yap-royal);
+}
+
+.ege-deduction__chip.is-dragging {
+  opacity: 0.4;
+}
+
+.ege-deduction__progress {
+  margin: 0.9rem 0 0;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
 /* ── Reading skills: pronounce (tricky words) ─────────────────────────── */
 
 .ege-pronounce__hide-toggle {

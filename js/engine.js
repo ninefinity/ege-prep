@@ -9,6 +9,7 @@ import "./ege/chart.js";
 import "./ege/judge.js";
 import "./ege/choice.js";
 import "./ege/pairing.js";
+import "./ege/deduction.js";
 import "./ege/ordering.js";
 import "./ege/pronounce.js";
 import "./ege/speaking.js";

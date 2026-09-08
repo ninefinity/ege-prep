@@ -1069,6 +1069,8 @@ E.isTaskFullyAnswered = function isTaskFullyAnswered(taskId) {
 
     if (task.type === "pairing") return E.allPairingBound(taskId);
 
+    if (task.type === "deduction") return E.allDeductionPlaced(taskId);
+
     if (task.type === "ordering") return E.allOrderingPlaced(taskId);
 
     return false;
@@ -1205,6 +1207,10 @@ E.taskHasProgress = function taskHasProgress(taskId) {
 
     if (task.type === "pairing") {
       return Object.keys(E.pairingState(taskId).pairs).length > 0;
+    }
+
+    if (task.type === "deduction") {
+      return Object.keys(E.deductionState(taskId).assign).length > 0;
     }
 
     if (task.type === "ordering") {

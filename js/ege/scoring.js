@@ -133,6 +133,15 @@ E.checkTask = function checkTask(taskId) {
       E.syncPairingProgress(taskId);
     }
 
+    if (task.type === "deduction") {
+      if (!E.allDeductionPlaced(taskId)) {
+        E.syncDeductionCheckEnabled(taskId);
+        return;
+      }
+      correct += E.markDeduction(taskId, false);
+      E.syncDeductionProgress(taskId);
+    }
+
     if (task.type === "ordering") {
       if (!E.allOrderingPlaced(taskId)) {
         E.syncOrderingCheckEnabled(taskId);
@@ -588,6 +597,23 @@ E.revealTask = function revealTask(taskId) {
       E.syncPairingCheckEnabled(taskId);
       E.showToast("Answers shown.");
       return;
+    } else if (task.type === "deduction") {
+      var dedState = E.deductionState(taskId);
+      dedState.assign = {};
+      (task.left || []).forEach(function (item) {
+        dedState.assign[item.id] = item.match;
+      });
+      dedState.selectedChip = "";
+      E.syncDeductionBoard(taskId);
+      E.markDeduction(taskId, true);
+      var dedEl = document.getElementById("task-" + taskId);
+      if (dedEl) dedEl.dataset.answersRevealed = "1";
+      // Reveal fills the board in, so the panel only has to say it was
+      // revealed rather than list the key a second time.
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), { revealed: true });
+      E.syncDeductionCheckEnabled(taskId);
+      E.showToast("Answers shown.");
+      return;
     } else if (task.type === "ordering") {
       var orderState = E.orderingState(taskId);
       orderState.slots = {};
@@ -857,6 +883,15 @@ E.resetTask = function resetTask(taskId, options) {
       E.resetPairingState(taskId);
       E.clearPairingFeedback(taskId);
       E.syncPairingCheckEnabled(taskId);
+    }
+
+    if (task.type === "deduction") {
+      var dedResetEl = document.getElementById("task-" + taskId);
+      if (dedResetEl) delete dedResetEl.dataset.answersRevealed;
+      if (dedResetEl) delete dedResetEl.dataset.prevCorrect;
+      E.resetDeductionState(taskId);
+      E.clearDeductionFeedback(taskId);
+      E.syncDeductionCheckEnabled(taskId);
     }
 
     if (task.type === "ordering") {

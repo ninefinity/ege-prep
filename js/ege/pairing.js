@@ -306,10 +306,12 @@ E.renderPairing = function renderPairing(task, topicId) {
     var stack = document.createElement("div");
     stack.className = "ege-stack";
     stack.appendChild(E.buildPanel("", read, "ege-panel--read ege-panel--quote"));
-    stack.appendChild(E.buildWorkPanel("questions", work, "ege-panel--work ege-panel--solo"));
+    // No panel label here -- binding pairs isn't answering "questions", and
+    // the board's own column titles already say what's being matched.
+    stack.appendChild(E.buildPanel("", work, "ege-panel--work ege-panel--solo"));
     wrap.appendChild(stack);
   } else {
-    wrap.appendChild(E.buildWorkPanel("questions", work, "ege-panel--solo"));
+    wrap.appendChild(E.buildPanel("", work, "ege-panel--solo"));
   }
   wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));
   return wrap;
