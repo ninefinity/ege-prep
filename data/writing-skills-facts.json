@@ -346,6 +346,158 @@
           "feedback": "Directly resolves high equipment and laboratory research costs."
         }
       ]
+    },
+    {
+      "id": "deduction-environmental-problems",
+      "drill": "Data Deduction",
+      "nav": "Environmental problems",
+      "title": "The most dangerous environmental problems",
+      "type": "pairing",
+      "examNum": 38,
+      "instructions": "Bind each option to the percentage it was cited by. The exact figures aren't given directly — work them out from the clues.",
+      "contextTitle": "Zetland teenagers on the most dangerous environmental problems",
+      "contextHtml": "<p>Imagine that you are doing a project on what environmental problems Zetland teenagers consider to be the most dangerous. You have found some data on the subject, but the exact figures must first be deduced from the opinion poll summary notes below. Reconstruct the missing data in the table.</p><ol><li>Global warming emerged as the undisputed top concern among all surveyed options.</li><li>Air pollution was cited by exactly half as many respondents as global warming.</li><li>Deforestation was selected by twice as many teenagers as rare species extinction.</li><li>Water pollution proved more concerning than deforestation, but remained less frequently chosen than air pollution.</li></ol>",
+      "leftTitle": "Options",
+      "rightTitle": "Percentages",
+      "left": [
+        { "id": "o1", "code": "1", "text": "Global warming", "match": "p44" },
+        { "id": "o2", "code": "2", "text": "Air pollution", "match": "p22" },
+        { "id": "o3", "code": "3", "text": "Water pollution", "match": "p16" },
+        { "id": "o4", "code": "4", "text": "Deforestation", "match": "p12" },
+        { "id": "o5", "code": "5", "text": "Rare species extinction", "match": "p6" }
+      ],
+      "right": [
+        { "id": "p44", "code": "44%" },
+        { "id": "p22", "code": "22%" },
+        { "id": "p16", "code": "16%" },
+        { "id": "p12", "code": "12%" },
+        { "id": "p6", "code": "6%" }
+      ],
+      "_validate": {
+        "options": ["Global warming", "Air pollution", "Water pollution", "Deforestation", "Rare species extinction"],
+        "percentages": [44, 22, 16, 12, 6],
+        "checks": [
+          { "op": "max", "a": "Global warming" },
+          { "op": "ratio", "a": "Global warming", "b": "Air pollution", "factor": 2 },
+          { "op": "ratio", "a": "Deforestation", "b": "Rare species extinction", "factor": 2 },
+          { "op": "between", "low": "Deforestation", "mid": "Water pollution", "high": "Air pollution" }
+        ]
+      }
+    },
+    {
+      "id": "deduction-literary-genres",
+      "drill": "Data Deduction",
+      "nav": "Literary genres",
+      "title": "Popular literary genres among teenagers",
+      "type": "pairing",
+      "examNum": 38,
+      "instructions": "Bind each option to the percentage it was cited by. The exact figures aren't given directly — work them out from the clues.",
+      "contextTitle": "Popular literary genres among Zetland teenagers",
+      "contextHtml": "<p>Imagine that you are doing a project on what literary genres are popular among teenagers in Zetland. You have found some data on the subject, but the exact figures must first be deduced from the opinion poll summary notes below. Reconstruct the missing data in the table.</p><ol><li>Fantasy emerged as the leading choice, attracting three times as many respondents as classical literature.</li><li>Detective/war/spy stories/thrillers was chosen by exactly twice as many readers as classical literature.</li><li>Science fiction secured the runner-up position, trailing the top choice by five percentage points.</li><li>Other modern literature garnered more interest than classical literature, yet it failed to overtake detective/war/spy stories/thrillers.</li></ol>",
+      "leftTitle": "Options",
+      "rightTitle": "Percentages",
+      "left": [
+        { "id": "o1", "code": "1", "text": "Fantasy", "match": "p30" },
+        { "id": "o2", "code": "2", "text": "Science fiction", "match": "p25" },
+        { "id": "o3", "code": "3", "text": "Detective/war/spy stories/thrillers", "match": "p20" },
+        { "id": "o4", "code": "4", "text": "Other modern literature", "match": "p15" },
+        { "id": "o5", "code": "5", "text": "Classical literature", "match": "p10" }
+      ],
+      "right": [
+        { "id": "p30", "code": "30%" },
+        { "id": "p25", "code": "25%" },
+        { "id": "p20", "code": "20%" },
+        { "id": "p15", "code": "15%" },
+        { "id": "p10", "code": "10%" }
+      ],
+      "_validate": {
+        "options": ["Fantasy", "Science fiction", "Detective/war/spy stories/thrillers", "Other modern literature", "Classical literature"],
+        "percentages": [30, 25, 20, 15, 10],
+        "checks": [
+          { "op": "max", "a": "Fantasy" },
+          { "op": "ratio", "a": "Fantasy", "b": "Classical literature", "factor": 3 },
+          { "op": "ratio", "a": "Detective/war/spy stories/thrillers", "b": "Classical literature", "factor": 2 },
+          { "op": "margin", "high": "Fantasy", "low": "Science fiction", "points": 5 },
+          { "op": "between", "low": "Classical literature", "mid": "Other modern literature", "high": "Detective/war/spy stories/thrillers" }
+        ]
+      }
+    },
+    {
+      "id": "deduction-relaxing-after-day",
+      "drill": "Data Deduction",
+      "nav": "Relaxing after a busy day",
+      "title": "How teenagers relax after a busy day",
+      "type": "pairing",
+      "examNum": 38,
+      "instructions": "Bind each option to the percentage it was cited by. The exact figures aren't given directly — work them out from the clues.",
+      "contextTitle": "How Zetland teenagers relax after a busy day",
+      "contextHtml": "<p>Imagine that you are doing a project on how teenagers relax after a busy day in Zetland. You have found some data on the subject, but the exact figures must first be deduced from the opinion poll summary notes below. Reconstruct the missing data in the table.</p><ol><li>Having a hobby took the lead, being the only option selected by more than a third of the respondents.</li><li>Spending time with friends ranked second, trailing the top choice by seven percentage points.</li><li>Eating tasty food proved to be the least common way to unwind.</li><li>Walking in the open air surpassed eating tasty food by four percentage points, while falling five percentage points behind sleeping.</li></ol>",
+      "leftTitle": "Options",
+      "rightTitle": "Percentages",
+      "left": [
+        { "id": "o1", "code": "1", "text": "Having a hobby", "match": "p38" },
+        { "id": "o2", "code": "2", "text": "Spending time with friends", "match": "p31" },
+        { "id": "o3", "code": "3", "text": "Sleeping", "match": "p15" },
+        { "id": "o4", "code": "4", "text": "Walking in the open air", "match": "p10" },
+        { "id": "o5", "code": "5", "text": "Eating tasty food", "match": "p6" }
+      ],
+      "right": [
+        { "id": "p38", "code": "38%" },
+        { "id": "p31", "code": "31%" },
+        { "id": "p15", "code": "15%" },
+        { "id": "p10", "code": "10%" },
+        { "id": "p6", "code": "6%" }
+      ],
+      "_validate": {
+        "options": ["Having a hobby", "Spending time with friends", "Sleeping", "Walking in the open air", "Eating tasty food"],
+        "percentages": [38, 31, 15, 10, 6],
+        "checks": [
+          { "op": "onlyAbove", "a": "Having a hobby", "threshold": 0.3333333333333333 },
+          { "op": "margin", "high": "Having a hobby", "low": "Spending time with friends", "points": 7 },
+          { "op": "min", "a": "Eating tasty food" },
+          { "op": "margin", "high": "Walking in the open air", "low": "Eating tasty food", "points": 4 },
+          { "op": "margin", "high": "Sleeping", "low": "Walking in the open air", "points": 5 }
+        ]
+      }
+    },
+    {
+      "id": "deduction-agricultural-sciences",
+      "drill": "Data Deduction",
+      "nav": "Majoring in agricultural sciences",
+      "title": "Reasons for choosing to major in agricultural sciences",
+      "type": "pairing",
+      "examNum": 38,
+      "instructions": "Bind each option to the percentage it was cited by. The exact figures aren't given directly — work them out from the clues.",
+      "contextTitle": "Why young Zetlanders choose to major in agricultural sciences",
+      "contextHtml": "<p>Imagine that you are doing a project on why many young Zetlanders choose to major in agricultural sciences. You have found some data on the subject, but the exact figures must first be deduced from the opinion poll summary notes below. Reconstruct the missing data in the table.</p><ol><li>Environmental concerns stood out as the principal motivation, exceeding a third of all votes.</li><li>Wish to feed everyone ranked second, trailing environmental concerns by nine percentage points.</li><li>Research opportunities was cited by exactly a fifth of the participants.</li><li>Practical skills development proved to be the least cited reason, falling three percentage points short of job stability.</li></ol>",
+      "leftTitle": "Options",
+      "rightTitle": "Percentages",
+      "left": [
+        { "id": "o1", "code": "1", "text": "Environmental concerns", "match": "p37" },
+        { "id": "o2", "code": "2", "text": "Wish to feed everyone", "match": "p28" },
+        { "id": "o3", "code": "3", "text": "Research opportunities", "match": "p20" },
+        { "id": "o4", "code": "4", "text": "Job stability", "match": "p9" },
+        { "id": "o5", "code": "5", "text": "Practical skills development", "match": "p6" }
+      ],
+      "right": [
+        { "id": "p37", "code": "37%" },
+        { "id": "p28", "code": "28%" },
+        { "id": "p20", "code": "20%" },
+        { "id": "p9", "code": "9%" },
+        { "id": "p6", "code": "6%" }
+      ],
+      "_validate": {
+        "options": ["Environmental concerns", "Wish to feed everyone", "Research opportunities", "Job stability", "Practical skills development"],
+        "percentages": [37, 28, 20, 9, 6],
+        "checks": [
+          { "op": "max", "a": "Environmental concerns" },
+          { "op": "threshold", "a": "Environmental concerns", "cmp": "gt", "value": 0.3333333333333333 },
+          { "op": "margin", "high": "Environmental concerns", "low": "Wish to feed everyone", "points": 9 },
+          { "op": "fraction", "a": "Research opportunities", "value": 0.2 },
+          { "op": "min", "a": "Practical skills development" },
+          { "op": "margin", "high": "Job stability", "low": "Practical skills development", "points": 3 }
+        ]
+      }
     }
   ]
 }
