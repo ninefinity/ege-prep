@@ -691,6 +691,10 @@
           if (!topic || !topic.tasks) return;
 
           topic.tasks.forEach(function (task) {
+            // Reachable only via a variant's exact-id lookup (E.mountTopic
+            // drops it from normal browsing) -- indexing it here would
+            // duplicate whichever practice task(s) replace it in search.
+            if (task.examOnly) return;
             var label = task.nav || task.title || task.id;
             var meta = (section.title || section.id) + " · " + (section.group || "");
             var bits = [
