@@ -65,6 +65,42 @@
           "text": "Characteristics",
           "ipa": "/ˌkærəktəˈrɪstɪks/",
           "note": "Digraph ch /k/ and multisyllabic rhythm"
+        },
+        {
+          "id": "w10",
+          "text": "Wrinkles",
+          "ipa": "/ˈrɪŋkəlz/",
+          "note": "Silent initial w before the velar nasal cluster /-ŋk-/"
+        },
+        {
+          "id": "w11",
+          "text": "Muscles",
+          "ipa": "/ˈmʌsəlz/",
+          "note": "Completely silent letter c before the final syllabic consonant"
+        },
+        {
+          "id": "w12",
+          "text": "Anxiety",
+          "ipa": "/æŋˈzaɪəti/",
+          "note": "Voiced sibilant /z/ following the velar nasal, with second-syllable stress"
+        },
+        {
+          "id": "w13",
+          "text": "Symptoms",
+          "ipa": "/ˈsɪmptəmz/",
+          "note": "Greek spelling y pronounced as short /ɪ/, followed by a clustered coda"
+        },
+        {
+          "id": "w14",
+          "text": "Species",
+          "ipa": "/ˈspiːʃiːz/",
+          "note": "Medial palatal fricative /ʃ/ and long vowel /iː/, identical in singular and plural"
+        },
+        {
+          "id": "w15",
+          "text": "Disease",
+          "ipa": "/dɪˈziːz/",
+          "note": "Both the medial and terminal sibilants are voiced as /z/"
         }
       ]
     },
@@ -154,6 +190,48 @@
           "text": "Bicycles",
           "ipa": "/ˈbaɪsɪklz/",
           "note": "Second syllable reduced to short /ɪ/"
+        },
+        {
+          "id": "w14",
+          "text": "Flourish",
+          "ipa": "/ˈflʌrɪʃ/",
+          "note": "Spelling ou pronounced with the short vowel /ʌ/ rather than /aʊ/"
+        },
+        {
+          "id": "w15",
+          "text": "Treasures",
+          "ipa": "/ˈtreʒərz/",
+          "note": "Stem vowel shortened to /e/ followed by the voiced fricative /ʒ/"
+        },
+        {
+          "id": "w16",
+          "text": "Delicate",
+          "ipa": "/ˈdelɪkət/",
+          "note": "Terminal unstressed suffix reduced to schwa /-ət/ rather than /-eɪt/"
+        },
+        {
+          "id": "w17",
+          "text": "Predators",
+          "ipa": "/ˈpredətərz/",
+          "note": "First-syllable stress with short /e/, defying analogy with prey"
+        },
+        {
+          "id": "w18",
+          "text": "Linen",
+          "ipa": "/ˈlɪnɪn/",
+          "note": "Short front vowel /ɪ/ across both syllables"
+        },
+        {
+          "id": "w19",
+          "text": "Barren",
+          "ipa": "/ˈbærən/",
+          "note": "Open front vowel /æ/ followed by an unstressed reduced schwa"
+        },
+        {
+          "id": "w20",
+          "text": "Humid",
+          "ipa": "/ˈhjuːmɪd/",
+          "note": "Requires an initial palatal glide /hj-/ before the long vowel /uː/"
         }
       ]
     },
@@ -372,6 +450,100 @@
           "text": "Agricultural",
           "ipa": "/ˌæɡrɪˈkʌltʃərəl/",
           "note": "Relating to the cultivation of land, soil, and farming"
+        }
+      ]
+    },
+    {
+      "id": "skills39-stress-shifts",
+      "nav": "Stress shifts & intonation",
+      "title": "Tricky words",
+      "type": "pronounce",
+      "examNum": 39,
+      "drill": "Tricky words",
+      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Variety",
+          "ipa": "/vəˈraɪəti/",
+          "note": "Primary stress falls on the second syllable with an open diphthong /aɪ/"
+        },
+        {
+          "id": "w2",
+          "text": "Society",
+          "ipa": "/səˈsaɪəti/",
+          "note": "Initial reduced schwa followed by second-syllable stress"
+        },
+        {
+          "id": "w3",
+          "text": "Surveys",
+          "ipa": "/ˈsɜːveɪz/",
+          "note": "Nominal form requiring primary stress on the first syllable"
+        },
+        {
+          "id": "w4",
+          "text": "Decreases",
+          "ipa": "/dɪˈkriːsɪz/",
+          "note": "Verb form accented on the second syllable with voiceless /s/"
+        },
+        {
+          "id": "w5",
+          "text": "Capacity",
+          "ipa": "/kəˈpæsəti/",
+          "note": "Second-syllable stress with the short open vowel /æ/"
+        },
+        {
+          "id": "w6",
+          "text": "Equator",
+          "ipa": "/ɪˈkweɪtər/",
+          "note": "Stress placed on the medial diphthong /eɪ/"
+        }
+      ]
+    },
+    {
+      "id": "skills39-advanced-vocabulary",
+      "nav": "Advanced vocabulary",
+      "title": "Tricky words",
+      "type": "pronounce",
+      "examNum": 39,
+      "drill": "Tricky words",
+      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Upcycling",
+          "ipa": "/ˈʌpˌsaɪklɪŋ/",
+          "note": "Creative repurposing of discarded objects into higher-quality goods"
+        },
+        {
+          "id": "w2",
+          "text": "Roam",
+          "ipa": "/rəʊm/",
+          "note": "Intransitive verb meaning to wander freely without a fixed route"
+        },
+        {
+          "id": "w3",
+          "text": "Barren",
+          "ipa": "/ˈbærən/",
+          "note": "Bleak landscape unable to sustain crops or substantial plant life"
+        },
+        {
+          "id": "w4",
+          "text": "Gland",
+          "ipa": "/ɡlænd/",
+          "note": "Specialized anatomical organ that synthesizes and secretes chemical substances"
+        },
+        {
+          "id": "w5",
+          "text": "Shortages",
+          "ipa": "/ˈʃɔːtɪdʒɪz/",
+          "note": "Conditions where essential resource demand outstrips available supply"
+        },
+        {
+          "id": "w6",
+          "text": "Well-being",
+          "ipa": "/ˌwelˈbiːɪŋ/",
+          "note": "Compound noun denoting a state of social, physical, and economic health"
         }
       ]
     }
