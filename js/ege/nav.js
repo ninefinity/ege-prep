@@ -1086,6 +1086,28 @@ E.resolveAvailableSections = function resolveAvailableSections(catalog, predicat
   }
 
 E.mountTopic = function mountTopic(topic, topicId) {
+    // examOnly tasks exist only for a variant's playlist lookup (by id, not
+    // by browsing) -- e.g. the essay's combined "choose one of two" task,
+    // kept only so the mock exam still finds it, while the practice topic
+    // lists the two prompts as their own tasks instead. A variant's own
+    // merged topic is built entirely from tasks matched that way, so this
+    // never touches it.
+    // Checked directly rather than via E.isVariantPlaylist(topicId) --
+    // points.js's no-arg override of that name reads E.state.topicId, which
+    // this function has not updated to the incoming id yet.
+    if (
+      String(topicId || "").indexOf("variant:") !== 0 &&
+      (topic.tasks || []).some(function (task) {
+        return task.examOnly;
+      })
+    ) {
+      topic = Object.assign({}, topic, {
+        tasks: topic.tasks.filter(function (task) {
+          return !task.examOnly;
+        }),
+      });
+    }
+
     E.state.topic = topic;
     E.state.topicId = topicId;
     E.state.playlist = !!(topic.tasks || []).some(function (task) {
