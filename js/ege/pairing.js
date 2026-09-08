@@ -157,12 +157,15 @@ E.markPairing = function markPairing(taskId, revealed) {
     if (revealed) card.classList.add("is-revealed");
     else card.classList.add(ok ? "is-correct" : "is-wrong");
 
+    // A wrong pair only marks itself wrong here -- naming the correct
+    // solution on the very first check (like every other task type here)
+    // would spoil the retry before the student gets to fix it themselves.
+    // "Show answers" (revealed) is the one path meant to give the answer
+    // away.
     var note = card.querySelector(".ege-pairing__feedback");
     if (note) {
-      note.hidden = false;
-      note.textContent = ok || revealed
-        ? item.feedback || ""
-        : "Expected " + E.pairingRightCode(task, item.match) + ". " + (item.feedback || "");
+      note.hidden = !(ok || revealed);
+      note.textContent = ok || revealed ? item.feedback || "" : "";
     }
   });
 

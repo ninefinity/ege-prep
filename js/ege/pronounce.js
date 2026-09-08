@@ -22,6 +22,13 @@ var HIDE_KEY = "ege-prep.pronounce.hideCompleted.v1";
 var revealed = {}; // taskId -> { [wordId]: true } -- session-only, not persisted
 var order = {}; // taskId -> word ids in current (possibly shuffled) order
 var index = {}; // taskId -> current card position within the active (filtered) list
+// taskId -> word id that stays in the deck even though "Hide mastered" would
+// otherwise drop it -- without this, marking a word correct instantly
+// removed its own card (hide-mastered filters live), so a student who
+// immediately realized they'd mismarked it had nothing left on screen to
+// correct themselves with. Cleared once they move to a different card,
+// since staying put is only for "let me reconsider this one right now".
+var pinned = {};
 
 function loadMasteredStore() {
   try {
@@ -117,6 +124,7 @@ E.shufflePronounceDeck = function shufflePronounceDeck(taskId) {
   }
   order[taskId] = ids;
   index[taskId] = 0;
+  delete pinned[taskId];
   E.refreshPronounceDeck(taskId, { instant: true });
 };
 
@@ -126,9 +134,10 @@ function activeWords(task) {
     byId[word.id] = word;
   });
   var hide = E.loadPronounceHideCompleted();
+  var pin = pinned[task.id];
   return wordOrder(task)
     .filter(function (id) {
-      return !hide || !E.isPronounceWordMastered(task.id, id);
+      return !hide || id === pin || !E.isPronounceWordMastered(task.id, id);
     })
     .map(function (id) {
       return byId[id];
@@ -298,6 +307,7 @@ E.refreshPronounceDeck = function refreshPronounceDeck(taskId, opts) {
 
 E.markPronounceWord = function markPronounceWord(taskId, wordId, correct) {
   E.setPronounceWordMastered(taskId, wordId, correct);
+  pinned[taskId] = wordId;
   if (!revealed[taskId]) revealed[taskId] = {};
   revealed[taskId][wordId] = !correct;
 
@@ -322,9 +332,19 @@ E.togglePronounceHideCompleted = function togglePronounceHideCompleted(taskId) {
 E.stepPronounceDeck = function stepPronounceDeck(taskId, delta) {
   var task = E.findTask(taskId);
   if (!task) return;
+  // Clearing the pin here can change what activeWords() returns (a word
+  // pinned in view while the student reconsidered it now drops out) --
+  // rebuild the track instead of just scrolling the existing one, or the
+  // strip and the "x / y" counter drift out of sync with what's rendered.
+  var hadPin = pinned[taskId] != null;
+  delete pinned[taskId];
   var words = activeWords(task);
   var next = (index[taskId] || 0) + delta;
   index[taskId] = Math.max(0, Math.min(next, words.length - 1));
+  if (hadPin) {
+    E.refreshPronounceDeck(taskId, { instant: true });
+    return;
+  }
   syncNav(taskId, words);
   scrollToIndex(taskId);
 };

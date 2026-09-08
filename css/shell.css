@@ -3532,6 +3532,7 @@ button.ege-prep-pair-card {
 }
 
 .ege-pill {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
