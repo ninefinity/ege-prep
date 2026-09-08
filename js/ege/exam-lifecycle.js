@@ -448,6 +448,7 @@ E.renderWrittenReadyScreen = function renderWrittenReadyScreen() {
 
   return (
     '<div class="ege-exam-phase__panel ege-exam-phase__panel--ready" role="region" aria-labelledby="egeWrittenReadyTitle">' +
+    '<a href="index.html" class="ege-btn ege-btn--ghost ege-exam-phase__back ege-exam-phase__back--ready">← Menu</a>' +
     '<div class="ege-phase-lead">' +
     '<img class="ege-phase-lead__sticker" src="assets/stickers/good-luck.webp" alt="" aria-hidden="true">' +
     '<h2 class="ege-exam-phase__title" id="egeWrittenReadyTitle">' + title + "</h2>" +
@@ -473,6 +474,7 @@ E.renderWrittenReadyScreen = function renderWrittenReadyScreen() {
 E.renderOralReadyScreen = function renderOralReadyScreen() {
   return (
     '<div class="ege-exam-phase__panel ege-exam-phase__panel--ready" role="region" aria-labelledby="egeOralReadyTitle">' +
+    '<a href="index.html" class="ege-btn ege-btn--ghost ege-exam-phase__back ege-exam-phase__back--ready">← Menu</a>' +
     '<div class="ege-phase-lead">' +
     '<img class="ege-phase-lead__sticker" src="assets/stickers/good-luck.webp" alt="" aria-hidden="true">' +
     '<h2 class="ege-exam-phase__title" id="egeOralReadyTitle">Устная часть</h2>' +
