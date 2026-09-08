@@ -749,16 +749,27 @@ E.is2027Demo = function is2027Demo(topicId) {
     );
   }
 
-E.applyBrandMark = function applyBrandMark(topicId) {
+E.applyBrandMark = function applyBrandMark(topicId, topic) {
     var is2027 = E.is2027Demo(topicId);
+    var isSkillDrill =
+      !!topic &&
+      !!(topic.tasks && topic.tasks.length) &&
+      E.SKILLS_TASK_TYPES.indexOf(topic.tasks[0].type) !== -1;
     var src = is2027
       ? "assets/time-to-ege-2027-edition.png"
-      : "assets/timetoege.png";
+      : isSkillDrill
+        ? "assets/skill-drill.png"
+        : "assets/timetoege.png";
     document.querySelectorAll(".ege-rail__mark").forEach(function (img) {
       if (img.getAttribute("src") !== src) img.setAttribute("src", src);
     });
-    var icon = document.querySelector('link[rel="icon"]');
-    if (icon && icon.getAttribute("href") !== src) icon.setAttribute("href", src);
+    // The favicon stays the site mark regardless -- only the sidebar wordmark
+    // switches for a skill drill, since a browser tab full of drill icons
+    // would be confusing to tell apart.
+    if (!isSkillDrill) {
+      var icon = document.querySelector('link[rel="icon"]');
+      if (icon && icon.getAttribute("href") !== src) icon.setAttribute("href", src);
+    }
   }
 
 E.stopExamTimer = function stopExamTimer() {
@@ -1109,7 +1120,7 @@ E.mountTopic = function mountTopic(topic, topicId) {
     }
 
     document.title = E.sectionDisplayTitle(topic) + " – Time to ЕГЭ – Yap O'Clock";
-    E.applyBrandMark(topicId);
+    E.applyBrandMark(topicId, topic);
 
     var railTitle = document.getElementById("egeRailTitle");
     if (railTitle) {
