@@ -8633,6 +8633,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-choice__trigger {
   border-left: 3px solid var(--yap-hot);
   padding-left: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 600;
 }
 
