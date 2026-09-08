@@ -1144,7 +1144,24 @@ E.renderSpeaking = function renderSpeaking(task) {
     var briefCol = document.createElement("div");
     briefCol.className = "ege-speaking-brief";
     if (task.prompt) {
-      briefCol.appendChild(E.buildSpeakingPromptBlock(task.prompt, task.title));
+      // The prompt's own "be ready to: -- ... -- ..." paragraph and the
+      // structured Plan list below carry the same points -- the prompt
+      // paragraph split already renders a "--" paragraph as its own
+      // plan-style lines (see appendSpeakingPromptContent), so once a real
+      // Plan list exists that paragraph is dropped here rather than shown
+      // twice.
+      var promptText = task.prompt;
+      if (task.plan && task.plan.length) {
+        promptText = promptText
+          .split(/\n\n+/)
+          .filter(function (para) {
+            return !/^\s*—/.test(para.trim());
+          })
+          .join("\n\n");
+      }
+      if (promptText) {
+        briefCol.appendChild(E.buildSpeakingPromptBlock(promptText, task.title));
+      }
     }
     if (task.plan && task.plan.length) {
       var planHeading = document.createElement("h3");
