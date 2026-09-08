@@ -329,7 +329,7 @@
       "examNum": 37,
       "instructions": "Put the six sentences in order so the reply reads as one email. Pick a sentence, then pick its place.",
       "contextTitle": "Lily writes:",
-      "contextHtml": "<p>… School is over! Holidays are looming on the horizon, hurrah! Where do Russian teenagers spend their summer holidays? What entertainment is popular among them? How do you prefer to spend your free time? I took all my final exams last week …</p>",
+      "contextHtml": "<p class=\"ege-choice__trigger\">… School is over! Holidays are looming on the horizon, hurrah! Where do Russian teenagers spend their summer holidays? What entertainment is popular among them? How do you prefer to spend your free time? I took all my final exams last week …</p>",
       "groups": [
         {
           "id": "body",
