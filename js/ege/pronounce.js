@@ -3,19 +3,25 @@ import { E } from "./runtime.js";
 /* "pronounce" tasks drill task 39's reading-aloud skill: a word is shown,
    the student reads it aloud to themselves, presses Listen to hear the
    correct pronunciation, and self-reports whether they matched it. There is
-   no right-answer key to check against -- the tick/cross is the student's
-   own judgement, so this type has no Check/Reset/Show-answers footer.
+   no right-answer key to check against, so this type has no
+   Check/Reset/Show-answers footer.
 
-   A word marked correct is "mastered" and persists in localStorage forever;
-   a wrong mark reveals the IPA + note as a tip and leaves the word in the
-   rotation. The "Hide mastered" toggle (shared across every reading-skills
-   deck) filters mastered words out of the list rather than the app
-   auto-cycling them -- flipping it off brings everything back, mastered
-   words included, so progress stays visible instead of disappearing. */
+   Words are one card at a time in a horizontally scroll-snapped strip --
+   Prev/Next move it, but so does a plain swipe/drag, since the strip is a
+   real scroll container rather than a JS-driven slider. A word marked
+   correct is "mastered" and persists in localStorage forever; a wrong mark
+   reveals the IPA + note as a tip and leaves the word in the deck. The
+   "Hide mastered" toggle (shared across every reading-skills deck) filters
+   mastered words out of the strip rather than the app auto-cycling them --
+   flipping it off brings everything back, mastered words included, so
+   progress stays visible instead of disappearing. Shuffle reorders the
+   deck; the order is session-only, not persisted. */
 
 var MASTERED_KEY = "ege-prep.pronounce.mastered.v1";
 var HIDE_KEY = "ege-prep.pronounce.hideCompleted.v1";
 var revealed = {}; // taskId -> { [wordId]: true } -- session-only, not persisted
+var order = {}; // taskId -> word ids in current (possibly shuffled) order
+var index = {}; // taskId -> current card position within the active (filtered) list
 
 function loadMasteredStore() {
   try {
@@ -90,98 +96,87 @@ E.speakPronounceWord = function speakPronounceWord(text) {
   }
 };
 
-E.syncPronounceCard = function syncPronounceCard(taskId, word) {
-  var card = document.querySelector(
-    '#task-' + taskId + ' .ege-pronounce__card[data-word-id="' + word.id + '"]'
-  );
-  if (!card) return;
-  var mastered = E.isPronounceWordMastered(taskId, word.id);
-  var isRevealed = !!(revealed[taskId] && revealed[taskId][word.id]);
-  card.classList.toggle("is-mastered", mastered);
-  card.hidden = mastered && E.loadPronounceHideCompleted();
+function wordOrder(task) {
+  if (!order[task.id]) {
+    order[task.id] = (task.words || []).map(function (word) {
+      return word.id;
+    });
+  }
+  return order[task.id];
+}
 
-  var tip = card.querySelector(".ege-pronounce__tip");
-  if (tip) tip.hidden = !isRevealed;
-
-  var tick = card.querySelector('[data-pronounce-mark="correct"]');
-  var cross = card.querySelector('[data-pronounce-mark="wrong"]');
-  if (tick) tick.classList.toggle("is-active", mastered);
-  if (cross) cross.classList.toggle("is-active", isRevealed && !mastered);
+E.shufflePronounceDeck = function shufflePronounceDeck(taskId) {
+  var task = E.findTask(taskId);
+  if (!task) return;
+  var ids = wordOrder(task).slice();
+  for (var i = ids.length - 1; i > 0; i -= 1) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = ids[i];
+    ids[i] = ids[j];
+    ids[j] = tmp;
+  }
+  order[taskId] = ids;
+  index[taskId] = 0;
+  E.refreshPronounceDeck(taskId, { instant: true });
 };
 
-E.syncPronounceDeck = function syncPronounceDeck(taskId) {
-  var task = E.findTask(taskId);
-  if (!task || task.type !== "pronounce") return;
+function activeWords(task) {
+  var byId = {};
+  (task.words || []).forEach(function (word) {
+    byId[word.id] = word;
+  });
+  var hide = E.loadPronounceHideCompleted();
+  return wordOrder(task)
+    .filter(function (id) {
+      return !hide || !E.isPronounceWordMastered(task.id, id);
+    })
+    .map(function (id) {
+      return byId[id];
+    })
+    .filter(Boolean);
+}
+
+function clampIndex(taskId, len) {
+  var current = index[taskId] || 0;
+  index[taskId] = len <= 0 ? 0 : Math.max(0, Math.min(current, len - 1));
+  return index[taskId];
+}
+
+function getViewport(taskId) {
+  var taskEl = document.getElementById("task-" + taskId);
+  return taskEl && taskEl.querySelector(".ege-pronounce__viewport");
+}
+
+function scrollToIndex(taskId, opts) {
+  var viewport = getViewport(taskId);
+  if (!viewport) return;
+  var card = viewport.querySelectorAll(".ege-pronounce__card")[index[taskId] || 0];
+  if (!card) return;
+  viewport.scrollTo({
+    left: card.offsetLeft,
+    behavior: opts && opts.instant ? "auto" : "smooth",
+  });
+}
+
+function syncNav(taskId, words) {
   var taskEl = document.getElementById("task-" + taskId);
   if (!taskEl) return;
-  var words = task.words || [];
-  var hide = E.loadPronounceHideCompleted();
-  var masteredCount = words.filter(function (word) {
-    return E.isPronounceWordMastered(taskId, word.id);
-  }).length;
-
-  words.forEach(function (word) {
-    E.syncPronounceCard(taskId, word);
-  });
-
-  var progress = taskEl.querySelector(".ege-pronounce__progress");
-  if (progress) {
-    progress.textContent = masteredCount + " / " + words.length + " mastered";
-  }
-
-  var toggle = taskEl.querySelector(".ege-pronounce__hide-toggle");
-  if (toggle) {
-    toggle.classList.toggle("is-active", hide);
-    toggle.setAttribute("aria-pressed", hide ? "true" : "false");
-  }
-
-  var empty = taskEl.querySelector(".ege-pronounce__empty");
-  var allMastered = words.length > 0 && masteredCount === words.length;
-  if (empty) empty.hidden = !(hide && allMastered);
-
-  var wasFullyMastered = taskEl.dataset.pronounceMastered === "1";
-  if (allMastered && !wasFullyMastered) {
-    var anchor = taskEl.querySelector(".ege-pronounce__progress");
-    if (anchor && typeof E.flashMoodSticker === "function") {
-      E.flashMoodSticker(anchor, "confetti");
-    }
-  }
-  taskEl.dataset.pronounceMastered = allMastered ? "1" : "0";
-};
-
-E.markPronounceWord = function markPronounceWord(taskId, wordId, correct) {
-  var taskEl = document.getElementById("task-" + taskId);
-  if (taskEl && taskEl.dataset.answersRevealed === "1") return;
-  E.setPronounceWordMastered(taskId, wordId, correct);
-  if (!revealed[taskId]) revealed[taskId] = {};
-  revealed[taskId][wordId] = !correct;
-
-  if (correct) {
-    var card = document.querySelector(
-      '#task-' + taskId + ' .ege-pronounce__card[data-word-id="' + wordId + '"]'
-    );
-    var tick = card && card.querySelector('[data-pronounce-mark="correct"]');
-    if (tick && typeof E.flashMoodSticker === "function") {
-      E.flashMoodSticker(tick, "like");
-    }
-  }
-
-  E.syncPronounceDeck(taskId);
-};
-
-E.togglePronounceHideCompleted = function togglePronounceHideCompleted(taskId) {
-  E.savePronounceHideCompleted(!E.loadPronounceHideCompleted());
-  E.syncPronounceDeck(taskId);
-};
+  var i = index[taskId] || 0;
+  var counter = taskEl.querySelector(".ege-pronounce__counter");
+  if (counter) counter.textContent = words.length ? i + 1 + " / " + words.length : "";
+  var prevBtn = taskEl.querySelector(".ege-pronounce__nav--prev");
+  var nextBtn = taskEl.querySelector(".ege-pronounce__nav--next");
+  if (prevBtn) prevBtn.disabled = i <= 0;
+  if (nextBtn) nextBtn.disabled = i >= words.length - 1;
+}
 
 function buildWordCard(task, word) {
   var mastered = E.isPronounceWordMastered(task.id, word.id);
-  var hide = E.loadPronounceHideCompleted();
+  var isRevealed = !!(revealed[task.id] && revealed[task.id][word.id]);
 
   var card = document.createElement("div");
   card.className = "ege-pronounce__card" + (mastered ? " is-mastered" : "");
   card.dataset.wordId = word.id;
-  card.hidden = mastered && hide;
 
   var head = document.createElement("div");
   head.className = "ege-pronounce__head";
@@ -219,7 +214,8 @@ function buildWordCard(task, word) {
 
   var cross = document.createElement("button");
   cross.type = "button";
-  cross.className = "ege-pronounce__mark ege-pronounce__mark--wrong";
+  cross.className =
+    "ege-pronounce__mark ege-pronounce__mark--wrong" + (isRevealed && !mastered ? " is-active" : "");
   cross.dataset.pronounceMark = "wrong";
   cross.setAttribute("aria-label", "I said it wrong");
   cross.textContent = "✗";
@@ -232,7 +228,7 @@ function buildWordCard(task, word) {
 
   var tip = document.createElement("p");
   tip.className = "ege-pronounce__tip";
-  tip.hidden = true;
+  tip.hidden = !isRevealed;
   var ipa = document.createElement("span");
   ipa.className = "ege-pronounce__tip-ipa";
   ipa.textContent = word.ipa || "";
@@ -245,12 +241,133 @@ function buildWordCard(task, word) {
   return card;
 }
 
+function buildTrack(task, words) {
+  var track = document.createElement("div");
+  track.className = "ege-pronounce__track";
+  words.forEach(function (word) {
+    track.appendChild(buildWordCard(task, word));
+  });
+  return track;
+}
+
+E.refreshPronounceDeck = function refreshPronounceDeck(taskId, opts) {
+  var task = E.findTask(taskId);
+  if (!task || task.type !== "pronounce") return;
+  var taskEl = document.getElementById("task-" + taskId);
+  if (!taskEl) return;
+
+  var words = activeWords(task);
+  clampIndex(taskId, words.length);
+
+  var viewport = taskEl.querySelector(".ege-pronounce__viewport");
+  if (viewport) {
+    viewport.innerHTML = "";
+    viewport.appendChild(buildTrack(task, words));
+  }
+
+  var allWords = task.words || [];
+  var masteredCount = allWords.filter(function (word) {
+    return E.isPronounceWordMastered(taskId, word.id);
+  }).length;
+  var progress = taskEl.querySelector(".ege-pronounce__progress");
+  if (progress) progress.textContent = masteredCount + " / " + allWords.length + " mastered";
+
+  var toggle = taskEl.querySelector(".ege-pronounce__hide-toggle");
+  var hide = E.loadPronounceHideCompleted();
+  if (toggle) {
+    toggle.classList.toggle("is-active", hide);
+    toggle.setAttribute("aria-pressed", hide ? "true" : "false");
+  }
+
+  var allMastered = allWords.length > 0 && masteredCount === allWords.length;
+  var empty = taskEl.querySelector(".ege-pronounce__empty");
+  if (empty) empty.hidden = words.length > 0;
+  if (viewport) viewport.hidden = words.length === 0;
+  var nav = taskEl.querySelector(".ege-pronounce__navbar");
+  if (nav) nav.hidden = words.length === 0;
+
+  syncNav(taskId, words);
+  scrollToIndex(taskId, opts);
+
+  var wasFullyMastered = taskEl.dataset.pronounceMastered === "1";
+  if (allMastered && !wasFullyMastered && progress) {
+    if (typeof E.flashMoodSticker === "function") E.flashMoodSticker(progress, "confetti");
+  }
+  taskEl.dataset.pronounceMastered = allMastered ? "1" : "0";
+};
+
+E.markPronounceWord = function markPronounceWord(taskId, wordId, correct) {
+  E.setPronounceWordMastered(taskId, wordId, correct);
+  if (!revealed[taskId]) revealed[taskId] = {};
+  revealed[taskId][wordId] = !correct;
+
+  if (correct) {
+    var card = document.querySelector(
+      '#task-' + taskId + ' .ege-pronounce__card[data-word-id="' + wordId + '"]'
+    );
+    var tick = card && card.querySelector('[data-pronounce-mark="correct"]');
+    if (tick && typeof E.flashMoodSticker === "function") {
+      E.flashMoodSticker(tick, "like");
+    }
+  }
+
+  E.refreshPronounceDeck(taskId, { instant: true });
+};
+
+E.togglePronounceHideCompleted = function togglePronounceHideCompleted(taskId) {
+  E.savePronounceHideCompleted(!E.loadPronounceHideCompleted());
+  E.refreshPronounceDeck(taskId, { instant: true });
+};
+
+E.stepPronounceDeck = function stepPronounceDeck(taskId, delta) {
+  var task = E.findTask(taskId);
+  if (!task) return;
+  var words = activeWords(task);
+  var next = (index[taskId] || 0) + delta;
+  index[taskId] = Math.max(0, Math.min(next, words.length - 1));
+  syncNav(taskId, words);
+  scrollToIndex(taskId);
+};
+
+function bindViewportScroll(taskId, viewport) {
+  var timer = 0;
+  viewport.addEventListener("scroll", function () {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function () {
+      var task = E.findTask(taskId);
+      if (!task) return;
+      var cards = viewport.querySelectorAll(".ege-pronounce__card");
+      var left = viewport.scrollLeft;
+      var nearest = 0;
+      var best = Infinity;
+      cards.forEach(function (card, i) {
+        var d = Math.abs(card.offsetLeft - left);
+        if (d < best) {
+          best = d;
+          nearest = i;
+        }
+      });
+      index[taskId] = nearest;
+      syncNav(taskId, activeWords(task));
+    }, 120);
+  });
+}
+
 E.renderPronounce = function renderPronounce(task, topicId) {
   var wrap = E.buildTaskArticle(task);
   wrap.classList.add("ege-task--pronounce");
 
   var tools = document.createElement("div");
   tools.className = "ege-skills-tools";
+
+  var shuffleBtn = document.createElement("button");
+  shuffleBtn.type = "button";
+  shuffleBtn.className = "ege-pronounce__hide-toggle";
+  shuffleBtn.textContent = "🔀 Shuffle";
+  shuffleBtn.addEventListener("click", function () {
+    E.shufflePronounceDeck(task.id);
+  });
+  tools.appendChild(shuffleBtn);
 
   var hide = E.loadPronounceHideCompleted();
   var hideToggle = document.createElement("button");
@@ -270,7 +387,7 @@ E.renderPronounce = function renderPronounce(task, topicId) {
   resetBtn.addEventListener("click", function () {
     E.resetPronounceMastered(task.id);
     revealed[task.id] = {};
-    E.syncPronounceDeck(task.id);
+    E.refreshPronounceDeck(task.id, { instant: true });
   });
   tools.appendChild(resetBtn);
 
@@ -286,19 +403,53 @@ E.renderPronounce = function renderPronounce(task, topicId) {
   progress.textContent = masteredCount + " / " + words.length + " mastered";
   wrap.appendChild(progress);
 
-  var list = document.createElement("div");
-  list.className = "ege-pronounce__list";
-  words.forEach(function (word) {
-    list.appendChild(buildWordCard(task, word));
+  var active = activeWords(task);
+  clampIndex(task.id, active.length);
+
+  var viewport = document.createElement("div");
+  viewport.className = "ege-pronounce__viewport";
+  viewport.hidden = active.length === 0;
+  viewport.appendChild(buildTrack(task, active));
+  wrap.appendChild(viewport);
+  bindViewportScroll(task.id, viewport);
+
+  var navbar = document.createElement("div");
+  navbar.className = "ege-pronounce__navbar";
+  navbar.hidden = active.length === 0;
+
+  var prevBtn = document.createElement("button");
+  prevBtn.type = "button";
+  prevBtn.className = "ege-pronounce__nav ege-pronounce__nav--prev";
+  prevBtn.textContent = "‹ Prev";
+  prevBtn.disabled = (index[task.id] || 0) <= 0;
+  prevBtn.addEventListener("click", function () {
+    E.stepPronounceDeck(task.id, -1);
   });
-  wrap.appendChild(list);
+  navbar.appendChild(prevBtn);
+
+  var counter = document.createElement("span");
+  counter.className = "ege-pronounce__counter";
+  counter.textContent = active.length ? (index[task.id] || 0) + 1 + " / " + active.length : "";
+  navbar.appendChild(counter);
+
+  var nextBtn = document.createElement("button");
+  nextBtn.type = "button";
+  nextBtn.className = "ege-pronounce__nav ege-pronounce__nav--next";
+  nextBtn.textContent = "Next ›";
+  nextBtn.disabled = (index[task.id] || 0) >= active.length - 1;
+  nextBtn.addEventListener("click", function () {
+    E.stepPronounceDeck(task.id, 1);
+  });
+  navbar.appendChild(nextBtn);
+
+  wrap.appendChild(navbar);
 
   var allMastered = words.length > 0 && masteredCount === words.length;
   wrap.dataset.pronounceMastered = allMastered ? "1" : "0";
 
   var empty = document.createElement("p");
   empty.className = "ege-pronounce__empty";
-  empty.hidden = !(hide && allMastered);
+  empty.hidden = active.length > 0;
   empty.textContent = "All words mastered! Turn off “Hide mastered” to practise them again.";
   wrap.appendChild(empty);
 

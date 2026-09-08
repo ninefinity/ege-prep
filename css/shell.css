@@ -1071,6 +1071,11 @@ a {
 
 #egePanels > .ege-task-panel {
   grid-area: 1 / 1;
+  /* A 1fr grid track is minmax(auto, 1fr) by default, so a panel whose
+     content demands more than the available width (a horizontally
+     scrollable strip, say) grows the whole grid to fit it instead of
+     scrolling inside its own box. */
+  min-width: 0;
   transition: opacity 0.16s ease;
 }
 
@@ -8940,6 +8945,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
    sit. */
 .ege-skills-tools {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 6px;
   margin-bottom: 0.4rem;
@@ -9249,10 +9255,6 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   background: var(--ege-card-alt, #f4f5fb);
 }
 
-
-
-
-
 /* ── Reading skills: pronounce (tricky words) ─────────────────────────── */
 
 .ege-pronounce__hide-toggle {
@@ -9291,19 +9293,38 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   color: var(--yap-dust);
 }
 
-.ege-pronounce__list {
-  display: grid;
-  gap: 10px;
+/* One card fills the viewport at a time; scroll-snap makes a swipe/drag
+   land exactly on the next card, so Prev/Next and a plain scroll gesture
+   both work without separate JS drag-tracking. */
+.ege-pronounce__viewport {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  max-width: min(26rem, 100%);
+  margin: 0 auto;
+  border-radius: 12px;
 }
 
-@media (min-width: 640px) {
-  .ege-pronounce__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.ege-pronounce__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.ege-pronounce__track {
+  display: flex;
+  width: 100%;
+  /* A flex item defaults to min-width: auto, i.e. the width its 15 cards'
+     content demands -- which inflated every block ancestor up the tree.
+     The viewport is the scroll container; the track just needs to not
+     resist shrinking to it. */
+  min-width: 0;
 }
 
 .ege-pronounce__card {
-  padding: 14px 16px;
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  padding: 18px 20px;
   border: 1px solid var(--ege-line);
   border-radius: 12px;
   background: var(--ege-card);
@@ -9324,7 +9345,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-pronounce__word {
   font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-xl);
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--ege-ink);
 }
@@ -9349,13 +9370,13 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-pronounce__marks {
   display: flex;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 14px;
 }
 
 .ege-pronounce__mark {
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border: 1px solid var(--ege-line);
   border-radius: 999px;
   background: #fff;
@@ -9380,7 +9401,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 .ege-pronounce__tip {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   padding-left: 0.6rem;
   border-left: 3px solid var(--ege-bad);
   font-family: var(--ege-font-ui);
@@ -9394,8 +9415,51 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   color: var(--ege-ink);
 }
 
+/* Prev/Next sit under the card, not on top of it, so they never cover the
+   Listen button or the marks. */
+.ege-pronounce__navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 14px auto 0;
+  max-width: min(26rem, 100%);
+}
+
+.ege-pronounce__nav {
+  padding: 8px 16px;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-royal);
+  cursor: pointer;
+}
+
+.ege-pronounce__nav:hover:not(:disabled) {
+  border-color: var(--yap-royal);
+}
+
+.ege-pronounce__nav:disabled {
+  color: var(--ege-line);
+  cursor: default;
+}
+
+.ege-pronounce__counter {
+  min-width: 3.5rem;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ege-muted);
+  text-align: center;
+}
+
 .ege-pronounce__empty {
-  margin: 1rem 0 0;
+  max-width: min(26rem, 100%);
+  margin: 1rem auto 0;
   padding: 16px;
   border: 1px dashed var(--ege-line);
   border-radius: 12px;
