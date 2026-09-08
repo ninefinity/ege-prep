@@ -7966,8 +7966,13 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
     align-self: start;
   }
 
+  /* Column 1 is the answer (order: 1, set above) and column 2 the prompt
+     (order: 2) regardless of source order. The prompt's table needs more
+     floor room than a plain paragraph, hence the higher minimum -- but the
+     answer is still the thing being worked on, so it keeps the bigger
+     share of the flexible space, same as the default (non-essay) ratio. */
   .ege-page--topic-layout .ege-task--writing-essay .ege-writing-shell.ege-split--panels {
-    grid-template-columns: minmax(16rem, 0.7fr) minmax(18rem, 1.3fr);
+    grid-template-columns: minmax(18rem, 1.2fr) minmax(20rem, 0.8fr);
   }
 
   .ege-page--topic-layout .ege-writing-shell .ege-split__read,
