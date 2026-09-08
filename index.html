@@ -1388,33 +1388,19 @@
                 var num = formatExamNum(section.examFrom, section.examTo);
                 var label = section.title || section.id;
 
-                var item = appendRow(list, {
+                // No checkbox anywhere in this block: a playlist is a run of
+                // exam tasks, and drills are practice for them.
+                appendRow(list, {
                   num: num,
                   label: label,
                   available: true,
                   href: "topic.html?t=" + encodeURIComponent(section.id),
                   ariaLabel: (num + ". " + label).trim(),
                   rowClass: "ege-catalog-row--task",
-                  itemClass: "ege-catalog-list__item--task",
-                  checkbox: {
-                    sectionId: section.id,
-                    label: label,
-                    onChange: syncPlaylist
-                  }
+                  itemClass: "ege-catalog-list__item--task"
                 });
 
-                var check = item.querySelector(".ege-catalog-row__check");
-                if (check) {
-                  playlistChecks.push({
-                    input: check,
-                    sectionId: section.id,
-                    groupName: section.group || ""
-                  });
-                }
-
                 kinds.forEach(function (kind) {
-                  // Deep links only -- the playlist selects whole sections, so
-                  // a drill carries no checkbox of its own.
                   appendRow(list, {
                     num: "",
                     label: kind.label,
