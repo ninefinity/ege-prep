@@ -1147,33 +1147,48 @@ E.mountTopic = function mountTopic(topic, topicId) {
     var variantNav = E.isVariantPlaylist(topicId);
 
     // Drills carry no title of their own on the page, so the nav names what
-    // the variants below it are: the kind when they all share one, the
-    // section otherwise.
-    if (
+    // the variants below it are: the kind when they all share one. Landing
+    // on the section root instead of one kind mixes several kinds in the
+    // same list, so each gets its own heading as the loop below reaches it
+    // -- "variants of each", not one flat list.
+    var isSkillsTopic =
       !variantNav &&
       !E.state.playlist &&
       topic.tasks.length &&
-      E.SKILLS_TASK_TYPES.indexOf(topic.tasks[0].type) !== -1
-    ) {
+      E.SKILLS_TASK_TYPES.indexOf(topic.tasks[0].type) !== -1;
+    var skillKindHeadings = false;
+    if (isSkillsTopic) {
       var kinds = topic.tasks.map(function (task) {
         return task.drill || "";
       });
       var oneKind = kinds.every(function (kind) {
         return kind && kind === kinds[0];
       });
-      var navHeadingText = oneKind ? kinds[0] : E.sectionDisplayTitle(topic);
-      if (navHeadingText) {
-        var navHeading = document.createElement("p");
-        navHeading.className = "ege-nav__section";
-        navHeading.textContent = navHeadingText;
-        nav.appendChild(navHeading);
+      if (oneKind) {
+        if (kinds[0]) {
+          var navHeading = document.createElement("p");
+          navHeading.className = "ege-nav__section";
+          navHeading.textContent = kinds[0];
+          nav.appendChild(navHeading);
+        }
+      } else {
+        skillKindHeadings = true;
       }
     }
 
+    var lastDrillKind = "";
     var lastSectionId = "";
     topic.tasks.forEach(function (task, index) {
       var max = E.taskMaxScore(task);
       var savedScore = E.state.scores[task.id] || 0;
+
+      if (skillKindHeadings && task.drill && task.drill !== lastDrillKind) {
+        lastDrillKind = task.drill;
+        var kindHeading = document.createElement("p");
+        kindHeading.className = "ege-nav__section";
+        kindHeading.textContent = task.drill;
+        nav.appendChild(kindHeading);
+      }
 
       var soloSectionNav =
         !variantNav &&

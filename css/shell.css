@@ -5278,14 +5278,15 @@ button.ege-listening-mark:focus-visible {
 
 .ege-mood-sticker {
   position: absolute;
-  top: -18px;
-  right: -8px;
-  width: 44px;
-  height: 44px;
+  top: -34px;
+  right: -20px;
+  width: 84px;
+  height: 84px;
   object-fit: contain;
   pointer-events: none;
-  z-index: 3;
-  animation: ege-mood-pop 1.7s ease forwards;
+  z-index: 6;
+  filter: drop-shadow(0 4px 10px rgba(18, 16, 40, 0.22));
+  animation: ege-mood-pop 2s ease forwards;
 }
 
 @keyframes ege-mood-pop {
@@ -6999,16 +7000,24 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
   line-height: 1;
 }
 
-.ege-writing-criteria__accordions {
+/* The self-assessment block below can run to several screens once every
+   criterion has its score pills and hint text -- it used to sit in a
+   flex-shrink: 0 sibling next to the (flex: 1, scrollable) accordion, so
+   growing past the panel's fixed height squeezed the accordion down to a
+   sliver instead of the self-assessment scrolling into view. One scroll
+   container for both fixes it; the header above stays put. */
+.ege-writing-criteria__body {
   flex: 1 1 auto;
   min-height: 0;
-  padding: 12px 16px;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
 
+.ege-writing-criteria__accordions {
+  padding: 12px 16px;
+}
+
 .ege-writing-criteria__self-wrap {
-  flex-shrink: 0;
   padding: 12px 16px 16px;
   border-top: 1px solid var(--ege-line);
   background: color-mix(in srgb, var(--ege-wrong-pick-bg) 35%, #fff);
@@ -9072,6 +9081,30 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   font-size: var(--ege-text-xs, 0.72rem);
   font-weight: 800;
   color: var(--yap-royal);
+}
+
+/* Left and right read as the same white card with the same badge style --
+   fine when one side is photos, but two columns of plain text (problems vs
+   solutions) become hard to tell apart at a glance, especially once the
+   layout stacks on mobile and the column headings scroll out of view. A
+   spine colour per side fixes that without touching the check/wrong/reveal
+   colours, which still need to win once a pair is marked. */
+.ege-pairing__card[data-side="left"]:not(.is-correct):not(.is-wrong):not(.is-revealed) {
+  border-left: 4px solid color-mix(in srgb, var(--yap-hot) 55%, var(--ege-line));
+}
+
+.ege-pairing__card[data-side="right"]:not(.is-correct):not(.is-wrong):not(.is-revealed) {
+  border-left: 4px solid color-mix(in srgb, var(--ege-ok) 55%, var(--ege-line));
+}
+
+.ege-pairing__card[data-side="left"] .ege-pairing__badge {
+  background: color-mix(in srgb, var(--yap-hot) 12%, #fff);
+  color: var(--yap-hot);
+}
+
+.ege-pairing__card[data-side="right"] .ege-pairing__badge {
+  background: color-mix(in srgb, var(--ege-ok) 14%, #fff);
+  color: color-mix(in srgb, var(--ege-ok) 70%, var(--yap-royal));
 }
 
 .ege-pairing__feedback {

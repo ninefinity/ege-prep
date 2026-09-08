@@ -947,7 +947,9 @@ E.buildWritingCriteriaDrawer = function buildWritingCriteriaDrawer(task) {
   header.appendChild(closeBtn);
   panel.appendChild(header);
 
-  panel.appendChild(E.buildWritingCriteriaAccordion(task));
+  var body = document.createElement("div");
+  body.className = "ege-writing-criteria__body";
+  body.appendChild(E.buildWritingCriteriaAccordion(task));
 
   var selfWrap = document.createElement("div");
   selfWrap.className = "ege-writing-criteria__self-wrap";
@@ -965,7 +967,8 @@ E.buildWritingCriteriaDrawer = function buildWritingCriteriaDrawer(task) {
   selfWrap.appendChild(selfSection);
   if (!selfSection.hidden) selfTrigger.hidden = true;
 
-  panel.appendChild(selfWrap);
+  body.appendChild(selfWrap);
+  panel.appendChild(body);
   root.appendChild(panel);
 
   if (E.writingCriteriaMobileQuery()) {

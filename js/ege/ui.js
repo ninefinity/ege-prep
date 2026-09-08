@@ -458,7 +458,7 @@ E.flashMoodSticker = function flashMoodSticker(anchorEl, mood) {
   // animationend) never runs.
   setTimeout(function () {
     img.remove();
-  }, 1800);
+  }, 2100);
   anchorEl.appendChild(img);
 };
 
