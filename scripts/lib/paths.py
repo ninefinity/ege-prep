@@ -30,4 +30,5 @@ TOPIC_FILES = {
     "writing-essay": DATA / "writing-essay.json",
     "writing-skills-questions": DATA / "writing-skills-questions.json",
     "writing-skills-facts": DATA / "writing-skills-facts.json",
+    "reading-skills": DATA / "reading-skills.json",
 }

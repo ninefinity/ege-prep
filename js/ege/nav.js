@@ -19,6 +19,7 @@ E.renderTaskPanel = function renderTaskPanel(task) {
     if (task.type === "choice") return E.renderChoice(task, E.state.topicId);
     if (task.type === "pairing") return E.renderPairing(task, E.state.topicId);
     if (task.type === "ordering") return E.renderOrdering(task, E.state.topicId);
+    if (task.type === "pronounce") return E.renderPronounce(task, E.state.topicId);
     if (task.type === "listening") return E.renderListening(task, E.state.topicId);
     if (task.type === "speaking") return E.renderSpeaking(task);
     if (task.type === "speaking-questions") return E.renderSpeakingQuestions(task);

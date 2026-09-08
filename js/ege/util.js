@@ -138,6 +138,7 @@ E.taskMaxScore = function taskMaxScore(task) {
     if (task.type === "choice") return (task.questions || []).length;
     if (task.type === "pairing") return (task.left || []).length;
     if (task.type === "ordering") return E.orderingSlots(task).length;
+    if (task.type === "pronounce") return (task.words || []).length;
     if (task.type === "listening") {
       var gapCount = E.getActiveListeningGaps(task).length;
       var questionCount = task.questions ? task.questions.length : 0;

@@ -1,0 +1,379 @@
+{
+  "id": "reading-skills",
+  "title": "Reading skills",
+  "subtitle": "Задание 39 — чтение вслух.",
+  "tasks": [
+    {
+      "id": "skills39-silent-letters",
+      "nav": "Silent letters & digraphs",
+      "title": "Tricky words",
+      "type": "pronounce",
+      "examNum": 39,
+      "drill": "Tricky words",
+      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Psychology",
+          "ipa": "/saɪˈkɒlədʒi/",
+          "note": "Silent initial p and velar ch /k/"
+        },
+        {
+          "id": "w2",
+          "text": "Christmas",
+          "ipa": "/ˈkrɪsməs/",
+          "note": "Silent medial plosive t"
+        },
+        {
+          "id": "w3",
+          "text": "Whine",
+          "ipa": "/waɪn/",
+          "note": "Silent initial h"
+        },
+        {
+          "id": "w4",
+          "text": "Chemicals",
+          "ipa": "/ˈkemɪkəlz/",
+          "note": "Greek ch pronounced as /k/"
+        },
+        {
+          "id": "w5",
+          "text": "Ancient",
+          "ipa": "/ˈeɪnʃənt/",
+          "note": "Spelling ci pronounced as /ʃ/"
+        },
+        {
+          "id": "w6",
+          "text": "Towards",
+          "ipa": "/təˈwɔːdz/ or /tɔːdz/",
+          "note": "Silent glide w and vowel merge"
+        },
+        {
+          "id": "w7",
+          "text": "Headaches",
+          "ipa": "/ˈhedeɪks/",
+          "note": "Vowel /e/ and suffix ch /k/"
+        },
+        {
+          "id": "w8",
+          "text": "Technologies",
+          "ipa": "/tekˈnɒlədʒiz/",
+          "note": "Digraph ch pronounced as /k/"
+        },
+        {
+          "id": "w9",
+          "text": "Characteristics",
+          "ipa": "/ˌkærəktəˈrɪstɪks/",
+          "note": "Digraph ch /k/ and multisyllabic rhythm"
+        }
+      ]
+    },
+    {
+      "id": "skills39-deceptive-vowels",
+      "nav": "Deceptive vowels & syncope",
+      "title": "Tricky words",
+      "type": "pronounce",
+      "examNum": 39,
+      "drill": "Tricky words",
+      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Buried",
+          "ipa": "/ˈberid/",
+          "note": "Spelling u pronounced as short /e/"
+        },
+        {
+          "id": "w2",
+          "text": "Comfortable",
+          "ipa": "/ˈkʌmftəbəl/",
+          "note": "Middle vowel completely dropped"
+        },
+        {
+          "id": "w3",
+          "text": "Chocolate",
+          "ipa": "/ˈtʃɒklət/",
+          "note": "Reduction from three written syllables to two"
+        },
+        {
+          "id": "w4",
+          "text": "Boundary",
+          "ipa": "/ˈbaʊndri/",
+          "note": "Syncope of medial vowel a"
+        },
+        {
+          "id": "w5",
+          "text": "Vinegar",
+          "ipa": "/ˈvɪnɪɡər/",
+          "note": "Short /ɪ/ rather than /aɪ/ from vine"
+        },
+        {
+          "id": "w6",
+          "text": "Creature",
+          "ipa": "/ˈkriːtʃər/",
+          "note": "Stem collapses into two syllables /iːtʃ/"
+        },
+        {
+          "id": "w7",
+          "text": "Surface",
+          "ipa": "/ˈsɜːfɪs/",
+          "note": "Unstressed suffix reduced to /ɪs/ rather than /feɪs/"
+        },
+        {
+          "id": "w8",
+          "text": "Climate",
+          "ipa": "/ˈklaɪmət/",
+          "note": "Unstressed ending reduced to schwa /ət/"
+        },
+        {
+          "id": "w9",
+          "text": "Bushy",
+          "ipa": "/ˈbʊʃi/",
+          "note": "Near-back vowel /ʊ/ rather than /ʌ/"
+        },
+        {
+          "id": "w10",
+          "text": "Camel",
+          "ipa": "/ˈkæməl/",
+          "note": "Short open vowel /æ/ rather than /eɪ/"
+        },
+        {
+          "id": "w11",
+          "text": "Motive",
+          "ipa": "/ˈməʊtɪv/",
+          "note": "Primary stress on first syllable with short /ɪv/"
+        },
+        {
+          "id": "w12",
+          "text": "Recreation",
+          "ipa": "/ˌrekriˈeɪʃən/",
+          "note": "Prefix pronounced /re-/ rather than /riː-/"
+        },
+        {
+          "id": "w13",
+          "text": "Bicycles",
+          "ipa": "/ˈbaɪsɪklz/",
+          "note": "Second syllable reduced to short /ɪ/"
+        }
+      ]
+    },
+    {
+      "id": "skills39-consonant-clusters",
+      "nav": "Consonant clusters",
+      "title": "Tricky words",
+      "type": "pronounce",
+      "examNum": 39,
+      "drill": "Tricky words",
+      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Strength",
+          "ipa": "/streŋθ/",
+          "note": "Complex initial /str-/ and terminal /ŋθ/"
+        },
+        {
+          "id": "w2",
+          "text": "Wealth",
+          "ipa": "/welθ/",
+          "note": "Vowel /e/ followed by lateral dental /lθ/"
+        },
+        {
+          "id": "w3",
+          "text": "Aspects",
+          "ipa": "/ˈæspekts/",
+          "note": "Complex terminal cluster /-kts/"
+        },
+        {
+          "id": "w4",
+          "text": "Detached",
+          "ipa": "/dɪˈtætʃt/",
+          "note": "Unvoiced consonant cluster /-tʃt/ without an extra syllable"
+        },
+        {
+          "id": "w5",
+          "text": "Landfills",
+          "ipa": "/ˈlændfɪlz/",
+          "note": "Consonant transition /ndf/ across compound boundary"
+        },
+        {
+          "id": "w6",
+          "text": "Organism",
+          "ipa": "/ˈɔːɡənɪzəm/",
+          "note": "Syllabic consonant ending /-zəm/"
+        },
+        {
+          "id": "w7",
+          "text": "Particularly",
+          "ipa": "/pəˈtɪkjələli/",
+          "note": "Rapid alternating liquid consonants"
+        }
+      ]
+    },
+    {
+      "id": "skills39-lexical-stress",
+      "nav": "Lexical stress",
+      "title": "Tricky words",
+      "type": "pronounce",
+      "examNum": 39,
+      "drill": "Tricky words",
+      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Opponent",
+          "ipa": "/əˈpəʊnənt/",
+          "note": "Primary stress placed strictly on the second syllable"
+        },
+        {
+          "id": "w2",
+          "text": "Environment",
+          "ipa": "/ɪnˈvaɪrənmənt/",
+          "note": "Second-syllable stress and internal nasal"
+        },
+        {
+          "id": "w3",
+          "text": "Amateur",
+          "ipa": "/ˈæmətər/",
+          "note": "Initial-syllable stress with French loanword suffix"
+        },
+        {
+          "id": "w4",
+          "text": "Primitive",
+          "ipa": "/ˈprɪmətɪv/",
+          "note": "Initial-syllable stress with reduced subsequent vowels"
+        },
+        {
+          "id": "w5",
+          "text": "Developed",
+          "ipa": "/dɪˈveləpt/",
+          "note": "Medial stress on the root syllable"
+        },
+        {
+          "id": "w6",
+          "text": "Mankind",
+          "ipa": "/mænˈkaɪnd/",
+          "note": "Stress placed on the terminal syllable"
+        },
+        {
+          "id": "w7",
+          "text": "Purification",
+          "ipa": "/ˌpjʊərɪfɪˈkeɪʃən/",
+          "note": "Secondary-to-primary stress shift with initial palatal glide"
+        }
+      ]
+    },
+    {
+      "id": "skills39-polysemous",
+      "nav": "Polysemous vocabulary",
+      "title": "Tricky words",
+      "type": "pronounce",
+      "examNum": 39,
+      "drill": "Tricky words",
+      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Depression",
+          "ipa": "/dɪˈpreʃən/",
+          "note": "Geological hollow or basin where water collects, not mental sadness"
+        },
+        {
+          "id": "w2",
+          "text": "Domesticated",
+          "ipa": "/dəˈmestɪkeɪtɪd/",
+          "note": "Tamed and bred by humans from wild stock"
+        },
+        {
+          "id": "w3",
+          "text": "Domestic",
+          "ipa": "/dəˈmestɪk/",
+          "note": "Relating to the household and home life rather than national affairs"
+        },
+        {
+          "id": "w4",
+          "text": "Fables",
+          "ipa": "/ˈfeɪbəlz/",
+          "note": "Short allegorical tales typically featuring animals to teach a moral"
+        },
+        {
+          "id": "w5",
+          "text": "Range",
+          "ipa": "/reɪndʒ/",
+          "note": "Series or line of connected mountains forming a continuous chain"
+        }
+      ]
+    },
+    {
+      "id": "skills39-academic-terms",
+      "nav": "Academic terms",
+      "title": "Tricky words",
+      "type": "pronounce",
+      "examNum": 39,
+      "drill": "Tricky words",
+      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Virtually",
+          "ipa": "/ˈvɜːtʃuəli/",
+          "note": "Adverb meaning nearly or for all practical purposes, not digital"
+        },
+        {
+          "id": "w2",
+          "text": "Vividly",
+          "ipa": "/ˈvɪvɪdli/",
+          "note": "Producing distinct, intensely bright, and clear mental or visual images"
+        },
+        {
+          "id": "w3",
+          "text": "Wading",
+          "ipa": "/ˈweɪdɪŋ/",
+          "note": "Walking through shallow water with deliberate effort"
+        },
+        {
+          "id": "w4",
+          "text": "Overlapping",
+          "ipa": "/ˌəʊvəˈlæpɪŋ/",
+          "note": "Partially covering the edge of an adjacent surface or leaf"
+        },
+        {
+          "id": "w5",
+          "text": "Huddle",
+          "ipa": "/ˈhʌdəl/",
+          "note": "Gathering closely together in a tight pack to conserve body heat"
+        },
+        {
+          "id": "w6",
+          "text": "Bonfire",
+          "ipa": "/ˈbɒnfaɪə/",
+          "note": "Large outdoor fire used for warmth, celebration, or cooking"
+        },
+        {
+          "id": "w7",
+          "text": "Unwelcoming",
+          "ipa": "/ʌnˈwelkəmɪŋ/",
+          "note": "Adjective describing severe, inhospitable conditions"
+        },
+        {
+          "id": "w8",
+          "text": "Wavelengths",
+          "ipa": "/ˈweɪvleŋkθs/ or /ˈweɪvleŋθs/",
+          "note": "Distance between successive crests of light waves"
+        },
+        {
+          "id": "w9",
+          "text": "Appreciation",
+          "ipa": "/əˌpriːʃiˈeɪʃən/",
+          "note": "Recognition of value, quality, or significance in everyday life"
+        },
+        {
+          "id": "w10",
+          "text": "Agricultural",
+          "ipa": "/ˌæɡrɪˈkʌltʃərəl/",
+          "note": "Relating to the cultivation of land, soil, and farming"
+        }
+      ]
+    }
+  ]
+}

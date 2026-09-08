@@ -9242,3 +9242,153 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 
 
+
+/* ── Reading skills: pronounce (tricky words) ─────────────────────────── */
+
+.ege-pronounce__hide-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--ege-muted);
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s, background 0.12s;
+}
+
+.ege-pronounce__hide-toggle:hover {
+  border-color: var(--yap-royal);
+}
+
+.ege-pronounce__hide-toggle.is-active {
+  border-color: var(--yap-royal);
+  background: var(--yap-royal);
+  color: #fff;
+}
+
+.ege-pronounce__progress {
+  position: relative;
+  margin: 0.6rem 0;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
+.ege-pronounce__list {
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .ege-pronounce__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ege-pronounce__card {
+  padding: 14px 16px;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  background: var(--ege-card);
+}
+
+.ege-pronounce__card.is-mastered {
+  border-color: color-mix(in srgb, var(--ege-ok) 45%, var(--ege-line));
+  background: var(--ege-ok-bg);
+}
+
+.ege-pronounce__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ege-pronounce__word {
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xl);
+  font-weight: 700;
+  color: var(--ege-ink);
+}
+
+.ege-pronounce__listen {
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 700;
+  color: var(--yap-royal);
+  cursor: pointer;
+}
+
+.ege-pronounce__listen:hover {
+  border-color: var(--yap-royal);
+}
+
+.ege-pronounce__marks {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ege-pronounce__mark {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  background: #fff;
+  font-size: var(--ege-text-md);
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--ege-muted);
+}
+
+.ege-pronounce__mark--correct:hover,
+.ege-pronounce__mark--correct.is-active {
+  border-color: var(--ege-ok);
+  background: var(--ege-ok-bg);
+  color: var(--ege-ok);
+}
+
+.ege-pronounce__mark--wrong:hover,
+.ege-pronounce__mark--wrong.is-active {
+  border-color: var(--ege-bad);
+  background: var(--ege-bad-bg);
+  color: var(--ege-bad);
+}
+
+.ege-pronounce__tip {
+  margin: 10px 0 0;
+  padding-left: 0.6rem;
+  border-left: 3px solid var(--ege-bad);
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  line-height: 1.45;
+  color: var(--ege-muted);
+}
+
+.ege-pronounce__tip-ipa {
+  font-weight: 700;
+  color: var(--ege-ink);
+}
+
+.ege-pronounce__empty {
+  margin: 1rem 0 0;
+  padding: 16px;
+  border: 1px dashed var(--ege-line);
+  border-radius: 12px;
+  text-align: center;
+  color: var(--ege-muted);
+}

@@ -155,6 +155,15 @@
       "available": true
     },
     {
+      "id": "reading-skills",
+      "group": "Speaking",
+      "examFrom": 39,
+      "examTo": 39,
+      "title": "Reading skills",
+      "taskCount": 6,
+      "available": true
+    },
+    {
       "id": "speaking",
       "group": "Speaking",
       "examFrom": 42,

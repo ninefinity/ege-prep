@@ -361,6 +361,36 @@ def _validate_ordering(report: Report, base: str, task: dict) -> None:
             report.error(base, f"slot {slot_id!r} has no sentence")
 
 
+def _validate_pronounce(report: Report, base: str, task: dict) -> None:
+    words = task.get("words") or []
+    if not words:
+        report.error(base, "pronounce task has no words")
+        return
+
+    seen: set[str] = set()
+    seen_text: set[str] = set()
+    for i, word in enumerate(words):
+        word_id = word.get("id")
+        if not word_id:
+            report.error(base, f"word {i}: missing id")
+        elif word_id in seen:
+            report.error(base, f"word {i}: duplicate id {word_id!r}")
+        else:
+            seen.add(word_id)
+        text = word.get("text")
+        if not text:
+            report.error(base, f"word {i}: missing text")
+        else:
+            folded = text.strip().lower()
+            if folded in seen_text:
+                report.warn(base, f"word {i} ({text!r}): duplicate word in this deck")
+            seen_text.add(folded)
+        if not word.get("ipa"):
+            report.warn(base, f"word {i} ({text!r}): missing ipa")
+        if not word.get("note"):
+            report.warn(base, f"word {i} ({text!r}): missing note")
+
+
 def _validate_judge(report: Report, base: str, task: dict) -> None:
     items = task.get("items") or []
     if not items:
@@ -479,6 +509,7 @@ def validate_topic(report: Report, topic_id: str, topic: dict) -> int:
             "choice": _validate_choice,
             "pairing": _validate_pairing,
             "ordering": _validate_ordering,
+            "pronounce": _validate_pronounce,
             "speaking": _validate_speaking,
             "speaking-aloud": _validate_speaking_aloud,
             "speaking-questions": _validate_speaking_questions,
