@@ -102,7 +102,6 @@
 
     <div class="ege-promo-start" id="egePromoStart">
       <button type="button" class="ege-promo-cta" id="egePromoStartBtn">Start mock exam</button>
-      <button type="button" class="ege-promo-cta ege-promo-cta--secondary" id="egePromoDeductionBtn">Data Deduction drill (Task 38)</button>
     </div>
 
     <section class="ege-promo-section ege-promo-section--materials" aria-labelledby="egePromoMaterials">
@@ -150,11 +149,8 @@
 
     (function () {
       var EXAM_HREF = "topic.html?variant=2027-demo";
-      var WRITING_HREF = "topic.html?t=writing";
       var EGE_AT = new Date(2027, 5, 16, 10, 0, 0).getTime();
       var startBtn = document.getElementById("egePromoStartBtn");
-      var deductionBtn = document.getElementById("egePromoDeductionBtn");
-      var pendingHref = EXAM_HREF;
       var gate = document.getElementById("egePromoGate");
       var gateBackdrop = document.getElementById("egePromoGateBackdrop");
       var noCodeBtn = document.getElementById("egePromoNoCode");
@@ -217,7 +213,7 @@
       }
 
       function goToExam() {
-        window.location.href = pendingHref;
+        window.location.href = EXAM_HREF;
       }
 
       function showGate() {
@@ -307,18 +303,6 @@
 
       if (startBtn) {
         startBtn.addEventListener("click", function () {
-          pendingHref = EXAM_HREF;
-          if (isUnlocked()) {
-            goToExam();
-            return;
-          }
-          showGate();
-        });
-      }
-
-      if (deductionBtn) {
-        deductionBtn.addEventListener("click", function () {
-          pendingHref = WRITING_HREF;
           if (isUnlocked()) {
             goToExam();
             return;

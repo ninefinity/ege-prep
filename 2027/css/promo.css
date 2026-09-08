@@ -364,9 +364,7 @@ body.yap-promo--gate-open {
 
 .ege-promo-start {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
+  justify-content: center;
   width: 100%;
   margin: 0 auto 1.5rem;
 }
@@ -391,20 +389,6 @@ body.yap-promo--gate-open {
 
 .ege-promo-cta:hover {
   filter: brightness(1.05);
-}
-
-.ege-promo-cta--secondary {
-  background: transparent;
-  color: #eef0fa;
-  border: 1px solid rgba(238, 240, 250, 0.4);
-  box-shadow: none;
-  font-size: var(--ege-text-md);
-  font-weight: 600;
-}
-
-.ege-promo-cta--secondary:hover {
-  filter: none;
-  border-color: #eef0fa;
 }
 
 .ege-promo-cta:focus-visible,
