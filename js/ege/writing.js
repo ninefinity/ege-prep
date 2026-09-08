@@ -1455,6 +1455,13 @@ E.renderWriting = function renderWriting(task) {
     return wrap;
   }
 
+  // Essay prompts (task 38) run a full context paragraph, a data table and
+  // a plan checklist -- much bulkier than a task-37 email -- so they need
+  // the wider read column and taller textarea .ege-task--writing-essay
+  // already gives the choice-based workspace, not the narrow-prompt/
+  // wide-editor ratio tuned for a short email.
+  if (task.examNum === 38) wrap.classList.add("ege-task--writing-essay");
+
   var split = E.buildWritingShell(task, E.buildWriting37Read(task), {});
   wrap.appendChild(split);
 
