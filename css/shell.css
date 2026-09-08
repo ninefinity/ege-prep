@@ -479,6 +479,12 @@ a {
   object-fit: contain;
 }
 
+/* The skill-drill mark reads smaller than the EGE wordmark at the same
+   height, so it gets a 20% bump to sit at the same visual weight. */
+.ege-rail__mark--skill {
+  max-height: 4.8rem;
+}
+
 .ege-rail__title {
   margin: 0;
   font-family: var(--ege-font-cyrillic);
@@ -636,6 +642,10 @@ a {
     height: auto;
     object-fit: contain;
     object-position: left top;
+  }
+
+  .ege-page--topic-layout .ege-topic-sidebar__logo .ege-rail__mark--skill {
+    max-height: 6.6rem;
   }
 
   .ege-page--topic-layout .ege-task-intro__head {

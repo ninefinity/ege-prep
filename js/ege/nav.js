@@ -762,6 +762,7 @@ E.applyBrandMark = function applyBrandMark(topicId, topic) {
         : "assets/timetoege.png";
     document.querySelectorAll(".ege-rail__mark").forEach(function (img) {
       if (img.getAttribute("src") !== src) img.setAttribute("src", src);
+      img.classList.toggle("ege-rail__mark--skill", isSkillDrill);
     });
     // The favicon stays the site mark regardless -- only the sidebar wordmark
     // switches for a skill drill, since a browser tab full of drill icons
