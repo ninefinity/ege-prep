@@ -1532,6 +1532,16 @@ a {
   font-size: var(--ege-text-sm);
 }
 
+/* This copy exists for when the sidebar is a hidden mobile drawer -- once
+   the sidebar itself is visible (.ege-rail's own 861px breakpoint), its
+   "← Sections" link is right there, so a second copy here would just be a
+   duplicate. */
+@media (min-width: 861px) {
+  .ege-task-intro__back {
+    display: none;
+  }
+}
+
 .ege-task-intro--skills .ege-instructions {
   margin-bottom: 10px;
   padding-left: 0.7rem;
