@@ -480,6 +480,7 @@ function buildClozeInput(taskId, item) {
   input.autocapitalize = "off";
   input.spellcheck = false;
   input.placeholder = "type word";
+  input.title = "type word";
   input.dataset.word = word;
   input.dataset.matchKey = toMatchKey(item.word);
   input.setAttribute("aria-label", "Type the missing word for this sentence");

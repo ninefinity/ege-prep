@@ -1422,9 +1422,22 @@
                   available: true,
                   href: "topic.html?t=" + encodeURIComponent(section.id),
                   ariaLabel: (num + ". " + label).trim(),
-                  rowClass: "ege-catalog-row--task",
+                  rowClass: "ege-catalog-row--task" +
+                    (section.id === "grammar-verb-forms" ? " ege-catalog-row--spider-web" : ""),
                   itemClass: "ege-catalog-list__item--task"
                 });
+
+                if (section.id === "grammar-verb-forms") {
+                  var row = list.lastElementChild.querySelector(".ege-catalog-row") || list.lastElementChild;
+                  row.style.position = "relative";
+                  row.style.overflow = "hidden";
+                  var webImg = document.createElement("img");
+                  webImg.src = "assets/web.svg";
+                  webImg.alt = "";
+                  webImg.setAttribute("aria-hidden", "true");
+                  webImg.className = "sw-menu-web-decor";
+                  row.appendChild(webImg);
+                }
 
                 kinds.forEach(function (kind) {
                   appendRow(list, {

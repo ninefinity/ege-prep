@@ -9713,3 +9713,15 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   color: var(--ege-muted);
 }
 
+
+/* Spider Web menu decoration */
+.sw-menu-web-decor {
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 160%;
+  opacity: 0.13;
+  pointer-events: none;
+  user-select: none;
+}
