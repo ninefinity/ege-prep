@@ -387,6 +387,10 @@ function renderWebBackground(taskId) {
     spokeAngles.push(base + jitter);
   }
 
+  var gradRef = "url(#sw-thread-gradient" + refs.svgIdSuffix + ")";
+  var filterRef = "url(#sw-thread-glow" + refs.svgIdSuffix + ")";
+  var dewRef = "url(#sw-dew-gradient" + refs.svgIdSuffix + ")";
+
   spokeAngles.forEach(function (angle) {
     var x2 = LAYOUT_CX + Math.cos(angle) * SPOKE_REACH;
     var y2 = LAYOUT_CY + Math.sin(angle) * SPOKE_REACH;
@@ -395,6 +399,8 @@ function renderWebBackground(taskId) {
     line.setAttribute("y1", String(LAYOUT_CY));
     line.setAttribute("x2", String(x2));
     line.setAttribute("y2", String(y2));
+    line.setAttribute("stroke", gradRef);
+    line.setAttribute("filter", filterRef);
     refs.webSpokes.appendChild(line);
   });
 
@@ -411,6 +417,7 @@ function renderWebBackground(taskId) {
     }
     var polyline = document.createElementNS(SVG_NS, "polyline");
     polyline.setAttribute("points", points.join(" "));
+    polyline.setAttribute("filter", filterRef);
     if (ringIdx >= spiralRadii.length - 1) {
       polyline.setAttribute("class", "sw-spiral--outer");
     }
@@ -438,6 +445,7 @@ function renderWebBackground(taskId) {
     drop.setAttribute("cx", cx.toFixed(2));
     drop.setAttribute("cy", cy.toFixed(2));
     drop.setAttribute("r", r.toFixed(2));
+    drop.setAttribute("fill", dewRef);
     refs.webDew.appendChild(drop);
   }
 }
@@ -1184,6 +1192,7 @@ function buildDom(task) {
   webCard.className = "sw-card";
   webCard.setAttribute("aria-label", "Spider web of found derivatives");
 
+  var svgIdSuffix = "--" + task.id;
   var bgSvg = document.createElementNS(SVG_NS, "svg");
   bgSvg.setAttribute("class", "sw-lines");
   bgSvg.setAttribute("viewBox", "0 0 100 100");
@@ -1191,19 +1200,20 @@ function buildDom(task) {
   bgSvg.setAttribute("aria-hidden", "true");
   bgSvg.innerHTML =
     '<defs>' +
-    '<radialGradient id="sw-thread-gradient" cx="50%" cy="50%" r="60%">' +
+    '<radialGradient id="sw-thread-gradient' + svgIdSuffix + '" cx="50%" cy="50%" r="60%">' +
     '<stop offset="0%" stop-color="rgba(1,8,100,0.55)" />' +
     '<stop offset="100%" stop-color="rgba(1,8,100,0.15)" />' +
     '</radialGradient>' +
-    '<radialGradient id="sw-dew-gradient" cx="35%" cy="32%" r="65%">' +
+    '<radialGradient id="sw-dew-gradient' + svgIdSuffix + '" cx="35%" cy="32%" r="65%">' +
     '<stop offset="0%" stop-color="rgba(255,255,255,0.95)" />' +
     '<stop offset="55%" stop-color="rgba(214,224,255,0.55)" />' +
     '<stop offset="100%" stop-color="rgba(1,8,158,0.18)" />' +
     '</radialGradient>' +
-    '<filter id="sw-thread-glow" x="-20%" y="-20%" width="140%" height="140%">' +
+    '<filter id="sw-thread-glow' + svgIdSuffix + '" x="-20%" y="-20%" width="140%" height="140%">' +
     '<feGaussianBlur stdDeviation="0.18" />' +
     '</filter>' +
     '</defs>';
+  refs.svgIdSuffix = svgIdSuffix;
   var webSpokes = document.createElementNS(SVG_NS, "g");
   webSpokes.setAttribute("class", "sw-spokes");
   var webSpirals = document.createElementNS(SVG_NS, "g");
@@ -1382,10 +1392,10 @@ var SPIDER_WEB_CSS =
   ".ege-task--spider-web .sw-patience.is-empty{background:rgba(192,57,43,0.18);}" +
   ".ege-task--spider-web .sw-card{position:relative;height:100%;overflow:hidden;border:2px solid rgba(1,8,158,0.14);border-radius:18px;background:radial-gradient(circle,rgba(1,8,158,0.06) 1px,transparent 1px),linear-gradient(135deg,rgba(238,240,250,0.95),rgba(238,240,250,0.45));background-size:28px 28px,auto;}" +
     ".ege-task--spider-web .sw-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1;pointer-events:none;}" +
-  ".ege-task--spider-web .sw-spokes line{fill:none;stroke:url(#sw-thread-gradient);stroke-width:0.32;stroke-linecap:round;filter:url(#sw-thread-glow);opacity:0.78;}" +
-  ".ege-task--spider-web .sw-spirals polyline{fill:none;stroke:rgba(1,8,100,0.32);stroke-width:0.22;stroke-linecap:round;stroke-linejoin:round;filter:url(#sw-thread-glow);}" +
+  ".ege-task--spider-web .sw-spokes line{fill:none;stroke-width:0.32;stroke-linecap:round;opacity:0.78;}" +
+  ".ege-task--spider-web .sw-spirals polyline{fill:none;stroke:rgba(1,8,100,0.32);stroke-width:0.22;stroke-linecap:round;stroke-linejoin:round;}" +
   ".ege-task--spider-web .sw-spirals polyline.sw-spiral--outer{stroke:rgba(1,8,100,0.18);stroke-width:0.18;}" +
-  ".ege-task--spider-web .sw-dew circle{fill:url(#sw-dew-gradient);filter:drop-shadow(0 0.18px 0.4px rgba(1,8,100,0.35));}" +
+  ".ege-task--spider-web .sw-dew circle{filter:drop-shadow(0 0.18px 0.4px rgba(1,8,100,0.35));}" +
   ".ege-task--spider-web .sw-branch-lines line{fill:none;stroke:rgba(1,8,100,0.5);stroke-width:2.4px;stroke-linecap:round;vector-effect:non-scaling-stroke;}" +
   ".ege-task--spider-web .sw-node{position:absolute;z-index:2;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:60px;min-height:32px;padding:5px 10px;border-radius:999px;font-weight:800;text-align:center;transform:translate(-50%,-50%);}" +
   ".ege-task--spider-web .sw-node-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:132px;position:relative;z-index:5;}" +
