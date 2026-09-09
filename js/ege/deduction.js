@@ -87,6 +87,12 @@ E.syncDeductionBoard = function syncDeductionBoard(taskId) {
     }
   });
 
+  // Every chip placed leaves an empty dashed box with nothing in it --
+  // collapse it rather than show dead space. It reappears the moment a
+  // chip is picked back up (tapping a filled slot, or dragging one out).
+  var poolBox = pool ? pool.closest(".ege-deduction__pool") : null;
+  if (poolBox) poolBox.hidden = !pool.children.length;
+
   E.syncDeductionProgress(taskId);
 };
 
