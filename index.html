@@ -135,7 +135,14 @@
   <script>
     (function () {
       var catalog = document.getElementById("egeCatalog");
-      var DEMO_2027_HREF = "2027/topic.html?variant=2027-demo";
+      // The exam runner (2027/topic.html) hard-gates on isPromoUnlocked() and
+      // bounce-redirects with no context if it isn't -- linking straight to
+      // it skipped the promo page entirely, so "Start" from the catalog
+      // jumped right to a code prompt with no explanation of what it's for.
+      // The promo page has the same gate, just as an inline overlay with
+      // the actual ЕГЭ materials/countdown/subscribe CTA around it, and its
+      // own "Start mock exam" button is what proceeds into the exam.
+      var DEMO_2027_HREF = "2027/index.html";
       var DEFAULT_EGE = new Date(2027, 5, 16, 10, 0, 0).getTime();
       var STORAGE_KEY = "ege-prep:countdown-date";
       var EGE_AT = DEFAULT_EGE;
