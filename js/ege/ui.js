@@ -294,6 +294,17 @@ E.buildTaskIntro = function buildTaskIntro(task) {
     // rather than sit in the margin the way an exam task's do.
     if (E.SKILLS_TASK_TYPES.indexOf(task.type) !== -1) {
       intro.classList.add("ege-task-intro--skills");
+      // The sidebar carries its own "← Sections" link, but on a narrow
+      // screen the sidebar is a hidden drawer behind the bottom task-flow
+      // bar -- a drill reached by a deep link (search, a shared link) can
+      // land a student there with no obvious way back out. One always-
+      // visible copy in the task itself, regardless of viewport or nav
+      // state.
+      var backLink = document.createElement("a");
+      backLink.className = "ege-back ege-task-intro__back";
+      backLink.href = "index.html";
+      backLink.textContent = "← Sections";
+      intro.appendChild(backLink);
     }
 
     var lead = document.createElement("div");

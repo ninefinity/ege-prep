@@ -1526,6 +1526,12 @@ a {
 
 /* Drills are new formats, so their instructions lead rather than sit in the
    margin the way an exam task's do. */
+.ege-task-intro__back {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: var(--ege-text-sm);
+}
+
 .ege-task-intro--skills .ege-instructions {
   margin-bottom: 10px;
   padding-left: 0.7rem;
