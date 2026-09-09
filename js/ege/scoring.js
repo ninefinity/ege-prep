@@ -41,6 +41,8 @@ E.checkTask = function checkTask(taskId) {
       }
     }
 
+    if (task.type === "spider-web") return;
+
     var correct = 0;
     var max = E.taskMaxScore(task);
     var prefix = E.taskPrefix(taskId);
@@ -687,6 +689,10 @@ E.revealTask = function revealTask(taskId) {
       E.syncWordformCheckEnabled(taskId);
       E.showToast("Answers shown.");
       return;
+    } else if (task.type === "spider-web") {
+      if (typeof E.revealSpiderWeb === "function") E.revealSpiderWeb(taskId);
+      E.showToast("Answers shown.");
+      return;
     } else if (task.type === "mc") {
       task.questions.forEach(function (question, index) {
         var name = prefix + "_q_" + index;
@@ -926,6 +932,10 @@ E.resetTask = function resetTask(taskId, options) {
         if (tag) tag.hidden = true;
       });
       E.syncJudgeCheckEnabled(taskId);
+    }
+
+    if (task.type === "spider-web") {
+      if (typeof E.resetSpiderWeb === "function") E.resetSpiderWeb(taskId);
     }
 
     if (task.type === "wordform") {

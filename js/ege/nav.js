@@ -21,6 +21,7 @@ E.renderTaskPanel = function renderTaskPanel(task) {
     if (task.type === "deduction") return E.renderDeduction(task, E.state.topicId);
     if (task.type === "ordering") return E.renderOrdering(task, E.state.topicId);
     if (task.type === "pronounce") return E.renderPronounce(task, E.state.topicId);
+    if (task.type === "spider-web") return E.renderSpiderWeb(task, E.state.topicId);
     if (task.type === "listening") return E.renderListening(task, E.state.topicId);
     if (task.type === "speaking") return E.renderSpeaking(task);
     if (task.type === "speaking-questions") return E.renderSpeakingQuestions(task);

@@ -12,6 +12,7 @@ import "./ege/pairing.js";
 import "./ege/deduction.js";
 import "./ege/ordering.js";
 import "./ege/pronounce.js";
+import "./ege/spider-web.js";
 import "./ege/speaking.js";
 import "./ege/writing.js";
 import "./ege/scoring.js";

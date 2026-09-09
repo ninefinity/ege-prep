@@ -140,6 +140,7 @@ E.taskMaxScore = function taskMaxScore(task) {
     if (task.type === "deduction") return (task.left || []).length;
     if (task.type === "ordering") return E.orderingSlots(task).length;
     if (task.type === "pronounce") return (task.words || []).length;
+    if (task.type === "spider-web") return (task.derivatives || []).length;
     if (task.type === "listening") {
       var gapCount = E.getActiveListeningGaps(task).length;
       var questionCount = task.questions ? task.questions.length : 0;

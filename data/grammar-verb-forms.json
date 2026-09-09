@@ -1,0 +1,1423 @@
+{
+  "id": "grammar-verb-forms",
+  "title": "Verb Forms — Spider Web",
+  "subtitle": "Practise verb conjugation and grammatical forms",
+  "tasks": [
+    {
+      "id": "sw-go-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Go — Verb Forms",
+      "title": "Go — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "go",
+      "derivatives": [
+        {
+          "word": "goes",
+          "from": "go",
+          "pos": "verb",
+          "sentence": "She goes to school every morning."
+        },
+        {
+          "word": "went",
+          "from": "go",
+          "pos": "verb",
+          "sentence": "They went to the cinema last night."
+        },
+        {
+          "word": "gone",
+          "from": "go",
+          "pos": "past participle",
+          "sentence": "He has already gone home."
+        },
+        {
+          "word": "going",
+          "from": "go",
+          "pos": "gerund",
+          "sentence": "We are going to the park right now."
+        },
+        {
+          "word": "had gone",
+          "from": "went",
+          "pos": "verb",
+          "sentence": "By the time we arrived, she had gone to bed."
+        },
+        {
+          "word": "will go",
+          "from": "go",
+          "pos": "verb",
+          "sentence": "I will go there tomorrow if the weather is fine."
+        },
+        {
+          "word": "would go",
+          "from": "will go",
+          "pos": "verb",
+          "sentence": "She said she would go to the party."
+        },
+        {
+          "word": "was going",
+          "from": "going",
+          "pos": "verb",
+          "sentence": "He was going to call you when his phone died."
+        }
+      ]
+    },
+    {
+      "id": "sw-write-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Write — Verb Forms",
+      "title": "Write — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "write",
+      "derivatives": [
+        {
+          "word": "writes",
+          "from": "write",
+          "pos": "verb",
+          "sentence": "She writes in her diary every evening."
+        },
+        {
+          "word": "wrote",
+          "from": "write",
+          "pos": "verb",
+          "sentence": "He wrote a long letter to his friend last week."
+        },
+        {
+          "word": "written",
+          "from": "write",
+          "pos": "past participle",
+          "sentence": "This novel was written by a famous author."
+        },
+        {
+          "word": "writing",
+          "from": "write",
+          "pos": "gerund",
+          "sentence": "She enjoys writing short stories in her free time."
+        },
+        {
+          "word": "had written",
+          "from": "wrote",
+          "pos": "verb",
+          "sentence": "By the time the teacher came, he had written three paragraphs."
+        },
+        {
+          "word": "will write",
+          "from": "write",
+          "pos": "verb",
+          "sentence": "I will write to you as soon as I arrive."
+        },
+        {
+          "word": "is written",
+          "from": "written",
+          "pos": "verb",
+          "sentence": "The test is written in English."
+        }
+      ]
+    },
+    {
+      "id": "sw-take-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Take — Verb Forms",
+      "title": "Take — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "take",
+      "derivatives": [
+        {
+          "word": "takes",
+          "from": "take",
+          "pos": "verb",
+          "sentence": "It takes me thirty minutes to get to school."
+        },
+        {
+          "word": "took",
+          "from": "take",
+          "pos": "verb",
+          "sentence": "She took her umbrella because it was raining."
+        },
+        {
+          "word": "taken",
+          "from": "take",
+          "pos": "past participle",
+          "sentence": "All the seats have been taken already."
+        },
+        {
+          "word": "taking",
+          "from": "take",
+          "pos": "gerund",
+          "sentence": "He is taking an exam at the moment."
+        },
+        {
+          "word": "had taken",
+          "from": "took",
+          "pos": "verb",
+          "sentence": "She realised she had taken the wrong bus."
+        },
+        {
+          "word": "was taken",
+          "from": "taken",
+          "pos": "verb",
+          "sentence": "The photo was taken in Paris last summer."
+        },
+        {
+          "word": "will take",
+          "from": "take",
+          "pos": "verb",
+          "sentence": "The journey will take about two hours."
+        }
+      ]
+    },
+    {
+      "id": "sw-make-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Make — Verb Forms",
+      "title": "Make — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "make",
+      "derivatives": [
+        {
+          "word": "makes",
+          "from": "make",
+          "pos": "verb",
+          "sentence": "This song makes me happy every time I hear it."
+        },
+        {
+          "word": "made",
+          "from": "make",
+          "pos": "verb",
+          "sentence": "She made a beautiful cake for the party."
+        },
+        {
+          "word": "making",
+          "from": "make",
+          "pos": "gerund",
+          "sentence": "Stop making so much noise, please!"
+        },
+        {
+          "word": "has made",
+          "from": "make",
+          "pos": "verb",
+          "sentence": "Technology has made our lives much easier."
+        },
+        {
+          "word": "was made",
+          "from": "made",
+          "pos": "verb",
+          "sentence": "This film was made in 2019."
+        },
+        {
+          "word": "had made",
+          "from": "made",
+          "pos": "verb",
+          "sentence": "He had made his decision before anyone could stop him."
+        },
+        {
+          "word": "would make",
+          "from": "make",
+          "pos": "verb",
+          "sentence": "I knew that practice would make me better."
+        }
+      ]
+    },
+    {
+      "id": "sw-see-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "See — Verb Forms",
+      "title": "See — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "see",
+      "derivatives": [
+        {
+          "word": "sees",
+          "from": "see",
+          "pos": "verb",
+          "sentence": "She sees her grandparents every weekend."
+        },
+        {
+          "word": "saw",
+          "from": "see",
+          "pos": "verb",
+          "sentence": "I saw a beautiful rainbow yesterday."
+        },
+        {
+          "word": "seen",
+          "from": "see",
+          "pos": "past participle",
+          "sentence": "Have you ever seen the Northern Lights?"
+        },
+        {
+          "word": "seeing",
+          "from": "see",
+          "pos": "gerund",
+          "sentence": "I am looking forward to seeing you again."
+        },
+        {
+          "word": "had seen",
+          "from": "saw",
+          "pos": "verb",
+          "sentence": "She had never seen such a large city before her trip to Moscow."
+        },
+        {
+          "word": "was seen",
+          "from": "seen",
+          "pos": "verb",
+          "sentence": "The suspect was seen leaving the building at midnight."
+        }
+      ]
+    },
+    {
+      "id": "sw-give-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Give — Verb Forms",
+      "title": "Give — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "give",
+      "derivatives": [
+        {
+          "word": "gives",
+          "from": "give",
+          "pos": "verb",
+          "sentence": "The teacher gives us homework every day."
+        },
+        {
+          "word": "gave",
+          "from": "give",
+          "pos": "verb",
+          "sentence": "He gave her a present for her birthday."
+        },
+        {
+          "word": "given",
+          "from": "give",
+          "pos": "past participle",
+          "sentence": "The students were given extra time to finish the test."
+        },
+        {
+          "word": "giving",
+          "from": "give",
+          "pos": "gerund",
+          "sentence": "She is thinking about giving up sugar."
+        },
+        {
+          "word": "has given",
+          "from": "give",
+          "pos": "verb",
+          "sentence": "The charity has given food to thousands of families."
+        },
+        {
+          "word": "had given",
+          "from": "gave",
+          "pos": "verb",
+          "sentence": "He realised he had given the wrong answer."
+        },
+        {
+          "word": "will be given",
+          "from": "given",
+          "pos": "verb",
+          "sentence": "The prize will be given to the winner next Monday."
+        }
+      ]
+    },
+    {
+      "id": "sw-know-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Know — Verb Forms",
+      "title": "Know — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "know",
+      "derivatives": [
+        {
+          "word": "knows",
+          "from": "know",
+          "pos": "verb",
+          "sentence": "Everyone knows that the Earth goes around the Sun."
+        },
+        {
+          "word": "knew",
+          "from": "know",
+          "pos": "verb",
+          "sentence": "She knew the answer but was too shy to speak."
+        },
+        {
+          "word": "known",
+          "from": "know",
+          "pos": "past participle",
+          "sentence": "Moscow is known for its beautiful metro stations."
+        },
+        {
+          "word": "knowing",
+          "from": "know",
+          "pos": "gerund",
+          "sentence": "Without knowing the rules, you cannot play this game."
+        },
+        {
+          "word": "had known",
+          "from": "knew",
+          "pos": "verb",
+          "sentence": "If I had known about the exam, I would have prepared."
+        },
+        {
+          "word": "is known",
+          "from": "known",
+          "pos": "verb",
+          "sentence": "This scientist is known all over the world."
+        }
+      ]
+    },
+    {
+      "id": "sw-be-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Be — Verb Forms",
+      "title": "Be — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "be",
+      "derivatives": [
+        {
+          "word": "am",
+          "from": "be",
+          "pos": "verb",
+          "sentence": "I am a student at this university."
+        },
+        {
+          "word": "is",
+          "from": "be",
+          "pos": "verb",
+          "sentence": "She is the best player on the team."
+        },
+        {
+          "word": "are",
+          "from": "be",
+          "pos": "verb",
+          "sentence": "They are interested in Russian history."
+        },
+        {
+          "word": "was",
+          "from": "be",
+          "pos": "verb",
+          "sentence": "He was born in a small village near Yaroslavl."
+        },
+        {
+          "word": "were",
+          "from": "was",
+          "pos": "verb",
+          "sentence": "The children were playing in the garden all afternoon."
+        },
+        {
+          "word": "been",
+          "from": "be",
+          "pos": "past participle",
+          "sentence": "She has been to London three times."
+        },
+        {
+          "word": "being",
+          "from": "be",
+          "pos": "gerund",
+          "sentence": "The house is being repaired at the moment."
+        },
+        {
+          "word": "will be",
+          "from": "be",
+          "pos": "verb",
+          "sentence": "The results will be published next week."
+        },
+        {
+          "word": "would be",
+          "from": "will be",
+          "pos": "verb",
+          "sentence": "She said it would be ready by Friday."
+        },
+        {
+          "word": "had been",
+          "from": "been",
+          "pos": "verb",
+          "sentence": "They had been friends for years before they started working together."
+        }
+      ]
+    },
+    {
+      "id": "sw-have-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Have — Verb Forms",
+      "title": "Have — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "have",
+      "derivatives": [
+        {
+          "word": "has",
+          "from": "have",
+          "pos": "verb",
+          "sentence": "She has a lot of experience in teaching."
+        },
+        {
+          "word": "had",
+          "from": "have",
+          "pos": "verb",
+          "sentence": "We had a wonderful time at the seaside last summer."
+        },
+        {
+          "word": "having",
+          "from": "have",
+          "pos": "gerund",
+          "sentence": "They are having dinner at the moment."
+        },
+        {
+          "word": "has had",
+          "from": "has",
+          "pos": "verb",
+          "sentence": "He has had this car for five years."
+        },
+        {
+          "word": "had had",
+          "from": "had",
+          "pos": "verb",
+          "sentence": "She realised she had had this dream before."
+        },
+        {
+          "word": "will have",
+          "from": "have",
+          "pos": "verb",
+          "sentence": "You will have enough time to finish the project."
+        },
+        {
+          "word": "would have",
+          "from": "will have",
+          "pos": "verb",
+          "sentence": "I would have helped you if you had asked."
+        }
+      ]
+    },
+    {
+      "id": "sw-do-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Do — Verb Forms",
+      "title": "Do — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "do",
+      "derivatives": [
+        {
+          "word": "does",
+          "from": "do",
+          "pos": "verb",
+          "sentence": "She does her homework right after school."
+        },
+        {
+          "word": "did",
+          "from": "do",
+          "pos": "verb",
+          "sentence": "He did not understand the question."
+        },
+        {
+          "word": "done",
+          "from": "do",
+          "pos": "past participle",
+          "sentence": "All the work has been done already."
+        },
+        {
+          "word": "doing",
+          "from": "do",
+          "pos": "gerund",
+          "sentence": "What are you doing this weekend?"
+        },
+        {
+          "word": "had done",
+          "from": "did",
+          "pos": "verb",
+          "sentence": "She checked what he had done while she was away."
+        }
+      ]
+    },
+    {
+      "id": "sw-tell-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Tell — Verb Forms",
+      "title": "Tell — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "tell",
+      "derivatives": [
+        {
+          "word": "tells",
+          "from": "tell",
+          "pos": "verb",
+          "sentence": "My grandmother always tells me interesting stories."
+        },
+        {
+          "word": "told",
+          "from": "tell",
+          "pos": "verb",
+          "sentence": "He told us that the museum was closed on Mondays."
+        },
+        {
+          "word": "telling",
+          "from": "tell",
+          "pos": "gerund",
+          "sentence": "She couldn't stop telling everyone about her trip."
+        },
+        {
+          "word": "had told",
+          "from": "told",
+          "pos": "verb",
+          "sentence": "If only he had told me the truth from the beginning."
+        },
+        {
+          "word": "was told",
+          "from": "told",
+          "pos": "verb",
+          "sentence": "The children were told to stay inside during the storm."
+        },
+        {
+          "word": "has been told",
+          "from": "told",
+          "pos": "verb",
+          "sentence": "This story has been told many times."
+        }
+      ]
+    },
+    {
+      "id": "sw-find-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Find — Verb Forms",
+      "title": "Find — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "find",
+      "derivatives": [
+        {
+          "word": "finds",
+          "from": "find",
+          "pos": "verb",
+          "sentence": "She always finds time to read before bed."
+        },
+        {
+          "word": "found",
+          "from": "find",
+          "pos": "verb",
+          "sentence": "Archaeologists found ancient coins near the river."
+        },
+        {
+          "word": "finding",
+          "from": "find",
+          "pos": "gerund",
+          "sentence": "Finding a good book is not always easy."
+        },
+        {
+          "word": "has found",
+          "from": "find",
+          "pos": "verb",
+          "sentence": "Science has found new ways to treat this disease."
+        },
+        {
+          "word": "had found",
+          "from": "found",
+          "pos": "verb",
+          "sentence": "By evening, they had found the lost kitten."
+        },
+        {
+          "word": "was found",
+          "from": "found",
+          "pos": "verb",
+          "sentence": "The treasure was found by a local farmer."
+        }
+      ]
+    },
+    {
+      "id": "sw-think-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Think — Verb Forms",
+      "title": "Think — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "think",
+      "derivatives": [
+        {
+          "word": "thinks",
+          "from": "think",
+          "pos": "verb",
+          "sentence": "He thinks that learning languages is important."
+        },
+        {
+          "word": "thought",
+          "from": "think",
+          "pos": "verb",
+          "sentence": "I thought the film was quite boring."
+        },
+        {
+          "word": "thinking",
+          "from": "think",
+          "pos": "gerund",
+          "sentence": "She is thinking about studying abroad next year."
+        },
+        {
+          "word": "had thought",
+          "from": "thought",
+          "pos": "verb",
+          "sentence": "He had thought it would be easier, but the exam was hard."
+        },
+        {
+          "word": "is thought",
+          "from": "thought",
+          "pos": "verb",
+          "sentence": "This castle is thought to be over 500 years old."
+        }
+      ]
+    },
+    {
+      "id": "sw-speak-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Speak — Verb Forms",
+      "title": "Speak — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "speak",
+      "derivatives": [
+        {
+          "word": "speaks",
+          "from": "speak",
+          "pos": "verb",
+          "sentence": "She speaks three languages fluently."
+        },
+        {
+          "word": "spoke",
+          "from": "speak",
+          "pos": "verb",
+          "sentence": "The headmaster spoke to the parents about the new rules."
+        },
+        {
+          "word": "spoken",
+          "from": "speak",
+          "pos": "past participle",
+          "sentence": "English is spoken in many countries around the world."
+        },
+        {
+          "word": "speaking",
+          "from": "speak",
+          "pos": "gerund",
+          "sentence": "Generally speaking, the weather in London is quite mild."
+        },
+        {
+          "word": "had spoken",
+          "from": "spoke",
+          "pos": "verb",
+          "sentence": "She had never spoken in front of such a large audience before."
+        },
+        {
+          "word": "is spoken",
+          "from": "spoken",
+          "pos": "verb",
+          "sentence": "Russian is spoken by about 258 million people."
+        }
+      ]
+    },
+    {
+      "id": "sw-eat-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Eat — Verb Forms",
+      "title": "Eat — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "eat",
+      "derivatives": [
+        {
+          "word": "eats",
+          "from": "eat",
+          "pos": "verb",
+          "sentence": "He eats fruit for breakfast every day."
+        },
+        {
+          "word": "ate",
+          "from": "eat",
+          "pos": "verb",
+          "sentence": "We ate at a lovely restaurant near the river."
+        },
+        {
+          "word": "eaten",
+          "from": "eat",
+          "pos": "past participle",
+          "sentence": "Have you eaten anything today?"
+        },
+        {
+          "word": "eating",
+          "from": "eat",
+          "pos": "gerund",
+          "sentence": "The children were eating ice cream in the park."
+        },
+        {
+          "word": "had eaten",
+          "from": "ate",
+          "pos": "verb",
+          "sentence": "After they had eaten lunch, they went for a walk."
+        }
+      ]
+    },
+    {
+      "id": "sw-build-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Build — Verb Forms",
+      "title": "Build — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "build",
+      "derivatives": [
+        {
+          "word": "builds",
+          "from": "build",
+          "pos": "verb",
+          "sentence": "This company builds modern eco-friendly houses."
+        },
+        {
+          "word": "built",
+          "from": "build",
+          "pos": "verb",
+          "sentence": "The church was built in the 15th century."
+        },
+        {
+          "word": "building",
+          "from": "build",
+          "pos": "gerund",
+          "sentence": "They are building a new bridge across the river."
+        },
+        {
+          "word": "has built",
+          "from": "build",
+          "pos": "verb",
+          "sentence": "The city has built several new schools this year."
+        },
+        {
+          "word": "had built",
+          "from": "built",
+          "pos": "verb",
+          "sentence": "By 1900, they had built the first metro line."
+        },
+        {
+          "word": "was built",
+          "from": "built",
+          "pos": "verb",
+          "sentence": "This palace was built during the reign of Peter the Great."
+        }
+      ]
+    },
+    {
+      "id": "sw-become-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Become — Verb Forms",
+      "title": "Become — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "become",
+      "derivatives": [
+        {
+          "word": "becomes",
+          "from": "become",
+          "pos": "verb",
+          "sentence": "The weather becomes colder in November."
+        },
+        {
+          "word": "became",
+          "from": "become",
+          "pos": "verb",
+          "sentence": "She became interested in science at the age of ten."
+        },
+        {
+          "word": "becoming",
+          "from": "become",
+          "pos": "gerund",
+          "sentence": "Online education is becoming more and more popular."
+        },
+        {
+          "word": "has become",
+          "from": "become",
+          "pos": "verb",
+          "sentence": "Recycling has become a normal part of everyday life."
+        },
+        {
+          "word": "had become",
+          "from": "became",
+          "pos": "verb",
+          "sentence": "By the end of the year, they had become close friends."
+        }
+      ]
+    },
+    {
+      "id": "sw-keep-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Keep — Verb Forms",
+      "title": "Keep — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "keep",
+      "derivatives": [
+        {
+          "word": "keeps",
+          "from": "keep",
+          "pos": "verb",
+          "sentence": "She keeps a diary and writes in it every evening."
+        },
+        {
+          "word": "kept",
+          "from": "keep",
+          "pos": "verb",
+          "sentence": "He kept his promise and arrived on time."
+        },
+        {
+          "word": "keeping",
+          "from": "keep",
+          "pos": "gerund",
+          "sentence": "Keeping fit is important for your health."
+        },
+        {
+          "word": "has kept",
+          "from": "keep",
+          "pos": "verb",
+          "sentence": "The museum has kept this painting for over a hundred years."
+        },
+        {
+          "word": "had kept",
+          "from": "kept",
+          "pos": "verb",
+          "sentence": "She had kept the secret for years before finally telling someone."
+        },
+        {
+          "word": "is kept",
+          "from": "kept",
+          "pos": "verb",
+          "sentence": "This information is kept confidential."
+        }
+      ]
+    },
+    {
+      "id": "sw-leave-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Leave — Verb Forms",
+      "title": "Leave — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "leave",
+      "derivatives": [
+        {
+          "word": "leaves",
+          "from": "leave",
+          "pos": "verb",
+          "sentence": "The train leaves at half past nine."
+        },
+        {
+          "word": "left",
+          "from": "leave",
+          "pos": "verb",
+          "sentence": "She left her keys on the kitchen table."
+        },
+        {
+          "word": "leaving",
+          "from": "leave",
+          "pos": "gerund",
+          "sentence": "Are you leaving already? The party has just started!"
+        },
+        {
+          "word": "has left",
+          "from": "leave",
+          "pos": "verb",
+          "sentence": "He has left the office, so you can call him on his mobile."
+        },
+        {
+          "word": "had left",
+          "from": "left",
+          "pos": "verb",
+          "sentence": "When I arrived, they had already left."
+        },
+        {
+          "word": "was left",
+          "from": "left",
+          "pos": "verb",
+          "sentence": "Only one piece of cake was left on the plate."
+        }
+      ]
+    },
+    {
+      "id": "sw-bring-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Bring — Verb Forms",
+      "title": "Bring — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "bring",
+      "derivatives": [
+        {
+          "word": "brings",
+          "from": "bring",
+          "pos": "verb",
+          "sentence": "Spring always brings warmer weather."
+        },
+        {
+          "word": "brought",
+          "from": "bring",
+          "pos": "verb",
+          "sentence": "She brought flowers to the teacher on the first day of school."
+        },
+        {
+          "word": "bringing",
+          "from": "bring",
+          "pos": "gerund",
+          "sentence": "Thank you for bringing this to my attention."
+        },
+        {
+          "word": "has brought",
+          "from": "bring",
+          "pos": "verb",
+          "sentence": "The internet has brought people from different countries closer together."
+        },
+        {
+          "word": "was brought",
+          "from": "brought",
+          "pos": "verb",
+          "sentence": "Tea was brought to Europe from China in the 17th century."
+        }
+      ]
+    },
+    {
+      "id": "sw-can-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Can — Modal Verb",
+      "title": "Can — Modal Verb",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "can",
+      "derivatives": [
+        {
+          "word": "could",
+          "from": "can",
+          "pos": "verb",
+          "sentence": "She could read when she was four years old."
+        },
+        {
+          "word": "cannot",
+          "from": "can",
+          "pos": "verb",
+          "sentence": "You cannot park here — it is not allowed."
+        },
+        {
+          "word": "could not",
+          "from": "could",
+          "pos": "verb",
+          "sentence": "He could not find his passport anywhere."
+        },
+        {
+          "word": "be able to",
+          "from": "can",
+          "pos": "verb",
+          "sentence": "Will you be able to come to the meeting tomorrow?"
+        },
+        {
+          "word": "was able to",
+          "from": "be able to",
+          "pos": "verb",
+          "sentence": "After months of practice, she was able to play the piece perfectly."
+        },
+        {
+          "word": "has been able to",
+          "from": "be able to",
+          "pos": "verb",
+          "sentence": "He has been able to solve every problem so far."
+        }
+      ]
+    },
+    {
+      "id": "sw-must-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Must / Have to",
+      "title": "Must / Have to",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "must",
+      "derivatives": [
+        {
+          "word": "must not",
+          "from": "must",
+          "pos": "verb",
+          "sentence": "You must not use your phone during the exam."
+        },
+        {
+          "word": "have to",
+          "from": "must",
+          "pos": "verb",
+          "sentence": "Students have to wear a uniform at this school."
+        },
+        {
+          "word": "has to",
+          "from": "have to",
+          "pos": "verb",
+          "sentence": "She has to get up early because school starts at eight."
+        },
+        {
+          "word": "had to",
+          "from": "have to",
+          "pos": "verb",
+          "sentence": "We had to wait for an hour because the bus was late."
+        },
+        {
+          "word": "will have to",
+          "from": "have to",
+          "pos": "verb",
+          "sentence": "You will have to study harder if you want to pass."
+        },
+        {
+          "word": "don't have to",
+          "from": "have to",
+          "pos": "verb",
+          "sentence": "You don't have to come if you are busy."
+        }
+      ]
+    },
+    {
+      "id": "sw-should-would-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Should / Would",
+      "title": "Should / Would",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "should",
+      "derivatives": [
+        {
+          "word": "should not",
+          "from": "should",
+          "pos": "verb",
+          "sentence": "You should not stay up too late on school nights."
+        },
+        {
+          "word": "should have",
+          "from": "should",
+          "pos": "verb",
+          "sentence": "I should have listened to your advice."
+        },
+        {
+          "word": "would",
+          "from": "should",
+          "pos": "verb",
+          "sentence": "I would like a cup of tea, please."
+        },
+        {
+          "word": "would not",
+          "from": "would",
+          "pos": "verb",
+          "sentence": "She would not agree to change the plan."
+        },
+        {
+          "word": "would have",
+          "from": "would",
+          "pos": "verb",
+          "sentence": "He would have come, but he was ill."
+        }
+      ]
+    },
+    {
+      "id": "sw-create-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Create — Verb Forms",
+      "title": "Create — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "create",
+      "derivatives": [
+        {
+          "word": "creates",
+          "from": "create",
+          "pos": "verb",
+          "sentence": "This artist creates amazing sculptures from recycled materials."
+        },
+        {
+          "word": "created",
+          "from": "create",
+          "pos": "verb",
+          "sentence": "The first national park was created in 1872."
+        },
+        {
+          "word": "creating",
+          "from": "create",
+          "pos": "gerund",
+          "sentence": "He enjoys creating new recipes in his kitchen."
+        },
+        {
+          "word": "has created",
+          "from": "create",
+          "pos": "verb",
+          "sentence": "The company has created thousands of jobs in the region."
+        },
+        {
+          "word": "was created",
+          "from": "created",
+          "pos": "verb",
+          "sentence": "The World Wide Web was created by Tim Berners-Lee."
+        }
+      ]
+    },
+    {
+      "id": "sw-play-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Play — Verb Forms",
+      "title": "Play — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "play",
+      "derivatives": [
+        {
+          "word": "plays",
+          "from": "play",
+          "pos": "verb",
+          "sentence": "My brother plays football every Saturday."
+        },
+        {
+          "word": "played",
+          "from": "play",
+          "pos": "verb",
+          "sentence": "They played chess for two hours yesterday."
+        },
+        {
+          "word": "playing",
+          "from": "play",
+          "pos": "gerund",
+          "sentence": "The children are playing in the garden."
+        },
+        {
+          "word": "has played",
+          "from": "play",
+          "pos": "verb",
+          "sentence": "She has played the piano since she was six."
+        },
+        {
+          "word": "was playing",
+          "from": "playing",
+          "pos": "verb",
+          "sentence": "He was playing the guitar when the phone rang."
+        }
+      ]
+    },
+    {
+      "id": "sw-live-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Live — Verb Forms",
+      "title": "Live — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "live",
+      "derivatives": [
+        {
+          "word": "lives",
+          "from": "live",
+          "pos": "verb",
+          "sentence": "She lives in a small town near the sea."
+        },
+        {
+          "word": "lived",
+          "from": "live",
+          "pos": "verb",
+          "sentence": "Dinosaurs lived millions of years ago."
+        },
+        {
+          "word": "living",
+          "from": "live",
+          "pos": "gerund",
+          "sentence": "Living in a big city can be stressful."
+        },
+        {
+          "word": "has lived",
+          "from": "live",
+          "pos": "verb",
+          "sentence": "He has lived in this house all his life."
+        },
+        {
+          "word": "had lived",
+          "from": "lived",
+          "pos": "verb",
+          "sentence": "They had lived in the village for twenty years before moving to the city."
+        }
+      ]
+    },
+    {
+      "id": "sw-learn-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Learn — Verb Forms",
+      "title": "Learn — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "learn",
+      "derivatives": [
+        {
+          "word": "learns",
+          "from": "learn",
+          "pos": "verb",
+          "sentence": "A child learns new words incredibly fast."
+        },
+        {
+          "word": "learnt",
+          "from": "learn",
+          "pos": "verb",
+          "sentence": "She learnt to swim when she was five."
+        },
+        {
+          "word": "learning",
+          "from": "learn",
+          "pos": "gerund",
+          "sentence": "Learning a foreign language takes time and practice."
+        },
+        {
+          "word": "has learnt",
+          "from": "learn",
+          "pos": "verb",
+          "sentence": "He has learnt a lot from this experience."
+        },
+        {
+          "word": "had learnt",
+          "from": "learnt",
+          "pos": "verb",
+          "sentence": "By the time she was twelve, she had learnt three languages."
+        }
+      ]
+    },
+    {
+      "id": "sw-show-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Show — Verb Forms",
+      "title": "Show — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "show",
+      "derivatives": [
+        {
+          "word": "shows",
+          "from": "show",
+          "pos": "verb",
+          "sentence": "This map shows all the main tourist attractions."
+        },
+        {
+          "word": "showed",
+          "from": "show",
+          "pos": "verb",
+          "sentence": "The guide showed us the oldest part of the city."
+        },
+        {
+          "word": "shown",
+          "from": "show",
+          "pos": "past participle",
+          "sentence": "Research has shown that exercise improves memory."
+        },
+        {
+          "word": "showing",
+          "from": "show",
+          "pos": "gerund",
+          "sentence": "The cinema is showing a new film this week."
+        },
+        {
+          "word": "was shown",
+          "from": "shown",
+          "pos": "verb",
+          "sentence": "The documentary was shown on national television."
+        },
+        {
+          "word": "had shown",
+          "from": "showed",
+          "pos": "verb",
+          "sentence": "She had shown great talent even as a small child."
+        }
+      ]
+    },
+    {
+      "id": "sw-run-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Run — Verb Forms",
+      "title": "Run — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "run",
+      "derivatives": [
+        {
+          "word": "runs",
+          "from": "run",
+          "pos": "verb",
+          "sentence": "She runs five kilometres every morning."
+        },
+        {
+          "word": "ran",
+          "from": "run",
+          "pos": "verb",
+          "sentence": "The dog ran across the field to greet its owner."
+        },
+        {
+          "word": "running",
+          "from": "run",
+          "pos": "gerund",
+          "sentence": "He has been running his own business for ten years."
+        },
+        {
+          "word": "has run",
+          "from": "run",
+          "pos": "verb",
+          "sentence": "The family has run this bakery for three generations."
+        },
+        {
+          "word": "was running",
+          "from": "running",
+          "pos": "verb",
+          "sentence": "I was running late, so I took a taxi."
+        },
+        {
+          "word": "had run",
+          "from": "ran",
+          "pos": "verb",
+          "sentence": "He had run out of money by the end of the trip."
+        }
+      ]
+    },
+    {
+      "id": "sw-wear-forms",
+      "type": "spider-web",
+      "drill": "Verb Forms",
+      "nav": "Wear — Verb Forms",
+      "title": "Wear — Verb Forms",
+      "instructions": "Type the correct verb form to complete each sentence. Press Enter to check — the spider catches a fly for every correct answer!",
+      "root": "wear",
+      "derivatives": [
+        {
+          "word": "wears",
+          "from": "wear",
+          "pos": "verb",
+          "sentence": "She always wears comfortable shoes."
+        },
+        {
+          "word": "wore",
+          "from": "wear",
+          "pos": "verb",
+          "sentence": "He wore a suit to the interview."
+        },
+        {
+          "word": "worn",
+          "from": "wear",
+          "pos": "past participle",
+          "sentence": "These shoes have been worn too many times and need replacing."
+        },
+        {
+          "word": "wearing",
+          "from": "wear",
+          "pos": "gerund",
+          "sentence": "What were you wearing at the party last night?"
+        },
+        {
+          "word": "had worn",
+          "from": "wore",
+          "pos": "verb",
+          "sentence": "She had worn the same dress to every school event."
+        },
+        {
+          "word": "is worn",
+          "from": "worn",
+          "pos": "verb",
+          "sentence": "A helmet is worn by every cyclist in this country."
+        }
+      ]
+    }
+  ]
+}
