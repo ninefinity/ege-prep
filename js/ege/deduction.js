@@ -199,11 +199,18 @@ E.markDeduction = function markDeduction(taskId, revealed) {
   return correct;
 };
 
+// Touch browsers treat a draggable element's long-press as the start of a
+// native drag gesture, which can swallow the tap that was meant to select
+// it -- so only mouse-like ("fine" pointer) devices get draggable="true";
+// touch always falls back to tap-to-select, tap-to-place.
+var supportsDragGesture =
+  typeof window.matchMedia === "function" && window.matchMedia("(pointer: fine)").matches;
+
 function buildChip(taskId, item) {
   var chip = document.createElement("div");
   chip.className = "ege-deduction__chip";
   chip.dataset.percentageId = item.id;
-  chip.draggable = true;
+  chip.draggable = supportsDragGesture;
   chip.setAttribute("role", "button");
   chip.tabIndex = 0;
   chip.textContent = item.code || "";
