@@ -8274,9 +8274,14 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-exam-phase__lead,
 .ege-exam-phase__note,
-.ege-exam-phase__meta {
+.ege-exam-phase__meta,
+.ege-exam-phase__cta {
   margin: 0 0 0.75rem;
   color: var(--ege-muted);
+}
+
+.ege-exam-phase__cta {
+  font-size: var(--ege-text-sm);
 }
 
 .ege-exam-phase__score {
@@ -8472,7 +8477,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-results-mistakes__explain summary {
   cursor: pointer;
-  color: var(--ege-accent, #081b5c);
+  color: var(--yap-royal);
   text-decoration: underline;
 }
 
@@ -8484,7 +8489,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-results-mistakes__review {
   border: 0;
   background: none;
-  color: var(--ege-accent, #081b5c);
+  color: var(--yap-royal);
   text-decoration: underline;
   cursor: pointer;
   padding: 0;
