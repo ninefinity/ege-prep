@@ -479,8 +479,8 @@ function buildClozeInput(taskId, item) {
   input.autocorrect = "off";
   input.autocapitalize = "off";
   input.spellcheck = false;
-  input.placeholder = "type word";
-  input.title = "type word";
+  input.placeholder = "type the form";
+  input.title = "type the form";
   input.dataset.word = word;
   input.dataset.matchKey = toMatchKey(item.word);
   input.setAttribute("aria-label", "Type the missing word for this sentence");
@@ -1443,7 +1443,7 @@ var SPIDER_WEB_CSS =
   ".ege-task--spider-web .cloze-input::placeholder{color:currentColor;font-size:0.82em;font-weight:700;opacity:0.45;}" +
   ".ege-task--spider-web .cloze-input:focus{background:#fff;box-shadow:0 0 0 4px rgba(1,8,158,0.12);color:var(--sw-accent-dark);}" +
   ".ege-task--spider-web .cloze-input:disabled{opacity:0.55;}" +
-  ".ege-task--spider-web .cloze-reveal{font-weight:800;}" +
+  ".ege-task--spider-web .cloze-reveal{font-weight:800;color:var(--sw-ink)!important;}" +
   ".ege-task--spider-web .sw-found-item.is-sentence-active{background:var(--sw-accent-soft);border-color:var(--sw-accent);box-shadow:0 6px 14px rgba(1,8,158,0.18);color:var(--sw-accent-dark);}" +
   ".ege-task--spider-web .sw-found-item--found.is-sentence-active{background:#d5f5e3;border-color:#27ae60;box-shadow:0 6px 14px rgba(39,174,96,0.2);color:#1e8449;}" +
   ".ege-task--spider-web .sw-node--answer.is-fly-active .fly{filter:drop-shadow(0 0 6px rgba(1,8,158,0.6)) drop-shadow(0 0 14px rgba(1,8,158,0.45));}" +
