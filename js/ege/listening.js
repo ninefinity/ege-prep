@@ -889,7 +889,6 @@ E.buildListeningAudio = function buildListeningAudio(task, topicId, options) {
     playBtn.type = "button";
     playBtn.className = "ege-listening-play";
     playBtn.setAttribute("aria-label", "Play recording");
-    playBtn.setAttribute("title", "Play / Pause (P)");
 
     var icon = document.createElement("span");
     icon.className = "ege-listening-play__icon";
