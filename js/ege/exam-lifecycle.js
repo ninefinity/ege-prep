@@ -658,6 +658,9 @@ E.syncExamBarStartControls = function syncExamBarStartControls() {
   if (!start) return;
   var activeTaskId = E.state.activeTaskId;
   Array.prototype.forEach.call(start.children, function (el) {
+    // The "← Menu" link has no task tag -- it's permanent, not one of the
+    // per-task controls this loop shows/hides as the active task changes.
+    if (el.dataset.examBarForTask == null) return;
     el.hidden = el.dataset.examBarForTask !== activeTaskId;
   });
 };

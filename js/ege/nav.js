@@ -653,7 +653,9 @@ E.ensureExamBar = function ensureExamBar() {
     bar.className = "ege-exam-bar";
     bar.hidden = true;
     bar.innerHTML =
-      '<div class="ege-exam-bar__start" id="egeExamBarStart"></div>' +
+      '<div class="ege-exam-bar__start" id="egeExamBarStart">' +
+      '<a href="index.html" class="ege-back ege-exam-bar__back" id="egeExamBarBack">← Menu</a>' +
+      "</div>" +
       '<div class="ege-exam-bar__end" id="egeExamBarEnd">' +
       '<div class="ege-exam-timer" id="egeExamTimer" hidden>' +
       '<button type="button" class="ege-exam-timer__start" id="egeExamTimerStart" hidden>Start</button>' +
@@ -1396,6 +1398,24 @@ E.mountTopic = function mountTopic(topic, topicId) {
       } else {
         back.href = "index.html";
         back.textContent = "← Sections";
+      }
+    }
+
+    // Same destination as the sidebar link above, but pinned to the exam
+    // bar too -- during the timed mock exam the sidebar collapses to the
+    // ‹ › flow strip (see .is-locked-nav in shell.css), so this is the
+    // only always-visible way back to the menu once the exam is running.
+    var barBack = document.getElementById("egeExamBarBack");
+    if (barBack) {
+      if (back) {
+        barBack.href = back.href;
+        barBack.textContent = back.textContent;
+      } else if (E.is2027Demo(topicId)) {
+        barBack.href = window.EGE_2027_DEMO ? "index.html" : "2027/";
+        barBack.textContent = "← Menu";
+      } else {
+        barBack.href = "index.html";
+        barBack.textContent = "← Menu";
       }
     }
 
