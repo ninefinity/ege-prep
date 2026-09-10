@@ -19,7 +19,7 @@ const SVG_NS = "http://www.w3.org/2000/svg";
 const MAX_WRONG = 3;
 
 /* Polar-tree layout constants -- see computeWordLayout(). */
-const R_INNER_MIN = 18;
+const R_INNER_MIN = 24;
 const R_OUTER_MAX = 41;
 const COMPOUND_GAP_BONUS = 2;
 const TOP_GAP = (40 * Math.PI) / 180;
@@ -858,7 +858,7 @@ function finishRound(taskId, outcome) {
 
   var task = g.task;
   var total = getDerivatives(task).length;
-  var correct = g.foundWords.size;
+  var correct = g.revealUsed ? 0 : g.foundWords.size;
 
   E.state.scores[task.id] = correct;
   if (typeof E.saveTaskScore === "function") E.saveTaskScore(task.id, correct, total);
@@ -1301,19 +1301,8 @@ function buildDom(task) {
   refs.streakPill = streakPill;
   refs.streakText = streakText;
 
-  var revealBtn = document.createElement("button");
-  revealBtn.type = "button";
-  revealBtn.className = "sw-btn sw-btn--reveal";
-  revealBtn.textContent = "Reveal";
-  revealBtn.setAttribute("aria-label", "Reveal all answers");
-  revealBtn.addEventListener("click", function () {
-    revealAll(task.id);
-  });
-  refs.revealBtn = revealBtn;
-
   meters.appendChild(scorePill);
   meters.appendChild(streakPill);
-  meters.appendChild(revealBtn);
 
   var title = document.createElement("h3");
   title.id = "sw-found-title-" + task.id;
