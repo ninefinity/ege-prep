@@ -6265,8 +6265,9 @@ body.yap-brand .site-author__promo a:hover {
 
 .ege-listening-player__toprow {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 8px 12px;
   width: 100%;
 }
 
@@ -6275,7 +6276,10 @@ body.yap-brand .site-author__promo a:hover {
 }
 
 .ege-listening-player__toprow .ege-listening-seek {
-  flex: 1 1 auto;
+  /* A large enough basis that it wraps onto its own line, rather than the
+     fixed-width play/speed/notes controls it shares this row with running
+     out of room and pushing each other past the edge of a narrow screen. */
+  flex: 1 1 160px;
   min-width: 0;
   width: auto;
 }
@@ -6638,12 +6642,12 @@ body.is-listening-notes-placing .ege-listening-notes-layer {
     min-width: 1.4rem;
   }
 
-  .ege-listening-bar .ege-listening-play,
-  .ege-listening-notes-toggle {
-    height: 36px;
-    min-height: 36px;
-    padding: 0 12px;
-  }
+  /* .ege-listening-play (37px) and .ege-listening-notes-toggle (44px) are
+     already round icon-only buttons at their base size -- this used to
+     shrink them further, but it only set height + horizontal padding
+     while leaving width untouched, so border-radius: 50% drew an oval
+     instead of a circle and the icon got squeezed into whatever width the
+     padding left. Both are compact enough already; nothing to override. */
 }
 
 .ege-listening-exam-tfn {
