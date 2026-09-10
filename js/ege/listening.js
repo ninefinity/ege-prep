@@ -764,13 +764,19 @@ E.mountListeningNotesToPlayerSlot = function mountListeningNotesToPlayerSlot(roo
     if (!root || !taskId) return;
     var slot = root.querySelector(".ege-listening-player__notes-slot");
     if (!slot) return;
-    var existing =
-      document.getElementById("listening-notes-" + taskId) ||
-      root.querySelector(".ege-listening-notes-toggle");
-    if (existing) {
+    var expectedId = "listening-notes-" + taskId;
+    var existing = root.querySelector(".ege-listening-notes-toggle");
+    if (existing && existing.id === expectedId) {
       if (existing.parentNode !== slot) slot.appendChild(existing);
       return;
     }
+    // A stale toggle left over from a different task sharing this same
+    // player chrome (the combined listening 3-9 exercise, say) -- its
+    // click handler and id are baked in for the OLD taskId at build time,
+    // so reusing it here silently toggled/placed notes on the wrong task
+    // (notes looked "not working" for every task after the first). Swap
+    // it for a fresh one built for the task that's actually active.
+    if (existing) existing.remove();
     if (typeof E.buildListeningNotesToggle === "function") {
       slot.appendChild(E.buildListeningNotesToggle(taskId));
     }

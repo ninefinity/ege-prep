@@ -835,6 +835,7 @@ E.renderRecordingsSection = function renderRecordingsSection() {
   return (
     '<div class="ege-exam-phase__block ege-results-recordings">' +
     '<p class="ege-panel__label">Записи устной части</p>' +
+    '<p class="ege-exam-phase__cta">Сохраните записи, чтобы прослушать их позже или отправить на проверку.</p>' +
     '<div class="ege-results-recordings__list">' +
     items +
     "</div>" +
@@ -885,9 +886,12 @@ E.renderExamResultsScreen = function renderExamResultsScreen(report) {
     "</p>" +
     E.renderSectionBreakdown(result) +
     E.renderRecordingsSection() +
-    '<div class="ege-exam-phase__actions ege-results-export">' +
+    '<div class="ege-exam-phase__block ege-results-export">' +
+    '<p class="ege-panel__label">Сохранить результаты</p>' +
+    '<div class="ege-exam-phase__actions">' +
     '<button type="button" class="ege-btn ege-btn--ghost" id="egeResultsDownload">Скачать .txt</button>' +
     '<button type="button" class="ege-btn ege-btn--ghost" id="egeResultsCopy">Копировать</button>' +
+    "</div>" +
     "</div>" +
     E.renderMistakesEntryPoint(data.mistakes) +
     "</div>"

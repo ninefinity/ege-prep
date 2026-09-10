@@ -780,8 +780,17 @@ E.isSpeakingPractice = function isSpeakingPractice(task) {
 E.chainSpeakingTimers = function chainSpeakingTimers(wraps, secondsList, taskId, onAllDone) {
     var first = secondsList[0];
     var second = secondsList[1];
-    var timerSecond = E.bindSpeakingTimer(wraps[second], taskId, onAllDone);
-    E.bindSpeakingTimer(wraps[first], taskId, function () {
+    var timerFirst;
+    var timerSecond = E.bindSpeakingTimer(wraps[second], taskId, onAllDone, {
+      // These two clocks are independently clickable, but only one phase
+      // is ever really "live" at a time -- starting Answer directly (e.g.
+      // a student who doesn't need the full prep time) left Preparation
+      // still ticking behind it, both counting down and recording at once.
+      beforeStart: function () {
+        if (timerFirst) timerFirst.stop();
+      },
+    });
+    timerFirst = E.bindSpeakingTimer(wraps[first], taskId, function () {
       timerSecond.start();
     }, {
       beforeStart: function () {
