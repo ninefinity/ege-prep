@@ -476,13 +476,19 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       clock.addEventListener("click", function () {
         // Pausing your own prep/answer timer would let you buy extra
         // thinking time mid mock exam -- fine in practice, not here.
-        var canPause =
-          !(typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam());
+        var examMode =
+          typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam();
+        var canPause = !examMode;
         if (running) {
           if (canPause) pause();
           return;
         }
         if (remaining === 0) {
+          // Resetting a finished Answer timer would let a student re-record
+          // as many takes as they want during the real exam -- one shot
+          // only, same as the real oral exam. Practice mode still allows
+          // it (that's the whole point of practicing).
+          if (examMode && wrap.dataset.phase === "Answer") return;
           reset();
           return;
         }
@@ -662,13 +668,19 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
         if (event.animationName === "ege-speaking-timer-finish-shake") clearFinishShake();
       });
       clock.addEventListener("click", function () {
-        var canPause =
-          !(typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam());
+        var examMode =
+          typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam();
+        var canPause = !examMode;
         if (running) {
           if (canPause) pause();
           return;
         }
         if (phaseIndex === phases.length - 1 && remaining === 0) {
+          // The Answer phase (and with it, the recording) already finished
+          // -- resetting here would let a student re-record as many takes
+          // as they want during the real exam. One shot only, same as the
+          // real oral exam; practice mode keeps allowing it.
+          if (examMode) return;
           reset();
           return;
         }
