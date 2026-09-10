@@ -8407,6 +8407,11 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 .ege-exam-phase__back {
+  /* An <a> defaults to display:inline, unlike a <button> -- margin-bottom
+     on an inline element is ignored by spec, so the gap below this link
+     silently did nothing and the next row started partway into it. */
+  display: inline-flex;
+  align-items: center;
   margin: 0 0 1rem;
   align-self: flex-start;
 }
