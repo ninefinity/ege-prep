@@ -1,8 +1,14 @@
 import { E } from "./runtime.js";
 
+// Grammar tasks are exam items 19-24, word formation 25-29. The only thing
+// distinguishing them here is the range quoted in the instructions, so match
+// on where the range STARTS rather than on the exact "25-29" string -- a task
+// with fewer than five gaps quotes its own shorter range (e.g. "25-27") and
+// used to fall through to 19, numbering its gaps 19-21 in the score feedback
+// while the marks in the passage still read 25-27.
 E.wordformExamStart = function wordformExamStart(task) {
   var instr = String((task && task.instructions) || "");
-  if (/25\s*[–-]\s*29/.test(instr) && !/19\s*[–-]\s*24/.test(instr)) return 25;
+  if (/\b25\s*[–-]\s*\d+/.test(instr) && !/\b19\s*[–-]\s*\d+/.test(instr)) return 25;
   return 19;
 };
 

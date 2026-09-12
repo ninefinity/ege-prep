@@ -769,10 +769,13 @@ E.buildVocabClozePicker = function buildVocabClozePicker(task, topicId, inserts)
       block.id = prefix + "_q_" + index;
       block.dataset.gap = E.vocabGapNum(question);
 
-      var prompt = document.createElement("p");
-      prompt.className = "ege-mc__prompt";
-      prompt.textContent = question.q;
-      block.appendChild(prompt);
+      // A cloze question's whole prompt is its number ("30."), which used to
+      // be set as plain text -- so it inherited the body colour while every
+      // other exam number on the site is wrapped in .ege-exam-num and painted
+      // red. E.buildMcPrompt emits that wrapper and derives the number from
+      // the section's examFrom (30 + index here), which matches the value
+      // E.vocabGapNum parses out of question.q for the gap link.
+      block.appendChild(E.buildMcPrompt(task, question, index));
       block.appendChild(E.buildMcChoiceGroup(radioName(index), question.opts, question.q));
       block.addEventListener("click", function () {
         setActiveGap(block.dataset.gap);

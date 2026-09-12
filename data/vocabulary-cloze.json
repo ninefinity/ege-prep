@@ -2468,7 +2468,7 @@
             "released",
             "recovered",
             "realised",
-            "recogni s ed"
+            "recognised"
           ],
           "correct": 2
         },
@@ -2739,7 +2739,8 @@
             "lay",
             "stay",
             "put"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -2748,7 +2749,8 @@
             "remember",
             "recover",
             "remind"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "32.",
@@ -2757,7 +2759,8 @@
             "took",
             "used",
             "held"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -2766,7 +2769,8 @@
             "completed",
             "reached",
             "achieved"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -2775,7 +2779,8 @@
             "fault",
             "problem",
             "failure"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -2784,7 +2789,8 @@
             "case",
             "event",
             "fact"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -2793,7 +2799,8 @@
             "of",
             "off",
             "on"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -2812,7 +2819,8 @@
             "reviewed",
             "recorded",
             "reminded"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -2821,7 +2829,8 @@
             "arranged",
             "established",
             "coordinated"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "32.",
@@ -2830,7 +2839,8 @@
             "holding",
             "fixing",
             "carrying"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "33.",
@@ -2839,7 +2849,8 @@
             "see",
             "look",
             "glance"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -2848,7 +2859,8 @@
             "fact",
             "place",
             "point"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "35.",
@@ -2857,7 +2869,8 @@
             "at",
             "by",
             "in"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "36.",
@@ -2866,7 +2879,8 @@
             "accident",
             "occasion",
             "event"
-          ]
+          ],
+          "correct": 1
         }
       ]
     },
@@ -2885,7 +2899,8 @@
             "excited",
             "interesting",
             "expected"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "31.",
@@ -2894,7 +2909,8 @@
             "therefore",
             "otherwise",
             "although"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "32.",
@@ -2903,7 +2919,8 @@
             "inspect",
             "persist",
             "insist"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "33.",
@@ -2912,7 +2929,8 @@
             "evidence",
             "confidence",
             "excellence"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -2921,7 +2939,8 @@
             "said",
             "spoke",
             "talked"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -2930,7 +2949,8 @@
             "hardly",
             "nearly",
             "rarely"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -2939,7 +2959,8 @@
             "admire",
             "adapt",
             "accept"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -2958,7 +2979,8 @@
             "included",
             "contained",
             "involved"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "31.",
@@ -2967,7 +2989,8 @@
             "confident",
             "excellent",
             "efficient"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "32.",
@@ -2976,7 +2999,8 @@
             "reflected",
             "considered",
             "expected"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -2985,7 +3009,8 @@
             "up",
             "beside",
             "across"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "34.",
@@ -2994,7 +3019,8 @@
             "telling",
             "looking",
             "saying"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -3003,7 +3029,8 @@
             "ensured",
             "approved",
             "confirmed"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "36.",
@@ -3012,7 +3039,8 @@
             "Although",
             "Otherwise",
             "Moreover"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -3031,7 +3059,8 @@
             "baked",
             "did",
             "made"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -3040,7 +3069,8 @@
             "out",
             "down",
             "up"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "32.",
@@ -3049,7 +3079,8 @@
             "directly",
             "finally",
             "completely"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -3058,7 +3089,8 @@
             "arranged",
             "laid",
             "rested"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -3067,7 +3099,8 @@
             "looked",
             "viewed",
             "glanced"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -3076,7 +3109,8 @@
             "travel",
             "trip",
             "voyage"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -3085,7 +3119,8 @@
             "in",
             "through",
             "forward"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -3104,7 +3139,8 @@
             "really",
             "merely",
             "rarely"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "31.",
@@ -3113,7 +3149,8 @@
             "confirmed",
             "convinced",
             "considered"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "32.",
@@ -3122,7 +3159,8 @@
             "worried",
             "wondered",
             "wandered"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -3131,7 +3169,8 @@
             "welcome",
             "receive",
             "salute"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "34.",
@@ -3140,7 +3179,8 @@
             "applying",
             "admitting",
             "entering"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "35.",
@@ -3149,7 +3189,8 @@
             "addition",
             "objection",
             "intention"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "36.",
@@ -3158,7 +3199,8 @@
             "speak",
             "talk",
             "tell"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -3177,7 +3219,8 @@
             "find",
             "turn",
             "look"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "31.",
@@ -3186,7 +3229,8 @@
             "of",
             "on",
             "at"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "32.",
@@ -3195,7 +3239,8 @@
             "merely",
             "hardly",
             "rarely"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -3204,7 +3249,8 @@
             "recovered",
             "reacted",
             "reclined"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "34.",
@@ -3213,7 +3259,8 @@
             "watched",
             "looked",
             "saw"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "35.",
@@ -3222,7 +3269,8 @@
             "Nevertheless",
             "However",
             "Although"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "36.",
@@ -3231,7 +3279,8 @@
             "agreement",
             "achievement",
             "arrangement"
-          ]
+          ],
+          "correct": 1
         }
       ]
     },
@@ -3250,7 +3299,8 @@
             "about",
             "of",
             "after"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "31.",
@@ -3259,7 +3309,8 @@
             "prevent",
             "propose",
             "pretend"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "32.",
@@ -3268,7 +3319,8 @@
             "complaint",
             "request",
             "impact"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "33.",
@@ -3277,16 +3329,18 @@
             "loss",
             "lack",
             "wish"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
           "opts": [
-            "insist ed",
+            "insisted",
             "installed",
-            "involv ed",
-            "invad ed"
-          ]
+            "involved",
+            "invaded"
+          ],
+          "correct": 1
         },
         {
           "q": "35.",
@@ -3295,7 +3349,8 @@
             "say",
             "present",
             "speak"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "36.",
@@ -3304,7 +3359,8 @@
             "remarked",
             "recognized",
             "remained"
-          ]
+          ],
+          "correct": 2
         }
       ]
     },
@@ -3323,7 +3379,8 @@
             "speak",
             "say",
             "tell"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -3332,7 +3389,8 @@
             "admired",
             "impressed",
             "enjoyed"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "32.",
@@ -3341,7 +3399,8 @@
             "from",
             "on",
             "for"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -3350,7 +3409,8 @@
             "master",
             "manage",
             "achieve"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "34.",
@@ -3359,7 +3419,8 @@
             "Including",
             "Concerning",
             "Regarding"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -3368,7 +3429,8 @@
             "remind",
             "review",
             "recall"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -3377,7 +3439,8 @@
             "make",
             "hold",
             "take"
-          ]
+          ],
+          "correct": 1
         }
       ]
     },
@@ -3396,7 +3459,8 @@
             "talk",
             "tell",
             "say"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "31.",
@@ -3405,7 +3469,8 @@
             "looked",
             "seemed",
             "felt"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "32.",
@@ -3414,7 +3479,8 @@
             "remind",
             "resemble",
             "remember"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -3423,7 +3489,8 @@
             "for",
             "on",
             "at"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "34.",
@@ -3432,7 +3499,8 @@
             "admit",
             "allow",
             "adopt"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "35.",
@@ -3441,7 +3509,8 @@
             "pick",
             "gather",
             "collect"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "36.",
@@ -3450,7 +3519,8 @@
             "give",
             "take",
             "hold"
-          ]
+          ],
+          "correct": 0
         }
       ]
     },
@@ -3469,7 +3539,8 @@
             "provided",
             "proposed",
             "offered"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -3478,7 +3549,8 @@
             "wherever",
             "whoever",
             "whatever"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "32.",
@@ -3487,7 +3559,8 @@
             "raised",
             "brought",
             "risen"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -3496,7 +3569,8 @@
             "Therefore",
             "Although",
             "Otherwise"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "34.",
@@ -3505,7 +3579,8 @@
             "remembered",
             "revised",
             "reviewed"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -3514,7 +3589,8 @@
             "in",
             "on",
             "by"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -3523,7 +3599,8 @@
             "told",
             "said",
             "talked"
-          ]
+          ],
+          "correct": 2
         }
       ]
     },
@@ -3542,7 +3619,8 @@
             "forgetful",
             "careful",
             "doubtful"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "31.",
@@ -3551,7 +3629,8 @@
             "reviewed",
             "reminded",
             "remembered"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "32.",
@@ -3560,7 +3639,8 @@
             "expecting",
             "delaying",
             "pausing"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "33.",
@@ -3569,7 +3649,8 @@
             "saw",
             "watched",
             "looked"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "34.",
@@ -3578,7 +3659,8 @@
             "influenced",
             "inspired",
             "impressed"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "35.",
@@ -3587,7 +3669,8 @@
             "suppose",
             "submit",
             "supervise"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -3596,7 +3679,8 @@
             "drop",
             "fall",
             "sink"
-          ]
+          ],
+          "correct": 1
         }
       ]
     },
@@ -3615,7 +3699,8 @@
             "achieved",
             "managed",
             "succeeded"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "31.",
@@ -3624,7 +3709,8 @@
             "view",
             "way",
             "sense"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "32.",
@@ -3633,7 +3719,8 @@
             "digressed",
             "distracted",
             "disappeared"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "33.",
@@ -3642,7 +3729,8 @@
             "remind",
             "revise",
             "remember"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "34.",
@@ -3651,7 +3739,8 @@
             "made",
             "kept",
             "held"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -3660,7 +3749,8 @@
             "link",
             "fit",
             "join"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "36.",
@@ -3669,7 +3759,8 @@
             "topic",
             "routine",
             "theme"
-          ]
+          ],
+          "correct": 2
         }
       ]
     },
@@ -3688,7 +3779,8 @@
             "demanding",
             "waiting",
             "expecting"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "31.",
@@ -3697,7 +3789,8 @@
             "await",
             "award",
             "awake"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "32.",
@@ -3706,7 +3799,8 @@
             "praised",
             "prided",
             "prized"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "33.",
@@ -3715,7 +3809,8 @@
             "landed",
             "rented",
             "let"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -3724,7 +3819,8 @@
             "after",
             "forward",
             "over"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "35.",
@@ -3733,7 +3829,8 @@
             "efficient",
             "consistent",
             "evident"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "36.",
@@ -3742,7 +3839,8 @@
             "moreover",
             "however",
             "therefore"
-          ]
+          ],
+          "correct": 0
         }
       ]
     },
@@ -3761,7 +3859,8 @@
             "watched",
             "saw",
             "looked"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -3770,7 +3869,8 @@
             "rarely",
             "hardly",
             "merely"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "32.",
@@ -3779,7 +3879,8 @@
             "on",
             "of",
             "in"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "33.",
@@ -3788,7 +3889,8 @@
             "grow",
             "bring",
             "clear"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "34.",
@@ -3797,7 +3899,8 @@
             "reminded",
             "recalled",
             "remembered"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "35.",
@@ -3806,7 +3909,8 @@
             "argument",
             "agreement",
             "achievement"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "36.",
@@ -3815,7 +3919,8 @@
             "Although",
             "However",
             "Moreover"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -3834,7 +3939,8 @@
             "in",
             "off",
             "of"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "31.",
@@ -3843,7 +3949,8 @@
             "watched",
             "looked",
             "glanced"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "32.",
@@ -3852,7 +3959,8 @@
             "took",
             "carried",
             "passed"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "33.",
@@ -3861,7 +3969,8 @@
             "enjoy",
             "please",
             "prefer"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "34.",
@@ -3870,7 +3979,8 @@
             "notice",
             "brain",
             "mind"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "35.",
@@ -3879,7 +3989,8 @@
             "point",
             "dot",
             "step"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -3888,7 +3999,8 @@
             "achieve",
             "fulfil",
             "succeed"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -3907,7 +4019,8 @@
             "waiting",
             "demanding",
             "requiring"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "31.",
@@ -3916,7 +4029,8 @@
             "speak",
             "talk",
             "tell"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "32.",
@@ -3925,7 +4039,8 @@
             "Although",
             "Therefore",
             "Moreover"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "33.",
@@ -3934,7 +4049,8 @@
             "annoyed",
             "worried",
             "troubled"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -3943,7 +4059,8 @@
             "demonstration",
             "departure",
             "determination"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "35.",
@@ -3952,7 +4069,8 @@
             "respected",
             "regarded",
             "remained"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -3961,7 +4079,8 @@
             "accept",
             "appreciate",
             "approve"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -3980,7 +4099,8 @@
             "noticed",
             "looked",
             "watched"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "31.",
@@ -3989,7 +4109,8 @@
             "for",
             "at",
             "to"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "32.",
@@ -3998,7 +4119,8 @@
             "turn",
             "put",
             "run"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "33.",
@@ -4007,7 +4129,8 @@
             "Moreover",
             "Otherwise",
             "Although"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "34.",
@@ -4016,7 +4139,8 @@
             "linked",
             "joined",
             "shared"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "35.",
@@ -4025,7 +4149,8 @@
             "agreement",
             "argument",
             "arrangement"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -4034,7 +4159,8 @@
             "whatever",
             "whenever",
             "wherever"
-          ]
+          ],
+          "correct": 2
         }
       ]
     },
@@ -4053,7 +4179,8 @@
             "saw",
             "looked",
             "glimpsed"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "31.",
@@ -4062,7 +4189,8 @@
             "preferred",
             "enjoyed",
             "approved"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "32.",
@@ -4071,7 +4199,8 @@
             "doing",
             "going",
             "passing"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "33.",
@@ -4080,7 +4209,8 @@
             "respectively",
             "independently",
             "separately"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "34.",
@@ -4089,7 +4219,8 @@
             "recollected",
             "repeated",
             "resembled"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "35.",
@@ -4098,7 +4229,8 @@
             "holding",
             "taking",
             "putting"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -4107,7 +4239,8 @@
             "rose",
             "grew",
             "lifted"
-          ]
+          ],
+          "correct": 1
         }
       ]
     },
@@ -4126,7 +4259,8 @@
             "on",
             "in",
             "at"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "31.",
@@ -4135,7 +4269,8 @@
             "connection",
             "attention",
             "relation"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "32.",
@@ -4144,7 +4279,8 @@
             "completely",
             "perfectly",
             "definitely"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "33.",
@@ -4153,7 +4289,8 @@
             "demand",
             "escape",
             "concern"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "34.",
@@ -4162,7 +4299,8 @@
             "gives",
             "makes",
             "takes"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "35.",
@@ -4171,7 +4309,8 @@
             "Nevertheless",
             "Moreover",
             "Otherwise"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -4180,7 +4319,8 @@
             "told",
             "spoke",
             "said"
-          ]
+          ],
+          "correct": 1
         }
       ]
     },
@@ -4199,7 +4339,8 @@
             "sight",
             "view",
             "glimpse"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "31.",
@@ -4208,7 +4349,8 @@
             "proposed",
             "assumed",
             "suggested"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "32.",
@@ -4217,7 +4359,8 @@
             "tell",
             "mention",
             "chat"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "33.",
@@ -4226,7 +4369,8 @@
             "into",
             "down",
             "over"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -4235,7 +4379,8 @@
             "dealt",
             "talked",
             "touched"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "35.",
@@ -4244,7 +4389,8 @@
             "reminded",
             "recollected",
             "revised"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -4253,7 +4399,8 @@
             "travel",
             "tour",
             "journey"
-          ]
+          ],
+          "correct": 2
         }
       ]
     },
@@ -4272,7 +4419,8 @@
             "enjoy",
             "adore",
             "envy"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "31.",
@@ -4281,7 +4429,8 @@
             "succeeded",
             "supported",
             "supposed"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "32.",
@@ -4290,7 +4439,8 @@
             "revenge",
             "relief",
             "regret"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -4299,7 +4449,8 @@
             "talking",
             "saying",
             "speaking"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "34.",
@@ -4308,7 +4459,8 @@
             "watched",
             "glanced",
             "saw"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -4317,7 +4469,8 @@
             "whenever",
             "whatever",
             "whoever"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "36.",
@@ -4326,7 +4479,8 @@
             "off",
             "over",
             "down"
-          ]
+          ],
+          "correct": 1
         }
       ]
     },
@@ -4345,7 +4499,8 @@
             "high",
             "big",
             "long"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -4354,7 +4509,8 @@
             "amuse",
             "enjoy",
             "prefer"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "32.",
@@ -4363,7 +4519,8 @@
             "from",
             "on",
             "for"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -4372,7 +4529,8 @@
             "looked",
             "watched",
             "glanced"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "34.",
@@ -4381,7 +4539,8 @@
             "Moreover",
             "Therefore",
             "However"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -4390,7 +4549,8 @@
             "managed",
             "achieved",
             "succeeded"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "36.",
@@ -4399,7 +4559,8 @@
             "gain",
             "keep",
             "hold"
-          ]
+          ],
+          "correct": 2
         }
       ]
     },
@@ -4418,7 +4579,8 @@
             "complete",
             "achieve",
             "manage"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -4427,7 +4589,8 @@
             "convinced",
             "concerned",
             "confessed"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "32.",
@@ -4436,7 +4599,8 @@
             "fought",
             "crashed",
             "broke"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "33.",
@@ -4445,7 +4609,8 @@
             "Nevertheless",
             "Although",
             "Moreover"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -4454,7 +4619,8 @@
             "determination",
             "expectation",
             "appreciation"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "35.",
@@ -4463,7 +4629,8 @@
             "predicts",
             "permits",
             "pretends"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "36.",
@@ -4472,7 +4639,8 @@
             "revises",
             "remembers",
             "reminds"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -4491,7 +4659,8 @@
             "announced",
             "extended",
             "presented"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "31.",
@@ -4500,7 +4669,8 @@
             "inspired",
             "excited",
             "interested"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "32.",
@@ -4509,7 +4679,8 @@
             "Although",
             "However",
             "Otherwise"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "33.",
@@ -4518,7 +4689,8 @@
             "strong",
             "thick",
             "rich"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -4527,7 +4699,8 @@
             "remember",
             "reflect",
             "remind"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "35.",
@@ -4536,7 +4709,8 @@
             "observing",
             "offending",
             "objecting"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -4545,7 +4719,8 @@
             "spoke",
             "told",
             "said"
-          ]
+          ],
+          "correct": 2
         }
       ]
     },
@@ -4564,7 +4739,8 @@
             "review",
             "remind",
             "recall"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "31.",
@@ -4573,7 +4749,8 @@
             "at",
             "on",
             "of"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "32.",
@@ -4582,7 +4759,8 @@
             "consistent",
             "reliable",
             "responsible"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "33.",
@@ -4591,7 +4769,8 @@
             "speak",
             "talk",
             "tell"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "34.",
@@ -4600,7 +4779,8 @@
             "hold",
             "keep",
             "make"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "35.",
@@ -4609,7 +4789,8 @@
             "Otherwise",
             "However",
             "Moreover"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "36.",
@@ -4618,7 +4799,8 @@
             "fulfil",
             "achieve",
             "manage"
-          ]
+          ],
+          "correct": 0
         }
       ]
     },
@@ -4637,7 +4819,8 @@
             "trail",
             "track",
             "way"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -4646,7 +4829,8 @@
             "remained",
             "received",
             "required"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "32.",
@@ -4655,7 +4839,8 @@
             "admired",
             "accepted",
             "admitted"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "33.",
@@ -4664,7 +4849,8 @@
             "enlist",
             "enter",
             "enroll"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "34.",
@@ -4673,7 +4859,8 @@
             "moreover",
             "therefore",
             "otherwise"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -4682,7 +4869,8 @@
             "failed",
             "lost",
             "missed"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -4691,7 +4879,8 @@
             "achieved",
             "succeeded",
             "managed"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
@@ -4710,7 +4899,8 @@
             "held",
             "used",
             "formed"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "31.",
@@ -4719,7 +4909,8 @@
             "greeted",
             "introduced",
             "met"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "32.",
@@ -4728,7 +4919,8 @@
             "attracted",
             "appealed",
             "engaged"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "33.",
@@ -4737,7 +4929,8 @@
             "down",
             "on",
             "out"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "34.",
@@ -4746,7 +4939,8 @@
             "tell",
             "discuss",
             "say"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "35.",
@@ -4755,7 +4949,8 @@
             "discovered",
             "revealed",
             "disclosed"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -4764,7 +4959,8 @@
             "account",
             "reason",
             "cause"
-          ]
+          ],
+          "correct": 2
         }
       ]
     },
@@ -4783,7 +4979,8 @@
             "reach",
             "enter",
             "arrive"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "31.",
@@ -4792,7 +4989,8 @@
             "Although",
             "Moreover",
             "However"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "32.",
@@ -4801,7 +4999,8 @@
             "crazy",
             "eager",
             "keen"
-          ]
+          ],
+          "correct": 3
         },
         {
           "q": "33.",
@@ -4810,7 +5009,8 @@
             "speak",
             "talk",
             "tell"
-          ]
+          ],
+          "correct": 0
         },
         {
           "q": "34.",
@@ -4819,7 +5019,8 @@
             "keep",
             "make",
             "gain"
-          ]
+          ],
+          "correct": 2
         },
         {
           "q": "35.",
@@ -4828,7 +5029,8 @@
             "accompanied",
             "connected",
             "attended"
-          ]
+          ],
+          "correct": 1
         },
         {
           "q": "36.",
@@ -4837,7 +5039,8 @@
             "outside",
             "besides",
             "instead"
-          ]
+          ],
+          "correct": 3
         }
       ]
     },
