@@ -962,6 +962,7 @@ function handleCorrectGuess(taskId, item) {
 }
 
 function triggerSpiderFlee(taskId) {
+  var refs = doms[taskId];
   var spider = getSpiderEl(taskId);
   if (spider) {
     spider.classList.remove(
@@ -972,6 +973,11 @@ function triggerSpiderFlee(taskId) {
     );
     void spider.offsetWidth;
     spider.classList.add("is-fleeing");
+  }
+  if (refs && refs.webCard) {
+    setTimeout(function () {
+      refs.webCard.classList.add("is-spider-fled");
+    }, 350);
   }
   disableSentenceInputs(taskId, true);
   setFeedback(taskId, "The spider lost patience and skittered away.", "error");
@@ -1403,8 +1409,10 @@ var SPIDER_WEB_CSS =
   ".ege-task--spider-web .sw-node--root .sw-node-word{font-size:1.3rem;}" +
   ".ege-task--spider-web .sw-spider{position:absolute;left:50%;top:0;width:84px;height:auto;transform:translate(-50%,-65%);pointer-events:none;filter:drop-shadow(0 6px 10px rgba(11,7,46,0.45));transform-origin:50% 90%;z-index:0;animation:sw-spiderIdle 4.5s ease-in-out infinite;}" +
   ".ege-task--spider-web .sw-spider.is-lunging{animation:sw-spiderLunge 0.42s cubic-bezier(0.45,0.2,0.2,1.4) both;}" +
-  ".ege-task--spider-web .sw-spider.is-fleeing{animation:sw-spiderFlee 1.05s cubic-bezier(0.55,0.05,0.7,0.7) forwards;}" +
-  "@keyframes sw-spiderFlee{0%{transform:translate(-50%,-65%) scale(1) rotate(0deg);opacity:1;}20%{transform:translate(-50%,-85%) scale(1.08) rotate(-6deg);opacity:1;}55%{transform:translate(-130%,-200%) scale(0.78) rotate(-32deg);opacity:0.9;}100%{transform:translate(-280%,-450%) scale(0.3) rotate(-75deg);opacity:0;}}" +
+  ".ege-task--spider-web .sw-spider.is-fleeing{animation:sw-spiderFlee 0.9s cubic-bezier(0.4,0,0.65,1) forwards;}" +
+  "@keyframes sw-spiderFlee{0%{transform:translate(-50%,-65%) scale(1) rotate(0deg);opacity:1;}12%{transform:translate(-50%,-60%) scale(0.95) rotate(3deg);opacity:1;}30%{transform:translate(-50%,-55%) scale(0.9) rotate(-2deg);opacity:1;}100%{transform:translate(-50%,120%) scale(0.5) rotate(8deg);opacity:0;}}" +
+  ".ege-task--spider-web .sw-card.is-spider-fled .fly{animation:sw-flyEscape 0.7s ease-out forwards;}" +
+  "@keyframes sw-flyEscape{0%{opacity:1;transform:translateY(calc(-1 * var(--fly-lift))) rotate(var(--fly-rotation,0deg)) scale(1);}100%{opacity:0;transform:translateY(calc(-1 * var(--fly-lift) - 40px)) rotate(calc(var(--fly-rotation,0deg) + 25deg)) scale(0.6);}}" +
   "@keyframes sw-spiderIdle{0%,100%{transform:translate(-50%,-65%) scale(1);}50%{transform:translate(-50%,-67%) scale(1.015);}}" +
   "@keyframes sw-spiderLunge{0%{transform:translate(-50%,-65%) scale(1);}35%{transform:translate(-50%,-47%) scale(1.18) rotate(-2deg);}60%{transform:translate(-50%,-59%) scale(0.94) rotate(1.5deg);}100%{transform:translate(-50%,-65%) scale(1);}}" +
   ".ege-task--spider-web .sw-spider--anger-1{filter:drop-shadow(0 6px 12px rgba(192,57,43,0.55)) saturate(1.15);animation-duration:3.4s;}" +
