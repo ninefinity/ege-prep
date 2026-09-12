@@ -479,7 +479,6 @@ function buildClozeInput(taskId, item) {
   input.autocorrect = "off";
   input.autocapitalize = "off";
   input.spellcheck = false;
-  input.placeholder = "type the form";
   input.title = "type the form";
   input.dataset.word = word;
   input.dataset.matchKey = toMatchKey(item.word);
