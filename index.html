@@ -628,7 +628,7 @@
             '<div class="ege-catalog-row__body">' +
             labelHtml +
             "</div>" +
-            (available
+            (available || options.hideSoon
               ? ""
               : '<span class="ege-catalog-row__soon">' +
                 escapeHtml(options.soon || "Coming soon") +
@@ -1145,6 +1145,7 @@
               });
 
               list.appendChild(item);
+              return item;
             }
 
             function appendGroupToList(list, group) {
@@ -1155,6 +1156,10 @@
                 })
               });
               if (!group.sections.length) return;
+
+              var allPending = group.sections.every(function (section) {
+                return section.available === false;
+              });
 
               var range = groupRanges[group.name] || {};
               var lead = firstAvailableSection(group.sections);
@@ -1187,15 +1192,53 @@
                 };
               }
 
+              // Phone-only fold. The header itself stays a link (it doubles as
+              // the "practise this whole group" entry point, and syncPlaylist
+              // rewrites its href/label), so the fold gets its own button
+              // rather than hijacking the row. A wholly pending group starts
+              // folded -- there is nothing to open yet, and Listening sits
+              // first, so leaving it expanded pushes every live section down
+              // the screen. CSS only acts on these below the 820px breakpoint,
+              // so the desktop book layout is untouched.
+              var groupItems = [];
+              var collapsed = allPending;
+
+              var toggle = document.createElement("button");
+              toggle.type = "button";
+              toggle.className = "ege-catalog-group__toggle";
+              headerItem.appendChild(toggle);
+
+              function syncCollapsed() {
+                toggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+                toggle.setAttribute(
+                  "aria-label",
+                  (collapsed ? "Show " : "Hide ") + group.name + " tasks"
+                );
+                headerItem.classList.toggle("is-group-collapsed", collapsed);
+                groupItems.forEach(function (el) {
+                  el.classList.toggle("is-group-collapsed", collapsed);
+                });
+              }
+
+              toggle.addEventListener("click", function () {
+                collapsed = !collapsed;
+                syncCollapsed();
+              });
+
               // A section that is not live yet has no link and no checkbox, so a
               // run of them reads better as one line than as one dead row per
               // exam number: 1 "Main idea" + 2 "Key details" -> 1-2 "Main idea,
               // Key details".
+              // Not when the WHOLE group is pending, though: collapsing every
+              // row of it shortens that column and knocks the two-column
+              // catalog out of alignment, and the header already carries the
+              // "Coming soon" badge, so the merged row only repeated it. Keep
+              // one row per exam number there and let the header say it once.
               var entries = [];
               group.sections.forEach(function (section) {
                 var pending = section.available === false;
                 var previous = entries[entries.length - 1];
-                if (pending && previous && previous.pending) {
+                if (pending && !allPending && previous && previous.pending) {
                   previous.sections.push(section);
                   return;
                 }
@@ -1226,7 +1269,7 @@
                 });
                 if (pair) {
                   if (pair[0] !== entry) return; // rendered with its partner
-                  appendPairedRow(list, group, pair);
+                  groupItems.push(appendPairedRow(list, group, pair));
                   return;
                 }
 
@@ -1250,6 +1293,11 @@
                   num: num,
                   label: title,
                   available: available,
+                  // The group header already says "Coming soon" for a wholly
+                  // pending group; repeating it on every row underneath is
+                  // noise. The rows still read as locked (greyed, no link),
+                  // and the aria-label still announces it.
+                  hideSoon: allPending,
                   href: available
                     ? "topic.html?t=" + encodeURIComponent(section.id)
                     : "",
@@ -1265,6 +1313,8 @@
                     : null
                 });
 
+                groupItems.push(taskItem);
+
                 if (available) {
                   var check = taskItem.querySelector(".ege-catalog-row__check");
                   if (check) {
@@ -1276,6 +1326,8 @@
                   }
                 }
               });
+
+              syncCollapsed();
             }
 
             function appendWideRows(book, config) {
@@ -1290,7 +1342,8 @@
                 label: config.group,
                 available: true,
                 rowClass: "ege-catalog-row--section ege-catalog-row--wide-head",
-                itemClass: "ege-catalog-list__item--section"
+                itemClass: "ege-catalog-list__item--section",
+                icon: groupIcons[config.group] || ""
               });
               book.appendChild(head);
 
@@ -1382,13 +1435,14 @@
               var head = document.createElement("ul");
               head.className =
                 "ege-catalog-list ege-catalog-list--menu ege-catalog-book__skills-head";
-              head.setAttribute("aria-label", "Skill drills");
+              head.setAttribute("aria-label", "Skill Drill");
               appendRow(head, {
                 num: "",
-                label: "Skill drills",
+                label: "Skill Drill",
                 available: true,
                 rowClass: "ege-catalog-row--section ege-catalog-row--skills-head",
-                itemClass: "ege-catalog-list__item--section"
+                itemClass: "ege-catalog-list__item--section",
+                icon: "drill"
               });
               book.appendChild(head);
 
@@ -1400,7 +1454,7 @@
                   "ege-catalog-list ege-catalog-list--menu ege-catalog-book__skills" +
                   " ege-catalog-book__skills--" +
                   side;
-                col.setAttribute("aria-label", "Skill drills");
+                col.setAttribute("aria-label", "Skill Drill");
                 return col;
               });
               var rowCount = [0, 0];

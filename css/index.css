@@ -396,38 +396,49 @@
   display: none;
 }
 
+/* These were monochrome SVGs tinted with currentColor through a CSS mask. The
+   artwork is now full-colour stickers, and a mask only reads alpha -- it would
+   have flattened each one to a solid navy blob -- so they are painted as real
+   images instead.
+
+   The art is trimmed to its content, so `contain` fills this box edge to edge
+   -- the source PNGs used to carry transparent padding and sat 1.5-4% low in
+   their canvas, which made the icons look small and off-centre no matter what
+   the CSS did. 1.75rem is the most the 44px number column takes without
+   changing the 50px header row height. */
 .ege-catalog-group__icon {
   display: block;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.75rem;
+  height: 1.75rem;
   flex-shrink: 0;
-  background-color: currentColor;
-  mask-position: center;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .ege-catalog-group__icon--headphones {
-  mask-image: url("../assets/headphones.svg");
-  -webkit-mask-image: url("../assets/headphones.svg");
+  background-image: url("../assets/headphones.png");
 }
 
 .ege-catalog-group__icon--book {
-  mask-image: url("../assets/book.svg");
-  -webkit-mask-image: url("../assets/book.svg");
+  background-image: url("../assets/book.png");
 }
 
 .ege-catalog-group__icon--pencil {
-  mask-image: url("../assets/pencil.svg");
-  -webkit-mask-image: url("../assets/pencil.svg");
+  background-image: url("../assets/pencil.png");
 }
 
 .ege-catalog-group__icon--bubble {
-  mask-image: url("../assets/bubble.svg");
-  -webkit-mask-image: url("../assets/bubble.svg");
+  background-image: url("../assets/bubble.png");
+}
+
+.ege-catalog-group__icon--pen {
+  background-image: url("../assets/pen.png");
+}
+
+.ege-catalog-group__icon--drill {
+  background-image: url("../assets/drill.png");
 }
 
 .ege-catalog-list {
@@ -439,6 +450,18 @@
   background: var(--ege-card);
   box-shadow: var(--ege-shadow);
   overflow: hidden;
+}
+
+/* --ege-card is deliberately 96% opaque so the inline cards let the page
+   gradient tint through. The search dropdown is the one list painted ON TOP
+   of the catalog, and at 4% transparency the section rows underneath stayed
+   legible right through the results -- two lists overlapping. It needs an
+   opaque backdrop; declared here rather than beside the other
+   .ege-catalog-list--results properties above because .ege-catalog-list
+   re-sets background at equal specificity and would otherwise win on order. */
+.ege-catalog-list--results,
+.ege-catalog-search__empty {
+  background: #eef0fa;
 }
 
 .ege-catalog-list--menu:not(.ege-catalog-list--results) {
@@ -1077,11 +1100,84 @@ a.ege-catalog-row--section:focus-visible {
   color: var(--yap-royal);
 }
 
+/* "SKILL DRILL" is a brand, set to match the logo. Uppercased in CSS rather
+   than in the markup so the DOM text stays "Skill Drill" -- screen readers
+   read the text, not the rendered transform, and some spell out all-caps
+   words letter by letter. */
 .ege-catalog-row--skills-head .ege-catalog-row__label {
   color: var(--yap-royal);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .ege-catalog-row--skills-head .ege-catalog-row__soon {
   text-transform: none;
   letter-spacing: 0;
+}
+
+/* ── Catalog: fold a group on phones ──
+   The two-column book layout has room for every row, so this is scoped to the
+   single-column breakpoint. The toggle is a sibling of the header row rather
+   than a child: that row is an <a> (and syncPlaylist rewrites its href and
+   label for the "start N parts" state), so a nested button would be invalid
+   markup and would fight the link for taps. .ege-catalog-list__item is already
+   position: relative, which gives the button its anchor. */
+.ege-catalog-group__toggle {
+  display: none;
+}
+
+@media (max-width: 819px) {
+  .ege-catalog-list__item--task.is-group-collapsed {
+    display: none;
+  }
+
+  /* Hides the top border a collapsed run would otherwise leave behind. */
+  .ege-catalog-list__item--section.is-group-collapsed + .ege-catalog-list__item {
+    border-top: 0;
+  }
+
+  .ege-catalog-list__item--section .ege-catalog-group__toggle {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3rem;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--ege-muted);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Chevron, drawn in CSS so it needs no asset. Points up when the group is
+     open (tap to fold), down when it is folded (tap to open). */
+  .ege-catalog-group__toggle::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translate(-50%, -25%) rotate(-135deg);
+    transition: transform 0.18s ease;
+  }
+
+  .ege-catalog-list__item--section.is-group-collapsed .ege-catalog-group__toggle::before {
+    transform: translate(-50%, -75%) rotate(45deg);
+  }
+
+  /* Keep the row's own content clear of the toggle. */
+  .ege-catalog-list__item--section .ege-catalog-row {
+    padding-right: 3rem;
+  }
+}
+
+@media (max-width: 819px) and (prefers-reduced-motion: reduce) {
+  .ege-catalog-group__toggle::before {
+    transition: none;
+  }
 }

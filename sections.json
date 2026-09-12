@@ -8,7 +8,7 @@
       "examTo": 1,
       "title": "Main idea",
       "taskCount": 1,
-      "available": true
+      "available": false
     },
     {
       "id": "listening-select",
@@ -17,7 +17,7 @@
       "examTo": 2,
       "title": "Key details",
       "taskCount": 1,
-      "available": true
+      "available": false
     },
     {
       "id": "listening",
@@ -26,7 +26,7 @@
       "examTo": 9,
       "title": "Comprehension",
       "taskCount": 6,
-      "available": true
+      "available": false
     },
     {
       "id": "matching-headings",
@@ -70,7 +70,7 @@
       "examFrom": 19,
       "examTo": 24,
       "title": "Grammar",
-      "taskCount": 42,
+      "taskCount": 1,
       "available": true
     },
     {
@@ -124,7 +124,7 @@
       "examFrom": 38,
       "examTo": 38,
       "title": "Report skills",
-      "taskCount": 4,
+      "taskCount": 8,
       "available": true
     },
     {
@@ -151,7 +151,7 @@
       "examFrom": 41,
       "examTo": 41,
       "title": "Interview",
-      "taskCount": 1,
+      "taskCount": 31,
       "available": true
     },
     {
