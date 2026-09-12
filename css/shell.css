@@ -9395,13 +9395,17 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 64px;
+  /* Sized to the chip (56px, its own border included) plus a thin frame,
+     not a wider fixed box -- padding this generous read as "wrong size"
+     once a much narrower chip sat centered inside it with a big gap on
+     both sides. */
+  min-width: 60px;
   /* A placed chip is a 34px-tall box in its own right (border included).
      Fixing this at 34px too left no room for the slot's own 1.5px border,
      so the chip poked out past it -- min-height lets the slot grow to
      actually contain its child instead of clipping it. */
   min-height: 38px;
-  padding: 0 10px;
+  padding: 0 3px;
   border: 1.5px dashed var(--ege-line);
   border-radius: 8px;
   background: var(--ege-card-alt, #f4f5fb);
