@@ -980,7 +980,7 @@ function triggerSpiderFlee(taskId) {
     }, 350);
   }
   disableSentenceInputs(taskId, true);
-  setFeedback(taskId, "The spider lost patience and skittered away.", "error");
+  setFeedback(taskId, "");
   finishRound(taskId, "lose");
 }
 
