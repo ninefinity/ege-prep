@@ -618,6 +618,1686 @@
         "F": "1",
         "G": "6"
       }
+    },
+    {
+      "id": "headings-water",
+      "nav": "Water",
+      "title": "Water",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Water-related diseases.",
+        "Personal measure.",
+        "Ways of using.",
+        "More than survival.",
+        "Physical characteristics.",
+        "Worrying statistics.",
+        "Hard to get.",
+        "Natural threats."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Water is the most important resource for mankind. It is a condition for all life on our planet, a factor for any social and technological development, a possible source of welfare or misery, cooperation or conflict. 97 percent of it is undrinkable because it’s saltwater. Only 3 percent of the world’s water supply is fresh water, and 77 percent of that is frozen. Of the 23 percent that is not frozen, only a half a percent is available to supply everyone with all the water they need to survive."
+        },
+        {
+          "letter": "B",
+          "text": "Natural disasters like earthquakes, tornados, hurricanes and other types of incidents can disrupt drinking water and wastewater systems. Water consumers, water and wastewater utilities, and private well and septic owners should be informed on what to do in emergency. It is important to be prepared because drinking water and wastewater disruptions can directly threaten your health, the health of your family, and the health of your community."
+        },
+        {
+          "letter": "C",
+          "text": "Water security is about fighting poverty and hunger, and protecting the environment. It is about saving children from disease. It is about allowing girls to go to school instead of walking kilometers to fetch water. It is about providing women and men with access to sanitation, wherever they live. Fundamentally, it is about peace. When we talk about water security, we are really talking about human rights, human dignity, and the development of all societies."
+        },
+        {
+          "letter": "D",
+          "text": "Water is the only substance that occurs naturally as a solid (ice), a liquid and a gas (water vapor). It covers about 70 percent of the Earth for approximately 1,386 million cubic kilometers. In its purest form, it’s odorless, nearly colorless and tasteless. Water molecules are naturally attracted and stick to each other like magnets. This is the reason behind many of water’s special properties, such as the fact that it’s denser in its liquid state than in its solid state (ice floats on water)."
+        },
+        {
+          "letter": "E",
+          "text": "You use water to clean yourself, your clothes, your dishes, your car and everything else around you. You can travel on it or jump in it to cool off on hot summer days. Many of the products that you use every day contain water or were manufactured using it. It seems pretty simple, and yet there are a lot of things about it that scientists still don’t fully understand."
+        },
+        {
+          "letter": "F",
+          "text": "Every day you lose water. For your body to function properly, you must replenish its water supply. So how much fluid does the average, healthy adult living in a temperate climate need? The Institute of Medicine determined that an adequate intake for men is roughly 3 liters a day. The intake for women is 2.2 liters a day. But in truth, your water needs depend on many factors, including your health, how active you are and where you live."
+        },
+        {
+          "letter": "G",
+          "text": "Around 1.1 billion people globally do not have access to clean water supply sources whereas 2.4 billion people do not have bathrooms with running water. About 2 million people die every year due to water-related diseases, most of them are children less than 5 years of age. The most affected are people in developing countries, living in extreme conditions of poverty."
+        }
+      ],
+      "answers": {
+        "A": "7",
+        "B": "8",
+        "C": "4",
+        "D": "5",
+        "E": "3",
+        "F": "2",
+        "G": "6"
+      }
+    },
+    {
+      "id": "headings-implants",
+      "nav": "Implants",
+      "title": "Implantable Technology",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "For information and urgent help.",
+        "World without buttons.",
+        "To monitor and treat the disease.",
+        "A built-in charger.",
+        "Key under your skin.",
+        "Big brother is watching you.",
+        "Disadvantages of tech.",
+        "Phone always on you."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Sure, we’re virtually connected to our phones 24/7 now, but what if we could be literally plugged in to our phones? That’s already starting to happen. Last year, for instance, artist Anthony Antonellis had a chip put in his arm that could store and transfer data to his handheld smartphone. And researchers are already experimenting with sensors that turn human bone into living speakers."
+        },
+        {
+          "letter": "B",
+          "text": "In the future patients will be able to use implantable technologies to diagnose and even treat diseases. Scientists in London are developing swallowable capsule-sized chip that will control fat levels in obese patients and generate genetic material that makes them feel \"full\". It has potential as an alternative to surgery to handle obesity. Also it can monitor blood-sugar levels for diabetics."
+        },
+        {
+          "letter": "C",
+          "text": "The U.S. military has programs to identify any person using face scanning device. Some people see it as a doubtless advantage: improved crime fighting, secure elections and never a lost child again. However, such technologies can hammer against social norms and raise privacy issues. And one day there might be a computer to see all, know all and control all."
+        },
+        {
+          "letter": "D",
+          "text": "One of the challenges for implantable tech is delivering power to devices which are inside human bodies. You can’t plug them in as you do with your phone or computer. You can’t easily take them out to replace a battery. A team in Cambridge is working on specific bio batteries that can generate power inside the body, transfer it wirelessly where needed, and then simply melt away."
+        },
+        {
+          "letter": "E",
+          "text": "Soon tattoos will not only make you look cool but will be able to perform useful tasks, like opening your car or entering smartphone codes with a fingerpoint. Researchers have made an implantable skin fiber thinner than a human hair. Scientists are working on the chip that can be put inside a finger through a tattoo-like process, letting you unlock things or enter codes simply by pointing."
+        },
+        {
+          "letter": "F",
+          "text": "The British research team is developing pills with microprocessors in them that can text to hospitals directly from inside your body. The pills can share inside info to help doctors know if you are taking your medication properly and if it is having the desired effect. Moreover, in case of emergency, it can send a signal to the computer and the ambulance will come straight away."
+        },
+        {
+          "letter": "G",
+          "text": "Lately touchscreens are everywhere — from computers, phones, tablets to car systems and vending machines. Even doorbells now include touch screen controls. One has to wonder: are we moving to a world of only touchscreen devices? And the answer is probably yes. We are coming to an age where every flat or even curved surface could be made a touchscreen and we can operate from it."
+        }
+      ],
+      "answers": {
+        "A": "8",
+        "B": "3",
+        "C": "6",
+        "D": "4",
+        "E": "5",
+        "F": "1",
+        "G": "2"
+      }
+    },
+    {
+      "id": "headings-discoveries",
+      "nav": "Discoveries",
+      "title": "Accidental Discoveries",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Changing the face of the planet.",
+        "No effort, just luck!",
+        "Have the right neighbor!",
+        "The unexpected side of a failure.",
+        "Good for war, good for peace.",
+        "No sense of humour.",
+        "Messy can be good!",
+        "True story and myth."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Important discoveries and brilliant inventions often require years of hard work and sleepless nights. It is not unusual for scientists to devote their whole lives to solving a difficult problem. But sometimes discoveries are made by accident, as a by-product of another project people are working on, or even when somebody is doing something completely unrelated to anything remotely serious."
+        },
+        {
+          "letter": "B",
+          "text": "One of the most well-known discoveries that was made like that is the discovery of America by Christopher Columbus. While trying to find the shortest way to India, Christopher Columbus stumbled upon a new continent. His discovery completely changed people’s understanding of the world as well as the cuisine of his native country! Today it is hard to even imagine what Italians ate when they didn’t have tomatoes."
+        },
+        {
+          "letter": "C",
+          "text": "Another iconic discovery made by accident is Isaac Newton’s Law of Gravity. It happened when he was having tea in his garden and watched an apple fall off a tree. He had already been in a philosophical mood, and the falling of a bright object triggered the thought that had already been forming in his mind. This was how the incident was recorded by his biographers, but later a more dramatic story of him sleeping under the tree and being hit on the head by an apple was invented."
+        },
+        {
+          "letter": "D",
+          "text": "Discoveries can be made thanks to bad habits. Alexander Fleming was known for being an untidy person as much as a talented scientist. His lab was never in perfect order, and things easily got lost. Once he forgot about some cups with bacteria and went on vacation. When he returned and found them, he noticed that mold had grown in one of the cups and killed the bacteria. This mold known to us now as penicillin keeps saving many lives."
+        },
+        {
+          "letter": "E",
+          "text": "Some of the discoveries were made during WWII. Percy Spencer was an American physicist working in the early 1940s on military radar equipment that used microwave radio signals. Once he was standing in front of the working radar and noticed that a chocolate bar in his pocket had melted. At the time, he continued working on the radars, but after the war he created a microwave oven based on this discovery."
+        },
+        {
+          "letter": "F",
+          "text": "Harry Coover was another American scientist working during WWII. He was trying to create transparent plastic for clear plastic gun sights used for aiming. The formula he invented produced plastic that was so sticky that it stuck to everything it touched. Coover was sad that his formula was a complete disaster, but several years later realized that it could be used as glue. This was how superglue was invented."
+        },
+        {
+          "letter": "G",
+          "text": "In the summer of 1904, the World Fair in St. Louis, Missouri, was in full swing, when Arnold Fornachou, an ice-cream vendor, ran out of paper cups. Not to lose any business, Formachou bought some waffles from the waffle vendor whose booth was standing next to his, and rolled them into cones. The improvised cups were a great success and later became known as ice-cream cones!"
+        }
+      ],
+      "answers": {
+        "A": "2",
+        "B": "1",
+        "C": "8",
+        "D": "7",
+        "E": "5",
+        "F": "4",
+        "G": "3"
+      }
+    },
+    {
+      "id": "headings-life-skills",
+      "nav": "Life Skills",
+      "title": "Facing Life's Challenges",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Reasons to be afraid.",
+        "Fight your fear.",
+        "A place of wonders.",
+        "How to say thank you.",
+        "Visiting for wild life and animals.",
+        "Learn to be grateful.",
+        "It’s never late to learn.",
+        "Reading non-verbal language."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Nowadays when it’s all too easy to send an email or text, the best way to show that you are grateful to somebody is to actually mail a hand-written card. The person who gets it will know you took the extra time and thought to write a card and put it in the mail with a nice stamp. That person will appreciate your efforts much more. Plus, you’ll get the added bonus of feeling grateful a little longer than usual as you write out each note and wait for it to arrive."
+        },
+        {
+          "letter": "B",
+          "text": "Music is a noble passion, and people who can play a musical instrument have always been seen as intelligent people. Learning how to play a musical instrument is far more efficient if you do it in childhood. However, there are millions of adults who learn to enjoy music throughout their lives. Moreover, they don’t focus on just one instrument, but specialize in two or even more, if they have the time and the necessary ambition."
+        },
+        {
+          "letter": "C",
+          "text": "Millions of people avoid air travel each year because of their fear of flying. The fear of accidents happening is probably the most common fear among air travellers. It is an understandable fear, since there have been many aviation accidents throughout history. Some people may have a fear that the plane has some type of malfunction or breakdown, while others may have a fear that the weather or turbulance will affect the plane."
+        },
+        {
+          "letter": "D",
+          "text": "Try to understand that being scared is just an illusion that makes you limited and miserable. Take control of your mind and don’t let your imagination create frightening pictures in your head. If you cannot deal with it, you should make attempts to leave your comfort zone. Choose things and activities you are afraid of and meet your worries face to face, because it is impossible to run away from them. Just face your troubles no matter how powerful they may seem."
+        },
+        {
+          "letter": "E",
+          "text": "When you get chronically bored with something, your mind gets used to seeing the world negatively. It is necessary to break the chain of negative thoughts and train your mind to notice the best. Just write down 5 things you are thankful for. This way, your mind will change for the better in a while. The thankfulness will open your eyes to the beauty of the world around you and will help you to focus on positive moments in your life."
+        },
+        {
+          "letter": "F",
+          "text": "If you go to Ireland, go to isolated distant places in the country, talk to the locals and they will tell you the stories about the mythical Irish place, called the Otherworld. They believe that it is the land of paradise and happiness. In Irish poetry and tales, it is described as a series of islands near Ireland where the various fairytale creatures lived. Also the Otherworld seemed to be able to move from one location to another."
+        },
+        {
+          "letter": "G",
+          "text": "Many people can understand the nature of character without talking to the person they are interested in. The gestures and postures usually reflect the mood and the level of the person’s confidence. It’s easy to notice a highly confident person even in a big group of people. They stand in one place without constant moving from place to place, and they always make eye contact with the person they are talking to."
+        }
+      ],
+      "answers": {
+        "A": "4",
+        "B": "7",
+        "C": "1",
+        "D": "2",
+        "E": "6",
+        "F": "3",
+        "G": "8"
+      }
+    },
+    {
+      "id": "headings-animal-facts",
+      "nav": "Animal Facts",
+      "title": "Curious Animal Facts",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Fun in theory, boring in reality.",
+        "Saving rare animals.",
+        "Deficit of activity problems.",
+        "Ready to help.",
+        "Similar sounds — different emotions.",
+        "Benefits of being outdoors.",
+        "Contrary to popular belief.",
+        "Original style."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "In addition to being highly intelligent, elephants are capable of a remarkable amount of empathy. During a natural disaster, elephants are able to understand that something dangerous is happening. They can understand that a person is in trouble and that the situation is unsafe. Elephants have good sense of smell and there have been cases when they alerted rescuers to people trapped in a building. Elephants have been observed saving their young from drowning and also been filmed trying to save people they see at risk of drowning."
+        },
+        {
+          "letter": "B",
+          "text": "A lot of studies suggest that green spaces enhance mental health and learning capacity, both immediately and over time, by lowering stress levels and restoring attention. Greenery restores attention by drawing the eye and at the same time calms the nervous system, creating an ideal state for learning. Similarly, studies show that spending time in the sunlight can reduce attention deficit symptoms, while bright light first thing in the morning can improve mood and the quality of sleep."
+        },
+        {
+          "letter": "C",
+          "text": "Why are hyenas known for laughing? There is even a phrase we use: \"to laugh like a hyena\". Zoologists will tell you that the unique sounds they make are actually no laughing matter. Hyenas indeed make loud barking noises that sound like laughter, but it’s not because they’re amused by anything. Instead, a hyena’s \"laughter\" is actually a form of communication used to convey frustration, excitement, or fear. Most often, you’ll hear this unique vocalization during a hunt or when the animals are feeding on prey as a group."
+        },
+        {
+          "letter": "D",
+          "text": "Zoologists believe that boredom isn’t a uniquely human emotion — animals can be bored, too. Animals which live in captivity (in zoos, for example) and don’t have to take care of their survival may experience boredom and try to find ways to overcome it. They may come up with some \"creative\" activities which they wouldn’t normally do in their natural environment. As for the pets at home, they may also suffer from the lack of stimulation. That’s why we need to make sure we give them enough time, attention and toys regularly."
+        },
+        {
+          "letter": "E",
+          "text": "While most dogs jump eagerly into the water to swim, cats don’t usually do that, and many believe that cats have a phobia of water. But some pet groomers insist that it’s not true and getting a cat to trust you enough to bathe is quite possible, with some patience and skill. Most cats are not afraid of water like so many people may think. They are actually afraid of loud noises and of drowning, rather than water itself. Cats drink water every day, lots of cats even play with water or follow people into the shower."
+        },
+        {
+          "letter": "F",
+          "text": "Videogame testers spend most of their time testing the game long before it’s finished and long before it starts to become a fun experience. Even after the game is developed enough to start being fun, the testing tasks often aren’t entertaining at all. Testers may have to walk their character around a forest, for example, to look for trees that aren’t drawn well. They then record the coordinates so an artist can fix them later. It’s monotonous work and can take days to finish. So if testing video games seems like a fun, easy job to you, think again."
+        },
+        {
+          "letter": "G",
+          "text": "Claude Monet’s impressionist paintings were all about nature. In his works he tried to capture nature as it appeared to him at the moment. He also experimented with light and shadow and how they changed during different times of the day. Some artists of the time criticized Monet because his works lacked detail and didn’t resemble finished paintings. Monet used strong colours, which he did not mix. He painted them onto the canvas in short brush strokes. He was also criticized for not using classical painting techniques."
+        }
+      ],
+      "answers": {
+        "A": "4",
+        "B": "6",
+        "C": "5",
+        "D": "3",
+        "E": "7",
+        "F": "1",
+        "G": "8"
+      }
+    },
+    {
+      "id": "headings-medieval-castles",
+      "nav": "Medieval Castles",
+      "title": "Medieval Castles",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "A royal fortress.",
+        "Similar but different.",
+        "A new epoch in construction.",
+        "Higher and stronger.",
+        "Various activities to do.",
+        "The choice of the material matters.",
+        "From protection into fun.",
+        "Going up and coming down."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Castles and palaces may seem alike. However, there are some distinctions between them. A castle is a strong and fortified building made of stone. It has tall walls and sometimes even a surrounding water-filled ditch, called a moat. Castles were built to protect people from enemies and attacks. On the other hand, a palace is a luxurious residence designed primarily for comfort and elegance. Palaces were not built for defense like castles, so they usually didn’t have thick walls, towers, or other fortification features."
+        },
+        {
+          "letter": "B",
+          "text": "During the early days, castles were constructed using wood. Recognizing this weakness, lords and castle builders began using stone as the main material for constructing castles. Stone castles provided greater protection and durability against attacks. In terms of attacking these stone castles, the primary weapons used were battering rams and catapults. Battering rams were large, heavy objects used to forcefully strike castle gates, while catapults were siege engines designed to launch projectiles, such as rocks or flaming objects."
+        },
+        {
+          "letter": "C",
+          "text": "During the medieval period, specifically between the 11th and 13th centuries, castles were commonly constructed on elevated, man-made hills known as mottes. The primary purpose of building castles on mottes was to enhance their defensive capabilities. Mottes were typically large, artificial hills that provided strategic advantages. By elevating the castle above the surrounding area, defenders had a better point to observe and protect the surrounding lands. The height of the mottes allowed soldiers to have a broader range to defend against potential attackers."
+        },
+        {
+          "letter": "D",
+          "text": "In the past, castles used moats as a defense. Moats were ditches dug around the castle to guard it from enemies. They were often filled with water to make it difficult for attackers to tunnel into the castle. However, in some castles, people came up with more unique ideas. For example, at Český Krumlov Castle in the Czech Republic, the moat has been filled with bears since 1707. Nowadays, the bears have someone to take care of them, and they even have birthday parties and festivals organized for them."
+        },
+        {
+          "letter": "E",
+          "text": "One interesting detail about castles is their spiral stairwells. These staircases are designed to spiral in a specific direction, usually clockwise. The reason for this clever design was to put invaders at a disadvantage during a battle. Most people, including swordsmen, were right-handed and held their swords in their right hand. When invaders climbed the spiral stairs, they were not be able to use their dominant sword arm effectively, because the narrow space of the staircase restricted their movement during battles."
+        },
+        {
+          "letter": "F",
+          "text": "The Norman Conquest of 1066 was a significant event in British history. It marked the invasion and successful takeover of England by William the Conqueror, the Duke of Normandy. After the Norman Conquest, William the Conqueror and his successors built numerous castles throughout England. These castles served as strategic fortifications and symbols of their power and control over the newly-conquered lands. They were used as defensive structures, residences for the nobility, and centres of administration."
+        },
+        {
+          "letter": "G",
+          "text": "Today Great Britain has a rich tradition of castle sites, which show the best examples of the legacy of medieval times. Windsor Castle, the home of the Kings and Queens’ families of the English Commonwealth, is both the oldest and largest continuously-inhabited castle in the world. It was built in the 11th century, after the Norman Invasion, and has been used by reigning monarchs since the reign of Henry I. The castle also houses the famous St. George’s Chapel, which is designed in Gothic style, and houses the Order of the Garter."
+        }
+      ],
+      "answers": {
+        "A": "2",
+        "B": "6",
+        "C": "4",
+        "D": "7",
+        "E": "8",
+        "F": "3",
+        "G": "1"
+      }
+    },
+    {
+      "id": "headings-crows",
+      "nav": "Crows",
+      "title": "Crows",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "They are not the same",
+        "Can crows talk?",
+        "As smart as a crow",
+        "Food strategies",
+        "Meet the crow!",
+        "A variety of species",
+        "Avoiding risks",
+        "Family life issues"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Crows are birds known for their intelligence, their adaptability, and their loud, harsh cawing sound. They are part of the same family as ravens, jays, magpies, and nutcrackers. Different crow species live on every continent, except South America and Antarctica. Although they are not sometimes taken seriously, just as annoying noisy birds, crows are clever, curious, and deeply social creatures. Even today, scientists are continuing to discover how unusual and surprising these birds are."
+        },
+        {
+          "letter": "B",
+          "text": "Crows are extremely intelligent. They are known for their problem-solving, communication skills, and ability to recognise humans. In fact, research shows that crows remember the faces of people they do not like and even pass this information to other crows in their flock. These cunning birds are maths experts, too. Crows can count out loud, and they understand the concept of zero. In some ways, crows are as clever as toddlers or small children, and on one test of intelligence, they even beat monkeys."
+        },
+        {
+          "letter": "C",
+          "text": "Crows are omnivores, which means they eat nearly anything. Crows eat small mammals, frogs, and reptiles, as well as eggs and the remains of dead animals. They also eat bugs, seeds, grains, nuts, fruit, mollusks, worms, and even other birds. Crows sometimes dig through human garbage for a snack. Besides, they are known to hide their meal and save it for later. Crows have even been spotted placing walnuts on the road, so that cars will drive over them and crack their shells, making the nuts easier to eat."
+        },
+        {
+          "letter": "D",
+          "text": "Ravens and crows are related, but they are different. One can tell the two apart mainly by their size: ravens are larger and closer in size to hawks. Crows also tend to travel in large flocks, whereas ravens are more often seen in pairs. They also have different tail feathers. Crow tail feathers are all the same length, so when a crow is flying, its tail looks like a handheld fan. A raven, on the other hand, has longer feathers in the middle of its tail, so it looks like an arrow shape when the raven flies."
+        },
+        {
+          "letter": "E",
+          "text": "Like parrots, some crows learn to mimic human speech. The way birds make sounds is very different from the way we do, though. Humans can speak because of our larynx, or voice box. When air from our lungs passes through the larynx, our vocal cords vibrate, which creates sound waves we recognise as speech. Crows do not have a larynx, though. They have a different vocal organ, called a syrinx, that they use to make noises. It lets crows communicate, and they are known for their distinctive cawing sound."
+        },
+        {
+          "letter": "F",
+          "text": "The crow is well-known for its ability to predict trouble. Crows quickly learn that a moving car is no danger, but will rapidly fly away if the driver stops and gets out. In areas where they are constantly hunted, they learn the difference between a hunter with a gun and a farmer with farming tools. This degree of great care and attention is developed due to frequent aggressive treatment by man. Crows use a system of guards that observe and sound warnings to all other crows in the area."
+        },
+        {
+          "letter": "G",
+          "text": "Crows use a mixed habitat, including woodlands, open areas, agricultural fields, coastal wetlands, marshes, rivers, and streams. Crows generally nest once per year. Nest building usually happens in late March and takes about 5 days. The nests are cup shaped and constructed of twigs and bark, and lined with grass, leaves, feathers, etc. On average, 5 eggs are laid from late April to early May, and it takes about 20 days to hatch. The young remain in the nest for about a month, and are fed even longer."
+        }
+      ],
+      "answers": {
+        "A": "5",
+        "B": "3",
+        "C": "4",
+        "D": "1",
+        "E": "2",
+        "F": "7",
+        "G": "8"
+      }
+    },
+    {
+      "id": "headings-norway",
+      "nav": "Norway",
+      "title": "Norway",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Expenses.",
+        "Ways of behaviour.",
+        "Nightlife.",
+        "Favourite food.",
+        "Place to stay in.",
+        "Eating out.",
+        "National languages.",
+        "Great outdoors."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Norway is first of all a land for those who love nature. The breathtaking fjords in the southwest of the country and Europe’s largest glacier are Norway’s most attractive places, but there are many other reasons to visit this country in the north of Europe. There are wonderful opportunities to enjoy skiing, fishing and rock-climbing. Others can take pleasure in the charm of the Norwegian countryside, with its countless valleys, high mountain lakes and unbelievable views."
+        },
+        {
+          "letter": "B",
+          "text": "Many tourists coming to Norway in the summer prefer to stay in a cottage used by northern Norwegian fishermen during the winter cod-fishing season. Equipped with all the necessary facilities, these cottages are leased to holidaymakers, providing an attractive form of accommodation. They will often be actually over the water. Catching your own fish and cooking it on the fire will add a few pleasant moments to your holiday."
+        },
+        {
+          "letter": "C",
+          "text": "Norway has a long history of fishing, although much of the high quality shellfish and other species caught off the coast are exported. However, fish remains a common dish, along with meat, potatoes and other root vegetables, although tastes have changed in recent years to involve a wider international choice, including pizzas and burgers. The most popular traditional hot snack is a form of sausage, sold at numerous outlets."
+        },
+        {
+          "letter": "D",
+          "text": "Traditionally entertainment in the country is largely home-based, but this has been changing in recent years. Most Norwegians tend to go out only on Fridays and Saturdays, the rest of the week being fairly quiet. This is in no small part due to the high prices of food and drink, and the fact that the working day starts early. And at weekends, it is normal for the Norwegians to enjoy drinks at home before leaving it as late as 11.00 p.m."
+        },
+        {
+          "letter": "E",
+          "text": "Restaurants tend to be concentrated in city centres, while in recent years the pub culture has been gradually arriving in Norway. Cities are nowadays well supplied with a wide choice of bars, many of which offer food that has a lower price compared to the restaurants. Most villages of any size have at least one cafe or restaurant where it is possible to drink and eat out."
+        },
+        {
+          "letter": "F",
+          "text": "Norwegians are generally sincere and polite, though communication doesn’t often come easy — it is usually up to you to break the ice and establish contact. They can be very direct and rarely say ‘please’, which may seem rude, but it’s due to the fact that the Norwegian language rarely uses the word. On the other hand, they say ‘thank you’ for almost everything. They also tend to address people by their first name even on many formal occasions."
+        },
+        {
+          "letter": "G",
+          "text": "Norway is an expensive country. As labour is costly here, anything that can be seen as a ‘service’ will generally be more expensive than you expect. Transport costs can also be a killer, because the country is large and distances are long. But there is one good point: Norway has a high quality of tap water. So buying bottled drinking water is usually unnecessary and this will save your budget."
+        }
+      ],
+      "answers": {
+        "A": "8",
+        "B": "5",
+        "C": "4",
+        "D": "3",
+        "E": "6",
+        "F": "2",
+        "G": "1"
+      }
+    },
+    {
+      "id": "headings-uk-parliament",
+      "nav": "UK Parliament",
+      "title": "The UK Parliament",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "The House of Commons.",
+        "Parliamentary Procedure.",
+        "The House of Lords.",
+        "Westminster.",
+        "The System of Government.",
+        "Parliamentary Committees.",
+        "Whitehall.",
+        "The Crown."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Her Majesty’s Government, in spite of its name, derives its authority and power from its party representation in Parliament. Parliament is housed in the Palace of Westminster, once a home of the monarchy. Like the monarchy, Parliament is an ancient institution, dating from the middle of the thirteenth century. Parliament is the seat of British democracy, but it is perhaps valuable to remember that while the House of Lords was created in order to provide a council of the nobility for the king, the Commons were summoned originally in order to provide the king with money."
+        },
+        {
+          "letter": "B",
+          "text": "The reigning monarch is not only head of state but symbol of the unity of the nation. The monarchy is Britain’s oldest secular institution, its continuity for over a thousand years broken only once by a republic that lasted a mere eleven years (1649-60). The monarchy is hereditary, the succession passing automatically to the oldest male child, or in the absence of males to the oldest female offspring of the monarch. In law the monarch is head of the executive and of the judiciary, head of the Church of England, and commander-in-chief of the armed forces."
+        },
+        {
+          "letter": "C",
+          "text": "The dynamic power of Parliament lies in its lower chamber. Of its 650 members, 523 represent constituencies in England, 38 in Wales, 72 in Scotland and 17 in Northern Ireland. There are only seats in the Commons debating chamber for 370 members, but except on matters of great interest, it is unusual for all members to be present at any one time. Many MPs find themselves in other rooms of the Commons, participating in a variety of committees and meetings necessary for an effective parliamentary process."
+        },
+        {
+          "letter": "D",
+          "text": "Britain is a democracy, yet its people are not, as one might expect in a democracy, constitutionally in control of the state. The constitutional situation is an apparently contradictory one. As a result of a historical process the people of Britain are subjects of the Crown, accepting the Queen as the head of the state. Yet even the Queen is not sovereign in any substantial sense since she receives her authority from Parliament, and is subject to its direction in almost all matters. This curious situation came about as a result of a long struggle for power between the Crown and Parliament during the sixteenth and the seventeenth centuries."
+        },
+        {
+          "letter": "E",
+          "text": "Her Majesty’s Government governs in the name of the Queen, and its hub, Downing Street, lies in Whitehall, a short walk from Parliament. Following a general election, the Queen invites the leader of the majority party represented in the Commons, to form a government on her behalf. Government ministers are invariably members of the House of Commons, but infrequently members of the House of Lords are appointed. All government members continue to represent \"constituencies\" which elected them."
+        },
+        {
+          "letter": "F",
+          "text": "Each parliamentary session begins with the \"State Opening of Parliament\", a ceremonial occasion in which the Queen proceeds from Buckingham Palace to the Palace of Westminster where she delivers the Queen’s Speech from her throne in the House of Lords. Her speech is drafted by her government, and describes what the government intends to implement during the forthcoming session. Leading members of the Commons may hear the speech from the far end of the chamber, but are not allowed to enter the House of Lords."
+        },
+        {
+          "letter": "G",
+          "text": "The upper chamber of Parliament is not democratic in any sense at all. It consists of four categories of peer. The majority are hereditary peers, a total of almost 800, but of whom only about half take an active interest in the affairs of the state. A smaller number, between 350 and 400, are \"life\" peers — an idea introduced in 1958 to elevate to the peerage certain people who rendered political or public service to the nation. The purpose was not only to honour but also to enhance the quality of business done in the Lords."
+        }
+      ],
+      "answers": {
+        "A": "4",
+        "B": "8",
+        "C": "1",
+        "D": "5",
+        "E": "7",
+        "F": "2",
+        "G": "3"
+      }
+    },
+    {
+      "id": "headings-unusual-museums",
+      "nav": "Unusual Museums",
+      "title": "Unusual American Museums",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "To play any tune.",
+        "A brand new shore museum.",
+        "Still moving along.",
+        "Back from the seas.",
+        "Not a bank but...",
+        "Magic as attraction.",
+        "A museum of popular drinks.",
+        "One tool museum."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "The Salem Witch Museum brings you back to Salem of 1692 for a dramatic overview of the Witch Trials, including stage sets with life-size figures, lighting and a narration. There is also a possibility to go on a candlelight tour to four selected homes. The museum is open all year round and closed on Thanksgiving, Christmas and New Year's Day. Salem is also famous for its Haunted Happenings, a 24-day Halloween festival."
+        },
+        {
+          "letter": "B",
+          "text": "The Discover Sea Shipwreck Museum opened its doors in 1995, and has one of the largest collections of shipwreck and recovered artifacts in the Mid-Atlantic. It contains about 10,000 artifacts from local and worldwide locations, including an intact blown-glass hourglass from a 200-year-old shipwreck, which is also the world's deepest wooden wreck at the heart of the Bermuda Triangle."
+        },
+        {
+          "letter": "C",
+          "text": "The Seashore Trolley Museum is the oldest and largest electric railway museum in the world. It was founded in 1939 with one open trolley car, No. 31 from the Biddeford & Saco Railroad Company. The Seashore Trolley Museum contains over 250 transit vehicles, mostly trolleys, from the United States, Canada and abroad. Visitors can even take a trip along the Maine countryside aboard a restored early-1900s electric streetcar."
+        },
+        {
+          "letter": "D",
+          "text": "American Hop Museum is dedicated to the brewing industry and located in the heart of the Yakima Valley's hop fields, which gather the best harvest for producing beer. It chronicles the American hop industry from the New England colonies to its expansion into California and the Pacific Northwest, and includes historical equipment, photos and artifacts that pay tribute to hop, the everlasting vine that is still an integral part of the brewing industry."
+        },
+        {
+          "letter": "E",
+          "text": "The Money Museum in Colorado Springs is America's largest museum dedicated to numismatics (the study of collecting coins and metals). The collection contains over 250,000 items from the earliest invention of money to modern day, with items including paper money, coins, tokens, medals, and traditional money from all over the world. Highlights include the 1804 dollar, the 1913 V Nickel, the 1866 no motto series, a comprehensive collection of American gold coins, and experimental pattern coins and paper money."
+        },
+        {
+          "letter": "F",
+          "text": "The Kenneth G. Fiske Museum of Musical Instruments in California has one of the most diverse collections of musical instruments in the United States. This museum is home to over 1,400 American, European and ethnic instruments from the 17th-20th centuries. Selections from all parts of the world also include keyboards, brass, woodwind, stringed, percussion, mechanical and electronic instruments. Other highlights are rare pieces from the violin and viola families, reed organs and instruments from the Orient and Tibet."
+        },
+        {
+          "letter": "G",
+          "text": "The Hammer Museum in Alaska is the world's first museum dedicated to hammers. The Museum provides a view of the past through the use of man's first tool. You will find over 1500 hammers on display, ranging from ancient times to the present. The museum does not have any paid staff, and it is run by volunteers. This quaint and quirky museum is an interesting and informative stop for the whole family."
+        }
+      ],
+      "answers": {
+        "A": "6",
+        "B": "4",
+        "C": "3",
+        "D": "7",
+        "E": "5",
+        "F": "1",
+        "G": "8"
+      }
+    },
+    {
+      "id": "headings-moscow-visitors",
+      "nav": "Moscow Visitors",
+      "title": "Foreign Visitors to Moscow",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "A lasting relationship.",
+        "An inspirational city.",
+        "An unexpected discovery.",
+        "A brilliant celebration.",
+        "A random birthday.",
+        "Undestroyed beauty.",
+        "The future of the city.",
+        "Not intellectual enough."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Nobody knows when Moscow first appeared on the face of the earth. It is true that the first mention of Moscow dates back to 1147, but by that time it had probably been around for a while and was big enough to be mentioned in the Russian chronicles. Still, it is convenient to use that date to celebrate Moscow’s anniversaries which we are doing this year – Moscow has turned 870, a respectable age for one of the biggest capitals in the world!"
+        },
+        {
+          "letter": "B",
+          "text": "Throughout its history, Moscow has been visited by many English speakers. The first British people arrived in Moscow in 1553 by accident. In the age of great geographical discoveries, when Spanish and Portuguese navigators were sailing the world in search of the shortest way to Asia, British merchants tried to find their own way — through the Arctic. When they were stopped by ice, they turned their ships south and ended up in Russia."
+        },
+        {
+          "letter": "C",
+          "text": "Ivan the Terrible was happy to meet the first English merchants and granted them privileges to make trade between Russia and Britain easy. This was how The Muscovy Company appeared in Britain. The Czar even granted them a house near the Kremlin. This solid brick building has survived all the fires of Moscow and can be visited today. In 1994, during Queen Elizabeth’s visit to Moscow, it was turned into a museum – The Old English Court."
+        },
+        {
+          "letter": "D",
+          "text": "Mr Francis Pargiter was one of the merchants of The Muscovy Company and visited Moscow in the 1660s. He did not leave a written account of his trip, but his impressions of Moscow were recorded by his friend – Samuel Pepys, a Member of Parliament who kept a diary. Mr Pargiter described Moscow as ‘a very great city’ but mostly with wooden houses and with very few people playing chess and ‘not a man that speaks Latin’!"
+        },
+        {
+          "letter": "E",
+          "text": "In 1867, Moscow’s 720th anniversary, a trip to Moscow was undertaken by the author of \"Alice in Wonderland\", Lewis Carrol. He described Moscow as a ‘wonderful city, a city of white houses and green roofs, of conical towers that rise one out of another like a telescope; of bulging glided domes, in which you can see as in looking glass, distorted pictures of the city.’ It is believed that the idea of \"Through the Looking Glass\" came to the writer during his trip to Russia."
+        },
+        {
+          "letter": "F",
+          "text": "In 1917, during the restless days of the Revolution, when not many people even remembered Moscow’s 770th anniversary, Moscow was visited by the American journalist John Reed. Among the fires and destroyed buildings, he was happy to see St. Basil’s Cathedral untouched: ‘Late at night we went through the empty streets to the great Red Square. The church of Vasili Blazheiny loomed fantastic, its bright-coloured cupolas vague in darkness’."
+        },
+        {
+          "letter": "G",
+          "text": "In 1947, the American writer John Steinbeck witnessed Moscow’s 800th anniversary celebration. ‘The walls of the Kremlin and its towers were outlined in electric lights. Every public building was floodlighted. In every public square dance stands had been put up, and in some of the squares little booths, made to look like Russian fairy-tale houses, had been erected for sale of sweets, and ice-cream, and souvenirs’, he wrote in his Russian Journal."
+        }
+      ],
+      "answers": {
+        "A": "5",
+        "B": "3",
+        "C": "1",
+        "D": "8",
+        "E": "2",
+        "F": "6",
+        "G": "4"
+      }
+    },
+    {
+      "id": "headings-various-facts",
+      "nav": "Various Facts",
+      "title": "Various Facts",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Use of a dead language.",
+        "Violating regulations.",
+        "Careless behaviour.",
+        "Needs protection.",
+        "Reaching a target audience.",
+        "Let the air in.",
+        "Original meaning.",
+        "Using modern technology."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Distance education or e-learning offers several advantages. Students participating in e-learning programs are often able to set their own schedules and work at their own pace. The learning experience can be supported by multimedia such as videos, interactive websites, and real-time conferencing with experts from anywhere in the world. Additionally, e-learning programs are less expensive than traditional ones."
+        },
+        {
+          "letter": "B",
+          "text": "Jacob and Wilhelm Grimm did not expect to create a children's collection of fairy tales. Instead, they wanted to preserve Germany's oral tradition by collecting different stories. Not until several editions of their collection were published did the brothers realize that children were to be a major audience. Once the Brothers Grimm saw this new public, they tried to refine and soften their tales, which had originated centuries earlier as folklore."
+        },
+        {
+          "letter": "C",
+          "text": "The five Potter books have sold 250 million copies worldwide in 55 languages, including Latin and Ancient Greek. In Harry Potter and the Half-Blood Prince, J. K. Rowlings uses spells and charms that are largely based on Latin. But one of the most serious spells, Avada Kedavra, may be a variant of \"abracadabra\". In the Harry Potter series, it is a spell that causes death. Harry Potter is the only one known to have survived it."
+        },
+        {
+          "letter": "D",
+          "text": "Critics of the Harry Potter books point out that the main characters who are supposed to be \"good\" are consistently and regularly portrayed as breaking all manner of ethical rules like those against lying, cheating, and stealing. They also regularly break school rules against behavior like going out at night, using magic in the Muggle world, and so forth."
+        },
+        {
+          "letter": "E",
+          "text": "On Christmas Eve of 1968, NASA astronaut William Anders, while orbiting the moon with the Apollo 8 mission, took a photograph that provided a foundation for the modern green movement. His photo shows a small, blue planet Earth peeking over the horizon of the Moon. The image of a small planet, alone in a vast ocean of space, showed billions of people the fragility of our planet and the importance of preserving and protecting Earth."
+        },
+        {
+          "letter": "F",
+          "text": "There are many indoor air pollutants that can be harmful. Indoor air can be up to 100 times more polluted than outdoor air. Organic compounds from some paints, carpets, synthetic fabrics and adhesives are a known health hazard, contributing to the disease known as Sick Building Syndrome. Proper technology can help — open windows to let fresh air in and bad air out."
+        },
+        {
+          "letter": "G",
+          "text": "Some people, especially in rural areas, burn their trash in pits or barrels. It seems an easy way to get rid of your garbage, but the smoke it creates has a lot of really unhealthy toxic chemicals. Burning things like foam cups, plastics, and colored and bleached paper in backyards or even fireplaces causes toxic smoke that can spread throughout the neighborhood."
+        }
+      ],
+      "answers": {
+        "A": "8",
+        "B": "5",
+        "C": "1",
+        "D": "2",
+        "E": "4",
+        "F": "6",
+        "G": "3"
+      }
+    },
+    {
+      "id": "headings-anglo-russian-streets",
+      "nav": "Anglo-Russian Streets",
+      "title": "Anglo-Russian Streets",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Clever and misunderstood.",
+        "Similar constructions.",
+        "Street that changed history.",
+        "History set in stone.",
+        "The beloved characters.",
+        "Not completely gone!",
+        "A poetic street.",
+        "Important visitors."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "There have always been cultural, political and commercial connections between Britain and Russia that can take us deep into the history of these two countries. Traces of some of them can be seen in the streets of their capitals — be that the names of the streets themselves, the buildings standing on them or the monuments erected to outstanding representatives of these two nations, both real and fictional."
+        },
+        {
+          "letter": "B",
+          "text": "There are at least four streets in London that will remind you of Russia. Bayswater, one of the most beautiful areas of London, is home to Moscow Road and St. Petersburg Place — two streets that commemorate Tsar Alexander I’s visit to England in 1814. Czar Street in Deptford is the area where Peter the Great stayed in 1698 during his Grand Embassy, to take a better look at the London shipyards; while Muscovy Street near the Tower of London marks the spot of Peter the Great’s favourite pub in London."
+        },
+        {
+          "letter": "C",
+          "text": "Neither Moscow, nor St. Petersburg can boast of a \"London Street\". However, a similar function is carried out by Angliyskaya Naberezhnaya — English Embankment — historically one of the most fashionable streets in St. Petersburg, where the British Embassy and the English church used to be located before the Revolution. And as for the Revolution, it was from the English Embankment that at 2 am on October 25, 1917, the gunshot from the Aurora sent a signal to storm the Winter Palace."
+        },
+        {
+          "letter": "D",
+          "text": "Still, Moscow also has a couple of streets with English names. Brusov Lane is named after a Scottish dynasty whose most famous representative — James Bruce — was Peter the Great’s close friend and advisor. It was James Bruce who accompanied Peter the Great on his Grand Embassy to England. A brilliant scholar and scientist, James Bruce was in charge of book printing in Russia, which led many illiterate people to believe he practiced black magic."
+        },
+        {
+          "letter": "E",
+          "text": "Another Moscow street with an English name is Gamsonovsky pereulok or Hampson Lane, located not far from the Danilovsky monastery. The Hampsons were a large British family that moved to Russia in the early 19th century and founded a velvet factory on the Moskva River. Neither the Hampson family, not their factory can be found in Moscow today, but the street name still tells the story of the long-forgotten past."
+        },
+        {
+          "letter": "F",
+          "text": "One of the most recognizable sky-scrapers in modern London is the so called Gherkin — a torpedo-shaped building in the City, London’s financial center, that opened in 2004 and immediately won the Emporis Skyscraper Award. Few people know that the architect’s inspiration for the steel structure of the skyscraper was Vladimir Shukhov’s diagrid system used in the Shukhov Radio Tower in Moscow."
+        },
+        {
+          "letter": "G",
+          "text": "Perhaps the only \"English\" statue in Moscow is a sculptural composition of Sherlock Holms and Dr. Watson which opened in 2007 next to the British Embassy for the 120th anniversary since the publication of the first story about the great detective by Conan Doyle. \"These heroes have long become the personification of Great Britain in the eyes of Russians and a recognized symbol of Russian-British friendship,\" wrote the British Ambassador on its opening."
+        }
+      ],
+      "answers": {
+        "A": "4",
+        "B": "8",
+        "C": "3",
+        "D": "1",
+        "E": "6",
+        "F": "2",
+        "G": "5"
+      }
+    },
+    {
+      "id": "headings-pets-wellbeing",
+      "nav": "Pets & Wellbeing",
+      "title": "Pets and Wellbeing",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Different pets, different characters.",
+        "Having fun together.",
+        "A long-term treatment.",
+        "Reading dog stories.",
+        "Friends in need.",
+        "Pets can teach.",
+        "A global problem and its solution.",
+        "Where to get a pet."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "It has become clear that stress affects our mental and physical health and, sadly, our world has become more stressful than ever. We live in the environment that can easily wear us out. Luckily, there are certain methods to reduce stress and have control. One of the best is to own a pet. Pets require attention and dedication, but those are small prices to pay for the amount of benefits they bring into our lives."
+        },
+        {
+          "letter": "B",
+          "text": "Pets provide support because they are always available to listen (without any judgment) or rub up against your hand, which can help you relax after a hectic day. They can help you see the situation differently and let out some steam. Moreover, when you are feeling under the weather, there is nothing like a sweet pair of eyes that immediately get your mind off thoughts that are making you sad and depressed."
+        },
+        {
+          "letter": "C",
+          "text": "Companionship with a loving pet is a real source of entertainment. Pets are constantly giving off love and gratitude, and they are happy to be in your presence. You can be yourself around pets. You can dance silly or talk silly, and they will not criticize you. In fact, they will love the silliness and get silly themselves. Cats and dogs are fantastic companions to sit down and watch TV at night."
+        },
+        {
+          "letter": "D",
+          "text": "Studies have shown that communicating with a pet boosts the immune system, improves heart health, reduces physical pain, and improves mental health as well. One man with tuberculosis says that the cat he received after his diagnosis kept him going for 21 years with little pain and very few physical issues. He talked to his cat which helped him walk through his troubles. That proves the power of true love that animals have."
+        },
+        {
+          "letter": "E",
+          "text": "Pets are living creatures that have habits and personalities. They can surprise you. Dogs, cats, and birds are probably most known for having distinct personalities. However, one snake owner says that her snake had his own unique personality. He got excited when she came into the room, and she would often put him in the bathtub where he would do all sorts of funny tricks while splashing around."
+        },
+        {
+          "letter": "F",
+          "text": "No matter what type of pet you get, it will require you to take care of it. Being responsible for another living being can help you be more responsible in the rest of your life too. This is especially true for kids who are learning the value of good habits. However, adults can benefit from the consistent responsibility as well. Responsible pet owners are kind to pets and remember they are their pets’ world."
+        },
+        {
+          "letter": "G",
+          "text": "With millions of cats and dogs killed in shelters in the United States every year, adopting a pet instead of buying one saves at least one animal’s life. Adoption saves not only the animal you adopt, but also the new animal the shelter can take in. Adopting from a shelter helps both ends of the problem: fewer animals will be bred, and more animals can go to a good home."
+        }
+      ],
+      "answers": {
+        "A": "7",
+        "B": "5",
+        "C": "2",
+        "D": "3",
+        "E": "1",
+        "F": "6",
+        "G": "8"
+      }
+    },
+    {
+      "id": "headings-everyday-situations",
+      "nav": "Everyday Situations",
+      "title": "Everyday Situations",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Thoughtless behaviour.",
+        "Benefits of private business.",
+        "Too complicated to use.",
+        "Bad for business.",
+        "Science brings hope.",
+        "Road incident.",
+        "More parking places.",
+        "Personal choice."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "City centre parking is expensive and many important roads are now closed to private transport. This would be fine — if public transport was cheap and convenient, but it is neither. The result is that people are avoiding the city centre so restaurants, cinemas and shops are closing."
+        },
+        {
+          "letter": "B",
+          "text": "The motorcyclist drew along side and I heard abusive language as he banged on the car roof. I immediately locked the car doors and tried to work out what was wrong. He then shouted that I had almost collided with him. Truth to tell — I didn’t see him until now. I tried to apologize but he wouldn’t listen."
+        },
+        {
+          "letter": "C",
+          "text": "They now have cars that run on electricity, solar power and even on vegetable oil. New petrol engines are super efficient and make less harmful emissions. More people are working from home because of advances in communication technology and computer security. At last we have some grounds for optimism."
+        },
+        {
+          "letter": "D",
+          "text": "As she approached the traffic lights the driver in front of her tipped out a mess of fast food boxes, polystyrene cups and chip bags. She pressed her horn angrily. \"Why don’t people consider what they do\", she wondered helplessly. \"Someone will have to clear this up and we all have to pay for it.\""
+        },
+        {
+          "letter": "E",
+          "text": "Sarah has worked for herself more than 10 years now. It had been risky but now her interior decoration business is a success. She loves being her own boss. It constantly amazes her that her friends in big corporations believe they have job security. How can they think this way when these companies are constantly firing people to make bigger profits?"
+        },
+        {
+          "letter": "F",
+          "text": "It was not easy deciding. It never is when buying a new car. Reliability and comfort are big issues as are fuel economy, maintenance and so forth. A car has to feel right as well. Price and value for money are also critical. But in the end Ralph made his decision confident that it was just the right one for him."
+        },
+        {
+          "letter": "G",
+          "text": "Jane studied the small print. To make a successful insurance claim for her accident she needed so much information. Several complicated forms took hours to complete. She then needed three independent quotations, a witness statement, and a police statement and after everything she still had to pay the first $500 anyway."
+        }
+      ],
+      "answers": {
+        "A": "4",
+        "B": "6",
+        "C": "5",
+        "D": "1",
+        "E": "2",
+        "F": "8",
+        "G": "3"
+      }
+    },
+    {
+      "id": "headings-exploring-england",
+      "nav": "Exploring England",
+      "title": "Exploring England",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Various activities to do.",
+        "Seeing wild animals.",
+        "Funny names.",
+        "Seaside observation point.",
+        "Almost at the shore.",
+        "Quiet places to explore.",
+        "Different tactics.",
+        "Pet-friendly booking."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "The English have a very ironic sense of humour, and it may become clear when you discover what some of the towns and villages across England and the United Kingdom are called. Some are hilarious, while others are just plain rude. It is important to keep an eye out when you pass through the English countryside to see if you can spot a few on your travels. There’s Sheepy Parva and Sheepy Magna in Lancashire, Greedy Gut in Somerset, No Place in Derbyshire. There is always something to keep people entertained during their trip!"
+        },
+        {
+          "letter": "B",
+          "text": "England is part of the British Isles and a large archipelago off the coast of Europe. It is not a very big country. In fact, you could fit all the United Kingdom, that is, England, Wales, Scotland, and Northern Ireland, inside Texas, the USA, over 2.8 times. So, it shouldn’t come as too much surprise to know that you are never far from the sea when you are in England. In fact, even if you are standing in the very center of the country, you are still no more than 70 miles away from the coast. What a shame that the English weather doesn’t often encourage a beach day!"
+        },
+        {
+          "letter": "C",
+          "text": "Badgers are not always a farmer’s best friends, but Badger Watch farm in deepest rural Dorset has decided to exploit rather than fight Britain’s cutest large mammals. Extremely difficult to spot, a badger seen in the wild is an unforgettable experience. Two specially designed hides at Badger Watch Dorset offer one of the best chances of finding one. Each hide can be booked privately for up to eight people, from 6.30 pm until the lights are shut off at midnight. Alongside badgers, the hides offer a good chance of seeing foxes, deer, and rabbits."
+        },
+        {
+          "letter": "D",
+          "text": "Holidays are the best opportunity to explore the UK and overseas territories, spending quality time with family or friends including a four-legged one. In fact, holidays are the best excuse to go on some nice dog adventure and give your dog the best time. To plan your perfect holiday, it’s a matter of finding a place suitable for dogs. The good news is that there is more choice than you may think. We found that almost all holiday accommodation and hotels have a filter which you can use to navigate your options, although some are better presented than others."
+        },
+        {
+          "letter": "E",
+          "text": "The Hebrides are a beautiful archipelago, where Scottish Gaelic is still spoken. Each day will be a combination of relaxation and adventure. On a full day’s excursion, we may spend four or five hours in the kayaks and cover between seven and ten miles, with plenty of opportunities to land and explore islands on foot. One of the best ways to explore its coastline and spot some of the many bird species, otters and seals is by kayak. We can offer full-day guided trips, taking in hidden coves, long sandy beaches, and hidden ancient sites."
+        },
+        {
+          "letter": "F",
+          "text": "You never forget your first whale. Such sightings are, of course, down to good fortune and timing, but once you’ve seen your first whale, you will want to see another and another. Famous for its whaling fleet, the Yorkshire coast is one of the best places in England to spot Minke whales, which appear in late summer, following the mackerel. From the coastline of the Outer Hebrides, you can spot up to 23 species of whales, more than a quarter of the world’s 89 known species, which pass through the waters off the west coast of Scotland."
+        },
+        {
+          "letter": "G",
+          "text": "In summer the possibility of finding a calm area away from the crowds of holiday-goers can be a difficult task. Known as the Heritage Coast, the Northumberland coast area of outstanding natural beauty is surprisingly crowdfree, even in high summer. If you’re willing to relax, you’ll find a number of excellent bathing beaches here. Heritage hunters and nature watchers are spoiled with fantastically arresting castles. Most striking is the mighty fortress at Bamburgh. Many architectural historians have declared this the most wondrous of all England’s coastal castles."
+        }
+      ],
+      "answers": {
+        "A": "3",
+        "B": "5",
+        "C": "2",
+        "D": "8",
+        "E": "1",
+        "F": "4",
+        "G": "6"
+      }
+    },
+    {
+      "id": "headings-taiga",
+      "nav": "The Taiga",
+      "title": "The Taiga",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Humans cause harm",
+        "Where is the taiga found?",
+        "Clever habits",
+        "Adding two more",
+        "Young and beautiful",
+        "Surviving flora",
+        "What’s the weather like?",
+        "Native people’s habits"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "The taiga biome stretches across the Northern Hemisphere. It takes in large areas of North America and Eurasia, especially Canada and Russia, respectively. It also spans across Alaska and Scandinavia. The taiga biome occupies about 27% of the Earth’s surface. It is located south of the tundra biome, which is characterized by a frozen land and constant snow. Because of its location, the taiga biome is rather cold. It is to the north of the temperate forests and grasslands, which are much warmer."
+        },
+        {
+          "letter": "B",
+          "text": "There are cold winds that blow cold Arctic air into the taiga biome, making it very cold most of the year. Therefore, this climate is called the subarctic climate. The earth rotates around the sun annually. Due to the tilt of the sun, the taiga biome faces away from the sun, resulting in long snowy winters, which are extremely cold. Another effect is that there is less radiation from the sun to heat the land up. For these reasons, the summer is barely three months long, and the winter is double that."
+        },
+        {
+          "letter": "C",
+          "text": "The taiga is home to various species of plants. These plants are used to an extremely cold climate and mainly consist of coniferous trees, evergreens, and spruces. The absence of sunlight in the biome is an important factor, which means plants must have adaptable leaves. The evergreens have green leaves throughout the year, so they have enough food due to the presence of chlorophyll in their leaves. They keep the same leaves for a very long time, enabling them to use minimal solar energy."
+        },
+        {
+          "letter": "D",
+          "text": "There is a limit to the number of animals that can survive in the taiga, due to the cold temperatures. Still, there are many animal species, including mammals, birds, and insect species. Like the taiga plants, animals in the biome must have adaptive features to survive in this climate. During the summer, more animals are in sight than during the winter. This is because most of them either migrate to warmer biomes where they can cope easily, especially for birds, or spend the winter sleeping until the next summer season."
+        },
+        {
+          "letter": "E",
+          "text": "Surprisingly, there are six seasons, as identified by the native people of the boreal forest or taiga. The seasons are spring, break-up, summer, autumn, freeze-up, and winter. The period in October, when the trees lose their leaves and the lakes become frozen, is known as freeze-up. This period occurs after autumn and ends when winter starts. The other period is when the snow melts, and the ground looks bare. This season is called the break-up season and may last quite long — until all the ice in the lakes has melted."
+        },
+        {
+          "letter": "F",
+          "text": "Compared to certain trees that grow in more temperate climates, most of the trees in the boreal forest or taiga are young. Forests are typically less than 100 years old throughout the western boreal zone, and mainly younger than 200 years old in the eastern boreal zone. Due to frequent natural disasters that are the result of an ecological loop that renews the boreal forest, scientists do not believe this amazing forest to be ancient. But they all agree that it is the largest biome on land."
+        },
+        {
+          "letter": "G",
+          "text": "The boreal forest contributes greatly to the earth’s oxygen supply by collecting carbon dioxide produced by people. It helps a lot in the preservation of the ozone layer thanks to its green vegetation. However, human activities such as deforestation are destroying the boreal forest’s structure. When a tree is harmed, it takes a long time to grow back, because the biome has an extremely slow growth rate. That’s why the boreal forest has drawn the attention of the environment protection specialists worldwide."
+        }
+      ],
+      "answers": {
+        "A": "2",
+        "B": "7",
+        "C": "6",
+        "D": "3",
+        "E": "4",
+        "F": "5",
+        "G": "1"
+      }
+    },
+    {
+      "id": "headings-theatre-history",
+      "nav": "Theatre History",
+      "title": "The History of Theatre",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "A step to a wider variety.",
+        "Varieties of theatre.",
+        "Modern problems.",
+        "Theatre and politics.",
+        "Origin of theatre.",
+        "Ladies enter.",
+        "Not the least important.",
+        "Stars for a repertoire."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Modern Western theatre comes in large measure from ancient Greek drama, from which it takes technical terminology, classification into genres, and many of its themes, stock characters, and plot elements. The Greeks also developed the concepts of dramatic criticism, acting as a career, and theatre architecture. The theatre of ancient Greece consisted of three types of drama: tragedy, comedy, and the satyr play."
+        },
+        {
+          "letter": "B",
+          "text": "Western theatre developed and expanded considerably under the Romans. The Roman historian Livy wrote that the Romans first experienced theatre in the 4th century BC. The theatre of ancient Rome was a thriving and diverse art form, ranging from festival performances of street theatre, nude dancing, and acrobatics, to the staging of broadly appealing situation comedies, to the highstyle, verbally elaborate tragedies."
+        },
+        {
+          "letter": "C",
+          "text": "Theatre took on many different forms in the West between the 15th and 19th centuries, including commedia dell’arte and melodrama. The general trend was away from the poetic drama of the Greeks and the Renaissance and toward a more naturalistic prose style of dialogue, especially following the Industrial Revolution. Theatre today, broadly defined, includes performances of plays and musicals, ballets, operas and various other forms."
+        },
+        {
+          "letter": "D",
+          "text": "The eighteenth century in Britain introduced women to the stage, which would have been extremely inappropriate before. These women were looked at as celebrities but on the other hand, it was still very new and revolutionary that they were on the stage and some said they were unladylike and looked down n. Charles II did not like young men playing the parts of young women, so he asked that women play their own parts."
+        },
+        {
+          "letter": "E",
+          "text": "Theatre took a big pause during 1642 and 1660 in England because of Cromwell’s Interregnum. Theatre was seen as something sinful and the Puritans tried very hard to drive it out of their society. Because of this stagnant period, once Charles II came back to the throne in 1660, theatre (among other arts) exploded because of a lot of influence from France, where Charles was in exile the years previous to his reign."
+        },
+        {
+          "letter": "F",
+          "text": "Stagecraft is a term referring to the technical aspects of theatrical, film, and video production. It includes constructing scenery, hanging and focusing of lighting, design and procurement of costumes, makeup, props, stage management, and recording and mixing of sound. Considered a technical rather than an artistic field, it is equally crucial for the practical implementation of a designer’s artistic idea."
+        },
+        {
+          "letter": "G",
+          "text": "While most modern theatre companies rehearse one piece of theatre at a time, perform that piece for a set \"run\", retire the piece, and begin rehearsing a new show, repertory companies rehearse multiple shows at one time. Repertory theatre generally involves a group of similarly accomplished actors, and relies more on the reputation of the group than on an individual star actor."
+        }
+      ],
+      "answers": {
+        "A": "5",
+        "B": "1",
+        "C": "2",
+        "D": "6",
+        "E": "4",
+        "F": "7",
+        "G": "8"
+      }
+    },
+    {
+      "id": "headings-magazines-hobbies",
+      "nav": "Magazines & Hobbies",
+      "title": "Magazines and Hobbies",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Travel memories.",
+        "Animal lover magazine.",
+        "Travel to stars.",
+        "Star dreams.",
+        "Popular hobby.",
+        "Family magazine.",
+        "People and nature.",
+        "Animals in danger."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Most people who spend a holiday travelling take a camera with them and photograph anything that interests them — sights of a city, views of mountains, lakes, waterfalls, men and women, children, ruins of ancient buildings, and even birds and animals. Later looking through their albums they will remember the happy time they have had, the islands, countries and cities they have seen."
+        },
+        {
+          "letter": "B",
+          "text": "Of course, different people dream of different things. Someone wishes a calm and quiet life; others imagine their life as a never-ending adventure. The majority dream of something concrete: a villa in some warm place, an account in a Swiss bank, a splendid car… It’s interesting to know what the dreams of people who already have all this are. Celebrities, as we know, never hide their unusual hobbies, and often shock us with their extravagant behaviour."
+        },
+        {
+          "letter": "C",
+          "text": "It is Junior Baseball Magazine’s mission to provide information that enhances the youth baseball experience for the entire family. The player improves his skills and is more successful. The family enjoys the activity more and shares this precious time in their life. Junior Baseball emphasizes good sportsmanship, safety, physical fitness and wholesome family values."
+        },
+        {
+          "letter": "D",
+          "text": "The seas are in danger. They are filled with poison like industrial, nuclear and chemical waste. The Mediterranean Sea is already nearly dead; the North Sea is following it. The Aral Sea is on the brink of extinction. If nothing is done about it, one day nothing will be able to live in the seas. Every ten minutes one species of animal, plant or insect dies out forever."
+        },
+        {
+          "letter": "E",
+          "text": "Lots of people all over the world enjoy collecting stamps. Stamps are like little pictures. Very often they show the flowers or the trees which grow in this or that country, or they can show different kinds of transport of the country. Stamps may also have portraits of famous people on them. Some stamps show art work from the history of the country."
+        },
+        {
+          "letter": "F",
+          "text": "\"Friend\" is the title of my favourite magazine. It consists of 70 pages, with lots of colourful and bright pictures and provides interesting and useful information for people who love animals. The magazine includes numerous articles devoted to various topics connected with domestic animals, ways to take care of them, pet food, animal health and many other topics crucial for any animal lover."
+        },
+        {
+          "letter": "G",
+          "text": "People are beginning to realize that environmental problems are not just somebody else’s. Many people join and support various international organizations and green parties. What could be more important than human life? Polluted air, poisoned water, wastelands, noise, smoke — all these influence not only nature but people as well. Everything should be done to improve ecological conditions on our planet."
+        }
+      ],
+      "answers": {
+        "A": "1",
+        "B": "4",
+        "C": "6",
+        "D": "8",
+        "E": "5",
+        "F": "2",
+        "G": "7"
+      }
+    },
+    {
+      "id": "headings-time-management",
+      "nav": "Time Management",
+      "title": "Time Management",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "First things first.",
+        "Set objectives wisely.",
+        "Delegate and refuse.",
+        "Plan for efficiency.",
+        "Not only work matters.",
+        "Avoid distractions.",
+        "The faster, the better.",
+        "Importance of time management."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Time is precious, particularly when it comes to running a small business. While being your own boss is a dream for many, it comes with a lot of responsibility. No doubt, you never seem to be able to check off all the items on your to-do list. From networking to marketing your company, it may seem like there’s an endless number of tasks and never enough time. If you want to maintain a healthy work-life balance, your time management skills really need to be on point. After all, there are never more than 24 hours in a day."
+        },
+        {
+          "letter": "B",
+          "text": "Goal setting is crucial to any good time management strategy. To make sure you’re engaging in activities that support your business goals, both short- and long-term, you need to define those goals in terms that are clear and achievable. After all, if your goal is just \"to grow your business,\" you might find yourself stressed and not know where to begin. Standing for \"Smart, Measurable, Achievable, Relevant, and Time-bound\", SMART goals provide clear, step-by-step tasks to help you get where you need to go."
+        },
+        {
+          "letter": "C",
+          "text": "Once you have set your goals and determined the individual tasks you need to do to achieve them, it’s time to prioritise. Of course, you want to make sure you’re getting things done, but they should be the right things. Stephen Covey offers advice on how to work through your to-do list based on urgency. Focus your energy on completing your most important and urgent tasks before moving on to less time-sensitive items. Low-priority stuff offers the illusion of being busy. Do these later."
+        },
+        {
+          "letter": "D",
+          "text": "One of the worst things you can do is jump into the workday with no clear idea about what needs to get done. While it might seem like a waste of time to take five to ten minutes to think ahead rather than getting straight down to business, you’ll be surprised at how much more efficient you can be just by dedicating a little time to planning out the rest of the day. If you schedule your time wisely, you can focus on one task at a time, rather than wasting time jumping from one thing to the next. This allows you to work smarter, not harder."
+        },
+        {
+          "letter": "E",
+          "text": "Start paying attention to the number of times someone interrupts you when you are doing an important task. Track self-induced interruptions, too, particularly those of the social media variety. Your smartphone is extremely useful, but it’s also highly addictive and among the most harmful time-wasters known to man. It may take a massive exercise in will power, but shut the door and turn off your phone to maximize your time. Instead of being \"always on\", plan a break in the day to catch up on email, make phone calls, etc."
+        },
+        {
+          "letter": "F",
+          "text": "If you have hired talented, dedicated employees, one of the most impactful management tools is asking them to handle some tasks. Running a successful small business depends on the owner’s ability to think about what lies ahead and not get stuck in day-to-day operations. Look for opportunities to pass responsibility for specific tasks to others on your team. That’s what you hired them for, isn’t it? If you have to decline a request in order to attend to what’s truly important and urgent, do not hesitate to do so."
+        },
+        {
+          "letter": "G",
+          "text": "Taking care of yourself is important. In fact, one Harvard study found that insomnia can cause the average worker to lose up to 11.3 days of productivity each year, while another study found that regular exercise helps improve concentration, sharpen memory, speed up your ability to learn, and even lower your stress levels. Making sure you have some free time each day to spend on the people and things you love is important for your mental health, and can help keep you energised and passionate about your work."
+        }
+      ],
+      "answers": {
+        "A": "8",
+        "B": "2",
+        "C": "1",
+        "D": "4",
+        "E": "6",
+        "F": "3",
+        "G": "5"
+      }
+    },
+    {
+      "id": "headings-football-facts",
+      "nav": "Football Facts",
+      "title": "Football Facts",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Footballers’ diets.",
+        "Ideal football shape.",
+        "Length matters.",
+        "Puree instead of pasta.",
+        "Secret born in the USSR.",
+        "Stress or relaxation.",
+        "Flying fruit.",
+        "Referee’s perspective."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Good footballers must have something in their genes. Scientists have discovered a link between the length of a footballer’s ring finger and their ability as a player. They compared the ring and index fingers of top players. Players whose ring fingers were longer compared to their index fingers were more likely to be elite players. Some of the players found to have long ring fingers are Bryan Robson, Ossie Ardiles, Glenn Hoddle, Sir Stanley Matthews and Gazza."
+        },
+        {
+          "letter": "B",
+          "text": "Fitness training is absolutely necessary for a first-rate football team. Jogging up and down the stadium a few times is not enough. What footballers really need is a quick start. Footballers can get this ability to start running very quickly by using a training method called ‘plyometrics’. In the 1960s, athletes in the Soviet Union used plyometric exercises to improve their results in jumping. Step by step, the method has become very important for many sports that include sprinting and jumping."
+        },
+        {
+          "letter": "C",
+          "text": "In the past, footballers used to have a big fried breakfast — or even a roast dinner — before a football match. In the new era of professional football, the menu of modern players has been radically reformed. Arsenal manager, Arsene Wenger, is known for his scientific method of feeding his team. When he first came to the club in 1996, he at once changed the players’ dinner menus. Sugar, red meat, chips, fried foods and dairy products were out. Vegetables, fish, chicken and plenty of water were in."
+        },
+        {
+          "letter": "D",
+          "text": "French diet specialists heavily criticised the pre-match diet of the England players in Euro ‘96. Their menu of tomato soup and spaghetti was said to be more likely to produce wind than a win. Potatoes, according to French scientists, make the best meal on the day of a game. They have glucides, which give the player a lot of energy. They also include useful vitamins. According to one piece of research, a player should eat 200-300 grams of mashed potatoes, boiled for 20 minutes, exactly three hours before going to the game."
+        },
+        {
+          "letter": "E",
+          "text": "Physics can explain a football wonder — the banana kick. This happens when a ball suddenly changes its direction at the end of its flight. At a certain speed, the air flowing over a flying ball becomes ‘turbulent’. This means that the air moves irregularly over the ball. As the ball slows down, the air becomes ‘smooth’ again. This slowdown makes the ball turn dramatically, creating the wonderful ‘banana’ kicks that the spectators like so much."
+        },
+        {
+          "letter": "F",
+          "text": "These days, footballs are made in a design based on the ‘Buckminster Ball’. The American architect Richard Buckminster Fuller came up with the design when he was trying to find a way for constructing buildings using a minimum of materials. The ball is a series of geometrical figures, which can be fitted together to make a round body. The modern football is in fact a Buckminster Ball consisting of 32 pieces. When they are joined together and filled with air they make a perfect sphere."
+        },
+        {
+          "letter": "G",
+          "text": "Research has shown that watching the World Cup is good for our health even if your team goes out on penalties. The scientists suggest that a common interest and a nationalistic pride are very important. The competition makes people less concentrated on their own problems. They are also more patient and can cope with crises much easier. Watching football can, however, also be disappointing, especially when it comes to the decisions of referees and officials. Besides, watching penalties can be very nervous."
+        }
+      ],
+      "answers": {
+        "A": "3",
+        "B": "5",
+        "C": "1",
+        "D": "4",
+        "E": "7",
+        "F": "2",
+        "G": "6"
+      }
+    },
+    {
+      "id": "headings-bison",
+      "nav": "Bison",
+      "title": "Bison",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "The history of taming.",
+        "Comparing the two species.",
+        "A beautiful place to be saved.",
+        "Reasons to domesticate cows.",
+        "The evolution of bison.",
+        "Born to be wild.",
+        "Safer than before, but not enough.",
+        "Failed attempts to protect."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "It is likely that the modern European bison arose from the steppe bison. Recent research says it appeared as a result of an interbreeding event between the steppe bison and the ancestor of modern cows around 120,000 years ago. At one point, some steppe bison crossbred with the ancestors of the modern yak. After that, a population of steppe bison crossed the Bering Land Bridge to North America. Then the steppe bison spread through the northern parts of North America, where it lived until around 8,000 years ago."
+        },
+        {
+          "letter": "B",
+          "text": "The Prioksko-Terrasny Nature Reserve is one of the smallest in Russia. It covers an area of 4,960 hectares on the terraces of the Oka River valley. This is a unique area with its natural diversity of pine and mixed forests, small rivers, streams and marshes. Here you can observe the life of animals and birds in their natural habitat. The symbol of the reserve is a bison. This is a wild forest bull, which was recently on the verge of extinction. Bison youngsters grown up to two years in the reserve are sent to replenish free-living populations."
+        },
+        {
+          "letter": "C",
+          "text": "Though the American and European bisons are close relatives, it is easy to spot clear differences in their behaviour and build. Adult European bisons are slimmer in build and have longer legs. European bisons tend to graze less and walk around more than their American relatives. This difference in behaviour is reflected in their build. The American bison’s head hangs lower than the European’s does. American bisons are more easily tamed than their European cousins are. They also breed with domestic cattle more readily."
+        },
+        {
+          "letter": "D",
+          "text": "American bisons are known for living on the Great Plains. Bisons were hunted close to extinction during the 19th and 20th centuries, but have since rebounded. The European bison owes its survival, in part, to the Chernobyl disaster. Ironically, the Chernobyl Zone has become a kind of wildlife preserve, though poaching has become a threat in recent years. The American Plains bison is no longer listed as endangered, but this does not mean the species is safe. Their fragmented herds call for active conservation measures."
+        },
+        {
+          "letter": "E",
+          "text": "In the middle of the 19th century people started realising how important the buffalo was. Reasons for that included not only animal cruelty, but also ecological and future resources. Someone needed to speak out, and over the years they did, but never enough at one time to count. The real extermination of the buffalo was caused by the demands of trade, aided by hunters and Indians. However, the blame really lies with the government, which in all those years permitted a few ignorant Congressmen to block the laws protecting these animals."
+        },
+        {
+          "letter": "F",
+          "text": "There have been several attempts to tame the buffalo, but there are a few things that stand in the way. The buffalo is very aggressive by nature; it can run up to 40 mph and can jump vertically in the air almost their entire height. Imagine trying to teach an angry, prancing sedan to stay still and respect you. All that said, there have been instances of domestic buffalo. This is possible if they are raised from calves to be only with humans. Even then, they seem to be loyal and friendly with a small set of humans, not all humans."
+        },
+        {
+          "letter": "G",
+          "text": "At about the same time they domesticated plants, people in Mesopotamia began to domesticate animals for meat, milk, and hides. Hides were used for clothing, storing things and for building tent shelters. Goats were probably the first animals to be domesticated, followed closely by sheep. Later, people began domesticating larger animals, such as oxen or horses, for ploughing and transportation. These are known as beasts of burden. The easiest animals to domesticate are herbivores that graze on grass, because they are the easiest to feed."
+        }
+      ],
+      "answers": {
+        "A": "5",
+        "B": "3",
+        "C": "2",
+        "D": "7",
+        "E": "8",
+        "F": "6",
+        "G": "1"
+      }
+    },
+    {
+      "id": "headings-cats-and-dogs",
+      "nav": "Cats & Dogs",
+      "title": "Cats and Dogs",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Brave partners in action",
+        "Hardworking employees",
+        "Immortalized by the authors",
+        "On the verge of the universe",
+        "Tested by time",
+        "Let sleeping dogs lie",
+        "Guardian angels of the mountains",
+        "Where artistic talent is encouraged"
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "For thousands of years cats and dogs have been people's favourite pets. You can find proof of that in the ancient world — in Egyptian pyramids and cave paintings — as well as today. Go to a park in any country early in the morning, and you will see many people walking their dogs. Open any kind of social media, and cats are among the most popular posts. But cats and dogs are not just pets. They have always been people's loyal friends and helpers, as well."
+        },
+        {
+          "letter": "B",
+          "text": "There are several museums around the world that employ cats. Perhaps the one with the longest history of using cats as mouse and rat hunters is the State Hermitage in St. Petersburg, where cats have been officially working for over 250 years. The British Museum in London also used to have cats as \"mousers\" on their payroll, but this practice has been recently stopped. The Ernest Hemingway Museum in Florida also employs cats, most of which are descendants of Hemingway's original cat, Snow White. However, unlike other museums, they keep the cats as part of a tradition rather than for catching mice."
+        },
+        {
+          "letter": "C",
+          "text": "The Kuklachev Cat Theatre in Moscow is one of the most unusual theaters in the world, where cats are the main performers. Founded by Yuri Kuklachev in 1990, the theatre features trained cats that jump, balance, and perform tricks alongside human actors. Unlike in circuses, the cats are not forced to do tricks but are trained based on their natural abilities and preferences. The theatre promotes kindness to animals and emphasizes that cats should be treated with love, patience and respect."
+        },
+        {
+          "letter": "D",
+          "text": "Dogs' jobs are much more diverse than those of cats. Traditionally kept as guards, dogs have also been used for many years by the police, military and rescue teams. Perhaps the most famous rescue dog breed is St. Bernard, which was used by monks in the Alps to save travellers lost in the snowy and dangerous St. Bernard Pass. During their 200 years of service as rescue dogs in the 18th and 19th centuries, St. Bernards saved over 2,000 people, from lost children to Napoleon's soldiers."
+        },
+        {
+          "letter": "E",
+          "text": "There are several monuments to rescue dogs in Moscow. One of them, located at Victory Park, honors over 60,000 frontline dogs who, during World War II, rescued more than 700,000 wounded soldiers from battlefields, as well as delivered ammunition and combat reports, and detected and neutralized enemy explosive devices. Another monument, dedicated to both human and canine firefighters, pays tribute to the heroic dogs who assist in finding people trapped under ruins during fires, showcasing their vital role in saving lives."
+        },
+        {
+          "letter": "F",
+          "text": "Moscow is home to several monuments honoring heroic dogs. One of them is dedicated to Laika, the first dog to orbit the Earth. Laika was sent into space aboard Sputnik-2 in 1957, paving the way for human spaceflight. Another monument celebrates Belka and Strelka, the first dogs to travel to space and return safely. This monument features the two space dogs alongside the Sputnik satellite, the Vostok rocket, and the Soyuz spacecraft, symbolizing their contribution to space exploration and scientific progress."
+        },
+        {
+          "letter": "G",
+          "text": "There are several famous cat characters in literature. Three of the most well-known are the Cheshire Cat from \"Alice's Adventures in Wonderland\" by Lewis Carroll, Murr from \"The Life and Opinions of Tomcat Murr\" by E.T.A. Hoffmann, and Behemoth from Mikhail Bulgakov's \"Master and Margarita\". There is a sculpture of Behemoth near Bulgakov Museum in Moscow, and inside the museum, a real cat plays the role of the famous \"primus-mending\" cat."
+        }
+      ],
+      "answers": {
+        "A": "5",
+        "B": "2",
+        "C": "8",
+        "D": "7",
+        "E": "1",
+        "F": "4",
+        "G": "3"
+      }
+    },
+    {
+      "id": "headings-sleep-health",
+      "nav": "Sleep & Health",
+      "title": "Sleep and Health",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Different terms.",
+        "The importance of sleep.",
+        "Lack of sleep.",
+        "Reasons to be active.",
+        "What is obesity.",
+        "Sleep and obesity.",
+        "Emotions and sleep.",
+        "How long to sleep."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "When a person has excess weight or body fat, this might affect their health. It is usually caused by the consumption of more calories than the body can use. The excess calories are stored as fat. Obesity is a medical condition. It was first recognized as a disease in 1948 by the World Health Organisation (WHO). Obese people suffer from a large number of diseases. In most people, obesity is caused by eating too much and moving too little. There are different types of obesity."
+        },
+        {
+          "letter": "B",
+          "text": "It’s never too late to become more physically active. Physical activity refers to any movement of the body that uses energy. It can include housework, walking and gardening. Exercise is a kind of physical activity. It is planned and repetitive. Examples of exercise are going to the gym and running on a treadmill. If you are interested in maintaining good health, physical activity can be a great place to start. If you want to achieve fitness goals, you will need to incorporate structured exercise into your routine."
+        },
+        {
+          "letter": "C",
+          "text": "Exercising regularly is one of the most important things you can do for your health. In the short term, exercise helps to control appetite, boost mood and improve sleep. In the long term, it reduces the risk of heart disease, stroke, diabetes, dementia and depression. Exercise plays a vital role in building and maintaining strong muscles and bones. Regular exercise also increases your chances of living longer. There are many types of physical activity, including swimming, running, jogging, walking and dancing."
+        },
+        {
+          "letter": "D",
+          "text": "Sleep plays an essential role in your health and well-being. Getting enough good quality sleep has many benefits. It protects your physical and mental health, quality of life and personal safety. When we sleep, our brain lays down memory, restores daytime mental functioning and carries out processes that lead to physical growth. Poor sleep is strongly linked to weight gain. People with short sleep duration tend to weigh significantly more than those who get adequate sleep. Mental health issues are strongly linked to poor sleep quality."
+        },
+        {
+          "letter": "E",
+          "text": "Sleep is a vital indicator of overall health and well-being. On average, adults should optimally receive between seven and nine hours of sleep each night, but those needs vary individually. For example, some people feel best with eight consecutive hours of sleep, while others do well with six to seven hours at night and daytime napping. Some people feel okay when their sleep schedule changes, while others feel strongly affected by a new schedule or even one night of insufficient sleep."
+        },
+        {
+          "letter": "F",
+          "text": "Obesity develops when energy intake is greater than expenditure. Diet and physical activity play an important part in this. However, an additional factor may be inadequate sleep. A growing body of research suggests that there’s a link between how much people sleep and how much they weigh. In general, children and adults who get too little sleep tend to weigh more than those who get enough sleep. People who don’t get enough sleep may take in more calories than those who do, simply because they are awake longer and have more opportunities to eat."
+        },
+        {
+          "letter": "G",
+          "text": "People find it harder to fall asleep when they are anxious and sad. The relationship between mood disorders and quality sleep is a complex, two-way street. Just as negative mood states can make getting a good night’s sleep a virtual impossibility, insufficient sleep can lead to depression. Regardless of which comes first, the end result is that a blue mood and poor sleep go hand-inhand. The amount and quality of our sleep can play a huge role in our mental health including how we feel and how we act toward other people."
+        }
+      ],
+      "answers": {
+        "A": "5",
+        "B": "1",
+        "C": "4",
+        "D": "2",
+        "E": "8",
+        "F": "6",
+        "G": "7"
+      }
+    },
+    {
+      "id": "headings-world-festivals",
+      "nav": "World Festivals",
+      "title": "World Festivals",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Perfect time for a picnic.",
+        "See them fly.",
+        "From pig to pork.",
+        "From a holiday to a sport.",
+        "Diving into history.",
+        "Famous religious celebrations.",
+        "Animal races and shows.",
+        "Music from every corner of the world."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Diwali is a five-day festival that is celebrated in October or November, depending on the cycle of the moon. It represents the start of the Hindu New Year and honors the victory of good over evil, and brightness over darkness. It also marks the start of winter. Diwali is actually celebrated in honor of Lord Rama and his wife Sita. One of the best places to experience Diwali is in the \"pink city\" of Jaipur, in Rajasthan. Each year there's a competition for the best decorated and most brilliantly lit up market that attracts visitors from all over India."
+        },
+        {
+          "letter": "B",
+          "text": "The Blossom Kite Festival, previously named the Smithsonian Kite Festival, is an annual event that is traditionally a part of the festivities at the National Cherry Blossom Festival on the National Mall in Washington, DC. Kite enthusiasts show off their stunt skills and compete for awards in over 36 categories including aerodynamics and beauty. The Kite Festival is one of the most popular annual events in Washington, DC and features kite fliers from across the U.S. and the world."
+        },
+        {
+          "letter": "C",
+          "text": "The annual Ostrich Festival has been recognized as one of the \"Top 10 Unique Festivals in the United States\" with its lanky ostriches, multiple entertainment bands and many special gift and food vendors. It is truly a unique festival, and suitable for the entire family. The Festival usually holds Ostrich Races, an Exotic Zoo, Pig Races, a Sea Lion Show, a Hot Rod Show, Amateur Boxing and a Thrill Circus."
+        },
+        {
+          "letter": "D",
+          "text": "Iceland's Viking Festival takes place in mid-June every year and lasts 6 days, no matter what the weather in Iceland may be. It's one of the most popular annual events in Iceland where you can see Viking-style costumes, musical instruments, jewelry and crafts at the Viking Village. Visitors at the Viking Festival see sword fighting by professional Vikings and demonstrations of marksmanship with bows and muscle power. They can listen to Viking songs and lectures at the festival, or grab a bite at the Viking Restaurant nearby."
+        },
+        {
+          "letter": "E",
+          "text": "Dragon Boat Festival is one of the major holidays in Chinese culture. This summer festival was originally a time to ward off bad spirits, but now it is a celebration of the life of Qu Yuan, who was a Chinese poet of ancient period. Dragon boat festival has been an important holiday for centuries for Chinese culture, but in recent years dragon boat racing has become an international sport."
+        },
+        {
+          "letter": "F",
+          "text": "The Mangalica Festival is held in early February at Vajdahunyad Castle in Budapest. It offers the opportunity to experience Hungarian food, music, and other aspects of Hungarian culture. The festival is named for a furry pig indigenous to the region of Hungary and the Balkans. A mangalica is a breed of pig recognizable by its curly hair and known for its fatty flesh. Sausage, cheese and other dishes made with pork can be sampled at the festival."
+        },
+        {
+          "letter": "G",
+          "text": "Hanami is an important Japanese custom and is held all over Japan in spring. Hanami literally means \"viewing flowers\", but now it is a cherry blossom viewing. The origin of hanami dates back to more than one thousand years ago when aristocrats enjoyed looking at beautiful cherry blossoms and wrote poems. Nowadays, people in Japan have fun viewing cherry blossoms, drinking and eating. People bring home-cooked meals, do BBQ, or buy takeout food for hanami."
+        }
+      ],
+      "answers": {
+        "A": "6",
+        "B": "2",
+        "C": "7",
+        "D": "5",
+        "E": "4",
+        "F": "3",
+        "G": "1"
+      }
+    },
+    {
+      "id": "headings-transport-england",
+      "nav": "Transport in England",
+      "title": "Getting Around England",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Far from busy cities.",
+        "Both benefits and downsides.",
+        "The least popular.",
+        "Options to choose from.",
+        "For warmer seasons.",
+        "Ways to save.",
+        "Inexpensive but unreliable.",
+        "Do not get confused."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "The first big decision when visiting England is whether to travel by private car or use the extensive public transport system. Having your own car means you can make the best use of time and reach remote places, but rental and fuel costs can be expensive, and there are always traffic delays to put up with. Public transport, which includes a reliable system of trains and coaches (buses), is often the better choice for getting around in the United Kingdom. Aside from London, England’s city centres with multiple pedestrian streets are very walkable, too."
+        },
+        {
+          "letter": "B",
+          "text": "For long-distance travel around England, trains are generally faster and more comfortable than buses but are usually much more expensive. The English like to moan about their trains, but around 85% run on time, and major stations are well-equipped — with super helpful staff and a range of food outlets. If you leave booking your ticket to the last minute, fares can be disproportionally high, so it is always worth booking as far in advance as you can. Sometimes buying two single tickets can be cheaper than buying a return."
+        },
+        {
+          "letter": "C",
+          "text": "Long-distance buses are known as coaches in the UK, and services run between most major towns and cities. If you are on a tight budget, coaches are nearly always the cheapest way to get around England, although they are also the slowest and sometimes late. If you book early or travel at off-peak periods, coach tickets can be very cheap. If you are going to the airport, then take a faster train or taxi for peace of mind that you will make it in time for your flight. The two major coach companies are National Express and Megabus."
+        },
+        {
+          "letter": "D",
+          "text": "Travelling by car or motorcycle around England means you have more independence and flexibility, and you can reach more remote parts of the country. Minuses for drivers include regular traffic jams, the high price of fuel, the cost of insurance, and parking fees in cities and tourist towns. Compared with many countries, car-hire is expensive in England. If you have time, by using a mix of train, bus, taxi, walking and occasionally hiring a bike, you can get almost anywhere in England without having to drive."
+        },
+        {
+          "letter": "E",
+          "text": "Hiring a bike — for an afternoon, a day, or a week or longer — is a great way to really explore a small region or see England’s great outdoors. Some cities have bike-share schemes, while others have longer-term bike-rental shops. England also has a growing network of long-distance cycling routes that may inspire you to explore more of the country by bicycle. Only a handful of cities have an adequate system of dedicated bike lanes, so it is best to enjoy cycling in more rural and off-the beaten-track locations, particularly during the warmer seasons."
+        },
+        {
+          "letter": "F",
+          "text": "England doesn’t have a big network of domestic flights due to its small size, but there are some long cross country routes that are awkward, costly and timeconsuming if you travel by train (e.g. the trip from Exeter or Southampton to Newcastle). However, you’ll still pay at least a hundred pounds for one of these flights, and the time saved becomes less beneficial once transit times and the journey to and from the airport are taken into account. Considering the short distances and high carbon cost, many people prefer not to fly."
+        },
+        {
+          "letter": "G",
+          "text": "English cities usually have good public-transport systems. These services can be run by a puzzling number of separate companies. There is usually enough information at each stop or station to find the right one. Staff in tourist offices are always happy to help. Local bus services work year-round in cities and towns, except on Christmas Day, and sometimes also Boxing Day. Sundays also see fewer services. CityMapper is a handy app for planning the quickest journey between points, especially if you are combining transport options."
+        }
+      ],
+      "answers": {
+        "A": "4",
+        "B": "6",
+        "C": "7",
+        "D": "2",
+        "E": "1",
+        "F": "3",
+        "G": "8"
+      }
+    },
+    {
+      "id": "headings-moscow-bridges",
+      "nav": "Moscow Bridges",
+      "title": "Moscow Bridges",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Growing together with the city.",
+        "Mistakes must be corrected.",
+        "As if flying over the water.",
+        "Wonders of human creativity.",
+        "A tale of two bridges.",
+        "Water that saves lives.",
+        "Marriages made closer to heaven.",
+        "Bridging the gap of ideas."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Bridges serve the function of connecting two points separated by a body of water, valley, or any obstacle. Bridges can also be architectural marvels. Throughout history, bridges have been symbolic of human achievement. Ancient civilizations, such as the Romans, Greeks, and Chinese, built impressive bridges that stand as a testament to their engineering capabilities. These historic structures not only connected regions but also reflected the technological advancements of their times."
+        },
+        {
+          "letter": "B",
+          "text": "Some of the most iconic and recognizable bridges in the world are located in London: Tower Bridge and London Bridge. Tower Bridge with its unmistakable neo-Gothic towers, was opened in 1894 and immediately became the symbol of London. London Bridge has a rich history dating back to Roman times. In the Middle Ages, many shops and houses stood on London Bridge, making it too narrow for the traffic. It has been rebuilt numerous times and has inspired songs and stories."
+        },
+        {
+          "letter": "C",
+          "text": "Moscow, like any other city that developed along the banks of a river, boasts a diverse array of bridges that contribute to the city's architectural landscape. From the elegant Bolshoy Kamenny Bridge to the modern Zhivopisny Bridge, each structure tells a story of Moscow's evolution over the centuries. It isn’t easy to count all the bridges of Moscow. If you count all the automobile, metro and pedestrian bridges over the major rivers — the Moskva, the Yauza and the Setun’ — you will end up with a list of well over a hundred bridges!"
+        },
+        {
+          "letter": "D",
+          "text": "Several bridges in Moscow symbolize the connection between the past and the future. One of them is the Rostokinsky Aqueduct, which is the oldest bridge in Moscow. The bridge is 356 meters long and 15 meters high, made of limestone, and was built in 1783−1784 in the current VDNKh area. The bridge represented the government's attention to the needs and aspirations of the people, as it was constructed as part of the first Moscow water pipeline, which was a vital construction during the Black Death epidemic in Moscow."
+        },
+        {
+          "letter": "E",
+          "text": "The Luzhnetsky Metro Bridge spans over 2 km across the Moskva River. This bridge was the first in Moscow to have two levels — the upper level is for cars, while the lower level is for the metro trains and pedestrians. The Leninskie Gory station, later renamed Vorobyovy Gory, was the first and longest station in the history of the Moscow Metro to be located on a bridge. However, due to construction errors, the station was closed for almost two decades from 1983. Eventually, it was reopened in 2002 after the bridge itself was practically rebuilt."
+        },
+        {
+          "letter": "F",
+          "text": "The Zhivopisny Bridge is situated near Serebryany Bor and links it with Krylatskoe. The bridge was built in 2007, and its architect, Nikolai Shumakov, received the prestigious Auguste Perret Prize for it. The structure features a striking design: a red arch with steel cables extending from it to support the bridge. At the highest point of the bridge, there is a small glass observation capsule. Although there was a plan to conduct wedding ceremonies within it, this idea has not yet come to fruition due to technical challenges."
+        },
+        {
+          "letter": "G",
+          "text": "There is an unusual pedestrian bridge called Soaring, situated in Zaryadye Park. The bridge has a boomerang shape and does not connect two banks but hangs over the water. The bridge is elevated 15 metres above the Moskva River and can accommodate up to 4,000 visitors at a time. It was opened together with the park in 2017 and immediately became popular. Even on weekdays and in overcast weather, it can be quite challenging to find a free spot on the observation deck of this Moscow bridge."
+        }
+      ],
+      "answers": {
+        "A": "4",
+        "B": "5",
+        "C": "1",
+        "D": "6",
+        "E": "2",
+        "F": "7",
+        "G": "3"
+      }
+    },
+    {
+      "id": "headings-architecture-history",
+      "nav": "Architecture History",
+      "title": "Architecture and Design",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "A long way to popularity.",
+        "Revolutionary materials.",
+        "Borrowed ideas.",
+        "A stairway to heaven.",
+        "Brilliant ideas and brave deeds.",
+        "It had its finest hour.",
+        "Extraordinary combinations.",
+        "Ideas on sale."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Born in 1743, Thomas Jefferson helped shape the new American nation and also shaped some of the country's most famous buildings. The twentieth century architects who designed the circular Jefferson Memorial in Washington D.C. drew inspiration from Thomas Jefferson's architectural ideas. And from where did Jefferson get his ideas? The Pantheon in Rome! This building with its classical portico became a model that influenced Western architecture for 2,000 years."
+        },
+        {
+          "letter": "B",
+          "text": "Postmodern architecture evolved from the modernist movement, yet contradicts many of the modernist ideas. Combining new ideas with traditional forms, postmodernist buildings may startle, surprise, and even amuse. Familiar shapes and details are used in unexpected ways. Philip Johnson's AT&T Headquarters is often cited as an example of postmodernism. Like many buildings in the international style, this skyscraper has a classical facade."
+        },
+        {
+          "letter": "C",
+          "text": "The Industrial Revolution in Europe brought about a new trend: the use of metals instead of wood and stone in construction. Built in 1889, the Eiffel Tower is perhaps the most famous example of this new use for metal. For 40 years, the Eiffel Tower measured the tallest in the world. The metal latticework, formed with very pure structural iron, makes the tower both extremely light and able to withstand tremendous wind forces."
+        },
+        {
+          "letter": "D",
+          "text": "By the early 1800s, Belfast had become a major port at the beating heart of the region's industry. The launching of the Titanic from the ship ways was attended by an estimated 100,000 people, showing how important this event was for Belfast. Many more impressive ships would leave the yard in the coming years before the decline of the shipbuilding industry began in the 1950s, but the Titanic marked the zenith of the great shipbuilding era in Belfast."
+        },
+        {
+          "letter": "E",
+          "text": "Thomas Andrews was the chief naval architect at the Harland and Wolff shipyard in Belfast during the early 1900s. He brought the idea of 'Olympic class' ocean liners to life. The most famous of these was Titanic, which he joined on its first voyage. His actions when the ship sank on 15 April 1912 are believed to have saved many lives, but at the cost of his own. In his home town of Comber, the life of Thomas Andrews is commemorated by the Memorial Hall, opened in 1915."
+        },
+        {
+          "letter": "F",
+          "text": "An e-book or \"electronic book\" is available digitally downloaded, and accessed through a device such as a computer, a smart phone or, popularly, a portable e-book reader. In 1971, Michael Hart began storing vast contents of libraries in electronic formats. Hart named his efforts Project Gutenberg, after the inventor of the printing press. Libraries were early adopters of the technology. But it took nearly thirty years for the idea of the e-book to take firm hold with the consumer."
+        },
+        {
+          "letter": "G",
+          "text": "The Frankfurt Book Fair is held in October of each year. It usually hosts more than 7,300 exhibitors from 100 countries ranging from Albania to Zimbabwe. For the American book publishing industry, the Frankfurt Book Fair is predominantly a trade fair, that is, a professional meeting place for publishers, editors, librarians, book subsidiary rights managers, booksellers, film producers, authors and many others who are involved in the creation and licensing of book content."
+        }
+      ],
+      "answers": {
+        "A": "3",
+        "B": "7",
+        "C": "2",
+        "D": "6",
+        "E": "5",
+        "F": "1",
+        "G": "8"
+      }
+    },
+    {
+      "id": "headings-winter-moscow",
+      "nav": "Winter in Moscow",
+      "title": "Winter in Moscow",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "A time for physical exercise.",
+        "It is worth it!",
+        "Traditional winter drinks.",
+        "Not as bad as you may think!",
+        "A unique cultural season.",
+        "Just know the right people!",
+        "Too pretty to be real!",
+        "Where old and new times meet."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "If you mention travelling to Moscow in the winter, most foreign tourists will think you are crazy. Many of them will imagine snow, freezing temperatures and having to wear big parkas and fur hats. They are missing out, though, because winter in Moscow is like a fairy tale, and one of the most beautiful times of the year to visit. There is so much to see and do that the chance to visit this beautiful city during the winter should not be missed."
+        },
+        {
+          "letter": "B",
+          "text": "The shocking truth is that the Russian capital at wintertime is not as cold as many people would imagine. While the weather can be unpredictable, most of the time the temperature is around –5 degrees Celsius with a moderate amount of snow. Compared to Siberia, it is very mild. The biggest problems are that you can slip and fall on the ice, and salt on the sidewalks which can destroy your boots."
+        },
+        {
+          "letter": "C",
+          "text": "Many famous places of interest in Moscow become magical in the winter. Red Square is one of the first places to go to. With the snow falling gently, Saint Basil's Cathedral looks like a giant wedding cake covered in icing. Another place one should certainly visit is Novodevichy Convent with its lacelike towers and golden domes. When surrounded by snow, it resembles a fairy-tale castle of a beautiful princess."
+        },
+        {
+          "letter": "D",
+          "text": "Muscovites enjoy a wide variety of sports and activities in the wintertime. Cross-country skiing is a great way to both get fit and enjoy the winter beauty of the many public parks in Moscow. Another favorite pastime is ice skating. There is a giant skating rink every winter in Red Square and many smaller rinks throughout the city. There are many other winter sports that are popular such as snowboarding, sledding and ice fishing."
+        },
+        {
+          "letter": "E",
+          "text": "There are a lot of events in Moscow that can be experienced only in winter. The New Year holiday celebration is the most special time of the year and is like Christmas and New Year's Eve combined into one big party. The Russian Winter festival features performances of traditional Russian song and dance, games, crafts and ice sculptures. Finally, those feeling brave can dive into an ice hole for the Epiphany holiday."
+        },
+        {
+          "letter": "F",
+          "text": "If you get too cold while walking around, you can always go into a shop to warm up. There are many modern shopping malls throughout Moscow, but if you want to experience the retro charm and nostalgia of days past, there is no better place than GUM on Red Square or Eliseevsky food store on Tverskaya. In addition, there are many cafes located throughout the city if you need a hot drink or something to eat."
+        },
+        {
+          "letter": "G",
+          "text": "If you make Russian friends, you may get invited to their dacha and see the beautiful winter countryside outside Moscow. Here the snow will be deeper and the temperatures lower, but you won't be too cold as Russians have ways to stay warm. Best of all is the Russian Steam Bath. You can sit in the steam and when you find yourself hot and sweaty, you can do as the Russians do and jump in the snow outside to cool off."
+        }
+      ],
+      "answers": {
+        "A": "2",
+        "B": "4",
+        "C": "7",
+        "D": "1",
+        "E": "5",
+        "F": "8",
+        "G": "6"
+      }
+    },
+    {
+      "id": "headings-hobbies-guide",
+      "nav": "Hobbies Guide",
+      "title": "Finding a Hobby",
+      "instructions": "Установите соответствие между текстами A–G и заголовками 1–8. Занесите свои ответы в таблицу. Используйте каждую цифру только один раз. В задании один заголовок лишний.",
+      "type": "matching",
+      "headings": [
+        "Look to your past.",
+        "Health benefits of hobbies.",
+        "Finding a hobby that suits you.",
+        "Dangerous hobby.",
+        "Time out with a purpose.",
+        "Finding time for your hobby.",
+        "Making new friends.",
+        "Finding excitement."
+      ],
+      "texts": [
+        {
+          "letter": "A",
+          "text": "Hobbies provide work-free and responsibility-free time in your schedule. This can be especially useful for people who feel stressed by all that they have to do and need to recharge their batteries. For some of us it may be difficult to give ourselves permission to just sit and relax. Having a hobby, however, can provide a break and help people feel that they’re not just ‘sitting around’ but are using their free time for something productive."
+        },
+        {
+          "letter": "B",
+          "text": "Are there things you enjoyed as a child that you might still enjoy as an adult? Maybe you had a fantastic record collection, loved to make clothes for your dolls or were always out on your bike. Those are all things you could pick up again as an adult that would make great hobbies. Or there may be hobbies in your home right now that you started but have recently forgotten about. Maybe it’s time to finish that crochet project or pick up the guitar again."
+        },
+        {
+          "letter": "C",
+          "text": "If you’re adding a new thing into your life, you have to take time and focus away from something else. The good news is that most of us have a lot of time we’re not using well, either because we’re spending a lot of time online or watching TV or just wasting time we could be spending on our hobbies. See if you can spend a half hour or so every other day to explore your interest. This way it would be best in case you find that hobby isn’t for you after all."
+        },
+        {
+          "letter": "D",
+          "text": "Of course, everyone is different and your personality does play a role in what sorts of hobbies you’ll like. If you don’t have a lot of patience you might feel that knitting is too much for you, but exploring quick sewing projects might be a better choice. Maybe you really like being with friends, so you need to take a class or have an interest that you can do with a group. If you travel a lot, something portable or that you can do anywhere is helpful."
+        },
+        {
+          "letter": "E",
+          "text": "One study found that those who engage in physical leisure activities for at least 20 minutes once a week are less likely to have a fatigue. Other research found that enjoyable activities performed during leisure time were associated with lower blood pressure, total cortisol, and body mass index, and feelings of better physical function. Such activities were also associated with higher levels of positive psychosocial states and lower levels of depression."
+        },
+        {
+          "letter": "F",
+          "text": "When you look for material or equipment for your hobby, you are likely to find people who have the same hobby as you. You may be surprised to know how serious some people are about their hobbies and therefore would have great knowledge of their chosen pastime. Instead of meeting people from your work or college or those whom you have grown apart with, it is a great way to meet people with whom you have something in common."
+        },
+        {
+          "letter": "G",
+          "text": "For those who aren’t very stressed and may actually be understimulated, hobbies provide a nice source of eustress, the healthy kind of stress that we all need to remain feeling happy about life. If the rest of your life is somewhat dull or uninspiring, hobbies can provide meaning and fun, and can break up a boring schedule, without feeling like work. In other words, hobbies can provide just the right amount of challenge."
+        }
+      ],
+      "answers": {
+        "A": "5",
+        "B": "1",
+        "C": "6",
+        "D": "3",
+        "E": "2",
+        "F": "7",
+        "G": "8"
+      }
     }
   ]
 }
