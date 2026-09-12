@@ -262,17 +262,23 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
     if (!wrap) return;
     wrap.classList.toggle("is-recording", state === "recording");
     var badge = wrap.querySelector(".ege-speaking-timer__rec");
-    if (!badge && (state === "recording" || state === "denied")) {
+    if (!badge && (state === "recording" || state === "denied" || state === "off")) {
       badge = document.createElement("span");
       badge.className = "ege-speaking-timer__rec";
       wrap.appendChild(badge);
     }
     if (badge) {
+      // "off" is the student's own choice (no recording), so it gets the
+      // neutral styling rather than the red one "denied" uses.
+      badge.classList.toggle("ege-speaking-timer__rec--muted", state === "off");
       if (state === "recording") {
         badge.textContent = "● REC";
         badge.hidden = false;
       } else if (state === "denied") {
         badge.textContent = "Mic blocked";
+        badge.hidden = false;
+      } else if (state === "off") {
+        badge.textContent = "Без записи";
         badge.hidden = false;
       } else {
         badge.hidden = true;
@@ -316,6 +322,12 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
   };
 
   E.startSpeakingRecording = function startSpeakingRecording(taskId, wrap, takeIndex) {
+    // Opting out on the oral-ready screen is a deliberate choice, not a
+    // failure -- don't touch the mic and don't flag it like a blocked one.
+    if (typeof E.isOralRecordingEnabled === "function" && !E.isOralRecordingEnabled()) {
+      E.syncSpeakingRecordingUI(taskId, wrap, "off");
+      return;
+    }
     if (typeof MediaRecorder === "undefined") {
       console.warn("[ege] MediaRecorder unsupported in this browser");
       E.syncSpeakingRecordingUI(taskId, wrap, "denied");
@@ -565,8 +577,13 @@ E.markSpeakingComplete = function markSpeakingComplete(taskId) {
       var hint = wrap.querySelector(".ege-speaking-timer__hint");
       if (hint) hint.hidden = started;
       if (skipBtn) {
+        // Nothing is being recorded when the student opted out, so don't
+        // offer to end a recording -- they're ending the answer itself.
+        var recording =
+          typeof E.isOralRecordingEnabled !== "function" || E.isOralRecordingEnabled();
+        var answerSkipText = recording ? "End recording now" : "End answer now";
         var skipText =
-          phase.label === "Answer" ? "End recording now" : "Skip preparation time";
+          phase.label === "Answer" ? answerSkipText : "Skip preparation time";
         skipBtn.setAttribute("aria-label", skipText);
         skipBtn.title = skipText;
         if (skipLabel) skipLabel.textContent = skipText;

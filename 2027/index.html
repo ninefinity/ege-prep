@@ -243,14 +243,27 @@
         }
       }
 
-      function rejectPassword() {
+      var WRONG_CODE_MSG = "Wrong code.";
+      // Anything that isn't a definite "the server checked it and said no" has
+      // to read differently: on launch day an unset env var, a cold-start
+      // failure or a dropped connection would otherwise tell every student
+      // holding a valid code that their code is wrong, and they'd have no
+      // reason to retry.
+      var UNLOCK_ERROR_MSG = "Не удалось проверить код. Попробуйте ещё раз через минуту.";
+
+      function rejectPassword(message) {
         if (!input) return;
         input.classList.add("is-invalid");
         input.value = "";
-        if (unlockError) unlockError.hidden = false;
+        if (unlockError) {
+          unlockError.textContent = message || WRONG_CODE_MSG;
+          unlockError.hidden = false;
+        }
         input.focus();
       }
 
+      // Resolves to "ok" (unlocked), "wrong" (the server rejected the code) or
+      // "error" (we never got a verdict).
       function tryUnlock(guess) {
         return fetch("/api/unlock", {
           method: "POST",
@@ -258,17 +271,19 @@
           body: JSON.stringify({ password: guess }),
         })
           .then(function (res) {
+            if (res.status === 401) return "wrong";
+            if (!res.ok) return "error";
             return res
               .json()
               .catch(function () {
                 return {};
               })
               .then(function (data) {
-                return res.ok && data.ok === true;
+                return data.ok === true ? "ok" : "error";
               });
           })
           .catch(function () {
-            return false;
+            return "error";
           });
       }
 
@@ -283,13 +298,13 @@
           }
           if (btn) btn.disabled = true;
           tryUnlock(guess)
-            .then(function (ok) {
-              if (ok) {
+            .then(function (result) {
+              if (result === "ok") {
                 persistUnlock();
                 goToExam();
                 return;
               }
-              rejectPassword();
+              rejectPassword(result === "wrong" ? WRONG_CODE_MSG : UNLOCK_ERROR_MSG);
             })
             .then(function () {
               if (btn) btn.disabled = false;

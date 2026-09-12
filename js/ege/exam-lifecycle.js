@@ -5,6 +5,7 @@ var PHASE_KEY_PREFIX = "ege-prep:exam-phase:";
 var ACTIVE_TASK_KEY_PREFIX = "ege-prep:exam-active-task:";
 var MODE_KEY_PREFIX = "ege-prep:exam-mode:";
 var ORAL_PROGRESS_KEY_PREFIX = "ege-prep:oral-progress:";
+var RECORDING_KEY_PREFIX = "ege-prep:oral-recording:";
 var ORAL_EXAM_FROM = 39;
 
 E.EXAM_PHASES = {
@@ -57,6 +58,33 @@ E.persistExamMode = function persistExamMode(mode) {
   if (!E.isFullWrittenExam()) return;
   try {
     localStorage.setItem(E.examModeStorageKey(), mode || E.EXAM_MODES.BOTH);
+  } catch (_err) {
+    /* ignore */
+  }
+};
+
+E.oralRecordingStorageKey = function oralRecordingStorageKey() {
+  var key = E.state.examTimerKey || E.answersSaveVariantKey();
+  return RECORDING_KEY_PREFIX + String(key || "demo");
+};
+
+// Recording the oral answers is the default (it's what makes the answers
+// reviewable afterwards), but it isn't always wanted: a student sitting the
+// oral part live with a teacher listening and marking doesn't need a
+// recording, and shouldn't have to deal with a browser permission prompt to
+// get past it. Opting out here means the mic is never requested at all --
+// see E.showOralReadyScreen and E.startSpeakingRecording.
+E.isOralRecordingEnabled = function isOralRecordingEnabled() {
+  try {
+    return localStorage.getItem(E.oralRecordingStorageKey()) !== "off";
+  } catch (_err) {
+    return true;
+  }
+};
+
+E.persistOralRecording = function persistOralRecording(enabled) {
+  try {
+    localStorage.setItem(E.oralRecordingStorageKey(), enabled ? "on" : "off");
   } catch (_err) {
     /* ignore */
   }
@@ -485,6 +513,14 @@ E.renderOralReadyScreen = function renderOralReadyScreen() {
     "предыдущего задания. Всё время ответа ведётся аудиозапись. Постарайтесь полностью выполнить " +
     "поставленные задачи, старайтесь говорить ясно и чётко, не отходить от темы и следовать " +
     "предложенному плану ответа. Так Вы сможете набрать наибольшее количество баллов.</p>" +
+    '<p class="ege-exam-phase__mic-note">Браузер попросит доступ к микрофону — ' +
+    "разрешите его, чтобы потом послушать свои ответы.</p>" +
+    '<label class="ege-exam-phase__mic-optout">' +
+    '<input type="checkbox" id="egeOralNoRecording"' +
+    (E.isOralRecordingEnabled() ? "" : " checked") +
+    ">" +
+    "<span>Отвечать без записи — например, если рядом преподаватель</span>" +
+    "</label>" +
     '<p class="ege-exam-phase__timer-note">Таймер начнётся после старта</p>' +
     '<div class="ege-exam-phase__actions ege-exam-phase__actions--ready">' +
     '<button type="button" class="ege-exam-timer__start" id="egeStartOralExam">Start</button>' +
@@ -993,11 +1029,24 @@ E.showWrittenReadyScreen = function showWrittenReadyScreen() {
 E.showOralReadyScreen = function showOralReadyScreen() {
   E.syncWrittenReadyChrome();
   E.showExamPhaseScreen(E.renderOralReadyScreen());
-  // The instructions on this screen say the whole oral part is recorded,
-  // so ask for the mic here -- while the student is reading and before
-  // Start is even clicked -- rather than waiting for the first Answer
-  // phase to request it mid-task, which would eat into that task's timer.
-  if (typeof E.ensureMicStream === "function") E.ensureMicStream();
+  // The instructions on this screen say the whole oral part is recorded, so
+  // ask for the mic here -- while the student is reading and before Start is
+  // even clicked -- rather than waiting for the first Answer phase to request
+  // it mid-task, which would eat into that task's timer. Opting out of
+  // recording skips the prompt entirely; the exam runs exactly the same, just
+  // without playback afterwards.
+  var noRec = document.getElementById("egeOralNoRecording");
+  function warmMic() {
+    if (!E.isOralRecordingEnabled()) return;
+    if (typeof E.ensureMicStream === "function") E.ensureMicStream();
+  }
+  if (noRec) {
+    noRec.addEventListener("change", function () {
+      E.persistOralRecording(!noRec.checked);
+      warmMic();
+    });
+  }
+  warmMic();
   var start = document.getElementById("egeStartOralExam");
   if (start) {
     start.addEventListener("click", function () {

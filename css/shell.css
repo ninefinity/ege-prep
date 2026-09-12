@@ -880,6 +880,41 @@ a {
   display: block;
 }
 
+/* The backdrop spans the whole viewport (inset: 0), so it also covered the
+   task list it was meant to sit behind: clicking any task in the open list hit
+   the backdrop instead of the button and only closed the list, leaving ‹ › as
+   the sole way to move between tasks (confirmed live at 1280px and at 375px
+   via elementFromPoint). Raising .ege-rail doesn't help -- its wrapper
+   .ege-topics is position: sticky on desktop, which forms a stacking context
+   on its own, so the whole subtree is judged by .ege-topics' z-index: auto
+   (i.e. 0) against the backdrop's 19. Raise the wrapper instead; it holds
+   nothing but the sidebar, so nothing else changes order, and the backdrop
+   still catches clicks everywhere else -- which is what closes the list. */
+#egePage.is-locked-nav.is-nav-open .ege-topics {
+  z-index: 20;
+}
+
+@media (max-width: 860px) {
+  /* Below 861px .ege-topics is reset to position: static (the drawer rules
+     further down), and z-index is inert on a static box -- give it a position
+     so the raise above actually applies on phones too. Desktop keeps the
+     sticky positioning it already has. */
+  #egePage.is-locked-nav.is-nav-open .ege-topics {
+    position: relative;
+  }
+}
+
+/* The exam bar carries its own "← Go back" (nav.js copies the sidebar link's
+   label into it verbatim, so the two read identically). The sidebar head isn't
+   hidden by .is-locked-nav -- only .ege-topic-nav below it is -- so both links
+   sat in the top-left corner at once, on desktop and mobile alike. Drop the
+   sidebar copy while the bar is actually on screen; :has() keeps it tied to the
+   bar really being rendered, so a state where the bar is hidden still leaves a
+   way back rather than stranding the student mid-exam. */
+#egePage.is-locked-nav:has(#egeExamBar:not([hidden])) .ege-topic-sidebar__back {
+  display: none;
+}
+
 .ege-page--topic-layout > .ege-workspace {
   display: flex;
   flex-direction: column;
@@ -5736,11 +5771,23 @@ body.yap-brand .site-author__promo a:hover {
   justify-content: center;
 }
 
+/* The badge is absolutely positioned so it can't shift the clock when it
+   appears mid-answer, but anchored at the wrap's top-right it landed straight
+   on .ege-speaking-timer__phase -- the first flow child -- and clipped the
+   phase label to "ANS" for the whole answer window ("● REC" on a working mic,
+   "Mic blocked" when permission was denied). Reserve a band above the label
+   only while a badge is actually shown, and centre the badge in it. */
+.ege-speaking-timer:has(.ege-speaking-timer__rec:not([hidden])) {
+  padding-top: 24px;
+}
+
 .ege-speaking-timer__rec {
   display: none;
   position: absolute;
-  top: -6px;
-  right: 6px;
+  top: 0;
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 2px 7px;
   border-radius: 999px;
   background: var(--ege-bad);
@@ -5749,6 +5796,10 @@ body.yap-brand .site-author__promo a:hover {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  /* "Mic blocked" is wider than the timer column and wrapped to two lines,
+     which pushed it back out of the reserved band and onto the phase label
+     again. It's absolutely positioned, so it can overhang the column. */
+  white-space: nowrap;
   z-index: 2;
 }
 
@@ -5758,6 +5809,12 @@ body.yap-brand .site-author__promo a:hover {
 
 .ege-speaking-timer.is-recording .ege-speaking-timer__rec {
   animation: ege-speaking-rec-pulse 1.2s ease-in-out infinite;
+}
+
+/* "Без записи" is a state the student chose, not something that went wrong,
+   so it drops the alarm-red of the blocked/recording badge. */
+.ege-speaking-timer__rec--muted {
+  background: var(--ege-muted);
 }
 
 @keyframes ege-speaking-rec-pulse {
@@ -8171,6 +8228,27 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   margin: 0 0 1rem;
   color: var(--ege-muted);
   font-size: 0.95rem;
+}
+
+.ege-exam-phase__mic-note {
+  margin: 0 0 0.5rem;
+  color: var(--ege-muted);
+  font-size: 0.95rem;
+}
+
+.ege-exam-phase__mic-optout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.ege-exam-phase__mic-optout input {
+  flex: 0 0 auto;
+  margin: 0.2rem 0 0;
+  cursor: pointer;
 }
 
 .ege-exam-phase__actions--ready {

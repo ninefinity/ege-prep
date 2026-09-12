@@ -159,11 +159,24 @@ E.calculateWrittenScore = function calculateWrittenScore(results) {
   };
 };
 
+// Tasks 1-38 are the written part; 39-42 are oral. The boundary used to be
+// spelled out here as `examFrom < 40`, which is off by one -- it swept task 39
+// (Reading Aloud, speaking-aloud) into the written set. That made
+// countWrittenAnswered/isPlacementWrittenFilled measure 12 tasks instead of 11,
+// so the submit dialog always warned "не заполнено N из 12" and the ✓ button
+// never reached its ready state even with every written task done, and
+// lockWrittenAnswers locked an oral task on written submit. E.isWrittenTask
+// (exam-lifecycle.js) is the canonical split -- ORAL_EXAM_FROM = 39, plus a
+// task-type check for speaking -- so defer to it and keep the existing
+// "must be exam-numbered" guard that scopes this to variant playlists.
 E.writtenExamTasks = function writtenExamTasks() {
   if (!E.state.topic || !E.state.topic.tasks) return [];
   return E.state.topic.tasks.filter(function (task) {
     var section = E.taskSectionMeta(task);
-    return section && section.examFrom != null && section.examFrom < 40;
+    if (!section || section.examFrom == null) return false;
+    return typeof E.isWrittenTask === "function"
+      ? E.isWrittenTask(task)
+      : section.examFrom < 39;
   });
 };
 
