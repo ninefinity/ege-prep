@@ -195,8 +195,7 @@
       "type": "speaking-questions",
       "adTitle": "Professional Cleaning Services for Busy Families!",
       "image": {
-        "src": "cleaning.png",
-        "scale": 0.5
+        "src": "cleaning.png"
       },
       "prompt": "You are considering using a cleaning service and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
       "questions": [
@@ -311,7 +310,7 @@
       "type": "speaking-questions",
       "adTitle": "UniPrep Academy: State Exam & University Foundation Courses!",
       "image": {
-        "src": "uniprep-academy.jpg"
+        "src": "msu.jpg"
       },
       "prompt": "You are considering taking preparatory courses at UniPrep Academy and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
       "questions": [
@@ -328,15 +327,15 @@
       ]
     },
     {
-      "id": "ismart",
-      "nav": "iSmart",
-      "title": "iSmart",
+      "id": "it-crew",
+      "nav": "IT Crew",
+      "title": "IT Crew",
       "type": "speaking-questions",
-      "adTitle": "iSmart: Brand-New Smartphones & Express Repair!",
+      "adTitle": "IT Crew: Brand-New Smartphones & Express Repair!",
       "image": {
-        "src": "ismart.jpg"
+        "src": "repair.png"
       },
-      "prompt": "You are considering buying a smartphone or getting a gadget repaired at iSmart and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
+      "prompt": "You are considering buying a smartphone or getting a gadget repaired at IT Crew and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
       "questions": [
         "Trade-in discount options.",
         "Warranty period for repairs.",
@@ -357,7 +356,7 @@
       "type": "speaking-questions",
       "adTitle": "NeonLoft: The Ultimate Teen Birthday Party Venue!",
       "image": {
-        "src": "neonloft.jpg"
+        "src": "neon.jpg"
       },
       "prompt": "You are considering renting the NeonLoft venue for a birthday party and now you’d like to get more information. In 1.5 minutes you are to ask four direct questions to find out about the following:",
       "questions": [
@@ -456,7 +455,8 @@
         "size of the group (number of people)",
         "duration of the course",
         "tuition fee / cost"
-      ]
+      ],
+      "examOnly": true
     }
   ]
 }
