@@ -18,6 +18,486 @@
         "What would you recommend to a teenager who is buying clothes online?"
       ],
       "answerSeconds": 40
+    },
+    {
+      "id": "interview-pets-and-animals",
+      "nav": "Pets & Animals",
+      "title": "Pets and animals",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What are the most popular pets in Russia?",
+        "Do you have a pet? What is it?",
+        "Do you think it is a good idea to keep wild animals like pets?",
+        "Have you ever been on a farm? Do you like farm animals?",
+        "Do you like watching wild animals at the zoo?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-friends",
+      "nav": "Friends",
+      "title": "Friends",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "How do you get along with your peers?",
+        "What are the benefits of friendship?",
+        "Where did you meet your best friend? How long have you known each other?",
+        "How do you communicate with your friends?",
+        "How do you spend time together?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-travel",
+      "nav": "Travel",
+      "title": "Travel",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What region of Russia do you live in? Is it a popular destination for tourists?",
+        "How did the last trip that you've taken go?",
+        "What are the benefits of travel?",
+        "Would you prefer travelling domestically or internationally? Why?",
+        "Who do you usually share your trip with?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-summer-holidays",
+      "nav": "Summer Holidays",
+      "title": "Summer holidays",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What part of Russia do you live in? What's the weather like in summer there?",
+        "What else would you like our listeners to know about your region?",
+        "What can you tell us about your family?",
+        "How did you use to spend your summer holidays when you were seven?",
+        "How would you like to spend your summer holidays in 10 years?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-learning-foreign-languages",
+      "nav": "Foreign Languages",
+      "title": "Learning foreign languages",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Do you think it is important to learn foreign languages?",
+        "How many foreign languages do you speak? What are they?",
+        "Have you ever used them in real life?",
+        "How do you practise foreign languages?",
+        "What foreign language would you like to learn in the future?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-family",
+      "nav": "Family",
+      "title": "Family",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What traditions does your family hold?",
+        "How does your family celebrate holidays?",
+        "What was your last family trip?",
+        "Where would you like to go together next? Why?",
+        "How is your family involved in your education?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-hobbies",
+      "nav": "Hobbies",
+      "title": "Hobbies",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Could you tell us what is unusual about Russia?",
+        "What kinds of hobbies do people usually have in your country?",
+        "What is your first hobby? Do you still do it?",
+        "How do you spend your free time now?",
+        "What hobby would you like to pick up in the future? Why?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-health-issues",
+      "nav": "Health Issues",
+      "title": "Health issues",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Have you ever caught a cold? When was the last time you fell ill?",
+        "Do you have any bad habits that can negatively impact on your health?",
+        "In your opinion, what are the most frequent health problems with young people in your country?",
+        "What do you do to take care of your health?",
+        "What technologies can help people become healthier in future?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-ecology",
+      "nav": "Ecology",
+      "title": "Ecology",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What region of Russia do you live in? What is the state of ecology there?",
+        "What are the main sources of pollution?",
+        "How do we reduce the amount of emissions that we output?",
+        "What kinds of dangers does global warming present to the world?",
+        "Who is more responsible for pollution — companies or individuals? Why?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-seasons-and-weather",
+      "nav": "Seasons & Weather",
+      "title": "Seasons and weather",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What region of Russia do you live in? What climate is there?",
+        "What seasons are good to travel in the region?",
+        "What do people in Russia like to do in different seasons?",
+        "What seasons do you like best?",
+        "What is the worst weather for you?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-shopping",
+      "nav": "Shopping",
+      "title": "Shopping",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Do you like shopping? Why?",
+        "Who do you usually go shopping with?",
+        "What do you buy online?",
+        "Are there any old shops in your hometown?",
+        "Would you like to set up your own shop? What would it be?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-painting",
+      "nav": "Painting",
+      "title": "Painting",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Is painting a popular hobby in Russia?",
+        "How often do you visit art galleries?",
+        "Do you like painting?",
+        "What kind of things did you use to draw when you were a child?",
+        "Would you like to be a famous artist?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-extreme-sports",
+      "nav": "Extreme Sports",
+      "title": "Extreme sports",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What are the dangers of extreme sports?",
+        "Which kinds of extreme sports are popular in Russia? Which aren't?",
+        "If you had to choose, what kind of extreme sports would you try and why?",
+        "What benefits do extreme sports provide?",
+        "Are you interested in extreme sports? Why?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-museums",
+      "nav": "Museums",
+      "title": "Museums",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "How often do you visit museums in your spare time?",
+        "Do you prefer to go to the historical museums or art galleries?",
+        "What is your favourite museum? Why?",
+        "When was the last time you visited a museum?",
+        "What museum would you like to visit?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-family-traditions",
+      "nav": "Family Traditions",
+      "title": "Family traditions",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Is your family big or small? Are you the only child?",
+        "Who do you feel closest to in your family and why?",
+        "How often do you have a family reunion?",
+        "What family traditions do you keep? Do you like them?",
+        "What family traditions would you like to have when you start your own family?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-cities",
+      "nav": "Cities",
+      "title": "Cities",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What region of Russia do you live in? Is it an urban area?",
+        "Would you prefer to live in a city or in the countryside?",
+        "What advantages do cities provide to people living there?",
+        "What are the risks of living in an urban area?",
+        "What infrastructure does a well-planned city district need to sustain itself?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-volunteering",
+      "nav": "Volunteering",
+      "title": "Volunteering",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Are there any volunteering organizations in your region? What are they?",
+        "Is being a volunteer popular with young people in your country?",
+        "Have you ever volunteered? Why or why not?",
+        "Does your school take part in any charity events?",
+        "What volunteer experience would you like to have in future?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-public-holidays",
+      "nav": "Public Holidays",
+      "title": "Public holidays",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What is your favourite public holiday?",
+        "What is the most interesting tradition to celebrate a holiday in your country?",
+        "What holiday do you think is not important?",
+        "Do you like any holidays in other countries?",
+        "What holiday would you invent if you had a chance?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-professions",
+      "nav": "Professions",
+      "title": "Professions",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What region of Russia do you live in? What professions are popular there?",
+        "What profession did your parents want you to take up?",
+        "When did you decide on your future field of work?",
+        "Will you need a higher education to work in that field?",
+        "Where do your friends want to work?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-it",
+      "nav": "IT",
+      "title": "IT",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "How has technology affected education in recent years?",
+        "Do you think online classes will replace in-person ones?",
+        "Should schools put more emphasis on teaching children IT?",
+        "What person would you consider the best in the field of IT?",
+        "Do you have any friends who plan to work in IT?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-choice-of-a-future-career",
+      "nav": "Future Career",
+      "title": "Choice of a future career",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Have you already chosen your future job? What will it be?",
+        "Who can help you in choosing your future career?",
+        "Who did you want to become when you were seven? Why?",
+        "Have you thought of choosing your parents' professions?",
+        "Would you prefer to do something that brings you money or pleasure? Why?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-films",
+      "nav": "Films",
+      "title": "Films",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "How often do you watch films in your spare time?",
+        "Do you prefer to go to the cinema or stay home?",
+        "What is your favourite genre of films?",
+        "Do you usually watch films with friends or alone?",
+        "What film changed you in some way and how did it do it?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-tourist-attractions",
+      "nav": "Tourist Attractions",
+      "title": "Tourist attractions",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What part of Russia do you live in? What is it famous for?",
+        "Do many tourists visit your region? What sights would they usually like to see?",
+        "What season is the best to visit your region? Why?",
+        "Are there any modern tourist attractions in your region? Do you like them?",
+        "What attractions of your region would you recommend a foreigner to visit?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-health",
+      "nav": "Health",
+      "title": "Health",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What region of Russia do you live in? Is it a healthy place to live in?",
+        "What role do sports play in staying healthy?",
+        "What kind of diet is good for your body?",
+        "How would you describe your lifestyle?",
+        "Do your friends and family have an active lifestyle?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-transport",
+      "nav": "Transport",
+      "title": "Transport",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What are the most popular means of transport in your hometown?",
+        "Do you live far from school? How do you usually get there?",
+        "Do you prefer travelling by plane or by train? Why?",
+        "Is driving to work popular in your country?",
+        "Would you like to ride a bike to work in the future?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-english",
+      "nav": "English",
+      "title": "English",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "How do you use English in your daily life?",
+        "Do your relatives know English well?",
+        "Should public schools put more emphasis on the English language? Why?",
+        "How does English help people in different countries?",
+        "In your opinion, will another language take over English's role as an international language?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-music",
+      "nav": "Music",
+      "title": "Music",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "Who do you believe to be the greatest musician? Why?",
+        "What is your favourite music genre?",
+        "Do you think classical music is still relevant in the modern world?",
+        "Should children have music lessons at schools?",
+        "Do you share similar preferences in music with your friends?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-healthy-breakfast-food",
+      "nav": "Healthy Breakfast",
+      "title": "Healthy breakfast food",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What part of Russia do you live in? What is it famous for?",
+        "What are some traditional breakfast foods in your part of the country?",
+        "What can you tell us about your family breakfast traditions? Do you eat healthy food?",
+        "What was your favourite breakfast food when you were a little kid?",
+        "In what way will your breakfast be different from now when you start living on your own?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-holidays",
+      "nav": "Holidays",
+      "title": "Holidays",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "What region of Russia do you live in? Do you have a region-specific holiday?",
+        "Who do you usually celebrate holidays with?",
+        "What is the most important holiday for you? Why?",
+        "If you could add a new holiday, what would it be?",
+        "Why are holidays important for most people in the world?"
+      ],
+      "answerSeconds": 40
+    },
+    {
+      "id": "interview-higher-education",
+      "nav": "Higher Education",
+      "title": "Higher education",
+      "type": "speaking-interview",
+      "channel": "Teenagers Round the World Channel",
+      "prompt": "Представьте, что вы участвуете в интервью для международного молодёжного онлайн-канала «Teenagers Round the World». Ответьте на пять вопросов интервьюера. У вас есть 40 секунд для ответа на каждый вопрос.",
+      "questions": [
+        "How many of your peers want to continue their education after high school?",
+        "Why do so many people in the modern world go to university?",
+        "What advantages does higher education provide?",
+        "Are you planning to go to university? Why?",
+        "What are the disadvantages of higher education?"
+      ],
+      "answerSeconds": 40
     }
   ]
 }
