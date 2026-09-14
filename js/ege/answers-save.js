@@ -306,16 +306,16 @@ E.bindAutosave = function bindAutosave() {
     if (document.visibilityState === "hidden") E.flushAutosave();
   });
 
-  // Exam answers should be typed, not pasted in from elsewhere -- copying
-  // a finished answer out is still fine (that's what the export buttons on
-  // the writing tasks are for once submitted), this only blocks bringing
-  // outside text in.
+  // Writing-task answers should be typed, not pasted in from elsewhere --
+  // copying a finished answer out is still fine (that's what the export
+  // buttons on the writing tasks are for once submitted), this only blocks
+  // bringing outside text in. Applies whenever a writing task is being
+  // practiced, not just inside a full combined oral+written mock exam.
   document.addEventListener(
     "paste",
     function (event) {
-      if (!(typeof E.isFullWrittenExam === "function" && E.isFullWrittenExam())) return;
       var target = event.target;
-      if (!target || !target.closest(".ege-task")) return;
+      if (!target || !target.closest(".ege-task--writing")) return;
       var tag = (target.tagName || "").toLowerCase();
       if (tag !== "textarea" && tag !== "input") return;
       event.preventDefault();

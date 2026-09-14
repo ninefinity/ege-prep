@@ -1353,8 +1353,12 @@ E.mountTopic = function mountTopic(topic, topicId) {
     E.state.playlistWasComplete = E.state.playlist ? E.getPlaylistProgress().complete : false;
     E.syncPlaylistCompletionUI();
 
+    // Bound once per page load (bindAutosave no-ops on repeat calls) so the
+    // paste-blocking listener on writing-task textareas is active even
+    // outside a full mock exam, not just during one.
+    if (typeof E.bindAutosave === "function") E.bindAutosave();
+
     if (E.isFullWrittenExam && E.isFullWrittenExam()) {
-      if (typeof E.bindAutosave === "function") E.bindAutosave();
       if (typeof E.restoreVariantSavedAnswers === "function") E.restoreVariantSavedAnswers();
       if (typeof E.initExamPhase === "function") E.initExamPhase();
       var phase = typeof E.getExamPhase === "function" ? E.getExamPhase() : "";
