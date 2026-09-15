@@ -11,6 +11,7 @@ import "./ege/choice.js";
 import "./ege/pairing.js";
 import "./ege/deduction.js";
 import "./ege/ordering.js";
+import "./ege/pronounce-deck.js";
 import "./ege/pronounce.js";
 import "./ege/spider-web.js";
 import "./ege/speaking.js";

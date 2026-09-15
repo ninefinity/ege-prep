@@ -160,6 +160,12 @@ E.sectionTaskCount = function sectionTaskCount(task) {
 
 E.navItemLabel = function navItemLabel(task) {
     if (!task) return "";
+    // A "mixed" deck (currently just reading-skills' Mixed practice) pools
+    // from its siblings rather than sitting in sequence with them, so it
+    // gets its own sidebar heading (see nav.js) instead of a numbered slot --
+    // numbering it "10)" alongside the nine it draws from would misrepresent
+    // it as one more deck in that list rather than a view across all of them.
+    if (task.mixed) return String(task.nav || task.title || "").trim();
     if (E.isVariantPlaylist()) {
       var meta = task._sectionMeta;
       if (meta && E.sectionTaskCount(task) === 1) {

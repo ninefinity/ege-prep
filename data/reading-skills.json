@@ -6,617 +6,3674 @@
     {
       "id": "skills39-silent-letters",
       "nav": "Silent letters & digraphs",
-      "title": "Tricky words",
+      "title": "Letters you never say",
       "type": "pronounce",
       "examNum": 39,
-      "drill": "Tricky words",
-      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "instructions": "Read the word aloud, then listen and compare.",
       "words": [
         {
           "id": "w1",
-          "text": "Psychology",
-          "ipa": "/saɪˈkɒlədʒi/",
-          "note": "Silent initial p and velar ch /k/"
+          "text": "Whine",
+          "syllables": [
+            "Whine"
+          ],
+          "stress": 0,
+          "ipa": "/waɪn/",
+          "note": "⟨wh-⟩ is simply /w/ — the h is silent, and it stays /w/, not /v/."
         },
         {
           "id": "w2",
           "text": "Christmas",
+          "syllables": [
+            "Christ",
+            "mas"
+          ],
+          "stress": 0,
           "ipa": "/ˈkrɪsməs/",
-          "note": "Silent medial plosive t"
+          "note": "The ⟨t⟩ inside ⟨-stm-⟩ is silent."
         },
         {
           "id": "w3",
-          "text": "Whine",
-          "ipa": "/waɪn/",
-          "note": "Silent initial h"
+          "text": "Chemicals",
+          "syllables": [
+            "Chem",
+            "i",
+            "cals"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkemɪkəlz/",
+          "note": "Greek ⟨ch⟩ is /k/, never /tʃ/."
         },
         {
           "id": "w4",
-          "text": "Chemicals",
-          "ipa": "/ˈkemɪkəlz/",
-          "note": "Greek ch pronounced as /k/"
+          "text": "Headaches",
+          "syllables": [
+            "Head",
+            "aches"
+          ],
+          "stress": 0,
+          "ipa": "/ˈhedeɪks/",
+          "note": "⟨ea⟩ is short /e/ and ⟨ch⟩ is /k/."
         },
         {
           "id": "w5",
-          "text": "Ancient",
-          "ipa": "/ˈeɪnʃənt/",
-          "note": "Spelling ci pronounced as /ʃ/"
+          "text": "Wrinkles",
+          "syllables": [
+            "Wrin",
+            "kles"
+          ],
+          "stress": 0,
+          "ipa": "/ˈrɪŋkəlz/",
+          "note": "⟨wr-⟩ opens with a plain /r/ — the w is silent."
         },
         {
           "id": "w6",
-          "text": "Towards",
-          "ipa": "/təˈwɔːdz/ or /tɔːdz/",
-          "note": "Silent glide w and vowel merge"
+          "text": "Muscles",
+          "syllables": [
+            "Mus",
+            "cles"
+          ],
+          "stress": 0,
+          "ipa": "/ˈmʌsəlz/",
+          "note": "The ⟨c⟩ is silent: /ˈmʌsəlz/, never /ˈmʌskəlz/."
         },
         {
           "id": "w7",
-          "text": "Headaches",
-          "ipa": "/ˈhedeɪks/",
-          "note": "Vowel /e/ and suffix ch /k/"
+          "text": "Ancient",
+          "syllables": [
+            "An",
+            "cient"
+          ],
+          "stress": 0,
+          "ipa": "/ˈeɪnʃənt/",
+          "note": "⟨a⟩ is the diphthong /eɪ/ and ⟨ci⟩ is /ʃ/."
         },
         {
           "id": "w8",
-          "text": "Technologies",
-          "ipa": "/tekˈnɒlədʒiz/",
-          "note": "Digraph ch pronounced as /k/"
+          "text": "Species",
+          "syllables": [
+            "Spe",
+            "cies"
+          ],
+          "stress": 0,
+          "ipa": "/ˈspiːʃiːz/",
+          "note": "⟨ci⟩ is /ʃ/, and singular and plural sound identical."
         },
         {
           "id": "w9",
-          "text": "Characteristics",
-          "ipa": "/ˌkærəktəˈrɪstɪks/",
-          "note": "Digraph ch /k/ and multisyllabic rhythm"
+          "text": "Symptoms",
+          "syllables": [
+            "Symp",
+            "toms"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsɪmptəmz/",
+          "note": "Greek ⟨y⟩ is short /ɪ/; hold /mpt/ together with no vowel inside."
         },
         {
           "id": "w10",
-          "text": "Wrinkles",
-          "ipa": "/ˈrɪŋkəlz/",
-          "note": "Silent initial w before the velar nasal cluster /-ŋk-/"
+          "text": "Disease",
+          "syllables": [
+            "Dis",
+            "ease"
+          ],
+          "stress": 1,
+          "ipa": "/dɪˈziːz/",
+          "note": "Both ⟨s⟩ letters are voiced /z/, and the stress is on the second syllable."
         },
         {
           "id": "w11",
-          "text": "Muscles",
-          "ipa": "/ˈmʌsəlz/",
-          "note": "Completely silent letter c before the final syllabic consonant"
+          "text": "Psychology",
+          "syllables": [
+            "Psy",
+            "chol",
+            "o",
+            "gy"
+          ],
+          "stress": 1,
+          "ipa": "/saɪˈkɒlədʒi/",
+          "note": "Silent ⟨p⟩ in ⟨ps-⟩, and ⟨ch⟩ is /k/."
         },
         {
           "id": "w12",
-          "text": "Anxiety",
-          "ipa": "/æŋˈzaɪəti/",
-          "note": "Voiced sibilant /z/ following the velar nasal, with second-syllable stress"
+          "text": "Technologies",
+          "syllables": [
+            "Tech",
+            "nol",
+            "o",
+            "gies"
+          ],
+          "stress": 1,
+          "ipa": "/tekˈnɒlədʒiz/",
+          "note": "⟨ch⟩ is /k/, and the stress sits on ⟨-nol-⟩, not the first syllable."
         },
         {
           "id": "w13",
-          "text": "Symptoms",
-          "ipa": "/ˈsɪmptəmz/",
-          "note": "Greek spelling y pronounced as short /ɪ/, followed by a clustered coda"
+          "text": "Anxiety",
+          "syllables": [
+            "An",
+            "xi",
+            "e",
+            "ty"
+          ],
+          "stress": 1,
+          "ipa": "/æŋˈzaɪəti/",
+          "note": "⟨x⟩ is voiced here — /ŋz/, not /ks/."
         },
         {
           "id": "w14",
-          "text": "Species",
-          "ipa": "/ˈspiːʃiːz/",
-          "note": "Medial palatal fricative /ʃ/ and long vowel /iː/, identical in singular and plural"
+          "text": "Characteristics",
+          "syllables": [
+            "Char",
+            "ac",
+            "ter",
+            "is",
+            "tics"
+          ],
+          "stress": 3,
+          "ipa": "/ˌkærəktəˈrɪstɪks/",
+          "note": "⟨ch⟩ is /k/, and the main stress falls late, on ⟨-is-⟩."
         },
         {
-          "id": "w15",
-          "text": "Disease",
-          "ipa": "/dɪˈziːz/",
-          "note": "Both the medial and terminal sibilants are voiced as /z/"
+          "text": "Knight",
+          "syllables": [
+            "Knight"
+          ],
+          "stress": 0,
+          "ipa": "/naɪt/",
+          "note": "⌈k⌉ and ⌈gh⌉ are both silent — it's a homophone of night.",
+          "id": "w15"
+        },
+        {
+          "text": "Island",
+          "syllables": [
+            "Is",
+            "land"
+          ],
+          "stress": 0,
+          "ipa": "/ˈaɪlənd/",
+          "note": "The ⌈s⌉ is silent — say EYE-lənd.",
+          "id": "w16"
+        },
+        {
+          "text": "Through",
+          "syllables": [
+            "Through"
+          ],
+          "stress": 0,
+          "ipa": "/θruː/",
+          "note": "⌈ough⌉ here is just /uː/ — the g and h are silent.",
+          "id": "w17"
+        },
+        {
+          "text": "Although",
+          "syllables": [
+            "Al",
+            "though"
+          ],
+          "stress": 1,
+          "ipa": "/ɔːlˈðəʊ/",
+          "note": "⌈gh⌉ is silent; the ending is /-ðəʊ/, same as go.",
+          "id": "w18"
+        },
+        {
+          "text": "High",
+          "syllables": [
+            "High"
+          ],
+          "stress": 0,
+          "ipa": "/haɪ/",
+          "note": "⌈gh⌉ is silent — it just rhymes with my.",
+          "id": "w19"
+        },
+        {
+          "text": "Sign",
+          "syllables": [
+            "Sign"
+          ],
+          "stress": 0,
+          "ipa": "/saɪn/",
+          "note": "⌈g⌉ is silent — compare signature, where it resurfaces.",
+          "id": "w20"
+        },
+        {
+          "text": "Light",
+          "syllables": [
+            "Light"
+          ],
+          "stress": 0,
+          "ipa": "/laɪt/",
+          "note": "⌈gh⌉ is silent, as in night and right.",
+          "id": "w21"
+        },
+        {
+          "text": "Night",
+          "syllables": [
+            "Night"
+          ],
+          "stress": 0,
+          "ipa": "/naɪt/",
+          "note": "⌈gh⌉ is silent — a homophone of knight.",
+          "id": "w22"
+        },
+        {
+          "text": "Sword",
+          "syllables": [
+            "Sword"
+          ],
+          "stress": 0,
+          "ipa": "/sɔːd/",
+          "note": "⌈w⌉ is silent — it sounds just like sawed.",
+          "id": "w23"
+        },
+        {
+          "text": "Thumbs",
+          "syllables": [
+            "Thumbs"
+          ],
+          "stress": 0,
+          "ipa": "/θʌmz/",
+          "note": "⌈b⌉ is silent, as in thumb, comb and climb.",
+          "id": "w24"
+        },
+        {
+          "text": "Doubt",
+          "syllables": [
+            "Doubt"
+          ],
+          "stress": 0,
+          "ipa": "/daʊt/",
+          "note": "⌈b⌉ is silent — it's there only because of the Latin root dubitare.",
+          "id": "w25"
+        },
+        {
+          "text": "Debris",
+          "syllables": [
+            "De",
+            "bris"
+          ],
+          "stress": 1,
+          "ipa": "/dəˈbriː/",
+          "note": "Borrowed from French — the final ⌈s⌉ is silent.",
+          "id": "w26"
+        },
+        {
+          "text": "Designed",
+          "syllables": [
+            "De",
+            "signed"
+          ],
+          "stress": 1,
+          "ipa": "/dɪˈzaɪnd/",
+          "note": "⌈g⌉ is silent — say dih-ZYND, not dih-ZIGND.",
+          "id": "w27"
         }
-      ]
+      ],
+      "drill": "Tricky words"
     },
     {
       "id": "skills39-deceptive-vowels",
       "nav": "Deceptive vowels & syncope",
-      "title": "Tricky words",
+      "title": "Vowels that lie",
       "type": "pronounce",
       "examNum": 39,
-      "drill": "Tricky words",
-      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "instructions": "Read the word aloud, then listen and compare.",
       "words": [
         {
           "id": "w1",
-          "text": "Buried",
-          "ipa": "/ˈberid/",
-          "note": "Spelling u pronounced as short /e/"
+          "text": "Camel",
+          "syllables": [
+            "Cam",
+            "el"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkæməl/",
+          "note": "⟨a⟩ is short /æ/, not /eɪ/."
         },
         {
           "id": "w2",
-          "text": "Comfortable",
-          "ipa": "/ˈkʌmftəbəl/",
-          "note": "Middle vowel completely dropped"
+          "text": "Bushy",
+          "syllables": [
+            "Bush",
+            "y"
+          ],
+          "stress": 0,
+          "ipa": "/ˈbʊʃi/",
+          "note": "⟨u⟩ is /ʊ/ as in put, not /ʌ/ as in cup."
         },
         {
           "id": "w3",
-          "text": "Chocolate",
-          "ipa": "/ˈtʃɒklət/",
-          "note": "Reduction from three written syllables to two"
+          "text": "Buried",
+          "syllables": [
+            "Bur",
+            "ied"
+          ],
+          "stress": 0,
+          "ipa": "/ˈberid/",
+          "note": "⟨u⟩ is short /e/ — it rhymes with berried, not hurried."
         },
         {
           "id": "w4",
-          "text": "Boundary",
-          "ipa": "/ˈbaʊndri/",
-          "note": "Syncope of medial vowel a"
+          "text": "Linen",
+          "syllables": [
+            "Lin",
+            "en"
+          ],
+          "stress": 0,
+          "ipa": "/ˈlɪnɪn/",
+          "note": "Both vowels are short and weak; there is no long /aɪ/."
         },
         {
           "id": "w5",
-          "text": "Vinegar",
-          "ipa": "/ˈvɪnɪɡər/",
-          "note": "Short /ɪ/ rather than /aɪ/ from vine"
+          "text": "Roam",
+          "syllables": [
+            "Roam"
+          ],
+          "stress": 0,
+          "ipa": "/rəʊm/",
+          "note": "⟨oa⟩ is the diphthong /əʊ/, not the long /uː/ of room."
         },
         {
           "id": "w6",
-          "text": "Creature",
-          "ipa": "/ˈkriːtʃər/",
-          "note": "Stem collapses into two syllables /iːtʃ/"
+          "text": "Barren",
+          "syllables": [
+            "Bar",
+            "ren"
+          ],
+          "stress": 0,
+          "ipa": "/ˈbærən/",
+          "note": "Short /æ/ then a schwa; the doubled ⟨r⟩ adds nothing."
         },
         {
           "id": "w7",
-          "text": "Surface",
-          "ipa": "/ˈsɜːfɪs/",
-          "note": "Unstressed suffix reduced to /ɪs/ rather than /feɪs/"
+          "text": "Fables",
+          "syllables": [
+            "Fa",
+            "bles"
+          ],
+          "stress": 0,
+          "ipa": "/ˈfeɪbəlz/",
+          "note": "⟨a⟩ is the diphthong /eɪ/, and ⟨-les⟩ closes as /-bəlz/."
         },
         {
           "id": "w8",
-          "text": "Climate",
-          "ipa": "/ˈklaɪmət/",
-          "note": "Unstressed ending reduced to schwa /ət/"
+          "text": "Motive",
+          "syllables": [
+            "Mo",
+            "tive"
+          ],
+          "stress": 0,
+          "ipa": "/ˈməʊtɪv/",
+          "note": "Stress the first syllable; the ending is weak /-tɪv/, not /-taɪv/."
         },
         {
           "id": "w9",
-          "text": "Bushy",
-          "ipa": "/ˈbʊʃi/",
-          "note": "Near-back vowel /ʊ/ rather than /ʌ/"
+          "text": "Climate",
+          "syllables": [
+            "Cli",
+            "mate"
+          ],
+          "stress": 0,
+          "ipa": "/ˈklaɪmət/",
+          "note": "The ending reduces to a schwa, /-mət/, not /-meɪt/."
         },
         {
           "id": "w10",
-          "text": "Camel",
-          "ipa": "/ˈkæməl/",
-          "note": "Short open vowel /æ/ rather than /eɪ/"
+          "text": "Delicate",
+          "syllables": [
+            "Del",
+            "i",
+            "cate"
+          ],
+          "stress": 0,
+          "ipa": "/ˈdelɪkət/",
+          "note": "An adjective's ⟨-ate⟩ ending is weak /-ət/."
         },
         {
           "id": "w11",
-          "text": "Motive",
-          "ipa": "/ˈməʊtɪv/",
-          "note": "Primary stress on first syllable with short /ɪv/"
+          "text": "Surface",
+          "syllables": [
+            "Sur",
+            "face"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsɜːfɪs/",
+          "note": "The second syllable weakens to /-fɪs/ — no face inside it."
         },
         {
           "id": "w12",
-          "text": "Recreation",
-          "ipa": "/ˌrekriˈeɪʃən/",
-          "note": "Prefix pronounced /re-/ rather than /riː-/"
+          "text": "Flourish",
+          "syllables": [
+            "Flour",
+            "ish"
+          ],
+          "stress": 0,
+          "ipa": "/ˈflʌrɪʃ/",
+          "note": "⟨ou⟩ is short /ʌ/ here, not /aʊ/."
         },
         {
           "id": "w13",
-          "text": "Bicycles",
-          "ipa": "/ˈbaɪsɪklz/",
-          "note": "Second syllable reduced to short /ɪ/"
+          "text": "Humid",
+          "syllables": [
+            "Hu",
+            "mid"
+          ],
+          "stress": 0,
+          "ipa": "/ˈhjuːmɪd/",
+          "note": "⟨u⟩ carries a /j/ glide: /hjuː-/, not /huː-/."
         },
         {
           "id": "w14",
-          "text": "Flourish",
-          "ipa": "/ˈflʌrɪʃ/",
-          "note": "Spelling ou pronounced with the short vowel /ʌ/ rather than /aʊ/"
+          "text": "Vinegar",
+          "syllables": [
+            "Vin",
+            "e",
+            "gar"
+          ],
+          "stress": 0,
+          "ipa": "/ˈvɪnɪɡər/",
+          "note": "⟨i⟩ is short /ɪ/ — no /aɪ/ borrowed from vine."
         },
         {
           "id": "w15",
           "text": "Treasures",
+          "syllables": [
+            "Treas",
+            "ures"
+          ],
+          "stress": 0,
           "ipa": "/ˈtreʒərz/",
-          "note": "Stem vowel shortened to /e/ followed by the voiced fricative /ʒ/"
+          "note": "⟨ea⟩ shortens to /e/, and ⟨s⟩ is the voiced /ʒ/."
         },
         {
           "id": "w16",
-          "text": "Delicate",
-          "ipa": "/ˈdelɪkət/",
-          "note": "Terminal unstressed suffix reduced to schwa /-ət/ rather than /-eɪt/"
+          "text": "Predators",
+          "syllables": [
+            "Pred",
+            "a",
+            "tors"
+          ],
+          "stress": 0,
+          "ipa": "/ˈpredətərz/",
+          "note": "Short /e/ in the first syllable, despite the /eɪ/ of prey."
         },
         {
           "id": "w17",
-          "text": "Predators",
-          "ipa": "/ˈpredətərz/",
-          "note": "First-syllable stress with short /e/, defying analogy with prey"
+          "text": "Creature",
+          "syllables": [
+            "Crea",
+            "ture"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkriːtʃər/",
+          "note": "⟨ea⟩ is long /iː/, and ⟨t⟩ + ⟨u⟩ fuse into /tʃ/."
         },
         {
           "id": "w18",
-          "text": "Linen",
-          "ipa": "/ˈlɪnɪn/",
-          "note": "Short front vowel /ɪ/ across both syllables"
+          "text": "Bicycles",
+          "syllables": [
+            "Bi",
+            "cy",
+            "cles"
+          ],
+          "stress": 0,
+          "ipa": "/ˈbaɪsɪklz/",
+          "note": "The two ⟨i⟩ letters differ: long /aɪ/, then weak /ɪ/."
         },
         {
           "id": "w19",
-          "text": "Barren",
-          "ipa": "/ˈbærən/",
-          "note": "Open front vowel /æ/ followed by an unstressed reduced schwa"
+          "text": "Boundary",
+          "syllables": [
+            "Boun",
+            "da",
+            "ry"
+          ],
+          "stress": 0,
+          "ipa": "/ˈbaʊndri/",
+          "note": "The middle vowel drops — three written syllables, two spoken."
         },
         {
           "id": "w20",
-          "text": "Humid",
-          "ipa": "/ˈhjuːmɪd/",
-          "note": "Requires an initial palatal glide /hj-/ before the long vowel /uː/"
+          "text": "Chocolate",
+          "syllables": [
+            "Choc",
+            "o",
+            "late"
+          ],
+          "stress": 0,
+          "ipa": "/ˈtʃɒklət/",
+          "note": "Collapses to two syllables: /ˈtʃɒk-lət/."
+        },
+        {
+          "id": "w21",
+          "text": "Comfortable",
+          "syllables": [
+            "Com",
+            "for",
+            "ta",
+            "ble"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkʌmftəbəl/",
+          "note": "The ⟨-or-⟩ vanishes: /ˈkʌmf-tə-bəl/."
+        },
+        {
+          "id": "w22",
+          "text": "Towards",
+          "syllables": [
+            "To",
+            "wards"
+          ],
+          "stress": 1,
+          "ipa": "/təˈwɔːdz/",
+          "note": "Weak /tə-/, then the stressed /-ˈwɔːdz/ — keep the /w/ audible."
+        },
+        {
+          "id": "w23",
+          "text": "Recreation",
+          "syllables": [
+            "Rec",
+            "re",
+            "a",
+            "tion"
+          ],
+          "stress": 2,
+          "ipa": "/ˌrekriˈeɪʃən/",
+          "note": "The prefix is /rek-/, not /riː-/, and the main stress is on ⟨-a-⟩."
+        },
+        {
+          "text": "Temperature",
+          "syllables": [
+            "Tem",
+            "per",
+            "a",
+            "ture"
+          ],
+          "stress": 0,
+          "ipa": "/ˈtemprətʃə/",
+          "note": "Everyday speech drops the middle syllable: TEM-prə-chə, not tem-PER-a-ture.",
+          "id": "w24"
+        },
+        {
+          "text": "Interesting",
+          "syllables": [
+            "In",
+            "ter",
+            "est",
+            "ing"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɪntrəstɪŋ/",
+          "note": "The second syllable usually disappears: IN-trə-stɪŋ.",
+          "id": "w25"
+        },
+        {
+          "text": "Different",
+          "syllables": [
+            "Dif",
+            "fer",
+            "ent"
+          ],
+          "stress": 0,
+          "ipa": "/ˈdɪfrənt/",
+          "note": "In natural speech the middle syllable drops: DIF-rənt.",
+          "id": "w26"
+        },
+        {
+          "text": "Every",
+          "syllables": [
+            "Ev",
+            "e",
+            "ry"
+          ],
+          "stress": 0,
+          "ipa": "/ˈevri/",
+          "note": "Two syllables in speech, not three: EV-ri.",
+          "id": "w27"
+        },
+        {
+          "text": "Family",
+          "syllables": [
+            "Fam",
+            "i",
+            "ly"
+          ],
+          "stress": 0,
+          "ipa": "/ˈfæmli/",
+          "note": "Often collapses to two syllables in speech: FAM-lee.",
+          "id": "w28"
+        },
+        {
+          "text": "Women",
+          "syllables": [
+            "Wom",
+            "en"
+          ],
+          "stress": 0,
+          "ipa": "/ˈwɪmɪn/",
+          "note": "⌈o⌉ sounds like /ɪ/, not /ʊ/ — say WIM-ihn, not WOO-men.",
+          "id": "w29"
+        },
+        {
+          "text": "One",
+          "syllables": [
+            "One"
+          ],
+          "stress": 0,
+          "ipa": "/wʌn/",
+          "note": "Spelt like 'own' but sounds like 'won' — /wʌn/.",
+          "id": "w30"
+        },
+        {
+          "text": "Once",
+          "syllables": [
+            "Once"
+          ],
+          "stress": 0,
+          "ipa": "/wʌns/",
+          "note": "Same unexpected /wʌ-/ opening as one.",
+          "id": "w31"
+        },
+        {
+          "text": "Does",
+          "syllables": [
+            "Does"
+          ],
+          "stress": 0,
+          "ipa": "/dʌz/",
+          "note": "Rhymes with buzz, not with goes.",
+          "id": "w32"
+        },
+        {
+          "text": "Done",
+          "syllables": [
+            "Done"
+          ],
+          "stress": 0,
+          "ipa": "/dʌn/",
+          "note": "Short /ʌ/ — rhymes with sun, not with bone.",
+          "id": "w33"
+        },
+        {
+          "text": "Gone",
+          "syllables": [
+            "Gone"
+          ],
+          "stress": 0,
+          "ipa": "/gɒn/",
+          "note": "Short /ɒ/ — rhymes with on, not with bone.",
+          "id": "w34"
+        },
+        {
+          "text": "Love",
+          "syllables": [
+            "Love"
+          ],
+          "stress": 0,
+          "ipa": "/lʌv/",
+          "note": "⌈o⌉ is /ʌ/, not /əʊ/ — rhymes with of.",
+          "id": "w35"
+        },
+        {
+          "text": "Come",
+          "syllables": [
+            "Come"
+          ],
+          "stress": 0,
+          "ipa": "/kʌm/",
+          "note": "⌈o⌉ is /ʌ/ — rhymes with sum, not with home.",
+          "id": "w36"
+        },
+        {
+          "text": "Some",
+          "syllables": [
+            "Some"
+          ],
+          "stress": 0,
+          "ipa": "/sʌm/",
+          "note": "⌈o⌉ is /ʌ/ — rhymes with come, not with home.",
+          "id": "w37"
+        },
+        {
+          "text": "Move",
+          "syllables": [
+            "Move"
+          ],
+          "stress": 0,
+          "ipa": "/muːv/",
+          "note": "Here ⌈o⌉ is long /uː/ — unlike love, come and some.",
+          "id": "w38"
+        },
+        {
+          "text": "Said",
+          "syllables": [
+            "Said"
+          ],
+          "stress": 0,
+          "ipa": "/sed/",
+          "note": "⌈ai⌉ is short /e/ — rhymes with bed, not with paid.",
+          "id": "w39"
+        },
+        {
+          "text": "Friend",
+          "syllables": [
+            "Friend"
+          ],
+          "stress": 0,
+          "ipa": "/frend/",
+          "note": "⌈ie⌉ is short /e/ — rhymes with bend, not with fiend.",
+          "id": "w40"
+        },
+        {
+          "text": "Blood",
+          "syllables": [
+            "Blood"
+          ],
+          "stress": 0,
+          "ipa": "/blʌd/",
+          "note": "⌈oo⌉ is /ʌ/ — rhymes with flood and mud, not with food.",
+          "id": "w41"
+        },
+        {
+          "text": "Flood",
+          "syllables": [
+            "Flood"
+          ],
+          "stress": 0,
+          "ipa": "/flʌd/",
+          "note": "Same trap as blood: ⌈oo⌉ is /ʌ/.",
+          "id": "w42"
+        },
+        {
+          "text": "Pretty",
+          "syllables": [
+            "Pret",
+            "ty"
+          ],
+          "stress": 0,
+          "ipa": "/ˈprɪti/",
+          "note": "⌈e⌉ sounds like /ɪ/ — say PRIT-ee, not PRET-ee.",
+          "id": "w43"
+        },
+        {
+          "text": "England",
+          "syllables": [
+            "Eng",
+            "land"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɪŋglənd/",
+          "note": "⌈E⌉ reduces to /ɪ/ and the second syllable is unstressed: ING-glənd.",
+          "id": "w44"
+        },
+        {
+          "text": "English",
+          "syllables": [
+            "Eng",
+            "lish"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɪŋglɪʃ/",
+          "note": "Same reduced opening as England: ING-glish.",
+          "id": "w45"
+        },
+        {
+          "text": "Colour",
+          "syllables": [
+            "Col",
+            "our"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkʌlə/",
+          "note": "⌈ou⌉ is /ʌ/, not /aʊ/ — the British spelling of color.",
+          "id": "w46"
+        },
+        {
+          "text": "Ordinary",
+          "syllables": [
+            "Or",
+            "di",
+            "na",
+            "ry"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɔːdnri/",
+          "note": "Collapses to three syllables in speech: OR-dn-ree, not four.",
+          "id": "w47"
+        },
+        {
+          "text": "Contemporary",
+          "syllables": [
+            "Con",
+            "tem",
+            "po",
+            "ra",
+            "ry"
+          ],
+          "stress": 1,
+          "ipa": "/kənˈtempərəri/",
+          "note": "The middle syllable often drops in speech: kən-TEM-prə-ree.",
+          "id": "w48"
+        },
+        {
+          "text": "Portrait",
+          "syllables": [
+            "Por",
+            "trait"
+          ],
+          "stress": 0,
+          "ipa": "/ˈpɔːtrɪt/",
+          "note": "Two syllables, not three: POR-trit, not por-TRAYT.",
+          "id": "w49"
         }
-      ]
+      ],
+      "drill": "Tricky words"
     },
     {
       "id": "skills39-consonant-clusters",
       "nav": "Consonant clusters",
-      "title": "Tricky words",
+      "title": "Consonants with no rest",
       "type": "pronounce",
       "examNum": 39,
-      "drill": "Tricky words",
-      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "instructions": "Read the word aloud, then listen and compare.",
       "words": [
         {
           "id": "w1",
-          "text": "Strength",
-          "ipa": "/streŋθ/",
-          "note": "Complex initial /str-/ and terminal /ŋθ/"
+          "text": "Gland",
+          "syllables": [
+            "Gland"
+          ],
+          "stress": 0,
+          "ipa": "/ɡlænd/",
+          "note": "Open on /ɡl-/ and close on /-nd/, with no vowel between g and l."
         },
         {
           "id": "w2",
           "text": "Wealth",
+          "syllables": [
+            "Wealth"
+          ],
+          "stress": 0,
           "ipa": "/welθ/",
-          "note": "Vowel /e/ followed by lateral dental /lθ/"
+          "note": "⟨ea⟩ is short /e/, then /l/ runs straight into /θ/."
         },
         {
           "id": "w3",
-          "text": "Aspects",
-          "ipa": "/ˈæspekts/",
-          "note": "Complex terminal cluster /-kts/"
+          "text": "Strength",
+          "syllables": [
+            "Strength"
+          ],
+          "stress": 0,
+          "ipa": "/streŋθ/",
+          "note": "Three consonants in /str-/, closing on /-ŋθ/."
         },
         {
           "id": "w4",
-          "text": "Detached",
-          "ipa": "/dɪˈtætʃt/",
-          "note": "Unvoiced consonant cluster /-tʃt/ without an extra syllable"
+          "text": "Range",
+          "syllables": [
+            "Range"
+          ],
+          "stress": 0,
+          "ipa": "/reɪndʒ/",
+          "note": "⟨a⟩ is the diphthong /eɪ/, closing on /-ndʒ/."
         },
         {
           "id": "w5",
-          "text": "Landfills",
-          "ipa": "/ˈlændfɪlz/",
-          "note": "Consonant transition /ndf/ across compound boundary"
+          "text": "Aspects",
+          "syllables": [
+            "As",
+            "pects"
+          ],
+          "stress": 0,
+          "ipa": "/ˈæspekts/",
+          "note": "The ending piles up /-kts/ — sound all three."
         },
         {
           "id": "w6",
-          "text": "Organism",
-          "ipa": "/ˈɔːɡənɪzəm/",
-          "note": "Syllabic consonant ending /-zəm/"
+          "text": "Detached",
+          "syllables": [
+            "De",
+            "tached"
+          ],
+          "stress": 1,
+          "ipa": "/dɪˈtætʃt/",
+          "note": "⟨-ed⟩ adds only /t/ here: /-tʃt/ stays one syllable."
         },
         {
           "id": "w7",
+          "text": "Organism",
+          "syllables": [
+            "Or",
+            "gan",
+            "ism"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɔːɡənɪzəm/",
+          "note": "Stress the first syllable; the ending is /-ɪzəm/ with a voiced /z/."
+        },
+        {
+          "id": "w8",
           "text": "Particularly",
+          "syllables": [
+            "Par",
+            "tic",
+            "u",
+            "lar",
+            "ly"
+          ],
+          "stress": 1,
           "ipa": "/pəˈtɪkjələli/",
-          "note": "Rapid alternating liquid consonants"
+          "note": "Five syllables alternating /l/ and /r/ — keep them distinct."
+        },
+        {
+          "text": "Structures",
+          "syllables": [
+            "Struc",
+            "tures"
+          ],
+          "stress": 0,
+          "ipa": "/ˈstrʌktʃəz/",
+          "note": "Four consonants open the word: /str-/, then it closes on /-ktʃəz/.",
+          "id": "w9"
+        },
+        {
+          "text": "Construction",
+          "syllables": [
+            "Con",
+            "struc",
+            "tion"
+          ],
+          "stress": 1,
+          "ipa": "/kənˈstrʌkʃn/",
+          "note": "Stress the middle syllable; /-nstr-/ crosses the syllable join with no vowel.",
+          "id": "w10"
+        },
+        {
+          "text": "Distinguish",
+          "syllables": [
+            "Dis",
+            "tin",
+            "guish"
+          ],
+          "stress": 1,
+          "ipa": "/dɪˈstɪŋgwɪʃ/",
+          "note": "/-stɪŋgw-/ stacks several consonant sounds in a row.",
+          "id": "w11"
+        },
+        {
+          "text": "First",
+          "syllables": [
+            "First"
+          ],
+          "stress": 0,
+          "ipa": "/fɜːst/",
+          "note": "Closes on /-rst/ — three consonants with no vowel between.",
+          "id": "w12"
+        },
+        {
+          "text": "Months",
+          "syllables": [
+            "Months"
+          ],
+          "stress": 0,
+          "ipa": "/mʌnθs/",
+          "note": "Closes on /-nθs/ — the /θ/ often gets swallowed in fast speech.",
+          "id": "w13"
+        },
+        {
+          "text": "Clothes",
+          "syllables": [
+            "Clothes"
+          ],
+          "stress": 0,
+          "ipa": "/kləʊðz/",
+          "note": "Closes on /-ðz/ — many learners wrongly insert a vowel here.",
+          "id": "w14"
+        },
+        {
+          "text": "Asked",
+          "syllables": [
+            "Asked"
+          ],
+          "stress": 0,
+          "ipa": "/ɑːskt/",
+          "note": "Closes on /-skt/ — three consonants with no vowel.",
+          "id": "w15"
+        },
+        {
+          "text": "Walked",
+          "syllables": [
+            "Walked"
+          ],
+          "stress": 0,
+          "ipa": "/wɔːkt/",
+          "note": "The ⌈-ed⌉ is just /t/ here, giving the cluster /-kt/.",
+          "id": "w16"
+        },
+        {
+          "text": "Texts",
+          "syllables": [
+            "Texts"
+          ],
+          "stress": 0,
+          "ipa": "/teksts/",
+          "note": "One of the densest clusters in English: /-ksts/.",
+          "id": "w17"
+        },
+        {
+          "text": "Next",
+          "syllables": [
+            "Next"
+          ],
+          "stress": 0,
+          "ipa": "/nekst/",
+          "note": "Closes on /-kst/ — three consonants together.",
+          "id": "w18"
+        },
+        {
+          "text": "Sixth",
+          "syllables": [
+            "Sixth"
+          ],
+          "stress": 0,
+          "ipa": "/sɪksθ/",
+          "note": "Closes on /-ksθ/ — four consonant sounds in a row.",
+          "id": "w19"
+        },
+        {
+          "text": "Observers",
+          "syllables": [
+            "Ob",
+            "serv",
+            "ers"
+          ],
+          "stress": 1,
+          "ipa": "/əbˈzɜːvəz/",
+          "note": "⌈s⌉ is voiced to /z/ after the vowel; stress falls on the second syllable.",
+          "id": "w20"
+        },
+        {
+          "text": "Unexpected",
+          "syllables": [
+            "Un",
+            "ex",
+            "pect",
+            "ed"
+          ],
+          "stress": 2,
+          "ipa": "/ˌʌnɪkˈspektɪd/",
+          "note": "/-kspek-/ stacks consonants across the middle of the word.",
+          "id": "w21"
+        },
+        {
+          "text": "Underwater",
+          "syllables": [
+            "Un",
+            "der",
+            "wa",
+            "ter"
+          ],
+          "stress": 2,
+          "ipa": "/ˌʌndəˈwɔːtə/",
+          "note": "Stress the third syllable, and keep the /d/ crisp before it.",
+          "id": "w22"
+        },
+        {
+          "text": "Offspring",
+          "syllables": [
+            "Off",
+            "spring"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɒfsprɪŋ/",
+          "note": "Closes and opens on a dense cluster: /-fspr-/, four consonants together.",
+          "id": "w23"
+        },
+        {
+          "text": "Milkweed",
+          "syllables": [
+            "Milk",
+            "weed"
+          ],
+          "stress": 0,
+          "ipa": "/ˈmɪlkwiːd/",
+          "note": "/-lkw-/ crosses the syllable join with no vowel between.",
+          "id": "w24"
+        },
+        {
+          "text": "Fluctuations",
+          "syllables": [
+            "Fluc",
+            "tu",
+            "a",
+            "tions"
+          ],
+          "stress": 2,
+          "ipa": "/ˌflʌktʃuˈeɪʃnz/",
+          "note": "Opens on /flʌkt-/, stacking four consonant sounds before the vowel returns.",
+          "id": "w25"
+        },
+        {
+          "text": "Nostrils",
+          "syllables": [
+            "Nos",
+            "trils"
+          ],
+          "stress": 0,
+          "ipa": "/ˈnɒstrəlz/",
+          "note": "Closes on /-strəlz/ — a thick consonant run for a short word.",
+          "id": "w26"
+        },
+        {
+          "text": "Cleft",
+          "syllables": [
+            "Cleft"
+          ],
+          "stress": 0,
+          "ipa": "/kleft/",
+          "note": "Opens on /kl-/ and closes on /-ft/, with just one vowel between.",
+          "id": "w27"
+        },
+        {
+          "text": "Strikingly",
+          "syllables": [
+            "Strik",
+            "ing",
+            "ly"
+          ],
+          "stress": 0,
+          "ipa": "/ˈstraɪkɪŋli/",
+          "note": "Opens on /str-/, three consonants before the vowel.",
+          "id": "w28"
+        },
+        {
+          "text": "Transparent",
+          "syllables": [
+            "Trans",
+            "par",
+            "ent"
+          ],
+          "stress": 1,
+          "ipa": "/trænsˈpærənt/",
+          "note": "Opens on /trænsp-/ — four consonants stacked at the syllable join.",
+          "id": "w29"
         }
-      ]
+      ],
+      "drill": "Tricky words"
     },
     {
       "id": "skills39-lexical-stress",
       "nav": "Lexical stress",
-      "title": "Tricky words",
+      "title": "Where the weight falls",
       "type": "pronounce",
       "examNum": 39,
-      "drill": "Tricky words",
-      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "instructions": "Read the word aloud, then listen and compare.",
       "words": [
         {
           "id": "w1",
-          "text": "Opponent",
-          "ipa": "/əˈpəʊnənt/",
-          "note": "Primary stress placed strictly on the second syllable"
-        },
-        {
-          "id": "w2",
-          "text": "Environment",
-          "ipa": "/ɪnˈvaɪrənmənt/",
-          "note": "Second-syllable stress and internal nasal"
-        },
-        {
-          "id": "w3",
           "text": "Amateur",
+          "syllables": [
+            "Am",
+            "a",
+            "teur"
+          ],
+          "stress": 0,
           "ipa": "/ˈæmətər/",
-          "note": "Initial-syllable stress with French loanword suffix"
+          "note": "Stress the first syllable; the French ending weakens to /-tər/."
         },
         {
-          "id": "w4",
+          "id": "w2",
           "text": "Primitive",
+          "syllables": [
+            "Prim",
+            "i",
+            "tive"
+          ],
+          "stress": 0,
           "ipa": "/ˈprɪmətɪv/",
-          "note": "Initial-syllable stress with reduced subsequent vowels"
+          "note": "Stress the first syllable; both later vowels reduce."
         },
         {
-          "id": "w5",
+          "id": "w3",
           "text": "Developed",
+          "syllables": [
+            "De",
+            "vel",
+            "oped"
+          ],
+          "stress": 1,
           "ipa": "/dɪˈveləpt/",
-          "note": "Medial stress on the root syllable"
+          "note": "Stress the middle syllable, and ⟨-ed⟩ is only /t/."
         },
         {
-          "id": "w6",
-          "text": "Mankind",
-          "ipa": "/mænˈkaɪnd/",
-          "note": "Stress placed on the terminal syllable"
+          "id": "w4",
+          "text": "Opponent",
+          "syllables": [
+            "Op",
+            "po",
+            "nent"
+          ],
+          "stress": 1,
+          "ipa": "/əˈpəʊnənt/",
+          "note": "Stress the middle syllable; the first reduces to a schwa."
         },
         {
-          "id": "w7",
-          "text": "Purification",
-          "ipa": "/ˌpjʊərɪfɪˈkeɪʃən/",
-          "note": "Secondary-to-primary stress shift with initial palatal glide"
-        }
-      ]
-    },
-    {
-      "id": "skills39-polysemous",
-      "nav": "Polysemous vocabulary",
-      "title": "Tricky words",
-      "type": "pronounce",
-      "examNum": 39,
-      "drill": "Tricky words",
-      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
-      "words": [
-        {
-          "id": "w1",
-          "text": "Depression",
-          "ipa": "/dɪˈpreʃən/",
-          "note": "Geological hollow or basin where water collects, not mental sadness"
-        },
-        {
-          "id": "w2",
-          "text": "Domesticated",
-          "ipa": "/dəˈmestɪkeɪtɪd/",
-          "note": "Tamed and bred by humans from wild stock"
-        },
-        {
-          "id": "w3",
+          "id": "w5",
           "text": "Domestic",
+          "syllables": [
+            "Do",
+            "mes",
+            "tic"
+          ],
+          "stress": 1,
           "ipa": "/dəˈmestɪk/",
-          "note": "Relating to the household and home life rather than national affairs"
-        },
-        {
-          "id": "w4",
-          "text": "Fables",
-          "ipa": "/ˈfeɪbəlz/",
-          "note": "Short allegorical tales typically featuring animals to teach a moral"
-        },
-        {
-          "id": "w5",
-          "text": "Range",
-          "ipa": "/reɪndʒ/",
-          "note": "Series or line of connected mountains forming a continuous chain"
-        }
-      ]
-    },
-    {
-      "id": "skills39-academic-terms",
-      "nav": "Academic terms",
-      "title": "Tricky words",
-      "type": "pronounce",
-      "examNum": 39,
-      "drill": "Tricky words",
-      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
-      "words": [
-        {
-          "id": "w1",
-          "text": "Virtually",
-          "ipa": "/ˈvɜːtʃuəli/",
-          "note": "Adverb meaning nearly or for all practical purposes, not digital"
-        },
-        {
-          "id": "w2",
-          "text": "Vividly",
-          "ipa": "/ˈvɪvɪdli/",
-          "note": "Producing distinct, intensely bright, and clear mental or visual images"
-        },
-        {
-          "id": "w3",
-          "text": "Wading",
-          "ipa": "/ˈweɪdɪŋ/",
-          "note": "Walking through shallow water with deliberate effort"
-        },
-        {
-          "id": "w4",
-          "text": "Overlapping",
-          "ipa": "/ˌəʊvəˈlæpɪŋ/",
-          "note": "Partially covering the edge of an adjacent surface or leaf"
-        },
-        {
-          "id": "w5",
-          "text": "Huddle",
-          "ipa": "/ˈhʌdəl/",
-          "note": "Gathering closely together in a tight pack to conserve body heat"
-        },
-        {
-          "id": "w6",
-          "text": "Bonfire",
-          "ipa": "/ˈbɒnfaɪə/",
-          "note": "Large outdoor fire used for warmth, celebration, or cooking"
-        },
-        {
-          "id": "w7",
-          "text": "Unwelcoming",
-          "ipa": "/ʌnˈwelkəmɪŋ/",
-          "note": "Adjective describing severe, inhospitable conditions"
-        },
-        {
-          "id": "w8",
-          "text": "Wavelengths",
-          "ipa": "/ˈweɪvleŋkθs/ or /ˈweɪvleŋθs/",
-          "note": "Distance between successive crests of light waves"
-        },
-        {
-          "id": "w9",
-          "text": "Appreciation",
-          "ipa": "/əˌpriːʃiˈeɪʃən/",
-          "note": "Recognition of value, quality, or significance in everyday life"
-        },
-        {
-          "id": "w10",
-          "text": "Agricultural",
-          "ipa": "/ˌæɡrɪˈkʌltʃərəl/",
-          "note": "Relating to the cultivation of land, soil, and farming"
-        }
-      ]
-    },
-    {
-      "id": "skills39-stress-shifts",
-      "nav": "Stress shifts & intonation",
-      "title": "Tricky words",
-      "type": "pronounce",
-      "examNum": 39,
-      "drill": "Tricky words",
-      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
-      "words": [
-        {
-          "id": "w1",
-          "text": "Variety",
-          "ipa": "/vəˈraɪəti/",
-          "note": "Primary stress falls on the second syllable with an open diphthong /aɪ/"
-        },
-        {
-          "id": "w2",
-          "text": "Society",
-          "ipa": "/səˈsaɪəti/",
-          "note": "Initial reduced schwa followed by second-syllable stress"
-        },
-        {
-          "id": "w3",
-          "text": "Surveys",
-          "ipa": "/ˈsɜːveɪz/",
-          "note": "Nominal form requiring primary stress on the first syllable"
-        },
-        {
-          "id": "w4",
-          "text": "Decreases",
-          "ipa": "/dɪˈkriːsɪz/",
-          "note": "Verb form accented on the second syllable with voiceless /s/"
-        },
-        {
-          "id": "w5",
-          "text": "Capacity",
-          "ipa": "/kəˈpæsəti/",
-          "note": "Second-syllable stress with the short open vowel /æ/"
+          "note": "Stress the middle syllable; the first is only a schwa."
         },
         {
           "id": "w6",
           "text": "Equator",
+          "syllables": [
+            "E",
+            "qua",
+            "tor"
+          ],
+          "stress": 1,
           "ipa": "/ɪˈkweɪtər/",
-          "note": "Stress placed on the medial diphthong /eɪ/"
+          "note": "Stress the middle syllable, on the diphthong /eɪ/."
+        },
+        {
+          "id": "w7",
+          "text": "Capacity",
+          "syllables": [
+            "Ca",
+            "pac",
+            "i",
+            "ty"
+          ],
+          "stress": 1,
+          "ipa": "/kəˈpæsəti/",
+          "note": "Stress the second syllable, on the short /æ/."
+        },
+        {
+          "id": "w8",
+          "text": "Variety",
+          "syllables": [
+            "Va",
+            "ri",
+            "e",
+            "ty"
+          ],
+          "stress": 1,
+          "ipa": "/vəˈraɪəti/",
+          "note": "Stress the second syllable, on the /aɪ/."
+        },
+        {
+          "id": "w9",
+          "text": "Society",
+          "syllables": [
+            "So",
+            "ci",
+            "e",
+            "ty"
+          ],
+          "stress": 1,
+          "ipa": "/səˈsaɪəti/",
+          "note": "Stress the second syllable; the first is only a schwa."
+        },
+        {
+          "id": "w10",
+          "text": "Environment",
+          "syllables": [
+            "En",
+            "vi",
+            "ron",
+            "ment"
+          ],
+          "stress": 1,
+          "ipa": "/ɪnˈvaɪrənmənt/",
+          "note": "Stress the second syllable, and keep the ⟨n⟩ before ⟨m⟩."
+        },
+        {
+          "id": "w11",
+          "text": "Domesticated",
+          "syllables": [
+            "Do",
+            "mes",
+            "ti",
+            "cat",
+            "ed"
+          ],
+          "stress": 1,
+          "ipa": "/dəˈmestɪkeɪtɪd/",
+          "note": "Five syllables with the stress on the second."
+        },
+        {
+          "id": "w12",
+          "text": "Purification",
+          "syllables": [
+            "Pu",
+            "ri",
+            "fi",
+            "ca",
+            "tion"
+          ],
+          "stress": 3,
+          "ipa": "/ˌpjʊərɪfɪˈkeɪʃən/",
+          "note": "Main stress on ⟨-ca-⟩, secondary on ⟨Pu-⟩, which carries a /j/ glide."
+        },
+        {
+          "text": "Scientific",
+          "syllables": [
+            "Sci",
+            "en",
+            "tif",
+            "ic"
+          ],
+          "stress": 2,
+          "ipa": "/ˌsaɪənˈtɪfɪk/",
+          "note": "Stress falls on the third syllable, unlike scientist.",
+          "id": "w13"
+        },
+        {
+          "text": "Scientist",
+          "syllables": [
+            "Sci",
+            "en",
+            "tist"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsaɪəntɪst/",
+          "note": "Stress the first syllable — it shifts forward from scientific.",
+          "id": "w14"
+        },
+        {
+          "text": "Prefer",
+          "syllables": [
+            "Pre",
+            "fer"
+          ],
+          "stress": 1,
+          "ipa": "/prɪˈfɜː/",
+          "note": "Stress the second syllable — unlike preference.",
+          "id": "w15"
+        },
+        {
+          "text": "Preference",
+          "syllables": [
+            "Pref",
+            "er",
+            "ence"
+          ],
+          "stress": 0,
+          "ipa": "/ˈprefərəns/",
+          "note": "Stress moves back to the first syllable, and the second vowel reduces.",
+          "id": "w16"
+        },
+        {
+          "text": "History",
+          "syllables": [
+            "Hist",
+            "o",
+            "ry"
+          ],
+          "stress": 0,
+          "ipa": "/ˈhɪstəri/",
+          "note": "Stress the first syllable.",
+          "id": "w17"
+        },
+        {
+          "text": "Historical",
+          "syllables": [
+            "His",
+            "tor",
+            "i",
+            "cal"
+          ],
+          "stress": 1,
+          "ipa": "/hɪˈstɒrɪkl/",
+          "note": "Stress shifts to the second syllable, unlike history.",
+          "id": "w18"
+        },
+        {
+          "text": "Politics",
+          "syllables": [
+            "Pol",
+            "i",
+            "tics"
+          ],
+          "stress": 0,
+          "ipa": "/ˈpɒlətɪks/",
+          "note": "Stress the first syllable.",
+          "id": "w19"
+        },
+        {
+          "text": "Political",
+          "syllables": [
+            "Po",
+            "lit",
+            "i",
+            "cal"
+          ],
+          "stress": 1,
+          "ipa": "/pəˈlɪtɪkl/",
+          "note": "Stress shifts forward, and the first vowel reduces to /ə/.",
+          "id": "w20"
+        },
+        {
+          "text": "Mathematics",
+          "syllables": [
+            "Math",
+            "e",
+            "mat",
+            "ics"
+          ],
+          "stress": 2,
+          "ipa": "/ˌmæθəˈmætɪks/",
+          "note": "Stress the third syllable.",
+          "id": "w21"
+        },
+        {
+          "text": "Mathematical",
+          "syllables": [
+            "Math",
+            "e",
+            "mat",
+            "i",
+            "cal"
+          ],
+          "stress": 2,
+          "ipa": "/ˌmæθəˈmætɪkl/",
+          "note": "Stress stays on the same syllable as mathematics.",
+          "id": "w22"
+        },
+        {
+          "text": "Demonstrate",
+          "syllables": [
+            "Dem",
+            "on",
+            "strate"
+          ],
+          "stress": 0,
+          "ipa": "/ˈdemənstreɪt/",
+          "note": "Stress the first syllable; the later vowels reduce.",
+          "id": "w23"
+        },
+        {
+          "text": "Demonstration",
+          "syllables": [
+            "Dem",
+            "on",
+            "stra",
+            "tion"
+          ],
+          "stress": 2,
+          "ipa": "/ˌdemənˈstreɪʃn/",
+          "note": "Stress shifts to the third syllable in the -ion form.",
+          "id": "w24"
+        },
+        {
+          "text": "Celebrate",
+          "syllables": [
+            "Cel",
+            "e",
+            "brate"
+          ],
+          "stress": 0,
+          "ipa": "/ˈselɪbreɪt/",
+          "note": "Stress the first syllable.",
+          "id": "w25"
+        },
+        {
+          "text": "Celebration",
+          "syllables": [
+            "Cel",
+            "e",
+            "bra",
+            "tion"
+          ],
+          "stress": 2,
+          "ipa": "/ˌselɪˈbreɪʃn/",
+          "note": "Stress shifts to the third syllable, as with most -ate/-ation pairs.",
+          "id": "w26"
+        },
+        {
+          "text": "Migration",
+          "syllables": [
+            "Mi",
+            "gra",
+            "tion"
+          ],
+          "stress": 1,
+          "ipa": "/maɪˈɡreɪʃn/",
+          "note": "Stress the second syllable.",
+          "id": "w27"
+        },
+        {
+          "text": "Impressive",
+          "syllables": [
+            "Im",
+            "pres",
+            "sive"
+          ],
+          "stress": 1,
+          "ipa": "/ɪmˈpresɪv/",
+          "note": "Stress the second syllable.",
+          "id": "w28"
+        },
+        {
+          "text": "Uncertain",
+          "syllables": [
+            "Un",
+            "cer",
+            "tain"
+          ],
+          "stress": 1,
+          "ipa": "/ʌnˈsɜːtn/",
+          "note": "Stress the second syllable; the final syllable reduces to /tn/.",
+          "id": "w29"
+        },
+        {
+          "text": "Incredible",
+          "syllables": [
+            "In",
+            "cred",
+            "i",
+            "ble"
+          ],
+          "stress": 1,
+          "ipa": "/ɪnˈkredəbl/",
+          "note": "Stress the second syllable; the last vowel reduces to schwa.",
+          "id": "w30"
+        },
+        {
+          "text": "Emotional",
+          "syllables": [
+            "E",
+            "mo",
+            "tion",
+            "al"
+          ],
+          "stress": 1,
+          "ipa": "/ɪˈməʊʃənl/",
+          "note": "Stress the second syllable.",
+          "id": "w31"
+        },
+        {
+          "text": "Persistent",
+          "syllables": [
+            "Per",
+            "sis",
+            "tent"
+          ],
+          "stress": 1,
+          "ipa": "/pəˈsɪstənt/",
+          "note": "Stress the second syllable; the first reduces to /pə/.",
+          "id": "w32"
+        },
+        {
+          "text": "Entertaining",
+          "syllables": [
+            "En",
+            "ter",
+            "tain",
+            "ing"
+          ],
+          "stress": 2,
+          "ipa": "/ˌentəˈteɪnɪŋ/",
+          "note": "Stress the third syllable.",
+          "id": "w33"
+        },
+        {
+          "text": "Influential",
+          "syllables": [
+            "In",
+            "flu",
+            "en",
+            "tial"
+          ],
+          "stress": 2,
+          "ipa": "/ˌɪnfluˈenʃl/",
+          "note": "Stress the third syllable, unlike influence.",
+          "id": "w34"
+        },
+        {
+          "text": "Comparison",
+          "syllables": [
+            "Com",
+            "par",
+            "i",
+            "son"
+          ],
+          "stress": 1,
+          "ipa": "/kəmˈpærɪsn/",
+          "note": "Stress the second syllable; the first reduces to /kəm/.",
+          "id": "w35"
+        },
+        {
+          "text": "Equivalent",
+          "syllables": [
+            "E",
+            "quiv",
+            "a",
+            "lent"
+          ],
+          "stress": 1,
+          "ipa": "/ɪˈkwɪvələnt/",
+          "note": "Stress the second syllable.",
+          "id": "w36"
+        },
+        {
+          "text": "Internal",
+          "syllables": [
+            "In",
+            "ter",
+            "nal"
+          ],
+          "stress": 1,
+          "ipa": "/ɪnˈtɜːnl/",
+          "note": "Stress the second syllable.",
+          "id": "w37"
+        },
+        {
+          "text": "External",
+          "syllables": [
+            "Ex",
+            "ter",
+            "nal"
+          ],
+          "stress": 1,
+          "ipa": "/ɪkˈstɜːnl/",
+          "note": "Stress the second syllable, matching internal's pattern.",
+          "id": "w38"
+        },
+        {
+          "text": "Electricity",
+          "syllables": [
+            "E",
+            "lec",
+            "tri",
+            "ci",
+            "ty"
+          ],
+          "stress": 2,
+          "ipa": "/ɪˌlekˈtrɪsəti/",
+          "note": "Stress the third syllable, unlike electric.",
+          "id": "w39"
+        },
+        {
+          "text": "Entertainment",
+          "syllables": [
+            "En",
+            "ter",
+            "tain",
+            "ment"
+          ],
+          "stress": 2,
+          "ipa": "/ˌentəˈteɪnmənt/",
+          "note": "Stress the third syllable, same as entertaining.",
+          "id": "w40"
+        },
+        {
+          "text": "Efficient",
+          "syllables": [
+            "Ef",
+            "fi",
+            "cient"
+          ],
+          "stress": 1,
+          "ipa": "/ɪˈfɪʃnt/",
+          "note": "Stress the second syllable; the last reduces to /ʃnt/.",
+          "id": "w41"
+        },
+        {
+          "text": "Explorers",
+          "syllables": [
+            "Ex",
+            "plor",
+            "ers"
+          ],
+          "stress": 1,
+          "ipa": "/ɪkˈsplɔːrəz/",
+          "note": "Stress the second syllable.",
+          "id": "w42"
+        },
+        {
+          "text": "Physical",
+          "syllables": [
+            "Phys",
+            "i",
+            "cal"
+          ],
+          "stress": 0,
+          "ipa": "/ˈfɪzɪkl/",
+          "note": "Stress the first syllable, unlike political.",
+          "id": "w43"
+        },
+        {
+          "text": "Territorial",
+          "syllables": [
+            "Ter",
+            "ri",
+            "tor",
+            "i",
+            "al"
+          ],
+          "stress": 3,
+          "ipa": "/ˌterɪˈtɔːriəl/",
+          "note": "Stress the fourth syllable, unlike territory.",
+          "id": "w44"
+        },
+        {
+          "text": "Geography",
+          "syllables": [
+            "Ge",
+            "og",
+            "ra",
+            "phy"
+          ],
+          "stress": 1,
+          "ipa": "/dʒiˈɒɡrəfi/",
+          "note": "Stress the second syllable.",
+          "id": "w45"
+        },
+        {
+          "text": "Vertical",
+          "syllables": [
+            "Ver",
+            "ti",
+            "cal"
+          ],
+          "stress": 0,
+          "ipa": "/ˈvɜːtɪkl/",
+          "note": "Stress the first syllable, unlike horizontal.",
+          "id": "w46"
+        },
+        {
+          "text": "Horizontal",
+          "syllables": [
+            "Ho",
+            "ri",
+            "zon",
+            "tal"
+          ],
+          "stress": 2,
+          "ipa": "/ˌhɒrɪˈzɒntl/",
+          "note": "Stress the third syllable, unlike vertical.",
+          "id": "w47"
+        },
+        {
+          "text": "Disability",
+          "syllables": [
+            "Dis",
+            "a",
+            "bil",
+            "i",
+            "ty"
+          ],
+          "stress": 2,
+          "ipa": "/ˌdɪsəˈbɪləti/",
+          "note": "Stress the third syllable.",
+          "id": "w48"
+        },
+        {
+          "text": "Biographies",
+          "syllables": [
+            "Bi",
+            "og",
+            "ra",
+            "phies"
+          ],
+          "stress": 1,
+          "ipa": "/baɪˈɒɡrəfiz/",
+          "note": "Stress the second syllable, unlike biography's spelling might suggest.",
+          "id": "w49"
         }
-      ]
+      ],
+      "drill": "Tricky words"
     },
     {
-      "id": "skills39-advanced-vocabulary",
-      "nav": "Advanced vocabulary",
-      "title": "Tricky words",
+      "id": "skills39-heteronyms",
+      "nav": "Same spelling, two sounds",
+      "title": "One spelling, two sounds",
       "type": "pronounce",
       "examNum": 39,
-      "drill": "Tricky words",
-      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "instructions": "Read the word aloud, then listen and compare.",
       "words": [
         {
           "id": "w1",
-          "text": "Upcycling",
-          "ipa": "/ˈʌpˌsaɪklɪŋ/",
-          "note": "Creative repurposing of discarded objects into higher-quality goods"
+          "text": "Read",
+          "syllables": [
+            "Read"
+          ],
+          "stress": 0,
+          "ipa": "/riːd/",
+          "note": "Present tense takes the long /iː/. The past is /red/.",
+          "sense": "present tense"
         },
         {
           "id": "w2",
-          "text": "Roam",
-          "ipa": "/rəʊm/",
-          "note": "Intransitive verb meaning to wander freely without a fixed route"
+          "text": "Read",
+          "syllables": [
+            "Read"
+          ],
+          "stress": 0,
+          "ipa": "/red/",
+          "note": "Past tense takes the short /e/ — it sounds like red.",
+          "sense": "past tense"
         },
         {
           "id": "w3",
-          "text": "Barren",
-          "ipa": "/ˈbærən/",
-          "note": "Bleak landscape unable to sustain crops or substantial plant life"
+          "text": "Live",
+          "syllables": [
+            "Live"
+          ],
+          "stress": 0,
+          "ipa": "/lɪv/",
+          "note": "The verb has the short /ɪ/.",
+          "sense": "verb"
         },
         {
           "id": "w4",
-          "text": "Gland",
-          "ipa": "/ɡlænd/",
-          "note": "Specialized anatomical organ that synthesizes and secretes chemical substances"
+          "text": "Live",
+          "syllables": [
+            "Live"
+          ],
+          "stress": 0,
+          "ipa": "/laɪv/",
+          "note": "The adjective and adverb take the long /aɪ/.",
+          "sense": "adjective"
         },
         {
           "id": "w5",
+          "text": "Wind",
+          "syllables": [
+            "Wind"
+          ],
+          "stress": 0,
+          "ipa": "/wɪnd/",
+          "note": "The noun has the short /ɪ/.",
+          "sense": "noun — moving air"
+        },
+        {
+          "id": "w6",
+          "text": "Wind",
+          "syllables": [
+            "Wind"
+          ],
+          "stress": 0,
+          "ipa": "/waɪnd/",
+          "note": "The verb takes the long /aɪ/.",
+          "sense": "verb — to coil"
+        },
+        {
+          "id": "w7",
+          "text": "Tear",
+          "syllables": [
+            "Tear"
+          ],
+          "stress": 0,
+          "ipa": "/tɪər/",
+          "note": "The noun rhymes with here: /tɪər/.",
+          "sense": "noun — from crying"
+        },
+        {
+          "id": "w8",
+          "text": "Tear",
+          "syllables": [
+            "Tear"
+          ],
+          "stress": 0,
+          "ipa": "/teər/",
+          "note": "The verb rhymes with hair: /teər/.",
+          "sense": "verb — to rip"
+        },
+        {
+          "id": "w9",
+          "text": "Close",
+          "syllables": [
+            "Close"
+          ],
+          "stress": 0,
+          "ipa": "/kləʊz/",
+          "note": "The verb ends in the voiced /z/.",
+          "sense": "verb"
+        },
+        {
+          "id": "w10",
+          "text": "Close",
+          "syllables": [
+            "Close"
+          ],
+          "stress": 0,
+          "ipa": "/kləʊs/",
+          "note": "The adjective ends in the voiceless /s/.",
+          "sense": "adjective — near"
+        },
+        {
+          "id": "w11",
+          "text": "Use",
+          "syllables": [
+            "Use"
+          ],
+          "stress": 0,
+          "ipa": "/juːz/",
+          "note": "The verb ends in the voiced /z/.",
+          "sense": "verb"
+        },
+        {
+          "id": "w12",
+          "text": "Use",
+          "syllables": [
+            "Use"
+          ],
+          "stress": 0,
+          "ipa": "/juːs/",
+          "note": "The noun ends in the voiceless /s/.",
+          "sense": "noun"
+        },
+        {
+          "id": "w13",
+          "text": "Lead",
+          "syllables": [
+            "Lead"
+          ],
+          "stress": 0,
+          "ipa": "/liːd/",
+          "note": "The verb takes the long /iː/.",
+          "sense": "verb — to guide"
+        },
+        {
+          "id": "w14",
+          "text": "Lead",
+          "syllables": [
+            "Lead"
+          ],
+          "stress": 0,
+          "ipa": "/led/",
+          "note": "The metal takes the short /e/ — it sounds like led.",
+          "sense": "noun — the metal"
+        },
+        {
+          "id": "w15",
+          "text": "Minute",
+          "syllables": [
+            "Min",
+            "ute"
+          ],
+          "stress": 0,
+          "ipa": "/ˈmɪnɪt/",
+          "note": "The noun stresses the first syllable, with two short vowels.",
+          "sense": "noun — sixty seconds"
+        },
+        {
+          "id": "w16",
+          "text": "Minute",
+          "syllables": [
+            "Mi",
+            "nute"
+          ],
+          "stress": 1,
+          "ipa": "/maɪˈnjuːt/",
+          "note": "The adjective moves the stress to the second syllable and lengthens both vowels.",
+          "sense": "adjective — tiny"
+        },
+        {
+          "text": "Wound",
+          "syllables": [
+            "Wound"
+          ],
+          "stress": 0,
+          "ipa": "/wuːnd/",
+          "note": "As a noun meaning 'injury', it rhymes with food.",
+          "sense": "noun (injury)",
+          "id": "w17"
+        },
+        {
+          "text": "Wound",
+          "syllables": [
+            "Wound"
+          ],
+          "stress": 0,
+          "ipa": "/waʊnd/",
+          "note": "As the past tense of 'wind', it rhymes with found.",
+          "sense": "past tense of wind",
+          "id": "w18"
+        }
+      ],
+      "drill": "Tricky words"
+    },
+    {
+      "id": "skills39-noun-verb-stress",
+      "nav": "Noun & verb stress pairs",
+      "title": "Nouns forward, verbs back",
+      "type": "pronounce",
+      "examNum": 39,
+      "instructions": "Read the word aloud, then listen and compare.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Record",
+          "syllables": [
+            "Rec",
+            "ord"
+          ],
+          "stress": 0,
+          "ipa": "/ˈrekɔːd/",
+          "note": "As a noun, stress the first syllable and keep ⟨e⟩ short.",
+          "sense": "noun"
+        },
+        {
+          "id": "w2",
+          "text": "Record",
+          "syllables": [
+            "Re",
+            "cord"
+          ],
+          "stress": 1,
+          "ipa": "/rɪˈkɔːd/",
+          "note": "As a verb, the stress moves right and the first vowel reduces.",
+          "sense": "verb"
+        },
+        {
+          "id": "w3",
+          "text": "Present",
+          "syllables": [
+            "Pres",
+            "ent"
+          ],
+          "stress": 0,
+          "ipa": "/ˈprezənt/",
+          "note": "As a noun, stress the first syllable; the second reduces to a schwa.",
+          "sense": "noun"
+        },
+        {
+          "id": "w4",
+          "text": "Present",
+          "syllables": [
+            "Pre",
+            "sent"
+          ],
+          "stress": 1,
+          "ipa": "/prɪˈzent/",
+          "note": "As a verb, stress the second syllable and give it a full /e/.",
+          "sense": "verb"
+        },
+        {
+          "id": "w5",
+          "text": "Object",
+          "syllables": [
+            "Ob",
+            "ject"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɒbdʒɪkt/",
+          "note": "As a noun, stress the first syllable; the second weakens to /-dʒɪkt/.",
+          "sense": "noun"
+        },
+        {
+          "id": "w6",
+          "text": "Object",
+          "syllables": [
+            "Ob",
+            "ject"
+          ],
+          "stress": 1,
+          "ipa": "/əbˈdʒekt/",
+          "note": "As a verb, stress the second syllable and the first becomes a schwa.",
+          "sense": "verb"
+        },
+        {
+          "id": "w7",
+          "text": "Increase",
+          "syllables": [
+            "In",
+            "crease"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɪŋkriːs/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun"
+        },
+        {
+          "id": "w8",
+          "text": "Increase",
+          "syllables": [
+            "In",
+            "crease"
+          ],
+          "stress": 1,
+          "ipa": "/ɪnˈkriːs/",
+          "note": "As a verb, stress the second syllable.",
+          "sense": "verb"
+        },
+        {
+          "id": "w9",
+          "text": "Decrease",
+          "syllables": [
+            "De",
+            "crease"
+          ],
+          "stress": 0,
+          "ipa": "/ˈdiːkriːs/",
+          "note": "As a noun, stress the first syllable and keep it long, /ˈdiː-/.",
+          "sense": "noun"
+        },
+        {
+          "id": "w10",
+          "text": "Decrease",
+          "syllables": [
+            "De",
+            "crease"
+          ],
+          "stress": 1,
+          "ipa": "/dɪˈkriːs/",
+          "note": "As a verb, stress the second syllable and reduce the first.",
+          "sense": "verb"
+        },
+        {
+          "id": "w11",
+          "text": "Survey",
+          "syllables": [
+            "Sur",
+            "vey"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsɜːveɪ/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun"
+        },
+        {
+          "id": "w12",
+          "text": "Survey",
+          "syllables": [
+            "Sur",
+            "vey"
+          ],
+          "stress": 1,
+          "ipa": "/səˈveɪ/",
+          "note": "As a verb, stress the second syllable and the first becomes a schwa.",
+          "sense": "verb"
+        },
+        {
+          "id": "w13",
+          "text": "Contrast",
+          "syllables": [
+            "Con",
+            "trast"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkɒntrɑːst/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun"
+        },
+        {
+          "id": "w14",
+          "text": "Contrast",
+          "syllables": [
+            "Con",
+            "trast"
+          ],
+          "stress": 1,
+          "ipa": "/kənˈtrɑːst/",
+          "note": "As a verb, stress the second syllable and reduce the first.",
+          "sense": "verb"
+        },
+        {
+          "id": "w15",
+          "text": "Desert",
+          "syllables": [
+            "Des",
+            "ert"
+          ],
+          "stress": 0,
+          "ipa": "/ˈdezət/",
+          "note": "The noun stresses the first syllable, with a voiced /z/.",
+          "sense": "noun — dry land"
+        },
+        {
+          "id": "w16",
+          "text": "Desert",
+          "syllables": [
+            "De",
+            "sert"
+          ],
+          "stress": 1,
+          "ipa": "/dɪˈzɜːt/",
+          "note": "The verb stresses the second syllable, on the long /ɜː/.",
+          "sense": "verb — to abandon"
+        },
+        {
+          "text": "Produce",
+          "syllables": [
+            "Prod",
+            "uce"
+          ],
+          "stress": 0,
+          "ipa": "/ˈprɒdjuːs/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w17"
+        },
+        {
+          "text": "Produce",
+          "syllables": [
+            "Pro",
+            "duce"
+          ],
+          "stress": 1,
+          "ipa": "/prəˈdjuːs/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w18"
+        },
+        {
+          "text": "Import",
+          "syllables": [
+            "Im",
+            "port"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɪmpɔːt/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w19"
+        },
+        {
+          "text": "Import",
+          "syllables": [
+            "Im",
+            "port"
+          ],
+          "stress": 1,
+          "ipa": "/ɪmˈpɔːt/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w20"
+        },
+        {
+          "text": "Project",
+          "syllables": [
+            "Proj",
+            "ect"
+          ],
+          "stress": 0,
+          "ipa": "/ˈprɒdʒekt/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w21"
+        },
+        {
+          "text": "Project",
+          "syllables": [
+            "Pro",
+            "ject"
+          ],
+          "stress": 1,
+          "ipa": "/prəˈdʒekt/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w22"
+        },
+        {
+          "text": "Progress",
+          "syllables": [
+            "Pro",
+            "gress"
+          ],
+          "stress": 0,
+          "ipa": "/ˈprəʊgres/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w23"
+        },
+        {
+          "text": "Progress",
+          "syllables": [
+            "Pro",
+            "gress"
+          ],
+          "stress": 1,
+          "ipa": "/prəˈgres/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w24"
+        },
+        {
+          "text": "Conduct",
+          "syllables": [
+            "Con",
+            "duct"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkɒndʌkt/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w25"
+        },
+        {
+          "text": "Conduct",
+          "syllables": [
+            "Con",
+            "duct"
+          ],
+          "stress": 1,
+          "ipa": "/kənˈdʌkt/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w26"
+        },
+        {
+          "text": "Content",
+          "syllables": [
+            "Con",
+            "tent"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkɒntent/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w27"
+        },
+        {
+          "text": "Content",
+          "syllables": [
+            "Con",
+            "tent"
+          ],
+          "stress": 1,
+          "ipa": "/kənˈtent/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w28"
+        },
+        {
+          "text": "Permit",
+          "syllables": [
+            "Per",
+            "mit"
+          ],
+          "stress": 0,
+          "ipa": "/ˈpɜːmɪt/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w29"
+        },
+        {
+          "text": "Permit",
+          "syllables": [
+            "Per",
+            "mit"
+          ],
+          "stress": 1,
+          "ipa": "/pəˈmɪt/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w30"
+        },
+        {
+          "text": "Conflict",
+          "syllables": [
+            "Con",
+            "flict"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkɒnflɪkt/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w31"
+        },
+        {
+          "text": "Conflict",
+          "syllables": [
+            "Con",
+            "flict"
+          ],
+          "stress": 1,
+          "ipa": "/kənˈflɪkt/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w32"
+        },
+        {
+          "text": "Refuse",
+          "syllables": [
+            "Ref",
+            "use"
+          ],
+          "stress": 0,
+          "ipa": "/ˈrefjuːs/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w33"
+        },
+        {
+          "text": "Refuse",
+          "syllables": [
+            "Re",
+            "fuse"
+          ],
+          "stress": 1,
+          "ipa": "/rɪˈfjuːz/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w34"
+        },
+        {
+          "text": "Suspect",
+          "syllables": [
+            "Sus",
+            "pect"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsʌspekt/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w35"
+        },
+        {
+          "text": "Suspect",
+          "syllables": [
+            "Sus",
+            "pect"
+          ],
+          "stress": 1,
+          "ipa": "/səˈspekt/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w36"
+        },
+        {
+          "text": "Subject",
+          "syllables": [
+            "Sub",
+            "ject"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsʌbdʒɪkt/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w37"
+        },
+        {
+          "text": "Subject",
+          "syllables": [
+            "Sub",
+            "ject"
+          ],
+          "stress": 1,
+          "ipa": "/səbˈdʒekt/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w38"
+        },
+        {
+          "text": "Attribute",
+          "syllables": [
+            "At",
+            "trib",
+            "ute"
+          ],
+          "stress": 0,
+          "ipa": "/ˈætrɪbjuːt/",
+          "note": "As a noun, stress the first syllable.",
+          "sense": "noun",
+          "id": "w39"
+        },
+        {
+          "text": "Attribute",
+          "syllables": [
+            "At",
+            "trib",
+            "ute"
+          ],
+          "stress": 1,
+          "ipa": "/əˈtrɪbjuːt/",
+          "note": "As a verb, the stress moves to the second syllable.",
+          "sense": "verb",
+          "id": "w40"
+        }
+      ],
+      "drill": "Tricky words"
+    },
+    {
+      "id": "skills39-academic-terms",
+      "nav": "Academic words",
+      "title": "Exam-text regulars",
+      "type": "pronounce",
+      "examNum": 39,
+      "instructions": "Read the word aloud, then listen and compare.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Huddle",
+          "syllables": [
+            "Hud",
+            "dle"
+          ],
+          "stress": 0,
+          "ipa": "/ˈhʌdəl/",
+          "note": "Short /ʌ/; the doubled ⟨d⟩ does not lengthen it.",
+          "sense": "to gather closely together for warmth"
+        },
+        {
+          "id": "w2",
+          "text": "Wading",
+          "syllables": [
+            "Wad",
+            "ing"
+          ],
+          "stress": 0,
+          "ipa": "/ˈweɪdɪŋ/",
+          "note": "⟨a⟩ is the diphthong /eɪ/ — it rhymes with fading, not padding.",
+          "sense": "walking through shallow water"
+        },
+        {
+          "id": "w3",
+          "text": "Vividly",
+          "syllables": [
+            "Viv",
+            "id",
+            "ly"
+          ],
+          "stress": 0,
+          "ipa": "/ˈvɪvɪdli/",
+          "note": "Stress the first syllable; both ⟨i⟩ letters are short /ɪ/.",
+          "sense": "in a bright, clear way"
+        },
+        {
+          "id": "w4",
+          "text": "Virtually",
+          "syllables": [
+            "Vir",
+            "tu",
+            "al",
+            "ly"
+          ],
+          "stress": 0,
+          "ipa": "/ˈvɜːtʃuəli/",
+          "note": "⟨tu⟩ fuses into /tʃu/: /ˈvɜː-tʃu-ə-li/.",
+          "sense": "almost, for all practical purposes"
+        },
+        {
+          "id": "w5",
+          "text": "Depression",
+          "syllables": [
+            "De",
+            "pres",
+            "sion"
+          ],
+          "stress": 1,
+          "ipa": "/dɪˈpreʃən/",
+          "note": "Stress the middle syllable; ⟨ssi⟩ gives /ʃ/.",
+          "sense": "a hollow in the ground, as well as low mood"
+        },
+        {
+          "id": "w6",
+          "text": "Unwelcoming",
+          "syllables": [
+            "Un",
+            "wel",
+            "com",
+            "ing"
+          ],
+          "stress": 1,
+          "ipa": "/ʌnˈwelkəmɪŋ/",
+          "note": "The prefix stays unstressed; stress the second syllable.",
+          "sense": "harsh, inhospitable"
+        },
+        {
+          "id": "w7",
+          "text": "Overlapping",
+          "syllables": [
+            "O",
+            "ver",
+            "lap",
+            "ping"
+          ],
+          "stress": 2,
+          "ipa": "/ˌəʊvəˈlæpɪŋ/",
+          "note": "Main stress on ⟨-lap-⟩, secondary on ⟨O-⟩.",
+          "sense": "partly covering one another"
+        },
+        {
+          "id": "w8",
+          "text": "Agricultural",
+          "syllables": [
+            "Ag",
+            "ri",
+            "cul",
+            "tur",
+            "al"
+          ],
+          "stress": 2,
+          "ipa": "/ˌæɡrɪˈkʌltʃərəl/",
+          "note": "Main stress on ⟨-cul-⟩, and ⟨tu⟩ becomes /tʃə/.",
+          "sense": "to do with farming"
+        },
+        {
+          "id": "w9",
+          "text": "Appreciation",
+          "syllables": [
+            "Ap",
+            "pre",
+            "ci",
+            "a",
+            "tion"
+          ],
+          "stress": 3,
+          "ipa": "/əˌpriːʃiˈeɪʃən/",
+          "note": "Five syllables: ⟨ci⟩ is /ʃi/ and the main stress is on ⟨-a-⟩.",
+          "sense": "recognition of value"
+        },
+        {
+          "text": "Demonstrated",
+          "syllables": [
+            "Dem",
+            "on",
+            "strat",
+            "ed"
+          ],
+          "stress": 0,
+          "ipa": "/ˈdemənstreɪtɪd/",
+          "note": "Stress the first syllable; the later vowels reduce.",
+          "id": "w10"
+        },
+        {
+          "text": "Reasonable",
+          "syllables": [
+            "Rea",
+            "son",
+            "a",
+            "ble"
+          ],
+          "stress": 0,
+          "ipa": "/ˈriːznəbl/",
+          "note": "The middle syllable disappears in speech: REEZ-nə-bl.",
+          "id": "w11"
+        },
+        {
+          "text": "Response",
+          "syllables": [
+            "Re",
+            "sponse"
+          ],
+          "stress": 1,
+          "ipa": "/rɪˈspɒns/",
+          "note": "Stress the second syllable; the first vowel reduces to /ɪ/.",
+          "id": "w12"
+        },
+        {
+          "text": "Basis",
+          "syllables": [
+            "Ba",
+            "sis"
+          ],
+          "stress": 0,
+          "ipa": "/ˈbeɪsɪs/",
+          "note": "⌈a⌉ is the long diphthong /eɪ/, not a short vowel.",
+          "id": "w13"
+        },
+        {
+          "text": "Engineer",
+          "syllables": [
+            "En",
+            "gi",
+            "neer"
+          ],
+          "stress": 2,
+          "ipa": "/ˌendʒɪˈnɪə/",
+          "note": "Stress falls on the final syllable, unlike engine.",
+          "id": "w14"
+        },
+        {
+          "text": "Peculiar",
+          "syllables": [
+            "Pe",
+            "cu",
+            "liar"
+          ],
+          "stress": 1,
+          "ipa": "/pɪˈkjuːliə/",
+          "note": "⌈u⌉ is /juː/; stress the second syllable.",
+          "id": "w15"
+        },
+        {
+          "text": "Universal",
+          "syllables": [
+            "U",
+            "ni",
+            "ver",
+            "sal"
+          ],
+          "stress": 2,
+          "ipa": "/ˌjuːnɪˈvɜːsl/",
+          "note": "Stress the third syllable.",
+          "id": "w16"
+        },
+        {
+          "text": "Familiar",
+          "syllables": [
+            "Fa",
+            "mil",
+            "iar"
+          ],
+          "stress": 1,
+          "ipa": "/fəˈmɪliə/",
+          "note": "Stress the second syllable; the first vowel reduces to /ə/.",
+          "id": "w17"
+        },
+        {
+          "text": "Notable",
+          "syllables": [
+            "No",
+            "ta",
+            "ble"
+          ],
+          "stress": 0,
+          "ipa": "/ˈnəʊtəbl/",
+          "note": "The middle vowel reduces almost to nothing: NOTE-ə-bl.",
+          "id": "w18"
+        },
+        {
+          "text": "Influence",
+          "syllables": [
+            "In",
+            "flu",
+            "ence"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɪnfluəns/",
+          "note": "Three syllables, not four; stress the first.",
+          "id": "w19"
+        },
+        {
+          "text": "Available",
+          "syllables": [
+            "A",
+            "vail",
+            "a",
+            "ble"
+          ],
+          "stress": 1,
+          "ipa": "/əˈveɪləbl/",
+          "note": "Stress the second syllable.",
+          "id": "w20"
+        },
+        {
+          "text": "Environmental",
+          "syllables": [
+            "En",
+            "vi",
+            "ron",
+            "men",
+            "tal"
+          ],
+          "stress": 3,
+          "ipa": "/ɪnˌvaɪrənˈmentl/",
+          "note": "Stress the fourth syllable, unlike environment.",
+          "id": "w21"
+        },
+        {
+          "text": "Volcanic",
+          "syllables": [
+            "Vol",
+            "can",
+            "ic"
+          ],
+          "stress": 1,
+          "ipa": "/vɒlˈkænɪk/",
+          "note": "Stress the second syllable; the ⌈a⌉ is short /æ/, unlike volcano's /eɪ/.",
+          "id": "w22"
+        },
+        {
+          "text": "Instrument",
+          "syllables": [
+            "In",
+            "stru",
+            "ment"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɪnstrəmənt/",
+          "note": "Stress the first syllable; the last vowel reduces to /ə/.",
+          "id": "w23"
+        },
+        {
+          "text": "Originally",
+          "syllables": [
+            "O",
+            "rig",
+            "i",
+            "nal",
+            "ly"
+          ],
+          "stress": 1,
+          "ipa": "/əˈrɪdʒənəli/",
+          "note": "The middle syllable often drops in speech: o-RIJ-nə-lee.",
+          "id": "w24"
+        },
+        {
+          "text": "Industries",
+          "syllables": [
+            "In",
+            "dus",
+            "tries"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɪndəstriz/",
+          "note": "Stress the first syllable.",
+          "id": "w25"
+        },
+        {
+          "text": "Advantage",
+          "syllables": [
+            "Ad",
+            "van",
+            "tage"
+          ],
+          "stress": 1,
+          "ipa": "/ədˈvɑːntɪdʒ/",
+          "note": "Stress the second syllable; the first vowel reduces to /ə/.",
+          "id": "w26"
+        },
+        {
+          "text": "Proximity",
+          "syllables": [
+            "Prox",
+            "im",
+            "i",
+            "ty"
+          ],
+          "stress": 1,
+          "ipa": "/prɒkˈsɪməti/",
+          "note": "Stress the second syllable.",
+          "id": "w27"
+        },
+        {
+          "text": "Reluctant",
+          "syllables": [
+            "Re",
+            "luc",
+            "tant"
+          ],
+          "stress": 1,
+          "ipa": "/rɪˈlʌktənt/",
+          "note": "Stress the second syllable; ⌈u⌉ is /ʌ/.",
+          "id": "w28"
+        },
+        {
+          "text": "Erosion",
+          "syllables": [
+            "E",
+            "ro",
+            "sion"
+          ],
+          "stress": 1,
+          "ipa": "/ɪˈrəʊʒn/",
+          "note": "⌈si⌉ sounds like /ʒ/, as in measure.",
+          "id": "w29"
+        },
+        {
+          "text": "Principle",
+          "syllables": [
+            "Prin",
+            "ci",
+            "ple"
+          ],
+          "stress": 0,
+          "ipa": "/ˈprɪnsəpl/",
+          "note": "A homophone of principal — both are /ˈprɪnsəpl/.",
+          "id": "w30"
+        },
+        {
+          "text": "Historian",
+          "syllables": [
+            "His",
+            "to",
+            "ri",
+            "an"
+          ],
+          "stress": 1,
+          "ipa": "/hɪˈstɔːriən/",
+          "note": "Stress the second syllable, unlike history.",
+          "id": "w31"
+        },
+        {
+          "text": "Survived",
+          "syllables": [
+            "Sur",
+            "vived"
+          ],
+          "stress": 1,
+          "ipa": "/səˈvaɪvd/",
+          "note": "Stress the second syllable; the first vowel reduces to schwa.",
+          "id": "w32"
+        },
+        {
+          "text": "Reflect",
+          "syllables": [
+            "Re",
+            "flect"
+          ],
+          "stress": 1,
+          "ipa": "/rɪˈflekt/",
+          "note": "Stress the second syllable; it closes on a tight consonant cluster /-flekt/.",
+          "id": "w33"
+        },
+        {
+          "text": "Symbols",
+          "syllables": [
+            "Sym",
+            "bols"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsɪmblz/",
+          "note": "Two syllables, not three — the middle vowel disappears: SIM-blz.",
+          "id": "w34"
+        },
+        {
+          "text": "Features",
+          "syllables": [
+            "Fea",
+            "tures"
+          ],
+          "stress": 0,
+          "ipa": "/ˈfiːtʃəz/",
+          "note": "⌈ea⌉ is long /iː/, and ⌈t⌉ softens to /tʃ/ before the ending.",
+          "id": "w35"
+        },
+        {
+          "text": "Impure",
+          "syllables": [
+            "Im",
+            "pure"
+          ],
+          "stress": 1,
+          "ipa": "/ɪmˈpjʊə/",
+          "note": "Stress the second syllable; ⌈u⌉ is the glide /jʊə/.",
+          "id": "w36"
+        },
+        {
+          "text": "Damaged",
+          "syllables": [
+            "Dam",
+            "aged"
+          ],
+          "stress": 0,
+          "ipa": "/ˈdæmɪdʒd/",
+          "note": "The ⌈-ed⌉ adds its own syllable here: DAM-ijd, not a silent ending.",
+          "id": "w37"
+        },
+        {
+          "text": "Convincing",
+          "syllables": [
+            "Con",
+            "vin",
+            "cing"
+          ],
+          "stress": 1,
+          "ipa": "/kənˈvɪnsɪŋ/",
+          "note": "Stress the second syllable; the first reduces to /kən/.",
+          "id": "w38"
+        },
+        {
+          "text": "Released",
+          "syllables": [
+            "Re",
+            "leased"
+          ],
+          "stress": 1,
+          "ipa": "/rɪˈliːst/",
+          "note": "The ⌈-ed⌉ is just /t/, giving the closing cluster /-iːst/.",
+          "id": "w39"
+        },
+        {
+          "text": "Connotations",
+          "syllables": [
+            "Con",
+            "no",
+            "ta",
+            "tions"
+          ],
+          "stress": 2,
+          "ipa": "/ˌkɒnəˈteɪʃnz/",
+          "note": "Stress the third syllable; the middle vowels reduce to schwa.",
+          "id": "w40"
+        },
+        {
+          "text": "Adopted",
+          "syllables": [
+            "A",
+            "dopt",
+            "ed"
+          ],
+          "stress": 1,
+          "ipa": "/əˈdɒptɪd/",
+          "note": "Stress the second syllable; the first vowel reduces to schwa.",
+          "id": "w41"
+        },
+        {
+          "text": "Ignored",
+          "syllables": [
+            "Ig",
+            "nored"
+          ],
+          "stress": 1,
+          "ipa": "/ɪɡˈnɔːd/",
+          "note": "⌈g⌉ is pronounced here, unlike in sign — stress the second syllable.",
+          "id": "w42"
+        },
+        {
+          "text": "Recall",
+          "syllables": [
+            "Re",
+            "call"
+          ],
+          "stress": 1,
+          "ipa": "/rɪˈkɔːl/",
+          "note": "Stress the second syllable as a verb.",
+          "id": "w43"
+        },
+        {
+          "text": "Signal",
+          "syllables": [
+            "Sig",
+            "nal"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsɪɡnl/",
+          "note": "⟨g⟩ is pronounced /g/ here, unlike the silent g in sign — they share a root but not a sound.",
+          "id": "w44"
+        },
+        {
+          "text": "Substitute",
+          "syllables": [
+            "Sub",
+            "sti",
+            "tute"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsʌbstɪtjuːt/",
+          "note": "Stress the first syllable; ⌈tu⌉ is the glide /tjuː/ in British English.",
+          "id": "w45"
+        }
+      ],
+      "drill": "Tricky words"
+    },
+    {
+      "id": "skills39-compound-stress",
+      "nav": "Compound stress",
+      "title": "Which half carries it",
+      "type": "pronounce",
+      "examNum": 39,
+      "instructions": "Read the word aloud, then listen and compare.",
+      "words": [
+        {
+          "id": "w1",
+          "text": "Bonfire",
+          "syllables": [
+            "Bon",
+            "fire"
+          ],
+          "stress": 0,
+          "ipa": "/ˈbɒnfaɪə/",
+          "note": "Stress the first half, and ⟨o⟩ stays short /ɒ/."
+        },
+        {
+          "id": "w2",
+          "text": "Landfills",
+          "syllables": [
+            "Land",
+            "fills"
+          ],
+          "stress": 0,
+          "ipa": "/ˈlændfɪlz/",
+          "note": "Stress the first half, and run /-ndf-/ across the join with no vowel."
+        },
+        {
+          "id": "w3",
           "text": "Shortages",
+          "syllables": [
+            "Short",
+            "ag",
+            "es"
+          ],
+          "stress": 0,
           "ipa": "/ˈʃɔːtɪdʒɪz/",
-          "note": "Conditions where essential resource demand outstrips available supply"
+          "note": "Stress the first syllable; ⟨-ages⟩ reduces to /-ɪdʒɪz/."
+        },
+        {
+          "id": "w4",
+          "text": "Upcycling",
+          "syllables": [
+            "Up",
+            "cyc",
+            "ling"
+          ],
+          "stress": 0,
+          "ipa": "/ˈʌpsaɪklɪŋ/",
+          "note": "Stress the first half, like recycling's opposite; ⟨y⟩ is /aɪ/."
+        },
+        {
+          "id": "w5",
+          "text": "Wavelengths",
+          "syllables": [
+            "Wave",
+            "lengths"
+          ],
+          "stress": 0,
+          "ipa": "/ˈweɪvleŋθs/",
+          "note": "Stress the first half; the ending stacks up as /-ŋθs/."
         },
         {
           "id": "w6",
           "text": "Well-being",
-          "ipa": "/ˌwelˈbiːɪŋ/",
-          "note": "Compound noun denoting a state of social, physical, and economic health"
+          "syllables": [
+            "Well",
+            "be",
+            "ing"
+          ],
+          "stress": 0,
+          "ipa": "/ˈwelbiːɪŋ/",
+          "note": "Stress the first half; a late-stressed /ˌwelˈbiːɪŋ/ is also heard."
+        },
+        {
+          "id": "w7",
+          "text": "Mankind",
+          "syllables": [
+            "Man",
+            "kind"
+          ],
+          "stress": 1,
+          "ipa": "/mænˈkaɪnd/",
+          "note": "Unusually for a compound, the stress lands on the second half."
+        },
+        {
+          "text": "Pressure-sensing",
+          "syllables": [
+            "Pres",
+            "sure",
+            "sens",
+            "ing"
+          ],
+          "stress": 0,
+          "ipa": "/ˈpreʃəˌsensɪŋ/",
+          "note": "Stress the first half; ⌈-ure⌉ reduces to /ə/.",
+          "id": "w8"
+        },
+        {
+          "text": "Carbon-dating",
+          "syllables": [
+            "Car",
+            "bon",
+            "dat",
+            "ing"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkɑːbənˌdeɪtɪŋ/",
+          "note": "Stress the first half; the second half keeps its long /eɪ/.",
+          "id": "w9"
+        },
+        {
+          "text": "Footprint",
+          "syllables": [
+            "Foot",
+            "print"
+          ],
+          "stress": 0,
+          "ipa": "/ˈfʊtprɪnt/",
+          "note": "Stress the first half; run /-tpr-/ together with no vowel between.",
+          "id": "w10"
+        },
+        {
+          "text": "Colour-wheel",
+          "syllables": [
+            "Col",
+            "our",
+            "wheel"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkʌləˌwiːl/",
+          "note": "Stress the first half; ⌈wh-⌉ stays /w/.",
+          "id": "w11"
+        },
+        {
+          "text": "Soft-boil",
+          "syllables": [
+            "Soft",
+            "boil"
+          ],
+          "stress": 0,
+          "ipa": "/ˈsɒftbɔɪl/",
+          "note": "Stress the first half, and ⌈oi⌉ stays the diphthong /ɔɪ/.",
+          "id": "w12"
+        },
+        {
+          "text": "Twenty-four",
+          "syllables": [
+            "Twen",
+            "ty",
+            "four"
+          ],
+          "stress": 2,
+          "ipa": "/ˌtwentiˈfɔː/",
+          "note": "Compound numbers stress the second half: twenty-FOUR.",
+          "id": "w13"
+        },
+        {
+          "text": "Forty-five",
+          "syllables": [
+            "For",
+            "ty",
+            "five"
+          ],
+          "stress": 2,
+          "ipa": "/ˌfɔːtiˈfaɪv/",
+          "note": "Same pattern as twenty-four — stress the second half.",
+          "id": "w14"
+        },
+        {
+          "text": "Forward-facing",
+          "syllables": [
+            "For",
+            "ward",
+            "fac",
+            "ing"
+          ],
+          "stress": 0,
+          "ipa": "/ˈfɔːwədˌfeɪsɪŋ/",
+          "note": "Stress the first half; ⌈-ward⌉ reduces to /wəd/.",
+          "id": "w15"
+        },
+        {
+          "text": "Sailboard",
+          "syllables": [
+            "Sail",
+            "board"
+          ],
+          "stress": 0,
+          "ipa": "/ˈseɪlbɔːd/",
+          "note": "Stress the first half; ⌈oa⌉ stays the long vowel /ɔː/.",
+          "id": "w16"
+        },
+        {
+          "text": "Eco-friendly",
+          "syllables": [
+            "E",
+            "co",
+            "friend",
+            "ly"
+          ],
+          "stress": 2,
+          "ipa": "/ˌiːkəʊˈfrendli/",
+          "note": "Stress the second half; ⌈eco-⌉ reduces to /iːkəʊ/.",
+          "id": "w17"
+        },
+        {
+          "text": "Eye-patch",
+          "syllables": [
+            "Eye",
+            "patch"
+          ],
+          "stress": 0,
+          "ipa": "/ˈaɪpætʃ/",
+          "note": "Stress the first half; ⌈tch⌉ is a single sound /tʃ/.",
+          "id": "w18"
+        },
+        {
+          "text": "Eye-shade",
+          "syllables": [
+            "Eye",
+            "shade"
+          ],
+          "stress": 0,
+          "ipa": "/ˈaɪʃeɪd/",
+          "note": "Stress the first half; ⌈sh⌉ opens the second half as one sound /ʃ/.",
+          "id": "w19"
         }
-      ]
+      ],
+      "drill": "Tricky words"
     },
     {
       "id": "skills39-phonetic-traps",
       "nav": "Orthographic & phonetic traps",
-      "title": "Tricky words",
+      "title": "Spelling that misleads",
       "type": "pronounce",
       "examNum": 39,
-      "drill": "Tricky words",
-      "instructions": "Read the word aloud, then press Listen to hear it. Mark whether you said it correctly.",
+      "instructions": "Read the word aloud, then listen and compare.",
       "words": [
         {
           "id": "w1",
-          "text": "Cupboards",
-          "ipa": "/ˈkʌbərdz/",
-          "note": "Completely silent letter p and reduced unstressed ending"
+          "text": "Weigh",
+          "syllables": [
+            "Weigh"
+          ],
+          "stress": 0,
+          "ipa": "/weɪ/",
+          "note": "⟨-eigh⟩ is just /eɪ/ — the ⟨gh⟩ is silent."
         },
         {
           "id": "w2",
-          "text": "Wounds",
-          "ipa": "/wuːndz/",
-          "note": "Pronounced with /uː/, easily confused with the past of wind /waʊnd/"
+          "text": "Sphere",
+          "syllables": [
+            "Sphere"
+          ],
+          "stress": 0,
+          "ipa": "/sfɪər/",
+          "note": "⟨sph-⟩ is /sf-/, a rare opening in English."
         },
         {
           "id": "w3",
-          "text": "Pyjamas",
-          "ipa": "/pəˈdʒɑːməz/",
-          "note": "Stress on the second syllable; deceptive vowel spelling"
+          "text": "Wounds",
+          "syllables": [
+            "Wounds"
+          ],
+          "stress": 0,
+          "ipa": "/wuːndz/",
+          "note": "⟨ou⟩ is the long /uː/ — not the /aʊ/ of wound a rope."
         },
         {
           "id": "w4",
-          "text": "Sphere",
-          "ipa": "/sfɪər/",
-          "note": "Rare and awkward initial consonant cluster /sf-/"
+          "text": "Beneath",
+          "syllables": [
+            "Be",
+            "neath"
+          ],
+          "stress": 1,
+          "ipa": "/bɪˈniːθ/",
+          "note": "Weak first syllable, stress on /-niːθ/, ending voiceless."
         },
         {
           "id": "w5",
-          "text": "Knowledge",
-          "ipa": "/ˈnɒlɪdʒ/",
-          "note": "Silent initial k and silent w with vowel shortening to /ɒ/"
+          "text": "Cupboards",
+          "syllables": [
+            "Cup",
+            "boards"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkʌbərdz/",
+          "note": "The ⟨p⟩ is silent and ⟨-boards⟩ reduces to /-bərdz/."
         },
         {
           "id": "w6",
-          "text": "Weigh",
-          "ipa": "/weɪ/",
-          "note": "Silent digraph gh with the diphthong /eɪ/"
+          "text": "Knowledge",
+          "syllables": [
+            "Knowl",
+            "edge"
+          ],
+          "stress": 0,
+          "ipa": "/ˈnɒlɪdʒ/",
+          "note": "Silent ⟨k⟩ and silent ⟨w⟩, and ⟨ow⟩ shortens to /ɒ/."
         },
         {
           "id": "w7",
-          "text": "Mechanisms",
-          "ipa": "/ˈmekənɪzəmz/",
-          "note": "Greek digraph ch pronounced as the velar plosive /k/"
+          "text": "Savanna",
+          "syllables": [
+            "Sa",
+            "van",
+            "na"
+          ],
+          "stress": 1,
+          "ipa": "/səˈvænə/",
+          "note": "Stress the middle syllable; the outer vowels are schwas."
         },
         {
           "id": "w8",
-          "text": "Beneath",
-          "ipa": "/bɪˈniːθ/",
-          "note": "Unstressed prefix with a terminal voiceless interdental fricative /θ/"
+          "text": "Pyjamas",
+          "syllables": [
+            "Py",
+            "ja",
+            "mas"
+          ],
+          "stress": 1,
+          "ipa": "/pəˈdʒɑːməz/",
+          "note": "Stress the middle syllable; ⟨y⟩ is only a schwa."
         },
         {
           "id": "w9",
-          "text": "Savanna",
-          "ipa": "/səˈvænə/",
-          "note": "Lexical stress on the second syllable with reduced schwa endings"
+          "text": "Mechanisms",
+          "syllables": [
+            "Mech",
+            "a",
+            "nisms"
+          ],
+          "stress": 0,
+          "ipa": "/ˈmekənɪzəmz/",
+          "note": "⟨ch⟩ is /k/, and the ending is /-ɪzəmz/."
         },
         {
           "id": "w10",
           "text": "Extinction",
+          "syllables": [
+            "Ex",
+            "tinc",
+            "tion"
+          ],
+          "stress": 1,
           "ipa": "/ɪkˈstɪŋkʃən/",
-          "note": "Triple consonant cluster /-ŋkʃ-/ requiring rapid articulation"
+          "note": "Stress the middle syllable; /-ŋkʃ-/ runs together fast."
+        },
+        {
+          "text": "Enough",
+          "syllables": [
+            "E",
+            "nough"
+          ],
+          "stress": 1,
+          "ipa": "/ɪˈnʌf/",
+          "note": "⌈ough⌉ here is /ʌf/ — rhymes with stuff, not with though or through.",
+          "id": "w11"
+        },
+        {
+          "text": "Though",
+          "syllables": [
+            "Though"
+          ],
+          "stress": 0,
+          "ipa": "/ðəʊ/",
+          "note": "⌈ough⌉ here is just /əʊ/ — rhymes with go, unlike enough or through.",
+          "id": "w12"
+        },
+        {
+          "text": "Thought",
+          "syllables": [
+            "Thought"
+          ],
+          "stress": 0,
+          "ipa": "/θɔːt/",
+          "note": "⌈ough⌉ here is /ɔː/ — rhymes with caught, a fourth sound for the same four letters.",
+          "id": "w13"
+        },
+        {
+          "text": "Tough",
+          "syllables": [
+            "Tough"
+          ],
+          "stress": 0,
+          "ipa": "/tʌf/",
+          "note": "Same /ʌf/ pattern as enough — rhymes with stuff.",
+          "id": "w14"
+        },
+        {
+          "text": "Cough",
+          "syllables": [
+            "Cough"
+          ],
+          "stress": 0,
+          "ipa": "/kɒf/",
+          "note": "⌈ough⌉ here is /ɒf/ — yet another sound, rhyming with off.",
+          "id": "w15"
+        },
+        {
+          "text": "Bough",
+          "syllables": [
+            "Bough"
+          ],
+          "stress": 0,
+          "ipa": "/baʊ/",
+          "note": "⌈ough⌉ here is /aʊ/ — rhymes with now, unlike every word above.",
+          "id": "w16"
+        },
+        {
+          "text": "Busy",
+          "syllables": [
+            "Bus",
+            "y"
+          ],
+          "stress": 0,
+          "ipa": "/ˈbɪzi/",
+          "note": "⌈u⌉ sounds like /ɪ/, and ⌈s⌉ is voiced to /z/ — BIZ-ee.",
+          "id": "w17"
+        },
+        {
+          "text": "Business",
+          "syllables": [
+            "Bus",
+            "i",
+            "ness"
+          ],
+          "stress": 0,
+          "ipa": "/ˈbɪznəs/",
+          "note": "Three syllables in spelling collapse to two in speech: BIZ-nəs.",
+          "id": "w18"
+        },
+        {
+          "text": "Archaeologist",
+          "syllables": [
+            "Ar",
+            "chae",
+            "ol",
+            "o",
+            "gist"
+          ],
+          "stress": 2,
+          "ipa": "/ˌɑːkiˈɒlədʒɪst/",
+          "note": "Spelt with or without the middle ⌈a⌉ (archaeologist/archeologist) — both are said the same way.",
+          "id": "w19"
+        },
+        {
+          "text": "Monarchs",
+          "syllables": [
+            "Mon",
+            "archs"
+          ],
+          "stress": 0,
+          "ipa": "/ˈmɒnəks/",
+          "note": "⌈ch⌉ is /k/ here — MON-uks, not mo-NARCH-s.",
+          "id": "w20"
+        },
+        {
+          "text": "Vengeance",
+          "syllables": [
+            "Venge",
+            "ance"
+          ],
+          "stress": 0,
+          "ipa": "/ˈvendʒəns/",
+          "note": "⌈ge⌉ is /dʒ/, and the whole word is two syllables, not three.",
+          "id": "w21"
+        },
+        {
+          "text": "Specialised",
+          "syllables": [
+            "Spe",
+            "cial",
+            "ised"
+          ],
+          "stress": 0,
+          "ipa": "/ˈspeʃəlaɪzd/",
+          "note": "British ⌈-ised⌉ still sounds like American ⌈-ized⌉: /-aɪzd/.",
+          "id": "w22"
+        },
+        {
+          "text": "Ostrich",
+          "syllables": [
+            "Os",
+            "trich"
+          ],
+          "stress": 0,
+          "ipa": "/ˈɒstrɪtʃ/",
+          "note": "⌈ch⌉ is /tʃ/ here, not /k/ — unlike monarch.",
+          "id": "w23"
+        },
+        {
+          "text": "Kiwi",
+          "syllables": [
+            "Ki",
+            "wi"
+          ],
+          "stress": 0,
+          "ipa": "/ˈkiːwiː/",
+          "note": "Both vowels are long /iː/ — it doesn't rhyme with why.",
+          "id": "w24"
+        },
+        {
+          "text": "Madagascar",
+          "syllables": [
+            "Mad",
+            "a",
+            "gas",
+            "car"
+          ],
+          "stress": 2,
+          "ipa": "/ˌmædəˈɡæskə/",
+          "note": "Stress the third syllable; the final ⌈r⌉ is silent in British English.",
+          "id": "w25"
+        },
+        {
+          "text": "Sheathed",
+          "syllables": [
+            "Sheathed"
+          ],
+          "stress": 0,
+          "ipa": "/ʃiːðd/",
+          "note": "The ⌈-ed⌉ voices to /d/ straight after /ð/, with no extra syllable.",
+          "id": "w26"
+        },
+        {
+          "text": "Exhaust",
+          "syllables": [
+            "Ex",
+            "haust"
+          ],
+          "stress": 1,
+          "ipa": "/ɪɡˈzɔːst/",
+          "note": "⌈x⌉ sounds like /gz/, not /ks/, before a stressed vowel.",
+          "id": "w27"
+        },
+        {
+          "text": "Siege",
+          "syllables": [
+            "Siege"
+          ],
+          "stress": 0,
+          "ipa": "/siːdʒ/",
+          "note": "⌈ie⌉ is long /iː/ — it sounds like seize.",
+          "id": "w28"
+        },
+        {
+          "text": "Iraq",
+          "syllables": [
+            "I",
+            "raq"
+          ],
+          "stress": 1,
+          "ipa": "/ɪˈrɑːk/",
+          "note": "Stress the second syllable; ⌈q⌉ is just /k/.",
+          "id": "w29"
         }
-      ]
+      ],
+      "drill": "Tricky words"
+    },
+    {
+      "id": "skills39-mixed",
+      "nav": "Mixed practice",
+      "title": "Mixed practice",
+      "type": "pronounce",
+      "examNum": 39,
+      "mixed": true,
+      "instructions": "10 random words pulled from every deck above. Shuffle for a fresh 10.",
+      "words": [],
+      "drill": "Tricky words"
     }
   ]
 }

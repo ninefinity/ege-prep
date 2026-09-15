@@ -361,14 +361,40 @@ def _validate_ordering(report: Report, base: str, task: dict) -> None:
             report.error(base, f"slot {slot_id!r} has no sentence")
 
 
+def _fold_word(value: str) -> str:
+    return re.sub(r"[-\s]", "", str(value)).lower()
+
+
+# A note is meant to teach the mouth. Roughly a quarter of the original deck
+# carried dictionary definitions instead ("Bonfire: large outdoor fire used for
+# warmth"), which say nothing about saying the word. A gloss belongs in `sense`.
+_PHONETIC_NOTE = re.compile(
+    r"[/\u02c8\u02cc\u27e8]|stress|syllab|vowel|consonant|silent|cluster|diphthong"
+    r"|schwa|voiced|voiceless|glide|digraph|rhyme|reduce|weak|short|long|tense",
+    re.IGNORECASE,
+)
+
+
 def _validate_pronounce(report: Report, base: str, task: dict) -> None:
     words = task.get("words") or []
     if not words:
-        report.error(base, "pronounce task has no words")
+        # A "mixed" deck (skills39-mixed) has no words of its own by design --
+        # it pools 10 at render time from the other nine decks.
+        if not task.get("mixed"):
+            report.error(base, "pronounce task has no words")
         return
 
+    if not task.get("instructions"):
+        report.warn(base, "pronounce task has no instructions")
+
+    spellings: dict[str, int] = {}
+    for word in words:
+        spellings[_fold_word(word.get("text") or "")] = (
+            spellings.get(_fold_word(word.get("text") or ""), 0) + 1
+        )
+
     seen: set[str] = set()
-    seen_text: set[str] = set()
+    seen_readings: set[tuple[str, str]] = set()
     for i, word in enumerate(words):
         word_id = word.get("id")
         if not word_id:
@@ -377,18 +403,72 @@ def _validate_pronounce(report: Report, base: str, task: dict) -> None:
             report.error(base, f"word {i}: duplicate id {word_id!r}")
         else:
             seen.add(word_id)
+
         text = word.get("text")
         if not text:
             report.error(base, f"word {i}: missing text")
+            continue
+
+        ipa = word.get("ipa")
+        if not ipa:
+            report.error(base, f"word {i} ({text!r}): missing ipa")
         else:
-            folded = text.strip().lower()
-            if folded in seen_text:
-                report.warn(base, f"word {i} ({text!r}): duplicate word in this deck")
-            seen_text.add(folded)
-        if not word.get("ipa"):
-            report.warn(base, f"word {i} ({text!r}): missing ipa")
-        if not word.get("note"):
-            report.warn(base, f"word {i} ({text!r}): missing note")
+            # A heteronym deck repeats a spelling on purpose, so a repeat is
+            # only a duplicate when the transcription matches too.
+            reading = (_fold_word(text), ipa)
+            if reading in seen_readings:
+                report.error(base, f"word {i} ({text!r}): duplicate word and transcription")
+            seen_readings.add(reading)
+
+        note = word.get("note")
+        if not note:
+            report.error(base, f"word {i} ({text!r}): missing note")
+        elif not _PHONETIC_NOTE.search(note):
+            report.error(
+                base, f"word {i} ({text!r}): note describes meaning, not pronunciation"
+            )
+
+        syllables = word.get("syllables")
+        if not isinstance(syllables, list) or not syllables:
+            report.error(base, f"word {i} ({text!r}): missing syllables")
+        elif _fold_word("".join(syllables)) != _fold_word(text):
+            report.error(base, f"word {i} ({text!r}): syllables do not join to the word")
+        else:
+            stress = word.get("stress")
+            if not isinstance(stress, int) or not 0 <= stress < len(syllables):
+                report.error(base, f"word {i} ({text!r}): stress {stress!r} out of range")
+            # Nothing on the card taps a stress mark any more, but the tests
+            # still use it to catch a mistranscribed word, so it still has to
+            # be present and consistent with `stress`.
+            if len(syllables) > 1 and ipa and "\u02c8" not in ipa:
+                report.error(base, f"word {i} ({text!r}): polysyllabic but no stress mark in ipa")
+
+        # With no context sentence, `sense` is the only thing on the card that
+        # tells two identically spelled cards apart before marking.
+        if spellings.get(_fold_word(text), 0) > 1 and not word.get("sense"):
+            report.error(base, f"word {i} ({text!r}): repeated spelling with no sense tag")
+
+
+def _validate_pronounce_decks(report: Report, topic_id: str, tasks: list) -> None:
+    """Cross-deck duplicate check. The per-deck pass cannot catch a word filed
+    in two decks -- which is how "Barren" shipped twice with contradictory
+    notes, one phonetic and one semantic."""
+    seen: dict[tuple[str, str], str] = {}
+    for index, task in enumerate(tasks):
+        if not isinstance(task, dict) or task.get("type") != "pronounce":
+            continue
+        if task.get("mixed"):
+            continue
+        base = _task_path(topic_id, task, index)
+        for word in task.get("words") or []:
+            text = word.get("text")
+            if not text or not word.get("ipa"):
+                continue
+            key = (_fold_word(text), word["ipa"])
+            if key in seen:
+                report.error(base, f"{text!r} also appears in {seen[key]}")
+            else:
+                seen[key] = base
 
 
 def _validate_judge(report: Report, base: str, task: dict) -> None:
@@ -520,6 +600,8 @@ def validate_topic(report: Report, topic_id: str, topic: dict) -> int:
             report.error(base, f"unknown task type {task_type!r}")
             continue
         fn(report, base, task)
+
+    _validate_pronounce_decks(report, topic_id, tasks)
 
     return len(tasks)
 

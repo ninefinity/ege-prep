@@ -1208,12 +1208,38 @@ E.mountTopic = function mountTopic(topic, topicId) {
       var max = E.taskMaxScore(task);
       var savedScore = E.state.scores[task.id] || 0;
 
-      if (skillKindHeadings && task.drill && task.drill !== lastDrillKind) {
+      // A drill-kind group of exactly one task would otherwise show its
+      // label twice in a row -- a heading, then a button repeating the same
+      // text right under it (Mixed practice above Mixed practice). Collapse
+      // it into the single heading-styled button the solo-section case below
+      // already uses for the identical problem.
+      var soloDrillNav =
+        skillKindHeadings &&
+        !!task.drill &&
+        topic.tasks.filter(function (t) {
+          return t.drill === task.drill;
+        }).length === 1;
+
+      if (skillKindHeadings && task.drill && task.drill !== lastDrillKind && !soloDrillNav) {
         lastDrillKind = task.drill;
         var kindHeading = document.createElement("p");
         kindHeading.className = "ege-nav__section";
         kindHeading.textContent = task.drill;
         nav.appendChild(kindHeading);
+      }
+
+      if (soloDrillNav) {
+        var soloDrillBtn = document.createElement("button");
+        soloDrillBtn.type = "button";
+        soloDrillBtn.className = "ege-nav__btn ege-nav__section";
+        soloDrillBtn.id = "nav-" + task.id;
+        soloDrillBtn.dataset.taskId = task.id;
+        soloDrillBtn.textContent = E.navItemLabel(task);
+        soloDrillBtn.addEventListener("click", function () {
+          E.setNavOpen(false);
+          E.showTask(task.id);
+        });
+        nav.appendChild(soloDrillBtn);
       }
 
       var soloSectionNav =
@@ -1252,7 +1278,7 @@ E.mountTopic = function mountTopic(topic, topicId) {
         }
       }
 
-      if (!soloSectionNav) {
+      if (!soloSectionNav && !soloDrillNav) {
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "ege-nav__btn";

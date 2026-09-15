@@ -629,7 +629,8 @@ a {
   }
 
   .ege-page--topic-layout .ege-topic-sidebar__logo {
-    display: block;
+    display: flex;
+    justify-content: center;
     line-height: 0;
     margin: 0;
   }
@@ -638,14 +639,16 @@ a {
     display: block;
     width: auto;
     max-width: 100%;
-    max-height: 5.5rem;
+    max-height: 6.5rem;
     height: auto;
     object-fit: contain;
-    object-position: left top;
   }
 
+  /* A further bump on top of the skill-drill mark's existing 20% bump
+     (it reads smaller than the EGE wordmark at the same height) -- centered
+     in the sidebar column now, rather than pinned to its left edge. */
   .ege-page--topic-layout .ege-topic-sidebar__logo .ege-rail__mark--skill {
-    max-height: 6.6rem;
+    max-height: 8.4rem;
   }
 
   .ege-page--topic-layout .ege-task-intro__head {
@@ -1584,6 +1587,14 @@ a {
   color: var(--ege-ink);
   font-size: var(--ege-text-lg);
   line-height: var(--ege-line-ui);
+}
+
+/* Reading skills' nine decks (plus Mixed practice) carry instructions of
+   very different lengths, and every one of them is a click away in the same
+   sidebar -- reserving two lines here is what stops the whole page jumping
+   up or down as the student moves from a one-line deck to a two-line one. */
+.ege-task-panel:has(.ege-task--pronounce) .ege-task-intro--skills .ege-instructions {
+  min-height: calc(var(--ege-text-lg) * var(--ege-line-ui) * 2);
 }
 
 .ege-task-intro--skills .ege-task-intro__exam {
@@ -9599,7 +9610,7 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 /* ── Reading skills: pronounce (tricky words) ─────────────────────────── */
 
-.ege-pronounce__hide-toggle {
+.ege-pronounce__toggle {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -9616,11 +9627,11 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   transition: border-color 0.12s, color 0.12s, background 0.12s;
 }
 
-.ege-pronounce__hide-toggle:hover {
+.ege-pronounce__toggle:hover {
   border-color: var(--yap-royal);
 }
 
-.ege-pronounce__hide-toggle.is-active {
+.ege-pronounce__toggle.is-active {
   border-color: var(--yap-royal);
   background: var(--yap-royal);
   color: #fff;
@@ -9628,25 +9639,38 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-pronounce__progress {
   position: relative;
-  margin: 0.6rem 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: min(30rem, 100%);
+  margin: 0.6rem auto;
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
   font-weight: 700;
   color: var(--yap-dust);
 }
 
-/* One card fills the viewport at a time; scroll-snap makes a swipe/drag
-   land exactly on the next card, so Prev/Next and a plain scroll gesture
-   both work without separate JS drag-tracking. */
+/* The mood sticker hangs off this, not off the button that was tapped: the
+   strip below is an overflow-x container and would clip it. */
+.ege-pronounce__sticker-anchor {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 1em;
+}
+
+/* One card fills the viewport at a time; scroll-snap makes a swipe land
+   exactly on the next card, so Next and a plain swipe gesture both work
+   without separate JS drag-tracking. */
 .ege-pronounce__viewport {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  max-width: min(26rem, 100%);
+  max-width: min(30rem, 100%);
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .ege-pronounce__viewport::-webkit-scrollbar {
@@ -9656,20 +9680,35 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-pronounce__track {
   display: flex;
   width: 100%;
-  /* A flex item defaults to min-width: auto, i.e. the width its 15 cards'
+  /* A flex item defaults to min-width: auto, i.e. the width its cards'
      content demands -- which inflated every block ancestor up the tree.
      The viewport is the scroll container; the track just needs to not
      resist shrinking to it. */
   min-width: 0;
 }
 
+/* Deliberately plain: word, then ✓/✗, nothing else until a wrong mark or
+   "Show IPA" reveals more. */
 .ege-pronounce__card {
   flex: 0 0 100%;
   scroll-snap-align: center;
-  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  /* Sized to the tallest real card in the deck (every word, IPA + note +
+     sense tag all revealed at once) plus headroom, so paging from a short
+     word to a long one never resizes the card or shifts the buttons under
+     it -- measured empirically rather than guessed, so it needs rechecking
+     if the word list grows much further. */
+  min-height: 25rem;
+  padding: 32px 24px;
   border: 1px solid var(--ege-line);
-  border-radius: 12px;
+  border-radius: 14px;
   background: var(--ege-card);
+  text-align: center;
+  transition: border-color 0.18s, background 0.18s;
 }
 
 .ege-pronounce__card.is-mastered {
@@ -9679,103 +9718,174 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 .ege-pronounce__head {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
 
+/* The word is the whole object of study, and now it's the only thing on the
+   card by default -- it led at 1.4rem before, smaller than the instructions
+   above it. */
 .ege-pronounce__word {
   font-family: var(--ege-font-ui);
-  font-size: 1.4rem;
+  font-size: clamp(2rem, 7vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ege-ink);
+}
+
+/* A dictionary-style tag ("noun", "past tense"), not a sentence -- the only
+   content two identically spelled cards need to be readable before marking. */
+.ege-pronounce__sense {
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--ege-muted);
+}
+
+.ege-pronounce__reveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Neutral, not a red-bordered "tip": seeing the transcription is information,
+   not a penalty. */
+.ege-pronounce__ipa {
+  margin: 0;
+  font-family: var(--ege-font-ui);
+  font-size: clamp(1.1rem, 3.6vw, 1.3rem);
   font-weight: 700;
   color: var(--ege-ink);
 }
 
-.ege-pronounce__listen {
-  flex: 0 0 auto;
-  padding: 4px 10px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  background: #fff;
-  font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-xs, 0.72rem);
-  font-weight: 700;
+/* Masks the text without removing it from layout -- it's already sized to
+   its real (revealed) height either way, so toggling this never resizes the
+   card or pushes the buttons below it. */
+.ege-pronounce__ipa.is-masked,
+.ege-pronounce__note.is-masked {
+  visibility: hidden;
+}
+
+/* The one symbol students read straight past. */
+.ege-pronounce__stress-mark {
   color: var(--yap-royal);
-  cursor: pointer;
+  font-size: 1.15em;
+  font-weight: 800;
 }
 
-.ege-pronounce__listen:hover {
-  border-color: var(--yap-royal);
+.ege-pronounce__stress-mark.is-secondary {
+  opacity: 0.55;
+  font-size: 1em;
 }
 
-.ege-pronounce__marks {
-  display: flex;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.ege-pronounce__mark {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  background: #fff;
-  font-size: var(--ege-text-md);
-  font-weight: 700;
-  cursor: pointer;
-  color: var(--ege-muted);
-}
-
-.ege-pronounce__mark--correct:hover,
-.ege-pronounce__mark--correct.is-active {
-  border-color: var(--ege-ok);
-  background: var(--ege-ok-bg);
-  color: var(--ege-ok);
-}
-
-.ege-pronounce__mark--wrong:hover,
-.ege-pronounce__mark--wrong.is-active {
-  border-color: var(--ege-bad);
-  background: var(--ege-bad-bg);
-  color: var(--ege-bad);
-}
-
-.ege-pronounce__tip {
-  margin: 12px 0 0;
-  padding-left: 0.6rem;
-  border-left: 3px solid var(--ege-bad);
+.ege-pronounce__note {
+  max-width: 32ch;
+  margin: 0;
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
   line-height: 1.45;
   color: var(--ege-muted);
 }
 
-.ege-pronounce__tip-ipa {
-  font-weight: 700;
-  color: var(--ege-ink);
+.ege-pronounce__audio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
-/* Prev/Next sit under the card, not on top of it, so they never cover the
-   Listen button or the marks. */
+/* Icon only -- "Listen" is redundant next to a speaker glyph; the accessible
+   name lives in aria-label/title instead of visible text. */
+.ege-pronounce__listen {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ege-pronounce__listen:hover:not(:disabled) {
+  border-color: var(--yap-royal);
+}
+
+.ege-pronounce__listen:disabled {
+  color: var(--ege-line);
+  cursor: default;
+}
+
+.ege-pronounce__audio-hint {
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-xs, 0.72rem);
+  font-weight: 700;
+  color: var(--ege-muted);
+}
+
+.ege-pronounce__marks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Icon only -- the tick and cross already say what they mean; the words
+   ("Said it right" / "Got it wrong") live in aria-label/title instead. */
+.ege-pronounce__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ege-muted);
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s, color 0.12s;
+}
+
+.ege-pronounce__mark--correct:hover {
+  border-color: var(--ege-ok);
+  background: var(--ege-ok-bg);
+  color: var(--ege-ok);
+}
+
+.ege-pronounce__mark--wrong:hover {
+  border-color: var(--ege-bad);
+  background: var(--ege-bad-bg);
+  color: var(--ege-bad);
+}
+
 .ege-pronounce__navbar {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
   margin: 14px auto 0;
-  max-width: min(26rem, 100%);
+  max-width: min(30rem, 100%);
 }
 
+/* Icon only -- a chevron already reads as Prev/Next; the words live in
+   aria-label/title instead of visible text. */
 .ege-pronounce__nav {
-  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--ege-line);
   border-radius: 999px;
   background: #fff;
-  font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-sm);
-  font-weight: 700;
+  font-size: 1.3rem;
   color: var(--yap-royal);
   cursor: pointer;
 }
@@ -9800,13 +9910,23 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 }
 
 .ege-pronounce__empty {
-  max-width: min(26rem, 100%);
+  max-width: min(30rem, 100%);
   margin: 1rem auto 0;
   padding: 16px;
   border: 1px dashed var(--ege-line);
   border-radius: 12px;
   text-align: center;
   color: var(--ege-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ege-pronounce__viewport {
+    scroll-behavior: auto;
+  }
+
+  .ege-pronounce__card {
+    transition: none;
+  }
 }
 
 

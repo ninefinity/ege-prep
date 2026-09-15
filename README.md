@@ -58,6 +58,10 @@ python3 scripts/ege.py import matching RM001 --topic matching-headings --dry-run
 
 # Start a blank task draft for manual editing
 python3 scripts/ege.py scaffold gapfill gaps-new-demo --title "My New Text"
+
+# Rebuild the reading-aloud word decks (task 39) from their source table.
+# The table in this script is the source of truth -- it OVERWRITES the JSON.
+python3 scripts/build_reading_skills.py
 ```
 
 Source archives in `source/`:
