@@ -4179,6 +4179,152 @@ button.ege-prep-pair-card {
   color: var(--ege-bad);
 }
 
+/* ── Letter-fill: a passage with per-letter box gaps (writing skills) ── */
+/* The locked desktop layout makes .ege-task a flex column with its own
+   overflow-y: auto -- every direct child defaults to flex-shrink: 1, so
+   once the prompt + reply + footer add up to more than the available
+   height, the flex box just squeezes the reply panel down to fit instead
+   of scrolling to it. Since the panel's own overflow stays visible (no
+   nested scrollbar -- see the removed ege-panel--solo above), a squeezed
+   panel doesn't clip its content; the text spills out past its own
+   shrunk box and visually overlaps the footer sitting right after it.
+   flex-shrink: 0 keeps both blocks at their natural height so the
+   reply is never partially hidden behind the footer -- .ege-task's own
+   scrollbar is what reveals the rest, exactly like every other drill. */
+.ege-task--letterfill > .ege-letterfill-prompt,
+.ege-task--letterfill > .ege-panel--read {
+  flex: 0 0 auto;
+}
+
+.ege-letterfill-prompt {
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ege-wrong-pick-bg) 55%, #fff);
+  font-size: var(--ege-text-md);
+}
+
+.ege-letterfill-prompt p {
+  margin: 0 0 0.6em;
+}
+
+.ege-letterfill-prompt p:last-child {
+  margin-bottom: 0;
+}
+
+.ege-letterfill-passage__title {
+  margin: 0 0 12px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ege-ink-soft, var(--ege-ink));
+  text-align: center;
+}
+
+.ege-letterfill-line {
+  margin: 0 0 14px;
+}
+
+.ege-letterfill-line:last-child {
+  margin-bottom: 0;
+}
+
+.ege-letterfill-gap {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 2px;
+  margin: 0 2px;
+  vertical-align: bottom;
+}
+
+.ege-letterfill-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.15em;
+  height: 1.6em;
+  padding: 0 2px;
+  border: 1px solid var(--ege-line);
+  border-radius: 5px;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-xl);
+  line-height: 1;
+}
+
+.ege-letterfill-box--given {
+  border-style: dashed;
+  background: color-mix(in srgb, var(--ege-wrong-pick-bg) 72%, #fff);
+  color: var(--ege-ink);
+}
+
+.ege-letterfill-box--blank {
+  border-color: var(--ege-line);
+  background: #fff;
+  padding: 0;
+}
+
+/* A space inside a multi-word answer (e.g. "have been") -- plain spacing
+   between two box groups, never a box a student types into. */
+.ege-letterfill-box--space {
+  min-width: 0.5em;
+  height: auto;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.ege-letterfill-box__input {
+  width: 1.15em;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  text-align: center;
+  text-transform: lowercase;
+  color: var(--ege-ink);
+}
+
+.ege-letterfill-box__input:focus {
+  outline: 2px solid var(--yap-royal);
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+
+.ege-letterfill-gap.is-correct .ege-letterfill-box--blank {
+  border-color: transparent;
+  background: var(--ege-text-ok-bg);
+  color: var(--ege-text-ok-fg);
+}
+
+.ege-letterfill-gap.is-correct .ege-letterfill-box__input {
+  color: var(--ege-text-ok-fg);
+}
+
+.ege-letterfill-gap.is-wrong .ege-letterfill-box--blank {
+  border-color: transparent;
+  background: var(--ege-text-bad-bg);
+  color: var(--ege-bad);
+}
+
+.ege-letterfill-gap.is-wrong .ege-letterfill-box__input {
+  color: var(--ege-bad);
+}
+
+/* Show answers fills the gap in without crediting it -- royal blue, not the
+   green a student earns by getting it right themselves. */
+.ege-letterfill-gap.is-revealed .ege-letterfill-box--blank {
+  border-color: var(--yap-royal);
+  border-style: dashed;
+  background: var(--ege-wrong-pick-bg);
+  color: var(--yap-royal);
+}
+
+.ege-letterfill-gap.is-revealed .ege-letterfill-box__input {
+  color: var(--yap-royal);
+}
+
 .ege-input {
   font-family: var(--ege-font-text);
   font-size: var(--ege-text-xl);

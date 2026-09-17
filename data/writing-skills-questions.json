@@ -395,6 +395,1127 @@
         }
       ],
       "preview": "Your email"
+    },
+    {
+      "id": "letterfill-robert-moving-l1",
+      "drill": "Letter fill",
+      "nav": "Robert: moving to a new town",
+      "title": "Set phrases: reacting to news and giving an opinion",
+      "type": "letterfill",
+      "examNum": 37,
+      "instructions": "Complete the text with the correct words.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Robert:</p><p><strong>From:</strong> Robert@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Moving</p><p>…We've moved to a new town. It's small and green. My neighbours say that it hasn't changed a bit for the last two centuries. Have you noticed any recent changes in your city? What are they? Do you like or dislike them? Why?<br>…Yesterday my mum won a cooking competition…</p><p>Write an email to Robert.<br>In your message:<br>– answer his questions<br>– ask 3 questions about the cooking competition</p><p>Write 100–140 words.<br>Remember the rules of email writing.</p>",
+      "contextTitle": "Reply to Robert",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Dear Robert,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Thanks for your email. I always look "
+            },
+            {
+              "gap": {
+                "answer": "forward"
+              }
+            },
+            {
+              "text": " to hearing "
+            },
+            {
+              "gap": {
+                "answer": "from"
+              }
+            },
+            {
+              "text": " you! Congratulations on "
+            },
+            {
+              "gap": {
+                "answer": "moving"
+              }
+            },
+            {
+              "text": " to a new "
+            },
+            {
+              "gap": {
+                "answer": "town"
+              }
+            },
+            {
+              "text": "!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Now, let me "
+            },
+            {
+              "gap": {
+                "answer": "answer"
+              }
+            },
+            {
+              "text": " your questions. I have definitely noticed some "
+            },
+            {
+              "gap": {
+                "answer": "changes"
+              }
+            },
+            {
+              "text": " in my city recently. It has "
+            },
+            {
+              "gap": {
+                "answer": "become"
+              }
+            },
+            {
+              "text": " cleaner and a lot of old houses "
+            },
+            {
+              "gap": {
+                "answer": "have been"
+              }
+            },
+            {
+              "text": " reconstructed. I like the changes as local authorities "
+            },
+            {
+              "gap": {
+                "answer": "are"
+              }
+            },
+            {
+              "text": " making the "
+            },
+            {
+              "gap": {
+                "answer": "city"
+              }
+            },
+            {
+              "text": " more beautiful and pleasant "
+            },
+            {
+              "gap": {
+                "answer": "both"
+              }
+            },
+            {
+              "text": " for tourists and regular citizens."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anyway, you've mentioned a cooking competition. What dishes did your mum make for the competition? How many participants were there? Did your mother get a prize?"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Well, I'd better go now as I have to cook dinner. Take care and keep in touch!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Lots of love,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Marina"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "letterfill-john-household-l2",
+      "drill": "Letter fill",
+      "nav": "John: family chores",
+      "title": "Set phrases: answering questions and giving reasons",
+      "type": "letterfill",
+      "examNum": 37,
+      "instructions": "Complete the text with the correct words.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend John:</p><p><strong>From:</strong> John@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Household</p><p>…Last week my mom went to New York to help my aunt with her new baby. My dad and I had to do all the housework ourselves. What kind of family chores do you normally have, if at all? What would you cook for yourself, if you had to? Do you think boys should be able to cook and to keep house, and why?<br>…Next weekend I'm going hiking with my classmates…</p><p>Write an email to John.<br>In your message:<br>– answer his questions<br>– ask 3 questions about his hiking plans</p><p>Write 100–140 words.<br>Remember the rules of email writing.</p>",
+      "contextTitle": "Reply to John",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Dear John,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Thanks for your email. I always love hearing from you! Now, let me "
+            },
+            {
+              "gap": {
+                "answer": "answer"
+              }
+            },
+            {
+              "text": " your questions about family "
+            },
+            {
+              "gap": {
+                "answer": "chores"
+              }
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "gap": {
+                "answer": "speaking"
+              }
+            },
+            {
+              "text": " of me, I go to the grocery store and do the cleaning in my family. If I had to cook for myself, I "
+            },
+            {
+              "gap": {
+                "answer": "would"
+              }
+            },
+            {
+              "text": " definitely make chicken soup as I really like it. I think "
+            },
+            {
+              "gap": {
+                "answer": "boys"
+              }
+            },
+            {
+              "text": " should be able to cook and do housework "
+            },
+            {
+              "gap": {
+                "answer": "because"
+              }
+            },
+            {
+              "text": " it will be useful in "
+            },
+            {
+              "gap": {
+                "answer": "their"
+              }
+            },
+            {
+              "text": " adult life."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "It's great that you decided to go "
+            },
+            {
+              "gap": {
+                "answer": "hiking"
+              }
+            },
+            {
+              "text": "! Have you ever been on a hike "
+            },
+            {
+              "gap": {
+                "answer": "before"
+              }
+            },
+            {
+              "text": "? What equipment do you need? What do your parents think about your hiking trip?"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anyway, I have to go and help my dad now. "
+            },
+            {
+              "gap": {
+                "answer": "keep"
+              }
+            },
+            {
+              "text": " in touch!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "gap": {
+                "answer": "best"
+              }
+            },
+            {
+              "text": " wishes,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Maria"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "letterfill-tom-family-trip-l3",
+      "drill": "Letter fill",
+      "nav": "Tom: family trip",
+      "title": "Set phrases: describing experiences and opinions",
+      "type": "letterfill",
+      "examNum": 37,
+      "instructions": "Complete the text with the correct words.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Tom:</p><p><strong>From:</strong> Tom@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Family trip</p><p>…Last week our family went to the famous Niagara Falls. It was my first visit there and it was fun! We enjoyed the weather and the splashes of falling water on our faces. It reminded us of our last rafting trip. Where can you see beautiful water sights in Russia, if at all? Have you ever gone rafting? What do you think about extreme sports in general?<br>…By the way, we are going to Greece this summer…</p><p>Write an email to Tom.<br>In your message:<br>– answer his questions<br>– ask 3 questions about his trip to Greece</p><p>Write 100–140 words.<br>Remember the rules of email writing.</p>",
+      "contextTitle": "Reply to Tom",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Dear Tom,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Thanks for "
+            },
+            {
+              "gap": {
+                "answer": "your"
+              }
+            },
+            {
+              "text": " email. It was lovely to "
+            },
+            {
+              "gap": {
+                "answer": "hear"
+              }
+            },
+            {
+              "text": " from you "
+            },
+            {
+              "gap": {
+                "answer": "again"
+              }
+            },
+            {
+              "text": "!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "It's great that you enjoyed your trip to Niagara Falls! Now, "
+            },
+            {
+              "gap": {
+                "answer": "let"
+              }
+            },
+            {
+              "text": " me answer your questions. Speaking of water sights, in Saint Petersburg you can enjoy a beautiful view of the Gulf of "
+            },
+            {
+              "gap": {
+                "answer": "finland"
+              }
+            },
+            {
+              "text": ". Actually I've never "
+            },
+            {
+              "gap": {
+                "answer": "gone"
+              }
+            },
+            {
+              "text": " rafting as I don't know how to swim. In general I think that "
+            },
+            {
+              "gap": {
+                "answer": "extreme"
+              }
+            },
+            {
+              "text": " sports are fun to watch but too "
+            },
+            {
+              "gap": {
+                "answer": "dangerous"
+              }
+            },
+            {
+              "text": " to perform."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anyway, you've mentioned a trip to "
+            },
+            {
+              "gap": {
+                "answer": "greece"
+              }
+            },
+            {
+              "text": ". How many days are you "
+            },
+            {
+              "gap": {
+                "answer": "going"
+              }
+            },
+            {
+              "text": " to stay there? What sights are you "
+            },
+            {
+              "gap": {
+                "answer": "planning"
+              }
+            },
+            {
+              "text": " to visit? Who is going "
+            },
+            {
+              "gap": {
+                "answer": "with"
+              }
+            },
+            {
+              "text": " you?"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "gap": {
+                "answer": "sorry"
+              }
+            },
+            {
+              "text": ", I've got to go now. Hope to "
+            },
+            {
+              "gap": {
+                "answer": "hear"
+              }
+            },
+            {
+              "text": " from you "
+            },
+            {
+              "gap": {
+                "answer": "soon"
+              }
+            },
+            {
+              "text": "!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "All "
+            },
+            {
+              "gap": {
+                "answer": "the"
+              }
+            },
+            {
+              "text": " best,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Andrew"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "letterfill-ronny-summer-l4",
+      "drill": "Letter fill",
+      "nav": "Ronny: summer plans",
+      "title": "Set phrases: weather, seasons and future plans",
+      "type": "letterfill",
+      "examNum": 37,
+      "instructions": "Complete the text with the correct words.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Ronny:</p><p><strong>From:</strong> Ronny@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Summer</p><p>…I am so happy that summer has come and we are going to have a long holiday.</p><p>What's the weather like in Russia in summer? What is your favourite season and why this one? What are your plans for the summer?</p><p>…My uncle Keith is coming to visit us next week…</p><p>Write an email to Ronny.<br>In your message:<br>– answer his questions<br>– ask 3 questions about his uncle.</p><p>Write 100–140 words.<br>Remember the rules of email writing.</p>",
+      "contextTitle": "Reply to Ronny",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Dear Ronny,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Thank you for your email! I'm "
+            },
+            {
+              "gap": {
+                "answer": "glad"
+              }
+            },
+            {
+              "text": " to hear from you "
+            },
+            {
+              "gap": {
+                "answer": "again"
+              }
+            },
+            {
+              "text": "! I hope you are "
+            },
+            {
+              "gap": {
+                "answer": "doing"
+              }
+            },
+            {
+              "text": " well!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "In "
+            },
+            {
+              "gap": {
+                "answer": "russia"
+              }
+            },
+            {
+              "text": " the "
+            },
+            {
+              "gap": {
+                "answer": "weather"
+              }
+            },
+            {
+              "text": " in summer is usually quite warm and sunny, with "
+            },
+            {
+              "gap": {
+                "answer": "temperatures"
+              }
+            },
+            {
+              "text": " from 20 to 30 degrees Celsius. My "
+            },
+            {
+              "gap": {
+                "answer": "favourite"
+              }
+            },
+            {
+              "text": " season is actually "
+            },
+            {
+              "gap": {
+                "answer": "summer"
+              }
+            },
+            {
+              "text": ", because I love the long days, the warm weather and all the outdoor activities "
+            },
+            {
+              "gap": {
+                "answer": "that"
+              }
+            },
+            {
+              "text": " come with it. As for my "
+            },
+            {
+              "gap": {
+                "answer": "plans"
+              }
+            },
+            {
+              "text": " for the summer, I am looking "
+            },
+            {
+              "gap": {
+                "answer": "forward"
+              }
+            },
+            {
+              "text": " to spending "
+            },
+            {
+              "gap": {
+                "answer": "time"
+              }
+            },
+            {
+              "text": " at the beach and going "
+            },
+            {
+              "gap": {
+                "answer": "on"
+              }
+            },
+            {
+              "text": " hikes."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "I'm excited to hear "
+            },
+            {
+              "gap": {
+                "answer": "about"
+              }
+            },
+            {
+              "text": " your "
+            },
+            {
+              "gap": {
+                "answer": "uncle"
+              }
+            },
+            {
+              "text": " Keith coming to visit! What will you be doing together? Are there any special plans "
+            },
+            {
+              "gap": {
+                "answer": "for"
+              }
+            },
+            {
+              "text": " his visit? How long "
+            },
+            {
+              "gap": {
+                "answer": "will"
+              }
+            },
+            {
+              "text": " he be staying with "
+            },
+            {
+              "gap": {
+                "answer": "you"
+              }
+            },
+            {
+              "text": "?"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anyway, I've got to go as I need to "
+            },
+            {
+              "gap": {
+                "answer": "help"
+              }
+            },
+            {
+              "text": " my little brother with his homework. Looking forward to "
+            },
+            {
+              "gap": {
+                "answer": "hearing"
+              }
+            },
+            {
+              "text": " from you soon!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Best "
+            },
+            {
+              "gap": {
+                "answer": "wishes"
+              }
+            },
+            {
+              "text": ","
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anna"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "letterfill-marion-languages-l5",
+      "drill": "Letter fill",
+      "nav": "Marion: foreign languages",
+      "title": "Set phrases: explaining choices and asking about a book",
+      "type": "letterfill",
+      "examNum": 37,
+      "instructions": "Complete the text with the correct words.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Marion:</p><p><strong>From:</strong> Marion@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Foreign languages</p><p>…They say that Russian students can choose a foreign language to study at school. Do many students choose other languages instead of English? Why do you think they do so? Why have you chosen English?…</p><p>…I've just finished reading a collection of Anton Chekhov's short stories…</p><p>Write an email to Marion.<br>In your message:<br>– answer his questions<br>– ask 3 questions about the Chekhov stories he has read.</p><p>Write 100–140 words.<br>Remember the rules of email writing.</p>",
+      "contextTitle": "Reply to Marion",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Dear Marion,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Thank "
+            },
+            {
+              "gap": {
+                "answer": "you"
+              }
+            },
+            {
+              "text": " for your email! I'm glad to hear from you again! I hope you're "
+            },
+            {
+              "gap": {
+                "answer": "doing"
+              }
+            },
+            {
+              "text": " well!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "In Russia many "
+            },
+            {
+              "gap": {
+                "answer": "students"
+              }
+            },
+            {
+              "text": " choose languages other than "
+            },
+            {
+              "gap": {
+                "answer": "english"
+              }
+            },
+            {
+              "text": " to study at school, "
+            },
+            {
+              "gap": {
+                "answer": "such"
+              }
+            },
+            {
+              "text": " as French, German, Spanish or "
+            },
+            {
+              "gap": {
+                "answer": "even"
+              }
+            },
+            {
+              "text": " Chinese. Some students may "
+            },
+            {
+              "gap": {
+                "answer": "choose"
+              }
+            },
+            {
+              "text": " a language based on their personal interests or "
+            },
+            {
+              "gap": {
+                "answer": "future"
+              }
+            },
+            {
+              "text": " career plans. I "
+            },
+            {
+              "gap": {
+                "answer": "chose"
+              }
+            },
+            {
+              "text": " to study English because it is widely "
+            },
+            {
+              "gap": {
+                "answer": "spoken"
+              }
+            },
+            {
+              "text": " around the world and is essential for "
+            },
+            {
+              "gap": {
+                "answer": "communication"
+              }
+            },
+            {
+              "text": " in many fields."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "You've "
+            },
+            {
+              "gap": {
+                "answer": "mentioned"
+              }
+            },
+            {
+              "text": " Chekhov's short stories. Which story was your "
+            },
+            {
+              "gap": {
+                "answer": "favourite"
+              }
+            },
+            {
+              "text": "? Who was your favourite "
+            },
+            {
+              "gap": {
+                "answer": "character"
+              }
+            },
+            {
+              "text": "? Did you find Chekhov's writing style easy to "
+            },
+            {
+              "gap": {
+                "answer": "follow"
+              }
+            },
+            {
+              "text": "?"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anyway, I've "
+            },
+            {
+              "gap": {
+                "answer": "got"
+              }
+            },
+            {
+              "text": " to go as I need to help my little brother with his homework."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Write "
+            },
+            {
+              "gap": {
+                "answer": "back"
+              }
+            },
+            {
+              "text": " soon."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Best wishes,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anna"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "letterfill-simon-games-l6",
+      "drill": "Letter fill",
+      "nav": "Simon: computer games",
+      "title": "Set phrases: hobbies and school clubs",
+      "type": "letterfill",
+      "examNum": 37,
+      "instructions": "Complete the text with the correct words.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Simon:</p><p><strong>From:</strong> Simon@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Computer games</p><p>…I know that the Russian team won The International 10 – world cyber sport championship in 2021. What computer games are most popular with Russian teenagers? How much time do you and your friends spend playing computer games? What else do you use your computer for?</p><p>…I spend too much time surfing the internet and I'm thinking of joining our school sports club…</p><p>Write an email to Simon.<br>In your message:<br>– answer his questions<br>– ask 3 questions about the school sports club.</p><p>Write 100–140 words.<br>Remember the rules of email writing.</p>",
+      "contextTitle": "Reply to Simon",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Dear Simon,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Thank you for "
+            },
+            {
+              "gap": {
+                "answer": "your"
+              }
+            },
+            {
+              "text": " email! I'm "
+            },
+            {
+              "gap": {
+                "answer": "glad"
+              }
+            },
+            {
+              "text": " to hear from you again! Yes, it's "
+            },
+            {
+              "gap": {
+                "answer": "true"
+              }
+            },
+            {
+              "text": " that the Russian team "
+            },
+            {
+              "gap": {
+                "answer": "won"
+              }
+            },
+            {
+              "text": " The International 10."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Some of the most "
+            },
+            {
+              "gap": {
+                "answer": "popular"
+              }
+            },
+            {
+              "text": " computer games among Russian "
+            },
+            {
+              "gap": {
+                "answer": "teenagers"
+              }
+            },
+            {
+              "text": " include Dota 2, Counter-Strike, Roblox and Minecraft. As for me and my friends, we usually spend a couple of hours "
+            },
+            {
+              "gap": {
+                "answer": "playing"
+              }
+            },
+            {
+              "text": " computer games each "
+            },
+            {
+              "gap": {
+                "answer": "day"
+              }
+            },
+            {
+              "text": ". Apart from gaming, we also use our computers for studying, "
+            },
+            {
+              "gap": {
+                "answer": "watching"
+              }
+            },
+            {
+              "text": " movies and chatting "
+            },
+            {
+              "gap": {
+                "answer": "with"
+              }
+            },
+            {
+              "text": " friends."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "It's great to hear that you're considering joining your school "
+            },
+            {
+              "gap": {
+                "answer": "sports"
+              }
+            },
+            {
+              "text": " club! What sports "
+            },
+            {
+              "gap": {
+                "answer": "does"
+              }
+            },
+            {
+              "text": " the club offer? Do you have to pay to "
+            },
+            {
+              "gap": {
+                "answer": "join"
+              }
+            },
+            {
+              "text": " a school sports club? How "
+            },
+            {
+              "gap": {
+                "answer": "many"
+              }
+            },
+            {
+              "text": " members are "
+            },
+            {
+              "gap": {
+                "answer": "there"
+              }
+            },
+            {
+              "text": " in the school sports club?"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anyway, I've got to "
+            },
+            {
+              "gap": {
+                "answer": "go"
+              }
+            },
+            {
+              "text": " as I need to help my little brother with his homework."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Write "
+            },
+            {
+              "gap": {
+                "answer": "back"
+              }
+            },
+            {
+              "text": " soon."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Best wishes,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anna"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

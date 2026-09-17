@@ -2,7 +2,7 @@
 export const E = {
   STORAGE_KEY: "ege-prep.scores.v1",
   // Writing-skills drills: sticky notes instead of the marker.
-  SKILLS_TASK_TYPES: ["judge", "choice", "pairing", "deduction", "ordering", "pronounce", "spider-web"],
+  SKILLS_TASK_TYPES: ["judge", "choice", "pairing", "deduction", "ordering", "pronounce", "spider-web", "odd-one-out", "letterfill"],
   LISTENING_TARGET_GAPS: 15,
   prepNextPulseTimers: {},
   toastTimer: null,

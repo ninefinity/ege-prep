@@ -149,6 +149,35 @@ def _validate_wordform(report: Report, base: str, task: dict) -> None:
             report.error(base, f"item {i}: missing answer")
 
 
+def _validate_letterfill(report: Report, base: str, task: dict) -> None:
+    lines = task.get("lines") or []
+    if not lines:
+        report.error(base, "letterfill task has no lines")
+        return
+    gap_count = 0
+    for i, line in enumerate(lines):
+        segments = line.get("segments") or []
+        if not segments:
+            report.error(base, f"line {i}: has no segments")
+            continue
+        for j, segment in enumerate(segments):
+            has_text = "text" in segment
+            has_gap = "gap" in segment
+            if has_text == has_gap:
+                report.error(base, f"line {i} segment {j}: needs exactly one of text/gap")
+                continue
+            if has_gap:
+                gap_count += 1
+                answer = (segment.get("gap") or {}).get("answer")
+                if not answer:
+                    report.error(base, f"line {i} segment {j}: gap missing answer")
+                given = (segment.get("gap") or {}).get("given") or 0
+                if answer and given >= len(answer):
+                    report.error(base, f"line {i} segment {j}: given letters cover the whole answer")
+    if gap_count == 0:
+        report.error(base, "letterfill task has no gaps")
+
+
 def _validate_listening(report: Report, base: str, task: dict) -> None:
     audio = task.get("audio")
     if not audio:
@@ -583,6 +612,7 @@ def validate_topic(report: Report, topic_id: str, topic: dict) -> int:
             "matching": _validate_matching,
             "mc": _validate_mc,
             "wordform": _validate_wordform,
+            "letterfill": _validate_letterfill,
             "listening": _validate_listening,
             "writing": _validate_writing,
             "judge": _validate_judge,

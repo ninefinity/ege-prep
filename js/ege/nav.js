@@ -15,6 +15,7 @@ E.renderTaskPanel = function renderTaskPanel(task) {
     if (task.type === "mc" && E.isVocabCloze(task)) return E.renderVocabCloze(task, E.state.topicId);
     if (task.type === "mc") return E.renderMc(task, E.state.topicId);
     if (task.type === "wordform") return E.renderWordform(task, E.state.topicId);
+    if (task.type === "letterfill") return E.renderLetterFill(task, E.state.topicId);
     if (task.type === "judge") return E.renderJudge(task, E.state.topicId);
     if (task.type === "choice") return E.renderChoice(task, E.state.topicId);
     if (task.type === "pairing") return E.renderPairing(task, E.state.topicId);

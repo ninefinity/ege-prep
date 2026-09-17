@@ -1080,6 +1080,8 @@ E.isTaskFullyAnswered = function isTaskFullyAnswered(taskId) {
 
     if (task.type === "wordform") return E.allWordformFilled(taskId);
 
+    if (task.type === "letterfill") return E.allLetterfillFilled(taskId);
+
     if (task.type === "judge") return E.allJudgeAnswered(taskId);
 
     if (task.type === "choice") return E.allChoiceAnswered(taskId);
@@ -1215,6 +1217,8 @@ E.taskHasProgress = function taskHasProgress(taskId) {
         return E.getCheckedValue(E.judgeItemName(taskId, item.id)) !== "";
       });
     }
+
+    if (task.type === "letterfill") return E.letterfillHasAnyAnswer(taskId);
 
     if (task.type === "choice") {
       return (task.questions || []).some(function (question) {

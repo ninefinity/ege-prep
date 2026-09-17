@@ -42,6 +42,9 @@ E.checkTask = function checkTask(taskId) {
     }
 
     if (task.type === "spider-web") return;
+    // Odd one out grades itself the instant a card is tapped -- there is no
+    // "Check" button flow for it to hook into, same as spider-web above.
+    if (task.type === "odd-one-out") return;
 
     var correct = 0;
     var max = E.taskMaxScore(task);
@@ -223,6 +226,16 @@ E.checkTask = function checkTask(taskId) {
         } else {
           input.removeAttribute("title");
         }
+      });
+    }
+
+    if (task.type === "letterfill") {
+      if (!E.allLetterfillFilled(taskId)) {
+        E.syncLetterfillCheckEnabled(taskId);
+        return;
+      }
+      E.letterfillGaps(task).forEach(function (_gap, index) {
+        if (E.markLetterfillGap(taskId, task, index)) correct += 1;
       });
     }
 
@@ -689,6 +702,16 @@ E.revealTask = function revealTask(taskId) {
       E.syncWordformCheckEnabled(taskId);
       E.showToast("Answers shown.");
       return;
+    } else if (task.type === "letterfill") {
+      E.letterfillGaps(task).forEach(function (_gap, index) {
+        E.markLetterfillGap(taskId, task, index, { reveal: true });
+      });
+      var lfEl = document.getElementById("task-" + taskId);
+      if (lfEl) lfEl.dataset.answersRevealed = "1";
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), { revealed: true });
+      E.syncLetterfillCheckEnabled(taskId);
+      E.showToast("Answers shown.");
+      return;
     } else if (task.type === "spider-web") {
       if (typeof E.revealSpiderWeb === "function") E.revealSpiderWeb(taskId);
       E.showToast("Answers shown.");
@@ -950,6 +973,15 @@ E.resetTask = function resetTask(taskId, options) {
         E.clearWordformMark(taskId, index, item.word);
       });
       E.syncWordformCheckEnabled(taskId);
+    }
+
+    if (task.type === "letterfill") {
+      var lfResetEl = document.getElementById("task-" + taskId);
+      if (lfResetEl) delete lfResetEl.dataset.answersRevealed;
+      E.letterfillGaps(task).forEach(function (_gap, index) {
+        E.clearLetterfillGap(taskId, index);
+      });
+      E.syncLetterfillCheckEnabled(taskId);
     }
 
     if (task.type === "listening") {
