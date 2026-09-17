@@ -14,7 +14,6 @@ import "./ege/deduction.js";
 import "./ege/ordering.js";
 import "./ege/pronounce-deck.js";
 import "./ege/pronounce.js";
-import "./ege/odd-one-out.js";
 import "./ege/spider-web.js";
 import "./ege/speaking.js";
 import "./ege/writing.js";
