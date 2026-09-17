@@ -1516,6 +1516,192 @@
           ]
         }
       ]
+    },
+    {
+      "id": "letterfill-kelly-traditions-l7",
+      "drill": "Letter fill",
+      "nav": "Kelly: Russian traditions",
+      "title": "Set phrases: describing traditions and asking about plans",
+      "type": "letterfill",
+      "examNum": 37,
+      "instructions": "Complete the text with the correct words.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Kelly:</p><p><strong>From:</strong> Kelly@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Russian traditions</p><p>…They say that Russian New Year traditions are unique. How do Russians celebrate the New Year? What are some special New Year dishes? How does your family celebrate the New Year?<br>…I've decided to start learning Russian…</p><p>Write an email to Kelly.<br>In your message:<br>– answer her questions<br>– ask 3 questions about her intention to learn Russian.</p><p>Remember the rules of email writing.</p>",
+      "contextTitle": "Reply to Kelly",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Dear Kelly,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Thank you for your email message! I'm "
+            },
+            {
+              "gap": {
+                "answer": "excited"
+              }
+            },
+            {
+              "text": " to hear that you're interested in Russian New "
+            },
+            {
+              "gap": {
+                "answer": "year"
+              }
+            },
+            {
+              "text": " traditions!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "In "
+            },
+            {
+              "gap": {
+                "answer": "russia"
+              }
+            },
+            {
+              "text": " the New Year is a big "
+            },
+            {
+              "gap": {
+                "answer": "celebration"
+              }
+            },
+            {
+              "text": " with festivities and customs. People "
+            },
+            {
+              "gap": {
+                "answer": "usually"
+              }
+            },
+            {
+              "text": " gather with friends and family to have a big "
+            },
+            {
+              "gap": {
+                "answer": "feast"
+              }
+            },
+            {
+              "text": ", drink champagne and watch the President's address on "
+            },
+            {
+              "gap": {
+                "answer": "tv"
+              }
+            },
+            {
+              "text": ". Some special dishes include Olivier "
+            },
+            {
+              "gap": {
+                "answer": "salad"
+              }
+            },
+            {
+              "text": ", caviar and tangerines. My family celebrates by exchanging "
+            },
+            {
+              "gap": {
+                "answer": "gifts"
+              }
+            },
+            {
+              "text": ", watching fireworks and making wishes for the upcoming "
+            },
+            {
+              "gap": {
+                "answer": "year"
+              }
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "I'm curious about your desire to learn "
+            },
+            {
+              "gap": {
+                "answer": "russian"
+              }
+            },
+            {
+              "text": ". Why did you decide to "
+            },
+            {
+              "gap": {
+                "answer": "start"
+              }
+            },
+            {
+              "text": " learning Russian? How do you plan to "
+            },
+            {
+              "gap": {
+                "answer": "learn"
+              }
+            },
+            {
+              "text": " the language? Have you already found a "
+            },
+            {
+              "gap": {
+                "answer": "tutor"
+              }
+            },
+            {
+              "text": " for learning Russian?"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anyway, I've got to go as I need to help my little sister with homework."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Write back soon."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "gap": {
+                "answer": "best"
+              }
+            },
+            {
+              "text": " wishes,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anna"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

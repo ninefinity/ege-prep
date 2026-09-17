@@ -465,6 +465,52 @@
           ]
         }
       ]
+    },
+    {
+      "id": "kelly-traditions-email",
+      "nav": "Russian traditions",
+      "title": "Personal email",
+      "type": "writing",
+      "examNum": 37,
+      "instructions": "Укажите номер задания 37 в БЛАНКЕ ОТВЕТОВ № 2 и напишите текст своего ответного электронного письма зарубежному другу по переписке.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Kelly:</p><p><strong>From:</strong> Kelly@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Russian traditions</p><p>…They say that Russian New Year traditions are unique. How do Russians celebrate the New Year? What are some special New Year dishes? How does your family celebrate the New Year?<br>…I've decided to start learning Russian…</p><p>Write an email to Kelly.<br>In your message:<br>– answer her questions<br>– ask 3 questions about her intention to learn Russian.</p><p>Remember the rules of email writing.</p>",
+      "wordMin": 100,
+      "wordMax": 140,
+      "wordToleranceNote": "Допустимое отклонение ±10%: 90–154 слова.",
+      "maxScore": 6,
+      "rubricNote": "Оцените свой ответ по критериям (макс. 6 баллов).",
+      "rubric": [
+        {
+          "id": "k1",
+          "title": "Решение коммуникативной задачи",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Задание не выполнено или ответ не по теме." },
+            { "score": 1, "text": "Ответы и вопросы частично соответствуют заданию." },
+            { "score": 2, "text": "Все пункты задания раскрыты, заданы 3 вопроса об изучении русского языка." }
+          ]
+        },
+        {
+          "id": "k2",
+          "title": "Организация текста",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Текст не оформлен как email или логика нарушена." },
+            { "score": 1, "text": "Есть приветствие/прощание, но абзацы или связность слабые." },
+            { "score": 2, "text": "Письмо логично, есть приветствие, основная часть и завершение." }
+          ]
+        },
+        {
+          "id": "k3",
+          "title": "Языковое оформление",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Много ошибок, смысл часто затруднён." },
+            { "score": 1, "text": "Ошибки есть, но смысл в целом понятен." },
+            { "score": 2, "text": "Лексика и грамматика соответствуют уровню, ошибки не мешают пониманию." }
+          ]
+        }
+      ]
     }
   ]
 }
