@@ -62,7 +62,7 @@
       "examTo": 24,
       "title": "Verb Forms — Spider Web",
       "taskCount": 30,
-      "available": true
+      "available": false
     },
     {
       "id": "grammar-transformations",
@@ -116,7 +116,7 @@
       "examTo": 37,
       "title": "Email skills",
       "taskCount": 11,
-      "available": true
+      "available": false
     },
     {
       "id": "writing-skills-facts",
@@ -125,7 +125,7 @@
       "examTo": 38,
       "title": "Report skills",
       "taskCount": 8,
-      "available": true
+      "available": false
     },
     {
       "id": "speaking-aloud",
@@ -161,7 +161,7 @@
       "examTo": 42,
       "title": "Description skills",
       "taskCount": 4,
-      "available": true
+      "available": false
     },
     {
       "id": "reading-skills",
@@ -170,7 +170,7 @@
       "examTo": 39,
       "title": "Reading skills",
       "taskCount": 10,
-      "available": true
+      "available": false
     },
     {
       "id": "speaking",
