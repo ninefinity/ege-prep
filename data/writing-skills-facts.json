@@ -496,6 +496,460 @@
           { "op": "margin", "high": "Job stability", "low": "Practical skills development", "points": 3 }
         ]
       }
+    },
+    {
+      "id": "letterfill-report-school-38-1",
+      "drill": "Report fill",
+      "nav": "38.1: choosing a school",
+      "title": "Set phrases: reporting survey facts and comparisons",
+      "type": "letterfill",
+      "examNum": 38,
+      "instructions": "Complete the text with the correct words.",
+      "chart": {
+        "kind": "bar",
+        "title": "Why have you chosen this school for your children?",
+        "unit": "%",
+        "data": [
+          {
+            "label": "High quality of teaching",
+            "value": 48
+          },
+          {
+            "label": "Modern technical equipment",
+            "value": 18
+          },
+          {
+            "label": "Excellent sports facilities",
+            "value": 13
+          },
+          {
+            "label": "Safety reputation",
+            "value": 11
+          },
+          {
+            "label": "Location",
+            "value": 10
+          }
+        ]
+      },
+      "promptHtml": "<p>Imagine that you are doing a project on how Zetlanders choose a school for their children to study at. You have found some data on the subject – the results of a survey conducted among Zetlanders (see the chart above).</p><p>Comment on the survey data and give your opinion on the subject of the project.</p><p><strong>The survey question:</strong> Why have you chosen this school for your children? Choose one option.</p><p>Write 200–250 words.</p><p>Use the following plan:<br>– make an opening statement on the subject of the project<br>– select and report 2–3 facts<br>– make 1–2 comparisons where relevant and give your comments<br>– outline a problem that can arise with choosing the school for one's children to study at and suggest a way of solving it<br>– conclude by giving and explaining your opinion on the most important factor for parents in choosing a school for their children.</p>",
+      "contextTitle": "Model report",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Choosing the right school for "
+            },
+            {
+              "gap": {
+                "answer": "children"
+              }
+            },
+            {
+              "text": " is one of the most "
+            },
+            {
+              "gap": {
+                "answer": "important"
+              }
+            },
+            {
+              "text": " decisions parents have to make, since it greatly influences not only academic achievement but also a child's overall development. The "
+            },
+            {
+              "gap": {
+                "answer": "survey"
+              }
+            },
+            {
+              "text": " among Zetlanders shows what parents consider most significant when making this "
+            },
+            {
+              "gap": {
+                "answer": "choice"
+              }
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "The "
+            },
+            {
+              "gap": {
+                "answer": "data"
+              }
+            },
+            {
+              "text": " indicates that nearly "
+            },
+            {
+              "gap": {
+                "answer": "half"
+              }
+            },
+            {
+              "text": " of respondents (48%) give priority to the high quality of teaching, which is by far the most common reason. Much "
+            },
+            {
+              "gap": {
+                "answer": "fewer"
+              }
+            },
+            {
+              "text": " parents focus on material conditions: only 18% highlight modern technical equipment, while 13% value sports facilities. Interestingly, aspects connected with wellbeing and convenience, such as safety reputation (11%) and location (10%), are mentioned "
+            },
+            {
+              "gap": {
+                "answer": "less"
+              }
+            },
+            {
+              "text": " frequently."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "A comparison reveals a clear hierarchy of priorities: academic factors dominate over both physical infrastructure and practical concerns. For "
+            },
+            {
+              "gap": {
+                "answer": "example"
+              }
+            },
+            {
+              "text": ", teaching quality is over "
+            },
+            {
+              "gap": {
+                "answer": "four"
+              }
+            },
+            {
+              "text": " times more important to parents than proximity to home. At the same time, it is worth noting that equipment and facilities together attract more than 30% of responses, which "
+            },
+            {
+              "gap": {
+                "answer": "means"
+              }
+            },
+            {
+              "text": " that material resources still play a "
+            },
+            {
+              "gap": {
+                "answer": "significant"
+              }
+            },
+            {
+              "text": " role."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "One "
+            },
+            {
+              "gap": {
+                "answer": "problem"
+              }
+            },
+            {
+              "text": " families may face is balancing their expectations with what is available locally. A school with excellent "
+            },
+            {
+              "gap": {
+                "answer": "teachers"
+              }
+            },
+            {
+              "text": " may be far away or lack good facilities. To "
+            },
+            {
+              "gap": {
+                "answer": "solve"
+              }
+            },
+            {
+              "text": " this, local authorities could invest more in raising the standards of neighborhood schools so that parents do not have to sacrifice convenience for "
+            },
+            {
+              "gap": {
+                "answer": "quality"
+              }
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "In my "
+            },
+            {
+              "gap": {
+                "answer": "opinion"
+              }
+            },
+            {
+              "text": ", the most decisive factor is teaching quality. Excellent teachers can inspire and motivate "
+            },
+            {
+              "gap": {
+                "answer": "children"
+              }
+            },
+            {
+              "text": ", even if the school is not ideally located or perfectly equipped. Ultimately, "
+            },
+            {
+              "gap": {
+                "answer": "education"
+              }
+            },
+            {
+              "text": " depends most on the people who provide it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "letterfill-report-friends-38-2",
+      "drill": "Report fill",
+      "nav": "38.2: time with friends",
+      "title": "Set phrases: reporting survey facts and comparisons",
+      "type": "letterfill",
+      "examNum": 38,
+      "instructions": "Complete the text with the correct words.",
+      "chart": {
+        "kind": "pie",
+        "title": "Where do you spend time with your friends most often?",
+        "unit": "%",
+        "data": [
+          {
+            "label": "Recreational centres and gyms",
+            "value": 32
+          },
+          {
+            "label": "Parks and public spaces",
+            "value": 25
+          },
+          {
+            "label": "Home",
+            "value": 19
+          },
+          {
+            "label": "Bookstores and libraries",
+            "value": 14
+          },
+          {
+            "label": "Coffee shops and cafés",
+            "value": 10
+          }
+        ]
+      },
+      "promptHtml": "<p>Imagine that you are doing a project on where teenagers spend time with their friends in Zetland. You have found some data on the subject – the results of a survey conducted among Zetland teenagers (see the pie chart above).</p><p>Comment on the survey data and give your opinion on the subject of the project.</p><p><strong>The survey question:</strong> Where do you spend time with your friends most often? Choose one option.</p><p>Write 200–250 words.</p><p>Use the following plan:<br>– make an opening statement on the subject of the project<br>– select and report 2–3 facts<br>– make 1–2 comparisons where relevant and give your comments<br>– outline a problem that can arise with spending time with friends and suggest a way of solving it<br>– conclude by giving and explaining your opinion on the best place for teenagers to spend time with their friends.</p>",
+      "contextTitle": "Model report",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Spending time with "
+            },
+            {
+              "gap": {
+                "answer": "friends"
+              }
+            },
+            {
+              "text": " is an essential part of teenagers' lives, as it helps them build social "
+            },
+            {
+              "gap": {
+                "answer": "skills"
+              }
+            },
+            {
+              "text": ", strengthen relationships and find healthy ways to relax. A recent survey in Zetland shows where young people prefer to meet and enjoy each other's "
+            },
+            {
+              "gap": {
+                "answer": "company"
+              }
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "According to the data, the most "
+            },
+            {
+              "gap": {
+                "answer": "popular"
+              }
+            },
+            {
+              "text": " choice is recreational centres and gyms, "
+            },
+            {
+              "gap": {
+                "answer": "chosen"
+              }
+            },
+            {
+              "text": " by 32% of respondents. This suggests that many "
+            },
+            {
+              "gap": {
+                "answer": "teenagers"
+              }
+            },
+            {
+              "text": " value active leisure and sports as a "
+            },
+            {
+              "gap": {
+                "answer": "way"
+              }
+            },
+            {
+              "text": " of socialising. The second most common option is parks and public spaces (25%), which indicates that "
+            },
+            {
+              "gap": {
+                "answer": "outdoor"
+              }
+            },
+            {
+              "text": " activities are also very attractive, especially as they provide a free and accessible environment. In contrast, fewer teenagers prefer to spend time at home (19%) or in bookstores and libraries (14%), while the "
+            },
+            {
+              "gap": {
+                "answer": "least"
+              }
+            },
+            {
+              "text": " popular meeting place is coffee shops and cafes, with only 10%."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "A comparison of the figures highlights a "
+            },
+            {
+              "gap": {
+                "answer": "strong"
+              }
+            },
+            {
+              "text": " preference for active and open spaces over indoor and more passive ones. For example, gyms and parks together account for over "
+            },
+            {
+              "gap": {
+                "answer": "half"
+              }
+            },
+            {
+              "text": " of all answers, which shows that Zetland teenagers tend to socialise in physically engaging environments rather than quiet or commercial "
+            },
+            {
+              "gap": {
+                "answer": "places"
+              }
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "However, one problem that may "
+            },
+            {
+              "gap": {
+                "answer": "arise"
+              }
+            },
+            {
+              "text": " is that not all teenagers have easy "
+            },
+            {
+              "gap": {
+                "answer": "access"
+              }
+            },
+            {
+              "text": " to gyms or safe public spaces. This could limit their opportunities to meet friends. A solution might be to "
+            },
+            {
+              "gap": {
+                "answer": "improve"
+              }
+            },
+            {
+              "text": " community infrastructure, such as affordable "
+            },
+            {
+              "gap": {
+                "answer": "sports"
+              }
+            },
+            {
+              "text": " clubs and well-maintained parks, so that every teenager can benefit from these changes."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "In my opinion, parks and public spaces are the best "
+            },
+            {
+              "gap": {
+                "answer": "option"
+              }
+            },
+            {
+              "text": ". They are free, inclusive and allow for "
+            },
+            {
+              "gap": {
+                "answer": "both"
+              }
+            },
+            {
+              "text": " active games and relaxed conversations, "
+            },
+            {
+              "gap": {
+                "answer": "making"
+              }
+            },
+            {
+              "text": " them suitable for all kinds of pastimes."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
