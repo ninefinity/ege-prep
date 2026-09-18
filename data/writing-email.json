@@ -511,6 +511,52 @@
           ]
         }
       ]
+    },
+    {
+      "id": "sam-work-study-email",
+      "nav": "Work or study",
+      "title": "Personal email",
+      "type": "writing",
+      "examNum": 37,
+      "instructions": "Укажите номер задания 37 в БЛАНКЕ ОТВЕТОВ № 2 и напишите текст своего ответного электронного письма зарубежному другу по переписке.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Sam:</p><p><strong>From:</strong> Sam@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Work or study</p><p>…I really don't know whether to enter a college or to start working after finishing school. What are your plans? Do many Russian school-leavers continue their education in universities, why? Where can a teenager work in Russia after finishing school?<br>…My elder sister is getting married next week, it will be a big wedding…</p><p>Write an email to Sam.<br>In your message:<br>– answer his questions<br>– ask 3 questions about his sister's wedding.</p><p>Remember the rules of email writing.</p>",
+      "wordMin": 100,
+      "wordMax": 140,
+      "wordToleranceNote": "Допустимое отклонение ±10%: 90–154 слова.",
+      "maxScore": 6,
+      "rubricNote": "Оцените свой ответ по критериям (макс. 6 баллов).",
+      "rubric": [
+        {
+          "id": "k1",
+          "title": "Решение коммуникативной задачи",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Задание не выполнено или ответ не по теме." },
+            { "score": 1, "text": "Ответы и вопросы частично соответствуют заданию." },
+            { "score": 2, "text": "Все пункты задания раскрыты, заданы 3 вопроса о свадьбе сестры." }
+          ]
+        },
+        {
+          "id": "k2",
+          "title": "Организация текста",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Текст не оформлен как email или логика нарушена." },
+            { "score": 1, "text": "Есть приветствие/прощание, но абзацы или связность слабые." },
+            { "score": 2, "text": "Письмо логично, есть приветствие, основная часть и завершение." }
+          ]
+        },
+        {
+          "id": "k3",
+          "title": "Языковое оформление",
+          "maxScore": 2,
+          "levels": [
+            { "score": 0, "text": "Много ошибок, смысл часто затруднён." },
+            { "score": 1, "text": "Ошибки есть, но смысл в целом понятен." },
+            { "score": 2, "text": "Лексика и грамматика соответствуют уровню, ошибки не мешают пониманию." }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1702,6 +1702,186 @@
           ]
         }
       ]
+    },
+    {
+      "id": "letterfill-sam-work-study-l8",
+      "drill": "Letter fill",
+      "nav": "Sam: work or study",
+      "title": "Set phrases: talking about plans and choices",
+      "type": "letterfill",
+      "examNum": 37,
+      "instructions": "Complete the text with the correct words.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Sam:</p><p><strong>From:</strong> Sam@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Work or study</p><p>…I really don't know whether to enter a college or to start working after finishing school. What are your plans? Do many Russian school-leavers continue their education in universities, why? Where can a teenager work in Russia after finishing school?<br>…My elder sister is getting married next week, it will be a big wedding…</p><p>Write an email to Sam.<br>In your message:<br>– answer his questions<br>– ask 3 questions about his sister's wedding.</p><p>Remember the rules of email writing.</p>",
+      "contextTitle": "Reply to Sam",
+      "lines": [
+        {
+          "segments": [
+            {
+              "gap": {
+                "answer": "dear"
+              }
+            },
+            {
+              "text": " Sam,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Thank you for your email! I hope you're doing "
+            },
+            {
+              "gap": {
+                "answer": "well"
+              }
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "gap": {
+                "answer": "as"
+              }
+            },
+            {
+              "text": " for my "
+            },
+            {
+              "gap": {
+                "answer": "plans"
+              }
+            },
+            {
+              "text": ", I'm going to continue my studies at university. In Russia many school-leavers choose to continue "
+            },
+            {
+              "gap": {
+                "answer": "their"
+              }
+            },
+            {
+              "text": " education in universities because a higher "
+            },
+            {
+              "gap": {
+                "answer": "education"
+              }
+            },
+            {
+              "text": " often leads to better job opportunities and a higher salary in the "
+            },
+            {
+              "gap": {
+                "answer": "future"
+              }
+            },
+            {
+              "text": ". However, some also choose to start working right after finishing "
+            },
+            {
+              "gap": {
+                "answer": "school"
+              }
+            },
+            {
+              "text": " to gain practical experience and independence. Teenagers in Russia can "
+            },
+            {
+              "gap": {
+                "answer": "find"
+              }
+            },
+            {
+              "text": " jobs in various industries "
+            },
+            {
+              "gap": {
+                "answer": "such"
+              }
+            },
+            {
+              "text": " as retail, hospitality and customer "
+            },
+            {
+              "gap": {
+                "answer": "service"
+              }
+            },
+            {
+              "text": "."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Regarding your sister's "
+            },
+            {
+              "gap": {
+                "answer": "wedding"
+              }
+            },
+            {
+              "text": ", I'm sure it will be a beautiful and memorable event! How are the preparations going? Are you "
+            },
+            {
+              "gap": {
+                "answer": "excited"
+              }
+            },
+            {
+              "text": " about the big day? Will there be any special traditions or ceremonies during the wedding?"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anyway, I've got to go "
+            },
+            {
+              "gap": {
+                "answer": "now"
+              }
+            },
+            {
+              "text": " as I need to help my little sister with her homework."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "gap": {
+                "answer": "write"
+              }
+            },
+            {
+              "text": " back soon."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Best wishes,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Anna"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
