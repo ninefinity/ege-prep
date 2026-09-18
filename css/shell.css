@@ -4192,6 +4192,7 @@ button.ege-prep-pair-card {
    reply is never partially hidden behind the footer -- .ege-task's own
    scrollbar is what reveals the rest, exactly like every other drill. */
 .ege-task--letterfill > .ege-letterfill-prompt,
+.ege-task--letterfill > .ege-letterfill-chart,
 .ege-task--letterfill > .ege-panel--read {
   flex: 0 0 auto;
 }
@@ -4211,6 +4212,20 @@ button.ege-prep-pair-card {
 
 .ege-letterfill-prompt p:last-child {
   margin-bottom: 0;
+}
+
+/* Task 38 ("Report fill"): the chart the report is based on, same card
+   treatment as the prompt above it. */
+.ege-letterfill-chart {
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--ege-line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.ege-letterfill-chart .ege-chart {
+  margin: 0;
 }
 
 .ege-letterfill-passage__title {

@@ -252,6 +252,18 @@ E.renderLetterFill = function renderLetterFill(task, topicId) {
     wrap.appendChild(prompt);
   }
 
+  // Task 38 ("Report fill") prompts are answered from a chart, not a
+  // pen-friend's message -- optional, so task 37 letters simply omit it.
+  if (task.chart && typeof E.buildSurveyChart === "function") {
+    var chart = E.buildSurveyChart(task.chart);
+    if (chart) {
+      var chartWrap = document.createElement("div");
+      chartWrap.className = "ege-letterfill-chart";
+      chartWrap.appendChild(chart);
+      wrap.appendChild(chartWrap);
+    }
+  }
+
   var passage = document.createElement("div");
   passage.className = "ege-passage ege-letterfill-passage";
   if (task.contextTitle) {

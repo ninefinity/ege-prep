@@ -1882,6 +1882,177 @@
           ]
         }
       ]
+    },
+    {
+      "id": "letterfill-olivia-cold-weather-l9",
+      "drill": "Letter fill",
+      "nav": "Olivia: cold weather",
+      "title": "Set phrases: staying healthy and asking about a visit",
+      "type": "letterfill",
+      "examNum": 37,
+      "instructions": "Complete the text with the correct words.",
+      "promptHtml": "<p>You have received an email message from your English-speaking pen-friend Olivia:</p><p><strong>From:</strong> Olivia@mail.uk<br><strong>To:</strong> Russian_friend@ege.ru<br><strong>Subject:</strong> Cold weather</p><p>… I know it's often cold in Russia in winter. What do you usually do not to catch a cold? What is a healthy lifestyle for you? How can you catch up with the class if you do fall ill?<br>…My cousin is coming to stay with us for Thanksgiving…</p><p>Write an email to Olivia.<br>In your message:<br>– answer her questions<br>– ask 3 questions about her cousin</p><p>Remember the rules of email writing.</p>",
+      "contextTitle": "Reply to Olivia",
+      "lines": [
+        {
+          "segments": [
+            {
+              "text": "Dear Olivia,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "It was great to "
+            },
+            {
+              "gap": {
+                "answer": "receive"
+              }
+            },
+            {
+              "text": " your message. I always love hearing from you! Let me "
+            },
+            {
+              "gap": {
+                "answer": "answer"
+              }
+            },
+            {
+              "text": " your questions."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Actually I don't do "
+            },
+            {
+              "gap": {
+                "answer": "anything"
+              }
+            },
+            {
+              "text": " special to stay "
+            },
+            {
+              "gap": {
+                "answer": "healthy"
+              }
+            },
+            {
+              "text": " during the Russian "
+            },
+            {
+              "gap": {
+                "answer": "winters"
+              }
+            },
+            {
+              "text": ". I just try to dress warmer and "
+            },
+            {
+              "gap": {
+                "answer": "spend"
+              }
+            },
+            {
+              "text": " less time outside. A healthy "
+            },
+            {
+              "gap": {
+                "answer": "lifestyle"
+              }
+            },
+            {
+              "text": " for me includes doing sport at least twice a "
+            },
+            {
+              "gap": {
+                "answer": "week"
+              }
+            },
+            {
+              "text": " and avoiding unhealthy "
+            },
+            {
+              "gap": {
+                "answer": "food"
+              }
+            },
+            {
+              "text": ". If I feel ill I "
+            },
+            {
+              "gap": {
+                "answer": "usually"
+              }
+            },
+            {
+              "text": " ask my friends for help to catch up with school."
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "It's great that your "
+            },
+            {
+              "gap": {
+                "answer": "cousin"
+              }
+            },
+            {
+              "text": " is going to visit you for "
+            },
+            {
+              "gap": {
+                "answer": "thanksgiving"
+              }
+            },
+            {
+              "text": ". How old is she? Where does your cousin live? What do you usually do "
+            },
+            {
+              "gap": {
+                "answer": "together"
+              }
+            },
+            {
+              "text": "?"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "That's all for now. Write back soon!"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "gap": {
+                "answer": "your"
+              }
+            },
+            {
+              "text": " friend,"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "text": "Vladimir"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
