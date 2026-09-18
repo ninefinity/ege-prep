@@ -873,6 +873,82 @@
             if (topbarRow) topbarRow.appendChild(searchWrap);
             else catalog.appendChild(searchWrap);
 
+            var ARTICLES = [
+              {
+                title: "Разбор \"Hangman\" в ESOL",
+                href: "https://telegra.ph/Metodicheskij-razbor-igry-Hangman-v-obuchenii-ESOL-07-31"
+              },
+              {
+                title: "UX для подготовки к ЕГЭ (№12-18)",
+                href: "https://telegra.ph/UX-v-obrazovatelnyh-platformah-dlya-podgotovki-k-EGEH-na-primere-zadanij-12-18-08-11"
+              },
+              {
+                title: "Дай мне знак",
+                href: "https://telegra.ph/Daj-mne-znak-09-02"
+              },
+              {
+                title: "Антиплагиат 2.0",
+                href: "https://telegra.ph/Antiplagiat-20--konec-kuplennym-diplomam-09-16"
+              }
+            ];
+
+            var articlesWrap = document.createElement("div");
+            articlesWrap.className = "ege-catalog-articles";
+
+            var articlesToggle = document.createElement("button");
+            articlesToggle.type = "button";
+            articlesToggle.className = "ege-catalog-articles__toggle";
+            articlesToggle.id = "egeCatalogArticlesToggle";
+            articlesToggle.textContent = "Articles";
+            articlesToggle.setAttribute("aria-haspopup", "true");
+            articlesToggle.setAttribute("aria-expanded", "false");
+
+            var articlesList = document.createElement("ul");
+            articlesList.className = "ege-catalog-articles__list";
+            articlesList.id = "egeCatalogArticlesList";
+            articlesList.hidden = true;
+
+            ARTICLES.forEach(function (article) {
+              var item = document.createElement("li");
+              var link = document.createElement("a");
+              link.className = "ege-catalog-articles__link";
+              link.href = article.href;
+              link.target = "_blank";
+              link.rel = "noopener noreferrer";
+
+              var title = document.createElement("span");
+              title.className = "ege-catalog-articles__title";
+              title.textContent = article.title;
+              link.appendChild(title);
+
+              var cta = document.createElement("span");
+              cta.className = "ege-catalog-articles__cta";
+              cta.textContent = "Читать →";
+              cta.setAttribute("aria-hidden", "true");
+              link.appendChild(cta);
+
+              item.appendChild(link);
+              articlesList.appendChild(item);
+            });
+
+            articlesToggle.addEventListener("click", function () {
+              var open = articlesList.hidden;
+              articlesList.hidden = !open;
+              articlesToggle.setAttribute("aria-expanded", open ? "true" : "false");
+            });
+
+            document.addEventListener("click", function (event) {
+              if (!articlesWrap.contains(event.target)) {
+                articlesList.hidden = true;
+                articlesToggle.setAttribute("aria-expanded", "false");
+              }
+            });
+
+            articlesWrap.appendChild(articlesToggle);
+            articlesWrap.appendChild(articlesList);
+            if (topbarRow) topbarRow.appendChild(articlesWrap);
+            else catalog.appendChild(articlesWrap);
+
             menuWrap = document.createElement("div");
             menuWrap.className = "ege-catalog-menu";
             menuWrap.id = "egeCatalogMenu";

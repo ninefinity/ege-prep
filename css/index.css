@@ -18,6 +18,7 @@
 }
 
 .ege-catalog-header {
+  position: relative;
   margin-bottom: 16px;
   text-align: center;
 }
@@ -333,6 +334,139 @@
     margin-top: 0;
     z-index: 5;
   }
+}
+
+/* Tucked into the header's own corner whitespace rather than taking a
+   layout slot of its own -- present for anyone looking for it, invisible to
+   everyone else. Absolutely positioned at every width so it never competes
+   with the centred wordmark/countdown or pushes them around. */
+.ege-catalog-articles {
+  position: absolute;
+  top: 0.15rem;
+  left: 0;
+  z-index: 5;
+}
+
+.ege-catalog-articles__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0.3rem 0.4rem;
+  border: none;
+  border-radius: var(--ege-radius);
+  background: transparent;
+  box-shadow: none;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 600;
+  color: var(--ege-muted);
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.ege-catalog-articles__toggle::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 4px solid currentColor;
+  opacity: 0.7;
+}
+
+.ege-catalog-articles__toggle:hover,
+.ege-catalog-articles__toggle[aria-expanded="true"] {
+  color: var(--ege-primary);
+  opacity: 1;
+}
+
+.ege-catalog-articles__toggle:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--yap-royal) 45%, transparent);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+.ege-catalog-articles__list {
+  position: absolute;
+  top: calc(100% + 0.3rem);
+  left: 0;
+  z-index: 4;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  width: max-content;
+  max-width: min(18rem, 80vw);
+  max-height: min(70vh, 32rem);
+  overflow: auto;
+  background: var(--ege-card);
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  box-shadow: var(--ege-shadow);
+  text-align: left;
+}
+
+.ege-catalog-articles__list[hidden] {
+  display: none;
+}
+
+.ege-catalog-articles__link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  font-family: var(--ege-font-cyrillic);
+  font-size: var(--ege-text-sm);
+  font-weight: 600;
+  color: var(--ege-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ege-line);
+}
+
+.ege-catalog-articles__list li:last-child .ege-catalog-articles__link {
+  border-bottom: none;
+}
+
+.ege-catalog-articles__link:hover,
+.ege-catalog-articles__link:focus-visible {
+  background: color-mix(in srgb, var(--yap-royal) 10%, transparent);
+}
+
+.ege-catalog-articles__title {
+  flex: 1 1 auto;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--yap-royal) 45%, transparent);
+  text-underline-offset: 2px;
+}
+
+.ege-catalog-articles__title::before {
+  content: "•";
+  display: inline-block;
+  margin-right: 0.4rem;
+  color: var(--yap-royal);
+}
+
+/* The "read" nudge only earns its keep once someone is already pointed at
+   the row -- kept invisible (not just faded) the rest of the time so a
+   screen reader never announces it. */
+.ege-catalog-articles__cta {
+  flex: none;
+  font-family: var(--ege-font-cyrillic);
+  font-size: var(--ege-text-xs);
+  font-weight: 700;
+  color: var(--yap-royal);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-2px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.ege-catalog-articles__link:hover .ege-catalog-articles__cta,
+.ege-catalog-articles__link:focus-visible .ege-catalog-articles__cta {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .ege-catalog-search__input {
