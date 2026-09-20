@@ -16,7 +16,7 @@
           "word": "goes",
           "from": "go",
           "pos": "verb",
-          "sentence": "She goes to school every morning."
+          "sentence": "She goes to school every day."
         },
         {
           "word": "went",
@@ -28,13 +28,13 @@
           "word": "gone",
           "from": "go",
           "pos": "past participle",
-          "sentence": "He has already gone home."
+          "sentence": "I can't find my keys, they're completely gone."
         },
         {
           "word": "going",
           "from": "go",
           "pos": "gerund",
-          "sentence": "We are going to the park right now."
+          "sentence": "My favourite activity is going to the cinema."
         },
         {
           "word": "had gone",
@@ -52,7 +52,7 @@
           "word": "would go",
           "from": "will go",
           "pos": "verb",
-          "sentence": "She said she would go to the party."
+          "sentence": "If she had more free time, she would go to the gym every day."
         },
         {
           "word": "was going",

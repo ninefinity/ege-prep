@@ -158,15 +158,8 @@ function definitionTextForDerivative(item) {
   return fromTask;
 }
 
-function fallbackDerivativeDefinition(task) {
-  var root = (task && task.root) || "root";
-  return 'Word related to "' + root + '".';
-}
-
 function displayDefinitionForDerivative(task, item) {
-  var gloss = definitionTextForDerivative(item);
-  if (gloss) return gloss;
-  return fallbackDerivativeDefinition(task);
+  return definitionTextForDerivative(item);
 }
 
 function getDerivatives(task) {
@@ -574,11 +567,14 @@ function renderFoundList(taskId) {
     }
     row.appendChild(sentenceEl);
 
-    var defEl = document.createElement("p");
-    defEl.className = "sw-found-definition" + (isFound ? "" : " sw-found-definition--reserved");
-    defEl.textContent = displayDefinitionForDerivative(g.task, item);
-    if (!isFound) defEl.setAttribute("aria-hidden", "true");
-    row.appendChild(defEl);
+    var defText = displayDefinitionForDerivative(g.task, item);
+    if (defText) {
+      var defEl = document.createElement("p");
+      defEl.className = "sw-found-definition" + (isFound ? "" : " sw-found-definition--reserved");
+      defEl.textContent = defText;
+      if (!isFound) defEl.setAttribute("aria-hidden", "true");
+      row.appendChild(defEl);
+    }
 
     refs.foundList.appendChild(row);
   });
@@ -919,7 +915,8 @@ function showRoundSummary(taskId, outcome) {
         var b = document.createElement("b");
         b.textContent = item.word;
         li.appendChild(b);
-        li.appendChild(document.createTextNode(" – " + displayDefinitionForDerivative(g.task, item)));
+        var defText = displayDefinitionForDerivative(g.task, item);
+        if (defText) li.appendChild(document.createTextNode(" – " + defText));
         list.appendChild(li);
       });
       (refs.roundSummary.querySelector(".sw-round-summary__badge") || refs.roundSummaryText).insertAdjacentElement(
