@@ -189,11 +189,13 @@ E.PANEL_LABELS = {
   read: "",
   workQuestions: "Questions",
   workAnswers: "Answers",
+  workHeadings: "Headings",
 };
 
 E.resolveWorkLabel = function resolveWorkLabel(kind) {
   if (kind === "questions") return E.PANEL_LABELS.workQuestions;
   if (kind === "answers") return E.PANEL_LABELS.workAnswers;
+  if (kind === "headings") return E.PANEL_LABELS.workHeadings;
   return "";
 };
 

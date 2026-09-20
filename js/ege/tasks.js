@@ -879,7 +879,7 @@ E.renderMatching = function renderMatching(task, topicId) {
       E.buildLongreadSplit(
         texts,
         E.buildMatchingRead(task, topicId, texts),
-        { workLabelKind: "questions" }
+        { workLabelKind: "headings" }
       )
     );
     wrap.appendChild(E.buildTaskFooter(task.id, max, { showAnswers: true }));

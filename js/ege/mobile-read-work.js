@@ -46,7 +46,8 @@ function workTabLabel(taskId) {
 
   var task = E.findTask(taskId);
   if (task) {
-    if (task.type === "mc" || task.type === "matching") return E.PANEL_LABELS.workQuestions;
+    if (task.type === "mc") return E.PANEL_LABELS.workQuestions;
+    if (task.type === "matching") return E.PANEL_LABELS.workHeadings;
     if (task.type === "gapfill" || task.type === "wordform" || task.type === "vocab") {
       return E.PANEL_LABELS.workAnswers;
     }
