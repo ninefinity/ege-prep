@@ -1322,8 +1322,31 @@ a {
   color: var(--ege-muted);
 }
 
+/* A solo drill/section button (currently: reading-skills' Mixed practice)
+   stands in for its own heading -- see nav.js's soloDrillNav/soloSectionNav
+   -- so it needs to read as a distinct, special entry point rather than one
+   more row in the numbered list above it. */
 .ege-nav__section.ege-nav__btn {
   margin-top: 6px;
+  border: 2px solid var(--yap-royal);
+  background: color-mix(in srgb, var(--yap-royal) 10%, #fff);
+  font-weight: 800;
+}
+
+/* Reading skills only (task ids all start "skills39-") -- the same hard
+   ink shadow/border the flashcard and its toolbar use, so Mixed practice
+   reads as part of that same brutalist family rather than the plain solo-
+   section style this class gets on other topics (writing-skills-facts'
+   single-task drills, etc). */
+.ege-nav__section.ege-nav__btn[data-task-id^="skills39-"] {
+  border: 3px solid var(--yap-royal);
+  box-shadow: 4px 4px 0 var(--ege-ink);
+  transition: box-shadow 0.1s, transform 0.1s, background 0.15s, border-color 0.15s;
+}
+
+.ege-nav__section.ege-nav__btn[data-task-id^="skills39-"]:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ege-ink);
 }
 
 .ege-nav.is-hide-completed .ege-nav__btn.is-perfect:not(.is-active) {
@@ -1359,6 +1382,15 @@ a {
   background: var(--ege-accent);
   border-color: var(--ege-accent);
   color: #fff;
+}
+
+/* Reading skills only -- every task id here starts with "skills39-", so this
+   reaches exactly this section's sidebar (numbered decks and the Mixed
+   practice solo button both use plain .ege-nav__btn) without touching the
+   hot-red active/selected color anywhere else in the app. */
+.ege-nav__btn[data-task-id^="skills39-"].is-active {
+  background: #4179d5;
+  border-color: #4179d5;
 }
 
 .ege-nav__btn.is-exam-nav-hidden,
@@ -1595,6 +1627,8 @@ a {
    up or down as the student moves from a one-line deck to a two-line one. */
 .ege-task-panel:has(.ege-task--pronounce) .ege-task-intro--skills .ege-instructions {
   min-height: calc(var(--ege-text-lg) * var(--ege-line-ui) * 2);
+  /* Same muted tone as the "Tricky words" heading in the sidebar. */
+  color: var(--yap-dust);
 }
 
 .ege-task-intro--skills .ege-task-intro__exam {
@@ -8538,6 +8572,11 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   font-size: var(--ege-text-sm);
 }
 
+.ege-results-partial-note {
+  font-size: var(--ege-text-sm);
+  font-style: italic;
+}
+
 .ege-exam-phase__score {
   font-size: 2rem;
   font-weight: 700;
@@ -8753,6 +8792,23 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-results-mistakes__empty {
   margin: 0;
   color: var(--ege-muted);
+}
+
+.ege-results-mistakes__toggle-blank {
+  margin: 0 0 0.75rem;
+}
+
+.ege-results-mistakes__item--blank,
+.ege-results-mistakes__group--all-blank {
+  display: none;
+}
+
+.ege-results-mistakes--show-blank .ege-results-mistakes__item--blank {
+  display: list-item;
+}
+
+.ege-results-mistakes--show-blank .ege-results-mistakes__group--all-blank {
+  display: block;
 }
 
 .ege-exam-finish {
@@ -9109,7 +9165,18 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   --ege-series-5: #c3c7ec;
   --ege-chart-accent: var(--yap-hot);
   --ege-chart-bar: var(--yap-royal);
-  margin: 0.8rem 0 0;
+  margin: 0.8rem auto 0;
+}
+
+/* The SVGs are laid out at a fixed design width (520/560 viewBox units);
+   without a cap, width:100% stretches them past that size in a wide
+   reading pane, blowing up the bars and labels along with it. */
+.ege-chart--bar {
+  max-width: 520px;
+}
+
+.ege-chart--pie {
+  max-width: 560px;
 }
 
 
@@ -9252,6 +9319,33 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
      one. Keep the toolbar above the layer. */
   position: relative;
   z-index: 41;
+}
+
+/* On the pronounce drill, wide screens only: pull the toolbar out of the
+   flow and up onto the instructions line instead of the row of its own
+   underneath -- that row was pure height with the whole width sitting empty
+   under a short line of text above it. Needs real width to work (the
+   toolbar's widest case, Mixed practice's 4 buttons, is ~350-400px wide) --
+   under that this instead swallows the instructions text down to one word
+   per line and the toolbar overlaps the sidebar's back link, so it's gated
+   to screens wide enough to have room for both side by side. Narrower
+   screens keep the original stacked rows. */
+@media (min-width: 900px) {
+  /* .ege-task-panel is already position:relative (shared base layout), so
+     this anchors to the panel's own top-right corner, which lines up with
+     where the instructions text starts. */
+  .ege-task-panel:has(.ege-task--pronounce) .ege-skills-tools {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-bottom: 0;
+  }
+
+  .ege-task-panel:has(.ege-task--pronounce) .ege-task-intro--skills .ege-task-intro__lead {
+    /* Leaves room on the right for the toolbar now overlapping this same
+       row, so the instructions text wraps around it instead of under it. */
+    padding-right: 380px;
+  }
 }
 
 /* ── Writing skills: pairing (problem ↔ solution) ─────────────────────────
@@ -9771,31 +9865,282 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 
 /* ── Reading skills: pronounce (tricky words) ─────────────────────────── */
 
+/* The browser's default [hidden] { display: none } is a UA-origin rule, so
+   it loses to any author rule of equal specificity -- meaning the instant an
+   element's own class gives it an explicit `display` (flex, in every case
+   below), setting el.hidden = true silently stops doing anything at all.
+   Every element pronounce.js actually toggles .hidden on needs its own
+   override here; skip one and the JS runs, nothing errors, and the element
+   just... doesn't hide. */
+.ege-skills-tools[hidden],
+.ege-pronounce__progress[hidden],
+.ege-pronounce__setup[hidden],
+.ege-pronounce__navbar[hidden],
+.ege-pronounce__viewport[hidden],
+.ege-pronounce__nav[hidden] {
+  display: none;
+}
+
+/* Same pill as .ege-pronounce__toggle (height, border, shadow) so the round
+   size setting reads as one of the toolbar's own controls -- it just holds a
+   label and a number input instead of being a button itself. */
+.ege-pronounce__pool-size {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  border: 3px solid var(--ege-ink);
+  border-radius: 8px;
+  background: var(--yap-paper);
+  box-shadow: 4px 4px 0 var(--ege-ink);
+  cursor: default;
+}
+
+.ege-pronounce__pool-size-label {
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--ege-ink);
+}
+
+/* A plain number field, not another brutalist block -- it's doing one very
+   different job (typing a number) from the buttons either side of it, and
+   giving it their thick border and hard shadow too would read as one more
+   press-button instead of an input. */
+.ege-pronounce__pool-size-input {
+  width: 3.4em;
+  height: 24px;
+  border: 2px solid var(--yap-mist);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ege-ink);
+  background: var(--yap-paper);
+  text-align: center;
+  /* The browser's own up/down spin buttons don't add to the input's width --
+     they carve their own room out of the box declared above, squeezing a
+     two-digit number into whatever sliver is left. Dropping them is no
+     loss: min/max/step are still enforced on change, and the keyboard's own
+     up/down arrows still step the value with the field focused. */
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.ege-pronounce__pool-size-input::-webkit-outer-spin-button,
+.ege-pronounce__pool-size-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ege-pronounce__pool-size-input:focus {
+  outline: 2px solid var(--yap-royal);
+  outline-offset: 1px;
+}
+
+/* Mixed practice's setup screen -- the one thing on the page before Start is
+   pressed, so it takes over the middle of the panel rather than sitting up
+   near the top like a settings strip. It's the only visible flex child of
+   .ege-task--pronounce (a column flex with a definite height) whenever it's
+   shown -- everything else is display:none -- so top/bottom auto margins
+   center it in the full available height instead of just clearing a fixed
+   gap under the instructions line. Just the centering wrapper: the intro
+   line and the boxed panel underneath it are its two children, styled
+   separately below. */
+.ege-pronounce__setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: min(27rem, 100%);
+  margin: auto;
+}
+
+/* How Mixed practice specifically works (a pooled draw, sized with Cards) --
+   moved off the task-wide instructions line above, which stays visible once
+   a round starts and had no business still explaining Cards/Shuffle by
+   then. Plain text, not another bordered block: the panel underneath is the
+   one actual object on this screen. */
+.ege-pronounce__setup-intro {
+  margin: 0;
+  max-width: 34ch;
+  font-family: var(--ege-font-ui);
+  /* Up from the shared --ege-text-sm token -- it's the only thing on the
+     setup screen explaining what Cards/Shuffle actually do, so it reads as
+     a line worth pausing on, not fine print. */
+  font-size: 1.05rem;
+  line-height: 1.4;
+  color: var(--yap-dust);
+  text-align: center;
+}
+
+.ege-pronounce__setup-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 32px 24px;
+  border: 2.7px solid var(--ege-ink);
+  border-radius: 0;
+  background: var(--yap-paper);
+  box-shadow: 7.2px 7.2px 0 var(--ege-ink);
+}
+
+.ege-pronounce__setup-fields {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.ege-pronounce__setup-start {
+  width: 100%;
+  height: 52px;
+  border: 3px solid var(--ege-ink);
+  border-radius: 8px;
+  background: var(--yap-royal);
+  color: var(--yap-paper);
+  font-family: var(--ege-font-ui);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--ege-ink);
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+
+.ege-pronounce__setup-start:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ege-ink);
+}
+
+.ege-pronounce__setup-start:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Same block-and-press family as the flashcard's own buttons, so the
+   toolbar reads as part of the same object rather than a separate,
+   softer-styled control strip sitting above it. */
 .ege-pronounce__toggle {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   height: 36px;
   padding: 0 14px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  background: #fff;
+  border: 3px solid var(--ege-ink);
+  border-radius: 8px;
+  background: var(--yap-paper);
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
   font-weight: 700;
-  color: var(--ege-muted);
+  color: var(--ege-ink);
   cursor: pointer;
-  transition: border-color 0.12s, color 0.12s, background 0.12s;
+  box-shadow: 4px 4px 0 var(--ege-ink);
+  transition: box-shadow 0.1s, transform 0.1s;
 }
 
 .ege-pronounce__toggle:hover {
-  border-color: var(--yap-royal);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ege-ink);
+}
+
+.ege-pronounce__toggle:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
 }
 
 .ege-pronounce__toggle.is-active {
-  border-color: var(--yap-royal);
   background: var(--yap-royal);
-  color: #fff;
+  color: var(--yap-paper);
+}
+
+.ege-pronounce__toggle--ipa.is-active,
+.ege-pronounce__toggle--hide.is-active {
+  background: #4764dd;
+}
+
+/* Show IPA and Show meanings read as lighter, secondary utilities next to
+   Hide mastered (the one toggle that actually changes what's in the deck),
+   so the button itself is softer -- the shadow stays the same ink used
+   everywhere else on the flashcard, so it still reads as one object. */
+.ege-pronounce__toggle--ipa,
+.ege-pronounce__toggle--meaning {
+  border-color: #9bb3c1;
+  color: #9bb3c1;
+}
+
+/* Shuffle is icon only -- the artwork is already a round badge, so the
+   button follows that shape instead of the pill the text toggles use. */
+/* The hard offset box-shadow every other button here uses reads as a card
+   sitting above its own shadow because a square has corners to anchor that
+   illusion -- on a circle, the same offset shadow is just a second circle
+   peeking out from behind the first, which looks like a rendering glitch
+   rather than a deliberate style. Round buttons drop the shadow instead. */
+.ege-pronounce__toggle--shuffle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  border-color: #9bb3c1;
+  box-shadow: none;
+}
+
+.ege-pronounce__toggle--shuffle:hover,
+.ege-pronounce__toggle--shuffle:active {
+  box-shadow: none;
+}
+
+/* Show meanings is icon only too, same round treatment (and the same
+   dropped shadow, for the reason above) as Shuffle and Reset. */
+.ege-pronounce__toggle--meaning {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.ege-pronounce__toggle--meaning:hover,
+.ege-pronounce__toggle--meaning:active {
+  box-shadow: none;
+}
+
+/* Icon only, round -- the reset arrow is already a circular badge, same
+   treatment as Shuffle. */
+.ege-pronounce__reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  /* Same light outline as Shuffle and Show meanings -- all three are
+     icon-only round buttons and should read as one family. */
+  border-color: #9bb3c1;
+  /* See the comment on .ege-pronounce__toggle--shuffle -- the hard offset
+     shadow doubles as a second circle on a round button instead of reading
+     as a card lifted off its shadow. */
+  box-shadow: none;
+}
+
+.ege-pronounce__reset:hover,
+.ege-pronounce__reset:active {
+  box-shadow: none;
 }
 
 .ege-pronounce__progress {
@@ -9803,19 +10148,25 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   display: flex;
   align-items: center;
   gap: 8px;
-  max-width: min(30rem, 100%);
-  margin: 0.6rem auto;
+  max-width: min(27rem, 100%);
+  margin: 0.15rem auto;
   font-family: var(--ege-font-ui);
   font-size: var(--ege-text-sm);
   font-weight: 700;
   color: var(--yap-dust);
 }
 
-/* The mood sticker hangs off this, not off the button that was tapped: the
-   strip below is an overflow-x container and would clip it. */
+/* The mood sticker hangs off this, not off the button that was tapped (the
+   card is a horizontally-scrolling strip and would clip it) and not the
+   progress line above the card (a short window can scroll this page, and
+   that line is the first thing to scroll out of view). Pinned to the card's
+   own top-right corner: 56px is exactly one Prev/Next arrow's reserved
+   width (44px button + 12px gap, see .ege-pronounce__navbar), true at any
+   screen width since only the card between the two arrows resizes. */
 .ege-pronounce__sticker-anchor {
-  position: relative;
-  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 56px;
   width: 0;
   height: 1em;
 }
@@ -9825,13 +10176,32 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
    without separate JS drag-tracking. */
 .ege-pronounce__viewport {
   display: flex;
+  /* overflow-x here forces the computed overflow-y to `auto` too, per the
+     CSS spec (an axis can't stay `visible` once the other isn't). That's
+     harmless on its own, but it means this must never be a direct flex
+     child along a vertical axis -- a flex item with non-visible overflow
+     gets an automatic minimum size of 0 on that axis, so it would get
+     squeezed shorter than the card and scroll *inside its own box* instead
+     of the page ever growing. It sits inside .ege-pronounce__navbar (see
+     below) precisely so the thing touching that vertical flex axis is a
+     plain visible-overflow row, not this element. */
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  max-width: min(30rem, 100%);
+  /* max-width alone let this shrink-wrap to whichever of the two rendered
+     cards (current + next) happened to be narrower, since nothing forced it
+     to actually fill up to that cap -- cards visibly changed width from one
+     word to the next. width:100% (of whatever .max-width allows) is what
+     makes the cap a floor as well as a ceiling. */
+  width: 100%;
+  max-width: min(27rem, 100%);
   margin: 0 auto;
   border-radius: 14px;
+  /* Gives the cards' rotateY a vanishing point to turn toward/away from --
+     without this a 3D rotation just squashes flat instead of looking like a
+     card tilting in space. */
+  perspective: 1400px;
 }
 
 .ege-pronounce__viewport::-webkit-scrollbar {
@@ -9848,75 +10218,199 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   min-width: 0;
 }
 
-/* Deliberately plain: word, then ✓/✗, nothing else until a wrong mark or
-   "Show IPA" reveals more. */
+/* Brutalist treatment: thick solid border, a hard offset shadow instead of a
+   blur, square-ish corners, no soft color-mix tinting -- a flashcard reads as
+   one raw, high-contrast block rather than blending into the page the way
+   the rest of the shell (soft gradients, 1px hairlines) does. Deliberately
+   plain in CONTENT still: word, then ✓/✗, nothing else until a wrong mark or
+   "Show IPA" reveals more -- brutalist is a finish, not an excuse to add
+   more to look at. */
 .ege-pronounce__card {
   flex: 0 0 100%;
+  /* A flex item's automatic minimum width defaults to its content's
+     min-content size, which for a long unbroken word is that word's full
+     natural width -- overflow-wrap: break-word on the word itself doesn't
+     change that calculation (it only affects layout once a width is
+     already established), so without this the card gets forced wider than
+     its own 100% flex-basis and the extra sticks out past the scrollable
+     viewport's edge, clipped. Same fix .ege-pronounce__track already needed
+     for the same reason, one level up. */
+  min-width: 0;
   scroll-snap-align: center;
+  /* The card's position is centered by the page's own responsive layout
+     math, which doesn't always land on a whole device pixel -- at 2x DPR
+     that leaves the hard border and hard shadow each anti-aliased by a
+     hair on their own, and the two soft edges overlapping right at the
+     corner reads as a small rounded notch. Promoting the box to its own
+     GPU layer makes the browser rasterize it as one flat unit instead. */
+  transform: translateZ(0);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
+  /* The word sits at a fixed distance from the top (flex-start), and Listen
+     + the marks are pinned to the bottom (see .ege-pronounce__audio's
+     margin-top: auto) -- centering the whole stack made every element's
+     position depend on the total content height, which varies: a note can
+     wrap to one line or four, a word can be one line or two. Anchoring both
+     ends means only the empty space between them changes, which nobody
+     notices, instead of the word or the buttons visibly moving. */
+  justify-content: flex-start;
+  gap: 14.4px;
   /* Sized to the tallest real card in the deck (every word, IPA + note +
      sense tag all revealed at once) plus headroom, so paging from a short
      word to a long one never resizes the card or shifts the buttons under
-     it -- measured empirically rather than guessed, so it needs rechecking
-     if the word list grows much further. */
-  min-height: 25rem;
-  padding: 32px 24px;
-  border: 1px solid var(--ege-line);
-  border-radius: 14px;
-  background: var(--ege-card);
+     it -- measured empirically rather than guessed, with headroom since the
+     word list is actively growing from an outside source; recheck if it
+     grows much further still. Also has to cover .head's fixed push-down
+     (below) and the word/IPA/note font sizes, or the same worst-case note
+     would overflow again. Grown a few times as those pushed further (31rem
+     -> 35rem -> 38rem), then the whole card scaled down 10% (38rem ->
+     34.2rem, and every other size below with it) to shrink it while keeping
+     everything on it in the same proportion to each other: the worst real
+     card right now (a two-line compound word with its IPA and note both
+     revealed) leaves ~20px to spare, verified against every word with the
+     card's own real width, not guessed. On a short browser window (~800px
+     tall or less) the page itself may need a small scroll to reach the
+     bottom of a tall card -- normal page scroll, not the inside-the-card
+     scrolling bug fixed earlier. */
+  min-height: 540px;
+  padding: 24px 21.6px;
+  border: 2.7px solid var(--ege-ink);
+  border-radius: 0;
+  /* yap-paper underneath is what shows through any gap in the texture (a
+     transparent edge, a slow image load) and what the mastered-state tint
+     blends against -- the photo is the finish, not the whole fill. */
+  background: var(--yap-paper) url("../assets/card-bg.jpg") center / cover no-repeat;
+  box-shadow: 7.2px 7.2px 0 var(--ege-ink);
   text-align: center;
-  transition: border-color 0.18s, background 0.18s;
+  transition: box-shadow 0.15s, border-color 0.15s, transform 0.32s ease;
 }
 
 .ege-pronounce__card.is-mastered {
-  border-color: color-mix(in srgb, var(--ege-ok) 45%, var(--ege-line));
-  background: var(--ege-ok-bg);
+  border-color: var(--yap-royal);
+  /* A translucent tint layered over the same paper texture, rather than a
+     flat fill replacing it -- the mastered state is a highlight, not a
+     different material. */
+  background:
+    linear-gradient(
+      color-mix(in srgb, var(--yap-royal) 16%, transparent),
+      color-mix(in srgb, var(--yap-royal) 16%, transparent)
+    ),
+    var(--yap-paper) url("../assets/card-bg.jpg") center / cover no-repeat;
+  box-shadow: 7.2px 7.2px 0 var(--yap-royal);
+}
+
+/* A card this narrow (phone width, ~216px of actual card between the two
+   fixed-size Prev/Next arrows) is where the word's font-size clamp has
+   already hit its rem floor while the card keeps getting narrower -- a long
+   word with no hyphen (Characteristics) now needs a 3rd wrapped line, which
+   the desktop-tuned min-height doesn't have room for. Extra height here
+   only, rather than raising it for every screen size and reopening the
+   "kill the scroll" fight on desktop. */
+@media (max-width: 480px) {
+  .ege-pronounce__card {
+    min-height: 605px;
+  }
 }
 
 .ege-pronounce__head {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  /* .ege-pronounce__card also centers its children (align-items: center)
+     rather than stretching them, so without an explicit width this would
+     shrink-wrap to its own content's natural width -- which is exactly the
+     narrow box .ege-pronounce__word's max-width: 100% needs to NOT be, or a
+     long unbroken word has nothing real to wrap against. */
+  width: 100%;
+  gap: 7.2px;
+  /* A fixed push-down, not auto-centered -- auto-centering the word against
+     the *rest* of the content is exactly what made it (and the buttons)
+     jump from word to word, since content height varies. A fixed value
+     moves it toward the middle without depending on anything below it, so
+     it's still in the same place on every card.
+     Deliberately NOT tuned to chase the Prev/Next arrows here -- they used
+     to be centered on the card's own height, so pushing the word down to
+     meet them meant the card had to grow, which moved their center down
+     again, which needed more push... a feedback loop that made the card
+     (and the whole page) taller every round. The arrows are now pinned to
+     this same fixed offset directly (see .ege-pronounce__navbar .ege-
+     pronounce__nav below), so this value only has to answer "how far down
+     should the word sit," independent of card height. */
+  margin-top: 85px;
 }
 
 /* The word is the whole object of study, and now it's the only thing on the
-   card by default -- it led at 1.4rem before, smaller than the instructions
-   above it. */
+   card by default -- uppercase and heavy so it reads as a poster headline,
+   not a label. */
 .ege-pronounce__word {
   font-family: var(--ege-font-ui);
-  font-size: clamp(2rem, 7vw, 2.6rem);
+  font-size: clamp(2.277rem, 7.974vw, 2.961rem);
   font-weight: 800;
   line-height: 1.1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
   color: var(--ege-ink);
+  /* The vw part of the clamp above stops shrinking once the rem floor takes
+     over, but a phone-width card keeps getting narrower -- a long word with
+     no hyphen to break on (Chocolate, Environmental) then has nowhere to
+     wrap and overflows the card's own width. overflow-wrap alone doesn't do
+     anything here: .head's align-items: center means a flex child is never
+     stretched to the container's width, so the word just shrink-wraps to
+     its own natural (unbroken) width with nothing to break against unless
+     max-width actually caps it first. This only ever kicks in for that
+     overflow case; a word that already fits wraps at its normal
+     word-boundary rules as before. */
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 /* A dictionary-style tag ("noun", "past tense"), not a sentence -- the only
-   content two identically spelled cards need to be readable before marking. */
+   content two identically spelled cards need to be readable before marking.
+   A stamped chip, not quiet caption text. */
 .ege-pronounce__sense {
+  display: inline-block;
+  padding: 1.8px 9px;
+  border: 1.8px solid var(--ege-ink);
+  border-radius: 2.7px;
   font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-sm);
+  /* 15% up from the shared --ege-text-xs token, same as the rest of the
+     card's text, then scaled down 10% with the rest of the card -- set
+     explicitly rather than scaling the shared token, which other,
+     non-card UI also uses. */
+  font-size: 0.747rem;
   font-weight: 700;
-  color: var(--ege-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ege-ink);
+}
+
+/* Always in the DOM at the same height (see buildWordCard) -- masked with
+   visibility, not [hidden], for the same reason the IPA/note reveal is:
+   removing it would change the card's content height and shift everything
+   again for every word that has no tag or has one currently toggled off. */
+.ege-pronounce__sense.is-masked {
+  visibility: hidden;
 }
 
 .ege-pronounce__reveal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 5.4px;
 }
 
 /* Neutral, not a red-bordered "tip": seeing the transcription is information,
-   not a penalty. */
+   not a penalty. The hard rule above it lives on this element rather than
+   on .reveal itself, because it has to disappear along with the text when
+   masked -- a border on the always-present wrapper would show as a stray
+   line on every card that's never been revealed. */
 .ege-pronounce__ipa {
   margin: 0;
+  padding-top: 12.6px;
+  border-top: 2.7px solid var(--ege-ink);
   font-family: var(--ege-font-ui);
-  font-size: clamp(1.1rem, 3.6vw, 1.3rem);
+  font-size: clamp(1.314rem, 4.285vw, 1.553rem);
   font-weight: 700;
   color: var(--ege-ink);
 }
@@ -9945,7 +10439,11 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   max-width: 32ch;
   margin: 0;
   font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-sm);
+  /* Up from the shared --ege-text-sm token in a few rounds now (15% for
+     card-wide readability, -10% with the card's own shrink, +15% again for
+     the note/IPA specifically) -- set explicitly rather than scaling the
+     shared token, which other, non-card UI also uses. */
+  font-size: 0.932rem;
   line-height: 1.45;
   color: var(--ege-muted);
 }
@@ -9954,37 +10452,85 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 3.6px;
+  /* Pins Listen -- and the marks after it -- to the bottom of the card
+     regardless of how tall the reveal content above happens to be. */
+  margin-top: auto;
 }
 
 /* Icon only -- "Listen" is redundant next to a speaker glyph; the accessible
-   name lives in aria-label/title instead of visible text. */
+   name lives in aria-label/title instead of visible text. A block button
+   that visibly presses in on click, not a soft pill. */
 .ege-pronounce__listen {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  background: #fff;
-  font-size: 1.2rem;
+  width: 39.6px;
+  height: 39.6px;
+  border: 2.7px solid var(--ege-ink);
+  border-radius: 7.2px;
+  background: var(--yap-paper);
+  color: var(--ege-ink);
+  font-size: 1.08rem;
   line-height: 1;
   cursor: pointer;
+  box-shadow: 3.6px 3.6px 0 var(--ege-ink);
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+
+.ege-pronounce__listen-icon {
+  width: 19.8px;
+  height: 19.8px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.ege-pronounce__toggle-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* The artwork is already a full circular badge right to its own edge, so it
+   fills the round button almost completely instead of floating small in the
+   middle of it with the button's separate ring around it. */
+.ege-pronounce__toggle--shuffle .ege-pronounce__toggle-icon,
+.ege-pronounce__reset .ege-pronounce__toggle-icon,
+.ege-pronounce__toggle--meaning .ege-pronounce__toggle-icon {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 999px;
+}
+
+.ege-pronounce__listen:disabled .ege-pronounce__listen-icon {
+  opacity: 0.35;
 }
 
 .ege-pronounce__listen:hover:not(:disabled) {
-  border-color: var(--yap-royal);
+  transform: translate(1.8px, 1.8px);
+  box-shadow: 1.8px 1.8px 0 var(--ege-ink);
+}
+
+.ege-pronounce__listen:active:not(:disabled) {
+  transform: translate(3.6px, 3.6px);
+  box-shadow: none;
 }
 
 .ege-pronounce__listen:disabled {
-  color: var(--ege-line);
+  color: var(--yap-mist);
+  border-color: var(--yap-mist);
+  box-shadow: none;
   cursor: default;
 }
 
 .ege-pronounce__audio-hint {
   font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-xs, 0.72rem);
+  /* Scaled down 10% with the rest of the card, same as its other text --
+     set explicitly rather than the shared token, which other, non-card UI
+     also uses. */
+  font-size: 0.648rem;
   font-weight: 700;
   color: var(--ege-muted);
 }
@@ -9993,88 +10539,175 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 7.2px;
 }
 
 /* Icon only -- the tick and cross already say what they mean; the words
-   ("Said it right" / "Got it wrong") live in aria-label/title instead. */
+   ("Said it right" / "Got it wrong") live in aria-label/title instead. Same
+   block-and-press treatment as Listen -- these are the two buttons that
+   matter most on the card, so they read with the most weight. */
 .ege-pronounce__mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  background: #fff;
-  font-size: 1.3rem;
+  width: 39.6px;
+  height: 39.6px;
+  border: 2.7px solid var(--ege-ink);
+  border-radius: 7.2px;
+  background: var(--yap-paper);
+  font-size: 1.17rem;
   font-weight: 700;
-  color: var(--ege-muted);
+  color: var(--ege-ink);
   cursor: pointer;
-  transition: border-color 0.12s, background 0.12s, color 0.12s;
+  box-shadow: 3.6px 3.6px 0 var(--ege-ink);
+  transition: box-shadow 0.1s, transform 0.1s, border-color 0.1s, color 0.1s;
+}
+
+.ege-pronounce__mark:hover {
+  transform: translate(1.8px, 1.8px);
+  box-shadow: 1.8px 1.8px 0 var(--ege-ink);
+}
+
+.ege-pronounce__mark:active {
+  transform: translate(3.6px, 3.6px);
+  box-shadow: none;
 }
 
 .ege-pronounce__mark--correct:hover {
-  border-color: var(--ege-ok);
-  background: var(--ege-ok-bg);
-  color: var(--ege-ok);
+  border-color: #0b6623;
+  color: #0b6623;
+  box-shadow: 1.8px 1.8px 0 #0b6623;
+}
+
+.ege-pronounce__mark--correct:active {
+  box-shadow: none;
 }
 
 .ege-pronounce__mark--wrong:hover {
-  border-color: var(--ege-bad);
-  background: var(--ege-bad-bg);
-  color: var(--ege-bad);
+  border-color: var(--yap-wine);
+  color: var(--yap-wine);
+  box-shadow: 1.8px 1.8px 0 var(--yap-wine);
 }
 
+.ege-pronounce__mark--wrong:active {
+  box-shadow: none;
+}
+
+/* Prev/Next flank the card in this same row instead of sitting in a row
+   underneath it -- a row of its own was pure added height with nothing
+   beside it, which is exactly what pushed a tall card past the bottom of
+   the screen. The viewport flexes to fill whatever room is left between the
+   two fixed-size buttons (min-width: 0 is what lets a flex item shrink
+   below its content's natural width instead of forcing the row wider than
+   the screen), so this works from a narrow phone up to desktop with no
+   separate breakpoint. */
 .ege-pronounce__navbar {
   display: flex;
-  align-items: center;
+  /* Positioning context for .ege-pronounce__sticker-anchor (see there for
+     why the reward sticker lives on this row instead of the progress line
+     or the card itself). */
+  position: relative;
+  /* flex-start, not center: centering the arrows on the card's own height
+     tied their position to how tall the card is, which used to force the
+     card taller every time the arrows needed to line up with the IPA (see
+     .ege-pronounce__nav's margin-top below for where that offset actually
+     lives now). */
+  align-items: flex-start;
   justify-content: center;
-  gap: 14px;
-  margin: 14px auto 0;
-  max-width: min(30rem, 100%);
+  gap: 12px;
+  margin: 2px auto 0;
+  /* Without width:100%, a flex container with no definite width of its own
+     shrink-wraps to its content's natural size in a centered flex-column
+     parent -- which left the viewport's flex:1 1 auto with nothing definite
+     to grow into, so it (and the card inside it) fell back to shrink-wrapping
+     too, varying with whichever word happened to be on screen. max-width is
+     just the ceiling; width is what makes this actually stretch to it. */
+  width: 100%;
+  max-width: calc(27rem + 2 * 56px);
+  /* This is now the direct flex child sitting on the page's vertical flex
+     axis (.ege-task--pronounce), with default visible overflow -- so its
+     automatic minimum height is its content's real height, and it can't be
+     squeezed shorter than the card the way the viewport used to be. */
+  flex-shrink: 0;
+}
+
+.ege-pronounce__navbar .ege-pronounce__viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 27rem;
+}
+
+.ege-pronounce__navbar .ege-pronounce__nav {
+  flex: 0 0 auto;
+  /* Pinned to the IPA line's fixed distance from the top of the card (the
+     row is flex-start now, see .ege-pronounce__navbar above) instead of
+     being centered on the card's own height -- that offset never moves
+     regardless of how tall the card is, so this can't turn into another
+     "grow the card to chase the arrows" loop. Tuned empirically; re-check
+     if the push-down on .ege-pronounce__head or the card's font sizes ever
+     change again. */
+  margin-top: 218px;
 }
 
 /* Icon only -- a chevron already reads as Prev/Next; the words live in
-   aria-label/title instead of visible text. */
+   aria-label/title instead of visible text. Same block-and-press family as
+   the buttons on the card, so the whole flashcard reads as one unit. */
 .ege-pronounce__nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--ege-line);
-  border-radius: 999px;
-  background: #fff;
+  border: 3px solid var(--ege-ink);
+  border-radius: 8px;
+  background: var(--yap-paper);
   font-size: 1.3rem;
-  color: var(--yap-royal);
+  color: var(--ege-ink);
   cursor: pointer;
+  box-shadow: 4px 4px 0 var(--ege-ink);
+  transition: box-shadow 0.1s, transform 0.1s;
 }
 
 .ege-pronounce__nav:hover:not(:disabled) {
-  border-color: var(--yap-royal);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ege-ink);
+}
+
+.ege-pronounce__nav:active:not(:disabled) {
+  transform: translate(4px, 4px);
+  box-shadow: none;
 }
 
 .ege-pronounce__nav:disabled {
-  color: var(--ege-line);
+  color: var(--yap-mist);
+  border-color: var(--yap-mist);
+  box-shadow: none;
   cursor: default;
 }
 
+/* Its own centered line under the card now that Prev/Next moved beside the
+   card instead of flanking this -- same text, just no longer needs to hold
+   a fixed width between two buttons. */
+/* On the card itself, right under the marks -- the card's own flex gap (16px)
+   already spaces it from .ege-pronounce__marks above, so no margin of its
+   own is needed here. */
 .ege-pronounce__counter {
-  min-width: 3.5rem;
+  margin: 0;
   font-family: var(--ege-font-ui);
-  font-size: var(--ege-text-sm);
+  /* 15% up from the shared --ege-text-sm token, then scaled down 10% with
+     the rest of the card. */
+  font-size: 0.81rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  color: var(--ege-muted);
+  color: var(--yap-navy);
   text-align: center;
 }
 
 .ege-pronounce__empty {
-  max-width: min(30rem, 100%);
+  max-width: min(27rem, 100%);
   margin: 1rem auto 0;
   padding: 16px;
-  border: 1px dashed var(--ege-line);
+  border: 1px dashed var(--yap-mist);
   border-radius: 12px;
   text-align: center;
   color: var(--ege-muted);
@@ -10085,7 +10718,11 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
     scroll-behavior: auto;
   }
 
-  .ege-pronounce__card {
+  .ege-pronounce__card,
+  .ege-pronounce__listen,
+  .ege-pronounce__mark,
+  .ege-pronounce__nav,
+  .ege-pronounce__toggle {
     transition: none;
   }
 }
@@ -10101,4 +10738,152 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   opacity: 0.13;
   pointer-events: none;
   user-select: none;
+}
+
+/* ---------------------------------------------------------- odd one out */
+
+.ege-oddoneout__progress {
+  display: block;
+  max-width: min(30rem, 100%);
+  margin: 0.15rem auto 1rem;
+  text-align: center;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--yap-dust);
+}
+
+/* Same brutalist finish as .ege-pronounce__card (thick ink border, hard
+   offset shadow, the yap-paper photo texture) so this reads as one family
+   of drill with the pronounce deck it sits beside, just laid out as a 2x2
+   grid of small tiles instead of one big carousel card. */
+.ege-oddoneout__combo {
+  max-width: min(30rem, 100%);
+  margin: 0 auto 1rem;
+  text-align: center;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-lg);
+  font-weight: 700;
+  color: var(--ege-ink);
+}
+
+.ege-oddoneout__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: min(30rem, 100%);
+  margin: 0 auto;
+}
+
+.ege-oddoneout__card {
+  padding: 22px 12px;
+  border: 2.7px solid var(--ege-ink);
+  border-radius: 0;
+  background: var(--yap-paper) url("../assets/card-bg.jpg") center / cover no-repeat;
+  box-shadow: 5.4px 5.4px 0 var(--ege-ink);
+  font-family: var(--ege-font-ui);
+  font-size: clamp(1.05rem, 4vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ege-ink);
+  cursor: pointer;
+  transition: box-shadow 0.1s, transform 0.1s, border-color 0.15s;
+}
+
+.ege-oddoneout__card:hover:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 3.4px 3.4px 0 var(--ege-ink);
+}
+
+.ege-oddoneout__card:active:not(:disabled) {
+  transform: translate(5.4px, 5.4px);
+  box-shadow: none;
+}
+
+.ege-oddoneout__card:disabled {
+  cursor: default;
+}
+
+.ege-oddoneout__card.is-correct {
+  border-color: var(--ege-ok);
+  box-shadow: 5.4px 5.4px 0 var(--ege-ok);
+}
+
+.ege-oddoneout__card.is-wrong {
+  border-color: var(--ege-bad);
+  box-shadow: 5.4px 5.4px 0 var(--ege-bad);
+}
+
+.ege-oddoneout__result {
+  max-width: min(30rem, 100%);
+  margin: 1rem auto 0;
+  padding: 12px 16px;
+  border-radius: var(--ege-radius);
+  text-align: center;
+}
+
+.ege-oddoneout__result.is-right {
+  background: var(--ege-ok-bg);
+}
+
+.ege-oddoneout__result.is-wrong {
+  background: var(--ege-bad-bg);
+}
+
+.ege-oddoneout__verdict {
+  margin: 0 0 4px;
+  font-family: var(--ege-font-ui);
+  font-weight: 800;
+  color: var(--ege-ink);
+}
+
+.ege-oddoneout__note {
+  margin: 0;
+  font-size: var(--ege-text-md);
+  line-height: var(--ege-line-ui);
+  color: var(--ege-ink);
+}
+
+.ege-oddoneout__next {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 10px 20px;
+  border: 3px solid var(--ege-ink);
+  border-radius: 8px;
+  background: var(--yap-paper);
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+  color: var(--ege-ink);
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--ege-ink);
+  transition: box-shadow 0.1s, transform 0.1s;
+}
+
+.ege-oddoneout__next:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ege-ink);
+}
+
+.ege-oddoneout__next:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+@media (max-width: 480px) {
+  .ege-oddoneout__card {
+    font-size: clamp(0.95rem, 5vw, 1.15rem);
+    padding: 18px 8px;
+  }
+}
+
+/* .ege-oddoneout__result and .ege-oddoneout__next both set their own
+   `display` above, which (being an author rule) otherwise beats the
+   UA stylesheet's `[hidden] { display: none }` regardless of source order --
+   an author rule always wins over a UA one. Restated explicitly here so the
+   `hidden` attribute set from JS actually hides them. */
+.ege-oddoneout__result[hidden],
+.ege-oddoneout__next[hidden] {
+  display: none;
 }
