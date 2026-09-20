@@ -152,7 +152,7 @@
           "word": "had taken",
           "from": "took",
           "pos": "verb",
-          "sentence": "She realised she had taken the wrong bus."
+          "sentence": "By the time she got home, she realised she had taken the wrong bus."
         },
         {
           "word": "was taken",
@@ -199,7 +199,7 @@
           "word": "has made",
           "from": "make",
           "pos": "verb",
-          "sentence": "Technology has made our lives much easier."
+          "sentence": "Over the past decade, technology has made our lives much easier."
         },
         {
           "word": "was made",
@@ -211,13 +211,13 @@
           "word": "had made",
           "from": "made",
           "pos": "verb",
-          "sentence": "He had made his decision before anyone could stop him."
+          "sentence": "By the time anyone tried to stop him, he had made his decision, and nothing could change it."
         },
         {
           "word": "would make",
           "from": "make",
           "pos": "verb",
-          "sentence": "I knew that practice would make me better."
+          "sentence": "If you practised every day, it would make a huge difference to your skills."
         }
       ]
     },
@@ -258,7 +258,7 @@
           "word": "had seen",
           "from": "saw",
           "pos": "verb",
-          "sentence": "She had never seen such a large city before her trip to Moscow."
+          "sentence": "By the time she left Moscow, she had seen every major landmark in the city."
         },
         {
           "word": "was seen",
@@ -305,13 +305,13 @@
           "word": "has given",
           "from": "give",
           "pos": "verb",
-          "sentence": "The charity has given food to thousands of families."
+          "sentence": "So far this year, the charity has given food to thousands of families."
         },
         {
           "word": "had given",
           "from": "gave",
           "pos": "verb",
-          "sentence": "He realised he had given the wrong answer."
+          "sentence": "By the time the results came out, he realised he had given the wrong answer."
         },
         {
           "word": "will be given",
@@ -393,7 +393,7 @@
           "word": "are",
           "from": "be",
           "pos": "verb",
-          "sentence": "They are interested in Russian history."
+          "sentence": "They are currently interested in Russian history."
         },
         {
           "word": "was",
@@ -429,13 +429,13 @@
           "word": "would be",
           "from": "will be",
           "pos": "verb",
-          "sentence": "She said it would be ready by Friday."
+          "sentence": "If we had more time, the project would be ready by Friday."
         },
         {
           "word": "had been",
           "from": "been",
           "pos": "verb",
-          "sentence": "They had been friends for years before they started working together."
+          "sentence": "By the time they started working together, they had been friends for years."
         }
       ]
     },
@@ -470,13 +470,13 @@
           "word": "has had",
           "from": "has",
           "pos": "verb",
-          "sentence": "He has had this car for five years."
+          "sentence": "He has had this car for five years and still drives it every day."
         },
         {
           "word": "had had",
           "from": "had",
           "pos": "verb",
-          "sentence": "She realised she had had this dream before."
+          "sentence": "By the time she turned eleven, she had had this exact dream more than ten times."
         },
         {
           "word": "will have",
@@ -529,7 +529,7 @@
           "word": "had done",
           "from": "did",
           "pos": "verb",
-          "sentence": "She checked what he had done while she was away."
+          "sentence": "By the time she got home, he had done all the housework, so there was nothing left to clean."
         }
       ]
     },
@@ -570,13 +570,13 @@
           "word": "was told",
           "from": "told",
           "pos": "verb",
-          "sentence": "The children were told to stay inside during the storm."
+          "sentence": "The boy was told to stay inside during last night's storm."
         },
         {
           "word": "has been told",
           "from": "told",
           "pos": "verb",
-          "sentence": "This story has been told many times."
+          "sentence": "This story has been told many times over the years, and people still love it."
         }
       ]
     },
@@ -611,7 +611,7 @@
           "word": "has found",
           "from": "find",
           "pos": "verb",
-          "sentence": "Science has found new ways to treat this disease."
+          "sentence": "In recent years, science has found new ways to treat this disease."
         },
         {
           "word": "had found",
@@ -658,7 +658,7 @@
           "word": "had thought",
           "from": "thought",
           "pos": "verb",
-          "sentence": "He had thought it would be easier, but the exam was hard."
+          "sentence": "By the time he opened the exam paper, he had thought about giving up more than once."
         },
         {
           "word": "is thought",
@@ -705,7 +705,7 @@
           "word": "had spoken",
           "from": "spoke",
           "pos": "verb",
-          "sentence": "She had never spoken in front of such a large audience before."
+          "sentence": "By the time she reached her final year, she had spoken in front of hundreds of people."
         },
         {
           "word": "is spoken",
@@ -752,7 +752,7 @@
           "word": "had eaten",
           "from": "ate",
           "pos": "verb",
-          "sentence": "After they had eaten lunch, they went for a walk."
+          "sentence": "By the time the guests arrived, she had eaten dinner already and was ready to relax."
         }
       ]
     },
@@ -834,7 +834,7 @@
           "word": "has become",
           "from": "become",
           "pos": "verb",
-          "sentence": "Recycling has become a normal part of everyday life."
+          "sentence": "In recent years, recycling has become a normal part of everyday life."
         },
         {
           "word": "had become",
@@ -875,13 +875,13 @@
           "word": "has kept",
           "from": "keep",
           "pos": "verb",
-          "sentence": "The museum has kept this painting for over a hundred years."
+          "sentence": "The museum has kept this painting for over a hundred years and still displays it today."
         },
         {
           "word": "had kept",
           "from": "kept",
           "pos": "verb",
-          "sentence": "She had kept the secret for years before finally telling someone."
+          "sentence": "By the time she finally told someone, she had kept the secret for fifteen years."
         },
         {
           "word": "is kept",
@@ -922,13 +922,13 @@
           "word": "has left",
           "from": "leave",
           "pos": "verb",
-          "sentence": "He has left the office, so you can call him on his mobile."
+          "sentence": "He has left the office for the day, so you can call him on his mobile."
         },
         {
           "word": "had left",
           "from": "left",
           "pos": "verb",
-          "sentence": "When I arrived, they had already left."
+          "sentence": "When I arrived, they had left already, so I waited outside."
         },
         {
           "word": "was left",
@@ -969,7 +969,7 @@
           "word": "has brought",
           "from": "bring",
           "pos": "verb",
-          "sentence": "The internet has brought people from different countries closer together."
+          "sentence": "Over the last twenty years, the internet has brought people from different countries closer together."
         },
         {
           "word": "was brought",
@@ -1016,7 +1016,7 @@
           "word": "was able to",
           "from": "be able to",
           "pos": "verb",
-          "sentence": "After months of practice, she was able to play the piece perfectly."
+          "sentence": "After months of practice, she was able to finally play the piece perfectly at the concert."
         },
         {
           "word": "has been able to",
@@ -1092,7 +1092,7 @@
           "word": "should have",
           "from": "should",
           "pos": "verb",
-          "sentence": "I should have listened to your advice."
+          "sentence": "Looking back, I really should have listened to your advice."
         },
         {
           "word": "would",
@@ -1104,13 +1104,13 @@
           "word": "would not",
           "from": "would",
           "pos": "verb",
-          "sentence": "She would not agree to change the plan."
+          "sentence": "No matter how hard they tried to persuade her, she would not agree to change the plan."
         },
         {
           "word": "would have",
           "from": "would",
           "pos": "verb",
-          "sentence": "He would have come, but he was ill."
+          "sentence": "If he hadn't been ill, he would have come to the party."
         }
       ]
     },
@@ -1145,7 +1145,7 @@
           "word": "has created",
           "from": "create",
           "pos": "verb",
-          "sentence": "The company has created thousands of jobs in the region."
+          "sentence": "So far, the company has created thousands of jobs in the region."
         },
         {
           "word": "was created",
@@ -1233,7 +1233,7 @@
           "word": "had lived",
           "from": "lived",
           "pos": "verb",
-          "sentence": "They had lived in the village for twenty years before moving to the city."
+          "sentence": "By the time they moved to the city, they had lived in the village for twenty years."
         }
       ]
     },
@@ -1268,7 +1268,7 @@
           "word": "has learnt",
           "from": "learn",
           "pos": "verb",
-          "sentence": "He has learnt a lot from this experience."
+          "sentence": "He has learnt a lot from this experience so far."
         },
         {
           "word": "had learnt",
@@ -1321,7 +1321,7 @@
           "word": "had shown",
           "from": "showed",
           "pos": "verb",
-          "sentence": "She had shown great talent even as a small child."
+          "sentence": "By the time she started school, she had shown great talent in music already."
         }
       ]
     },
@@ -1356,7 +1356,7 @@
           "word": "has run",
           "from": "run",
           "pos": "verb",
-          "sentence": "The family has run this bakery for three generations."
+          "sentence": "The family has run this bakery for three generations and still bakes fresh bread every morning."
         },
         {
           "word": "was running",
@@ -1409,7 +1409,7 @@
           "word": "had worn",
           "from": "wore",
           "pos": "verb",
-          "sentence": "She had worn the same dress to every school event."
+          "sentence": "By the time she got a new dress, she had worn the same one to every school event for two years."
         },
         {
           "word": "is worn",
