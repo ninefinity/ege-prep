@@ -45,6 +45,9 @@ E.checkTask = function checkTask(taskId) {
     // Odd one out grades itself the instant a card is tapped -- there is no
     // "Check" button flow for it to hook into, same as spider-web above.
     if (task.type === "odd-one-out") return;
+    // Speed-read grades each question the instant Enter is pressed or its
+    // timer runs out, same as spider-web above.
+    if (task.type === "speed-read") return;
 
     var correct = 0;
     var max = E.taskMaxScore(task);
@@ -716,6 +719,10 @@ E.revealTask = function revealTask(taskId) {
       if (typeof E.revealSpiderWeb === "function") E.revealSpiderWeb(taskId);
       E.showToast("Answers shown.");
       return;
+    } else if (task.type === "speed-read") {
+      if (typeof E.revealSpeedRead === "function") E.revealSpeedRead(taskId);
+      E.showToast("Answers shown.");
+      return;
     } else if (task.type === "mc") {
       task.questions.forEach(function (question, index) {
         var name = prefix + "_q_" + index;
@@ -959,6 +966,10 @@ E.resetTask = function resetTask(taskId, options) {
 
     if (task.type === "spider-web") {
       if (typeof E.resetSpiderWeb === "function") E.resetSpiderWeb(taskId);
+    }
+
+    if (task.type === "speed-read") {
+      if (typeof E.resetSpeedRead === "function") E.resetSpeedRead(taskId);
     }
 
     if (task.type === "wordform") {

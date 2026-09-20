@@ -1,0 +1,53 @@
+{
+  "id": "reading-speed-recall",
+  "title": "Speed Reading",
+  "subtitle": "Read fast, remember details, beat the clock",
+  "tasks": [
+    {
+      "id": "speed-read-deerstalker",
+      "type": "speed-read",
+      "drill": "Speed Reading",
+      "nav": "The Deerstalker Express",
+      "title": "The Deerstalker Express",
+      "instructions": "Read each paragraph in the time given, then answer rapid-fire questions about it before the clock runs out. Press Enter to submit an answer.",
+      "readSeconds": 30,
+      "paragraphs": [
+        {
+          "text": "The journey began on a September evening in London as a black cab rushed me to Euston station. I had a weekend to myself, and I meant to make the most of it by hitting the famous Highlands of Scotland on a Caledonian Sleeper, a working train also affectionately known as the Deerstalker Express. I saw it as an escape from hectic city life.",
+          "questions": [
+            { "q": "Which month did the journey begin?", "answer": "September" },
+            { "q": "Which city did the journey start in?", "answer": "London" },
+            { "q": "Which station did the cab go to?", "answer": "Euston" },
+            { "q": "Which region of Scotland was the destination?", "answer": "the Highlands", "accept": ["Highlands"] },
+            { "q": "What nickname is given to the train?", "answer": "Deerstalker Express", "accept": ["the Deerstalker Express", "Deerstalker"] }
+          ]
+        },
+        {
+          "text": "As the train pulled out of the station just after eleven at night, a friendly steward showed me to my cabin and offered a dram of whisky before bed. I fell asleep almost immediately, lulled by the gentle rocking of the carriage, and only woke when the first grey light of dawn crept through a gap in the curtains somewhere north of the border.",
+          "questions": [
+            { "q": "What time did the train leave?", "answer": "eleven pm", "accept": ["11pm", "11 pm", "eleven", "eleven at night"] },
+            { "q": "What did the steward offer before bed?", "answer": "whisky", "accept": ["a dram of whisky"] },
+            { "q": "What lulled the narrator to sleep?", "answer": "the rocking", "accept": ["rocking", "the gentle rocking", "the rocking of the carriage"] },
+            { "q": "What woke the narrator up?", "answer": "dawn", "accept": ["the light of dawn", "daylight", "the grey light of dawn"] }
+          ]
+        },
+        {
+          "text": "By the time I reached the dining car for breakfast, the train was already deep in the Highlands, winding beside lochs so still they looked like sheets of glass. A waiter recommended the porridge with a splash of whisky on top, a local tradition I hadn't expected to see on a train menu.",
+          "questions": [
+            { "q": "Where did the narrator have breakfast?", "answer": "dining car", "accept": ["the dining car"] },
+            { "q": "What did the lochs look like?", "answer": "glass", "accept": ["sheets of glass", "like glass", "still"] },
+            { "q": "What did the waiter recommend?", "answer": "porridge", "accept": ["porridge with whisky"] }
+          ]
+        },
+        {
+          "text": "The Deerstalker Express finally pulled into Fort William just before ten in the morning, right on schedule despite the overnight journey. Stepping onto the platform, I felt as though I had travelled not just three hundred miles north, but back in time to a slower, more romantic way of seeing the country.",
+          "questions": [
+            { "q": "What was the train's final destination?", "answer": "Fort William" },
+            { "q": "What time did the train arrive?", "answer": "ten am", "accept": ["10am", "10 am", "ten", "ten in the morning"] },
+            { "q": "How many miles had the narrator travelled?", "answer": "three hundred", "accept": ["300"] }
+          ]
+        }
+      ]
+    }
+  ]
+}

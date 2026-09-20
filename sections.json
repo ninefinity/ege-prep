@@ -56,6 +56,15 @@
       "available": true
     },
     {
+      "id": "reading-speed-recall",
+      "group": "Reading",
+      "examFrom": 12,
+      "examTo": 18,
+      "title": "Speed Reading",
+      "taskCount": 1,
+      "available": true
+    },
+    {
       "id": "grammar-verb-forms",
       "group": "Grammar & Vocabulary",
       "examFrom": 19,
