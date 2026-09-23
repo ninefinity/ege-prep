@@ -397,6 +397,283 @@
       "preview": "Your email"
     },
     {
+      "id": "skills37-ben-college-ordering",
+      "drill": "Build an email",
+      "nav": "Ben: college or a job?",
+      "title": "Sentence order",
+      "type": "ordering",
+      "examNum": 37,
+      "instructions": "Put the five sentences in order so the reply reads as one email. Pick a sentence, then pick its place.",
+      "contextTitle": "Ben writes:",
+      "contextHtml": "<p class=\"ege-choice__trigger\">…I really don't know whether to enter a college or to start working after finishing school. What are your plans? Do many Russian school-leavers continue their education in universities, why? Where can a teenager work in Russia after finishing school? …</p>",
+      "groups": [
+        {
+          "id": "body",
+          "title": "Your reply to Ben",
+          "slots": [
+            {
+              "id": "p1"
+            },
+            {
+              "id": "p2"
+            },
+            {
+              "id": "p3"
+            },
+            {
+              "id": "p4"
+            },
+            {
+              "id": "p5"
+            }
+          ]
+        }
+      ],
+      "pool": [
+        {
+          "id": "s4",
+          "text": "As for job opportunities, young people can work in cafés, shops or delivery services, or find work online.",
+          "slot": "p4",
+          "feedback": "Uses 'As for job opportunities' to move on to Q3 and lists possible jobs."
+        },
+        {
+          "id": "s1",
+          "text": "As for my plans after finishing school, I am going to continue my studies at university.",
+          "slot": "p1",
+          "feedback": "Directly opens with the personal plan answer to Q1."
+        },
+        {
+          "id": "s5",
+          "text": "For example, working as a delivery driver or a freelancer is a common option.",
+          "slot": "p5",
+          "feedback": "Gives a concrete example to round off the Q3 answer."
+        },
+        {
+          "id": "s3",
+          "text": "Answering your second question, many school-leavers continue their education at universities because they believe it will help them get a good job after graduation.",
+          "slot": "p3",
+          "feedback": "Signals the question shift with 'Answering your second question' and answers Q2 with a reason."
+        },
+        {
+          "id": "s2",
+          "text": "In my opinion, this will be beneficial for my future career.",
+          "slot": "p2",
+          "feedback": "The pronoun 'this' refers back to the plan named in p1, so it must follow it."
+        }
+      ],
+      "preview": "Your email"
+    },
+    {
+      "id": "skills37-emma-newyear-ordering",
+      "drill": "Build an email",
+      "nav": "Emma: New Year traditions",
+      "title": "Sentence order",
+      "type": "ordering",
+      "examNum": 37,
+      "instructions": "Put the five sentences in order so the reply reads as one email. Pick a sentence, then pick its place.",
+      "contextTitle": "Emma writes:",
+      "contextHtml": "<p class=\"ege-choice__trigger\">…They say that Russian New Year traditions are unique. How do Russians celebrate the New Year? What are some special New Year dishes? How does your family celebrate the New Year? …</p>",
+      "groups": [
+        {
+          "id": "body",
+          "title": "Your reply to Emma",
+          "slots": [
+            {
+              "id": "p1"
+            },
+            {
+              "id": "p2"
+            },
+            {
+              "id": "p3"
+            },
+            {
+              "id": "p4"
+            },
+            {
+              "id": "p5"
+            }
+          ]
+        }
+      ],
+      "pool": [
+        {
+          "id": "s3",
+          "text": "Traditional New Year dishes include Olivier salad, \"herring under a fur coat\" and sandwiches with caviar.",
+          "slot": "p3",
+          "feedback": "Its unique focus on food identifies it as the answer to Q2."
+        },
+        {
+          "id": "s5",
+          "text": "At midnight, we congratulate each other, make wishes and sometimes go outside to watch fireworks.",
+          "slot": "p5",
+          "feedback": "'At midnight' signals it follows the evening activities in p4."
+        },
+        {
+          "id": "s1",
+          "text": "As for New Year traditions, Russians usually celebrate it with their families.",
+          "slot": "p1",
+          "feedback": "Opens directly with the general answer to Q1, naming 'traditions' as the topic."
+        },
+        {
+          "id": "s4",
+          "text": "My family usually spends the evening together: we cook festive food, watch films and dance.",
+          "slot": "p4",
+          "feedback": "Shifts to personal family celebration, answering Q3 with the evening's activities."
+        },
+        {
+          "id": "s2",
+          "text": "These traditions include decorating a Christmas tree, exchanging presents and watching the President's speech.",
+          "slot": "p2",
+          "feedback": "The phrase 'These traditions' refers back to p1, so it must follow it."
+        }
+      ],
+      "preview": "Your email"
+    },
+    {
+      "id": "skills37-jack-languages-ordering",
+      "drill": "Build an email",
+      "nav": "Jack: choosing a language",
+      "title": "Sentence order",
+      "type": "ordering",
+      "examNum": 37,
+      "instructions": "Put the six sentences in order so the reply reads as one email. Pick a sentence, then pick its place.",
+      "contextTitle": "Jack writes:",
+      "contextHtml": "<p class=\"ege-choice__trigger\">…They say that Russian students can choose a foreign language to study at school. Do many students choose other languages instead of English? Why do you think they do so? Why have you chosen English? …</p>",
+      "groups": [
+        {
+          "id": "body",
+          "title": "Your reply to Jack",
+          "slots": [
+            {
+              "id": "p1"
+            },
+            {
+              "id": "p2"
+            },
+            {
+              "id": "p3"
+            },
+            {
+              "id": "p4"
+            },
+            {
+              "id": "p5"
+            },
+            {
+              "id": "p6"
+            }
+          ]
+        }
+      ],
+      "pool": [
+        {
+          "id": "s4",
+          "text": "For example, they might be interested in the culture of a particular country, plan to go abroad or simply enjoy learning another language more.",
+          "slot": "p4",
+          "feedback": "'They' refers back to the 'some students' named in p3, and 'for example' gives the reasons Q2 asks for."
+        },
+        {
+          "id": "s1",
+          "text": "As for foreign languages at school, most Russian students choose English because it is spoken all over the world.",
+          "slot": "p1",
+          "feedback": "Opens with the general answer to Q1, naming English as the majority choice."
+        },
+        {
+          "id": "s6",
+          "text": "I also think that it will be useful for my future education and career.",
+          "slot": "p6",
+          "feedback": "'Also' adds a second personal reason, continuing directly from p5."
+        },
+        {
+          "id": "s3",
+          "text": "However, some students choose other languages, such as German, French, Spanish or Chinese.",
+          "slot": "p3",
+          "feedback": "'However' introduces the contrasting minority, completing the Q1 answer."
+        },
+        {
+          "id": "s5",
+          "text": "As for me, I have chosen English because I have always liked it.",
+          "slot": "p5",
+          "feedback": "'As for me' shifts to the personal answer to Q3."
+        },
+        {
+          "id": "s2",
+          "text": "It is also useful for travelling, studying and finding a good job.",
+          "slot": "p2",
+          "feedback": "'Also' adds a second reason for choosing English, continuing directly from p1."
+        }
+      ],
+      "preview": "Your email"
+    },
+    {
+      "id": "skills37-mia-languages-online-ordering",
+      "drill": "Build an email",
+      "nav": "Mia: learning languages online",
+      "title": "Sentence order",
+      "type": "ordering",
+      "examNum": 37,
+      "instructions": "Put the five sentences in order so the reply reads as one email. Pick a sentence, then pick its place.",
+      "contextTitle": "Mia writes:",
+      "contextHtml": "<p class=\"ege-choice__trigger\">… I want to speak Japanese and I've joined an online language course. Do many Russian teenagers learn foreign languages online? Why or why not? What foreign languages are popular among them today? What foreign language besides English would you like to study and why? …</p>",
+      "groups": [
+        {
+          "id": "body",
+          "title": "Your reply to Mia",
+          "slots": [
+            {
+              "id": "p1"
+            },
+            {
+              "id": "p2"
+            },
+            {
+              "id": "p3"
+            },
+            {
+              "id": "p4"
+            },
+            {
+              "id": "p5"
+            }
+          ]
+        }
+      ],
+      "pool": [
+        {
+          "id": "s4",
+          "text": "Personally, I would like to learn Chinese because I am interested in Chinese culture and technology.",
+          "slot": "p4",
+          "feedback": "'Personally' shifts to the personal choice, answering Q3."
+        },
+        {
+          "id": "s2",
+          "text": "They can learn at their own pace and personalise their lessons.",
+          "slot": "p2",
+          "feedback": "'They' refers back to the teenagers named in p1, adding detail to the Q1 answer."
+        },
+        {
+          "id": "s5",
+          "text": "Moreover, more and more jobs require knowledge of Chinese, so it would be a useful skill to have.",
+          "slot": "p5",
+          "feedback": "'Moreover' adds a second reason, continuing directly from p4."
+        },
+        {
+          "id": "s1",
+          "text": "As for online language learning, many Russian teenagers take online courses or use language-learning apps because it is convenient.",
+          "slot": "p1",
+          "feedback": "Opens with the general answer to Q1, naming online courses and apps."
+        },
+        {
+          "id": "s3",
+          "text": "Besides English, Chinese, German and Spanish are quite popular among teenagers.",
+          "slot": "p3",
+          "feedback": "Shifts to naming popular languages, answering Q2."
+        }
+      ],
+      "preview": "Your email"
+    },
+    {
       "id": "letterfill-robert-moving-l1",
       "drill": "Letter fill",
       "nav": "Robert: moving to a new town",
