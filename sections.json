@@ -62,7 +62,7 @@
       "examTo": 18,
       "title": "Speed Reading",
       "taskCount": 1,
-      "available": true
+      "available": false
     },
     {
       "id": "grammar-verb-forms",
