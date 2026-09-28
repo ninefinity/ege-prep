@@ -1180,11 +1180,15 @@ E.mountTopic = function mountTopic(topic, topicId) {
     // list to navigate between -- the sidebar would just repeat the single
     // task's own name back at it. Skill-drill panels already carry their
     // own "← Sections" back link (see buildTaskIntro), so hiding the whole
-    // sidebar here doesn't strand anyone.
+    // sidebar here doesn't strand anyone. Exam-style tasks don't -- the
+    // sidebar's link is their only way back -- so this is drills only.
     if (page) {
       page.classList.toggle(
         "ege-page--no-topic-nav",
-        !variantNav && !E.state.playlist && topic.tasks.length === 1
+        !variantNav &&
+          !E.state.playlist &&
+          topic.tasks.length === 1 &&
+          E.SKILLS_TASK_TYPES.indexOf(topic.tasks[0].type) !== -1
       );
     }
 
