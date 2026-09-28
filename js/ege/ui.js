@@ -1084,6 +1084,8 @@ E.isTaskFullyAnswered = function isTaskFullyAnswered(taskId) {
 
     if (task.type === "letterfill") return E.allLetterfillFilled(taskId);
 
+    if (task.type === "crossword") return E.allCrosswordFilled(taskId);
+
     if (task.type === "judge") return E.allJudgeAnswered(taskId);
 
     if (task.type === "choice") return E.allChoiceAnswered(taskId);
@@ -1221,6 +1223,8 @@ E.taskHasProgress = function taskHasProgress(taskId) {
     }
 
     if (task.type === "letterfill") return E.letterfillHasAnyAnswer(taskId);
+
+    if (task.type === "crossword") return E.crosswordHasAnyAnswer(taskId);
 
     if (task.type === "choice") {
       return (task.questions || []).some(function (question) {

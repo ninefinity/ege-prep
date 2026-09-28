@@ -135,6 +135,7 @@ E.taskMaxScore = function taskMaxScore(task) {
     if (task.type === "mc") return task.questions.length;
     if (task.type === "wordform") return task.items.length;
     if (task.type === "letterfill") return E.letterfillGaps(task).length;
+    if (task.type === "crossword") return E.crosswordEntries(task).length;
     if (task.type === "judge") return (task.items || []).length;
     if (task.type === "choice") return (task.questions || []).length;
     if (task.type === "pairing") return (task.left || []).length;

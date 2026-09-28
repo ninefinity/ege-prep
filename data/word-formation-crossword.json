@@ -1,0 +1,686 @@
+{
+  "id": "word-formation-crossword",
+  "title": "Word Formation Crossword",
+  "subtitle": "Задания 25–29. Кроссворд по словообразованию.",
+  "tasks": [
+    {
+      "id": "word-formation-crossword",
+      "nav": "Crossword",
+      "title": "Crossword",
+      "type": "crossword",
+      "examFrom": 25,
+      "examTo": 29,
+      "drill": "Crossword",
+      "instructions": "Click or hover a square to see its clue, then fill in the grid with the word that completes the sentence.",
+      "wordsPerPuzzle": 8,
+      "pool": [
+        {
+          "answer": "ACTUALLY",
+          "clue": "The University of Auckland is New Zealand's leading university. ___ , it's among the top 200 universities of the world.",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "BUSINESS",
+          "clue": "The University of Auckland has a strong focus on legal and ___ programmes welcoming students from all parts of the world.",
+          "hint": "B",
+          "hintAt": 0
+        },
+        {
+          "answer": "POPULATION",
+          "clue": "The student ___ of the University of Auckland is 40,000, about 4,000 of whom have come to study from abroad.",
+          "hint": "P",
+          "hintAt": 0
+        },
+        {
+          "answer": "EMPLOYMENT",
+          "clue": "The University of Auckland also offers postgraduate studies, which will certainly broaden your academic and ___ horizons.",
+          "hint": "E",
+          "hintAt": 0
+        },
+        {
+          "answer": "VALUABLE",
+          "clue": "It will be ___ for your CV with specialist skills and knowledge provided.",
+          "hint": "V",
+          "hintAt": 0
+        },
+        {
+          "answer": "VISITORS",
+          "clue": "Winters in some areas of Russia can be quite cold. Thus, both local people and ___ to the country need some good warm clothes.",
+          "hint": "V",
+          "hintAt": 0
+        },
+        {
+          "answer": "FASHIONABLE",
+          "clue": "When it's freezing cold outdoors, you can still look ___ as you can find great winterwear in Russian shops. Still, there are some pieces of advice for you to follow in winter.",
+          "hint": "F",
+          "hintAt": 0
+        },
+        {
+          "answer": "EXTREMELY",
+          "clue": "Firstly, it's a good idea to put on multiple layers of clothes. They really help you to feel warm even in ___ cold weather. If it's colder than minus 15 degrees Centigrade, you can put on a thermal layer first.",
+          "hint": "E",
+          "hintAt": 0
+        },
+        {
+          "answer": "PRACTICAL",
+          "clue": "Secondly, you should have a fur coat, or, if you prefer something more ___ , a warm jacket.",
+          "hint": "P",
+          "hintAt": 0
+        },
+        {
+          "answer": "COLOURFUL",
+          "clue": "Finally, you can make your winter outfit look interesting with the help of various accessories such as stylish hats with ear flaps or ___ woolen scarves and warm gloves.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "AMAZING",
+          "clue": "The world-renowned Galapagos archipelago is located in the Pacific Ocean, approximately 1,000 km off the coast of Ecuador. The remote islands are one of the world's most ___ wildlife viewing destinations.",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "ADVENTURERS",
+          "clue": "Thus, they feature on the bucket lists of many ___ .",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "COLLECTION",
+          "clue": "The waters around the islands are home to a vast ___ of marine life, which makes scuba diving in the area one of the highlights of any visit.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "UNINHABITED",
+          "clue": "You can either explore the islands on a boat or go on day trips to the more remote ___ islands where no one lives.",
+          "hint": "I",
+          "hintAt": 2
+        },
+        {
+          "answer": "CAREFULLY",
+          "clue": "As the islands are home to such an exceptional diversity of wildlife, much of which is found nowhere else on Earth, tourism is very ___ controlled to protect the fragile environment.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "INVENTOR",
+          "clue": "Pavel Yablochkov was a Russian electrical engineer and businessman. He was also the ___ of the Yablochkov candle – a type of electric carbon arc lamp – and the transformer. A Yablochkov candle was much easier to use than other kinds of lamps.",
+          "hint": "I",
+          "hintAt": 0
+        },
+        {
+          "answer": "DEMONSTRATION",
+          "clue": "The first public use of a Yablochkov candle took place in Paris in 1877. The Paris Exposition of 1878 gave Yablochkov a great opportunity to make a spectacular ___ of his candle to the world audience.",
+          "hint": "D",
+          "hintAt": 0
+        },
+        {
+          "answer": "SUCCESSFUL",
+          "clue": "It was so ___ that many contemporary businessmen got interested in Yablochkov candles.",
+          "hint": "S",
+          "hintAt": 0
+        },
+        {
+          "answer": "QUICKLY",
+          "clue": "They ___ set up companies licensing Yablochkov's patents. From the mid-1880s, Yablochkov started to devote more of his time to the problems of generating electrical energy.",
+          "hint": "Q",
+          "hintAt": 0
+        },
+        {
+          "answer": "SCIENTISTS",
+          "clue": "Many of Yablochkov's further inventions were much ahead of his time. Modern ___ still use his ideas in their work.",
+          "hint": "S",
+          "hintAt": 0
+        },
+        {
+          "answer": "CURRENTLY",
+          "clue": "Daniil Medvedev is a Russian professional tennis player. He is ___ ranked by the Association of Tennis Professionals (ATP) as world No 2.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "CHILDHOOD",
+          "clue": "He was born in Moscow. In his early ___ he was interested in music.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "ADVERTISEMENT",
+          "clue": "However, when he was 9 years old, his mother saw an ___ for group tennis lessons, and Daniil decided to try them. His first tennis coach was Ekaterina Kryuchkova, a former coach of the famous professional tennis player Vera Zvonareva.",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "IMPRESSIVE",
+          "clue": "When he was 18, his results were so ___ that Medvedev even had to drop out of college to focus on tennis.",
+          "hint": "I",
+          "hintAt": 0
+        },
+        {
+          "answer": "UNPREDICTABLE",
+          "clue": "Medvedev is known for mirroring his opponent's play. His playstyle incorporates strong returns with as few mistakes as possible and making games ___ .",
+          "hint": "P",
+          "hintAt": 2
+        },
+        {
+          "answer": "PROBABLY",
+          "clue": "A beginning blogger can make some mistakes while making the first steps online. ___ , the biggest of them is when beginner bloggers do not know their audience.",
+          "hint": "P",
+          "hintAt": 0
+        },
+        {
+          "answer": "READERS",
+          "clue": "Bloggers think about their content without thinking about their potential ___ .",
+          "hint": "R",
+          "hintAt": 0
+        },
+        {
+          "answer": "VARIETY",
+          "clue": "Still, there's a big ___ of them. Let's say you are going to write about yoga. Are you going to do it for yoga enthusiasts or yoga studio owners?",
+          "hint": "V",
+          "hintAt": 0
+        },
+        {
+          "answer": "EXCITING",
+          "clue": "If you are unsure about the audience of your future blog, you will not be able to produce ___ content, because your audience should define it. Write down some of their interests and needs.",
+          "hint": "E",
+          "hintAt": 0
+        },
+        {
+          "answer": "NATIONAL",
+          "clue": "When you think of Russian food, the first thing that may come to your mind is pelmeni. Pelmeni is Russia's ___ dish.",
+          "hint": "N",
+          "hintAt": 0
+        },
+        {
+          "answer": "VARIOUS",
+          "clue": "They are small dumplings with ___ fillings wrapped in a thin layer of dough. The most popular fillings are all kinds of meat and sometimes fish, but some people add cabbage or mushrooms, too. You can add some sour cream to make pelmeni even more delicious.",
+          "hint": "V",
+          "hintAt": 0
+        },
+        {
+          "answer": "HISTORICALLY",
+          "clue": "___ , Russian women made pelmeni only in winter so that they could make a lot of them and keep them frozen outdoors in special wooden boxes. Now you can eat pelmeni all the year round.",
+          "hint": "H",
+          "hintAt": 0
+        },
+        {
+          "answer": "UNUSUAL",
+          "clue": "There is an ___ monument to pelmeni in Russia. It is located in Izhevsk, Udmurtia. There is a gastronomic festival devoted to pelmeni in Udmurtia, too.",
+          "hint": "U",
+          "hintAt": 2
+        },
+        {
+          "answer": "TOURIST",
+          "clue": "Are you planning a trip to Tasmania? Without a doubt, any ___ will find some things to do there.",
+          "hint": "T",
+          "hintAt": 0
+        },
+        {
+          "answer": "MEMORABLE",
+          "clue": "To begin with, driving up the east coast of Tasmania is one of the most ___ things you can do there.",
+          "hint": "M",
+          "hintAt": 0
+        },
+        {
+          "answer": "REALLY",
+          "clue": "Tasmania's east coast is ___ spectacular and along the way you'll be able to stop for walks along cliff tops and swim in gorgeous beaches.",
+          "hint": "R",
+          "hintAt": 0
+        },
+        {
+          "answer": "ATTRACTIONS",
+          "clue": "One of the biggest ___ along the east coast of Tasmania is Freycinet Park, renowned for the stunning Wineglass Bay and many routes for day walks, bird watching and mountaineering.",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "CERTAINLY",
+          "clue": "Have you ever been to Ottawa? It's ___ a very beautiful city.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "BUILDINGS",
+          "clue": "There you can see the Neo-Gothic-style Parliament ___ of the last half of the 19th century.",
+          "hint": "B",
+          "hintAt": 0
+        },
+        {
+          "answer": "USERS",
+          "clue": "Digital libraries can be accessed from any computer or device with an internet connection. It means that there is no need for ___ to physically visit the library or store materials to access them.",
+          "hint": "U",
+          "hintAt": 0
+        },
+        {
+          "answer": "USUALLY",
+          "clue": "That is why digital libraries are used by public libraries, university libraries and private companies. The software you will need to access a digital library is ___ free to use.",
+          "hint": "U",
+          "hintAt": 0
+        },
+        {
+          "answer": "IMPOSSIBLE",
+          "clue": "However, some libraries require specific plugins or software installed, otherwise it will be ___ to view the content.",
+          "hint": "P",
+          "hintAt": 2
+        },
+        {
+          "answer": "INTERACTIVE",
+          "clue": "Digital libraries also offer a more engaging experience with ___ elements, as well as social media-like features for connecting with others and exploring topics in new ways.",
+          "hint": "I",
+          "hintAt": 0
+        },
+        {
+          "answer": "NATURAL",
+          "clue": "The area includes many breathtaking ___ wonders and reveals much about the legends and mysteries of Aboriginal people.",
+          "hint": "N",
+          "hintAt": 0
+        },
+        {
+          "answer": "UNFORGETTABLE",
+          "clue": "Located in the Red Centre, Uluru is one the most ___ sights in Australia.",
+          "hint": "F",
+          "hintAt": 2
+        },
+        {
+          "answer": "SIGNIFICANCE",
+          "clue": "Here you can learn more about the cultural ___ of the area, you can do a base walk and meet some of the local wildlife (get ready for the Australian face fly), and you can take more photos than you thought possible.",
+          "hint": "S",
+          "hintAt": 0
+        },
+        {
+          "answer": "ACCOMMODATION",
+          "clue": "___ ranges from budget to luxury.",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "COMPETITION",
+          "clue": "The rodeo is a really exciting event. It is a thrilling ___ between cowboys from all over the country.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "PROFESSIONAL",
+          "clue": "It has a long tradition and even today there are rodeo schools which keep it alive and ___ .",
+          "hint": "P",
+          "hintAt": 0
+        },
+        {
+          "answer": "VISITOR",
+          "clue": "The rodeo is a spectacular sight. If a ___ has a place in the first row of the arena, he or she may even be sprinkled with sand by the passing horses.",
+          "hint": "V",
+          "hintAt": 0
+        },
+        {
+          "answer": "PERFORMANCE",
+          "clue": "The ___ usually starts with an opening ceremony by horsemen dressed in bright colours and carrying flags.",
+          "hint": "P",
+          "hintAt": 0
+        },
+        {
+          "answer": "CONSTANTLY",
+          "clue": "All through the show the master of the ceremony ___ jokes with special clowns.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "COUNTLESS",
+          "clue": "GeoSure Global provides safety ratings for ___ neighborhoods all over the world.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "LOCATIONS",
+          "clue": "Thus, you will have constant up-to-date readings on the security and safety of the area around you and the neighbouring ___ . It's a great tool for any traveller to have.",
+          "hint": "L",
+          "hintAt": 0
+        },
+        {
+          "answer": "BEAUTIFUL",
+          "clue": "Have you ever been to Venice? It's a ___ Italian city with a lot of historical buildings.",
+          "hint": "B",
+          "hintAt": 0
+        },
+        {
+          "answer": "ATTRACTION",
+          "clue": "Still, the main ___ of Venice is not its architecture or canals, but its Carnival. This festival was started in 1162, but in the 17th century this festival declined in popularity under the rule of the King of Austria and reappeared only in the 19th century.",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "VIOLENTLY",
+          "clue": "After a long dormant period, Arenal erupted ___ in 1968, covering a vast area of over 15 km in lava, rocks and ash.",
+          "hint": "V",
+          "hintAt": 0
+        },
+        {
+          "answer": "ERUPTIONS",
+          "clue": "Several minor ___ followed. Since that time Arenal Volcano has been a popular tourist attraction.",
+          "hint": "E",
+          "hintAt": 0
+        },
+        {
+          "answer": "HIKERS",
+          "clue": "The volcano is located in a beautiful national park which is a perfect place for both amateur and professional ___ .",
+          "hint": "H",
+          "hintAt": 0
+        },
+        {
+          "answer": "ACTIVITIES",
+          "clue": "Among numerous outdoor ___ , visitors to the Arenal Volcano National Park can enjoy adventure tours to the rainforest there or just relax in a natural geothermal hot spring.",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "REQUIREMENTS",
+          "clue": "Even though job ___ are changing fast, public libraries make it possible to upskill the workforce at a low cost or even for free.",
+          "hint": "R",
+          "hintAt": 0
+        },
+        {
+          "answer": "EDUCATION",
+          "clue": "Public libraries provide resources and services for literacy and ___ to anyone.",
+          "hint": "E",
+          "hintAt": 0
+        },
+        {
+          "answer": "UNLIKELY",
+          "clue": "They help people become a part of a community. Therefore, peoples' need for libraries is ___ to change any time soon.",
+          "hint": "L",
+          "hintAt": 2
+        },
+        {
+          "answer": "DIVERSITY",
+          "clue": "The train has several routes. You will pass through a number of African countries and admire the ___ of their landscapes.",
+          "hint": "D",
+          "hintAt": 0
+        },
+        {
+          "answer": "FASCINATING",
+          "clue": "You will see wildlife national parks, historical battle fields and ___ cities.",
+          "hint": "F",
+          "hintAt": 0
+        },
+        {
+          "answer": "ENTERTAINMENT",
+          "clue": "Onboard, the passengers can use various facilities like a dining car, luxury sleeping cabins and themed ___ .",
+          "hint": "E",
+          "hintAt": 0
+        },
+        {
+          "answer": "EXCEPTIONAL",
+          "clue": "All types of cabins have ensuite showers, sinks and restrooms, and some of them even have bathtubs. With its ___ service, Rovos Rail is truly one of the greatest train journeys in the world.",
+          "hint": "E",
+          "hintAt": 0
+        },
+        {
+          "answer": "COMPOSER",
+          "clue": "Denis Matsuev is a Russian classical pianist. Born in Irkutsk in 1975, Matsuev is the only child of two musicians. His mother is a piano teacher and his father is a pianist and a ___ .",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "REPRODUCE",
+          "clue": "Matsuev's talent became obvious in his early childhood. He was only three years old when he managed to ___ on his piano at home a melody which he had heard on television.",
+          "hint": "P",
+          "hintAt": 2
+        },
+        {
+          "answer": "INTERNATIONAL",
+          "clue": "In 1994 he took part in his first ___ piano contest in Johannesburg, South Africa, where he was awarded the Grand Prix.",
+          "hint": "N",
+          "hintAt": 5
+        },
+        {
+          "answer": "DEFINITELY",
+          "clue": "Hobbies are a great way to relax and unwind after a busy day at school or at work. One of the most popular hobbies nowadays is sketching. It is ___ a good hobby for you if you want to start thinking in a different way.",
+          "hint": "D",
+          "hintAt": 0
+        },
+        {
+          "answer": "CREATIVITY",
+          "clue": "Sketching develops your ___ .",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "DEVELOPMENT",
+          "clue": "It can be very helpful for your personal ___ .",
+          "hint": "D",
+          "hintAt": 0
+        },
+        {
+          "answer": "ILLUSTRATOR",
+          "clue": "Besides, you can apply the skills you learn through sketching in a number ways in your life. To begin with, you may become interested in a career of an ___ .",
+          "hint": "I",
+          "hintAt": 0
+        },
+        {
+          "answer": "COMMUNICATION",
+          "clue": "Moreover, you will never need a camera when you are on holiday because your drawings will be the best memories about your trip. Finally, while sketching you learn to notice your feelings and emotions and thus improve your ___ skills.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "CREATIVE",
+          "clue": "Besides musical performances, WOMAD offers ___ workshops for children, including circus skills, painting and storytelling.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "EDUCATIONAL",
+          "clue": "Modern libraries contain a lot of ___ materials, scientific publications, newspapers and magazines which may not be available anywhere else.",
+          "hint": "E",
+          "hintAt": 0
+        },
+        {
+          "answer": "ACTIVE",
+          "clue": "Libraries encourage them to become more ___ readers. They also allow students to explore literature outside of their curriculum, thus expanding their knowledge.",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "PERMISSION",
+          "clue": "Many students also use their school or university library as a reading room, though prior ___ will probably have to be asked to bring external books into the library.",
+          "hint": "P",
+          "hintAt": 0
+        },
+        {
+          "answer": "RELATIONSHIPS",
+          "clue": "The first season caught everybody's attention, but The Crown's second season went even deeper into its characters and their ___ .",
+          "hint": "R",
+          "hintAt": 0
+        },
+        {
+          "answer": "INTERESTING",
+          "clue": "The most ___ episodes are undoubtedly the ones devoted to Elizabeth II as a monarch.",
+          "hint": "I",
+          "hintAt": 0
+        },
+        {
+          "answer": "GOVERNMENT",
+          "clue": "She has to deal with her prime ministers and the ___ , with the press, and with the Kennedys.",
+          "hint": "G",
+          "hintAt": 0
+        },
+        {
+          "answer": "COLLECTIONS",
+          "clue": "The Met is an encyclopedic museum, founded in 1870. It has one of the biggest art ___ in the world with more than two million individual objects.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "PAINTINGS",
+          "clue": "Among them you can find anything from Egyptian temples to American ___ .",
+          "hint": "P",
+          "hintAt": 0
+        },
+        {
+          "answer": "WONDERFUL",
+          "clue": "The museum has ___ examples of ancient Egyptian art, some of which date back to the Paleolithic era. The 27 galleries devoted to classical antiquity are illuminated by natural daylight.",
+          "hint": "W",
+          "hintAt": 0
+        },
+        {
+          "answer": "CONSTRUCTIONS",
+          "clue": "Later Ferapont built a wooden church and other ___ . He left the monastery to build another one but never returned.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "FAMOUS",
+          "clue": "However, the monastery remained both a ___ and popular place even without him.",
+          "hint": "F",
+          "hintAt": 0
+        },
+        {
+          "answer": "CHAMPIONSHIPS",
+          "clue": "She has many more prizes in important ___ and competitions.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "UNFORTUNATELY",
+          "clue": "___ , she hasn't competed for a year but the world still remembers her as one of the most prominent female figure skaters in the world.",
+          "hint": "F",
+          "hintAt": 2
+        },
+        {
+          "answer": "JOURNALISTS",
+          "clue": "In fact, Internet ___ point out that articles get shared twice as much when they have one image per every one hundred words.",
+          "hint": "J",
+          "hintAt": 0
+        },
+        {
+          "answer": "UNABLE",
+          "clue": "Be sure to use unique, high-quality images to create a polished and professional piece. If you're ___ to use photographs of your own for some reason, you can get free stock photos from different sites.",
+          "hint": "A",
+          "hintAt": 2
+        },
+        {
+          "answer": "TYPICALLY",
+          "clue": "Apart from cultural experiences, Queensland makes it possible for you to enjoy the beauty of nature to the full. For instance, tourists are ___ very interested in the Daintree Rainforest which is the oldest rainforest in the world.",
+          "hint": "T",
+          "hintAt": 0
+        },
+        {
+          "answer": "COMFORTABLE",
+          "clue": "An hour's drive north of Cairns, it can be explored on expert guided tours, and you can even have a ___ one-night stay in tree-house style eco-lodges.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "DIVING",
+          "clue": "One more must-see is the Great Barrier Reef. To see it go all the way up to the very northern tip of Queensland. There are many ways underwater life can be experienced there, for example, scuba ___ .",
+          "hint": "D",
+          "hintAt": 0
+        },
+        {
+          "answer": "DIFFERENCES",
+          "clue": "Uluru is known to undergo a series of colour changes. These can be just subtle ___ when it rains.",
+          "hint": "D",
+          "hintAt": 0
+        },
+        {
+          "answer": "TRANSFORMATIONS",
+          "clue": "However, the view undergoes amazing ___ when caught by the spectacular sunset rays.",
+          "hint": "T",
+          "hintAt": 0
+        },
+        {
+          "answer": "CONVENIENTLY",
+          "clue": "It is ___ situated in the North Island of the country, between the Waitakere Ranges and the Hauraki Gulf.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "COMPARABLE",
+          "clue": "The city enjoys an oceanic climate, which is ___ to the climate in most of Europe.",
+          "hint": "C",
+          "hintAt": 0
+        },
+        {
+          "answer": "DISAPPOINT",
+          "clue": "Nothing can ___ you about Auckland, which is why it is a popular destination for numerous immigrants to New Zealand.",
+          "hint": "A",
+          "hintAt": 3
+        },
+        {
+          "answer": "FRIENDLY",
+          "clue": "Expats have an overall good experience when staying in Auckland. Most expats find it very easy to communicate with the locals, who are very ___ .",
+          "hint": "F",
+          "hintAt": 0
+        },
+        {
+          "answer": "RETIREMENT",
+          "clue": "In December 2018 Shipulin announced his ___ from sports after the World Team Challenge, which is also called the Christmas Race.",
+          "hint": "R",
+          "hintAt": 0
+        },
+        {
+          "answer": "AWARENESS",
+          "clue": "However, his heart was not really in it. In 1850 Sechenov entered Moscow Medical University with a full ___ of the goals of his life.",
+          "hint": "A",
+          "hintAt": 0
+        },
+        {
+          "answer": "WILLING",
+          "clue": "Sechenov was a ___ student, which enabled him to graduate among top students.",
+          "hint": "W",
+          "hintAt": 0
+        },
+        {
+          "answer": "PERFECTION",
+          "clue": "He mastered biology, anatomy, surgery and physiology to ___ .",
+          "hint": "P",
+          "hintAt": 0
+        },
+        {
+          "answer": "REPRINT",
+          "clue": "After a short period of studying and working abroad Sechenov returned to Russia where he made numerous discoveries in psychology, physiology and anatomy, many of which we still use today. Publishing houses ___ his scientific works every year.",
+          "hint": "P",
+          "hintAt": 2
+        },
+        {
+          "answer": "HIGHLY",
+          "clue": "Alexander Blok was a Russian lyrical poet, writer, publicist, playwright, translator and literary critic. He was born in 1880 in Saint Petersburg in a ___ educated family.",
+          "hint": "H",
+          "hintAt": 0
+        },
+        {
+          "answer": "BOTANIST",
+          "clue": "His father was a professor of law, and his grandfather was a famous ___ and the rector of Saint Petersburg State University.",
+          "hint": "B",
+          "hintAt": 0
+        },
+        {
+          "answer": "INSPIRATION",
+          "clue": "Poetic ___ came naturally to him.",
+          "hint": "I",
+          "hintAt": 0
+        },
+        {
+          "answer": "SURROUNDINGS",
+          "clue": "Blok often produced unforgettable and otherworldly images out of the most banal ___ and trivial events, though his most beautiful poems were still devoted to his wife. Blok greeted the 1905 Russian Revolution enthusiastically, but later became disillusioned with it and couldn't write any more, although he still gave lectures on literature.",
+          "hint": "S",
+          "hintAt": 0
+        },
+        {
+          "answer": "PRICELESS",
+          "clue": "However, the Hermitage is interesting not only because of the ___ paintings kept there.",
+          "hint": "P",
+          "hintAt": 0
+        },
+        {
+          "answer": "RESIDENCE",
+          "clue": "The Winter Palace used to be the official ___ for the Romanov Tsars, so it is a beautiful construction – one of the greatest symbols of imperial Russia.",
+          "hint": "R",
+          "hintAt": 0
+        }
+      ]
+    }
+  ]
+}

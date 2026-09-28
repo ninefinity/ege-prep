@@ -242,6 +242,16 @@ E.checkTask = function checkTask(taskId) {
       });
     }
 
+    if (task.type === "crossword") {
+      if (!E.allCrosswordFilled(taskId)) {
+        E.syncCrosswordCheckEnabled(taskId);
+        return;
+      }
+      E.crosswordEntries(task).forEach(function (_entry, index) {
+        if (E.markCrosswordEntry(taskId, task, index)) correct += 1;
+      });
+    }
+
     if (task.type === "listening") {
       var listeningStep = E.getListeningStep(taskId);
       var stepKind = E.getListeningStepKind(task, listeningStep);
@@ -715,6 +725,16 @@ E.revealTask = function revealTask(taskId) {
       E.syncLetterfillCheckEnabled(taskId);
       E.showToast("Answers shown.");
       return;
+    } else if (task.type === "crossword") {
+      E.crosswordEntries(task).forEach(function (_entry, index) {
+        E.markCrosswordEntry(taskId, task, index, { reveal: true });
+      });
+      var cwEl = document.getElementById("task-" + taskId);
+      if (cwEl) cwEl.dataset.answersRevealed = "1";
+      E.showScoreFeedback(taskId, 0, E.taskMaxScore(task), { revealed: true });
+      E.syncCrosswordCheckEnabled(taskId);
+      E.showToast("Answers shown.");
+      return;
     } else if (task.type === "spider-web") {
       if (typeof E.revealSpiderWeb === "function") E.revealSpiderWeb(taskId);
       E.showToast("Answers shown.");
@@ -993,6 +1013,15 @@ E.resetTask = function resetTask(taskId, options) {
         E.clearLetterfillGap(taskId, index);
       });
       E.syncLetterfillCheckEnabled(taskId);
+    }
+
+    if (task.type === "crossword") {
+      var cwResetEl = document.getElementById("task-" + taskId);
+      if (cwResetEl) delete cwResetEl.dataset.answersRevealed;
+      E.crosswordEntries(task).forEach(function (_entry, index) {
+        E.clearCrosswordEntry(taskId, index);
+      });
+      E.syncCrosswordCheckEnabled(taskId);
     }
 
     if (task.type === "listening") {

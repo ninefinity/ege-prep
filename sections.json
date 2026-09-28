@@ -92,6 +92,15 @@
       "available": true
     },
     {
+      "id": "word-formation-crossword",
+      "group": "Grammar & Vocabulary",
+      "examFrom": 25,
+      "examTo": 29,
+      "title": "Crossword",
+      "taskCount": 1,
+      "available": true
+    },
+    {
       "id": "vocabulary-cloze",
       "group": "Grammar & Vocabulary",
       "examFrom": 30,

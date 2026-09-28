@@ -24,6 +24,7 @@ E.renderTaskPanel = function renderTaskPanel(task) {
     if (task.type === "pronounce") return E.renderPronounce(task, E.state.topicId);
     if (task.type === "spider-web") return E.renderSpiderWeb(task, E.state.topicId);
     if (task.type === "speed-read") return E.renderSpeedRead(task, E.state.topicId);
+    if (task.type === "crossword") return E.renderCrossword(task, E.state.topicId);
     if (task.type === "listening") return E.renderListening(task, E.state.topicId);
     if (task.type === "speaking") return E.renderSpeaking(task);
     if (task.type === "speaking-questions") return E.renderSpeakingQuestions(task);
@@ -1173,6 +1174,19 @@ E.mountTopic = function mountTopic(topic, topicId) {
     }
 
     var variantNav = E.isVariantPlaylist(topicId);
+
+    // A topic with exactly one task (the crossword drill: a fresh puzzle
+    // dealt from a pool, not a list of fixed rounds) has nothing for a task
+    // list to navigate between -- the sidebar would just repeat the single
+    // task's own name back at it. Skill-drill panels already carry their
+    // own "← Sections" back link (see buildTaskIntro), so hiding the whole
+    // sidebar here doesn't strand anyone.
+    if (page) {
+      page.classList.toggle(
+        "ege-page--no-topic-nav",
+        !variantNav && !E.state.playlist && topic.tasks.length === 1
+      );
+    }
 
     // Drills carry no title of their own on the page, so the nav names what
     // the variants below it are: the kind when they all share one. Landing

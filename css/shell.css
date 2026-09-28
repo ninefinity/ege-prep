@@ -145,6 +145,35 @@ a {
   max-height: none;
 }
 
+/* A single-task topic (the crossword drill) has no task list worth
+   navigating -- the sidebar would just echo the one task's own name.
+   Drop it and give the task the full column instead of the usual
+   220px/1fr split. Chained with .ege-page--topic-layout (every skill drill
+   carries it) rather than left as a bare class: that rule's own desktop
+   override of grid-template-columns/.ege-topics' display sits later in
+   this file and would otherwise win the tie on equal specificity. */
+.ege-page--topic-layout.ege-page--no-topic-nav {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ege-page--topic-layout.ege-page--no-topic-nav > .ege-topics {
+  display: none;
+}
+
+/* Collapsing to one explicit column above isn't enough on its own: the
+   normal two-column layout also places .ege-workspace at grid-column: 2
+   (further down, desktop-only), and a grid always creates an implicit
+   track to satisfy an explicit placement past its last defined column --
+   even though nothing occupies column 1 (.ege-topics is display: none),
+   its minmax(0, 1fr) track still claims a share of the row, leaving a
+   blank strip the width of a phantom sidebar column. Putting .ege-workspace
+   back in column 1 removes the need for that implicit track entirely. */
+@media (min-width: 861px) {
+  .ege-page--topic-layout.ege-page--no-topic-nav > .ege-workspace {
+    grid-column: 1;
+  }
+}
+
 /* Desktop only: on mobile the rail is hidden by default and toggled via
    .is-nav-open (see the @media (max-width: 860px) block further down) --
    this rule used to apply unscoped and always beat that with higher
@@ -1610,6 +1639,13 @@ a {
   .ege-task-intro__back {
     display: none;
   }
+}
+
+/* ...except when there IS no sidebar to carry that link (a single-task
+   topic like the crossword drill hides it entirely -- see
+   .ege-page--no-topic-nav) -- then this copy is the only way back. */
+.ege-page--no-topic-nav .ege-task-intro__back {
+  display: inline-block;
 }
 
 .ege-task-intro--skills .ege-instructions {
@@ -10886,4 +10922,538 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-oddoneout__result[hidden],
 .ege-oddoneout__next[hidden] {
   display: none;
+}
+
+/* ---------------------------------------------------------- crossword */
+
+/* The base .ege-panel rule sets min-height:0 so panels CAN flex-shrink --
+   fine for short content, but a crossword's grid+clues routinely wants more
+   height than the topic-layout scroll slot has left after the footer. With
+   flex-shrink allowed, the panel gets squeezed down below its own content's
+   real height, and since it doesn't clip that content, the grid just paints
+   straight through the footer below it instead of scrolling. flex: 0 0 auto
+   plus min-height: auto keeps the panel at its natural content height, so
+   the ANCESTOR .ege-task's own overflow-y:auto scrolls the excess instead. */
+.ege-task--crossword > .ege-panel--crossword {
+  flex: 0 0 auto;
+  min-height: auto;
+}
+
+/* This drill is the page's only task (no sidebar, full width), so the
+   bordered card the base .ege-panel rule draws around every task's work
+   area just reads as a redundant frame around the whole page rather than
+   one panel among several -- drop it here specifically. */
+.ege-panel--crossword {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* Always a top-to-bottom stack, on every screen size -- these puzzles come
+   out tall and narrow (long word-formation answers), not the neat square a
+   side-by-side grid+clues layout assumes. Splitting the width between them
+   just squeezed an already-narrow grid down further. Stacking gives the
+   grid the full width instead, so more of it is visible without scrolling. */
+.ege-crossword {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ege-crossword__grid-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 4px;
+  /* Centers the grid (an inline-grid, so it respects text-align) inside the
+     panel instead of sitting flush left with empty space stranded on the
+     right -- the panel is full-width (no sidebar for this single-task
+     drill) but the grid's own footprint is fixed by the puzzle's word
+     lengths, so it rarely fills that width on its own. */
+  text-align: center;
+}
+
+.ege-crossword__grid {
+  display: inline-grid;
+  gap: 2px;
+  /* Neutral charcoal, not var(--ege-ink) -- every "dark" token in this
+     palette (ink, dust) leans blue/purple, which read as a heavy dark-blue
+     plate behind the puzzle. A flat neutral gray gives blocked squares the
+     usual crossword contrast without that blue cast. */
+  background: #3a3a42;
+  border: 2px solid #3a3a42;
+  border-radius: var(--ege-radius);
+  padding: 2px;
+}
+
+.ege-crossword-cell {
+  position: relative;
+  width: var(--ege-crossword-cell, 2.1em);
+  height: var(--ege-crossword-cell, 2.1em);
+  background: #fff;
+  border-radius: 3px;
+}
+
+.ege-crossword-cell--blocked {
+  background: transparent;
+}
+
+.ege-crossword-cell__num {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  font-family: var(--ege-font-ui);
+  font-size: 0.55em;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ege-ink-soft, var(--ege-ink));
+  pointer-events: none;
+}
+
+
+.ege-crossword-cell__input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  font-family: var(--ege-font-ui);
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--ege-ink);
+}
+
+.ege-crossword-cell__input:focus {
+  outline: none;
+  background: color-mix(in srgb, var(--yap-royal) 18%, #fff);
+}
+
+.ege-crossword-cell__input.is-active-cell {
+  background: color-mix(in srgb, var(--yap-royal) 10%, #fff);
+}
+
+.ege-crossword-cell__input.is-correct {
+  background: var(--ege-text-ok-bg);
+  color: var(--ege-text-ok-fg);
+}
+
+.ege-crossword-cell__input.is-wrong {
+  background: var(--ege-text-bad-bg);
+  color: var(--ege-bad);
+}
+
+.ege-crossword-cell__input.is-revealed {
+  background: var(--ege-wrong-pick-bg);
+  color: var(--yap-royal);
+}
+
+.ege-crossword__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* A letter earned from a hint: locked in and visibly "given". */
+.ege-crossword-cell__input.is-hinted {
+  background: #fff4d6;
+  color: #8a5a00;
+  cursor: default;
+}
+
+/* The base word's first letter, pre-filled for free and locked. Quieter
+   than an earned hint letter so the two read differently. */
+.ege-crossword-cell__input.is-given {
+  background: #e9ebf5;
+  color: var(--ege-muted);
+  cursor: default;
+}
+
+.ege-crossword__hint-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ege-crossword__hint-status {
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-sm);
+  color: var(--ege-muted);
+}
+
+/* "Hint" pressed: clicking a square picks its word instead of typing. */
+.ege-crossword__grid.is-picking-word .ege-crossword-cell__input {
+  cursor: pointer;
+  caret-color: transparent;
+}
+
+.ege-crossword__grid.is-picking-word .ege-crossword-cell__input.is-hint-target,
+.ege-crossword__grid.is-picking-letter .ege-crossword-cell__input.is-hint-target {
+  background: color-mix(in srgb, var(--yap-royal) 12%, #fff);
+  box-shadow: inset 0 0 0 2px var(--yap-royal);
+}
+
+/* "Choose letter": only the chosen word's open squares are clickable. */
+.ege-crossword__grid.is-picking-letter .ege-crossword-cell__input {
+  caret-color: transparent;
+  cursor: default;
+}
+
+.ege-crossword__grid.is-picking-letter .ege-crossword-cell__input.is-hint-target:not([readonly]) {
+  cursor: pointer;
+}
+
+.ege-crossword__grid.is-picking-letter .ege-crossword-cell__input.is-hint-target:not([readonly]):hover {
+  background: color-mix(in srgb, var(--yap-royal) 30%, #fff);
+}
+
+.ege-crossword__grid.is-picking-letter .ege-crossword-cell__input.is-hint-target[readonly] {
+  background: #fff4d6;
+}
+
+.ege-crossword-cell__input.is-just-hinted {
+  animation: ege-crossword-hinted 1.6s ease-out;
+}
+
+@keyframes ege-crossword-hinted {
+  0% { box-shadow: inset 0 0 0 3px #e0a526; }
+  100% { box-shadow: inset 0 0 0 3px transparent; }
+}
+
+.ege-crossword__hint {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10vh 16px 16px;
+  overflow-y: auto;
+  background: rgba(11, 7, 46, 0.45);
+}
+
+.ege-crossword__hint-card,
+.ege-crossword__hint-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ege-crossword__hint-card {
+  width: min(520px, 100%);
+  padding: 20px 22px;
+  border-radius: var(--ege-radius);
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(11, 7, 46, 0.25);
+}
+
+.ege-crossword__hint-body {
+  width: 100%;
+}
+
+.ege-crossword__hint-title {
+  margin: 0;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--ege-muted);
+}
+
+.ege-crossword__hint-prompt {
+  margin: 0;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-md);
+  font-weight: 700;
+  color: var(--ege-ink);
+}
+
+.ege-crossword__hint-text {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--ege-radius);
+  background: rgb(238, 240, 250);
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-md);
+  line-height: var(--ege-line-ui);
+  color: var(--ege-ink);
+}
+
+.ege-crossword__hint-gap {
+  font-weight: 700;
+  color: var(--yap-royal);
+}
+
+.ege-crossword__hint-words,
+.ege-crossword__hint-modes,
+.ege-crossword__hint-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.ege-crossword__hint-word,
+.ege-crossword__hint-mode,
+.ege-crossword__hint-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  background: #fff;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-md);
+  color: var(--ege-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.ege-crossword__hint-mode {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.ege-crossword__hint-word:hover,
+.ege-crossword__hint-mode:not(:disabled):hover,
+.ege-crossword__hint-option:not(:disabled):hover,
+.ege-crossword__hint-word:focus-visible,
+.ege-crossword__hint-mode:focus-visible,
+.ege-crossword__hint-option:focus-visible {
+  border-color: var(--yap-royal);
+  outline: none;
+}
+
+.ege-crossword__hint-mode:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.ege-crossword__hint-option.is-wrong {
+  border-color: var(--ege-bad);
+  background: var(--ege-text-bad-bg);
+  color: var(--ege-bad);
+  text-decoration: line-through;
+  cursor: default;
+}
+
+.ege-crossword__hint-word-name,
+.ege-crossword__hint-mode-name {
+  min-width: 5.5em;
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+}
+
+.ege-crossword__hint-mode-sub {
+  font-size: var(--ege-text-sm);
+  color: var(--ege-muted);
+}
+
+.ege-crossword__hint-pattern {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.ege-crossword__hint-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7em;
+  height: 1.7em;
+  padding: 0;
+  border: 1px solid var(--ege-line);
+  border-radius: 4px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--ege-ink);
+}
+
+.ege-crossword__hint-box.is-locked {
+  background: #fff4d6;
+  color: #8a5a00;
+}
+
+.ege-crossword__hint-box.is-given {
+  background: #e9ebf5;
+  color: var(--ege-muted);
+}
+
+.ege-crossword__hint-feedback {
+  margin: 0;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-sm);
+  color: var(--ege-bad);
+}
+
+.ege-crossword__hint-feedback:empty {
+  display: none;
+}
+
+.ege-crossword__hint-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.ege-task--crossword.is-crossword-setup .ege-task__footer {
+  display: none;
+}
+
+.ege-crossword__start[hidden] {
+  display: none;
+}
+
+.ege-crossword__start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 16px;
+  text-align: center;
+  background: radial-gradient(
+    circle at 50% 0%,
+    color-mix(in srgb, var(--yap-royal) 6%, transparent),
+    transparent 70%
+  );
+  border: 1px dashed var(--ege-line);
+  border-radius: var(--ege-radius);
+}
+
+.ege-crossword__start-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: 4px;
+}
+
+.ege-crossword__start-title {
+  margin: 0;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-lg, 1.3rem);
+  font-weight: 800;
+  color: var(--ege-ink);
+}
+
+.ege-crossword__start-label {
+  margin: 0 0 6px;
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-sm);
+  color: var(--ege-muted);
+}
+
+.ege-crossword__count-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.ege-crossword__count-chip {
+  min-width: 40px;
+  padding: 8px 0;
+  border: 1px solid var(--ege-line);
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--ege-font-ui);
+  font-size: var(--ege-text-sm);
+  font-weight: 700;
+  color: var(--ege-ink);
+  cursor: pointer;
+}
+
+.ege-crossword__count-chip:hover {
+  border-color: color-mix(in srgb, var(--yap-royal) 35%, var(--ege-line));
+}
+
+.ege-crossword__count-chip.is-selected {
+  background: var(--yap-royal);
+  border-color: var(--yap-royal);
+  color: #fff;
+}
+
+.ege-crossword__count-chip:focus-visible {
+  outline: 2px solid var(--yap-royal);
+  outline-offset: 1px;
+}
+
+.ege-crossword__grid-wrap {
+  position: relative;
+}
+
+/* The clue for whatever square is hovered/focused floats as an overlay on
+   top of the grid itself rather than living in a permanent Across/Down
+   list (these clues are full exam sentences, and a list of a dozen of them
+   was more text than puzzle) or in normal document flow. Being position:
+   absolute takes it out of the layout entirely, so it never pushes the
+   grid -- or anything below it -- down when it appears, and never leaves a
+   gap when it's hidden again. The puzzle itself never moves.
+
+   left/top are set inline by positionClueBar() in crossword.js, next to
+   whichever cell is actually active, instead of always sitting in the same
+   spot regardless of where the puzzle is being worked on -- the values
+   here are only a fallback for the instant before that first runs. */
+.ege-crossword__clue {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  /* Capped rather than stretched edge-to-edge with the grid -- a wide
+     puzzle can be 900px+ across, and a clue sentence spanning that full
+     width as one line-length is hard to read. */
+  max-width: 60ch;
+  z-index: 5;
+  /* No UA <p> margin: positionClueBar() places the border box exactly. */
+  margin: 0;
+  padding: 10px 14px;
+  max-height: 35vh;
+  overflow-y: auto;
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  /* Fully opaque -- var(--ege-card)'s usual slight transparency let the
+     grid underneath show through and fight with the clue text for
+     legibility. */
+  background: rgb(238, 240, 250);
+  box-shadow: 0 10px 24px rgba(11, 7, 46, 0.16);
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-md);
+  line-height: var(--ege-line-ui);
+  color: var(--ege-ink);
+}
+
+@media (max-width: 480px) {
+  .ege-crossword {
+    --ege-crossword-cell: 1.9em;
+  }
+
+  .ege-crossword-cell__num {
+    font-size: 0.5em;
+  }
+}
+
+/* On wide screens this single-task drill's panel has no sidebar to share
+   width with, so bigger cells put that space to use instead of leaving the
+   (word-length-bound, often tall-and-narrow) grid stranded small in a sea
+   of empty panel. Set on the custom property itself (not .ege-crossword-cell
+   directly) so the grid's own column-track sizing -- set inline from JS as
+   `repeat(cols, var(--ege-crossword-cell, 2.1em))` -- stays in lockstep
+   with each cell's actual width instead of the two drifting apart. */
+@media (min-width: 760px) {
+  .ege-crossword {
+    --ege-crossword-cell: 2.6em;
+  }
+}
+
+@media (min-width: 1100px) {
+  .ege-crossword {
+    --ege-crossword-cell: 3.1em;
+  }
 }
