@@ -95,14 +95,24 @@ E.allCrosswordFilled = function allCrosswordFilled(taskId) {
   });
 };
 
-// Only letters the player typed count -- given and hint-revealed letters are
-// locked (read-only) and Reset leaves them in place anyway.
+E.allCrosswordCorrect = function allCrosswordCorrect(taskId) {
+  var task = E.findTask(taskId);
+  if (!task || task.type !== "crossword") return false;
+  return ensurePuzzle(task).cells.every(function (cell) {
+    var input = cellInput(taskId, cell[0], cell[1]);
+    return !!(input && input.value.toUpperCase() === cell[2]);
+  });
+};
+
+// Only the player's own letters count: typed ones, and ones a check has since
+// locked in as verified. Given and hint-revealed letters are locked too but
+// aren't answers, and Reset leaves them in place.
 E.crosswordHasAnyAnswer = function crosswordHasAnyAnswer(taskId) {
   var task = E.findTask(taskId);
   if (!task || task.type !== "crossword") return false;
   return ensurePuzzle(task).cells.some(function (cell) {
     var input = cellInput(taskId, cell[0], cell[1]);
-    return !!(input && input.value && !input.readOnly);
+    return !!(input && input.value && (!input.readOnly || input.classList.contains("is-verified")));
   });
 };
 
@@ -111,6 +121,18 @@ E.syncCrosswordCheckEnabled = function syncCrosswordCheckEnabled(taskId) {
   E.syncResetButton(taskId);
   E.syncShowAnswersButton(taskId);
 };
+
+// A word a check has found fully correct is done: its squares lock so a
+// stray keystroke can't undo it. Crossing squares lock too -- they're right
+// for both words. Only ever locks squares the player filled in themselves.
+function lockVerifiedCells(inputs) {
+  inputs.forEach(function (input) {
+    if (input.readOnly) return;
+    input.readOnly = true;
+    input.classList.add("is-verified", "is-correct");
+    input.classList.remove("is-wrong");
+  });
+}
 
 E.markCrosswordEntry = function markCrosswordEntry(taskId, task, entryIndex, opts) {
   opts = opts || {};
@@ -137,6 +159,7 @@ E.markCrosswordEntry = function markCrosswordEntry(taskId, task, entryIndex, opt
     if (!solved) ok = false;
   });
 
+  if (ok) lockVerifiedCells(entryInputs(taskId, entry));
   return ok;
 };
 
@@ -149,10 +172,12 @@ E.clearCrosswordEntry = function clearCrosswordEntry(taskId, entryIndex) {
     if (!input) return;
     // Letters earned from a hint quiz survive Reset -- they aren't the
     // player's own answers, and they paid a quiz for them.
-    if (input.readOnly) {
+    if (input.readOnly && !input.classList.contains("is-verified")) {
       input.classList.remove("is-correct", "is-wrong", "is-revealed");
       return;
     }
+    input.readOnly = false;
+    input.classList.remove("is-verified");
     input.value = "";
     input.classList.remove("is-correct", "is-wrong", "is-revealed");
   });
@@ -191,7 +216,7 @@ function loadHintTasks() {
   return hintTasksPromise;
 }
 
-var usedHintTasks = { choose: [], random: [] };
+var usedHintTasks = { choose: [], random: [], verbs: [] };
 
 function pickUnusedIndex(kind, count) {
   var used = usedHintTasks[kind];
@@ -518,6 +543,13 @@ function answerHint(option, btn, feedback) {
 var wordPickFor = null;
 var letterPickSession = null;
 
+// The button carries an icon, so its label lives in its own span: writing
+// btn.textContent would wipe the icon along with the old label.
+function setHintButtonLabel(btn, text) {
+  var label = btn.querySelector(".ege-crossword__btn-label");
+  if (label) label.textContent = text;
+}
+
 function hintToolbarButton(taskId) {
   return document.getElementById("crossword-hint-btn-" + taskId);
 }
@@ -589,7 +621,7 @@ function startGridPick(taskId, gridClass, statusText) {
   var grid = root && root.querySelector(".ege-crossword__grid");
   if (grid) grid.classList.add(gridClass);
   var btn = hintToolbarButton(taskId);
-  if (btn) btn.textContent = "Cancel hint";
+  if (btn) setHintButtonLabel(btn, "Cancel hint");
   var status = document.getElementById("crossword-hint-status-" + taskId);
   if (status) status.textContent = statusText;
   document.addEventListener("keydown", onWordPickKeydown);
@@ -612,7 +644,7 @@ function stopWordPick() {
   var grid = root && root.querySelector(".ege-crossword__grid");
   if (grid) grid.classList.remove("is-picking-word", "is-picking-letter");
   var btn = hintToolbarButton(taskId);
-  if (btn) btn.textContent = "Hint";
+  if (btn) setHintButtonLabel(btn, "Hint");
   var status = document.getElementById("crossword-hint-status-" + taskId);
   if (status) status.textContent = "";
 }
@@ -672,6 +704,92 @@ function bindWordPick(grid, taskId) {
     if (wordPickFor === taskId && !letterPickSession) clearWordPickHighlight(taskId);
   });
 }
+
+/* Toolbar "Check": marks every letter the player has typed as right or
+   wrong, any time -- unlike the footer's Check answers, which waits for a
+   full grid and scores it. The price is one irregular verb's past
+   participle, with unlimited attempts. Closing the box forfeits nothing;
+   opening it again deals a new verb. */
+
+function markTypedLetters(taskId) {
+  var root = taskEl(taskId);
+  var marked = 0;
+  root.querySelectorAll(".ege-crossword-cell__input").forEach(function (input) {
+    if (input.readOnly || !input.value) return;
+    var right = input.value.toUpperCase() === (input.dataset.answerChar || "").toUpperCase();
+    input.classList.remove("is-correct", "is-wrong", "is-revealed");
+    input.classList.add(right ? "is-correct" : "is-wrong");
+    marked += 1;
+  });
+  var task = E.findTask(taskId);
+  E.crosswordEntries(task).forEach(function (entry) {
+    var inputs = entryInputs(taskId, entry);
+    var done = inputs.every(function (input) {
+      return input.value.toUpperCase() === (input.dataset.answerChar || "").toUpperCase();
+    });
+    if (done) lockVerifiedCells(inputs);
+  });
+  return marked;
+}
+
+function renderCheckQuiz(card, verb) {
+  card.innerHTML = "";
+  card.appendChild(el("p", "ege-crossword__hint-title", "Check"));
+  card.appendChild(el("p", "ege-crossword__hint-prompt", "Past participle of"));
+  card.appendChild(el("p", "ege-crossword__hint-verb", verb.verb));
+
+  var form = el("form", "ege-crossword__hint-verb-form");
+  var input = el("input", "ege-crossword__hint-verb-input");
+  input.type = "text";
+  input.autocomplete = "off";
+  input.autocapitalize = "off";
+  input.spellcheck = false;
+  input.setAttribute("aria-label", "Past participle of " + verb.verb);
+  form.appendChild(input);
+  var submit = hintButton("ege-btn ege-btn--primary ege-btn--small", "Check", function () {});
+  submit.type = "submit";
+  form.appendChild(submit);
+  card.appendChild(form);
+
+  card.appendChild(hintActions());
+
+  var taskId = hint.taskId;
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var typed = input.value.trim().toLowerCase();
+    if (!typed) return;
+    if (verb.answers.indexOf(typed) === -1) {
+      E.showToast("Not quite. Try again.");
+      input.select();
+      return;
+    }
+    closeHint();
+    markTypedLetters(taskId);
+    E.showToast("Letters checked.");
+  });
+  input.focus();
+}
+
+E.openCrosswordCheck = function openCrosswordCheck(taskId) {
+  if (wordPickFor) stopWordPick();
+  var root = taskEl(taskId);
+  var typed = root && Array.prototype.some.call(
+    root.querySelectorAll(".ege-crossword-cell__input"),
+    function (input) { return !input.readOnly && input.value; }
+  );
+  if (!typed) {
+    E.showToast("Type some letters first.");
+    return;
+  }
+  loadHintTasks().then(function (data) {
+    closeHint();
+    hint = { taskId: taskId, entries: [], mode: "mistakes" };
+    var verb = data.verbs[pickUnusedIndex("verbs", data.verbs.length)];
+    renderCheckQuiz(mountHintOverlay(), verb);
+  }, function () {
+    E.showToast("Couldn't load the hint. Try again.");
+  });
+};
 
 E.openCrosswordHint = function openCrosswordHint(taskId) {
   if (wordPickFor === taskId) {
@@ -808,16 +926,19 @@ function positionClueBar(bar, anchorEl, wordEls) {
   place(left, clamp(cy - fitted.height / 2, Math.max(0, H - fitted.height)));
 }
 
-function setClueBarText(taskId, text, anchorEl, wordEls) {
+// `entry` is the word to show the clue for, or falsy to hide the bar.
+function setClueBar(taskId, entry, anchorEl, wordEls) {
   var bar = clueBarEl(taskId);
   if (!bar) return;
-  bar.textContent = text;
-  bar.hidden = !text;
-  if (text && anchorEl) positionClueBar(bar, anchorEl, wordEls);
-}
-
-function entryClueLabel(entry) {
-  return entry.number + " " + (entry.dir === "across" ? "Across" : "Down") + ": " + entry.clue;
+  bar.textContent = "";
+  bar.hidden = !entry;
+  if (!entry) return;
+  var name = document.createElement("strong");
+  name.className = "ege-crossword__clue-name";
+  name.textContent = entryName(entry);
+  bar.appendChild(name);
+  bar.appendChild(document.createTextNode(": " + entry.clue));
+  if (anchorEl) positionClueBar(bar, anchorEl, wordEls);
 }
 
 function paintCrosswordActive(taskId, entries, membership) {
@@ -829,7 +950,7 @@ function paintCrosswordActive(taskId, entries, membership) {
 
   var active = document.activeElement;
   if (!active || !el.contains(active) || !active.classList.contains("ege-crossword-cell__input")) {
-    setClueBarText(taskId, "");
+    setClueBar(taskId, null);
     return;
   }
   var r = parseInt(active.dataset.row, 10);
@@ -844,7 +965,7 @@ function paintCrosswordActive(taskId, entries, membership) {
     var input = cellInput(taskId, pos.r, pos.c);
     if (input) input.classList.add("is-active-cell");
   });
-  setClueBarText(taskId, entryClueLabel(entry), active, entryInputs(taskId, entry));
+  setClueBar(taskId, entry, active, entryInputs(taskId, entry));
 }
 
 function stepAny(inputsByCell, r, c, dr, dc) {
@@ -918,7 +1039,7 @@ function buildCrosswordCellInput(taskId, row, col, answerChar, membership, input
     var memb = membership[row + "," + col] || {};
     var dir = memb.across != null ? "across" : "down";
     var entry = entries[memb[dir]];
-    if (entry) setClueBarText(taskId, entryClueLabel(entry), input, entryInputs(taskId, entry));
+    if (entry) setClueBar(taskId, entry, input, entryInputs(taskId, entry));
   });
 
   input.addEventListener("mouseleave", function () {
@@ -1053,7 +1174,7 @@ function paintCrossword(taskId) {
     }
   }
 
-  setClueBarText(taskId, "");
+  setClueBar(taskId, null);
   if (wordPickFor === taskId) stopWordPick();
   E.hideScoreFeedback(taskId);
   var taskArticle = document.getElementById("task-" + taskId);
@@ -1196,12 +1317,28 @@ E.renderCrossword = function renderCrossword(task, topicId) {
   var hintBtn = document.createElement("button");
   hintBtn.type = "button";
   hintBtn.id = "crossword-hint-btn-" + task.id;
-  hintBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
-  hintBtn.textContent = "Hint";
+  hintBtn.className = "ege-btn ege-btn--ghost ege-btn--small ege-crossword__icon-btn";
+  var hintIcon = document.createElement("img");
+  hintIcon.className = "ege-crossword__btn-icon";
+  hintIcon.src = "assets/hint.png";
+  hintIcon.alt = "";
+  hintBtn.appendChild(hintIcon);
+  var hintLabel = document.createElement("span");
+  hintLabel.className = "ege-crossword__btn-label";
+  hintLabel.textContent = "Hint";
+  hintBtn.appendChild(hintLabel);
   hintBtn.addEventListener("click", function () {
     E.openCrosswordHint(task.id);
   });
   hintGroup.appendChild(hintBtn);
+  var mistakesBtn = document.createElement("button");
+  mistakesBtn.type = "button";
+  mistakesBtn.className = "ege-btn ege-btn--ghost ege-btn--small";
+  mistakesBtn.textContent = "Check";
+  mistakesBtn.addEventListener("click", function () {
+    E.openCrosswordCheck(task.id);
+  });
+  hintGroup.appendChild(mistakesBtn);
   var hintStatus = document.createElement("span");
   hintStatus.className = "ege-crossword__hint-status";
   hintStatus.id = "crossword-hint-status-" + task.id;
@@ -1248,7 +1385,7 @@ E.renderCrossword = function renderCrossword(task, topicId) {
   board.appendChild(boardBody);
 
   wrap.appendChild(E.buildPanel("", board, "ege-panel--work ege-panel--crossword"));
-  wrap.appendChild(E.buildTaskFooter(task.id, E.taskMaxScore(task), { showAnswers: true }));
+  wrap.appendChild(E.buildTaskFooter(task.id, E.taskMaxScore(task), { showAnswers: true, showLabel: "Give up" }));
 
   // The article is not in the document yet, so paint once it is.
   setTimeout(function () {

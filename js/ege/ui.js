@@ -1138,6 +1138,8 @@ E.isTaskAllCorrect = function isTaskAllCorrect(taskId) {
       });
     }
 
+    if (task.type === "crossword") return E.allCrosswordCorrect(taskId);
+
     return false;
   };
 
@@ -1310,6 +1312,9 @@ E.syncCheckButton = function syncCheckButton(taskId) {
     var revealed = taskEl && taskEl.dataset.answersRevealed === "1";
     var ready = E.isTaskFullyAnswered(taskId) && !revealed;
     var hide = revealed || E.hasGradedScore(taskId);
+    // The crossword's toolbar "Check" covers a partly filled grid, so this
+    // one appears only once every square is in.
+    if (task.type === "crossword" && !ready) hide = true;
 
     checkBtn.hidden = hide;
     if (hide) {
@@ -1541,7 +1546,7 @@ E.appendStandardTaskActions = function appendStandardTaskActions(actions, taskId
       showBtn.type = "button";
       showBtn.className = "ege-btn ege-btn--ghost";
       showBtn.id = "show-" + taskId;
-      showBtn.textContent = "Show answers";
+      showBtn.textContent = opts.showLabel || "Show answers";
       if (opts.showHidden) showBtn.hidden = true;
       showBtn.addEventListener("click", function () {
         E.revealTask(taskId);

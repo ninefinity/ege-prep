@@ -141,6 +141,35 @@ def load_cloze_items():
     return items
 
 
+# Irregular verbs for the "Show mistakes" hint: base form -> accepted past
+# participle(s). Only verbs whose participle differs from the base, so the
+# answer is never just retyping the prompt. Where British spelling allows two
+# forms (learnt/learned, got/gotten), both are accepted.
+IRREGULAR_PARTICIPLES = {
+    "be": ["been"], "begin": ["begun"], "break": ["broken"],
+    "bring": ["brought"], "build": ["built"], "buy": ["bought"], "catch": ["caught"],
+    "choose": ["chosen"], "do": ["done"], "draw": ["drawn"],
+    "drink": ["drunk"], "drive": ["driven"], "eat": ["eaten"], "fall": ["fallen"],
+    "feel": ["felt"], "find": ["found"], "fly": ["flown"], "forget": ["forgotten"],
+    "forgive": ["forgiven"], "get": ["got", "gotten"], "give": ["given"], "go": ["gone"],
+    "grow": ["grown"], "have": ["had"], "hear": ["heard"], "hide": ["hidden"],
+    "hold": ["held"], "keep": ["kept"], "know": ["known"], "lead": ["led"],
+    "learn": ["learnt", "learned"], "leave": ["left"], "lose": ["lost"], "make": ["made"],
+    "mean": ["meant"], "meet": ["met"], "pay": ["paid"], "ride": ["ridden"],
+    "ring": ["rung"], "rise": ["risen"], "say": ["said"],
+    "see": ["seen"], "sell": ["sold"], "send": ["sent"], "show": ["shown", "showed"],
+    "sing": ["sung"], "sit": ["sat"], "sleep": ["slept"], "speak": ["spoken"],
+    "spend": ["spent"], "stand": ["stood"], "steal": ["stolen"], "swim": ["swum"],
+    "take": ["taken"], "teach": ["taught"], "tell": ["told"], "think": ["thought"],
+    "throw": ["thrown"], "understand": ["understood"], "wear": ["worn"], "win": ["won"],
+    "write": ["written"],
+}
+
+
+def load_irregular_verbs():
+    return [{"verb": v, "answers": a} for v, a in IRREGULAR_PARTICIPLES.items()]
+
+
 def load_heading_sets():
     """Task 10 paragraphs for the "random letter" hint, grouped by source task
     so wrong options are always headings written for that same text."""
@@ -200,10 +229,17 @@ def main():
     # Separate file, fetched only when a player first opens a hint -- it's
     # ~10x the size of the word pool and most sessions may never need it.
     with open(HINT_TASKS_FILE, "w", encoding="utf-8") as fh:
-        json.dump({"choose": cloze, "random": heading_sets}, fh, ensure_ascii=False)
+        json.dump(
+            {"choose": cloze, "random": heading_sets, "verbs": load_irregular_verbs()},
+            fh,
+            ensure_ascii=False,
+        )
         fh.write("\n")
     paragraphs = sum(len(s["paragraphs"]) for s in heading_sets)
-    print(f"wrote {len(cloze)} task 30-36 gaps and {paragraphs} task 10 paragraphs for hints")
+    print(
+        f"wrote {len(cloze)} task 30-36 gaps, {paragraphs} task 10 paragraphs "
+        f"and {len(IRREGULAR_PARTICIPLES)} irregular verbs for hints"
+    )
 
 
 if __name__ == "__main__":

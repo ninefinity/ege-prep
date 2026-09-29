@@ -58,6 +58,21 @@ test("choose-letter context is the gap sentence with a sentence either side", ()
   assert.match(sandy.text, /woken him out of a sound sleep\.$/);
 });
 
+test("show-mistakes verbs: each has accepted lowercase participles that differ from the verb", () => {
+  assert.ok(hintTasks.verbs.length >= 20);
+  const seen = new Set();
+  hintTasks.verbs.forEach((v) => {
+    assert.match(v.verb, /^[a-z]+$/, `verb "${v.verb}" should be a lowercase word`);
+    assert.ok(!seen.has(v.verb), `duplicate verb ${v.verb}`);
+    seen.add(v.verb);
+    assert.ok(v.answers.length >= 1);
+    v.answers.forEach((a) => assert.match(a, /^[a-z]+$/, `${v.verb}: answer "${a}" should be lowercase letters`));
+    assert.ok(!v.answers.includes(v.verb), `${v.verb}: participle equals the prompt`);
+  });
+  const learn = hintTasks.verbs.find((v) => v.verb === "learn");
+  assert.deepEqual(learn.answers.sort(), ["learned", "learnt"]);
+});
+
 test("random-letter hint tasks: each paragraph's answer is one of its set's headings", () => {
   assert.ok(hintTasks.random.length > 0);
   hintTasks.random.forEach((set, i) => {

@@ -5635,7 +5635,7 @@ button.ege-listening-mark:focus-visible {
   position: fixed;
   left: 50%;
   bottom: 28px;
-  z-index: 40;
+  z-index: 1100;
   max-width: min(90vw, 320px);
   padding: 12px 18px;
   border-radius: 999px;
@@ -10942,11 +10942,14 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 /* This drill is the page's only task (no sidebar, full width), so the
    bordered card the base .ege-panel rule draws around every task's work
    area just reads as a redundant frame around the whole page rather than
-   one panel among several -- drop it here specifically. */
+   one panel among several -- drop it here specifically. The small padding
+   isn't decoration: the panel's scroll container clips at its own edges, and
+   with none, a button's 1px hover lift or focus ring at the toolbar's top,
+   left or right edge was cut off. */
 .ege-panel--crossword {
   border: none;
   background: transparent;
-  padding: 0;
+  padding: 4px;
 }
 
 /* Always a top-to-bottom stack, on every screen size -- these puzzles come
@@ -11058,6 +11061,11 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   flex-wrap: wrap;
 }
 
+/* A letter from a word a check found correct: locked, and stays green. */
+.ege-crossword-cell__input.is-verified {
+  cursor: default;
+}
+
 /* A letter earned from a hint: locked in and visibly "given". */
 .ege-crossword-cell__input.is-hinted {
   background: #fff4d6;
@@ -11071,6 +11079,19 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   background: #e9ebf5;
   color: var(--ege-muted);
   cursor: default;
+}
+
+.ege-crossword__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ege-crossword__btn-icon {
+  width: 1.6em;
+  height: 1.6em;
+  margin: -0.25em 0;
+  object-fit: contain;
 }
 
 .ege-crossword__hint-group {
@@ -11171,6 +11192,36 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
   font-size: var(--ege-text-md);
   font-weight: 700;
   color: var(--ege-ink);
+}
+
+.ege-crossword__hint-verb {
+  margin: 0;
+  font-family: var(--ege-font-ui);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--yap-royal);
+}
+
+.ege-crossword__hint-verb-form {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.ege-crossword__hint-verb-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--ege-line);
+  border-radius: var(--ege-radius);
+  font-family: var(--ege-font-text);
+  font-size: var(--ege-text-md);
+  color: var(--ege-ink);
+}
+
+.ege-crossword__hint-verb-input:focus {
+  border-color: var(--yap-royal);
+  outline: none;
 }
 
 .ege-crossword__hint-text {
@@ -11402,6 +11453,11 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
    whichever cell is actually active, instead of always sitting in the same
    spot regardless of where the puzzle is being worked on -- the values
    here are only a fallback for the instant before that first runs. */
+.ege-crossword__clue-name {
+  font-family: var(--ege-font-ui);
+  font-weight: 700;
+}
+
 .ege-crossword__clue {
   position: absolute;
   left: 12px;
