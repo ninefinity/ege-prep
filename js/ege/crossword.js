@@ -56,7 +56,11 @@ function setActiveDir(taskId, dir) {
 function ensurePuzzle(task) {
   var s = ensureState(task.id, task);
   if (!s.puzzle) {
-    s.puzzle = E.generateCrossword(task.pool || [], s.wordCount);
+    // Grow along the screen's long side: wide on a desktop, tall on a phone.
+    var wide = window.matchMedia && window.matchMedia("(min-width: 861px)").matches;
+    s.puzzle = E.generateCrossword(task.pool || [], s.wordCount, {
+      orientation: wide ? "wide" : "tall",
+    });
   }
   return s.puzzle;
 }
@@ -104,15 +108,14 @@ E.allCrosswordCorrect = function allCrosswordCorrect(taskId) {
   });
 };
 
-// Only the player's own letters count: typed ones, and ones a check has since
-// locked in as verified. Given and hint-revealed letters are locked too but
-// aren't answers, and Reset leaves them in place.
+// Anything Reset would clear counts: typed letters, ones a check locked in as
+// verified, and hint-revealed ones. Only the given first letters don't.
 E.crosswordHasAnyAnswer = function crosswordHasAnyAnswer(taskId) {
   var task = E.findTask(taskId);
   if (!task || task.type !== "crossword") return false;
   return ensurePuzzle(task).cells.some(function (cell) {
     var input = cellInput(taskId, cell[0], cell[1]);
-    return !!(input && input.value && (!input.readOnly || input.classList.contains("is-verified")));
+    return !!(input && input.value && !input.classList.contains("is-given"));
   });
 };
 
@@ -170,14 +173,14 @@ E.clearCrosswordEntry = function clearCrosswordEntry(taskId, entryIndex) {
   entryCellPositions(entry).forEach(function (pos) {
     var input = cellInput(taskId, pos.r, pos.c);
     if (!input) return;
-    // Letters earned from a hint quiz survive Reset -- they aren't the
-    // player's own answers, and they paid a quiz for them.
-    if (input.readOnly && !input.classList.contains("is-verified")) {
+    // Reset takes the grid back to how a fresh puzzle starts: only the given
+    // first letters stay. Typed, verified and hint-revealed letters all go.
+    if (input.classList.contains("is-given")) {
       input.classList.remove("is-correct", "is-wrong", "is-revealed");
       return;
     }
     input.readOnly = false;
-    input.classList.remove("is-verified");
+    input.classList.remove("is-verified", "is-hinted", "is-just-hinted");
     input.value = "";
     input.classList.remove("is-correct", "is-wrong", "is-revealed");
   });
@@ -197,8 +200,8 @@ E.clearCrosswordEntry = function clearCrosswordEntry(taskId, entryIndex) {
    letter of two words at once. A chosen square may be a crossing: it was
    earned by getting the harder task right first time. Two wrong answers
    close the hint, and the next attempt gets a different task.
-   Revealed letters are locked: read-only, skipped by typing/backspace, and
-   kept through Reset. Tasks come from data/crossword-hint-tasks.json (built
+   Revealed letters are locked: read-only and skipped by typing/backspace.
+   Reset clears them along with everything else the player added. Tasks come from data/crossword-hint-tasks.json (built
    by scripts/build_word_formation_crossword.py), fetched on first use. */
 
 var hintTasksPromise = null;
@@ -1102,6 +1105,46 @@ function buildCrosswordCellInput(taskId, row, col, answerChar, membership, input
   return input;
 }
 
+/* A puzzle grown wide can be 20+ columns, more than the page holds at the
+   stylesheet's cell size. Shrink the squares just enough to fit the width
+   (never below MIN_CELL_PX, never above the stylesheet's own size) rather
+   than make the player scroll sideways to reach half the grid. */
+var MIN_CELL_PX = 24;
+var GRID_GAP_PX = 2;
+var GRID_FRAME_PX = 8; // 2px border + 2px padding, both sides
+
+function fitCrosswordCells(taskId) {
+  var root = taskEl(taskId);
+  var grid = root && root.querySelector(".ege-crossword__grid");
+  var scroller = grid && grid.parentNode;
+  var first = grid && grid.querySelector(".ege-crossword-cell");
+  if (!first || !scroller.clientWidth) return; // hidden (setup screen): nothing to measure
+  var puzzle = ensureState(taskId).puzzle;
+  if (!puzzle) return;
+
+  grid.style.removeProperty("--ege-crossword-cell"); // read the stylesheet's own size
+  var natural = first.getBoundingClientRect().width;
+  var style = getComputedStyle(scroller);
+  var room = scroller.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+  var fit = Math.floor((room - GRID_FRAME_PX - (puzzle.cols - 1) * GRID_GAP_PX) / puzzle.cols);
+  var size = Math.max(MIN_CELL_PX, Math.min(natural, fit));
+  if (size < natural) grid.style.setProperty("--ege-crossword-cell", size + "px");
+}
+
+var fitListenerBound = false;
+
+function bindFitOnResize() {
+  if (fitListenerBound) return;
+  fitListenerBound = true;
+  var timer = 0;
+  window.addEventListener("resize", function () {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(function () {
+      Object.keys(state).forEach(fitCrosswordCells);
+    }, 120);
+  });
+}
+
 function paintCrossword(taskId) {
   var task = E.findTask(taskId);
   var el = taskEl(taskId);
@@ -1173,6 +1216,9 @@ function paintCrossword(taskId) {
       inputsByCell[key] = input;
     }
   }
+
+  fitCrosswordCells(taskId);
+  bindFitOnResize();
 
   setClueBar(taskId, null);
   if (wordPickFor === taskId) stopWordPick();

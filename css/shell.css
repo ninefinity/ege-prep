@@ -148,7 +148,8 @@ a {
 /* A single-task topic (the crossword drill) has no task list worth
    navigating -- the sidebar would just echo the one task's own name.
    Drop it and give the task the full column instead of the usual
-   220px/1fr split. Chained with .ege-page--topic-layout (every skill drill
+   220px/1fr split (below 861px the sidebar stays fully off; from 861px up
+   only its logo is kept, see below). Chained with .ege-page--topic-layout (every skill drill
    carries it) rather than left as a bare class: that rule's own desktop
    override of grid-template-columns/.ege-topics' display sits later in
    this file and would otherwise win the tie on equal specificity. */
@@ -171,6 +172,69 @@ a {
 @media (min-width: 861px) {
   .ege-page--topic-layout.ege-page--no-topic-nav > .ege-workspace {
     grid-column: 1;
+  }
+
+  /* Desktop keeps just the drill's logo from the sidebar, pinned to the top
+     left over the page rather than in a row of its own. The task's own
+     "Sections" back link sits directly under it, and the instructions move
+     to the right of that stack, so the header stays about as tall as the
+     back link + instructions were on their own. The task list and the
+     sidebar's duplicate back link stay hidden. Below this width the logo is
+     hidden anyway, so the whole sidebar stays off there. */
+  .ege-page--topic-layout.ege-page--no-topic-nav {
+    --ege-crossword-logo-h: 5rem;
+    position: relative;
+  }
+
+  .ege-page--topic-layout.ege-page--no-topic-nav > .ege-topics {
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    z-index: 2;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .ege-page--topic-layout.ege-page--no-topic-nav .ege-topic-nav,
+  .ege-page--topic-layout.ege-page--no-topic-nav .ege-topic-sidebar__back {
+    display: none;
+  }
+
+  /* The sidebar normally stretches to fill the viewport height as a column;
+     as just a logo it must shrink to fit. */
+  .ege-page--topic-layout.ege-page--no-topic-nav .ege-topic-sidebar {
+    min-height: 0;
+    height: auto;
+  }
+
+  .ege-page--topic-layout.ege-page--no-topic-nav .ege-topic-sidebar__logo {
+    justify-content: flex-start;
+  }
+
+  .ege-page--topic-layout.ege-page--no-topic-nav .ege-topic-sidebar__logo .ege-rail__mark--skill {
+    max-height: var(--ege-crossword-logo-h);
+  }
+
+  .ege-page--topic-layout.ege-page--no-topic-nav .ege-task-intro {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    grid-template-rows: var(--ege-crossword-logo-h) auto;
+    column-gap: 22px;
+    row-gap: 8px;
+    align-items: start;
+  }
+
+  .ege-page--topic-layout.ege-page--no-topic-nav .ege-task-intro__back {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  /* Centred on the logo's row, not stretched against the whole stack. */
+  .ege-page--topic-layout.ege-page--no-topic-nav .ege-task-intro__lead {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
   }
 }
 
@@ -10949,7 +11013,27 @@ html.ege-writing-criteria-open #egePanels > .ege-task-panel.is-active {
 .ege-panel--crossword {
   border: none;
   background: transparent;
-  padding: 4px;
+  padding: 4px 0;
+}
+
+/* The task article is the clipping box, so the inset lives on it: every
+   child (intro, toolbar, grid, footer) then shares one left/right edge with
+   room for a button's hover lift and focus ring. */
+.ege-task--crossword {
+  padding-inline: 4px;
+}
+
+/* The intro sits outside the article (a sibling above it), so it needs the
+   same inset or its back link lands 4px left of everything below it. */
+.ege-page--no-topic-nav .ege-task-intro {
+  padding-inline: 4px;
+}
+
+/* Toolbar and grid were only 4px apart while everything else had ~16px. */
+.ege-crossword__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /* Always a top-to-bottom stack, on every screen size -- these puzzles come

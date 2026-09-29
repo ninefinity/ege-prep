@@ -142,6 +142,37 @@ test("E.generateCrossword lays out a full, internally-consistent puzzle (seeded,
   }
 });
 
+test("orientation 'wide' never comes out taller than wide, and stays a valid puzzle", () => {
+  for (let count = 5; count <= 10; count += 1) {
+    for (let seed = 0; seed < 12; seed += 1) {
+      const puzzle = E.generateCrossword(task.pool, count, { seed, orientation: "wide" });
+      checkPuzzleShape(puzzle, count, `wide count ${count} seed ${seed}`);
+      assert.ok(puzzle.cols >= puzzle.rows, `count ${count} seed ${seed}: ${puzzle.rows}x${puzzle.cols} is taller than wide`);
+    }
+  }
+});
+
+test("orientation 'tall' never comes out wider than tall", () => {
+  for (let count = 5; count <= 10; count += 1) {
+    for (let seed = 0; seed < 12; seed += 1) {
+      const puzzle = E.generateCrossword(task.pool, count, { seed, orientation: "tall" });
+      checkPuzzleShape(puzzle, count, `tall count ${count} seed ${seed}`);
+      assert.ok(puzzle.rows >= puzzle.cols, `count ${count} seed ${seed}: ${puzzle.rows}x${puzzle.cols} is wider than tall`);
+    }
+  }
+});
+
+test("turning a puzzle on its side keeps its words and shape (same seed, both ways)", () => {
+  for (let seed = 0; seed < 10; seed += 1) {
+    const wide = E.generateCrossword(task.pool, 10, { seed, orientation: "wide" });
+    const tall = E.generateCrossword(task.pool, 10, { seed, orientation: "tall" });
+    assert.equal(wide.rows * wide.cols, tall.rows * tall.cols, `seed ${seed}: area changed`);
+    assert.equal(wide.cells.length, tall.cells.length, `seed ${seed}: letter count changed`);
+    const words = (p) => p.entries.map((e) => e.answer).sort().join(",");
+    assert.equal(words(wide), words(tall), `seed ${seed}: different words`);
+  }
+});
+
 test("E.generateCrossword deals a different puzzle on different seeds", () => {
   const a = E.generateCrossword(task.pool, 8, { seed: 1 });
   const b = E.generateCrossword(task.pool, 8, { seed: 2 });
